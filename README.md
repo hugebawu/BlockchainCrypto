@@ -1,3 +1,6 @@
+## Usage
+1. import as maven project
+2. add external jars in libs folder to the build path
 # CloudCrypto
 
 Cryptographic primitive implementations for secure Cloud Storage / Computing applications. 

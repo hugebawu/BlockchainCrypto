@@ -1,13 +1,13 @@
 package com.example.chameleonhash;
 
-import cn.edu.buaa.crypto.algebra.generators.AsymmetricKeySerPairGenerator;
-import cn.edu.buaa.crypto.algebra.serparams.*;
-import cn.edu.buaa.crypto.chameleonhash.ChameleonHasher;
-import cn.edu.buaa.crypto.chameleonhash.kr00b.KR00bDigestHasher;
-import cn.edu.buaa.crypto.chameleonhash.kr00b.dlog.DLogKR00bHasher;
-import cn.edu.buaa.crypto.chameleonhash.kr00b.dlog.DLogKR00bKeyGenerationParameters;
-import cn.edu.buaa.crypto.chameleonhash.kr00b.dlog.DLogKR00bKeyPairGenerator;
-import cn.edu.buaa.crypto.chameleonhash.kr00b.dlog.DLogKR00bUniversalHasher;
+import cn.edu.ncepu.crypto.algebra.generators.AsymmetricKeySerPairGenerator;
+import cn.edu.ncepu.crypto.algebra.serparams.*;
+import cn.edu.ncepu.crypto.chameleonhash.ChameleonHasher;
+import cn.edu.ncepu.crypto.chameleonhash.kr00b.KR00bDigestHasher;
+import cn.edu.ncepu.crypto.chameleonhash.kr00b.dlog.DLogKR00bHasher;
+import cn.edu.ncepu.crypto.chameleonhash.kr00b.dlog.DLogKR00bKeyGenerationParameters;
+import cn.edu.ncepu.crypto.chameleonhash.kr00b.dlog.DLogKR00bKeyPairGenerator;
+import cn.edu.ncepu.crypto.chameleonhash.kr00b.dlog.DLogKR00bUniversalHasher;
 import com.example.TestUtils;
 import junit.framework.TestCase;
 import org.bouncycastle.crypto.CipherParameters;

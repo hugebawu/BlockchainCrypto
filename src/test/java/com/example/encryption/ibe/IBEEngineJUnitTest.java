@@ -1,15 +1,15 @@
 package com.example.encryption.ibe;
 
-import cn.edu.buaa.crypto.algebra.serparams.PairingKeyEncapsulationSerPair;
-import cn.edu.buaa.crypto.algebra.serparams.PairingKeySerPair;
-import cn.edu.buaa.crypto.algebra.serparams.PairingKeySerParameter;
-import cn.edu.buaa.crypto.algebra.serparams.PairingCipherSerParameter;
-import cn.edu.buaa.crypto.encryption.ibe.IBEEngine;
-import cn.edu.buaa.crypto.encryption.ibe.bf01a.IBEBF01aEngine;
-import cn.edu.buaa.crypto.encryption.ibe.bf01b.IBEBF01bEngine;
-import cn.edu.buaa.crypto.encryption.ibe.gen06a.IBEGen06aEngine;
-import cn.edu.buaa.crypto.encryption.ibe.gen06b.IBEGen06bEngine;
-import cn.edu.buaa.crypto.encryption.ibe.lw10.IBELW10Engine;
+import cn.edu.ncepu.crypto.algebra.serparams.PairingKeyEncapsulationSerPair;
+import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerPair;
+import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
+import cn.edu.ncepu.crypto.algebra.serparams.PairingCipherSerParameter;
+import cn.edu.ncepu.crypto.encryption.ibe.IBEEngine;
+import cn.edu.ncepu.crypto.encryption.ibe.bf01a.IBEBF01aEngine;
+import cn.edu.ncepu.crypto.encryption.ibe.bf01b.IBEBF01bEngine;
+import cn.edu.ncepu.crypto.encryption.ibe.gen06a.IBEGen06aEngine;
+import cn.edu.ncepu.crypto.encryption.ibe.gen06b.IBEGen06bEngine;
+import cn.edu.ncepu.crypto.encryption.ibe.lw10.IBELW10Engine;
 import com.example.TestUtils;
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Pairing;

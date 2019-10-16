@@ -1,16 +1,16 @@
 package com.example.encryption.abe;
 
-import cn.edu.buaa.crypto.access.parser.ParserUtils;
-import cn.edu.buaa.crypto.algebra.serparams.PairingCipherSerParameter;
-import cn.edu.buaa.crypto.algebra.serparams.PairingKeyEncapsulationSerPair;
-import cn.edu.buaa.crypto.algebra.serparams.PairingKeySerPair;
-import cn.edu.buaa.crypto.algebra.serparams.PairingKeySerParameter;
-import cn.edu.buaa.crypto.encryption.abe.kpabe.KPABEEngine;
-import cn.edu.buaa.crypto.encryption.abe.kpabe.gpsw06a.KPABEGPSW06aEngine;
-import cn.edu.buaa.crypto.encryption.abe.kpabe.gpsw06b.KPABEGPSW06bEngine;
-import cn.edu.buaa.crypto.encryption.abe.kpabe.hw14.OOKPABEHW14Engine;
-import cn.edu.buaa.crypto.encryption.abe.kpabe.rw13.KPABERW13Engine;
-import cn.edu.buaa.crypto.encryption.abe.kpabe.SelfExtractableKPABEEngine;
+import cn.edu.ncepu.crypto.access.parser.ParserUtils;
+import cn.edu.ncepu.crypto.algebra.serparams.PairingCipherSerParameter;
+import cn.edu.ncepu.crypto.algebra.serparams.PairingKeyEncapsulationSerPair;
+import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerPair;
+import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
+import cn.edu.ncepu.crypto.encryption.abe.kpabe.KPABEEngine;
+import cn.edu.ncepu.crypto.encryption.abe.kpabe.gpsw06a.KPABEGPSW06aEngine;
+import cn.edu.ncepu.crypto.encryption.abe.kpabe.gpsw06b.KPABEGPSW06bEngine;
+import cn.edu.ncepu.crypto.encryption.abe.kpabe.hw14.OOKPABEHW14Engine;
+import cn.edu.ncepu.crypto.encryption.abe.kpabe.rw13.KPABERW13Engine;
+import cn.edu.ncepu.crypto.encryption.abe.kpabe.SelfExtractableKPABEEngine;
 import com.example.TestUtils;
 import com.example.access.AccessPolicyExamples;
 import it.unisa.dia.gas.jpbc.PairingParameters;

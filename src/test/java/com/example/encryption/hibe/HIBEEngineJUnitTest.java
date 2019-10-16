@@ -1,12 +1,12 @@
 package com.example.encryption.hibe;
 
-import cn.edu.buaa.crypto.algebra.serparams.PairingKeyEncapsulationSerPair;
-import cn.edu.buaa.crypto.algebra.serparams.PairingKeySerPair;
-import cn.edu.buaa.crypto.algebra.serparams.PairingKeySerParameter;
-import cn.edu.buaa.crypto.algebra.serparams.PairingCipherSerParameter;
-import cn.edu.buaa.crypto.encryption.hibe.HIBEEngine;
-import cn.edu.buaa.crypto.encryption.hibe.bb04.HIBEBB04Engine;
-import cn.edu.buaa.crypto.encryption.hibe.bbg05.HIBEBBG05Engine;
+import cn.edu.ncepu.crypto.algebra.serparams.PairingKeyEncapsulationSerPair;
+import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerPair;
+import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
+import cn.edu.ncepu.crypto.algebra.serparams.PairingCipherSerParameter;
+import cn.edu.ncepu.crypto.encryption.hibe.HIBEEngine;
+import cn.edu.ncepu.crypto.encryption.hibe.bb04.HIBEBB04Engine;
+import cn.edu.ncepu.crypto.encryption.hibe.bbg05.HIBEBBG05Engine;
 import com.example.TestUtils;
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Pairing;

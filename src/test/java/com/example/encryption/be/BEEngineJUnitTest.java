@@ -1,11 +1,11 @@
 package com.example.encryption.be;
 
-import cn.edu.buaa.crypto.algebra.serparams.PairingCipherSerParameter;
-import cn.edu.buaa.crypto.algebra.serparams.PairingKeyEncapsulationSerPair;
-import cn.edu.buaa.crypto.algebra.serparams.PairingKeySerPair;
-import cn.edu.buaa.crypto.algebra.serparams.PairingKeySerParameter;
-import cn.edu.buaa.crypto.encryption.be.BEEngine;
-import cn.edu.buaa.crypto.encryption.be.bgw05.BEBGW05Engine;
+import cn.edu.ncepu.crypto.algebra.serparams.PairingCipherSerParameter;
+import cn.edu.ncepu.crypto.algebra.serparams.PairingKeyEncapsulationSerPair;
+import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerPair;
+import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
+import cn.edu.ncepu.crypto.encryption.be.BEEngine;
+import cn.edu.ncepu.crypto.encryption.be.bgw05.BEBGW05Engine;
 import com.example.TestUtils;
 import it.unisa.dia.gas.jpbc.PairingParameters;
 import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;

@@ -1,15 +1,15 @@
 package com.example.encryption.re;
 
-import cn.edu.buaa.crypto.algebra.serparams.PairingCipherSerParameter;
-import cn.edu.buaa.crypto.algebra.serparams.PairingKeySerPair;
-import cn.edu.buaa.crypto.algebra.serparams.PairingKeySerParameter;
-import cn.edu.buaa.crypto.encryption.re.OOREEngine;
-import cn.edu.buaa.crypto.encryption.re.REEngine;
-import cn.edu.buaa.crypto.encryption.re.llw16a.OORELLW16aEngine;
-import cn.edu.buaa.crypto.encryption.re.llw16b.OORELLW16bEngine;
-import cn.edu.buaa.crypto.encryption.re.lsw10a.RELSW10aEngine;
-import cn.edu.buaa.crypto.utils.PairingUtils;
-import cn.edu.buaa.crypto.utils.Timer;
+import cn.edu.ncepu.crypto.algebra.serparams.PairingCipherSerParameter;
+import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerPair;
+import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
+import cn.edu.ncepu.crypto.encryption.re.OOREEngine;
+import cn.edu.ncepu.crypto.encryption.re.REEngine;
+import cn.edu.ncepu.crypto.encryption.re.llw16a.OORELLW16aEngine;
+import cn.edu.ncepu.crypto.encryption.re.llw16b.OORELLW16bEngine;
+import cn.edu.ncepu.crypto.encryption.re.lsw10a.RELSW10aEngine;
+import cn.edu.ncepu.crypto.utils.PairingUtils;
+import cn.edu.ncepu.crypto.utils.Timer;
 import com.example.TestUtils;
 import edu.princeton.cs.algs4.Out;
 import it.unisa.dia.gas.jpbc.Element;

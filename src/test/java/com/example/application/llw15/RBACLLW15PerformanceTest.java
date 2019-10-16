@@ -1,12 +1,12 @@
 package com.example.application.llw15;
 
-import cn.edu.buaa.crypto.algebra.serparams.PairingKeySerPair;
-import cn.edu.buaa.crypto.algebra.serparams.PairingKeyEncapsulationSerPair;
-import cn.edu.buaa.crypto.algebra.serparams.PairingKeySerParameter;
-import cn.edu.buaa.crypto.algebra.serparams.PairingCipherSerParameter;
-import cn.edu.buaa.crypto.application.llw15.RBACLLW15Engine;
-import cn.edu.buaa.crypto.utils.PairingUtils;
-import cn.edu.buaa.crypto.utils.Timer;
+import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerPair;
+import cn.edu.ncepu.crypto.algebra.serparams.PairingKeyEncapsulationSerPair;
+import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
+import cn.edu.ncepu.crypto.algebra.serparams.PairingCipherSerParameter;
+import cn.edu.ncepu.crypto.application.llw15.RBACLLW15Engine;
+import cn.edu.ncepu.crypto.utils.PairingUtils;
+import cn.edu.ncepu.crypto.utils.Timer;
 import edu.princeton.cs.algs4.Out;
 import it.unisa.dia.gas.jpbc.PairingParameters;
 import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;

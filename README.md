@@ -38,7 +38,7 @@ There are some schemes implementations in Java Pairing-Based Cryptography, but w
 
 ### Our Solutions
 
-In our implementations, we leverage the built-in Java serialization method, allowing serializing any CipherParameters  to byte arrays. This allows users to further upload the generated CipherParameters to public Clouds. Any objects whose name ends with `SerParameter` supports serialization. The following method in `src/main/java/cn/edu/buaa/crypto/utils/PairingUtils.java`shows how to serialize / deserizalie these objects:
+In our implementations, we leverage the built-in Java serialization method, allowing serializing any CipherParameters  to byte arrays. This allows users to further upload the generated CipherParameters to public Clouds. Any objects whose name ends with `SerParameter` supports serialization. The following method in `src/main/java/cn/edu/ncepu/crypto/utils/PairingUtils.java`shows how to serialize / deserizalie these objects:
 
 	public static byte[] SerCipherParameter(CipherParameters cipherParameters) throws IOException {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -219,7 +219,7 @@ We implemented the Discrete-Log-based chameleon hash function proposed by Krawcz
 
 The JUnit test example is in `src/test/java/com/example/chameleonhash/ChameleonHasherJUnitTest.java`.
 
-We follow the standard `RFC3526` to build DLog groups used for DLog-based chameleon hash functions, see `src/main/java/cn/edu/buaa/crypto/algebra/serparams/SecurePrimeSerParameter.java` for detailed information.
+We follow the standard `RFC3526` to build DLog groups used for DLog-based chameleon hash functions, see `src/main/java/cn/edu/ncepu/crypto/algebra/serparams/SecurePrimeSerParameter.java` for detailed information.
 
 ## Advanced Cryptographic Primitives
 

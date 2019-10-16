@@ -1,15 +1,15 @@
 package com.example.encryption.hibbe;
 
-import cn.edu.buaa.crypto.algebra.serparams.PairingKeySerPair;
-import cn.edu.buaa.crypto.algebra.serparams.PairingKeySerParameter;
-import cn.edu.buaa.crypto.algebra.serparams.PairingCipherSerParameter;
-import cn.edu.buaa.crypto.encryption.hibbe.HIBBEEngine;
-import cn.edu.buaa.crypto.encryption.hibbe.llw14.HIBBELLW14Engine;
-import cn.edu.buaa.crypto.encryption.hibbe.llw16a.HIBBELLW16aEngine;
-import cn.edu.buaa.crypto.encryption.hibbe.llw16b.HIBBELLW16bEngine;
-import cn.edu.buaa.crypto.encryption.hibbe.llw17.HIBBELLW17Engine;
-import cn.edu.buaa.crypto.utils.PairingUtils;
-import cn.edu.buaa.crypto.utils.Timer;
+import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerPair;
+import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
+import cn.edu.ncepu.crypto.algebra.serparams.PairingCipherSerParameter;
+import cn.edu.ncepu.crypto.encryption.hibbe.HIBBEEngine;
+import cn.edu.ncepu.crypto.encryption.hibbe.llw14.HIBBELLW14Engine;
+import cn.edu.ncepu.crypto.encryption.hibbe.llw16a.HIBBELLW16aEngine;
+import cn.edu.ncepu.crypto.encryption.hibbe.llw16b.HIBBELLW16bEngine;
+import cn.edu.ncepu.crypto.encryption.hibbe.llw17.HIBBELLW17Engine;
+import cn.edu.ncepu.crypto.utils.PairingUtils;
+import cn.edu.ncepu.crypto.utils.Timer;
 import com.example.TestUtils;
 import edu.princeton.cs.algs4.Out;
 import it.unisa.dia.gas.jpbc.Element;

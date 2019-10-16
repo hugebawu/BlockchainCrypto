@@ -1,13 +1,13 @@
 package com.example.encryption.ibe;
 
-import cn.edu.buaa.crypto.algebra.serparams.PairingCipherSerParameter;
-import cn.edu.buaa.crypto.algebra.serparams.PairingKeySerPair;
-import cn.edu.buaa.crypto.algebra.serparams.PairingKeySerParameter;
-import cn.edu.buaa.crypto.encryption.ibe.IBEEngine;
-import cn.edu.buaa.crypto.encryption.ibe.bf01a.IBEBF01aEngine;
-import cn.edu.buaa.crypto.encryption.ibe.gen06a.IBEGen06aEngine;
-import cn.edu.buaa.crypto.utils.PairingUtils;
-import cn.edu.buaa.crypto.utils.Timer;
+import cn.edu.ncepu.crypto.algebra.serparams.PairingCipherSerParameter;
+import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerPair;
+import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
+import cn.edu.ncepu.crypto.encryption.ibe.IBEEngine;
+import cn.edu.ncepu.crypto.encryption.ibe.bf01a.IBEBF01aEngine;
+import cn.edu.ncepu.crypto.encryption.ibe.gen06a.IBEGen06aEngine;
+import cn.edu.ncepu.crypto.utils.PairingUtils;
+import cn.edu.ncepu.crypto.utils.Timer;
 import com.example.TestUtils;
 import edu.princeton.cs.algs4.Out;
 import it.unisa.dia.gas.jpbc.Element;

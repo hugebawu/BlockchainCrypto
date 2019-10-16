@@ -1,12 +1,12 @@
 package com.example.access;
 
-import cn.edu.buaa.crypto.access.AccessControlEngine;
-import cn.edu.buaa.crypto.access.AccessControlParameter;
-import cn.edu.buaa.crypto.access.UnsatisfiedAccessControlException;
-import cn.edu.buaa.crypto.access.lsss.lw10.LSSSLW10Engine;
-import cn.edu.buaa.crypto.access.parser.ParserUtils;
-import cn.edu.buaa.crypto.access.parser.PolicySyntaxException;
-import cn.edu.buaa.crypto.access.tree.AccessTreeEngine;
+import cn.edu.ncepu.crypto.access.AccessControlEngine;
+import cn.edu.ncepu.crypto.access.AccessControlParameter;
+import cn.edu.ncepu.crypto.access.UnsatisfiedAccessControlException;
+import cn.edu.ncepu.crypto.access.lsss.lw10.LSSSLW10Engine;
+import cn.edu.ncepu.crypto.access.parser.ParserUtils;
+import cn.edu.ncepu.crypto.access.parser.PolicySyntaxException;
+import cn.edu.ncepu.crypto.access.tree.AccessTreeEngine;
 import com.example.TestUtils;
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Pairing;

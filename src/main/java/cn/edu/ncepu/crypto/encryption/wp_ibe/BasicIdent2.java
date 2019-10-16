@@ -3,8 +3,6 @@
  */
 package cn.edu.ncepu.crypto.encryption.wp_ibe;
 
-import java.lang.reflect.Proxy;
-
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Field;
 import it.unisa.dia.gas.jpbc.Pairing;
@@ -29,7 +27,8 @@ public class BasicIdent2 implements Ident {
 	private Field G1, Zr;
 	private Pairing pairing;
 
-	public BasicIdent2() {
+	public BasicIdent2(Pairing pairing) {
+		this.pairing = pairing;
 		init();
 	}
 
@@ -40,7 +39,6 @@ public class BasicIdent2 implements Ident {
 	 * @throws
 	 */
 	private void init() {
-		pairing = PairingFactory.getPairing("params/a.properties");// 在jpbc配置使用的那个jar包，\params\curves下面
 		PairingFactory.getInstance().setUsePBCWhenPossible(true);
 		checkSymmetric(pairing);
 		// 将变量r初始化为Zr中的元素
@@ -110,17 +108,5 @@ public class BasicIdent2 implements Ident {
 		System.out.println("e(V,Su)=" + T2);
 		int byt = V.getLengthInBytes();// 求V的字节长度，假设消息长度为128字节
 		System.out.println("文本长度" + (byt + 128));
-	}
-
-	public static void main(String[] args) {
-		BasicIdent2 ident = new BasicIdent2();
-		// 动态代理，统计各个方法耗时
-		Ident identProxy = (Ident) Proxy.newProxyInstance(BasicIdent2.class.getClassLoader(),
-				new Class[] { Ident.class }, new TimeCountProxyHandle(ident));
-
-		identProxy.buildSystem();
-		identProxy.extractSecretKey();
-		identProxy.encrypt();
-		identProxy.decrypt();
 	}
 }

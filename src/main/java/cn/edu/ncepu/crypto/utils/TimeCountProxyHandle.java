@@ -1,7 +1,7 @@
 /**
  * 
  */
-package cn.edu.ncepu.crypto.encryption.wp_ibe;
+package cn.edu.ncepu.crypto.utils;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;

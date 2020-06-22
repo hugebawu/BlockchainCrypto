@@ -66,12 +66,12 @@ public class ECUtils {
 	}
 
 	/**
-	 * @Description: TODO(convert the data type of public or private Key from "Hex String" to Type "PublicKey" or "PrivateKey")
+	 * @Description: TODO(convert Hex encoded "String" public or private Key to "PublicKey" or "PrivateKey")
 	 * @param key
 	 * @return 参数描述
 	 * @throws
 	 */
-	public static Key getECKey(Boolean isECPublicKey, String key) {
+	public static Key string2ECKey(Boolean isECPublicKey, String key) {
 		Key ecKey = null;
 		try {
 			byte[] bytes = Hex.decodeHex(key);
@@ -172,6 +172,7 @@ public class ECUtils {
 		File file = new File(pathName);
 		if (null == file || !file.isFile()) {
 			System.out.println("file \"" + file.getPath() + "\" do not exists");
+			return null;
 		}
 		String content = "";
 		String pemPublicKey = null;

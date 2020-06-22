@@ -35,8 +35,8 @@ public class ECDH {
 	 * @throws
 	 */
 	public static String genSharedKey(String publicKey, String privateKey) {
-		return genSharedKey((PublicKey) ECUtils.getECKey(true, publicKey),
-				(PrivateKey) ECUtils.getECKey(false, privateKey));
+		return genSharedKey((PublicKey) ECUtils.string2ECKey(true, publicKey),
+				(PrivateKey) ECUtils.string2ECKey(false, privateKey));
 	}
 
 	/**

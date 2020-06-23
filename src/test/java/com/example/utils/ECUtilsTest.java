@@ -26,7 +26,7 @@ import cn.edu.ncepu.crypto.utils.ECUtils;
  */
 public class ECUtilsTest {
 
-//	@Ignore
+	@Ignore
 	@Test
 	public void testSaveECKeyAsPEM() {
 		KeyPair keyPair = ECUtils.getKeyPair();

@@ -11,6 +11,8 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 
 /**
@@ -104,7 +106,7 @@ public class CommonUtils {
 	}
 
 	/**
-	 * @Description: TODO(read bytes from binary file)
+	 * @Description: TODO(read bytes from binary file(e.g., PEM, DER))
 	 * @param pathName path name of the binary file
 	 * @return 参数描述
 	 * @throws
@@ -131,6 +133,12 @@ public class CommonUtils {
 		return bytes;
 	}
 
+	/**
+	 * @Description: TODO(write bytes to binary file(e.g., PEM, DER))
+	 * @param pathName path name of the binary file
+	 * @param bytes 参数描述
+	 * @throws
+	 */
 	public static void writeBytesToFile(String pathName, byte[] bytes) {
 		try {
 			File file = new File(pathName);
@@ -147,5 +155,69 @@ public class CommonUtils {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+
+	/**
+	 * @Description: TODO(generate hash digest according to the specific hash algorithm)
+	 * @param content content waits to be hashed
+	 * @param algorithm specific Hash algorithm, including "MD2, MD5, SHA-1, SHA-256, SHA-512"...
+	 * @return 参数描述
+	 * @throws
+	 */
+	public static String genHash(String content, String algorithm) {
+		String hexHash = null;
+		try {
+			MessageDigest messageDigest = MessageDigest.getInstance(algorithm);
+			hexHash = CommonUtils.encodeHexString(messageDigest.digest(content.getBytes()));
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+		}
+		return hexHash;
+	}
+
+	/**
+	 * @Description: TODO(function the same as org.apache.commons.codec.binary.Hex.encodeHexString)
+	 * @param bytes bytes waits to be encoded to Hex(Base 16)
+	 * @return 参数描述
+	 * @throws
+	 */
+	public static String encodeHexString(final byte[] data) {
+		String hex = "";
+		String tmp = "";
+		final int len = data.length;
+		for (int i = 0; i < len; i++) {
+			tmp = Integer.toHexString(data[i] & 0XFF);
+			if (1 == tmp.length()) {
+				hex = hex + "0" + tmp;
+			} else {
+				hex = hex + tmp;
+			}
+		}
+		return hex;
+	}
+
+	/**
+	 * @Description: TODO(function the same as org.apache.commons.codec.binary.Hex.decodeHex)
+	 * @param hexdata Hex string waits to be decoded
+	 * @return
+	 * @throws Exception 参数描述
+	 * @throws
+	 */
+	public static byte[] decodeHex(String hexdata) throws Exception {
+		char[] data = hexdata.toCharArray();
+		final int len = data.length;
+		if (len % 2 != 0) {
+			throw new Exception("Odd number of characters.");
+		}
+		byte[] bytes = new byte[len >> 1];
+		// two characters form the hex value.
+		for (int i = 0, j = 0; j < len; i++) {
+			int f = Character.digit(data[j], 16) << 4;
+			j++;
+			f = f | Character.digit(data[j], 16);
+			j++;
+			bytes[i] = (byte) (f & 0xFF);
+		}
+		return bytes;
 	}
 }

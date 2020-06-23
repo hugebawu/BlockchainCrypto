@@ -57,10 +57,14 @@ public class ECUtilsTest {
 	@Ignore
 	@Test
 	public void testLoadECKeyFromPEM() {
-		PublicKey publicKey = (PublicKey) ECUtils.loadECKeyFromPEM(true,
-				"src/test/java/com/example/utils/publicKey.pem");
-		PrivateKey privateKey = (PrivateKey) ECUtils.loadECKeyFromPEM(false,
-				"src/test/java/com/example/utils/privateKey.pem");
+		PublicKey publicKey = null;
+		PrivateKey privateKey = null;
+		try {
+			publicKey = (PublicKey) ECUtils.loadECKeyFromPEM(true, "src/test/java/com/example/utils/publicKey.pem");
+			privateKey = (PrivateKey) ECUtils.loadECKeyFromPEM(false, "src/test/java/com/example/utils/privateKey.pem");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
 		System.out.println(
 				"Base64 publicKey length = " + Base64.getEncoder().encodeToString(publicKey.getEncoded()).length());
@@ -87,7 +91,7 @@ public class ECUtilsTest {
 
 	}
 
-//	@Ignore
+	@Ignore
 	@Test
 	public void testLoadECKeyFromDER() {
 		PublicKey publicKey = (PublicKey) ECUtils.loadECKeyFromDER(true,

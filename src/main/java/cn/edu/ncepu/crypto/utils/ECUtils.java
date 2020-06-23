@@ -162,17 +162,17 @@ public class ECUtils {
 	}
 
 	/**
+	 * @throws Exception 
 	 * @Description: TODO(load Type PublicKey or PrivateKey from PEM EC key file)
 	 * @param isECPublicKey
 	 * @param pathName pathName of PEM key file.
 	 * @return Key PublicKey or PrivateKey
 	 * @throws
 	 */
-	public static Key loadECKeyFromPEM(boolean isECPublicKey, String pathName) {
+	public static Key loadECKeyFromPEM(boolean isECPublicKey, String pathName) throws Exception {
 		File file = new File(pathName);
 		if (null == file || !file.isFile()) {
-			System.out.println("file \"" + file.getPath() + "\" do not exists");
-			return null;
+			throw new Exception("file \"" + file.getPath() + "\" do not exists");
 		}
 		String content = "";
 		String pemPublicKey = null;
@@ -195,7 +195,6 @@ public class ECUtils {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-//		System.out.println(publicKeyPEM);
 		Key ecKey = null;
 		try {
 			byte[] encodedKey = Base64.getDecoder().decode(pemPublicKey);

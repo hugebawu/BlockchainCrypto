@@ -114,8 +114,9 @@ public class ECUtils {
 		// PublicKey.getEncode() return X.509 format and DER encoded bytes
 		String content = Base64.getEncoder().encodeToString(ecKey.getEncoded());
 		File file = new File(pathName);
-		if (file.isFile() && file.exists()) {
-			System.out.println("file \"" + file.getPath() + "\" already exists");
+		// if file does not exists, then create it
+		if (!file.exists()) {
+			file.createNewFile();
 		}
 		try {
 			RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
@@ -219,16 +220,17 @@ public class ECUtils {
 	}
 
 	/**
+	 * @throws Exception 
 	 * @Description: TODO(load Type PublicKey or PrivateKey from DER EC key file)
 	 * @param isECPublicKey
 	 * @param pathName pathName of DER key file.
 	 * @return PublicKey or PrivateKey
 	 * @throws
 	 */
-	public static Key loadECKeyFromDER(boolean isECPublicKey, String pathName) {
+	public static Key loadECKeyFromDER(boolean isECPublicKey, String pathName) throws Exception {
 		File file = new File(pathName);
 		if (null == file || !file.isFile()) {
-			System.out.println("file \"" + file.getPath() + "\" do not exists");
+			throw new Exception("file \"" + file.getPath() + "\" do not exists");
 		}
 		Key ecKey = null;
 		try {

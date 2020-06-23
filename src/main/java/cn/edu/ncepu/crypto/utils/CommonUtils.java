@@ -142,7 +142,8 @@ public class CommonUtils {
 	public static void writeBytesToFile(String pathName, byte[] bytes) {
 		try {
 			File file = new File(pathName);
-			FileOutputStream fos = new FileOutputStream(file);
+			// overwrite the file
+			FileOutputStream fos = new FileOutputStream(file, false);
 			// if file does not exists, then create it
 			if (!file.exists()) {
 				file.createNewFile();

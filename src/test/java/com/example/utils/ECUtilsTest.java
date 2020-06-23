@@ -26,7 +26,7 @@ import cn.edu.ncepu.crypto.utils.ECUtils;
  */
 public class ECUtilsTest {
 
-	@Ignore
+//	@Ignore
 	@Test
 	public void testSaveECKeyAsPEM() {
 		KeyPair keyPair = ECUtils.getKeyPair();
@@ -94,10 +94,15 @@ public class ECUtilsTest {
 	@Ignore
 	@Test
 	public void testLoadECKeyFromDER() {
-		PublicKey publicKey = (PublicKey) ECUtils.loadECKeyFromDER(true,
-				"src/test/java/com/example/utils/publicKey.der");
-		PrivateKey privateKey = (PrivateKey) ECUtils.loadECKeyFromDER(false,
-				"src/test/java/com/example/utils/privateKey.der");
+		PublicKey publicKey = null;
+		PrivateKey privateKey = null;
+		try {
+			publicKey = (PublicKey) ECUtils.loadECKeyFromDER(true, "src/test/java/com/example/utils/publicKey.der");
+			privateKey = (PrivateKey) ECUtils.loadECKeyFromDER(false, "src/test/java/com/example/utils/privateKey.der");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		System.out.println(
 				"Base64 publicKey length = " + Base64.getEncoder().encodeToString(publicKey.getEncoded()).length());

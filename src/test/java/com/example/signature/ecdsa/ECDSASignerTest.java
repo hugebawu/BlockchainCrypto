@@ -25,7 +25,7 @@ public class ECDSASignerTest {
 	public void testECDSASigner() {
 		System.out.println("Test Scott-Vanstone 1992 signature.");
 		// keyGen
-		KeyPair keyPair = ECUtils.getKeyPair();
+		KeyPair keyPair = ECUtils.getECKeyPair();
 		PublicKey publicKey = keyPair.getPublic();
 		PrivateKey privateKey = keyPair.getPrivate();
 		System.out.println("privateKey length = " + Hex.encodeHexString(privateKey.getEncoded()).length());

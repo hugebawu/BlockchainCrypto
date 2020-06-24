@@ -8,6 +8,10 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import java.util.Base64;
 
 import org.bouncycastle.util.encoders.Hex;
 import org.junit.Ignore;
@@ -28,12 +32,12 @@ import edu.princeton.cs.algs4.StdOut;
  */
 public class SymmetricBlockEncTest {
 
-	@Ignore
+//	@Ignore
 	@Test
 	public void testAESString() {
-		String key = "6206c34e2186e752c74e6df32ab8fa5b";
-		String iv = "00e5d201c2c2acbff8154861242ba0c4";
-		String iv_p = "00e5d201c2c2acbff8154861242ba0c5";
+		final String key = "6206c34e2186e752c74e6df32ab8fa5b";
+		final String iv = "00e5d201c2c2acbff8154861242ba0c4";
+		final String iv_p = "00e5d201c2c2acbff8154861242ba0c5";
 		String message;
 		byte[] ciphertext, ciphertext_p;
 		String plaintext, plaintext_p;
@@ -95,6 +99,42 @@ public class SymmetricBlockEncTest {
 		plaintext_p = new String(SymmetricBlockEnc.dec_AES(Mode.OFB, Hex.decode(key), Hex.decode(iv_p), ciphertext_p));
 		StdOut.println("Decrypted Plaintext = " + plaintext_p);
 		StdOut.println();
+
+		StdOut.println("Test AES with CBC Mode realized through BouncyCastle.");
+		message = "Message";
+		StdOut.println("Message = " + message);
+		// Test for Correctness
+		try {
+			// sender send [IV,ciphertext] to receiver
+			// generate random 16 bytes initialization vector
+			SecureRandom sr = SecureRandom.getInstanceStrong();
+			byte[] randIV = sr.generateSeed(16);
+			ciphertext = SymmetricBlockEnc.enc_dec_AES_BC(true, Mode.CBC, key.getBytes("UTF-8"), randIV,
+					message.getBytes("UTF-8"));
+			StdOut.println("Encrypted Base64 Ciphertext = " + Base64.getEncoder().encodeToString(ciphertext));
+			byte[] transmission = SymmetricBlockEnc.concat(randIV, ciphertext);
+			// receiver receive [IV,ciphertext] frome sender
+			randIV = new byte[16];
+			ciphertext = new byte[transmission.length - 16];
+			System.arraycopy(transmission, 0, randIV, 0, 16);
+			System.arraycopy(transmission, 16, ciphertext, 0, ciphertext.length);
+			plaintext = new String(
+					SymmetricBlockEnc.enc_dec_AES_BC(false, Mode.CBC, key.getBytes("UTF-8"), randIV, ciphertext),
+					"UTF-8");
+			StdOut.println("Decrypted Plaintext = " + plaintext);
+			// Test for Encryption with distinct IV
+			ciphertext_p = SymmetricBlockEnc.enc_dec_AES_BC(true, Mode.CBC, Hex.decode(key), Hex.decode(iv_p),
+					message.getBytes());
+			StdOut.println("Encrypted Hex Ciphertext = " + Hex.toHexString(ciphertext_p));
+			plaintext_p = new String(
+					SymmetricBlockEnc.enc_dec_AES_BC(false, Mode.CBC, Hex.decode(key), Hex.decode(iv_p), ciphertext_p));
+			StdOut.println("Decrypted Plaintext = " + plaintext_p);
+			StdOut.println();
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Ignore

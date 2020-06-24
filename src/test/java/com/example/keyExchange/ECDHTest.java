@@ -35,12 +35,12 @@ public class ECDHTest {
 		// TODO Auto-generated method stub
 		System.out.println("Testing ECDH key exchange scheme.");
 		// generate key pair 1
-		KeyPair keyPair1 = ECUtils.getKeyPair();
+		KeyPair keyPair1 = ECUtils.getECKeyPair();
 		PublicKey publicKey1 = keyPair1.getPublic();
 		PrivateKey privateKey1 = keyPair1.getPrivate();
 
 		// generate key pair 2
-		KeyPair keyPair2 = ECUtils.getKeyPair();
+		KeyPair keyPair2 = ECUtils.getECKeyPair();
 		PublicKey publicKey2 = keyPair2.getPublic();
 		PrivateKey privateKey2 = keyPair2.getPrivate();
 

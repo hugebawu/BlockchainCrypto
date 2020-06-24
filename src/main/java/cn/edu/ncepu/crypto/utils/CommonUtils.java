@@ -11,9 +11,15 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.security.Security;
 import java.util.ArrayList;
+
+import org.bouncycastle.jce.provider.BouncyCastleProvider;
 
 /**
  * @Copyright : Copyright (c) 2020-2021 
@@ -166,11 +172,26 @@ public class CommonUtils {
 	 * @throws
 	 */
 	public static String genHash(String content, String algorithm) {
+		// Java标准库的java.security包提供了一种标准机制，允许第三方提供商无缝接入。
+		// 我们要使用BouncyCastle提供的RipeMD160算法，需要先把BouncyCastle注册一下。
+		// 注册只需要在启动时进行一次，后续就可以使用BouncyCastle提供的所有哈希算法和加密算法。
+		Security.addProvider(new BouncyCastleProvider());
 		String hexHash = null;
+		final int BUFFER_SIZE = 1024;
+		final int N = (content.length() - content.length() % BUFFER_SIZE) / BUFFER_SIZE;
 		try {
 			MessageDigest messageDigest = MessageDigest.getInstance(algorithm);
-			hexHash = CommonUtils.encodeHexString(messageDigest.digest(content.getBytes()));
+			// update input repeatly
+			int i = 0;
+			for (; i < N; i++) {
+				String subString = content.substring(i * BUFFER_SIZE, (i + 1) * BUFFER_SIZE);
+				messageDigest.update(subString.getBytes("UTF-8"));
+			}
+			messageDigest.update(content.substring(i * BUFFER_SIZE, content.length()).getBytes("UTF-8"));
+			hexHash = CommonUtils.encodeHexString(messageDigest.digest());
 		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
 		return hexHash;
@@ -220,5 +241,37 @@ public class CommonUtils {
 			bytes[i] = (byte) (f & 0xFF);
 		}
 		return bytes;
+	}
+
+	/**
+	 * @Description: TODO(encode the url into %XX like format)
+	 * @param content
+	 * @return 参数描述
+	 * @throws
+	 */
+	public static String encodeURLString(String content) {
+		String encoded = null;
+		try {
+			return URLEncoder.encode(content, "UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		return encoded;
+	}
+
+	/**
+	 * @Description: TODO(decode %XX like URL)
+	 * @param content
+	 * @return 参数描述
+	 * @throws
+	 */
+	public static String decodeURL(String content) {
+		String decoded = null;
+		try {
+			return URLDecoder.decode(content, "UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		return decoded;
 	}
 }

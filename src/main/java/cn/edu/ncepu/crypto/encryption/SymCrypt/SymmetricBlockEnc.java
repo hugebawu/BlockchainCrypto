@@ -8,6 +8,16 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+
+import javax.crypto.BadPaddingException;
+import javax.crypto.Cipher;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
 
 import org.bouncycastle.crypto.BufferedBlockCipher;
 import org.bouncycastle.crypto.DataLengthException;
@@ -32,6 +42,13 @@ import org.bouncycastle.util.encoders.Hex;
  * 工作模式的控制由枚举类来完成。对于分组密码，其加密解密过程要稍微复杂一点，需要引入BufferedStream，不过大致的加密流程类似。)
  */
 public class SymmetricBlockEnc {
+	/**
+	 * Algorithm         work mode              pad mode
+	 * DES	56/64	     ECB/CBC/PCBC/CTR/...	NoPadding/PKCS5Padding/...
+	   AES	128/192/256	 ECB/CBC/PCBC/CTR/...	NoPadding/PKCS5Padding/PKCS7Padding/...
+	   IDEA	128	         ECB	                PKCS5Padding/PKCS7Padding/...
+	 */
+
 	public static final byte[] InitVector = { 0x38, 0x37, 0x36, 0x35, 0x34, 0x33, 0x32, 0x31, 0x38, 0x37, 0x36, 0x35,
 			0x34, 0x33, 0x32, 0x31 };
 
@@ -310,5 +327,86 @@ public class SymmetricBlockEnc {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+
+	/**
+	 * @Description: TODO(AEC encrytion and decryption method realized through BouncyCastle)
+	 * @param isEnc used for encryption or decryption
+	 * @param mode work mode including ECB, CBC, CFB, OFB
+	 * @param key symmetric key
+	 * @param iv initial vector
+	 * @param input plaintext or ciphertext
+	 * @return 参数描述
+	 * @throws
+	 */
+	public static byte[] enc_dec_AES_BC(Boolean isEnc, Mode mode, byte[] key, byte[] iv, byte[] input) {
+		// Make sure the validity of key, and input
+		assert (key != null && input != null);
+		// The valid key length is 16Bytes, 24Bytes or 32Bytes
+		assert (key.length == 16 || key.length == 24 || key.length == 32);
+		if (mode != Mode.ECB) {
+			// The valid init vector is a no-none 16Bytes array
+			assert (iv != null && iv.length == 16);
+		}
+		try {
+			String transformation = null;
+			switch (mode) {
+			case ECB:
+				transformation = "AES/ECB/PKCS5Padding";
+				break;
+			case CBC:
+				transformation = "AES/CBC/PKCS5Padding";
+				break;
+			case CFB:
+				transformation = "AES/CFB/PKCS5Padding";
+				break;
+			case OFB:
+				transformation = "AES/OFB/PKCS5Padding";
+				break;
+			default:
+				// Default Mode is ECB Mode
+				transformation = "AES/ECB/PKCS5Padding";
+				break;
+			}
+			Cipher cipher = Cipher.getInstance(transformation);
+			SecretKeySpec keySpec = new SecretKeySpec(key, "AES");
+			IvParameterSpec ivps = null;
+			if (null != iv) {
+				ivps = new IvParameterSpec(iv);
+			}
+			if (isEnc) {
+				cipher.init(Cipher.ENCRYPT_MODE, keySpec, ivps);
+			} else {
+				cipher.init(Cipher.DECRYPT_MODE, keySpec, ivps);
+			}
+			return cipher.doFinal(input);
+		} catch (NoSuchPaddingException e) {
+			e.printStackTrace();
+		} catch (IllegalBlockSizeException e) {
+			e.printStackTrace();
+		} catch (BadPaddingException e) {
+			e.printStackTrace();
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+		} catch (InvalidKeyException e) {
+			e.printStackTrace();
+		} catch (InvalidAlgorithmParameterException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	/**
+	 * @Description: TODO(concatenate two byte array)
+	 * @param bs1
+	 * @param bs2
+	 * @return 参数描述
+	 * @throws
+	 */
+	public static byte[] concat(byte[] bs1, byte[] bs2) {
+		byte[] r = new byte[bs1.length + bs2.length];
+		System.arraycopy(bs1, 0, r, 0, bs1.length);
+		System.arraycopy(bs2, 0, r, bs1.length, bs2.length);
+		return r;
 	}
 }

@@ -29,7 +29,7 @@ public class ECUtilsTest {
 	@Ignore
 	@Test
 	public void testSaveECKeyAsPEM() {
-		KeyPair keyPair = ECUtils.getKeyPair();
+		KeyPair keyPair = ECUtils.getECKeyPair();
 		PublicKey publicKey = keyPair.getPublic();
 		PrivateKey privateKey = keyPair.getPrivate();
 		try {
@@ -43,7 +43,7 @@ public class ECUtilsTest {
 	@Ignore
 	@Test
 	public void testSaveECKeyAsDER() {
-		KeyPair keyPair = ECUtils.getKeyPair();
+		KeyPair keyPair = ECUtils.getECKeyPair();
 		PublicKey publicKey = keyPair.getPublic();
 		PrivateKey privateKey = keyPair.getPrivate();
 		try {

@@ -48,7 +48,7 @@ public class ECUtils {
 	 * @return the generated key pair
 	 * @throws
 	 */
-	public static KeyPair getKeyPair() {
+	public static KeyPair getECKeyPair() {
 		KeyPair keyPair = null;
 		try {
 			KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance(EC_STRING);

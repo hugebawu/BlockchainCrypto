@@ -9,6 +9,7 @@ import java.security.KeyPair;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import cn.edu.ncepu.crypto.keyExchange.ECDH;
@@ -21,36 +22,35 @@ import cn.edu.ncepu.crypto.utils.ECUtils;
  * @Version: 1.0
  * @CreateData: Jun 19, 2020 4:15:27 PM
  * @ClassName ECDHJUnitTest
- * @Description: TODO(elliptic curve Diffie-Hellman key exchange algorithm test)
+ * @Description: TODO(elliptic curve based Diffie-Hellman key exchange algorithm test)
  */
 public class ECDHTest {
 
-//	@Ignore
+	@Ignore
 	@Test
 	/**
 	 * @Description: TODO(test shared key generation method) 参数描述
 	 * @throws
 	 */
 	public void testGenSharedKey() {
-		// TODO Auto-generated method stub
 		System.out.println("Testing ECDH key exchange scheme.");
-		// generate key pair 1
-		KeyPair keyPair1 = ECUtils.getECKeyPair();
-		PublicKey publicKey1 = keyPair1.getPublic();
-		PrivateKey privateKey1 = keyPair1.getPrivate();
+		// Alice generate key pair
+		KeyPair keyPair_Alice = ECUtils.getECKeyPair();
+		PublicKey publicKey_Alice = keyPair_Alice.getPublic();
+		PrivateKey privateKey_Alice = keyPair_Alice.getPrivate();
 
-		// generate key pair 2
-		KeyPair keyPair2 = ECUtils.getECKeyPair();
-		PublicKey publicKey2 = keyPair2.getPublic();
-		PrivateKey privateKey2 = keyPair2.getPrivate();
+		// Bob generate key pair
+		KeyPair keyPair_Bob = ECUtils.getECKeyPair();
+		PublicKey publicKey_Bob = keyPair_Bob.getPublic();
+		PrivateKey privateKey_Bob = keyPair_Bob.getPrivate();
 
 		// generate two related shared key and compare if they are the same
-		String sharedKey1 = ECDH.genSharedKey(publicKey1, privateKey2);
-		String sharedKey2 = ECDH.genSharedKey(publicKey2, privateKey1);
+		String sharedKey_Alice = ECDH.genSharedKey(publicKey_Bob, privateKey_Alice);
+		String sharedKey_Bob = ECDH.genSharedKey(publicKey_Alice, privateKey_Bob);
 
-		if (sharedKey1.equals(sharedKey2)) {
+		if (sharedKey_Alice.equals(sharedKey_Bob)) {
 			System.out.println("ECDH key exchange functionality test pass.");
 		}
-		assertEquals(sharedKey1, sharedKey2);
+		assertEquals(sharedKey_Alice, sharedKey_Bob);
 	}
 }

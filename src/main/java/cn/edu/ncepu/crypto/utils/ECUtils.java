@@ -49,7 +49,6 @@ public class ECUtils {
 	 * @throws
 	 */
 	public static KeyPair getECKeyPair() {
-		KeyPair keyPair = null;
 		try {
 			KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance(EC_STRING);
 			// specific the elliptic curve using stdName, including
@@ -58,11 +57,11 @@ public class ECUtils {
 			SecureRandom random = SecureRandom.getInstance("SHA1PRNG");
 			// set specific parameters
 			keyPairGenerator.initialize(ecGenParameterSpec, random);
-			keyPair = keyPairGenerator.generateKeyPair();
+			return keyPairGenerator.generateKeyPair();
 		} catch (GeneralSecurityException e) {
 			e.printStackTrace();
 		}
-		return keyPair;
+		return null;
 	}
 
 	/**

@@ -41,8 +41,8 @@ public class ECDH {
 
 	/**
 	 * @Description: TODO(generate shared key for ECDH key exchange scheme)
-	 * @param publicKey
-	 * @param privateKey
+	 * @param publicKey: the other party's EC public key
+	 * @param privateKey: own private key
 	 * @return shared key string
 	 * @throws
 	 */
@@ -55,10 +55,8 @@ public class ECDH {
 			keyAgreement.doPhase(publicKey, true);
 			sharedKeyString = Hex.encodeHexString(keyAgreement.generateSecret());
 		} catch (NoSuchAlgorithmException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (InvalidKeyException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 

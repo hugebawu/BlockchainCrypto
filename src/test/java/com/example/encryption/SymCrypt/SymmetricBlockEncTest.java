@@ -32,7 +32,7 @@ import edu.princeton.cs.algs4.StdOut;
  */
 public class SymmetricBlockEncTest {
 
-//	@Ignore
+	@Ignore
 	@Test
 	public void testAESString() {
 		final String key = "6206c34e2186e752c74e6df32ab8fa5b";

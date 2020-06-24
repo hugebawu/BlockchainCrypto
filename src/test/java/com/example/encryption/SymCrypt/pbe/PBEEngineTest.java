@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.example.encryption.pbe;
+package com.example.encryption.SymCrypt.pbe;
 
 import static org.junit.Assert.assertEquals;
 
@@ -14,7 +14,7 @@ import java.util.Base64;
 import org.bouncycastle.util.encoders.Hex;
 import org.junit.Test;
 
-import cn.edu.ncepu.crypto.encryption.pbe.PBEEngine;
+import cn.edu.ncepu.crypto.encryption.SymCrypt.pbe.PBEEngine;
 
 /**
  * @Copyright : Copyright (c) 2020-2021 

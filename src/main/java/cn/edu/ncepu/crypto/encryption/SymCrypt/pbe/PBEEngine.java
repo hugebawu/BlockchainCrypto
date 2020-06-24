@@ -1,7 +1,7 @@
 /**
  * 
  */
-package cn.edu.ncepu.crypto.encryption.pbe;
+package cn.edu.ncepu.crypto.encryption.SymCrypt.pbe;
 
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;

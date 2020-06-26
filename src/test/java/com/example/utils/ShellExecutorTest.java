@@ -25,7 +25,7 @@ public class ShellExecutorTest {
 	@Test
 	public void testSimple() throws ShellExecutor.CommandTimeoutException {
 		System.out.println(ShellExecutor.execute("pwd", userDir + "/scripts", null,
-				((message, process) -> System.out.println(message))));
+				(message, process) -> System.out.println(message)));
 	}
 
 	@Ignore

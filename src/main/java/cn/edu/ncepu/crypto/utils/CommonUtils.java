@@ -10,6 +10,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
@@ -17,9 +18,10 @@ import java.net.URLEncoder;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.Security;
-import java.util.ArrayList;
 
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @Copyright : Copyright (c) 2020-2021 
@@ -32,6 +34,27 @@ import org.bouncycastle.jce.provider.BouncyCastleProvider;
  */
 public class CommonUtils {
 
+	private static Logger logger = LoggerFactory.getLogger(CommonUtils.class);
+
+	public static void printShellOutput(InputStream inputStream) {
+		try {
+			// InputStreamReader turns byte stream to char stream ,while OutputStreamWriter
+			// turns char stream to byte stream.
+			InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+			// BufferedReader is expanded from Reader, provider common buffer methonds for
+			// text read.
+			BufferedReader input = new BufferedReader(inputStreamReader);
+			String line = "";
+			while ((line = input.readLine()) != null) {
+				logger.info(line);
+			}
+			input.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
 	/**
 	 * @Description: TODO(execute shell command through java method)
 	 * @param shell
@@ -39,8 +62,7 @@ public class CommonUtils {
 	 * @return the output of shell command
 	 * @throws
 	 */
-	public static ArrayList<String> callCMD(String shell, String workDir) {
-		ArrayList<String> processList = new ArrayList<String>();
+	public static void callCMD(String shell, String workDir) {
 		try {
 			File dir = null;
 			if (null != workDir) {
@@ -51,24 +73,14 @@ public class CommonUtils {
 			int exitValue = process.waitFor();
 			if (0 != exitValue) {
 				System.out.println("call shell failed! error code is :" + exitValue);
+				printShellOutput(process.getInputStream());
 				System.exit(1);
 			}
-			// InputStreamReader turns byte stream to char stream ,while OutputStreamWriter
-			// turns char stream to byte stream.
-			InputStreamReader inputStreamReader = new InputStreamReader(process.getInputStream());
-			// BufferedReader is expanded from Reader, provider common buffer methonds for
-			// text read.
-			BufferedReader input = new BufferedReader(inputStreamReader);
-			String line = "";
-			while ((line = input.readLine()) != null) {
-				processList.add(line);
-			}
-			input.close();
+			printShellOutput(process.getInputStream());
 		} catch (Exception e) {
 			System.out.println("call shell failed!");
 			e.printStackTrace();
 		}
-		return processList;
 	}
 
 	/**
@@ -78,8 +90,7 @@ public class CommonUtils {
 	 * @return the output of shell command
 	 * @throws
 	 */
-	public static ArrayList<String> callScript(String script, String args, String workDir) {
-		ArrayList<String> processList = new ArrayList<String>();
+	public static void callScript(String script, String args, String workDir) {
 		try {
 			String command = "sh " + script + " " + args;
 			File dir = null;
@@ -91,24 +102,14 @@ public class CommonUtils {
 			int exitValue = process.waitFor();
 			if (0 != exitValue) {
 				System.out.println("call shell failed! error code is :" + exitValue);
+				printShellOutput(process.getInputStream());
 				System.exit(1);
 			}
-			// InputStreamReader turns byte stream to char stream ,while OutputStreamWriter
-			// turns char stream to byte stream.
-			InputStreamReader inputStreamReader = new InputStreamReader(process.getInputStream());
-			// BufferedReader is expanded from Reader, provider common buffer methonds for
-			// text read.
-			BufferedReader input = new BufferedReader(inputStreamReader);
-			String line = "";
-			while ((line = input.readLine()) != null) {
-				processList.add(line);
-			}
-			input.close();
+			printShellOutput(process.getInputStream());
 		} catch (Exception e) {
 			System.out.println("call shell failed!");
 			e.printStackTrace();
 		}
-		return processList;
 	}
 
 	/**

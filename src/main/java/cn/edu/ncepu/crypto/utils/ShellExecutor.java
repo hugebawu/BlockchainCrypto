@@ -27,7 +27,7 @@ import cn.edu.ncepu.crypto.utils.ShellExecutor.CommandTimeoutException;
  */
 public class ShellExecutor {
 
-	private static Logger logger = LoggerFactory.getLogger(CommonUtils.class);
+	private static Logger logger = LoggerFactory.getLogger(ShellExecutor.class);
 	private static ExecutorService communicatorExecutor = Executors.newCachedThreadPool();
 
 	/**

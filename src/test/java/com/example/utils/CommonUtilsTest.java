@@ -6,7 +6,6 @@ package com.example.utils;
 import static org.junit.Assert.assertEquals;
 
 import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
 
 import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.binary.Hex;
@@ -31,37 +30,28 @@ public class CommonUtilsTest {
 	@Test
 	public void testCallCMD() {
 		String shell = "pwd";
-		ArrayList<String> processList = CommonUtils.callCMD(shell,
+		CommonUtils.callCMD(shell,
 				"/root/Documents/eclipse-workspace/BlockchainCrypto/src/test/java/com/example/utils");
-		for (String line : processList) {
-			System.out.println(line);
-		}
 		shell = "ls -al";
-		processList = CommonUtils.callCMD(shell,
+		CommonUtils.callCMD(shell,
 				"/root/Documents/eclipse-workspace/BlockchainCrypto/src/test/java/com/example/utils");
-		for (String line : processList) {
-			System.out.println(line);
-		}
 	}
 
 	@Ignore
 	@Test
 	public void testCallScript() {
 		String args = "1 2 3";
-		ArrayList<String> processList = CommonUtils.callScript("test.sh", args,
+		CommonUtils.callScript("test.sh", args,
 				"/root/Documents/eclipse-workspace/BlockchainCrypto/src/test/java/com/example/utils");
-		for (String line : processList) {
-			System.out.println(line);
-		}
 	}
 
-//	@Ignore
+	@Ignore
 	@Test
-	public void testGenHahs() {
+	public void testGenHash() {
 		String content = "HelloWorld";
 
 		// utilize jdk
-		String algorithm = "RipeMD160";
+		String algorithm = "SHA256";
 		System.out.println("Hash Algorithm: " + algorithm);
 		String hexHash = CommonUtils.genHash(content, algorithm);
 		System.out.println("hex hash digest: " + hexHash);

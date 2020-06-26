@@ -21,7 +21,6 @@ import java.security.spec.EncodedKeySpec;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
-import java.util.ArrayList;
 import java.util.Base64;
 
 import org.apache.commons.codec.DecoderException;
@@ -278,10 +277,7 @@ public class ECUtils {
 				shell = "openssl ec -in " + fileName + " -text -noout";
 			}
 		}
-		ArrayList<String> processList = CommonUtils.callCMD(shell, filePath);
-		for (String line : processList) {
-			System.out.println(line);
-		}
+		CommonUtils.callCMD(shell, filePath);
 	}
 
 }

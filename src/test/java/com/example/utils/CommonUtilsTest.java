@@ -14,6 +14,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 import cn.edu.ncepu.crypto.utils.CommonUtils;
+import cn.edu.ncepu.crypto.utils.SysProperty;
 
 /**
  * @Copyright : Copyright (c) 2020-2021 
@@ -25,24 +26,22 @@ import cn.edu.ncepu.crypto.utils.CommonUtils;
  * @Description: TODO(test methods of CommonUtils)
  */
 public class CommonUtilsTest {
+	private static String usrDir = SysProperty.USER_DIR;
 
 	@Ignore
 	@Test
 	public void testCallCMD() {
 		String shell = "pwd";
-		CommonUtils.callCMD(shell,
-				"/root/Documents/eclipse-workspace/BlockchainCrypto/src/test/java/com/example/utils");
+		CommonUtils.callCMD(shell, usrDir + "/elements");
 		shell = "ls -al";
-		CommonUtils.callCMD(shell,
-				"/root/Documents/eclipse-workspace/BlockchainCrypto/src/test/java/com/example/utils");
+		CommonUtils.callCMD(shell, usrDir + "/elements");
 	}
 
 	@Ignore
 	@Test
 	public void testCallScript() {
 		String args = "1 2 3";
-		CommonUtils.callScript("test.sh", args,
-				"/root/Documents/eclipse-workspace/BlockchainCrypto/src/test/java/com/example/utils");
+		CommonUtils.callScript("testCallScript.sh", args, usrDir + "/scripts");
 	}
 
 	@Ignore

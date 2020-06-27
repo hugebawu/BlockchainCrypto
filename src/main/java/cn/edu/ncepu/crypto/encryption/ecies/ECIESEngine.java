@@ -29,11 +29,10 @@ import org.bouncycastle.jce.provider.BouncyCastleProvider;
 public class ECIESEngine {
 
 	/**
-	 * @Description: TODO(encrypt content as ecies using EC publicKey)
+	 * TODO encrypt content as ecies using EC publicKey
 	 * @param content content waits to be encrypted
 	 * @param publicKey EC publicKey
 	 * @return Based64 coded ciphertext to convenient network transmission.
-	 * @throws
 	 */
 	public static String encrypt(String content, PublicKey publicKey) {
 		String cipherString = null;
@@ -59,11 +58,10 @@ public class ECIESEngine {
 	}
 
 	/**
-	 * @Description: TODO(decrypt cyphertext as ecies using EC privateKey)
+	 * TODO decrypt cyphertext as ecies using EC privateKey
 	 * @param ciphertext ciphertext waits to be encrypted
 	 * @param privateKey EC privateKey
 	 * @return original plaintext string.
-	 * @throws
 	 */
 	public static String decrypt(String ciphertext, PrivateKey privateKey) {
 		String plaintext = null;

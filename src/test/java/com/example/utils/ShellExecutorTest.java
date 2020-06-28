@@ -3,10 +3,15 @@
  */
 package com.example.utils;
 
+import java.io.IOException;
+
 import org.junit.Ignore;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import cn.edu.ncepu.crypto.utils.ShellExecutor;
+import cn.edu.ncepu.crypto.utils.ShellExecutor.CommandTimeoutException;
 import cn.edu.ncepu.crypto.utils.SysProperty;
 
 /**
@@ -19,30 +24,43 @@ import cn.edu.ncepu.crypto.utils.SysProperty;
  * @Description: TODO(这里用一句话描述这个方法的作用)
  */
 public class ShellExecutorTest {
+	private static Logger logger = LoggerFactory.getLogger(ShellExecutorTest.class);
 	private static String userDir = SysProperty.USER_DIR;
 
 	@Ignore
 	@Test
-	public void testSimple() throws ShellExecutor.CommandTimeoutException {
-		System.out.println(ShellExecutor.execute("pwd", userDir + "/scripts", null,
-				(message, process) -> System.out.println(message)));
+	public void testSimple() {
+		try {
+			logger.info(String.format("%d"), ShellExecutor.execute("pwd", userDir + "/scripts", null,
+					(message, process) -> System.out.println(message)));
+		} catch (CommandTimeoutException | IOException | InterruptedException e) {
+			logger.warn(e.getMessage(), e);
+		}
 	}
 
 	@Ignore
 	@Test
-	public void test() throws ShellExecutor.CommandTimeoutException {
-		int result = ShellExecutor.execute(userDir + "/scripts/test.sh", null, null,
-				(message, process) -> System.out.println(String.format("Communication[1]: %s", message)),
-				(message, process) -> System.out.println(String.format("Communication[2]: %s", message)),
-				(message, process) -> System.out.println(String.format("Communication[3]: %s", message)));
-		System.out.println(result);
+	public void test() {
+		try {
+			int result = ShellExecutor.execute(userDir + "/scripts/test.sh", null, null,
+					(message, process) -> System.out.println(String.format("Communication[1]: %s", message)),
+					(message, process) -> System.out.println(String.format("Communication[2]: %s", message)),
+					(message, process) -> System.out.println(String.format("Communication[3]: %s", message)));
+			System.out.println(result);
+		} catch (CommandTimeoutException | IOException | InterruptedException e) {
+			logger.error(e.getLocalizedMessage());
+		}
 	}
 
 	@Ignore
 	@Test
-	public void testMavenBuild() throws ShellExecutor.CommandTimeoutException {
-		System.out.println(ShellExecutor.execute(userDir + "/scripts/testMvnInstall.sh", null, null,
-				(message, process) -> System.out.println(message)));
+	public void testMavenBuild() {
+		try {
+			logger.info("" + ShellExecutor.execute(userDir + "/scripts/testMvnInstall.sh", null, null,
+					(message, process) -> System.out.println(message)));
+		} catch (CommandTimeoutException | IOException | InterruptedException e) {
+			logger.error(e.getLocalizedMessage());
+		}
 	}
 
 	@Ignore
@@ -51,9 +69,13 @@ public class ShellExecutorTest {
 		try {
 			int exitValue = ShellExecutor.execute("./test.sh", System.getProperty("user.dir") + "/scripts", null,
 					(message, process) -> System.out.println(message));
-			System.out.println("exitValue: " + exitValue);
+			logger.info("exitValue: " + exitValue);
 		} catch (ShellExecutor.CommandTimeoutException e) {
-			System.out.println(e.getMessage());
+			logger.error(e.getLocalizedMessage());
+		} catch (IOException e) {
+			logger.error(e.getLocalizedMessage());
+		} catch (InterruptedException e) {
+			logger.error(e.getLocalizedMessage());
 		}
 	}
 
@@ -66,6 +88,10 @@ public class ShellExecutorTest {
 			System.out.println("exitValue: " + exitValue);
 		} catch (ShellExecutor.CommandTimeoutException e) {
 			System.out.println(e.getMessage());
+		} catch (IOException e) {
+			logger.error(e.getLocalizedMessage());
+		} catch (InterruptedException e) {
+			logger.error(e.getLocalizedMessage());
 		}
 	}
 }

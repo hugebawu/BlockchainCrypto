@@ -49,12 +49,12 @@ public class ECIESEngineJUniteTest {
 			String content = "cryptography12342qer45taredfghdfghj/？！#@￥##%……";
 			// encrypt the ciphertext can be transmitted directly through network.
 			String ciphertext = ECIESEngine.encrypt(content, publicKey);
-			System.out.println("plaintext: " + content);
-			System.out.println("base64 ciphertext: " + ciphertext);
-			System.out.println("base64 ciphertext length: " + ciphertext.length());
+			logger.info("plaintext: " + content);
+			logger.info("base64 ciphertext: " + ciphertext);
+			logger.info("base64 ciphertext length: " + ciphertext.length());
 			// decrypt
 			String decryptedtext = ECIESEngine.decrypt(ciphertext, privateKey);
-			System.out.println("decrypted plaintext: " + decryptedtext);
+			logger.info("decrypted plaintext: " + decryptedtext);
 			assertEquals(content, decryptedtext);
 		} catch (InvalidKeyException | NoSuchAlgorithmException | NoSuchPaddingException | IllegalBlockSizeException
 				| BadPaddingException e) {

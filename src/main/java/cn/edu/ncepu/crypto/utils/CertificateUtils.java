@@ -97,7 +97,7 @@ public class CertificateUtils {
 //		for (int i = 0; i < arrCommand.length; i++) {
 //			System.out.print(arrCommand[i] + " ");
 //		}
-//		System.out.println();
+//		logger.info();
 		CommonUtils.callCMD(arrCommand, null);
 	}
 
@@ -121,7 +121,7 @@ public class CertificateUtils {
 //		for (int i = 0; i < arrCommand.length; i++) {
 //			System.out.print(arrCommand[i] + " ");
 //		}
-//		System.out.println();
+//		logger.info();
 		CommonUtils.callCMD(arrCommand, null);
 	}
 

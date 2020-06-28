@@ -42,7 +42,7 @@ public class ECDHTest {
 	 */
 	public void testGenSharedKey() {
 		try {
-			System.out.println("Testing ECDH key exchange scheme.");
+			logger.info("Testing ECDH key exchange scheme.");
 			// Alice generate key pair
 			KeyPair keyPair_Alice = CommonUtils.initKey(EC_STRING, CURVE_NAME);
 			PublicKey publicKey_Alice = keyPair_Alice.getPublic();
@@ -59,7 +59,7 @@ public class ECDHTest {
 			String sharedKey_Bob = ECDH.genSharedKey(publicKey_Alice, privateKey_Bob);
 
 			if (sharedKey_Alice.equals(sharedKey_Bob)) {
-				System.out.println("ECDH key exchange functionality test pass.");
+				logger.info("ECDH key exchange functionality test pass.");
 			}
 			assertEquals(sharedKey_Alice, sharedKey_Bob);
 		} catch (InvalidKeyException | NoSuchAlgorithmException | IllegalStateException e) {

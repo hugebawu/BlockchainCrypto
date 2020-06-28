@@ -49,7 +49,7 @@ public class AccessTreeEngine implements AccessControlEngine {
         access_tree_node_secret_sharing(pairing, secret, accessControlParameter.getRootAccessTreeNode(), sharedElementsMap);
 //        Object[] keySet = sharedElementsMap.keySet().toArray();
 //        for (Object keys : keySet) {
-//            System.out.println(keys + " : " + sharedElementsMap.get(keys));
+//            logger.info(keys + " : " + sharedElementsMap.get(keys));
 //        }
         return sharedElementsMap;
     }
@@ -107,7 +107,7 @@ public class AccessTreeEngine implements AccessControlEngine {
                 rootSatisfiedAccessTreeNode.calcCoefficients(coefficientElementsMap);
 //                Object[] keySet = coefficientElementsMap.keySet().toArray();
 //                for (Object keys : keySet) {
-//                    System.out.println(keys + " : " + coefficientElementsMap.get(keys));
+//                    logger.info(keys + " : " + coefficientElementsMap.get(keys));
 //                }
                 return coefficientElementsMap;
             }
@@ -131,7 +131,7 @@ public class AccessTreeEngine implements AccessControlEngine {
                 this.childNodes = new SatisfiedAccessTreeNode[this.n];
                 for (int i = 0; i < this.childNodes.length; i++) {
                     this.childNodes[i] = new SatisfiedAccessTreeNode(pairing, this, i + 1, accessTreeNode.getChildNodeAt(i));
-//                    System.out.println("Node: " + this.childNodes[i].label + " with parentNode: " + this.label);
+//                    logger.info("Node: " + this.childNodes[i].label + " with parentNode: " + this.label);
                 }
             }
         }
@@ -154,7 +154,7 @@ public class AccessTreeEngine implements AccessControlEngine {
                         j++;
                     }
                 }
-//                System.out.println("Node " + this.label + " has satisfied child nodes " + satisfiedChildNumber);
+//                logger.info("Node " + this.label + " has satisfied child nodes " + satisfiedChildNumber);
                 this.isSatisfied = (satisfiedChildNumber >= t);
             } else {
                 for (String attribute1 : attributes) {

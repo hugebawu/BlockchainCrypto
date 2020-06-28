@@ -3,6 +3,9 @@
  */
 package cn.edu.ncepu.crypto.encryption.wp_ibe;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Field;
 import it.unisa.dia.gas.jpbc.Pairing;
@@ -22,6 +25,7 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  */
 
 public class BasicIdent2 implements Ident {
+	private static Logger logger = LoggerFactory.getLogger(BasicIdent2.class);
 
 	private Element s, r, P, Ppub, Su, Qu, V, T1, T2;
 	private Field G1, Zr;
@@ -71,42 +75,42 @@ public class BasicIdent2 implements Ident {
 
 	public void buildSystem() {
 		// TODO Auto-generated method stub
-		System.out.println("-------------------系统建立阶段----------------------");
+		logger.info("-------------------系统建立阶段----------------------");
 		s = Zr.newRandomElement().getImmutable();// //随机生成主密钥s
 		P = G1.newRandomElement().getImmutable();// 生成G1的生成元P
 		Ppub = P.mulZn(s);// 计算Ppub=sP,注意顺序
-		System.out.println("P=" + P);
-		System.out.println("s=" + s);
-		System.out.println("Ppub=" + Ppub);
+		logger.info("P=" + P);
+		logger.info("s=" + s);
+		logger.info("Ppub=" + Ppub);
 	}
 
 	public void extractSecretKey() {
 		// TODO Auto-generated method stub
-		System.out.println("-------------------密钥提取阶段----------------------");
+		logger.info("-------------------密钥提取阶段----------------------");
 		Qu = pairing.getG1().newElement().setFromHash("IDu".getBytes(), 0, 3).getImmutable();// //从长度为3的Hash值IDu确定用户U产生的公钥Qu
 		Su = Qu.mulZn(s).getImmutable();
-		System.out.println("Qu=" + Qu);
-		System.out.println("Su=" + Su);
+		logger.info("Qu=" + Qu);
+		logger.info("Su=" + Su);
 	}
 
 	public void encrypt() {
 		// TODO Auto-generated method stub
-		System.out.println("-------------------加密阶段----------------------");
+		logger.info("-------------------加密阶段----------------------");
 		r = Zr.newRandomElement().getImmutable();
 		V = P.mulZn(r);
 		T1 = pairing.pairing(Ppub, Qu).getImmutable();// 计算e（Ppub,Qu）
 		T1 = T1.powZn(r).getImmutable();
-		System.out.println("r=" + r);
-		System.out.println("V=" + V);
-		System.out.println("T1=e（Ppub,Qu）^r=" + T1);
+		logger.info("r=" + r);
+		logger.info("V=" + V);
+		logger.info("T1=e（Ppub,Qu）^r=" + T1);
 	}
 
 	public void decrypt() {
 		// TODO Auto-generated method stub
-		System.out.println("-------------------解密阶段----------------------");
+		logger.info("-------------------解密阶段----------------------");
 		T2 = pairing.pairing(V, Su).getImmutable();
-		System.out.println("e(V,Su)=" + T2);
+		logger.info("e(V,Su)=" + T2);
 		int byt = V.getLengthInBytes();// 求V的字节长度，假设消息长度为128字节
-		System.out.println("文本长度" + (byt + 128));
+		logger.info("文本长度" + (byt + 128));
 	}
 }

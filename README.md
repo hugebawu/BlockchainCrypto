@@ -194,7 +194,7 @@ The following code shows how to use Boneh-Boyen signatures under the JCA standar
         signer.init(false, publicKey);
         signer.update(message, 0, message.length);
         if (!signer.verifySignature(signature)) {
-            System.out.println("cannot verify valid signature abort...");
+            logger.info("cannot verify valid signature abort...");
             System.exit(0);
         }
     } catch (CryptoException e) {

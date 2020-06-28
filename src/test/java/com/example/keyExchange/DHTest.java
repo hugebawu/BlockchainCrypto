@@ -41,7 +41,7 @@ public class DHTest {
 	 */
 	public void testGenSharedKey() {
 		try {
-			System.out.println("Testing DH key exchange scheme.");
+			logger.info("Testing DH key exchange scheme.");
 			int keysize = 3072;
 			// Alice generate key pair
 			KeyPair keyPair_Alice;
@@ -64,7 +64,7 @@ public class DHTest {
 
 			// and compare if they are the same
 			if (sharedKey_Alice.equals(sharedKey_Bob)) {
-				System.out.println("DH key exchange functionality test pass.");
+				logger.info("DH key exchange functionality test pass.");
 			}
 			assertEquals(sharedKey_Alice, sharedKey_Bob);
 		} catch (NoSuchAlgorithmException e) {

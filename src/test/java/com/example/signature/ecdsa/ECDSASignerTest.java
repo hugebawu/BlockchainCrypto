@@ -38,32 +38,32 @@ public class ECDSASignerTest {
 	public void testECDSASigner() {
 
 		try {
-			System.out.println("Test Scott-Vanstone 1992 signature.");
+			logger.info("Test Scott-Vanstone 1992 signature.");
 			// keyGen
 			KeyPair keyPair = CommonUtils.initKey(EC_STRING, CURVE_NAME);
 			PublicKey publicKey = keyPair.getPublic();
 			PrivateKey privateKey = keyPair.getPrivate();
-			System.out.println("privateKey length = " + Hex.encodeHexString(privateKey.getEncoded()).length());
+			logger.info("privateKey length = " + Hex.encodeHexString(privateKey.getEncoded()).length());
 
-			System.out.println("========================================");
-			System.out.println("Test signer functionality");
+			logger.info("========================================");
+			logger.info("Test signer functionality");
 
 			// signature
 			byte[] sign = ECDSASigner.signECDSA(privateKey, "message".getBytes("UTF-8"));
 			String singHex = Hex.encodeHexString(sign);
-			System.out.println("Hex signature: " + singHex);
-			System.out.println("Signature length = " + singHex.length());
+			logger.info("Hex signature: " + singHex);
+			logger.info("Signature length = " + singHex.length());
 
 			// verify
 			if (false == ECDSASigner.verifyECDSA(publicKey, "message".getBytes("UTF-8"), sign)) {
-				System.out.println("Verify passed for invalid signature, test abort...");
+				logger.info("Verify passed for invalid signature, test abort...");
 				System.exit(0);
 			}
 
-			System.out.println("ECDSA signer functionality test pass.");
+			logger.info("ECDSA signer functionality test pass.");
 
-			System.out.println("========================================");
-			System.out.println("Test signer parameters serialization & de-serialization.");
+			logger.info("========================================");
+			logger.info("Test signer parameters serialization & de-serialization.");
 		} catch (InvalidKeyException | NoSuchAlgorithmException | SignatureException | UnsupportedEncodingException e) {
 			logger.error(e.getLocalizedMessage());
 		} catch (DecoderException e) {

@@ -6,6 +6,9 @@ package cn.edu.ncepu.crypto.utils;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  *
  * @版权 : Copyright (c) 2018-2019 E1101智能电网信息安全中心
@@ -19,6 +22,7 @@ import java.lang.reflect.Method;
  */
 public class TimeCountProxyHandle implements InvocationHandler {
 
+	private static Logger logger = LoggerFactory.getLogger(TimeCountProxyHandle.class);
 	private Object proxied;
 
 	public TimeCountProxyHandle(Object obj) {
@@ -30,7 +34,7 @@ public class TimeCountProxyHandle implements InvocationHandler {
 		long begin = System.currentTimeMillis();
 		Object result = method.invoke(proxied, args);
 		long end = System.currentTimeMillis();
-		System.out.println(method.getName() + "耗时:" + (end - begin) + "ms");
+		logger.info(method.getName() + "耗时:" + (end - begin) + "ms");
 		return result;
 	}
 

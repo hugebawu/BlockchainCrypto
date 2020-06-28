@@ -32,7 +32,7 @@ public class ShellExecutorTest {
 	public void testSimple() {
 		try {
 			logger.info(String.format("%d"), ShellExecutor.execute("pwd", userDir + "/scripts", null,
-					(message, process) -> System.out.println(message)));
+					(message, process) -> logger.info(message)));
 		} catch (CommandTimeoutException | IOException | InterruptedException e) {
 			logger.warn(e.getMessage(), e);
 		}
@@ -43,10 +43,10 @@ public class ShellExecutorTest {
 	public void test() {
 		try {
 			int result = ShellExecutor.execute(userDir + "/scripts/test.sh", null, null,
-					(message, process) -> System.out.println(String.format("Communication[1]: %s", message)),
-					(message, process) -> System.out.println(String.format("Communication[2]: %s", message)),
-					(message, process) -> System.out.println(String.format("Communication[3]: %s", message)));
-			System.out.println(result);
+					(message, process) -> logger.info(String.format("Communication[1]: %s", message)),
+					(message, process) -> logger.info(String.format("Communication[2]: %s", message)),
+					(message, process) -> logger.info(String.format("Communication[3]: %s", message)));
+			logger.info("" + result);
 		} catch (CommandTimeoutException | IOException | InterruptedException e) {
 			logger.error(e.getLocalizedMessage());
 		}
@@ -57,7 +57,7 @@ public class ShellExecutorTest {
 	public void testMavenBuild() {
 		try {
 			logger.info("" + ShellExecutor.execute(userDir + "/scripts/testMvnInstall.sh", null, null,
-					(message, process) -> System.out.println(message)));
+					(message, process) -> logger.info(message)));
 		} catch (CommandTimeoutException | IOException | InterruptedException e) {
 			logger.error(e.getLocalizedMessage());
 		}
@@ -68,7 +68,7 @@ public class ShellExecutorTest {
 	public void simpleTest() {
 		try {
 			int exitValue = ShellExecutor.execute("./test.sh", System.getProperty("user.dir") + "/scripts", null,
-					(message, process) -> System.out.println(message));
+					(message, process) -> logger.info(message));
 			logger.info("exitValue: " + exitValue);
 		} catch (ShellExecutor.CommandTimeoutException e) {
 			logger.error(e.getLocalizedMessage());
@@ -84,10 +84,10 @@ public class ShellExecutorTest {
 	public void complexCommandTest() {
 		try {
 			int exitValue = ShellExecutor.execute("ps -ef | grep java | grep -v grep", System.getProperty("user.dir"),
-					null, (message, process) -> System.out.println(message));
-			System.out.println("exitValue: " + exitValue);
+					null, (message, process) -> logger.info(message));
+			logger.info("exitValue: " + exitValue);
 		} catch (ShellExecutor.CommandTimeoutException e) {
-			System.out.println(e.getMessage());
+			logger.info(e.getMessage());
 		} catch (IOException e) {
 			logger.error(e.getLocalizedMessage());
 		} catch (InterruptedException e) {

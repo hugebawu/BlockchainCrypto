@@ -6,6 +6,8 @@ import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.crypto.CryptoException;
 import org.bouncycastle.crypto.Signer;
 import org.bouncycastle.crypto.digests.SHA256Digest;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.example.TestUtils;
 
@@ -33,6 +35,7 @@ import junit.framework.TestCase;
  * Public key signature test.
  */
 public class PKSSignerTest extends TestCase {
+	private static Logger logger = LoggerFactory.getLogger(PKSSignerTest.class);
 	private PairingKeyPairGenerator asymmetricKeySerPairGenerator;
 	private Signer signer;
 
@@ -42,33 +45,33 @@ public class PKSSignerTest extends TestCase {
 		PairingKeySerParameter publicKey = keyPair.getPublic();
 		PairingKeySerParameter secretKey = keyPair.getPrivate();
 
-		System.out.println("========================================");
-		System.out.println("Test signer functionality");
+		logger.info("========================================");
+		logger.info("Test signer functionality");
 		try {
 			// signature
 			byte[] message = "Message".getBytes("UTF-8");
 			signer.init(true, secretKey);
 			signer.update(message, 0, message.length);
 			byte[] signature = signer.generateSignature();
-			System.out.println("Signature length = " + signature.length);
+			logger.info("Signature length = " + signature.length);
 
 			byte[] messagePrime = "MessagePrime".getBytes("UTF-8");
 			signer.init(true, secretKey);
 			signer.update(messagePrime, 0, messagePrime.length);
 			byte[] signaturePrime = signer.generateSignature();
-			System.out.println("Signature' length = " + signature.length);
+			logger.info("Signature' length = " + signature.length);
 
 			// verify
 			signer.init(false, publicKey);
 			signer.update(message, 0, message.length);
 			if (!signer.verifySignature(signature)) {
-				System.out.println("cannot verify valid signature, test abort...");
+				logger.info("cannot verify valid signature, test abort...");
 				System.exit(0);
 			}
 			signer.init(false, publicKey);
 			signer.update(message, 0, message.length);
 			if (signer.verifySignature(signaturePrime)) {
-				System.out.println("Verify passed for invalid signature, test abort...");
+				logger.info("Verify passed for invalid signature, test abort...");
 				System.exit(0);
 			}
 		} catch (CryptoException e) {
@@ -76,26 +79,25 @@ public class PKSSignerTest extends TestCase {
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
-		System.out.println("Pairing signer functionality test pass.");
+		logger.info("Pairing signer functionality test pass.");
 
-		System.out.println("========================================");
-		System.out.println("Test signer parameters serialization & de-serialization.");
+		logger.info("========================================");
+		logger.info("Test signer parameters serialization & de-serialization.");
 		try {
 			// serialize public key
-			System.out.println("Test serialize & de-serialize public key.");
+			logger.info("Test serialize & de-serialize public key.");
 			byte[] byteArrayPublicKey = TestUtils.SerCipherParameter(publicKey);
 			CipherParameters anPublicKey = TestUtils.deserCipherParameters(byteArrayPublicKey);
 			assertEquals(publicKey, anPublicKey);
 
 			// serialize secret key
-			System.out.println("Test serialize & de-serialize secret keys.");
+			logger.info("Test serialize & de-serialize secret keys.");
 			// serialize sk4
 			byte[] byteArraySecretKey = TestUtils.SerCipherParameter(secretKey);
 			CipherParameters anSecretKey = TestUtils.deserCipherParameters(byteArraySecretKey);
 			assertEquals(secretKey, anSecretKey);
 
-			System.out.println("Signer parameter serialization tests passed.");
-			System.out.println();
+			logger.info("Signer parameter serialization tests passed.");
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.exit(1);
@@ -104,7 +106,7 @@ public class PKSSignerTest extends TestCase {
 
 	public void testBLS01Signer() {
 		PairingParameters pairingParameters = PairingFactory.getPairingParameters(PairingUtils.PATH_f_160);
-		System.out.println("Test Boneh-Lynn-Shacham 2001 signature.");
+		logger.info("Test Boneh-Lynn-Shacham 2001 signature.");
 		this.asymmetricKeySerPairGenerator = new BLS01SignKeyPairGenerator();
 		this.asymmetricKeySerPairGenerator.init(new BLS01SignKeyPairGenerationParameter(pairingParameters));
 		this.signer = new PairingDigestSigner(new BLS01Signer(), new SHA256Digest());
@@ -113,7 +115,7 @@ public class PKSSignerTest extends TestCase {
 
 	public void testBB04Signer() {
 		PairingParameters pairingParameters = PairingFactory.getPairingParameters(PairingUtils.PATH_a_160_512);
-		System.out.println("Test Boneh-Boyen 2004 signature.");
+		logger.info("Test Boneh-Boyen 2004 signature.");
 		this.asymmetricKeySerPairGenerator = new BB04SignKeyPairGenerator();
 		this.asymmetricKeySerPairGenerator.init(new BB04SignKeyPairGenerationParameter(pairingParameters));
 		this.signer = new PairingDigestSigner(new BB04Signer(), new SHA256Digest());
@@ -122,7 +124,7 @@ public class PKSSignerTest extends TestCase {
 
 	public void testBB08Signer() {
 		PairingParameters pairingParameters = PairingFactory.getPairingParameters(PairingUtils.PATH_a_160_512);
-		System.out.println("Test Boneh-Boyen 2008 signature.");
+		logger.info("Test Boneh-Boyen 2008 signature.");
 		this.asymmetricKeySerPairGenerator = new BB08SignKeyPairGenerator();
 		this.asymmetricKeySerPairGenerator.init(new BB08SignKeyPairGenerationParameter(pairingParameters));
 		this.signer = new PairingDigestSigner(new BB08Signer(), new SHA256Digest());

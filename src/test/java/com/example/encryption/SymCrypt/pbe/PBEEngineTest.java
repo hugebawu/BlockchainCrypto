@@ -43,12 +43,12 @@ public class PBEEngineTest {
 	public void testPBE() {
 		// plaintext
 		String message = "Message";
-		System.out.println("Message = " + message);
+		logger.info("Message = " + message);
 		String password = "Ttkx123";
 		// 16 bytes random salt
 		try {
 			byte[] salt = SecureRandom.getInstanceStrong().generateSeed(16);
-			System.out.println("16 bytes Hex salt: " + Hex.toHexString(salt));
+			logger.info("16 bytes Hex salt: " + Hex.toHexString(salt));
 			System.out.printf("16 bytes salt: %032x\n", new BigInteger(1, salt));
 			// encryption
 			// example "PBEwithSHA1And128bitAES-CBC-BC"
@@ -56,11 +56,11 @@ public class PBEEngineTest {
 			String enc_alg = "256bitAES-CBC-BC";
 			byte[] encrypted = PBEEngine.enc_dec_PBE(true, digest_alg, enc_alg, password, salt,
 					message.getBytes("UTF8"));
-			System.out.println("Encrypted Ciphertext = " + Base64.getEncoder().encodeToString(encrypted));
+			logger.info("Encrypted Ciphertext = " + Base64.getEncoder().encodeToString(encrypted));
 			// decryption
 			byte[] decrypted = PBEEngine.enc_dec_PBE(false, digest_alg, enc_alg, password, salt, encrypted);
 			String decryptedMessage = new String(decrypted, "UTF-8");
-			System.out.println("Decrypted Plaintext = " + decryptedMessage);
+			logger.info("Decrypted Plaintext = " + decryptedMessage);
 			assertEquals(message, decryptedMessage);
 		} catch (NoSuchAlgorithmException e) {
 			logger.error(e.getLocalizedMessage());

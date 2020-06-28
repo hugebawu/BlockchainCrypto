@@ -496,7 +496,7 @@ public class SysProperty {
 	 */
 	public static String getSysPath() {
 		String path = Thread.currentThread().getContextClassLoader().getResource("").toString();
-		System.out.println(path);
+//		logger.info(path);
 		String temp = path.replaceFirst("file:/", "").replaceFirst("WEB-INF/classes/", "");
 		String separator = System.getProperty("file.separator");
 		String resultPath = temp.replaceAll("/", separator + separator);

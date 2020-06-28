@@ -45,7 +45,7 @@ public class RSAEncEngineTest {
 	 */
 	public void test_enc_dec_RSA() {
 		try {
-			System.out.println("Testing RSA encryption scheme scheme.");
+			logger.info("Testing RSA encryption scheme scheme.");
 			int keysize = 3072;
 			// generate key pair
 			KeyPair keyPair = RSAEncEngine.getRSAKeyPair(keysize);
@@ -53,20 +53,20 @@ public class RSAEncEngineTest {
 			PrivateKey privateKey = keyPair.getPrivate();
 
 			String message = "Message";
-			System.out.println("Message: " + message);
+			logger.info("Message: " + message);
 
 			// encrypt the base64 ciphertext can be transmitted directly through network.
 			String base64_publciKey = Base64.getEncoder().encodeToString(publicKey.getEncoded());
 			byte[] encryptedtext = RSAEncEngine.encrypt(message.getBytes("UTF-8"), base64_publciKey);
 			String ciphertext = Base64.getEncoder().encodeToString(encryptedtext);
-			System.out.println("base64 ciphertext: " + ciphertext);
-			System.out.println("base64 ciphertext length: " + ciphertext.length());
+			logger.info("base64 ciphertext: " + ciphertext);
+			logger.info("base64 ciphertext length: " + ciphertext.length());
 
 			// decrypt
 			String base64_privateKey = Base64.getEncoder().encodeToString(privateKey.getEncoded());
 			byte[] decryptedtext = RSAEncEngine.decrypt(Base64.getDecoder().decode(ciphertext), base64_privateKey);
 			String decryptString = new String(decryptedtext, "UTF-8");
-			System.out.println("decrypted plaintext: " + decryptString);
+			logger.info("decrypted plaintext: " + decryptString);
 			assertEquals(message, decryptedtext);
 		} catch (UnsupportedEncodingException e) {
 			logger.error(e.getLocalizedMessage());

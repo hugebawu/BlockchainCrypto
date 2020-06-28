@@ -12,8 +12,11 @@ import java.io.IOException;
 import org.bouncycastle.util.encoders.Hex;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import cn.edu.ncepu.crypto.encryption.SymCrypt.SymmetricStreamEnc;
+import cn.edu.ncepu.crypto.utils.SysProperty;
 import edu.princeton.cs.algs4.StdOut;
 
 /**
@@ -26,6 +29,8 @@ import edu.princeton.cs.algs4.StdOut;
  * @Description: TODO(test the symmetric stream encryption algorithm)
  */
 public class SymmetricStreamEncTest {
+	private static Logger logger = LoggerFactory.getLogger(SymmetricStreamEncTest.class);
+	final private static String USER_DIR = SysProperty.USER_DIR;
 
 	@Ignore
 	@Test
@@ -46,9 +51,9 @@ public class SymmetricStreamEncTest {
 	public void testRC4File() {
 		try {
 			String key = "6206c34e2186e752c74e6df32ab8fa5b";
-			File fileIn = new File("src/test/java/com/example/encryption/SymCrypt/test.pdf");
-			File fileEnc = new File("src/test/java/com/example/encryption/SymCrypt/test.enc");
-			File fileDec = new File("src/test/java/com/example/encryption/SymCrypt/test.dec");
+			File fileIn = new File(USER_DIR + "/elements/test.pdf");
+			File fileEnc = new File(USER_DIR + "/elements/test.enc");
+			File fileDec = new File(USER_DIR + "/elements/test.dec");
 			FileInputStream in = new FileInputStream(fileIn);
 			FileOutputStream out = new FileOutputStream(fileEnc);
 
@@ -63,9 +68,9 @@ public class SymmetricStreamEncTest {
 			in.close();
 			out.close();
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+			logger.error(e.getLocalizedMessage());
 		} catch (IOException e) {
-			e.printStackTrace();
+			logger.error(e.getLocalizedMessage());
 		}
 	}
 }

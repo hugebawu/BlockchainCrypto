@@ -5,6 +5,7 @@ package cn.edu.ncepu.crypto.utils;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.concurrent.ExecutorService;
@@ -31,7 +32,7 @@ public class ShellExecutor {
 	private static ExecutorService communicatorExecutor = Executors.newCachedThreadPool();
 
 	/**
-	 * @Description: TODO(Execute interactive shell command, return process exit value.)
+	 * TODO(Execute interactive shell command, return process exit value.)
 	 * If {@param timeout} was set, {@throws CommandTimeoutException} may be thrown if the command execution timeout.
 	 * @param command       shell command.
 	 * @param directory     working directory where the command would be executed.
@@ -39,9 +40,11 @@ public class ShellExecutor {
 	 * @param communicators {@link Communicator} communication objects to receive message line from the process, with other operations as well.
 	 * @return the process exit value
 	 * @throws CommandTimeoutException
+	 * @throws IOException 
+	 * @throws InterruptedException 
 	 */
 	public static int execute(String command, String directory, Long timeout, final Communicator... communicators)
-			throws CommandTimeoutException {
+			throws CommandTimeoutException, IOException, InterruptedException {
 		String[] commands = new String[] { "sh", "-c", command };
 		final ProcessBuilder processBuilder = new ProcessBuilder(commands);
 		if (directory != null) {
@@ -52,53 +55,47 @@ public class ShellExecutor {
 		}
 		processBuilder.redirectErrorStream(true);
 		int status = -1;
-		try {
-			final Process process = processBuilder.start();
-			if (communicators != null && communicators.length > 0) {
-				communicatorExecutor.submit(() -> {
-					BufferedReader reader = null;
-					try {
-						InputStream inputStream = process.getInputStream();
-						if (inputStream == null) {
-							return;
-						}
-						reader = new BufferedReader(new InputStreamReader(inputStream));
-						String line;
-						while ((line = reader.readLine()) != null) {
-							for (Communicator communicator : communicators) {
-								communicator.onMessage(line, process);
-							}
-						}
-					} catch (Exception e) {
-						logger.warn(e.getMessage(), e);
-					} finally {
-						if (reader != null) {
-							try {
-								reader.close();
-							} catch (Exception e) {
-								logger.warn(e.getMessage(), e);
-							}
+
+		final Process process = processBuilder.start();
+		if (communicators != null && communicators.length > 0) {
+			communicatorExecutor.submit(() -> {
+				BufferedReader reader = null;
+				try {
+					InputStream inputStream = process.getInputStream();
+					if (inputStream == null) {
+						return;
+					}
+					reader = new BufferedReader(new InputStreamReader(inputStream));
+					String line;
+					while ((line = reader.readLine()) != null) {
+						for (Communicator communicator : communicators) {
+							communicator.onMessage(line, process);
 						}
 					}
-				});
-			}
-			if (timeout == null || timeout <= 0) {
-				status = process.waitFor();
-			} else {
-				if (!process.waitFor(timeout, TimeUnit.MILLISECONDS)) {
-					throw new CommandTimeoutException(
-							String.format("Command execute timeout, timeout: %s, command: %s", timeout, command));
-				} else {
-					status = process.exitValue();
+				} catch (Exception e) {
+					logger.warn(e.getMessage(), e);
+				} finally {
+					if (reader != null) {
+						try {
+							reader.close();
+						} catch (Exception e) {
+							logger.warn(e.getMessage(), e);
+						}
+					}
 				}
-			}
-			TimeUnit.MILLISECONDS.sleep(100);
-		} catch (Exception e) {
-			logger.warn(e.getMessage(), e);
-			if (e instanceof CommandTimeoutException) {
-				throw (CommandTimeoutException) e;
+			});
+		}
+		if (timeout == null || timeout <= 0) {
+			status = process.waitFor();
+		} else {
+			if (!process.waitFor(timeout, TimeUnit.MILLISECONDS)) {
+				throw new CommandTimeoutException(
+						String.format("Command execute timeout, timeout: %s, command: %s", timeout, command));
+			} else {
+				status = process.exitValue();
 			}
 		}
+		TimeUnit.MILLISECONDS.sleep(100);
 		return status;
 	}
 

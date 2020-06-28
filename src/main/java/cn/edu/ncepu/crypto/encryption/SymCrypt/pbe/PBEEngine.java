@@ -31,16 +31,14 @@ import org.bouncycastle.jce.provider.BouncyCastleProvider;
  */
 public class PBEEngine {
 
-	/*
-	 * example PBEWithMD5AndDES (PKCS #5, 1.5), PBEWithHmacSHA256AndAES_128 (PKCS
-	 * #5, 2.0)
-	 */
+	// example PBEWithMD5AndDES (PKCS #5, 1.5),
+	// PBEWithHmacSHA256AndAES_128 (PKCS #5, 2.0)
 	static String ALGORITHM_STRING_TEMP = "PBEWith<digest>And<encryption>";
 	final static int ITERATIONCOUNT = 1000;
 
 	/**
-	 * @Description: TODO(e.g., AES. hash to generate the real key for AES through the 
-	 *               password and secure random salt, and then use it to encrypt or decrypt the input )
+	 * TODO e.g., AES. hash to generate the real key for AES through the password and secure 
+	 * random salt, and then use it to encrypt or decrypt the input
 	 * @param isEnc encryption or decryption
 	 * @param digest_alg
 	 * @param enc_alg
@@ -49,44 +47,34 @@ public class PBEEngine {
 	 *        [USB key(with high secure random salt key)+password] encryption scheme.
 	 * @param input
 	 * @return 参数描述
-	 * @throws
+	 * @throws NoSuchAlgorithmException 
+	 * @throws InvalidKeySpecException 
+	 * @throws NoSuchPaddingException 
+	 * @throws InvalidAlgorithmParameterException 
+	 * @throws InvalidKeyException 
+	 * @throws BadPaddingException 
+	 * @throws IllegalBlockSizeException 
 	 */
 	public static byte[] enc_dec_PBE(boolean isEnc, String digest_alg, String enc_alg, String password, byte[] salt,
-			byte[] input) {
+			byte[] input) throws NoSuchAlgorithmException, InvalidKeySpecException, NoSuchPaddingException,
+			InvalidKeyException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException {
 		// add BouncyCastle as provider to Java.Security
 		Security.addProvider(new BouncyCastleProvider());
 		PBEKeySpec keySpec = new PBEKeySpec(password.toCharArray());
 		SecretKeyFactory sKeyFactory;
-		try {
-			String ALGORITHM_STRING = ALGORITHM_STRING_TEMP.replace("<digest>", digest_alg).replace("<encryption>",
-					enc_alg);
-			sKeyFactory = SecretKeyFactory.getInstance(ALGORITHM_STRING);
-			SecretKey skey = sKeyFactory.generateSecret(keySpec);
-			// bigger ITERATIONCOUNT, harder to crack
-			PBEParameterSpec pbeParameterSpec = new PBEParameterSpec(salt, ITERATIONCOUNT);
-			Cipher cipher = Cipher.getInstance(ALGORITHM_STRING);
-			// generate the real 128/192/256 bit key.
-			if (isEnc) {
-				cipher.init(Cipher.ENCRYPT_MODE, skey, pbeParameterSpec);
-			} else {
-				cipher.init(Cipher.DECRYPT_MODE, skey, pbeParameterSpec);
-			}
-			return cipher.doFinal(input);
-		} catch (NoSuchAlgorithmException e) {
-			e.printStackTrace();
-		} catch (InvalidKeySpecException e) {
-			e.printStackTrace();
-		} catch (NoSuchPaddingException e) {
-			e.printStackTrace();
-		} catch (InvalidKeyException e) {
-			e.printStackTrace();
-		} catch (InvalidAlgorithmParameterException e) {
-			e.printStackTrace();
-		} catch (IllegalBlockSizeException e) {
-			e.printStackTrace();
-		} catch (BadPaddingException e) {
-			e.printStackTrace();
+		String ALGORITHM_STRING = ALGORITHM_STRING_TEMP.replace("<digest>", digest_alg).replace("<encryption>",
+				enc_alg);
+		sKeyFactory = SecretKeyFactory.getInstance(ALGORITHM_STRING);
+		SecretKey skey = sKeyFactory.generateSecret(keySpec);
+		// bigger ITERATIONCOUNT, harder to crack
+		PBEParameterSpec pbeParameterSpec = new PBEParameterSpec(salt, ITERATIONCOUNT);
+		Cipher cipher = Cipher.getInstance(ALGORITHM_STRING);
+		// generate the real 128/192/256 bit key.
+		if (isEnc) {
+			cipher.init(Cipher.ENCRYPT_MODE, skey, pbeParameterSpec);
+		} else {
+			cipher.init(Cipher.DECRYPT_MODE, skey, pbeParameterSpec);
 		}
-		return null;
+		return cipher.doFinal(input);
 	}
 }

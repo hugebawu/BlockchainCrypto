@@ -3,10 +3,12 @@
  */
 package cn.edu.ncepu.crypto.signature.rsa;
 
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.security.Signature;
+import java.security.SignatureException;
 import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
-import java.util.Base64;
 
 /**
  * @Copyright : Copyright (c) 2020-2021 
@@ -22,45 +24,38 @@ public class RSASigner {
 	private static final String SINGALGORITHM_STRING = "SHA256withRSA";
 
 	/**
-	 * @Title: signRSA
-	 * @Description: TODO(sign the message with private key)
+	 * TODO(sign the message with private key)
 	 * @param privateKey
 	 * @param message
 	 * @return base64 encoded signature
-	 * @throws
+	 * @throws NoSuchAlgorithmException 
+	 * @throws InvalidKeyException 
+	 * @throws SignatureException 
 	 */
-	public static String signRSA(RSAPrivateKey rsaPrivateKey, String message) {
-		try {
-			Signature signature = Signature.getInstance(SINGALGORITHM_STRING);
-			signature.initSign(rsaPrivateKey);
-//			when the message is big, it can be divided into blocks(e,g, 1KB one time)
-			signature.update(message.getBytes("UTF-8"));
-			byte[] sign = signature.sign();
-			return Base64.getEncoder().encodeToString(sign);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
+	public static byte[] signRSA(RSAPrivateKey rsaPrivateKey, byte[] message)
+			throws NoSuchAlgorithmException, InvalidKeyException, SignatureException {
+		Signature signature = Signature.getInstance(SINGALGORITHM_STRING);
+		signature.initSign(rsaPrivateKey);
+		// when the message is big, it can be divided into blocks(e,g, 1KB one time)
+		signature.update(message);
+		return signature.sign();
 	}
 
 	/**
-	 * @Description: TODO(verify the RSA signature)
+	 * TODO(verify the RSA signature)
 	 * @param publickey
 	 * @param message
 	 * @param singed
 	 * @return ture or false
-	 * @throws
+	 * @throws NoSuchAlgorithmException 
+	 * @throws InvalidKeyException 
+	 * @throws SignatureException 
 	 */
-	public static boolean verifyRSA(RSAPublicKey rsaPublicKey, String message, String singed) {
-		try {
-			Signature signature = Signature.getInstance(SINGALGORITHM_STRING);
-			signature.initVerify(rsaPublicKey);
-			signature.update(message.getBytes("UTF-8"));
-			byte[] sign = Base64.getDecoder().decode(singed);
-			return signature.verify(sign);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return false;
+	public static boolean verifyRSA(RSAPublicKey rsaPublicKey, byte[] message, byte[] singed)
+			throws NoSuchAlgorithmException, InvalidKeyException, SignatureException {
+		Signature signature = Signature.getInstance(SINGALGORITHM_STRING);
+		signature.initVerify(rsaPublicKey);
+		signature.update(message);
+		return signature.verify(singed);
 	}
 }

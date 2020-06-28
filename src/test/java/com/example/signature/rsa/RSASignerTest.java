@@ -8,9 +8,12 @@ import static org.junit.Assert.assertTrue;
 import java.security.KeyPair;
 import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
+import java.util.Base64;
 
 import org.apache.commons.codec.binary.Hex;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import cn.edu.ncepu.crypto.encryption.rsa.RSAEncEngine;
 import cn.edu.ncepu.crypto.signature.rsa.RSASigner;
@@ -25,33 +28,36 @@ import cn.edu.ncepu.crypto.signature.rsa.RSASigner;
  * @Description: TODO(RSA digit signature test)
  */
 public class RSASignerTest {
+	private static Logger logger = LoggerFactory.getLogger(RSASignerTest.class);
+
 //	@Ignore
 	@Test
 	public void testRSASigner() {
-		System.out.println("Test RSA signature.");
-		// keyGen
-		int keysize = 1024;
-		KeyPair keyPair = RSAEncEngine.getRSAKeyPair(keysize);
-		RSAPublicKey rsaPublicKey = (RSAPublicKey) keyPair.getPublic();
-		RSAPrivateKey rsaPrivateKey = (RSAPrivateKey) keyPair.getPrivate();
-		System.out.println("Hex privateKey length = " + Hex.encodeHexString(rsaPrivateKey.getEncoded()).length());
-
-		System.out.println("========================================");
-		System.out.println("Test signer functionality");
-
-		String message = "Message";
-		System.out.println("message: " + message);
 		try {
+			logger.info("Test RSA signature.");
+			// keyGen
+			int keysize = 1024;
+			KeyPair keyPair = RSAEncEngine.getRSAKeyPair(keysize);
+			RSAPublicKey rsaPublicKey = (RSAPublicKey) keyPair.getPublic();
+			RSAPrivateKey rsaPrivateKey = (RSAPrivateKey) keyPair.getPrivate();
+			logger.info("Hex privateKey length = " + Hex.encodeHexString(rsaPrivateKey.getEncoded()).length());
+
+			logger.info("========================================");
+			logger.info("Test signer functionality");
+
+			String message = "Message";
+			logger.info("message: " + message);
 			// signature
-			String sign = RSASigner.signRSA(rsaPrivateKey, message);
-			System.out.println("signature: " + sign);
-			System.out.println("Signature length = " + sign.length());
+			byte[] signed = RSASigner.signRSA(rsaPrivateKey, message.getBytes("UTF-8"));
+			String signature = Base64.getEncoder().encodeToString(signed);
+			logger.info("Base64 signature: " + signature);
+			logger.info("Base64 Signature length = " + signature.length());
 
 			// verify
-			assertTrue(RSASigner.verifyRSA(rsaPublicKey, message, sign));
+			assertTrue(RSASigner.verifyRSA(rsaPublicKey, message.getBytes("UTF-8"), signed));
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error(e.getLocalizedMessage());
 		}
-		System.out.println("ECDSA signer functionality test pass.");
+		logger.info("ECDSA signer functionality test pass.");
 	}
 }

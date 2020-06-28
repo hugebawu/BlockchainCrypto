@@ -32,9 +32,17 @@ import org.bouncycastle.util.encoders.Hex;
 public class SymmetricStreamEnc {
 	private static final int DEFUALT_BLOCK_SIZE = 128;
 
+	/**
+	 * TODO RC4 file encryption method
+	 * @param key
+	 * @param plaintext
+	 * @return 参数描述
+	 */
 	public static byte[] enc_RC4(byte[] key, byte[] plaintext) {
 		// Make sure the validity of key, and plaintext
-		assert (key != null && plaintext != null);
+		if (key == null || plaintext == null) {
+			throw new NullPointerException("key || plaintext is null");
+		}
 		KeyParameter kp = new KeyParameter(key);
 		StreamCipher streamCipher = new RC4Engine();
 		streamCipher.init(true, kp);
@@ -44,9 +52,17 @@ public class SymmetricStreamEnc {
 		return ciphertext;
 	}
 
+	/**
+	 * TODO RC4 string decryption method
+	 * @param key
+	 * @param ciphertext
+	 * @return 
+	 */
 	public static byte[] dec_RC4(byte[] key, byte[] ciphertext) {
-		// Make sure the validity of key, and plaintext
-		assert (key != null && ciphertext != null);
+		// Make sure the validity of key, and ciphertext
+		if (key == null || ciphertext == null) {
+			throw new NullPointerException("key || ciphertext is null");
+		}
 		KeyParameter kp = new KeyParameter(key);
 		StreamCipher streamCipher = new RC4Engine();
 		streamCipher.init(false, kp);
@@ -56,54 +72,62 @@ public class SymmetricStreamEnc {
 		return plaintext;
 	}
 
-	public static void enc_RC4(byte[] key, InputStream in, OutputStream out) {
+	/**
+	 * TODO RC4 file decryption method
+	 * @param key
+	 * @param in
+	 * @param out 
+	 * @throws IOException 
+	 * @throws DataLengthException 
+	 */
+	public static void enc_RC4(byte[] key, InputStream in, OutputStream out) throws DataLengthException, IOException {
 		// Make sure the validity of key, and plaintext
-		assert (key != null && in != null && out != null);
+		if (key == null || in == null || out == null) {
+			throw new NullPointerException("key || inputStream || outputStream is null");
+		}
 		KeyParameter kp = new KeyParameter(key);
 		StreamCipher streamCipher = new RC4Engine();
 		streamCipher.init(true, kp);
-		try {
-			int inBlockSize = DEFUALT_BLOCK_SIZE;
-			int outBlockSize = DEFUALT_BLOCK_SIZE;
-			byte[] inblock = new byte[inBlockSize];
-			byte[] outblock = new byte[outBlockSize];
-			int inL;
-			byte[] rv = null;
-			while ((inL = in.read(inblock, 0, inBlockSize)) > 0) {
-				streamCipher.processBytes(inblock, 0, inL, outblock, 0);
-				rv = Hex.encode(outblock, 0, inL);
-				out.write(rv, 0, rv.length);
-				out.write('\n');
-			}
-		} catch (DataLengthException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
+		int inBlockSize = DEFUALT_BLOCK_SIZE;
+		int outBlockSize = DEFUALT_BLOCK_SIZE;
+		byte[] inblock = new byte[inBlockSize];
+		byte[] outblock = new byte[outBlockSize];
+		int inL;
+		byte[] rv = null;
+		while ((inL = in.read(inblock, 0, inBlockSize)) > 0) {
+			streamCipher.processBytes(inblock, 0, inL, outblock, 0);
+			rv = Hex.encode(outblock, 0, inL);
+			out.write(rv, 0, rv.length);
+			out.write('\n');
 		}
 	}
 
-	public static void dec_RC4(byte[] key, InputStream in, OutputStream out) {
-		// Make sure the validity of key, and plaintext
-		assert (key != null && in != null && out != null);
+	/**
+	 * TODO RC4 file encryption method
+	 * @param key
+	 * @param in
+	 * @param out
+	 * @throws DataLengthException
+	 * @throws IOException 
+	 */
+	public static void dec_RC4(byte[] key, InputStream in, OutputStream out) throws DataLengthException, IOException {
+		// Make sure the validity of key, and ciphertext
+		if (key == null || in == null || out == null) {
+			throw new NullPointerException("key || inputStream || outputStream is null");
+		}
 		KeyParameter kp = new KeyParameter(key);
 		StreamCipher streamCipher = new RC4Engine();
 		streamCipher.init(false, kp);
-		try {
-			BufferedReader br = new BufferedReader(new InputStreamReader(in));
-			byte[] inblock = null;
-			byte[] outblock = null;
-			String rv = null;
+		BufferedReader br = new BufferedReader(new InputStreamReader(in));
+		byte[] inblock = null;
+		byte[] outblock = null;
+		String rv = null;
 
-			while ((rv = br.readLine()) != null) {
-				inblock = Hex.decode(rv);
-				outblock = new byte[DEFUALT_BLOCK_SIZE];
-				streamCipher.processBytes(inblock, 0, inblock.length, outblock, 0);
-				out.write(outblock, 0, inblock.length);
-			}
-		} catch (DataLengthException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
+		while ((rv = br.readLine()) != null) {
+			inblock = Hex.decode(rv);
+			outblock = new byte[DEFUALT_BLOCK_SIZE];
+			streamCipher.processBytes(inblock, 0, inblock.length, outblock, 0);
+			out.write(outblock, 0, inblock.length);
 		}
 	}
 }

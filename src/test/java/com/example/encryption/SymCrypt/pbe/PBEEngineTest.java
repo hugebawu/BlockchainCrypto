@@ -7,12 +7,22 @@ import static org.junit.Assert.assertEquals;
 
 import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
+import java.security.spec.InvalidKeySpecException;
 import java.util.Base64;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
+
 import org.bouncycastle.util.encoders.Hex;
+import org.junit.Ignore;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import cn.edu.ncepu.crypto.encryption.SymCrypt.pbe.PBEEngine;
 
@@ -23,11 +33,12 @@ import cn.edu.ncepu.crypto.encryption.SymCrypt.pbe.PBEEngine;
  * @Version: 1.0
  * @CreateData: Jun 24, 2020 9:21:41 PM
  * @ClassName PBEEngineTest
- * @Description: TODO(这里用一句话描述这个方法的作用)
+ * @Description: TODO(password based encryption)
  */
 public class PBEEngineTest {
+	private static Logger logger = LoggerFactory.getLogger(PBEEngineTest.class);
 
-//	@Ignore
+	@Ignore
 	@Test
 	public void testPBE() {
 		// plaintext
@@ -52,9 +63,21 @@ public class PBEEngineTest {
 			System.out.println("Decrypted Plaintext = " + decryptedMessage);
 			assertEquals(message, decryptedMessage);
 		} catch (NoSuchAlgorithmException e) {
-			e.printStackTrace();
+			logger.error(e.getLocalizedMessage());
 		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
+			logger.error(e.getLocalizedMessage());
+		} catch (InvalidKeyException e) {
+			logger.error(e.getLocalizedMessage());
+		} catch (InvalidKeySpecException e) {
+			logger.error(e.getLocalizedMessage());
+		} catch (NoSuchPaddingException e) {
+			logger.error(e.getLocalizedMessage());
+		} catch (InvalidAlgorithmParameterException e) {
+			logger.error(e.getLocalizedMessage());
+		} catch (IllegalBlockSizeException e) {
+			logger.error(e.getLocalizedMessage());
+		} catch (BadPaddingException e) {
+			logger.error(e.getLocalizedMessage());
 		}
 
 	}

@@ -5,15 +5,20 @@ package com.example.keyExchange;
 
 import static org.junit.Assert.assertEquals;
 
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
 import java.security.KeyPair;
+import java.security.NoSuchAlgorithmException;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 
 import org.junit.Ignore;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import cn.edu.ncepu.crypto.keyExchange.ECDH;
-import cn.edu.ncepu.crypto.utils.ECUtils;
+import cn.edu.ncepu.crypto.utils.CommonUtils;
 
 /**
  * @Copyright : Copyright (c) 2020-2021 
@@ -25,6 +30,9 @@ import cn.edu.ncepu.crypto.utils.ECUtils;
  * @Description: TODO(elliptic curve based Diffie-Hellman key exchange algorithm test)
  */
 public class ECDHTest {
+	private static Logger logger = LoggerFactory.getLogger(DHTest.class);
+	private static final String EC_STRING = "EC";
+	private static final String CURVE_NAME = "secp256k1";
 
 	@Ignore
 	@Test
@@ -33,24 +41,31 @@ public class ECDHTest {
 	 * @throws
 	 */
 	public void testGenSharedKey() {
-		System.out.println("Testing ECDH key exchange scheme.");
-		// Alice generate key pair
-		KeyPair keyPair_Alice = ECUtils.getECKeyPair();
-		PublicKey publicKey_Alice = keyPair_Alice.getPublic();
-		PrivateKey privateKey_Alice = keyPair_Alice.getPrivate();
+		try {
+			System.out.println("Testing ECDH key exchange scheme.");
+			// Alice generate key pair
+			KeyPair keyPair_Alice = CommonUtils.initKey(EC_STRING, CURVE_NAME);
+			PublicKey publicKey_Alice = keyPair_Alice.getPublic();
+			PrivateKey privateKey_Alice = keyPair_Alice.getPrivate();
 
-		// Bob generate key pair
-		KeyPair keyPair_Bob = ECUtils.getECKeyPair();
-		PublicKey publicKey_Bob = keyPair_Bob.getPublic();
-		PrivateKey privateKey_Bob = keyPair_Bob.getPrivate();
+			// Bob generate key pair
+			KeyPair keyPair_Bob = CommonUtils.initKey(EC_STRING, CURVE_NAME);
+			PublicKey publicKey_Bob = keyPair_Bob.getPublic();
+			PrivateKey privateKey_Bob = keyPair_Bob.getPrivate();
 
-		// generate two related shared key and compare if they are the same
-		String sharedKey_Alice = ECDH.genSharedKey(publicKey_Bob, privateKey_Alice);
-		String sharedKey_Bob = ECDH.genSharedKey(publicKey_Alice, privateKey_Bob);
+			// generate two related shared key and compare if they are the same
+			String sharedKey_Alice;
+			sharedKey_Alice = ECDH.genSharedKey(publicKey_Bob, privateKey_Alice);
+			String sharedKey_Bob = ECDH.genSharedKey(publicKey_Alice, privateKey_Bob);
 
-		if (sharedKey_Alice.equals(sharedKey_Bob)) {
-			System.out.println("ECDH key exchange functionality test pass.");
+			if (sharedKey_Alice.equals(sharedKey_Bob)) {
+				System.out.println("ECDH key exchange functionality test pass.");
+			}
+			assertEquals(sharedKey_Alice, sharedKey_Bob);
+		} catch (InvalidKeyException | NoSuchAlgorithmException | IllegalStateException e) {
+			logger.error(e.getLocalizedMessage());
+		} catch (InvalidAlgorithmParameterException e) {
+			logger.error(e.getLocalizedMessage());
 		}
-		assertEquals(sharedKey_Alice, sharedKey_Bob);
 	}
 }

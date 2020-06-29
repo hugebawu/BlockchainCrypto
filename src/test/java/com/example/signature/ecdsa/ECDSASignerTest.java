@@ -11,11 +11,13 @@ import java.security.SignatureException;
 
 import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.binary.Hex;
+import org.bouncycastle.crypto.Signer;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import cn.edu.ncepu.crypto.algebra.generators.PairingKeyPairGenerator;
 import cn.edu.ncepu.crypto.signature.ecdsa.ECDSASigner;
 import cn.edu.ncepu.crypto.utils.CommonUtils;
 
@@ -30,26 +32,28 @@ import cn.edu.ncepu.crypto.utils.CommonUtils;
  */
 public class ECDSASignerTest {
 	private static Logger logger = LoggerFactory.getLogger(ECDSASignerTest.class);
+	private PairingKeyPairGenerator asymmetricKeySerPairGenerator;
 	private static final String EC_STRING = "EC";
 	private static final String CURVE_NAME = "secp256k1";
+	private Signer signer;
 
 	@Ignore
 	@Test
 	public void testECDSASigner() {
-
 		try {
-			logger.info("Test Scott-Vanstone 1992 signature.");
 			// keyGen
 			KeyPair keyPair = CommonUtils.initKey(EC_STRING, CURVE_NAME);
 			PublicKey publicKey = keyPair.getPublic();
 			PrivateKey privateKey = keyPair.getPrivate();
 			logger.info("privateKey length = " + Hex.encodeHexString(privateKey.getEncoded()).length());
 
+			logger.info("Test Scott-Vanstone 1992 signature.");
 			logger.info("========================================");
 			logger.info("Test signer functionality");
 
 			// signature
-			byte[] sign = ECDSASigner.signECDSA(privateKey, "message".getBytes("UTF-8"));
+			byte[] message = "message".getBytes("UTF-8");
+			byte[] sign = ECDSASigner.signECDSA(privateKey, message);
 			String singHex = Hex.encodeHexString(sign);
 			logger.info("Hex signature: " + singHex);
 			logger.info("Signature length = " + singHex.length());

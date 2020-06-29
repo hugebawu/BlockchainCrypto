@@ -1,6 +1,8 @@
 package com.example.encryption.ibe;
 
 import org.bouncycastle.crypto.InvalidCipherTextException;
+import org.junit.Ignore;
+import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,14 +21,13 @@ import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Pairing;
 import it.unisa.dia.gas.jpbc.PairingParameters;
 import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
-import junit.framework.TestCase;
 
 /**
  * Created by Weiran Liu on 2016/12/5.
  *
  * Generic IBE performance test.
  */
-public class IBEPerformanceTest extends TestCase {
+public class IBEPerformanceTest {
 	private static Logger logger = LoggerFactory.getLogger(IBEPerformanceTest.class);
 	private String pairingParameterPath;
 	// file path for performance test result
@@ -181,6 +182,8 @@ public class IBEPerformanceTest extends TestCase {
 		}
 	}
 
+	@Ignore
+	@Test
 	public void testBF01aPerformance() {
 		IBEPerformanceTest performanceTest = new IBEPerformanceTest();
 		performanceTest.pairingParameterPath = PairingUtils.PATH_a_160_512;
@@ -190,6 +193,8 @@ public class IBEPerformanceTest extends TestCase {
 		performanceTest.runPerformanceTest();
 	}
 
+	@Ignore
+	@Test
 	public void testGen06aPerformance() {
 		IBEPerformanceTest performanceTest = new IBEPerformanceTest();
 		performanceTest.pairingParameterPath = PairingUtils.PATH_a_160_512;

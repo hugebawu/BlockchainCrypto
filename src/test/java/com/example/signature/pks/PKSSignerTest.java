@@ -1,11 +1,15 @@
 package com.example.signature.pks;
 
+import static org.junit.Assert.assertEquals;
+
 import java.io.UnsupportedEncodingException;
 
 import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.crypto.CryptoException;
 import org.bouncycastle.crypto.Signer;
 import org.bouncycastle.crypto.digests.SHA256Digest;
+import org.junit.Ignore;
+import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -27,14 +31,13 @@ import cn.edu.ncepu.crypto.signature.pks.bls01.BLS01Signer;
 import cn.edu.ncepu.crypto.utils.PairingUtils;
 import it.unisa.dia.gas.jpbc.PairingParameters;
 import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
-import junit.framework.TestCase;
 
 /**
  * Created by Weiran Liu on 2016/10/18.
  *
  * Public key signature test.
  */
-public class PKSSignerTest extends TestCase {
+public class PKSSignerTest {
 	private static Logger logger = LoggerFactory.getLogger(PKSSignerTest.class);
 	private PairingKeyPairGenerator asymmetricKeySerPairGenerator;
 	private Signer signer;
@@ -104,6 +107,8 @@ public class PKSSignerTest extends TestCase {
 		}
 	}
 
+	@Ignore
+	@Test
 	public void testBLS01Signer() {
 		PairingParameters pairingParameters = PairingFactory.getPairingParameters(PairingUtils.PATH_f_160);
 		logger.info("Test Boneh-Lynn-Shacham 2001 signature.");
@@ -113,6 +118,8 @@ public class PKSSignerTest extends TestCase {
 		this.processTest();
 	}
 
+	@Ignore
+	@Test
 	public void testBB04Signer() {
 		PairingParameters pairingParameters = PairingFactory.getPairingParameters(PairingUtils.PATH_a_160_512);
 		logger.info("Test Boneh-Boyen 2004 signature.");
@@ -122,6 +129,8 @@ public class PKSSignerTest extends TestCase {
 		this.processTest();
 	}
 
+	@Ignore
+	@Test
 	public void testBB08Signer() {
 		PairingParameters pairingParameters = PairingFactory.getPairingParameters(PairingUtils.PATH_a_160_512);
 		logger.info("Test Boneh-Boyen 2008 signature.");
@@ -129,5 +138,11 @@ public class PKSSignerTest extends TestCase {
 		this.asymmetricKeySerPairGenerator.init(new BB08SignKeyPairGenerationParameter(pairingParameters));
 		this.signer = new PairingDigestSigner(new BB08Signer(), new SHA256Digest());
 		this.processTest();
+	}
+
+	@Ignore
+	@Test
+	public void testECDSASigner() {
+		logger.info("Test Scott-Vanstone 1992 signature.");
 	}
 }

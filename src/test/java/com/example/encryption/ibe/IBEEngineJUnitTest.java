@@ -179,7 +179,7 @@ public class IBEEngineJUnitTest {
 	/**
 	 * TODO 测试动态生成Type A1 PairingParameters并保存
 	 */
-//	@Ignore
+	@Ignore
 	@Test
 	public void testGenTypeA1PairParam() {
 		// Type A1 对称合数阶双线性群
@@ -208,10 +208,11 @@ public class IBEEngineJUnitTest {
 	/**
 	 * TODO 本质是testIBEBF01bEngine,不同之出是加载的参数是a.properties
 	 */
+//	@Ignore
 	@Test
 	public void testWPIBE() {
-		System.out.printf("start wp_ibe Testing \n");
-		Pairing pairing = PairingFactory.getPairing(USER_DIR + "params/a.properties");// 在jpbc配置使用的那个jar包，\params\curves下面
+		logger.info("start wp_ibe Testing \n");
+		Pairing pairing = PairingFactory.getPairing(USER_DIR + "/params/a.properties");// 在jpbc配置使用的那个jar包，\params\curves下面
 		BasicIdent ident = new BasicIdent(pairing);
 		// 动态代理，统计各个方法耗时
 		Ident identProxy = (Ident) Proxy.newProxyInstance(BasicIdent.class.getClassLoader(),

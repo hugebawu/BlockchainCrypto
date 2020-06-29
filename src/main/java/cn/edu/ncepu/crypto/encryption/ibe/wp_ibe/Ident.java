@@ -1,7 +1,7 @@
 /**
  * 
  */
-package cn.edu.ncepu.crypto.encryption.wp_ibe;
+package cn.edu.ncepu.crypto.encryption.ibe.wp_ibe;
 
 /**
  *

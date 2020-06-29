@@ -1,710 +1,710 @@
 Test IBE engine: Boneh-Franklin CPA-secure IBE
 All test rounds: 100
 Test round: 1
-Setup : 	163.9328
-KeyGen: 	53.3781
-Encapsulation: 	67.0805
-Encryption: 	55.0652
-Decapsulation: 	36.4068
-Decryption: 	34.9063
+Setup : 	164.930919
+KeyGen: 	106.930849
+Encapsulation: 	118.630376
+Encryption: 	90.684514
+Decapsulation: 	75.570488
+Decryption: 	44.830194
 Test round: 2
-Setup : 	13.4292
-KeyGen: 	36.8976
-Encapsulation: 	50.3305
-Encryption: 	45.5082
-Decapsulation: 	34.3249
-Decryption: 	35.8887
+Setup : 	16.806124
+KeyGen: 	48.572285
+Encapsulation: 	65.611988
+Encryption: 	53.117008
+Decapsulation: 	37.070925
+Decryption: 	34.278496
 Test round: 3
-Setup : 	14.7052
-KeyGen: 	43.1387
-Encapsulation: 	49.1009
-Encryption: 	48.6744
-Decapsulation: 	35.7299
-Decryption: 	38.45
+Setup : 	13.640863
+KeyGen: 	38.186687
+Encapsulation: 	51.316976
+Encryption: 	49.876339
+Decapsulation: 	31.70044
+Decryption: 	31.78795
 Test round: 4
-Setup : 	13.8484
-KeyGen: 	38.597
-Encapsulation: 	46.3717
-Encryption: 	44.5868
-Decapsulation: 	33.6976
-Decryption: 	32.0172
+Setup : 	12.604034
+KeyGen: 	35.197579
+Encapsulation: 	44.182357
+Encryption: 	43.701562
+Decapsulation: 	35.20698
+Decryption: 	31.435306
 Test round: 5
-Setup : 	13.9598
-KeyGen: 	35.5272
-Encapsulation: 	44.6726
-Encryption: 	43.0345
-Decapsulation: 	31.7735
-Decryption: 	32.3134
+Setup : 	12.489764
+KeyGen: 	37.185048
+Encapsulation: 	44.069327
+Encryption: 	42.914305
+Decapsulation: 	31.132922
+Decryption: 	33.091316
 Test round: 6
-Setup : 	12.0821
-KeyGen: 	35.0057
-Encapsulation: 	48.1687
-Encryption: 	44.8643
-Decapsulation: 	31.7572
-Decryption: 	31.3099
+Setup : 	13.099231
+KeyGen: 	37.454407
+Encapsulation: 	50.794974
+Encryption: 	58.839832
+Decapsulation: 	41.755254
+Decryption: 	42.636225
 Test round: 7
-Setup : 	14.745
-KeyGen: 	35.2474
-Encapsulation: 	43.7874
-Encryption: 	47.0292
-Decapsulation: 	34.0131
-Decryption: 	35.6609
+Setup : 	16.752674
+KeyGen: 	46.764702
+Encapsulation: 	48.858583
+Encryption: 	47.701721
+Decapsulation: 	32.82502
+Decryption: 	34.245943
 Test round: 8
-Setup : 	14.1977
-KeyGen: 	39.7719
-Encapsulation: 	53.482
-Encryption: 	52.2967
-Decapsulation: 	35.6048
-Decryption: 	33.3162
+Setup : 	12.636066
+KeyGen: 	35.303936
+Encapsulation: 	47.485575
+Encryption: 	48.971837
+Decapsulation: 	32.524131
+Decryption: 	32.450399
 Test round: 9
-Setup : 	12.5861
-KeyGen: 	35.0701
-Encapsulation: 	43.0825
-Encryption: 	45.8128
-Decapsulation: 	38.545
-Decryption: 	37.1078
+Setup : 	12.653703
+KeyGen: 	35.002262
+Encapsulation: 	49.105787
+Encryption: 	45.514319
+Decapsulation: 	34.759103
+Decryption: 	34.582585
 Test round: 10
-Setup : 	14.2141
-KeyGen: 	41.3612
-Encapsulation: 	60.4921
-Encryption: 	60.5107
-Decapsulation: 	42.2592
-Decryption: 	38.3609
+Setup : 	12.837766
+KeyGen: 	35.738356
+Encapsulation: 	48.270756
+Encryption: 	48.06818
+Decapsulation: 	32.969798
+Decryption: 	32.315174
 Test round: 11
-Setup : 	14.9841
-KeyGen: 	49.9397
-Encapsulation: 	69.4315
-Encryption: 	69.3449
-Decapsulation: 	48.8999
-Decryption: 	51.8428
+Setup : 	12.711333
+KeyGen: 	34.540356
+Encapsulation: 	43.618226
+Encryption: 	43.105244
+Decapsulation: 	38.498699
+Decryption: 	44.789241
 Test round: 12
-Setup : 	14.8991
-KeyGen: 	40.9255
-Encapsulation: 	48.6171
-Encryption: 	53.7653
-Decapsulation: 	35.2795
-Decryption: 	36.1445
+Setup : 	15.622641
+KeyGen: 	43.52251
+Encapsulation: 	57.918886
+Encryption: 	64.918688
+Decapsulation: 	50.319228
+Decryption: 	46.978202
 Test round: 13
-Setup : 	13.6385
-KeyGen: 	35.2074
-Encapsulation: 	43.3173
-Encryption: 	42.433
-Decapsulation: 	33.502
-Decryption: 	34.4045
+Setup : 	16.870115
+KeyGen: 	46.532113
+Encapsulation: 	45.096316
+Encryption: 	43.989874
+Decapsulation: 	32.59315
+Decryption: 	31.237926
 Test round: 14
-Setup : 	12.8395
-KeyGen: 	36.7366
-Encapsulation: 	45.6413
-Encryption: 	43.1849
-Decapsulation: 	31.2498
-Decryption: 	32.9551
+Setup : 	12.812789
+KeyGen: 	35.036743
+Encapsulation: 	45.136619
+Encryption: 	42.958657
+Decapsulation: 	32.048753
+Decryption: 	31.865758
 Test round: 15
-Setup : 	12.4723
-KeyGen: 	35.2328
-Encapsulation: 	42.0261
-Encryption: 	41.9409
-Decapsulation: 	31.5593
-Decryption: 	31.9767
+Setup : 	12.316936
+KeyGen: 	34.289784
+Encapsulation: 	42.511715
+Encryption: 	43.041856
+Decapsulation: 	31.497328
+Decryption: 	31.4295
 Test round: 16
-Setup : 	12.4139
-KeyGen: 	36.1059
-Encapsulation: 	41.6994
-Encryption: 	43.4156
-Decapsulation: 	34.9541
-Decryption: 	36.4448
+Setup : 	12.290811
+KeyGen: 	34.326048
+Encapsulation: 	42.310546
+Encryption: 	42.791618
+Decapsulation: 	31.231152
+Decryption: 	34.746772
 Test round: 17
-Setup : 	13.7462
-KeyGen: 	40.3593
-Encapsulation: 	48.0819
-Encryption: 	45.3457
-Decapsulation: 	31.0845
-Decryption: 	31.841
+Setup : 	12.315979
+KeyGen: 	34.493595
+Encapsulation: 	42.3275
+Encryption: 	41.786341
+Decapsulation: 	30.668283
+Decryption: 	30.678208
 Test round: 18
-Setup : 	11.6482
-KeyGen: 	33.1679
-Encapsulation: 	46.2136
-Encryption: 	49.0822
-Decapsulation: 	36.1438
-Decryption: 	36.1171
+Setup : 	12.094081
+KeyGen: 	33.596093
+Encapsulation: 	42.573535
+Encryption: 	42.423003
+Decapsulation: 	33.929819
+Decryption: 	33.631794
 Test round: 19
-Setup : 	13.7837
-KeyGen: 	35.0573
-Encapsulation: 	46.2518
-Encryption: 	47.5907
-Decapsulation: 	38.2411
-Decryption: 	44.3874
+Setup : 	13.194638
+KeyGen: 	33.931081
+Encapsulation: 	42.778809
+Encryption: 	42.122547
+Decapsulation: 	31.402956
+Decryption: 	31.233043
 Test round: 20
-Setup : 	12.8752
-KeyGen: 	36.8326
-Encapsulation: 	49.5168
-Encryption: 	48.2037
-Decapsulation: 	35.3799
-Decryption: 	32.331
+Setup : 	12.06586
+KeyGen: 	33.642434
+Encapsulation: 	43.899827
+Encryption: 	44.618501
+Decapsulation: 	30.836946
+Decryption: 	30.668017
 Test round: 21
-Setup : 	11.8898
-KeyGen: 	33.4387
-Encapsulation: 	45.4866
-Encryption: 	55.707
-Decapsulation: 	35.6691
-Decryption: 	35.3509
+Setup : 	12.307382
+KeyGen: 	34.013408
+Encapsulation: 	42.065114
+Encryption: 	42.660882
+Decapsulation: 	30.619235
+Decryption: 	30.932352
 Test round: 22
-Setup : 	13.8823
-KeyGen: 	38.0281
-Encapsulation: 	41.1418
-Encryption: 	42.6214
-Decapsulation: 	30.2358
-Decryption: 	30.1104
+Setup : 	11.94454
+KeyGen: 	34.371189
+Encapsulation: 	42.261093
+Encryption: 	42.149843
+Decapsulation: 	30.622503
+Decryption: 	30.388622
 Test round: 23
-Setup : 	12.0782
-KeyGen: 	34.0346
-Encapsulation: 	43.0508
-Encryption: 	41.8458
-Decapsulation: 	29.8482
-Decryption: 	30.6793
+Setup : 	12.112102
+KeyGen: 	33.644559
+Encapsulation: 	41.467296
+Encryption: 	41.906398
+Decapsulation: 	30.790765
+Decryption: 	31.795381
 Test round: 24
-Setup : 	11.6683
-KeyGen: 	33.8248
-Encapsulation: 	42.8441
-Encryption: 	41.8252
-Decapsulation: 	31.0513
-Decryption: 	31.3458
+Setup : 	12.265693
+KeyGen: 	34.197347
+Encapsulation: 	42.273415
+Encryption: 	42.289172
+Decapsulation: 	30.575461
+Decryption: 	30.592789
 Test round: 25
-Setup : 	17.2075
-KeyGen: 	49.453
-Encapsulation: 	41.8577
-Encryption: 	42.9934
-Decapsulation: 	32.7731
-Decryption: 	34.1528
+Setup : 	12.5278
+KeyGen: 	33.51125
+Encapsulation: 	42.000213
+Encryption: 	43.155356
+Decapsulation: 	30.624699
+Decryption: 	30.428472
 Test round: 26
-Setup : 	12.5716
-KeyGen: 	39.3956
-Encapsulation: 	50.613
-Encryption: 	51.0946
-Decapsulation: 	38.7579
-Decryption: 	38.3646
+Setup : 	11.992908
+KeyGen: 	33.350655
+Encapsulation: 	41.694855
+Encryption: 	41.976256
+Decapsulation: 	30.538196
+Decryption: 	30.736282
 Test round: 27
-Setup : 	16.3721
-KeyGen: 	43.0064
-Encapsulation: 	51.4179
-Encryption: 	51.0395
-Decapsulation: 	37.8706
-Decryption: 	41.1639
+Setup : 	11.926491
+KeyGen: 	34.933126
+Encapsulation: 	42.23952
+Encryption: 	41.572021
+Decapsulation: 	31.170061
+Decryption: 	30.841534
 Test round: 28
-Setup : 	19.7774
-KeyGen: 	41.8654
-Encapsulation: 	54.233
-Encryption: 	53.095
-Decapsulation: 	37.588
-Decryption: 	35.1636
+Setup : 	11.775697
+KeyGen: 	33.763411
+Encapsulation: 	42.534811
+Encryption: 	42.127219
+Decapsulation: 	30.400694
+Decryption: 	30.544019
 Test round: 29
-Setup : 	13.5387
-KeyGen: 	39.2305
-Encapsulation: 	43.1114
-Encryption: 	41.7659
-Decapsulation: 	30.9643
-Decryption: 	30.6571
+Setup : 	12.061011
+KeyGen: 	33.647328
+Encapsulation: 	41.733811
+Encryption: 	41.765839
+Decapsulation: 	30.636422
+Decryption: 	30.864246
 Test round: 30
-Setup : 	11.6222
-KeyGen: 	32.7424
-Encapsulation: 	41.2545
-Encryption: 	59.7636
-Decapsulation: 	35.9067
-Decryption: 	35.5336
+Setup : 	12.061419
+KeyGen: 	32.924849
+Encapsulation: 	42.526772
+Encryption: 	41.997448
+Decapsulation: 	30.399909
+Decryption: 	30.216543
 Test round: 31
-Setup : 	13.4468
-KeyGen: 	38.6794
-Encapsulation: 	46.9826
-Encryption: 	44.7153
-Decapsulation: 	30.488
-Decryption: 	30.3537
+Setup : 	12.031665
+KeyGen: 	32.957073
+Encapsulation: 	41.585952
+Encryption: 	41.380711
+Decapsulation: 	30.357774
+Decryption: 	30.255106
 Test round: 32
-Setup : 	11.7842
-KeyGen: 	32.9757
-Encapsulation: 	43.6042
-Encryption: 	42.9591
-Decapsulation: 	31.1403
-Decryption: 	30.7316
+Setup : 	12.099408
+KeyGen: 	33.413377
+Encapsulation: 	41.816597
+Encryption: 	41.852718
+Decapsulation: 	30.867335
+Decryption: 	30.641104
 Test round: 33
-Setup : 	11.6526
-KeyGen: 	33.0361
-Encapsulation: 	41.4824
-Encryption: 	41.2588
-Decapsulation: 	32.2321
-Decryption: 	32.0541
+Setup : 	11.946031
+KeyGen: 	33.034155
+Encapsulation: 	42.58347
+Encryption: 	41.779081
+Decapsulation: 	30.294164
+Decryption: 	32.095073
 Test round: 34
-Setup : 	12.2439
-KeyGen: 	34.1293
-Encapsulation: 	41.8817
-Encryption: 	41.3004
-Decapsulation: 	30.3618
-Decryption: 	30.2127
+Setup : 	13.257712
+KeyGen: 	35.348892
+Encapsulation: 	41.836615
+Encryption: 	41.739343
+Decapsulation: 	30.329438
+Decryption: 	30.525228
 Test round: 35
-Setup : 	12.2496
-KeyGen: 	36.8114
-Encapsulation: 	61.5122
-Encryption: 	51.2248
-Decapsulation: 	44.4439
-Decryption: 	40.1158
+Setup : 	11.856757
+KeyGen: 	33.163394
+Encapsulation: 	42.107828
+Encryption: 	42.403754
+Decapsulation: 	31.084231
+Decryption: 	30.76767
 Test round: 36
-Setup : 	15.1945
-KeyGen: 	38.9433
-Encapsulation: 	47.3257
-Encryption: 	46.4405
-Decapsulation: 	33.4749
-Decryption: 	32.366
+Setup : 	12.237308
+KeyGen: 	34.94969
+Encapsulation: 	42.038168
+Encryption: 	41.899431
+Decapsulation: 	30.862588
+Decryption: 	30.780818
 Test round: 37
-Setup : 	12.7297
-KeyGen: 	36.1491
-Encapsulation: 	44.3586
-Encryption: 	43.2988
-Decapsulation: 	34.4906
-Decryption: 	34.6526
+Setup : 	11.742031
+KeyGen: 	33.231312
+Encapsulation: 	42.36935
+Encryption: 	41.998065
+Decapsulation: 	30.6844
+Decryption: 	32.245014
 Test round: 38
-Setup : 	12.9982
-KeyGen: 	36.8321
-Encapsulation: 	46.0203
-Encryption: 	46.758
-Decapsulation: 	31.7905
-Decryption: 	31.1276
+Setup : 	12.007656
+KeyGen: 	33.532603
+Encapsulation: 	43.12169
+Encryption: 	42.171733
+Decapsulation: 	30.743127
+Decryption: 	32.215732
 Test round: 39
-Setup : 	12.1822
-KeyGen: 	32.718
-Encapsulation: 	51.3858
-Encryption: 	47.6205
-Decapsulation: 	35.7832
-Decryption: 	39.1342
+Setup : 	12.635864
+KeyGen: 	34.061648
+Encapsulation: 	41.921699
+Encryption: 	41.98986
+Decapsulation: 	30.625151
+Decryption: 	30.80704
 Test round: 40
-Setup : 	14.508
-KeyGen: 	47.2293
-Encapsulation: 	50.7252
-Encryption: 	56.0819
-Decapsulation: 	37.7234
-Decryption: 	36.5999
+Setup : 	11.953464
+KeyGen: 	33.507452
+Encapsulation: 	41.590687
+Encryption: 	44.81823
+Decapsulation: 	32.82788
+Decryption: 	32.260514
 Test round: 41
-Setup : 	14.3053
-KeyGen: 	39.397
-Encapsulation: 	48.5491
-Encryption: 	43.3761
-Decapsulation: 	37.056
-Decryption: 	36.5988
+Setup : 	12.207122
+KeyGen: 	35.06983
+Encapsulation: 	44.485932
+Encryption: 	45.42611
+Decapsulation: 	31.798058
+Decryption: 	32.307679
 Test round: 42
-Setup : 	13.963
-KeyGen: 	39.0733
-Encapsulation: 	48.2499
-Encryption: 	43.6521
-Decapsulation: 	35.6329
-Decryption: 	43.3219
+Setup : 	12.3838
+KeyGen: 	35.57156
+Encapsulation: 	44.328471
+Encryption: 	42.993764
+Decapsulation: 	32.345992
+Decryption: 	33.186744
 Test round: 43
-Setup : 	15.3555
-KeyGen: 	42.3623
-Encapsulation: 	51.6019
-Encryption: 	57.4144
-Decapsulation: 	40.456
-Decryption: 	36.8574
+Setup : 	12.845394
+KeyGen: 	35.395998
+Encapsulation: 	43.705419
+Encryption: 	43.923154
+Decapsulation: 	32.062094
+Decryption: 	34.018479
 Test round: 44
-Setup : 	13.4095
-KeyGen: 	39.9133
-Encapsulation: 	55.6714
-Encryption: 	54.6983
-Decapsulation: 	46.4801
-Decryption: 	40.5878
+Setup : 	13.593945
+KeyGen: 	35.610526
+Encapsulation: 	44.346896
+Encryption: 	43.56815
+Decapsulation: 	33.044511
+Decryption: 	32.349607
 Test round: 45
-Setup : 	14.8614
-KeyGen: 	41.5564
-Encapsulation: 	49.7296
-Encryption: 	44.4537
-Decapsulation: 	32.3842
-Decryption: 	31.9997
+Setup : 	12.636381
+KeyGen: 	36.539832
+Encapsulation: 	47.714489
+Encryption: 	43.494251
+Decapsulation: 	31.192307
+Decryption: 	30.776924
 Test round: 46
-Setup : 	11.7049
-KeyGen: 	33.1729
-Encapsulation: 	43.7341
-Encryption: 	42.4891
-Decapsulation: 	31.456
-Decryption: 	38.5904
+Setup : 	12.082658
+KeyGen: 	33.437782
+Encapsulation: 	42.431463
+Encryption: 	41.702772
+Decapsulation: 	31.187498
+Decryption: 	30.670043
 Test round: 47
-Setup : 	12.9136
-KeyGen: 	36.9663
-Encapsulation: 	43.0625
-Encryption: 	43.8877
-Decapsulation: 	32.9415
-Decryption: 	31.8642
+Setup : 	12.159205
+KeyGen: 	34.528179
+Encapsulation: 	43.144407
+Encryption: 	43.165856
+Decapsulation: 	32.43965
+Decryption: 	31.878609
 Test round: 48
-Setup : 	11.9407
-KeyGen: 	33.8073
-Encapsulation: 	43.7171
-Encryption: 	44.4744
-Decapsulation: 	33.2376
-Decryption: 	35.1972
+Setup : 	11.988614
+KeyGen: 	33.457849
+Encapsulation: 	42.394864
+Encryption: 	42.481734
+Decapsulation: 	32.739862
+Decryption: 	33.101091
 Test round: 49
-Setup : 	13.4811
-KeyGen: 	38.3941
-Encapsulation: 	48.7299
-Encryption: 	47.7111
-Decapsulation: 	31.5227
-Decryption: 	32.2977
+Setup : 	12.579559
+KeyGen: 	34.010768
+Encapsulation: 	41.348754
+Encryption: 	41.476571
+Decapsulation: 	30.301807
+Decryption: 	30.79849
 Test round: 50
-Setup : 	13.6137
-KeyGen: 	37.5177
-Encapsulation: 	44.677
-Encryption: 	43.6579
-Decapsulation: 	31.2143
-Decryption: 	30.8123
+Setup : 	11.89879
+KeyGen: 	33.993902
+Encapsulation: 	41.670944
+Encryption: 	41.821955
+Decapsulation: 	31.6529
+Decryption: 	30.880664
 Test round: 51
-Setup : 	12.477
-KeyGen: 	35.5922
-Encapsulation: 	42.7987
-Encryption: 	42.2851
-Decapsulation: 	31.9723
-Decryption: 	31.6524
+Setup : 	12.343631
+KeyGen: 	34.280744
+Encapsulation: 	42.080317
+Encryption: 	41.937514
+Decapsulation: 	31.225196
+Decryption: 	30.618042
 Test round: 52
-Setup : 	12.3622
-KeyGen: 	34.6165
-Encapsulation: 	43.1234
-Encryption: 	43.0313
-Decapsulation: 	30.4366
-Decryption: 	31.5186
+Setup : 	12.235946
+KeyGen: 	33.943195
+Encapsulation: 	41.483289
+Encryption: 	41.784796
+Decapsulation: 	30.973621
+Decryption: 	31.738382
 Test round: 53
-Setup : 	11.9672
-KeyGen: 	33.9325
-Encapsulation: 	43.5504
-Encryption: 	41.963
-Decapsulation: 	32.2404
-Decryption: 	35.0069
+Setup : 	12.30212
+KeyGen: 	34.016164
+Encapsulation: 	41.779561
+Encryption: 	42.210714
+Decapsulation: 	30.723812
+Decryption: 	30.599807
 Test round: 54
-Setup : 	14.4138
-KeyGen: 	39.0347
-Encapsulation: 	47.6894
-Encryption: 	48.0808
-Decapsulation: 	34.8995
-Decryption: 	31.9384
+Setup : 	12.620853
+KeyGen: 	33.659114
+Encapsulation: 	41.668739
+Encryption: 	41.770604
+Decapsulation: 	30.648
+Decryption: 	31.816454
 Test round: 55
-Setup : 	11.6284
-KeyGen: 	32.6247
-Encapsulation: 	40.7111
-Encryption: 	40.6948
-Decapsulation: 	31.7288
-Decryption: 	31.2971
+Setup : 	12.062609
+KeyGen: 	33.431271
+Encapsulation: 	42.235648
+Encryption: 	42.136378
+Decapsulation: 	32.352146
+Decryption: 	30.825343
 Test round: 56
-Setup : 	12.2028
-KeyGen: 	34.1478
-Encapsulation: 	42.4072
-Encryption: 	41.9624
-Decapsulation: 	30.5273
-Decryption: 	31.0451
+Setup : 	12.277213
+KeyGen: 	33.860615
+Encapsulation: 	42.456861
+Encryption: 	42.171512
+Decapsulation: 	31.067776
+Decryption: 	31.536851
 Test round: 57
-Setup : 	11.9236
-KeyGen: 	32.2834
-Encapsulation: 	38.7056
-Encryption: 	41.6913
-Decapsulation: 	31.204
-Decryption: 	31.8277
+Setup : 	12.251279
+KeyGen: 	33.556475
+Encapsulation: 	41.537621
+Encryption: 	42.105927
+Decapsulation: 	30.704778
+Decryption: 	30.551493
 Test round: 58
-Setup : 	12.1645
-KeyGen: 	35.8226
-Encapsulation: 	42.1664
-Encryption: 	40.3756
-Decapsulation: 	31.4288
-Decryption: 	34.4086
+Setup : 	12.38098
+KeyGen: 	33.81148
+Encapsulation: 	41.926259
+Encryption: 	41.803986
+Decapsulation: 	31.609231
+Decryption: 	31.089507
 Test round: 59
-Setup : 	13.9378
-KeyGen: 	45.087
-Encapsulation: 	48.5022
-Encryption: 	44.4723
-Decapsulation: 	31.2035
-Decryption: 	33.438
+Setup : 	12.260829
+KeyGen: 	33.791135
+Encapsulation: 	42.476641
+Encryption: 	42.241344
+Decapsulation: 	31.376066
+Decryption: 	32.168399
 Test round: 60
-Setup : 	15.241
-KeyGen: 	46.0466
-Encapsulation: 	52.2758
-Encryption: 	51.5526
-Decapsulation: 	37.4543
-Decryption: 	38.7953
+Setup : 	12.476829
+KeyGen: 	34.277742
+Encapsulation: 	42.525548
+Encryption: 	42.596651
+Decapsulation: 	31.284696
+Decryption: 	30.950173
 Test round: 61
-Setup : 	14.3153
-KeyGen: 	39.3337
-Encapsulation: 	54.7357
-Encryption: 	50.6298
-Decapsulation: 	37.6395
-Decryption: 	39.6079
+Setup : 	11.999905
+KeyGen: 	33.835853
+Encapsulation: 	42.331415
+Encryption: 	41.843013
+Decapsulation: 	30.397313
+Decryption: 	30.335948
 Test round: 62
-Setup : 	15.6782
-KeyGen: 	43.3475
-Encapsulation: 	51.1263
-Encryption: 	46.2216
-Decapsulation: 	31.8955
-Decryption: 	29.7478
+Setup : 	12.097966
+KeyGen: 	33.248159
+Encapsulation: 	42.062252
+Encryption: 	41.547868
+Decapsulation: 	30.51586
+Decryption: 	30.93722
 Test round: 63
-Setup : 	11.5845
-KeyGen: 	34.0498
-Encapsulation: 	48.4322
-Encryption: 	47.5393
-Decapsulation: 	34.8475
-Decryption: 	36.8232
+Setup : 	12.746488
+KeyGen: 	33.669425
+Encapsulation: 	43.532528
+Encryption: 	42.912144
+Decapsulation: 	33.26917
+Decryption: 	33.60857
 Test round: 64
-Setup : 	13.2242
-KeyGen: 	36.2008
-Encapsulation: 	40.1727
-Encryption: 	40.4676
-Decapsulation: 	30.1609
-Decryption: 	29.5311
+Setup : 	13.046603
+KeyGen: 	34.030227
+Encapsulation: 	41.541787
+Encryption: 	41.837252
+Decapsulation: 	30.27924
+Decryption: 	30.590223
 Test round: 65
-Setup : 	11.5889
-KeyGen: 	32.8895
-Encapsulation: 	42.6737
-Encryption: 	49.6426
-Decapsulation: 	34.9866
-Decryption: 	31.2989
+Setup : 	12.22807
+KeyGen: 	34.084191
+Encapsulation: 	42.728936
+Encryption: 	42.146455
+Decapsulation: 	30.835933
+Decryption: 	30.522095
 Test round: 66
-Setup : 	12.1935
-KeyGen: 	35.3746
-Encapsulation: 	41.8435
-Encryption: 	41.3162
-Decapsulation: 	30.562
-Decryption: 	29.7288
+Setup : 	11.855568
+KeyGen: 	33.278357
+Encapsulation: 	41.407913
+Encryption: 	42.810316
+Decapsulation: 	30.320535
+Decryption: 	31.24755
 Test round: 67
-Setup : 	12.3243
-KeyGen: 	33.279
-Encapsulation: 	43.8721
-Encryption: 	42.8099
-Decapsulation: 	31.1472
-Decryption: 	31.1083
+Setup : 	12.117336
+KeyGen: 	33.44783
+Encapsulation: 	41.834526
+Encryption: 	41.322658
+Decapsulation: 	30.308574
+Decryption: 	30.615994
 Test round: 68
-Setup : 	12.309
-KeyGen: 	35.6547
-Encapsulation: 	49.2408
-Encryption: 	49.4214
-Decapsulation: 	36.1315
-Decryption: 	35.1795
+Setup : 	11.997388
+KeyGen: 	33.393987
+Encapsulation: 	42.468971
+Encryption: 	41.930692
+Decapsulation: 	30.502211
+Decryption: 	31.026987
 Test round: 69
-Setup : 	13.5959
-KeyGen: 	35.8336
-Encapsulation: 	45.1689
-Encryption: 	42.0651
-Decapsulation: 	30.2207
-Decryption: 	31.8089
+Setup : 	12.457891
+KeyGen: 	34.581223
+Encapsulation: 	41.9414
+Encryption: 	41.289076
+Decapsulation: 	31.210674
+Decryption: 	30.287053
 Test round: 70
-Setup : 	15.865
-KeyGen: 	38.04
-Encapsulation: 	47.9149
-Encryption: 	41.9085
-Decapsulation: 	30.623
-Decryption: 	31.2545
+Setup : 	12.172942
+KeyGen: 	33.984707
+Encapsulation: 	42.928488
+Encryption: 	42.978347
+Decapsulation: 	30.88414
+Decryption: 	31.264294
 Test round: 71
-Setup : 	12.3429
-KeyGen: 	35.4227
-Encapsulation: 	44.154
-Encryption: 	41.4831
-Decapsulation: 	30.2512
-Decryption: 	30.4347
+Setup : 	12.022552
+KeyGen: 	35.34007
+Encapsulation: 	41.633147
+Encryption: 	42.464571
+Decapsulation: 	30.626779
+Decryption: 	30.842666
 Test round: 72
-Setup : 	12.1822
-KeyGen: 	34.4439
-Encapsulation: 	42.9599
-Encryption: 	43.1812
-Decapsulation: 	31.5511
-Decryption: 	31.3062
+Setup : 	11.911
+KeyGen: 	33.015512
+Encapsulation: 	42.107518
+Encryption: 	41.3401
+Decapsulation: 	30.419358
+Decryption: 	30.176005
 Test round: 73
-Setup : 	12.7031
-KeyGen: 	40.1208
-Encapsulation: 	52.2441
-Encryption: 	47.3713
-Decapsulation: 	35.8635
-Decryption: 	34.1898
+Setup : 	11.874473
+KeyGen: 	32.986514
+Encapsulation: 	42.14439
+Encryption: 	43.052766
+Decapsulation: 	31.923838
+Decryption: 	30.929944
 Test round: 74
-Setup : 	13.2739
-KeyGen: 	37.0407
-Encapsulation: 	44.1083
-Encryption: 	42.5511
-Decapsulation: 	30.6829
-Decryption: 	30.0992
+Setup : 	12.424641
+KeyGen: 	33.536015
+Encapsulation: 	42.045796
+Encryption: 	42.530805
+Decapsulation: 	32.268218
+Decryption: 	31.884185
 Test round: 75
-Setup : 	11.7517
-KeyGen: 	33.9706
-Encapsulation: 	42.6321
-Encryption: 	43.201
-Decapsulation: 	30.7379
-Decryption: 	31.115
+Setup : 	12.607777
+KeyGen: 	35.75032
+Encapsulation: 	42.44526
+Encryption: 	42.096433
+Decapsulation: 	30.387618
+Decryption: 	32.029412
 Test round: 76
-Setup : 	12.0061
-KeyGen: 	34.0307
-Encapsulation: 	44.1717
-Encryption: 	44.0506
-Decapsulation: 	31.2904
-Decryption: 	31.3225
+Setup : 	12.03226
+KeyGen: 	39.812974
+Encapsulation: 	44.628852
+Encryption: 	43.303271
+Decapsulation: 	30.925988
+Decryption: 	31.307375
 Test round: 77
-Setup : 	12.5137
-KeyGen: 	38.6454
-Encapsulation: 	49.383
-Encryption: 	52.5639
-Decapsulation: 	41.7289
-Decryption: 	43.3503
+Setup : 	12.108395
+KeyGen: 	34.949744
+Encapsulation: 	42.654755
+Encryption: 	45.274333
+Decapsulation: 	33.298423
+Decryption: 	30.350526
 Test round: 78
-Setup : 	14.9786
-KeyGen: 	43.766
-Encapsulation: 	66.4714
-Encryption: 	59.6401
-Decapsulation: 	39.0642
-Decryption: 	40.2194
+Setup : 	11.641825
+KeyGen: 	32.727214
+Encapsulation: 	42.675681
+Encryption: 	42.564654
+Decapsulation: 	32.104944
+Decryption: 	32.391664
 Test round: 79
-Setup : 	14.66
-KeyGen: 	40.9587
-Encapsulation: 	54.6041
-Encryption: 	48.3245
-Decapsulation: 	34.7056
-Decryption: 	34.6356
+Setup : 	15.154912
+KeyGen: 	36.26794
+Encapsulation: 	44.756352
+Encryption: 	41.494853
+Decapsulation: 	30.296425
+Decryption: 	30.604481
 Test round: 80
-Setup : 	14.4521
-KeyGen: 	42.0386
-Encapsulation: 	44.9623
-Encryption: 	44.048
-Decapsulation: 	32.9904
-Decryption: 	31.9755
+Setup : 	11.838222
+KeyGen: 	33.699011
+Encapsulation: 	42.573799
+Encryption: 	43.071825
+Decapsulation: 	30.438254
+Decryption: 	30.45538
 Test round: 81
-Setup : 	12.0913
-KeyGen: 	33.1782
-Encapsulation: 	44.1488
-Encryption: 	45.1636
-Decapsulation: 	34.3864
-Decryption: 	35.4097
+Setup : 	12.058021
+KeyGen: 	33.63619
+Encapsulation: 	45.547454
+Encryption: 	42.509592
+Decapsulation: 	30.667702
+Decryption: 	30.650033
 Test round: 82
-Setup : 	13.4578
-KeyGen: 	38.0899
-Encapsulation: 	47.8861
-Encryption: 	51.264
-Decapsulation: 	35.4714
-Decryption: 	35.6176
+Setup : 	11.858082
+KeyGen: 	34.768351
+Encapsulation: 	41.292697
+Encryption: 	41.260746
+Decapsulation: 	30.311627
+Decryption: 	30.327505
 Test round: 83
-Setup : 	13.5271
-KeyGen: 	38.2984
-Encapsulation: 	46.2042
-Encryption: 	46.1123
-Decapsulation: 	34.3628
-Decryption: 	33.3695
+Setup : 	12.686638
+KeyGen: 	35.315691
+Encapsulation: 	44.016698
+Encryption: 	42.762784
+Decapsulation: 	30.745237
+Decryption: 	31.756264
 Test round: 84
-Setup : 	13.6701
-KeyGen: 	38.7746
-Encapsulation: 	48.2454
-Encryption: 	47.3642
-Decapsulation: 	34.8536
-Decryption: 	34.6083
+Setup : 	12.214174
+KeyGen: 	33.670262
+Encapsulation: 	42.452223
+Encryption: 	41.636648
+Decapsulation: 	31.838056
+Decryption: 	30.267093
 Test round: 85
-Setup : 	13.3382
-KeyGen: 	35.945
-Encapsulation: 	45.5463
-Encryption: 	45.0314
-Decapsulation: 	32.5284
-Decryption: 	32.6226
+Setup : 	12.239123
+KeyGen: 	33.327645
+Encapsulation: 	41.500006
+Encryption: 	42.350875
+Decapsulation: 	31.413941
+Decryption: 	35.821958
 Test round: 86
-Setup : 	12.8491
-KeyGen: 	36.8053
-Encapsulation: 	44.1675
-Encryption: 	43.6536
-Decapsulation: 	32.7128
-Decryption: 	36.1913
+Setup : 	13.417979
+KeyGen: 	34.806244
+Encapsulation: 	42.825245
+Encryption: 	45.015837
+Decapsulation: 	30.40044
+Decryption: 	30.268147
 Test round: 87
-Setup : 	13.5542
-KeyGen: 	38.2512
-Encapsulation: 	48.008
-Encryption: 	48.346
-Decapsulation: 	34.9368
-Decryption: 	36.1751
+Setup : 	11.941802
+KeyGen: 	34.250941
+Encapsulation: 	41.042224
+Encryption: 	41.625403
+Decapsulation: 	30.462533
+Decryption: 	31.307929
 Test round: 88
-Setup : 	13.7406
-KeyGen: 	37.6302
-Encapsulation: 	44.7906
-Encryption: 	45.9293
-Decapsulation: 	32.6858
-Decryption: 	31.4545
+Setup : 	12.215732
+KeyGen: 	33.510413
+Encapsulation: 	41.445464
+Encryption: 	43.505687
+Decapsulation: 	30.813856
+Decryption: 	30.88399
 Test round: 89
-Setup : 	12.3202
-KeyGen: 	43.9062
-Encapsulation: 	50.9617
-Encryption: 	47.7653
-Decapsulation: 	34.714
-Decryption: 	33.1724
+Setup : 	11.922384
+KeyGen: 	34.270986
+Encapsulation: 	44.26728
+Encryption: 	42.674664
+Decapsulation: 	30.73611
+Decryption: 	32.000958
 Test round: 90
-Setup : 	12.8162
-KeyGen: 	35.8865
-Encapsulation: 	42.8468
-Encryption: 	43.2794
-Decapsulation: 	31.522
-Decryption: 	32.195
+Setup : 	11.907867
+KeyGen: 	34.590364
+Encapsulation: 	41.955653
+Encryption: 	41.976911
+Decapsulation: 	31.529135
+Decryption: 	31.380036
 Test round: 91
-Setup : 	12.8396
-KeyGen: 	35.2878
-Encapsulation: 	45.7554
-Encryption: 	50.2715
-Decapsulation: 	39.1131
-Decryption: 	41.2182
+Setup : 	12.719868
+KeyGen: 	33.82931
+Encapsulation: 	45.857497
+Encryption: 	41.901391
+Decapsulation: 	30.692835
+Decryption: 	31.752041
 Test round: 92
-Setup : 	13.1804
-KeyGen: 	38.2573
-Encapsulation: 	48.0592
-Encryption: 	47.9516
-Decapsulation: 	35.354
-Decryption: 	35.035
+Setup : 	12.510833
+KeyGen: 	34.817206
+Encapsulation: 	42.942113
+Encryption: 	45.637933
+Decapsulation: 	31.192372
+Decryption: 	31.418935
 Test round: 93
-Setup : 	13.4804
-KeyGen: 	38.1678
-Encapsulation: 	46.0441
-Encryption: 	46.6511
-Decapsulation: 	36.2435
-Decryption: 	37.9616
+Setup : 	12.187304
+KeyGen: 	34.629593
+Encapsulation: 	42.870107
+Encryption: 	43.357992
+Decapsulation: 	33.46658
+Decryption: 	31.008454
 Test round: 94
-Setup : 	14.5932
-KeyGen: 	43.2407
-Encapsulation: 	54.128
-Encryption: 	53.8346
-Decapsulation: 	35.0916
-Decryption: 	37.4051
+Setup : 	15.348431
+KeyGen: 	39.716238
+Encapsulation: 	46.34149
+Encryption: 	41.327938
+Decapsulation: 	30.681873
+Decryption: 	31.050708
 Test round: 95
-Setup : 	14.8356
-KeyGen: 	42.8802
-Encapsulation: 	53.2903
-Encryption: 	55.5342
-Decapsulation: 	38.2363
-Decryption: 	38.613
+Setup : 	11.944775
+KeyGen: 	33.068093
+Encapsulation: 	42.282605
+Encryption: 	41.567207
+Decapsulation: 	30.178534
+Decryption: 	31.172065
 Test round: 96
-Setup : 	14.9895
-KeyGen: 	39.3566
-Encapsulation: 	47.8526
-Encryption: 	49.2852
-Decapsulation: 	35.2737
-Decryption: 	34.9527
+Setup : 	11.619177
+KeyGen: 	33.151593
+Encapsulation: 	41.376378
+Encryption: 	42.439108
+Decapsulation: 	30.913857
+Decryption: 	31.093402
 Test round: 97
-Setup : 	13.3323
-KeyGen: 	40.4531
-Encapsulation: 	47.5807
-Encryption: 	44.0096
-Decapsulation: 	31.2703
-Decryption: 	31.1674
+Setup : 	11.950287
+KeyGen: 	33.368816
+Encapsulation: 	41.679305
+Encryption: 	42.380563
+Decapsulation: 	30.152751
+Decryption: 	31.138475
 Test round: 98
-Setup : 	12.3464
-KeyGen: 	35.377
-Encapsulation: 	46.5057
-Encryption: 	49.1101
-Decapsulation: 	33.4945
-Decryption: 	33.5399
+Setup : 	11.804095
+KeyGen: 	33.36576
+Encapsulation: 	41.454178
+Encryption: 	42.353456
+Decapsulation: 	30.208366
+Decryption: 	30.909334
 Test round: 99
-Setup : 	12.712
-KeyGen: 	37.6262
-Encapsulation: 	43.7873
-Encryption: 	43.1769
-Decapsulation: 	31.7531
-Decryption: 	31.75
+Setup : 	11.977891
+KeyGen: 	33.253314
+Encapsulation: 	42.560928
+Encryption: 	41.935867
+Decapsulation: 	31.993437
+Decryption: 	30.192803
 Test round: 100
-Setup : 	12.2706
-KeyGen: 	33.7714
-Encapsulation: 	43.3547
-Encryption: 	47.0485
-Decapsulation: 	35.3482
-Decryption: 	40.5553
+Setup : 	11.762414
+KeyGen: 	33.100213
+Encapsulation: 	42.318857
+Encryption: 	41.71908
+Decapsulation: 	30.948158
+Decryption: 	30.199688
 
 Final performance test:
-Setup : 	14.839537999999994
-KeyGen: 	37.83056600000001
-Encapsulation: 	47.27343
-Encryption: 	46.862424000000026
-Decapsulation: 	34.24909199999999
-Decryption: 	34.544532
+Setup : 	14.037001139999996
+KeyGen: 	35.52134243000002
+Encapsulation: 	44.20481924999999
+Encryption: 	43.73344162999999
+Decapsulation: 	32.148863040000016
+Decryption: 	31.96715759000001

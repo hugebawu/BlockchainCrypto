@@ -68,11 +68,17 @@ public class ECDSASignerTest {
 
 			logger.info("========================================");
 			logger.info("Test signer parameters serialization & de-serialization.");
-		} catch (InvalidKeyException | NoSuchAlgorithmException | SignatureException | UnsupportedEncodingException e) {
+		} catch (InvalidKeyException e) {
 			logger.error(e.getLocalizedMessage());
 		} catch (DecoderException e) {
 			logger.error(e.getLocalizedMessage());
 		} catch (InvalidAlgorithmParameterException e) {
+			logger.error(e.getLocalizedMessage());
+		} catch (NoSuchAlgorithmException e) {
+			logger.error(e.getLocalizedMessage());
+		} catch (UnsupportedEncodingException e) {
+			logger.error(e.getLocalizedMessage());
+		} catch (SignatureException e) {
 			logger.error(e.getLocalizedMessage());
 		}
 	}

@@ -227,9 +227,10 @@ public class CommonUtils {
 	 * TODO(save PublicKey or PrivateKey as PEM file)
 	 * @param key should be PublicKey or PrivateKey which is the subclass of Key.
 	 * @param filePath the complete file Path for PEM file to store
+	 * @throws IOException 
 	 * @throws Exception
 	 */
-	public static void saveKeyAsPEM(Key key, String pathName) throws Exception {
+	public static void saveKeyAsPEM(Key key, String pathName) throws IOException {
 		boolean isPublicKey = key instanceof PublicKey;
 		if (isPublicKey) {
 			key = (PublicKey) key;
@@ -290,9 +291,12 @@ public class CommonUtils {
 	 * @param algorithm
 	 * @param pathName pathName of PEM key file.
 	 * @return Key PublicKey or PrivateKey
-	 * @throws Exception 
+	 * @throws IOException 
+	 * @throws NoSuchAlgorithmException 
+	 * @throws InvalidKeySpecException 
 	 */
-	public static Key loadKeyFromPEM(boolean isPublicKey, String algorithm, String pathName) throws Exception {
+	public static Key loadKeyFromPEM(boolean isPublicKey, String algorithm, String pathName)
+			throws IOException, NoSuchAlgorithmException, InvalidKeySpecException {
 		File file = new File(pathName);
 		if (null == file || !file.isFile()) {
 			throw new IllegalArgumentException("file \"" + file.getPath() + "\" do not exists");

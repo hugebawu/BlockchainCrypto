@@ -1,7 +1,7 @@
 /**
  * 
  */
-package cn.edu.ncepu.crypto.encryption.wp_ibe;
+package cn.edu.ncepu.crypto.encryption.ibe.wp_ibe;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,26 +24,29 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  * @版本: 1.0
  */
 
-public class BasicIdent2 implements Ident {
-	private static Logger logger = LoggerFactory.getLogger(BasicIdent2.class);
+public class BasicIdent implements Ident {
+	private static Logger logger = LoggerFactory.getLogger(BasicIdent.class);
 
 	private Element s, r, P, Ppub, Su, Qu, V, T1, T2;
 	private Field G1, Zr;
 	private Pairing pairing;
 
-	public BasicIdent2(Pairing pairing) {
+	public BasicIdent(Pairing pairing) {
 		this.pairing = pairing;
 		init();
 	}
 
 	/**
-	 * @Title: init
-	 * @Description: 初始化
-	 * @return void  返回类型
-	 * @throws
+	 * 初始化
+	 * @return void 
 	 */
 	private void init() {
-		PairingFactory.getInstance().setUsePBCWhenPossible(true);
+		// For bilinear maps only, to use the PBC wrapper and gain in performance, the
+		// usePBCWhenPossible property of the pairing factory must be set.
+		// Moreover, if PBC and the JPBC wrapper are not installed properly then the
+		// factory will resort to the JPBC pairing implementation.
+		// 需要配置才能使用http://gas.dia.unisa.it/projects/jpbc/docs/pbcwrapper.html#.XvnxeygzZPY
+		PairingFactory.getInstance().setUsePBCWhenPossible(true);//
 		checkSymmetric(pairing);
 		// 将变量r初始化为Zr中的元素
 		Zr = pairing.getZr();
@@ -61,11 +64,9 @@ public class BasicIdent2 implements Ident {
 	}
 
 	/**
-	 * @Title: checkSymmetric
-	 * @Description: 判断配对是否为对称配对，不对称则输出错误信息
-	 * @param pairing    参数描述
-	 * @return void  返回类型
-	 * @throws
+	 * 判断配对是否为对称配对，不对称则输出错误信息
+	 * @param pairing 
+	 * @return void  
 	 */
 	private void checkSymmetric(Pairing pairing) {
 		if (!pairing.isSymmetric()) {
@@ -73,8 +74,8 @@ public class BasicIdent2 implements Ident {
 		}
 	}
 
+	@Override
 	public void buildSystem() {
-		// TODO Auto-generated method stub
 		logger.info("-------------------系统建立阶段----------------------");
 		s = Zr.newRandomElement().getImmutable();// //随机生成主密钥s
 		P = G1.newRandomElement().getImmutable();// 生成G1的生成元P
@@ -84,8 +85,8 @@ public class BasicIdent2 implements Ident {
 		logger.info("Ppub=" + Ppub);
 	}
 
+	@Override
 	public void extractSecretKey() {
-		// TODO Auto-generated method stub
 		logger.info("-------------------密钥提取阶段----------------------");
 		Qu = pairing.getG1().newElement().setFromHash("IDu".getBytes(), 0, 3).getImmutable();// //从长度为3的Hash值IDu确定用户U产生的公钥Qu
 		Su = Qu.mulZn(s).getImmutable();
@@ -93,8 +94,8 @@ public class BasicIdent2 implements Ident {
 		logger.info("Su=" + Su);
 	}
 
+	@Override
 	public void encrypt() {
-		// TODO Auto-generated method stub
 		logger.info("-------------------加密阶段----------------------");
 		r = Zr.newRandomElement().getImmutable();
 		V = P.mulZn(r);
@@ -105,8 +106,8 @@ public class BasicIdent2 implements Ident {
 		logger.info("T1=e（Ppub,Qu）^r=" + T1);
 	}
 
+	@Override
 	public void decrypt() {
-		// TODO Auto-generated method stub
 		logger.info("-------------------解密阶段----------------------");
 		T2 = pairing.pairing(V, Su).getImmutable();
 		logger.info("e(V,Su)=" + T2);

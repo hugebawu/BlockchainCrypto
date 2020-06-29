@@ -33,7 +33,11 @@ public class ShellExecutorTest {
 		try {
 			logger.info(String.format("%d"), ShellExecutor.execute("pwd", userDir + "/scripts", null,
 					(message, process) -> logger.info(message)));
-		} catch (CommandTimeoutException | IOException | InterruptedException e) {
+		} catch (CommandTimeoutException e) {
+			logger.warn(e.getMessage(), e);
+		} catch (IOException e) {
+			logger.warn(e.getMessage(), e);
+		} catch (InterruptedException e) {
 			logger.warn(e.getMessage(), e);
 		}
 	}
@@ -47,7 +51,11 @@ public class ShellExecutorTest {
 					(message, process) -> logger.info(String.format("Communication[2]: %s", message)),
 					(message, process) -> logger.info(String.format("Communication[3]: %s", message)));
 			logger.info("" + result);
-		} catch (CommandTimeoutException | IOException | InterruptedException e) {
+		} catch (CommandTimeoutException e) {
+			logger.error(e.getLocalizedMessage());
+		} catch (IOException e) {
+			logger.error(e.getLocalizedMessage());
+		} catch (InterruptedException e) {
 			logger.error(e.getLocalizedMessage());
 		}
 	}
@@ -58,7 +66,11 @@ public class ShellExecutorTest {
 		try {
 			logger.info("" + ShellExecutor.execute(userDir + "/scripts/testMvnInstall.sh", null, null,
 					(message, process) -> logger.info(message)));
-		} catch (CommandTimeoutException | IOException | InterruptedException e) {
+		} catch (CommandTimeoutException e) {
+			logger.error(e.getLocalizedMessage());
+		} catch (IOException e) {
+			logger.error(e.getLocalizedMessage());
+		} catch (InterruptedException e) {
 			logger.error(e.getLocalizedMessage());
 		}
 	}

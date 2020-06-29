@@ -83,7 +83,9 @@ public class CommonUtilsTest {
 			// utilize third party library.
 			String hash = DigestUtils.sha256Hex(content);
 			assertEquals(hexHash, hash);
-		} catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
+		} catch (NoSuchAlgorithmException e) {
+			logger.error(e.getLocalizedMessage());
+		} catch (UnsupportedEncodingException e) {
 			logger.error(e.getLocalizedMessage());
 		}
 	}
@@ -145,15 +147,21 @@ public class CommonUtilsTest {
 	@Ignore
 	@Test
 	public void testSaveKeyAsPEM() {
+		KeyPair keyPair;
 		try {
-			KeyPair keyPair = CommonUtils.initKey(EC_STRING, CURVE_NAME);
+			keyPair = CommonUtils.initKey(EC_STRING, CURVE_NAME);
 			PublicKey publicKey = keyPair.getPublic();
 			PrivateKey privateKey = keyPair.getPrivate();
 			CommonUtils.saveKeyAsPEM(publicKey, USER_DIR + "/elements/publicKey.pem");
 			CommonUtils.saveKeyAsPEM(privateKey, USER_DIR + "/elements/privateKey.pem");
-		} catch (Exception e) {
+		} catch (NoSuchAlgorithmException e) {
+			logger.error(e.getLocalizedMessage());
+		} catch (InvalidAlgorithmParameterException e) {
+			logger.error(e.getLocalizedMessage());
+		} catch (IOException e) {
 			logger.error(e.getLocalizedMessage());
 		}
+
 	}
 
 	@Ignore
@@ -166,9 +174,11 @@ public class CommonUtilsTest {
 			PrivateKey privateKey = keyPair.getPrivate();
 			CommonUtils.saveKeyAsDER(publicKey, USER_DIR + "/elements/publicKey.der");
 			CommonUtils.saveKeyAsDER(privateKey, USER_DIR + "/elements/privateKey.der");
-		} catch (NoSuchAlgorithmException | InvalidAlgorithmParameterException e) {
+		} catch (NoSuchAlgorithmException e) {
 			logger.error(e.getLocalizedMessage());
 		} catch (IOException e) {
+			logger.error(e.getLocalizedMessage());
+		} catch (InvalidAlgorithmParameterException e) {
 			logger.error(e.getLocalizedMessage());
 		}
 	}
@@ -203,12 +213,20 @@ public class CommonUtilsTest {
 				System.exit(0);
 			}
 			logger.info("ECDSA signer functionality test pass.");
-		} catch (InvalidKeyException | NoSuchAlgorithmException | SignatureException | UnsupportedEncodingException e) {
+		} catch (InvalidKeyException e) {
 			logger.error(e.getLocalizedMessage());
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+		} catch (SignatureException e) {
+			e.printStackTrace();
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		} catch (DecoderException e) {
+			e.printStackTrace();
 		} catch (Exception e) {
-			logger.error(e.getLocalizedMessage());
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-
 	}
 
 	@Ignore

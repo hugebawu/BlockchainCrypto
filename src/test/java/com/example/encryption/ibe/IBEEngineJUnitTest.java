@@ -1,10 +1,13 @@
 package com.example.encryption.ibe;
 
 import java.io.IOException;
+import java.lang.reflect.Proxy;
 
 import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.crypto.InvalidCipherTextException;
 import org.junit.Assert;
+import org.junit.Ignore;
+import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -20,19 +23,26 @@ import cn.edu.ncepu.crypto.encryption.ibe.bf01b.IBEBF01bEngine;
 import cn.edu.ncepu.crypto.encryption.ibe.gen06a.IBEGen06aEngine;
 import cn.edu.ncepu.crypto.encryption.ibe.gen06b.IBEGen06bEngine;
 import cn.edu.ncepu.crypto.encryption.ibe.lw10.IBELW10Engine;
+import cn.edu.ncepu.crypto.encryption.ibe.wp_ibe.BasicIdent;
+import cn.edu.ncepu.crypto.encryption.ibe.wp_ibe.Ident;
+import cn.edu.ncepu.crypto.utils.SysProperty;
+import cn.edu.ncepu.crypto.utils.TimeCountProxyHandle;
+import edu.princeton.cs.algs4.Out;
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Pairing;
 import it.unisa.dia.gas.jpbc.PairingParameters;
 import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
-import junit.framework.TestCase;
+import it.unisa.dia.gas.plaf.jpbc.pairing.a.TypeACurveGenerator;
+import it.unisa.dia.gas.plaf.jpbc.pairing.a1.TypeA1CurveGenerator;
 
 /**
  * Created by Weiran Liu on 2015/10/5.
  *
  * IBE engine test.
  */
-public class IBEEngineJUnitTest extends TestCase {
+public class IBEEngineJUnitTest {
 	private static Logger logger = LoggerFactory.getLogger(IBEEngineJUnitTest.class);
+	private static String USER_DIR = SysProperty.USER_DIR;
 	private static final String identity_1 = "ID_1";
 	private static final String identity_2 = "ID_2";
 
@@ -101,6 +111,7 @@ public class IBEEngineJUnitTest extends TestCase {
 	}
 
 	private void runAllTests(PairingParameters pairingParameters) {
+		// 初始化Pairing
 		Pairing pairing = PairingFactory.getPairing(pairingParameters);
 		try {
 			// Setup and serialization
@@ -138,26 +149,115 @@ public class IBEEngineJUnitTest extends TestCase {
 		}
 	}
 
-	public void testIBEBF01aEngine() {
+	/**
+	 * TODO 测试动态生成Type A PairingParameters并保存
+	 */
+	@Ignore
+	@Test
+	public void testGenTypeAPairParam() {
 		this.engine = IBEBF01aEngine.getInstance();
-		runAllTests(PairingFactory.getPairingParameters(TestUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
+		int rbits = 80; // rbits是Zp中阶数p的比特长度 a,b属于Zp
+		int qbits = 256; // qBit是G中阶数的比特长度
+		// 通过代码动态生成Pairing对象
+		// 指定椭圆曲线的种类
+		TypeACurveGenerator pairParamGenerator = new TypeACurveGenerator(rbits, qbits);
+		// 产生椭圆曲线参数
+		PairingParameters typeAParams = pairParamGenerator.generate();
+		// 将参数写入文件a_80_256.properties中，使用Princeton大学封装的文件输出库
+		Out out = new Out(USER_DIR + "/elements/a_80_256.properties");
+		out.println(typeAParams);
+		// print Pairing parameters
+		logger.info(typeAParams.toString());
+		// 从文件a_80_256.properties中读取参数初始化双线性群
+		typeAParams = PairingFactory.getPairingParameters("/elements/a_80_256.properties");
+		// 初始化Pairing
+		Pairing pairing = PairingFactory.getPairing(typeAParams);
+		// The number of algebraic structures available
+		logger.info("" + pairing.getDegree());
 	}
 
+	/**
+	 * TODO 测试动态生成Type A1 PairingParameters并保存
+	 */
+//	@Ignore
+	@Test
+	public void testGenTypeA1PairParam() {
+		// Type A1 对称合数阶双线性群
+		this.engine = IBELW10Engine.getInstance();
+		int numPrime = 3; // numPrime是阶数N中有几个质数因子
+		int qBit = 128; // qBit是每个质数因子的比特长度
+
+		// Type A1涉及到的阶数很大，其参数产生的时间也比较长
+		// 指定椭圆曲线的种类
+		TypeA1CurveGenerator pairParamGenerator = new TypeA1CurveGenerator(numPrime, qBit);
+		// 产生椭圆曲线参数
+		PairingParameters typeA1Params = pairParamGenerator.generate();
+		// 将参数写入文件a_80_256.properties中，使用Princeton大学封装的文件输出库
+		Out out = new Out(USER_DIR + "/elements/a1_3_128.properties");
+		out.println(typeA1Params);
+		// print Pairing parameters
+		logger.info(typeA1Params.toString());
+		// 从文件a1_3_128.properties中读取参数初始化双线性群
+		typeA1Params = PairingFactory.getPairingParameters("/elements/a1_3_128.properties");
+		// 初始化Pairing
+		Pairing pairing = PairingFactory.getPairing(typeA1Params);
+		// The number of algebraic structures available
+		logger.info("" + pairing.getDegree());
+	}
+
+	/**
+	 * TODO 本质是testIBEBF01bEngine,不同之出是加载的参数是a.properties
+	 */
+	@Test
+	public void testWPIBE() {
+		System.out.printf("start wp_ibe Testing \n");
+		Pairing pairing = PairingFactory.getPairing(USER_DIR + "params/a.properties");// 在jpbc配置使用的那个jar包，\params\curves下面
+		BasicIdent ident = new BasicIdent(pairing);
+		// 动态代理，统计各个方法耗时
+		Ident identProxy = (Ident) Proxy.newProxyInstance(BasicIdent.class.getClassLoader(),
+				new Class[] { Ident.class }, new TimeCountProxyHandle(ident));
+		identProxy.buildSystem();
+		identProxy.extractSecretKey();
+		identProxy.encrypt();
+		identProxy.decrypt();
+	}
+
+	@Ignore
+	@Test
+	public void testIBEBF01aEngine() {
+		this.engine = IBEBF01aEngine.getInstance();
+		// Type A 对称质数阶双线性群
+		// 通过文件读取初始化Pairing对象
+		// 从文件中读取PairingParameters对象
+		// PairingParameters的toString()可以用来将Pairing参数存放在文件中
+		PairingParameters typeAParams = PairingFactory
+				.getPairingParameters(TestUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256);
+		runAllTests(typeAParams);
+	}
+
+	@Ignore
+	@Test
 	public void testIBEBF01bEngine() {
 		this.engine = IBEBF01bEngine.getInstance();
 		runAllTests(PairingFactory.getPairingParameters(TestUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
 	}
 
+	@Ignore
+	@Test
 	public void testIBEGen06aEngine() {
 		this.engine = IBEGen06aEngine.getInstance();
 		runAllTests(PairingFactory.getPairingParameters(TestUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
 	}
 
+	@Ignore
+	@Test
 	public void testIBEGen06bEngine() {
 		this.engine = IBEGen06bEngine.getInstance();
 		runAllTests(PairingFactory.getPairingParameters(TestUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
 	}
 
+	@Ignore
+	@Test
 	public void testIBELW10Engine() {
 		this.engine = IBELW10Engine.getInstance();
 		runAllTests(PairingFactory.getPairingParameters(TestUtils.TEST_PAIRING_PARAMETERS_PATH_a1_3_128));

@@ -146,7 +146,7 @@ public class SymmetricBlockEncTest {
 					SymmetricBlockEnc.enc_dec_AES_BC(false, Mode.CBC, Hex.decode(key), Hex.decode(iv_p), ciphertext_p));
 			StdOut.println("Decrypted Plaintext = " + plaintext_p);
 			StdOut.println();
-		} catch (DataLengthException | IllegalStateException | InvalidCipherTextException e) {
+		} catch (DataLengthException e) {
 			logger.error(e.getLocalizedMessage());
 		} catch (NoSuchAlgorithmException e) {
 			logger.error(e.getLocalizedMessage());
@@ -161,6 +161,10 @@ public class SymmetricBlockEncTest {
 		} catch (BadPaddingException e) {
 			logger.error(e.getLocalizedMessage());
 		} catch (UnsupportedEncodingException e) {
+			logger.error(e.getLocalizedMessage());
+		} catch (IllegalStateException e) {
+			logger.error(e.getLocalizedMessage());
+		} catch (InvalidCipherTextException e) {
 			logger.error(e.getLocalizedMessage());
 		}
 	}

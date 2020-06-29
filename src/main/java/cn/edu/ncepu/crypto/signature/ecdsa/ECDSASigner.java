@@ -121,9 +121,12 @@ public class ECDSASigner implements Signer {
 			 * 一般情况下，传输DER编码的签名值没多大问题，但如果对数据量要求十分严格，例如在BLE上传输，可以提取出r和s再打包传输
 			 */
 			return signature.sign();
-		} catch (InvalidKeyException | SignatureException e) {
+		} catch (InvalidKeyException e) {
 			logger.error(e.getLocalizedMessage());
-			throw new IllegalStateException("unable to encode signature");
+			throw new IllegalStateException("unable to encode signature: invalide Key");
+		} catch (SignatureException e) {
+			logger.error(e.getLocalizedMessage());
+			throw new IllegalStateException("unable to encode signature: sinature exception");
 		}
 	}
 

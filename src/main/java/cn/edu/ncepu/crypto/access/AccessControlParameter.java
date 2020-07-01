@@ -1,8 +1,8 @@
 package cn.edu.ncepu.crypto.access;
 
-import org.bouncycastle.crypto.CipherParameters;
-
 import java.util.Arrays;
+
+import org.bouncycastle.crypto.CipherParameters;
 
 /**
  * Created by Weiran Liu on 2016/7/19.

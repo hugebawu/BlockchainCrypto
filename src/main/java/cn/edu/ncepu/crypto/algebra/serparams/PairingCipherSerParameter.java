@@ -1,9 +1,10 @@
 package cn.edu.ncepu.crypto.algebra.serparams;
 
-import it.unisa.dia.gas.jpbc.PairingParameters;
+import java.io.Serializable;
+
 import org.bouncycastle.crypto.CipherParameters;
 
-import java.io.Serializable;
+import it.unisa.dia.gas.jpbc.PairingParameters;
 
 /**
  * Created by Weiran Liu on 15-9-30.

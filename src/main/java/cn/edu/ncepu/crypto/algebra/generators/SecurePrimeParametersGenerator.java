@@ -1,9 +1,9 @@
 package cn.edu.ncepu.crypto.algebra.generators;
 
-import cn.edu.ncepu.crypto.algebra.serparams.SecurePrimeSerParameter;
-
 import java.math.BigInteger;
 import java.security.SecureRandom;
+
+import cn.edu.ncepu.crypto.algebra.serparams.SecurePrimeSerParameter;
 
 /**
  * Created by Weiran Liu on 2016/10/19.

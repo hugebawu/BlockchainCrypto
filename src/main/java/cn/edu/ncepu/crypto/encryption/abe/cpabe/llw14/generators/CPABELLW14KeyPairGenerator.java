@@ -1,5 +1,7 @@
 package cn.edu.ncepu.crypto.encryption.abe.cpabe.llw14.generators;
 
+import org.bouncycastle.crypto.KeyGenerationParameters;
+
 import cn.edu.ncepu.crypto.algebra.generators.AsymmetricKeySerPairGenerator;
 import cn.edu.ncepu.crypto.algebra.serparams.AsymmetricKeySerPair;
 import cn.edu.ncepu.crypto.algebra.serparams.AsymmetricKeySerParameter;
@@ -9,7 +11,6 @@ import cn.edu.ncepu.crypto.encryption.abe.cpabe.llw14.serparams.CPABELLW14Public
 import cn.edu.ncepu.crypto.encryption.abe.cpabe.rw13.generators.CPABERW13KeyPairGenerator;
 import cn.edu.ncepu.crypto.encryption.abe.cpabe.rw13.serparams.CPABERW13MasterSecretKeySerParameter;
 import cn.edu.ncepu.crypto.encryption.abe.cpabe.rw13.serparams.CPABERW13PublicKeySerParameter;
-import org.bouncycastle.crypto.KeyGenerationParameters;
 
 /**
  * Created by Weiran Liu on 2016/12/28.

@@ -1,5 +1,7 @@
 package cn.edu.ncepu.crypto.encryption.abe.cpabe.genparams;
 
+import org.bouncycastle.crypto.KeyGenerationParameters;
+
 import cn.edu.ncepu.crypto.access.AccessControlEngine;
 import cn.edu.ncepu.crypto.algebra.generators.AsymmetricKeySerPairGenerator;
 import cn.edu.ncepu.crypto.algebra.genparams.PairingEncryptionGenerationParameter;
@@ -7,7 +9,6 @@ import cn.edu.ncepu.crypto.algebra.serparams.PairingCipherSerParameter;
 import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
 import cn.edu.ncepu.crypto.chameleonhash.ChameleonHasher;
 import it.unisa.dia.gas.jpbc.Element;
-import org.bouncycastle.crypto.KeyGenerationParameters;
 
 /**
  * Created by Weiran Liu on 2016/11/19.

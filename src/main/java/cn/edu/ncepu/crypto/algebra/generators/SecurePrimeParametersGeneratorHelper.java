@@ -1,9 +1,9 @@
 package cn.edu.ncepu.crypto.algebra.generators;
 
-import org.bouncycastle.util.BigIntegers;
-
 import java.math.BigInteger;
 import java.security.SecureRandom;
+
+import org.bouncycastle.util.BigIntegers;
 
 /**
  * Created by Weiran Liu on 2016/10/19.

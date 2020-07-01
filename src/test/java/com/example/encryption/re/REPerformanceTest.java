@@ -4,8 +4,6 @@ import org.bouncycastle.crypto.InvalidCipherTextException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.example.TestUtils;
-
 import cn.edu.ncepu.crypto.algebra.serparams.PairingCipherSerParameter;
 import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerPair;
 import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
@@ -356,11 +354,11 @@ public class REPerformanceTest extends TestCase {
 	public void testLSW10aPerformance() {
 		REPerformanceTest performanceTest = new REPerformanceTest();
 //        performanceTest.maximal_revoke_ids = 10;
-//        performanceTest.pairingParameterPath = TestUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256;
-//        performanceTest.test_round = TestUtils.DEFAULT_SIMU_TEST_ROUND;
+//        performanceTest.pairingParameterPath = PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256;
+//        performanceTest.test_round = PairingUtils.DEFAULT_SIMU_TEST_ROUND;
 		performanceTest.maximal_revoke_ids = 50;
 		performanceTest.pairingParameterPath = PairingUtils.PATH_a_160_512;
-		performanceTest.test_round = TestUtils.DEFAULT_PRIME_ORDER_TEST_ROUND;
+		performanceTest.test_round = PairingUtils.DEFAULT_PRIME_ORDER_TEST_ROUND;
 		performanceTest.engine = RELSW10aEngine.getInstance();
 		performanceTest.init();
 		performanceTest.runPerformanceTest();
@@ -369,11 +367,11 @@ public class REPerformanceTest extends TestCase {
 	public void testLLW16aPerformance() {
 		REPerformanceTest performanceTest = new REPerformanceTest();
 //        performanceTest.maximal_revoke_ids = 10;
-//        performanceTest.pairingParameterPath = TestUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256;
-//        performanceTest.test_round = TestUtils.DEFAULT_SIMU_TEST_ROUND;
+//        performanceTest.pairingParameterPath = PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256;
+//        performanceTest.test_round = PairingUtils.DEFAULT_SIMU_TEST_ROUND;
 		performanceTest.maximal_revoke_ids = 50;
 		performanceTest.pairingParameterPath = PairingUtils.PATH_a_160_512;
-		performanceTest.test_round = TestUtils.DEFAULT_PRIME_ORDER_TEST_ROUND;
+		performanceTest.test_round = PairingUtils.DEFAULT_PRIME_ORDER_TEST_ROUND;
 		performanceTest.engine = OORELLW16aEngine.getInstance();
 		performanceTest.init();
 		performanceTest.runPerformanceTest();
@@ -382,11 +380,11 @@ public class REPerformanceTest extends TestCase {
 	public void testLLW16bPerformance() {
 		REPerformanceTest performanceTest = new REPerformanceTest();
 //        performanceTest.maximal_revoke_ids = 10;
-//        performanceTest.pairingParameterPath = TestUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256;
-//        performanceTest.test_round = TestUtils.DEFAULT_SIMU_TEST_ROUND;
+//        performanceTest.pairingParameterPath = PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256;
+//        performanceTest.test_round = PairingUtils.DEFAULT_SIMU_TEST_ROUND;
 		performanceTest.maximal_revoke_ids = 50;
 		performanceTest.pairingParameterPath = PairingUtils.PATH_a_160_512;
-		performanceTest.test_round = TestUtils.DEFAULT_PRIME_ORDER_TEST_ROUND;
+		performanceTest.test_round = PairingUtils.DEFAULT_PRIME_ORDER_TEST_ROUND;
 		performanceTest.engine = OORELLW16bEngine.getInstance();
 		performanceTest.init();
 		performanceTest.runPerformanceTest();

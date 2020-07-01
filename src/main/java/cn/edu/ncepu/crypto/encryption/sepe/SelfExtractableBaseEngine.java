@@ -1,19 +1,20 @@
 package cn.edu.ncepu.crypto.encryption.sepe;
 
-import cn.edu.ncepu.crypto.algebra.Engine;
-import cn.edu.ncepu.crypto.algebra.serparams.PairingCipherSerParameter;
-import cn.edu.ncepu.crypto.algebra.serparams.PairingKeyEncapsulationSerPair;
-import cn.edu.ncepu.crypto.encryption.sepe.serparams.SEPEHeaderParameter;
-import cn.edu.ncepu.crypto.utils.PairingUtils;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.security.SecureRandom;
+
 import org.bouncycastle.crypto.BlockCipher;
 import org.bouncycastle.crypto.Digest;
 import org.bouncycastle.crypto.PBEParametersGenerator;
 import org.bouncycastle.crypto.params.KeyParameter;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.security.SecureRandom;
+import cn.edu.ncepu.crypto.algebra.Engine;
+import cn.edu.ncepu.crypto.algebra.serparams.PairingCipherSerParameter;
+import cn.edu.ncepu.crypto.algebra.serparams.PairingKeyEncapsulationSerPair;
+import cn.edu.ncepu.crypto.encryption.sepe.serparams.SEPEHeaderParameter;
+import cn.edu.ncepu.crypto.utils.PairingUtils;
 
 /**
  * Created by Weiran Liu on 2016/12/4.

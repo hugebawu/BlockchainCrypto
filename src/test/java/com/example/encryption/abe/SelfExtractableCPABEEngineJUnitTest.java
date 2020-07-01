@@ -19,7 +19,6 @@ import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.example.TestUtils;
 import com.example.access.AccessPolicyExamples;
 
 import cn.edu.ncepu.crypto.access.parser.ParserUtils;
@@ -32,6 +31,7 @@ import cn.edu.ncepu.crypto.encryption.abe.cpabe.SelfExtractableCPABEEngine;
 import cn.edu.ncepu.crypto.encryption.abe.cpabe.bsw07.CPABEBSW07Engine;
 import cn.edu.ncepu.crypto.encryption.abe.cpabe.hw14.OOCPABEHW14Engine;
 import cn.edu.ncepu.crypto.encryption.abe.cpabe.rw13.CPABERW13Engine;
+import cn.edu.ncepu.crypto.utils.PairingUtils;
 import it.unisa.dia.gas.jpbc.PairingParameters;
 import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
 import junit.framework.TestCase;
@@ -110,8 +110,8 @@ public class SelfExtractableCPABEEngineJUnitTest extends TestCase {
 			throws InvalidCipherTextException, IOException, ClassNotFoundException {
 		// KeyGen and serialization
 		PairingKeySerParameter secretKey = engine.keyGen(publicKey, masterKey, attributes);
-		byte[] byteArraySecretKey = TestUtils.SerCipherParameter(secretKey);
-		CipherParameters anSecretKey = TestUtils.deserCipherParameters(byteArraySecretKey);
+		byte[] byteArraySecretKey = PairingUtils.SerCipherParameter(secretKey);
+		CipherParameters anSecretKey = PairingUtils.deserCipherParameters(byteArraySecretKey);
 		Assert.assertEquals(secretKey, anSecretKey);
 		secretKey = (PairingKeySerParameter) anSecretKey;
 
@@ -122,8 +122,8 @@ public class SelfExtractableCPABEEngineJUnitTest extends TestCase {
 		PairingKeyEncapsulationSerPair encapsulationPair = engine.encapsulation(publicKey, accessPolicy, rhos, ek);
 		byte[] sessionKey = encapsulationPair.getSessionKey();
 		PairingCipherSerParameter header = encapsulationPair.getHeader();
-		byte[] byteArrayHeader = TestUtils.SerCipherParameter(header);
-		CipherParameters anHeader = TestUtils.deserCipherParameters(byteArrayHeader);
+		byte[] byteArrayHeader = PairingUtils.SerCipherParameter(header);
+		CipherParameters anHeader = PairingUtils.deserCipherParameters(byteArrayHeader);
 		Assert.assertEquals(header, anHeader);
 		header = (PairingCipherSerParameter) anHeader;
 
@@ -139,8 +139,8 @@ public class SelfExtractableCPABEEngineJUnitTest extends TestCase {
 			encapsulationPair = engine.encapsulation(publicKey, intermediate, accessPolicy, rhos, ek);
 			sessionKey = encapsulationPair.getSessionKey();
 			header = encapsulationPair.getHeader();
-			byteArrayHeader = TestUtils.SerCipherParameter(header);
-			anHeader = TestUtils.deserCipherParameters(byteArrayHeader);
+			byteArrayHeader = PairingUtils.SerCipherParameter(header);
+			anHeader = PairingUtils.deserCipherParameters(byteArrayHeader);
 			Assert.assertEquals(header, anHeader);
 			header = (PairingCipherSerParameter) anHeader;
 
@@ -157,14 +157,14 @@ public class SelfExtractableCPABEEngineJUnitTest extends TestCase {
 			// Setup and serialization
 			PairingKeySerPair keyPair = engine.setup(pairingParameters, 50);
 			PairingKeySerParameter publicKey = keyPair.getPublic();
-			byte[] byteArrayPublicKey = TestUtils.SerCipherParameter(publicKey);
-			CipherParameters anPublicKey = TestUtils.deserCipherParameters(byteArrayPublicKey);
+			byte[] byteArrayPublicKey = PairingUtils.SerCipherParameter(publicKey);
+			CipherParameters anPublicKey = PairingUtils.deserCipherParameters(byteArrayPublicKey);
 			Assert.assertEquals(publicKey, anPublicKey);
 			publicKey = (PairingKeySerParameter) anPublicKey;
 
 			PairingKeySerParameter masterKey = keyPair.getPrivate();
-			byte[] byteArrayMasterKey = TestUtils.SerCipherParameter(masterKey);
-			CipherParameters anMasterKey = TestUtils.deserCipherParameters(byteArrayMasterKey);
+			byte[] byteArrayMasterKey = PairingUtils.SerCipherParameter(masterKey);
+			CipherParameters anMasterKey = PairingUtils.deserCipherParameters(byteArrayMasterKey);
 			Assert.assertEquals(masterKey, anMasterKey);
 			masterKey = (PairingKeySerParameter) anMasterKey;
 
@@ -320,7 +320,7 @@ public class SelfExtractableCPABEEngineJUnitTest extends TestCase {
 		SelfExtractableCPABEEngineJUnitTest engineJUnitTest = new SelfExtractableCPABEEngineJUnitTest();
 		engineJUnitTest.setEngine(seCPABEEngine);
 		engineJUnitTest
-				.runAllTests(PairingFactory.getPairingParameters(TestUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
+				.runAllTests(PairingFactory.getPairingParameters(PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
 	}
 
 	public void testSECPABEEngineWithBSW07() {
@@ -333,7 +333,7 @@ public class SelfExtractableCPABEEngineJUnitTest extends TestCase {
 		SelfExtractableCPABEEngineJUnitTest engineJUnitTest = new SelfExtractableCPABEEngineJUnitTest();
 		engineJUnitTest.setEngine(seCPABEEngine);
 		engineJUnitTest
-				.runAllTests(PairingFactory.getPairingParameters(TestUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
+				.runAllTests(PairingFactory.getPairingParameters(PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
 	}
 
 	public void testSECPABEEngineWithHW14() {
@@ -346,7 +346,7 @@ public class SelfExtractableCPABEEngineJUnitTest extends TestCase {
 		SelfExtractableCPABEEngineJUnitTest engineJUnitTest = new SelfExtractableCPABEEngineJUnitTest();
 		engineJUnitTest.setEngine(seCPABEEngine);
 		engineJUnitTest
-				.runAllTests(PairingFactory.getPairingParameters(TestUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
+				.runAllTests(PairingFactory.getPairingParameters(PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
 	}
 
 	public void testSECPABEEngineWithPKCS5S2() {
@@ -359,7 +359,7 @@ public class SelfExtractableCPABEEngineJUnitTest extends TestCase {
 		SelfExtractableCPABEEngineJUnitTest engineJUnitTest = new SelfExtractableCPABEEngineJUnitTest();
 		engineJUnitTest.setEngine(seCPABEEngine);
 		engineJUnitTest
-				.runAllTests(PairingFactory.getPairingParameters(TestUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
+				.runAllTests(PairingFactory.getPairingParameters(PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
 	}
 
 	public void testSECPABEEngineWithPKCS12() {
@@ -372,7 +372,7 @@ public class SelfExtractableCPABEEngineJUnitTest extends TestCase {
 		SelfExtractableCPABEEngineJUnitTest engineJUnitTest = new SelfExtractableCPABEEngineJUnitTest();
 		engineJUnitTest.setEngine(seCPABEEngine);
 		engineJUnitTest
-				.runAllTests(PairingFactory.getPairingParameters(TestUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
+				.runAllTests(PairingFactory.getPairingParameters(PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
 	}
 
 	public void testSECPABEEngineWithSHA512() {
@@ -385,6 +385,6 @@ public class SelfExtractableCPABEEngineJUnitTest extends TestCase {
 		SelfExtractableCPABEEngineJUnitTest engineJUnitTest = new SelfExtractableCPABEEngineJUnitTest();
 		engineJUnitTest.setEngine(seCPABEEngine);
 		engineJUnitTest
-				.runAllTests(PairingFactory.getPairingParameters(TestUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
+				.runAllTests(PairingFactory.getPairingParameters(PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
 	}
 }

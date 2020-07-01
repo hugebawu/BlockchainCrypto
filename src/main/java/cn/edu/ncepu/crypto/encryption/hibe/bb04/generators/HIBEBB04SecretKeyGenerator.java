@@ -1,5 +1,7 @@
 package cn.edu.ncepu.crypto.encryption.hibe.bb04.generators;
 
+import org.bouncycastle.crypto.KeyGenerationParameters;
+
 import cn.edu.ncepu.crypto.algebra.generators.PairingKeyParameterGenerator;
 import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
 import cn.edu.ncepu.crypto.encryption.hibe.bb04.HIBEBB04Engine;
@@ -12,7 +14,6 @@ import cn.edu.ncepu.crypto.utils.PairingUtils;
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Pairing;
 import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
-import org.bouncycastle.crypto.KeyGenerationParameters;
 
 /**
  * Created by Weiran Liu on 15-9-30.

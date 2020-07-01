@@ -1,5 +1,8 @@
 package cn.edu.ncepu.crypto.encryption.ibe.lw10.generators;
 
+import org.bouncycastle.crypto.CipherParameters;
+import org.bouncycastle.crypto.InvalidCipherTextException;
+
 import cn.edu.ncepu.crypto.algebra.generators.PairingDecapsulationGenerator;
 import cn.edu.ncepu.crypto.algebra.generators.PairingDecryptionGenerator;
 import cn.edu.ncepu.crypto.encryption.ibe.genparams.IBEDecryptionGenerationParameter;
@@ -11,8 +14,6 @@ import cn.edu.ncepu.crypto.utils.PairingUtils;
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Pairing;
 import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.InvalidCipherTextException;
 
 /**
  * Created by Weiran Liu on 16/5/7.

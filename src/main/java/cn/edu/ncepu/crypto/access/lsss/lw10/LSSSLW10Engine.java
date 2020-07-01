@@ -1,14 +1,14 @@
 package cn.edu.ncepu.crypto.access.lsss.lw10;
 
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import java.util.Map;
+
 import cn.edu.ncepu.crypto.access.AccessControlParameter;
 import cn.edu.ncepu.crypto.access.AccessTreeNode;
 import cn.edu.ncepu.crypto.access.lsss.LSSSPolicyEngine;
 import cn.edu.ncepu.crypto.access.lsss.LSSSPolicyParameter;
 import cn.edu.ncepu.crypto.access.parser.BinaryTreeNode;
-
-import java.util.LinkedHashMap;
-import java.util.LinkedList;
-import java.util.Map;
 
 /**
  * Created by Weiran Liu on 2016/7/20.

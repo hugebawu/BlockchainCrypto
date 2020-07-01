@@ -1,7 +1,8 @@
 package cn.edu.ncepu.crypto.algebra.genparams;
 
-import it.unisa.dia.gas.jpbc.PairingParameters;
 import org.bouncycastle.crypto.KeyGenerationParameters;
+
+import it.unisa.dia.gas.jpbc.PairingParameters;
 
 /**
  * Created by Weiran Liu on 2016/11/20.

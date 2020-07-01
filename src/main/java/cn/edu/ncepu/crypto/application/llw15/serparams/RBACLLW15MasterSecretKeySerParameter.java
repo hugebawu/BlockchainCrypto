@@ -1,13 +1,13 @@
 package cn.edu.ncepu.crypto.application.llw15.serparams;
 
+import java.util.Arrays;
+
 import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
 import cn.edu.ncepu.crypto.utils.PairingUtils;
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Pairing;
 import it.unisa.dia.gas.jpbc.PairingParameters;
 import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
-
-import java.util.Arrays;
 
 /**
  * Created by Weiran Liu on 16/5/18.

@@ -1,5 +1,8 @@
 package cn.edu.ncepu.crypto.encryption.be.bgw05.generators;
 
+import org.bouncycastle.crypto.CipherParameters;
+import org.bouncycastle.crypto.InvalidCipherTextException;
+
 import cn.edu.ncepu.crypto.algebra.generators.PairingDecapsulationGenerator;
 import cn.edu.ncepu.crypto.encryption.be.bgw05.serparams.BEBGW05HeaderSerParameter;
 import cn.edu.ncepu.crypto.encryption.be.bgw05.serparams.BEBGW05PublicKeySerParameter;
@@ -8,8 +11,6 @@ import cn.edu.ncepu.crypto.encryption.be.genparams.BEDecapsulationGenerationPara
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Pairing;
 import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.InvalidCipherTextException;
 
 /**
  * Created by Weiran Liu on 2016/12/2.

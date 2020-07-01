@@ -1,5 +1,7 @@
 package cn.edu.ncepu.crypto.encryption.be.bgw05.generators;
 
+import org.bouncycastle.crypto.KeyGenerationParameters;
+
 import cn.edu.ncepu.crypto.algebra.generators.PairingKeyParameterGenerator;
 import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
 import cn.edu.ncepu.crypto.encryption.be.bgw05.serparams.BEBGW05MasterSecretKeySerParameter;
@@ -7,7 +9,6 @@ import cn.edu.ncepu.crypto.encryption.be.bgw05.serparams.BEBGW05PublicKeySerPara
 import cn.edu.ncepu.crypto.encryption.be.bgw05.serparams.BEBGW05SecretKeySerParameter;
 import cn.edu.ncepu.crypto.encryption.be.genparams.BESecretKeyGenerationParameter;
 import it.unisa.dia.gas.jpbc.Element;
-import org.bouncycastle.crypto.KeyGenerationParameters;
 
 /**
  * Created by Weiran Liu on 2016/12/2.

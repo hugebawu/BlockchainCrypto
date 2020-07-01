@@ -1,10 +1,11 @@
 package cn.edu.ncepu.crypto.encryption.hibbe.genparams;
 
+import org.bouncycastle.crypto.Digest;
+import org.bouncycastle.crypto.Signer;
+
 import cn.edu.ncepu.crypto.algebra.genparams.PairingDecryptionGenerationParameter;
 import cn.edu.ncepu.crypto.algebra.serparams.PairingCipherSerParameter;
 import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
-import org.bouncycastle.crypto.Digest;
-import org.bouncycastle.crypto.Signer;
 
 /**
  * Created by Weiran Liu on 2016/5/16.

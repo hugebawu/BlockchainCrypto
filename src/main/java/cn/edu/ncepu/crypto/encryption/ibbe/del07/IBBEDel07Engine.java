@@ -1,5 +1,7 @@
 package cn.edu.ncepu.crypto.encryption.ibbe.del07;
 
+import org.bouncycastle.crypto.InvalidCipherTextException;
+
 import cn.edu.ncepu.crypto.algebra.serparams.PairingCipherSerParameter;
 import cn.edu.ncepu.crypto.algebra.serparams.PairingKeyEncapsulationSerPair;
 import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerPair;
@@ -19,7 +21,6 @@ import cn.edu.ncepu.crypto.encryption.ibbe.genparams.IBBEKeyPairGenerationParame
 import cn.edu.ncepu.crypto.encryption.ibbe.genparams.IBBESecretKeyGenerationParameter;
 import cn.edu.ncepu.crypto.utils.PairingUtils;
 import it.unisa.dia.gas.jpbc.PairingParameters;
-import org.bouncycastle.crypto.InvalidCipherTextException;
 
 /**
  * Created by Weiran Liu on 2016/8/24.

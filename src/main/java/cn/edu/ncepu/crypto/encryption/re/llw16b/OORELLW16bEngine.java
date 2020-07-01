@@ -1,25 +1,43 @@
 package cn.edu.ncepu.crypto.encryption.re.llw16b;
 
+import java.security.SecureRandom;
+
+import org.bouncycastle.crypto.InvalidCipherTextException;
+import org.bouncycastle.crypto.KeyGenerationParameters;
+import org.bouncycastle.crypto.digests.SHA256Digest;
+
 import cn.edu.ncepu.crypto.algebra.Engine;
 import cn.edu.ncepu.crypto.algebra.generators.AsymmetricKeySerPairGenerator;
-import cn.edu.ncepu.crypto.algebra.serparams.*;
+import cn.edu.ncepu.crypto.algebra.serparams.PairingCipherSerParameter;
+import cn.edu.ncepu.crypto.algebra.serparams.PairingKeyEncapsulationSerPair;
+import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerPair;
+import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
+import cn.edu.ncepu.crypto.algebra.serparams.SecurePrimeSerParameter;
 import cn.edu.ncepu.crypto.chameleonhash.ChameleonHasher;
 import cn.edu.ncepu.crypto.chameleonhash.kr00b.KR00bDigestHasher;
 import cn.edu.ncepu.crypto.chameleonhash.kr00b.dlog.DLogKR00bKeyGenerationParameters;
 import cn.edu.ncepu.crypto.chameleonhash.kr00b.dlog.DLogKR00bKeyPairGenerator;
 import cn.edu.ncepu.crypto.chameleonhash.kr00b.dlog.DLogKR00bUniversalHasher;
 import cn.edu.ncepu.crypto.encryption.re.OOREEngine;
-import cn.edu.ncepu.crypto.encryption.re.genparams.*;
-import cn.edu.ncepu.crypto.encryption.re.llw16b.generators.*;
-import cn.edu.ncepu.crypto.encryption.re.llw16b.serparams.*;
+import cn.edu.ncepu.crypto.encryption.re.genparams.REDecryptionGenerationParameter;
+import cn.edu.ncepu.crypto.encryption.re.genparams.REEncryptionGenerationParameter;
+import cn.edu.ncepu.crypto.encryption.re.genparams.REIntermediateGenerationParameter;
+import cn.edu.ncepu.crypto.encryption.re.genparams.REKeyPairGenerationParameter;
+import cn.edu.ncepu.crypto.encryption.re.genparams.RESecretKeyGenerationParameter;
+import cn.edu.ncepu.crypto.encryption.re.llw16b.generators.RELLW16bDecryptionGenerator;
+import cn.edu.ncepu.crypto.encryption.re.llw16b.generators.RELLW16bEncryptionGenerator;
+import cn.edu.ncepu.crypto.encryption.re.llw16b.generators.RELLW16bIntermediateGenerator;
+import cn.edu.ncepu.crypto.encryption.re.llw16b.generators.RELLW16bKeyPairGenerator;
+import cn.edu.ncepu.crypto.encryption.re.llw16b.generators.RELLW16bSecretKeyGenerator;
+import cn.edu.ncepu.crypto.encryption.re.llw16b.serparams.RELLW16bCiphertextSerParameter;
+import cn.edu.ncepu.crypto.encryption.re.llw16b.serparams.RELLW16bHeaderSerParameter;
+import cn.edu.ncepu.crypto.encryption.re.llw16b.serparams.RELLW16bIntermediateSerParameter;
+import cn.edu.ncepu.crypto.encryption.re.llw16b.serparams.RELLW16bMasterSecretKeySerParameter;
+import cn.edu.ncepu.crypto.encryption.re.llw16b.serparams.RELLW16bPublicKeySerParameter;
+import cn.edu.ncepu.crypto.encryption.re.llw16b.serparams.RELLW16bSecretKeySerParameter;
 import cn.edu.ncepu.crypto.utils.PairingUtils;
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.PairingParameters;
-import org.bouncycastle.crypto.InvalidCipherTextException;
-import org.bouncycastle.crypto.KeyGenerationParameters;
-import org.bouncycastle.crypto.digests.SHA256Digest;
-
-import java.security.SecureRandom;
 
 /**
  * Created by Weiran Liu on 2017/1/4.

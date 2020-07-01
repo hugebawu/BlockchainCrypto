@@ -1,8 +1,18 @@
 package cn.edu.ncepu.crypto.encryption.abe.cpabe.llw14;
 
+import java.security.SecureRandom;
+
+import org.bouncycastle.crypto.InvalidCipherTextException;
+import org.bouncycastle.crypto.KeyGenerationParameters;
+import org.bouncycastle.crypto.digests.SHA256Digest;
+
 import cn.edu.ncepu.crypto.algebra.Engine;
 import cn.edu.ncepu.crypto.algebra.generators.AsymmetricKeySerPairGenerator;
-import cn.edu.ncepu.crypto.algebra.serparams.*;
+import cn.edu.ncepu.crypto.algebra.serparams.PairingCipherSerParameter;
+import cn.edu.ncepu.crypto.algebra.serparams.PairingKeyEncapsulationSerPair;
+import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerPair;
+import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
+import cn.edu.ncepu.crypto.algebra.serparams.SecurePrimeSerParameter;
 import cn.edu.ncepu.crypto.chameleonhash.ChameleonHasher;
 import cn.edu.ncepu.crypto.chameleonhash.kr00b.KR00bDigestHasher;
 import cn.edu.ncepu.crypto.chameleonhash.kr00b.dlog.DLogKR00bHasher;
@@ -17,15 +27,14 @@ import cn.edu.ncepu.crypto.encryption.abe.cpabe.llw14.generators.CPABELLW14Decry
 import cn.edu.ncepu.crypto.encryption.abe.cpabe.llw14.generators.CPABELLW14EncryptionGenerator;
 import cn.edu.ncepu.crypto.encryption.abe.cpabe.llw14.generators.CPABELLW14KeyPairGenerator;
 import cn.edu.ncepu.crypto.encryption.abe.cpabe.llw14.generators.CPABELLW14SecretKeyGenerator;
-import cn.edu.ncepu.crypto.encryption.abe.cpabe.llw14.serparams.*;
+import cn.edu.ncepu.crypto.encryption.abe.cpabe.llw14.serparams.CPABELLW14CiphertextSerParameter;
+import cn.edu.ncepu.crypto.encryption.abe.cpabe.llw14.serparams.CPABELLW14HeaderSerParameter;
+import cn.edu.ncepu.crypto.encryption.abe.cpabe.llw14.serparams.CPABELLW14MasterSecretKeySerParameter;
+import cn.edu.ncepu.crypto.encryption.abe.cpabe.llw14.serparams.CPABELLW14PublicKeySerParameter;
+import cn.edu.ncepu.crypto.encryption.abe.cpabe.llw14.serparams.CPABELLW14SecretKeySerParameter;
 import cn.edu.ncepu.crypto.utils.PairingUtils;
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.PairingParameters;
-import org.bouncycastle.crypto.InvalidCipherTextException;
-import org.bouncycastle.crypto.KeyGenerationParameters;
-import org.bouncycastle.crypto.digests.SHA256Digest;
-
-import java.security.SecureRandom;
 
 /**
  * Created by Weiran Liu on 2016/12/28.

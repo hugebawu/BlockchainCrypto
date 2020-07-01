@@ -1,5 +1,7 @@
 package cn.edu.ncepu.crypto.application.llw15.generators;
 
+import org.bouncycastle.crypto.CipherParameters;
+
 import cn.edu.ncepu.crypto.application.llw15.genparams.RBACLLW15EncapsulationAuditParameter;
 import cn.edu.ncepu.crypto.application.llw15.serparams.RBACLLW15EncapsulationSerParameter;
 import cn.edu.ncepu.crypto.application.llw15.serparams.RBACLLW15PublicKeySerParameter;
@@ -7,7 +9,6 @@ import cn.edu.ncepu.crypto.utils.PairingUtils;
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Pairing;
 import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
-import org.bouncycastle.crypto.CipherParameters;
 
 /**
  * Created by Weiran Liu on 16/6/19.

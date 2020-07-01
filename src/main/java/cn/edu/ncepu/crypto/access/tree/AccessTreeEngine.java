@@ -1,5 +1,8 @@
 package cn.edu.ncepu.crypto.access.tree;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import cn.edu.ncepu.crypto.access.AccessControlEngine;
 import cn.edu.ncepu.crypto.access.AccessControlParameter;
 import cn.edu.ncepu.crypto.access.AccessTreeNode;
@@ -7,9 +10,6 @@ import cn.edu.ncepu.crypto.access.UnsatisfiedAccessControlException;
 import cn.edu.ncepu.crypto.algebra.algorithms.LagrangePolynomial;
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Pairing;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by Weiran Liu on 2016/7/20.

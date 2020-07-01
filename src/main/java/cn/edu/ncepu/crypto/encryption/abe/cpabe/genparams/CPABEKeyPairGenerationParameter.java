@@ -1,9 +1,10 @@
 package cn.edu.ncepu.crypto.encryption.abe.cpabe.genparams;
 
+import org.bouncycastle.crypto.KeyGenerationParameters;
+
 import cn.edu.ncepu.crypto.algebra.generators.AsymmetricKeySerPairGenerator;
 import cn.edu.ncepu.crypto.algebra.genparams.PairingKeyPairGenerationParameter;
 import it.unisa.dia.gas.jpbc.PairingParameters;
-import org.bouncycastle.crypto.KeyGenerationParameters;
 
 /**
  * Created by Weiran Liu on 2016/11/19.

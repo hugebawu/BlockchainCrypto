@@ -1,5 +1,8 @@
 package cn.edu.ncepu.crypto.encryption.abe.kpabe.rw13.serparams;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import cn.edu.ncepu.crypto.access.AccessControlParameter;
 import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
 import cn.edu.ncepu.crypto.utils.PairingUtils;
@@ -7,9 +10,6 @@ import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Pairing;
 import it.unisa.dia.gas.jpbc.PairingParameters;
 import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by Weiran Liu on 2016/11/30.

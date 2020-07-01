@@ -1,5 +1,13 @@
 package cn.edu.ncepu.crypto.encryption.hibbe.llw16b.generators;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+
+import org.bouncycastle.crypto.CipherParameters;
+import org.bouncycastle.crypto.InvalidCipherTextException;
+import org.bouncycastle.crypto.Signer;
+
 import cn.edu.ncepu.crypto.algebra.generators.PairingDecapsulationGenerator;
 import cn.edu.ncepu.crypto.algebra.generators.PairingDecryptionGenerator;
 import cn.edu.ncepu.crypto.encryption.hibbe.genparams.HIBBEDecryptionGenerationParameter;
@@ -11,13 +19,6 @@ import cn.edu.ncepu.crypto.utils.PairingUtils;
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Pairing;
 import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.InvalidCipherTextException;
-import org.bouncycastle.crypto.Signer;
-
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
 
 /**
  * Created by Weiran Liu on 2016/11/11.

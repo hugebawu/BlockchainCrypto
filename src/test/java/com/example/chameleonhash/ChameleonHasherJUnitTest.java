@@ -10,8 +10,6 @@ import org.bouncycastle.crypto.digests.SHA256Digest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.example.TestUtils;
-
 import cn.edu.ncepu.crypto.algebra.generators.AsymmetricKeySerPairGenerator;
 import cn.edu.ncepu.crypto.algebra.serparams.AsymmetricKeySerPair;
 import cn.edu.ncepu.crypto.algebra.serparams.AsymmetricKeySerParameter;
@@ -22,6 +20,7 @@ import cn.edu.ncepu.crypto.chameleonhash.kr00b.dlog.DLogKR00bHasher;
 import cn.edu.ncepu.crypto.chameleonhash.kr00b.dlog.DLogKR00bKeyGenerationParameters;
 import cn.edu.ncepu.crypto.chameleonhash.kr00b.dlog.DLogKR00bKeyPairGenerator;
 import cn.edu.ncepu.crypto.chameleonhash.kr00b.dlog.DLogKR00bUniversalHasher;
+import cn.edu.ncepu.crypto.utils.PairingUtils;
 import junit.framework.TestCase;
 
 /**
@@ -80,15 +79,15 @@ public class ChameleonHasherJUnitTest extends TestCase {
 			logger.info("Test signer parameters serialization & de-serialization.");
 			// serialize public key
 			logger.info("Test serialize & de-serialize public key.");
-			byte[] byteArrayPublicKey = TestUtils.SerCipherParameter(publicKey);
-			CipherParameters anPublicKey = TestUtils.deserCipherParameters(byteArrayPublicKey);
+			byte[] byteArrayPublicKey = PairingUtils.SerCipherParameter(publicKey);
+			CipherParameters anPublicKey = PairingUtils.deserCipherParameters(byteArrayPublicKey);
 			assertEquals(publicKey, anPublicKey);
 
 			// serialize secret key
 			logger.info("Test serialize & de-serialize secret keys.");
 			// serialize sk4
-			byte[] byteArraySecretKey = TestUtils.SerCipherParameter(secretKey);
-			CipherParameters anSecretKey = TestUtils.deserCipherParameters(byteArraySecretKey);
+			byte[] byteArraySecretKey = PairingUtils.SerCipherParameter(secretKey);
+			CipherParameters anSecretKey = PairingUtils.deserCipherParameters(byteArraySecretKey);
 			assertEquals(secretKey, anSecretKey);
 
 			logger.info("Signer parameter serialization tests passed.");

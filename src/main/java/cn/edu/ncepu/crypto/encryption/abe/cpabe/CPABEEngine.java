@@ -1,5 +1,7 @@
 package cn.edu.ncepu.crypto.encryption.abe.cpabe;
 
+import org.bouncycastle.crypto.InvalidCipherTextException;
+
 import cn.edu.ncepu.crypto.access.AccessControlEngine;
 import cn.edu.ncepu.crypto.access.parser.ParserUtils;
 import cn.edu.ncepu.crypto.access.parser.PolicySyntaxException;
@@ -11,7 +13,6 @@ import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerPair;
 import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.PairingParameters;
-import org.bouncycastle.crypto.InvalidCipherTextException;
 
 /**
  * Created by Weiran Liu on 2016/7/21.

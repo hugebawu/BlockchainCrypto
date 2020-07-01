@@ -1,5 +1,17 @@
 package cn.edu.ncepu.crypto.signature.pks.bb08;
 
+import java.io.IOException;
+
+import org.bouncycastle.asn1.ASN1EncodableVector;
+import org.bouncycastle.asn1.ASN1Encoding;
+import org.bouncycastle.asn1.ASN1Primitive;
+import org.bouncycastle.asn1.ASN1Sequence;
+import org.bouncycastle.asn1.ASN1String;
+import org.bouncycastle.asn1.DERPrintableString;
+import org.bouncycastle.asn1.DERSequence;
+import org.bouncycastle.crypto.CipherParameters;
+import org.bouncycastle.util.encoders.Hex;
+
 import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
 import cn.edu.ncepu.crypto.signature.pks.PairingSigner;
 import cn.edu.ncepu.crypto.utils.PairingUtils;
@@ -7,11 +19,6 @@ import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Pairing;
 import it.unisa.dia.gas.jpbc.PairingParameters;
 import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
-import org.bouncycastle.asn1.*;
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.util.encoders.Hex;
-
-import java.io.IOException;
 
 /**
  * Created by Weiran Liu on 2016/11/10.

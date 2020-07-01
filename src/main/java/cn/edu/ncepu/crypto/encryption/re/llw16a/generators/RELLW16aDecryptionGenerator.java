@@ -1,16 +1,17 @@
 package cn.edu.ncepu.crypto.encryption.re.llw16a.generators;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import org.bouncycastle.crypto.CipherParameters;
+import org.bouncycastle.crypto.InvalidCipherTextException;
+
 import cn.edu.ncepu.crypto.encryption.re.genparams.REDecryptionGenerationParameter;
 import cn.edu.ncepu.crypto.encryption.re.llw16a.serparams.RELLW16aCiphertextSerParameter;
 import cn.edu.ncepu.crypto.encryption.re.llw16a.serparams.RELLW16aHeaderSerParameter;
 import cn.edu.ncepu.crypto.encryption.re.llw16a.serparams.RELLW16aPublicKeySerParameter;
 import cn.edu.ncepu.crypto.encryption.re.lsw10a.generators.RELSW10aDecryptionGenerator;
 import it.unisa.dia.gas.jpbc.Element;
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.InvalidCipherTextException;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by Weiran Liu on 2017/1/4.

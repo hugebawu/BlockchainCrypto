@@ -1,7 +1,8 @@
 package cn.edu.ncepu.crypto.algebra.generators;
 
-import cn.edu.ncepu.crypto.algebra.serparams.PairingKeyEncapsulationSerPair;
 import org.bouncycastle.crypto.CipherParameters;
+
+import cn.edu.ncepu.crypto.algebra.serparams.PairingKeyEncapsulationSerPair;
 
 /**
  * Created by Weiran Liu on 15-9-30.

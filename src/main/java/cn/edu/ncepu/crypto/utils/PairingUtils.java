@@ -34,6 +34,14 @@ public class PairingUtils {
 	public static final String PATH_f_160 = "params/f_160.properties";
 	public static final String PATH_a = "params/a.properties";
 
+	public static final String TEST_PAIRING_PARAMETERS_PATH_a_80_256 = "params/a_80_256.properties";
+	public static final String TEST_PAIRING_PARAMETERS_PATH_a1_2_128 = "params/a1_2_128.properties";
+	public static final String TEST_PAIRING_PARAMETERS_PATH_a1_3_128 = "params/a1_3_128.properties";
+
+	public static final int DEFAULT_SIMU_TEST_ROUND = 2;
+	public static final int DEFAULT_PRIME_ORDER_TEST_ROUND = 100;
+	public static final int DEFAULT_COMPOSITE_ORDER_TEST_ROUND = 20;
+
 	public enum PairingGroupType {
 		Zr, G1, G2, GT,
 	}

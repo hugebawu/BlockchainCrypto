@@ -1,9 +1,10 @@
 package cn.edu.ncepu.crypto.chameleonhash.kr00b.dlog;
 
-import cn.edu.ncepu.crypto.chameleonhash.kr00b.dlog.serparams.DLogKR00bPublicKeySerParameter;
+import java.math.BigInteger;
+
 import org.bouncycastle.crypto.Digest;
 
-import java.math.BigInteger;
+import cn.edu.ncepu.crypto.chameleonhash.kr00b.dlog.serparams.DLogKR00bPublicKeySerParameter;
 
 /**
  * Created by Weiran Liu on 2016/11/7.

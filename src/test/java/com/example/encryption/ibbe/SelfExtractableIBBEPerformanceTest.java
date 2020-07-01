@@ -10,8 +10,6 @@ import org.bouncycastle.crypto.generators.PKCS5S1ParametersGenerator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.example.TestUtils;
-
 import cn.edu.ncepu.crypto.algebra.serparams.PairingCipherSerParameter;
 import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerPair;
 import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
@@ -246,11 +244,11 @@ public class SelfExtractableIBBEPerformanceTest extends TestCase {
 	public void testSelfExtractableDel07Performance() {
 		SelfExtractableIBBEPerformanceTest performanceTest = new SelfExtractableIBBEPerformanceTest();
 //        performanceTest.maximal_users = 10;
-//        performanceTest.pairingParameterPath = TestUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256;
-//        performanceTest.test_round = TestUtils.DEFAULT_SIMU_TEST_ROUND;
+//        performanceTest.pairingParameterPath = PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256;
+//        performanceTest.test_round = PairingUtils.DEFAULT_SIMU_TEST_ROUND;
 		performanceTest.maximal_users = 50;
 		performanceTest.pairingParameterPath = PairingUtils.PATH_a_160_512;
-		performanceTest.test_round = TestUtils.DEFAULT_PRIME_ORDER_TEST_ROUND;
+		performanceTest.test_round = PairingUtils.DEFAULT_PRIME_ORDER_TEST_ROUND;
 		Digest digest = new SHA256Digest();
 		IBBEEngine beseEngine = IBBEDel07Engine.getInstance();
 		BlockCipher blockCipher = new AESEngine();

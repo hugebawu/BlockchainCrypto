@@ -6,8 +6,6 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.example.TestUtils;
-
 import cn.edu.ncepu.crypto.algebra.serparams.PairingCipherSerParameter;
 import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerPair;
 import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
@@ -187,7 +185,7 @@ public class IBEPerformanceTest {
 	public void testBF01aPerformance() {
 		IBEPerformanceTest performanceTest = new IBEPerformanceTest();
 		performanceTest.pairingParameterPath = PairingUtils.PATH_a_160_512;
-		performanceTest.test_round = TestUtils.DEFAULT_PRIME_ORDER_TEST_ROUND;
+		performanceTest.test_round = PairingUtils.DEFAULT_PRIME_ORDER_TEST_ROUND;
 		performanceTest.engine = IBEBF01aEngine.getInstance();
 		performanceTest.init();
 		performanceTest.runPerformanceTest();
@@ -198,7 +196,7 @@ public class IBEPerformanceTest {
 	public void testGen06aPerformance() {
 		IBEPerformanceTest performanceTest = new IBEPerformanceTest();
 		performanceTest.pairingParameterPath = PairingUtils.PATH_a_160_512;
-		performanceTest.test_round = TestUtils.DEFAULT_PRIME_ORDER_TEST_ROUND;
+		performanceTest.test_round = PairingUtils.DEFAULT_PRIME_ORDER_TEST_ROUND;
 		performanceTest.engine = IBEGen06aEngine.getInstance();
 		performanceTest.init();
 		performanceTest.runPerformanceTest();

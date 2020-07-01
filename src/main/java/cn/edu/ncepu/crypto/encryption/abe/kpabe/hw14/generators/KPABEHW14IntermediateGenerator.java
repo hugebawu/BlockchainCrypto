@@ -1,5 +1,7 @@
 package cn.edu.ncepu.crypto.encryption.abe.kpabe.hw14.generators;
 
+import org.bouncycastle.crypto.CipherParameters;
+
 import cn.edu.ncepu.crypto.algebra.generators.PairingEncryptionGenerator;
 import cn.edu.ncepu.crypto.algebra.serparams.PairingCipherSerParameter;
 import cn.edu.ncepu.crypto.encryption.abe.kpabe.genparams.KPABEIntermediateGenerationParameter;
@@ -8,7 +10,6 @@ import cn.edu.ncepu.crypto.encryption.abe.kpabe.hw14.serparams.KPABEHW14PublicKe
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Pairing;
 import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
-import org.bouncycastle.crypto.CipherParameters;
 
 /**
  * Created by Weiran Liu on 17/1/2.

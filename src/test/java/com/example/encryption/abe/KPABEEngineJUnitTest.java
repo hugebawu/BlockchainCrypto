@@ -13,7 +13,6 @@ import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.example.TestUtils;
 import com.example.access.AccessPolicyExamples;
 
 import cn.edu.ncepu.crypto.access.lsss.lw10.LSSSLW10Engine;
@@ -39,6 +38,7 @@ import cn.edu.ncepu.crypto.encryption.abe.kpabe.hw14.OOKPABEHW14Engine;
 import cn.edu.ncepu.crypto.encryption.abe.kpabe.llw14.KPABELLW14Engine;
 import cn.edu.ncepu.crypto.encryption.abe.kpabe.llw16.OOKPABELLW16Engine;
 import cn.edu.ncepu.crypto.encryption.abe.kpabe.rw13.KPABERW13Engine;
+import cn.edu.ncepu.crypto.utils.PairingUtils;
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Pairing;
 import it.unisa.dia.gas.jpbc.PairingParameters;
@@ -117,16 +117,16 @@ public class KPABEEngineJUnitTest extends TestCase {
 			throws InvalidCipherTextException, IOException, ClassNotFoundException {
 		// KeyGen and serialization
 		PairingKeySerParameter secretKey = engine.keyGen(publicKey, masterKey, accessPolicy, rhos);
-		byte[] byteArraySecretKey = TestUtils.SerCipherParameter(secretKey);
-		CipherParameters anSecretKey = TestUtils.deserCipherParameters(byteArraySecretKey);
+		byte[] byteArraySecretKey = PairingUtils.SerCipherParameter(secretKey);
+		CipherParameters anSecretKey = PairingUtils.deserCipherParameters(byteArraySecretKey);
 		Assert.assertEquals(secretKey, anSecretKey);
 		secretKey = (PairingKeySerParameter) anSecretKey;
 
 		// Encryption and serialization
 		Element message = pairing.getGT().newRandomElement().getImmutable();
 		PairingCipherSerParameter ciphertext = engine.encryption(publicKey, attributes, message);
-		byte[] byteArrayCiphertext = TestUtils.SerCipherParameter(ciphertext);
-		CipherParameters anCiphertext = TestUtils.deserCipherParameters(byteArrayCiphertext);
+		byte[] byteArrayCiphertext = PairingUtils.SerCipherParameter(ciphertext);
+		CipherParameters anCiphertext = PairingUtils.deserCipherParameters(byteArrayCiphertext);
 		Assert.assertEquals(ciphertext, anCiphertext);
 		ciphertext = (PairingCipherSerParameter) anCiphertext;
 
@@ -138,8 +138,8 @@ public class KPABEEngineJUnitTest extends TestCase {
 		PairingKeyEncapsulationSerPair encapsulationPair = engine.encapsulation(publicKey, attributes);
 		byte[] sessionKey = encapsulationPair.getSessionKey();
 		PairingCipherSerParameter header = encapsulationPair.getHeader();
-		byte[] byteArrayHeader = TestUtils.SerCipherParameter(header);
-		CipherParameters anHeader = TestUtils.deserCipherParameters(byteArrayHeader);
+		byte[] byteArrayHeader = PairingUtils.SerCipherParameter(header);
+		CipherParameters anHeader = PairingUtils.deserCipherParameters(byteArrayHeader);
 		Assert.assertEquals(header, anHeader);
 		header = (PairingCipherSerParameter) anHeader;
 
@@ -151,15 +151,15 @@ public class KPABEEngineJUnitTest extends TestCase {
 			OOKPABEEngine ooEngine = (OOKPABEEngine) this.engine;
 			// offline encryption and serialization
 			PairingCipherSerParameter intermediate = ooEngine.offlineEncryption(publicKey, rhos.length);
-			byte[] byteArrayIntermediate = TestUtils.SerCipherParameter(intermediate);
-			CipherParameters anIntermediate = TestUtils.deserCipherParameters(byteArrayIntermediate);
+			byte[] byteArrayIntermediate = PairingUtils.SerCipherParameter(intermediate);
+			CipherParameters anIntermediate = PairingUtils.deserCipherParameters(byteArrayIntermediate);
 			Assert.assertEquals(intermediate, anIntermediate);
 			intermediate = (PairingCipherSerParameter) anIntermediate;
 
 			// Encryption and serialization
 			ciphertext = ooEngine.encryption(publicKey, intermediate, attributes, message);
-			byteArrayCiphertext = TestUtils.SerCipherParameter(ciphertext);
-			anCiphertext = TestUtils.deserCipherParameters(byteArrayCiphertext);
+			byteArrayCiphertext = PairingUtils.SerCipherParameter(ciphertext);
+			anCiphertext = PairingUtils.deserCipherParameters(byteArrayCiphertext);
 			Assert.assertEquals(ciphertext, anCiphertext);
 			ciphertext = (PairingCipherSerParameter) anCiphertext;
 
@@ -171,8 +171,8 @@ public class KPABEEngineJUnitTest extends TestCase {
 			encapsulationPair = ooEngine.encapsulation(publicKey, intermediate, attributes);
 			sessionKey = encapsulationPair.getSessionKey();
 			header = encapsulationPair.getHeader();
-			byteArrayHeader = TestUtils.SerCipherParameter(header);
-			anHeader = TestUtils.deserCipherParameters(byteArrayHeader);
+			byteArrayHeader = PairingUtils.SerCipherParameter(header);
+			anHeader = PairingUtils.deserCipherParameters(byteArrayHeader);
 			Assert.assertEquals(header, anHeader);
 			header = (PairingCipherSerParameter) anHeader;
 
@@ -188,14 +188,14 @@ public class KPABEEngineJUnitTest extends TestCase {
 			// Setup and serialization
 			PairingKeySerPair keyPair = engine.setup(pairingParameters, 50);
 			PairingKeySerParameter publicKey = keyPair.getPublic();
-			byte[] byteArrayPublicKey = TestUtils.SerCipherParameter(publicKey);
-			CipherParameters anPublicKey = TestUtils.deserCipherParameters(byteArrayPublicKey);
+			byte[] byteArrayPublicKey = PairingUtils.SerCipherParameter(publicKey);
+			CipherParameters anPublicKey = PairingUtils.deserCipherParameters(byteArrayPublicKey);
 			Assert.assertEquals(publicKey, anPublicKey);
 			publicKey = (PairingKeySerParameter) anPublicKey;
 
 			PairingKeySerParameter masterKey = keyPair.getPrivate();
-			byte[] byteArrayMasterKey = TestUtils.SerCipherParameter(masterKey);
-			CipherParameters anMasterKey = TestUtils.deserCipherParameters(byteArrayMasterKey);
+			byte[] byteArrayMasterKey = PairingUtils.SerCipherParameter(masterKey);
+			CipherParameters anMasterKey = PairingUtils.deserCipherParameters(byteArrayMasterKey);
 			Assert.assertEquals(masterKey, anMasterKey);
 			masterKey = (PairingKeySerParameter) anMasterKey;
 
@@ -345,44 +345,44 @@ public class KPABEEngineJUnitTest extends TestCase {
 		this.engine = KPABEGPSW06aEngine.getInstance();
 		logger.info("Test " + engine.getEngineName() + " using " + AccessTreeEngine.SCHEME_NAME);
 		engine.setAccessControlEngine(AccessTreeEngine.getInstance());
-		runAllTests(PairingFactory.getPairingParameters(TestUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
+		runAllTests(PairingFactory.getPairingParameters(PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
 
 		logger.info("Test " + engine.getEngineName() + " using " + LSSSLW10Engine.SCHEME_NAME);
 		engine.setAccessControlEngine(LSSSLW10Engine.getInstance());
-		runAllTests(PairingFactory.getPairingParameters(TestUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
+		runAllTests(PairingFactory.getPairingParameters(PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
 	}
 
 	public void testKPABEGPSW06bEngine() {
 		this.engine = KPABEGPSW06bEngine.getInstance();
 		logger.info("Test " + engine.getEngineName() + " using " + AccessTreeEngine.SCHEME_NAME);
 		engine.setAccessControlEngine(AccessTreeEngine.getInstance());
-		runAllTests(PairingFactory.getPairingParameters(TestUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
+		runAllTests(PairingFactory.getPairingParameters(PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
 
 		logger.info("Test " + engine.getEngineName() + " using " + LSSSLW10Engine.SCHEME_NAME);
 		engine.setAccessControlEngine(LSSSLW10Engine.getInstance());
-		runAllTests(PairingFactory.getPairingParameters(TestUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
+		runAllTests(PairingFactory.getPairingParameters(PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
 	}
 
 	public void testKPABERW13Engine() {
 		this.engine = KPABERW13Engine.getInstance();
 		logger.info("Test " + engine.getEngineName() + " using " + AccessTreeEngine.SCHEME_NAME);
 		engine.setAccessControlEngine(AccessTreeEngine.getInstance());
-		runAllTests(PairingFactory.getPairingParameters(TestUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
+		runAllTests(PairingFactory.getPairingParameters(PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
 
 		logger.info("Test " + engine.getEngineName() + " using " + LSSSLW10Engine.SCHEME_NAME);
 		engine.setAccessControlEngine(LSSSLW10Engine.getInstance());
-		runAllTests(PairingFactory.getPairingParameters(TestUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
+		runAllTests(PairingFactory.getPairingParameters(PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
 	}
 
 	public void testKPABEHW14Engine() {
 		this.engine = OOKPABEHW14Engine.getInstance();
 		logger.info("Test " + engine.getEngineName() + " using " + AccessTreeEngine.SCHEME_NAME);
 		engine.setAccessControlEngine(AccessTreeEngine.getInstance());
-		runAllTests(PairingFactory.getPairingParameters(TestUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
+		runAllTests(PairingFactory.getPairingParameters(PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
 
 		logger.info("Test " + engine.getEngineName() + " using " + LSSSLW10Engine.SCHEME_NAME);
 		engine.setAccessControlEngine(LSSSLW10Engine.getInstance());
-		runAllTests(PairingFactory.getPairingParameters(TestUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
+		runAllTests(PairingFactory.getPairingParameters(PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
 	}
 
 	public void testKPABELLW14Engine() {
@@ -396,11 +396,11 @@ public class KPABEEngineJUnitTest extends TestCase {
 				SecurePrimeSerParameter.RFC3526_1536BIT_MODP_GROUP);
 		((KPABELLW14Engine) this.engine).setChameleonHasher(chameleonHasher, chKeyPairGenerator,
 				keyGenerationParameters);
-		runAllTests(PairingFactory.getPairingParameters(TestUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
+		runAllTests(PairingFactory.getPairingParameters(PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
 
 		logger.info("Test " + engine.getEngineName() + " using " + LSSSLW10Engine.SCHEME_NAME);
 		engine.setAccessControlEngine(LSSSLW10Engine.getInstance());
-		runAllTests(PairingFactory.getPairingParameters(TestUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
+		runAllTests(PairingFactory.getPairingParameters(PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
 	}
 
 	public void testKPABELLW16Engine() {
@@ -415,10 +415,10 @@ public class KPABEEngineJUnitTest extends TestCase {
 				SecurePrimeSerParameter.RFC3526_1536BIT_MODP_GROUP);
 		((OOKPABELLW16Engine) this.engine).setChameleonHasher(chameleonHasher, chKeyPairGenerator,
 				keyGenerationParameters);
-		runAllTests(PairingFactory.getPairingParameters(TestUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
+		runAllTests(PairingFactory.getPairingParameters(PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
 
 		logger.info("Test " + engine.getEngineName() + " using " + LSSSLW10Engine.SCHEME_NAME);
 		engine.setAccessControlEngine(LSSSLW10Engine.getInstance());
-		runAllTests(PairingFactory.getPairingParameters(TestUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
+		runAllTests(PairingFactory.getPairingParameters(PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
 	}
 }

@@ -1,5 +1,7 @@
 package cn.edu.ncepu.crypto.encryption.ibe.gen06b;
 
+import org.bouncycastle.crypto.InvalidCipherTextException;
+
 import cn.edu.ncepu.crypto.algebra.serparams.PairingCipherSerParameter;
 import cn.edu.ncepu.crypto.algebra.serparams.PairingKeyEncapsulationSerPair;
 import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerPair;
@@ -9,7 +11,11 @@ import cn.edu.ncepu.crypto.encryption.ibe.gen06b.generators.IBEGen06bDecryptionG
 import cn.edu.ncepu.crypto.encryption.ibe.gen06b.generators.IBEGen06bEncryptionGenerator;
 import cn.edu.ncepu.crypto.encryption.ibe.gen06b.generators.IBEGen06bKeyPairGenerator;
 import cn.edu.ncepu.crypto.encryption.ibe.gen06b.generators.IBEGen06bSecretKeyGenerator;
-import cn.edu.ncepu.crypto.encryption.ibe.gen06b.serparams.*;
+import cn.edu.ncepu.crypto.encryption.ibe.gen06b.serparams.IBEGen06bCiphertextSerParameter;
+import cn.edu.ncepu.crypto.encryption.ibe.gen06b.serparams.IBEGen06bHeaderSerParameter;
+import cn.edu.ncepu.crypto.encryption.ibe.gen06b.serparams.IBEGen06bMasterSecretKeySerParameter;
+import cn.edu.ncepu.crypto.encryption.ibe.gen06b.serparams.IBEGen06bPublicKeySerParameter;
+import cn.edu.ncepu.crypto.encryption.ibe.gen06b.serparams.IBEGen06bSecretKeySerParameter;
 import cn.edu.ncepu.crypto.encryption.ibe.genparams.IBEDecryptionGenerationParameter;
 import cn.edu.ncepu.crypto.encryption.ibe.genparams.IBEEncryptionGenerationParameter;
 import cn.edu.ncepu.crypto.encryption.ibe.genparams.IBEKeyPairGenerationParameter;
@@ -17,7 +23,6 @@ import cn.edu.ncepu.crypto.encryption.ibe.genparams.IBESecretKeyGenerationParame
 import cn.edu.ncepu.crypto.utils.PairingUtils;
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.PairingParameters;
-import org.bouncycastle.crypto.InvalidCipherTextException;
 
 /**
  * Created by Weiran Liu on 2016/12/1.

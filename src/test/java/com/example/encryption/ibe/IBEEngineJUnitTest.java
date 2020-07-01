@@ -2,6 +2,7 @@ package com.example.encryption.ibe;
 
 import java.io.IOException;
 import java.lang.reflect.Proxy;
+import java.math.BigInteger;
 
 import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.crypto.InvalidCipherTextException;
@@ -10,8 +11,6 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import com.example.TestUtils;
 
 import cn.edu.ncepu.crypto.algebra.serparams.PairingCipherSerParameter;
 import cn.edu.ncepu.crypto.algebra.serparams.PairingKeyEncapsulationSerPair;
@@ -25,6 +24,7 @@ import cn.edu.ncepu.crypto.encryption.ibe.gen06b.IBEGen06bEngine;
 import cn.edu.ncepu.crypto.encryption.ibe.lw10.IBELW10Engine;
 import cn.edu.ncepu.crypto.encryption.ibe.wp_ibe.BasicIdent;
 import cn.edu.ncepu.crypto.encryption.ibe.wp_ibe.Ident;
+import cn.edu.ncepu.crypto.utils.PairingUtils;
 import cn.edu.ncepu.crypto.utils.SysProperty;
 import cn.edu.ncepu.crypto.utils.TimeCountProxyHandle;
 import edu.princeton.cs.algs4.Out;
@@ -79,29 +79,30 @@ public class IBEEngineJUnitTest {
 			throws InvalidCipherTextException, IOException, ClassNotFoundException {
 		// KeyGen and serialization
 		PairingKeySerParameter secretKey = engine.keyGen(publicKey, masterKey, identityForSecretKey);
-		byte[] byteArraySecretKey = TestUtils.SerCipherParameter(secretKey);
-		CipherParameters anSecretKey = TestUtils.deserCipherParameters(byteArraySecretKey);
+		byte[] byteArraySecretKey = PairingUtils.SerCipherParameter(secretKey);
+		CipherParameters anSecretKey = PairingUtils.deserCipherParameters(byteArraySecretKey);
 		Assert.assertEquals(secretKey, anSecretKey);
 		secretKey = (PairingKeySerParameter) anSecretKey;
 
 		// Encryption and serialization
-		Element message = pairing.getGT().newRandomElement().getImmutable();
+		Element message = pairing.getGT().newElement(new BigInteger("123456789012345678901234567890"));// newRandomElement().getImmutable();
 		PairingCipherSerParameter ciphertext = engine.encryption(publicKey, identityForCiphertext, message);
-		byte[] byteArrayCiphertext = TestUtils.SerCipherParameter(ciphertext);
-		CipherParameters anCiphertext = TestUtils.deserCipherParameters(byteArrayCiphertext);
+		byte[] byteArrayCiphertext = PairingUtils.SerCipherParameter(ciphertext);
+		CipherParameters anCiphertext = PairingUtils.deserCipherParameters(byteArrayCiphertext);
 		Assert.assertEquals(ciphertext, anCiphertext);
 		ciphertext = (PairingCipherSerParameter) anCiphertext;
 
 		// Decryption
 		Element anMessage = engine.decryption(publicKey, secretKey, identityForCiphertext, ciphertext);
+		logger.info("" + anMessage.toBigInteger());
 		Assert.assertEquals(message, anMessage);
 
 		// Encapsulation and serialization
 		PairingKeyEncapsulationSerPair encapsulationPair = engine.encapsulation(publicKey, identityForCiphertext);
 		byte[] sessionKey = encapsulationPair.getSessionKey();
 		PairingCipherSerParameter header = encapsulationPair.getHeader();
-		byte[] byteArrayHeader = TestUtils.SerCipherParameter(header);
-		CipherParameters anHeader = TestUtils.deserCipherParameters(byteArrayHeader);
+		byte[] byteArrayHeader = PairingUtils.SerCipherParameter(header);
+		CipherParameters anHeader = PairingUtils.deserCipherParameters(byteArrayHeader);
 		Assert.assertEquals(header, anHeader);
 		header = (PairingCipherSerParameter) anHeader;
 
@@ -117,14 +118,14 @@ public class IBEEngineJUnitTest {
 			// Setup and serialization
 			PairingKeySerPair keyPair = engine.setup(pairingParameters);
 			PairingKeySerParameter publicKey = keyPair.getPublic();
-			byte[] byteArrayPublicKey = TestUtils.SerCipherParameter(publicKey);
-			CipherParameters anPublicKey = TestUtils.deserCipherParameters(byteArrayPublicKey);
+			byte[] byteArrayPublicKey = PairingUtils.SerCipherParameter(publicKey);
+			CipherParameters anPublicKey = PairingUtils.deserCipherParameters(byteArrayPublicKey);
 			Assert.assertEquals(publicKey, anPublicKey);
 			publicKey = (PairingKeySerParameter) anPublicKey;
 
 			PairingKeySerParameter masterKey = keyPair.getPrivate();
-			byte[] byteArrayMasterKey = TestUtils.SerCipherParameter(masterKey);
-			CipherParameters anMasterKey = TestUtils.deserCipherParameters(byteArrayMasterKey);
+			byte[] byteArrayMasterKey = PairingUtils.SerCipherParameter(masterKey);
+			CipherParameters anMasterKey = PairingUtils.deserCipherParameters(byteArrayMasterKey);
 			Assert.assertEquals(masterKey, anMasterKey);
 			masterKey = (PairingKeySerParameter) anMasterKey;
 
@@ -156,24 +157,29 @@ public class IBEEngineJUnitTest {
 	@Test
 	public void testGenTypeAPairParam() {
 		this.engine = IBEBF01aEngine.getInstance();
-		int rbits = 80; // rbits是Zp中阶数p的比特长度 a,b属于Zp
-		int qbits = 256; // qBit是G中阶数的比特长度
+		int rbits = 80; // rbits是Z其中阶数p的比特长度 a,b属于Zr={0,...,p-1}
+		int qbits = 1024; // qBit是域Fq的中q的比特长度，G是由定义在域Fq上的椭圆曲线E上的点(x,y的取值范围是Fq)构成的群，
+							// G的阶数(即G的元素个数)的比特长度为r。q,r存在一定的关系，比如r=(q+1)/6
 		// 通过代码动态生成Pairing对象
 		// 指定椭圆曲线的种类
 		TypeACurveGenerator pairParamGenerator = new TypeACurveGenerator(rbits, qbits);
 		// 产生椭圆曲线参数
 		PairingParameters typeAParams = pairParamGenerator.generate();
 		// 将参数写入文件a_80_256.properties中，使用Princeton大学封装的文件输出库
-		Out out = new Out(USER_DIR + "/elements/a_80_256.properties");
+		Out out = new Out(USER_DIR + "/elements/a_80_1024.properties");
 		out.println(typeAParams);
 		// print Pairing parameters
 		logger.info(typeAParams.toString());
 		// 从文件a_80_256.properties中读取参数初始化双线性群
-		typeAParams = PairingFactory.getPairingParameters("/elements/a_80_256.properties");
+		typeAParams = PairingFactory.getPairingParameters(USER_DIR + "/elements/a_80_1024.properties");
 		// 初始化Pairing
 		Pairing pairing = PairingFactory.getPairing(typeAParams);
 		// The number of algebraic structures available
 		logger.info("" + pairing.getDegree());
+
+		BigInteger q = new BigInteger(typeAParams.getString("q"));
+		logger.info("q bit length: " + q.toString(2).length());
+		logger.info("");
 	}
 
 	/**
@@ -212,8 +218,10 @@ public class IBEEngineJUnitTest {
 	@Test
 	public void testWPIBE() {
 		logger.info("start wp_ibe Testing \n");
-		Pairing pairing = PairingFactory.getPairing(USER_DIR + "/params/a.properties");// 在jpbc配置使用的那个jar包，\params\curves下面
-		BasicIdent ident = new BasicIdent(pairing);
+		// 在jpbc配置使用的那个jar包，\params\curves下面
+		PairingParameters typeAParams = PairingFactory
+				.getPairingParameters(PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256);
+		BasicIdent ident = new BasicIdent(typeAParams);
 		// 动态代理，统计各个方法耗时
 		Ident identProxy = (Ident) Proxy.newProxyInstance(BasicIdent.class.getClassLoader(),
 				new Class[] { Ident.class }, new TimeCountProxyHandle(ident));
@@ -232,7 +240,7 @@ public class IBEEngineJUnitTest {
 		// 从文件中读取PairingParameters对象
 		// PairingParameters的toString()可以用来将Pairing参数存放在文件中
 		PairingParameters typeAParams = PairingFactory
-				.getPairingParameters(TestUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256);
+				.getPairingParameters(PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256);
 		runAllTests(typeAParams);
 	}
 
@@ -240,27 +248,27 @@ public class IBEEngineJUnitTest {
 	@Test
 	public void testIBEBF01bEngine() {
 		this.engine = IBEBF01bEngine.getInstance();
-		runAllTests(PairingFactory.getPairingParameters(TestUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
+		runAllTests(PairingFactory.getPairingParameters(PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
 	}
 
 	@Ignore
 	@Test
 	public void testIBEGen06aEngine() {
 		this.engine = IBEGen06aEngine.getInstance();
-		runAllTests(PairingFactory.getPairingParameters(TestUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
+		runAllTests(PairingFactory.getPairingParameters(PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
 	}
 
 	@Ignore
 	@Test
 	public void testIBEGen06bEngine() {
 		this.engine = IBEGen06bEngine.getInstance();
-		runAllTests(PairingFactory.getPairingParameters(TestUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
+		runAllTests(PairingFactory.getPairingParameters(PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
 	}
 
 	@Ignore
 	@Test
 	public void testIBELW10Engine() {
 		this.engine = IBELW10Engine.getInstance();
-		runAllTests(PairingFactory.getPairingParameters(TestUtils.TEST_PAIRING_PARAMETERS_PATH_a1_3_128));
+		runAllTests(PairingFactory.getPairingParameters(PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a1_3_128));
 	}
 }

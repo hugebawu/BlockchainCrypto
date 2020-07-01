@@ -1,5 +1,7 @@
 package cn.edu.ncepu.crypto.encryption.abe.cpabe.rw13.generators;
 
+import org.bouncycastle.crypto.KeyGenerationParameters;
+
 import cn.edu.ncepu.crypto.algebra.generators.PairingKeyPairGenerator;
 import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerPair;
 import cn.edu.ncepu.crypto.encryption.abe.cpabe.genparams.CPABEKeyPairGenerationParameter;
@@ -8,7 +10,6 @@ import cn.edu.ncepu.crypto.encryption.abe.cpabe.rw13.serparams.CPABERW13PublicKe
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Pairing;
 import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
-import org.bouncycastle.crypto.KeyGenerationParameters;
 
 /**
  * Created by Weiran Liu on 2016/11/29.

@@ -1,7 +1,8 @@
 package cn.edu.ncepu.crypto.algebra.generators;
 
-import cn.edu.ncepu.crypto.algebra.serparams.AsymmetricKeySerPair;
 import org.bouncycastle.crypto.KeyGenerationParameters;
+
+import cn.edu.ncepu.crypto.algebra.serparams.AsymmetricKeySerPair;
 
 /**
  * Created by Weiran Liu on 2016/11/21.

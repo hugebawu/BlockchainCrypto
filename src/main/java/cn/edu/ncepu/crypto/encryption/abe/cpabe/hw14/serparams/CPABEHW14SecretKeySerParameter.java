@@ -1,10 +1,10 @@
 package cn.edu.ncepu.crypto.encryption.abe.cpabe.hw14.serparams;
 
+import java.util.Map;
+
 import cn.edu.ncepu.crypto.encryption.abe.cpabe.rw13.serparams.CPABERW13SecretKeySerParameter;
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.PairingParameters;
-
-import java.util.Map;
 
 /**
  * Created by Weiran Liu on 2017/1/1.

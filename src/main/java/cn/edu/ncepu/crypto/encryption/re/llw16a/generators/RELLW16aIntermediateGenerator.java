@@ -1,5 +1,7 @@
 package cn.edu.ncepu.crypto.encryption.re.llw16a.generators;
 
+import org.bouncycastle.crypto.CipherParameters;
+
 import cn.edu.ncepu.crypto.algebra.generators.PairingEncryptionGenerator;
 import cn.edu.ncepu.crypto.algebra.serparams.PairingCipherSerParameter;
 import cn.edu.ncepu.crypto.encryption.re.genparams.REIntermediateGenerationParameter;
@@ -8,7 +10,6 @@ import cn.edu.ncepu.crypto.encryption.re.llw16a.serparams.RELLW16aPublicKeySerPa
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Pairing;
 import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
-import org.bouncycastle.crypto.CipherParameters;
 
 /**
  * Created by Weiran Liu on 2017/1/4.

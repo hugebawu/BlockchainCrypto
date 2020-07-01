@@ -1,10 +1,11 @@
 package cn.edu.ncepu.crypto.encryption.abe.kpabe.genparams;
 
+import org.bouncycastle.crypto.KeyGenerationParameters;
+
 import cn.edu.ncepu.crypto.algebra.generators.AsymmetricKeySerPairGenerator;
 import cn.edu.ncepu.crypto.algebra.genparams.PairingEncapsulationGenerationParameter;
 import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
 import cn.edu.ncepu.crypto.chameleonhash.ChameleonHasher;
-import org.bouncycastle.crypto.KeyGenerationParameters;
 
 /**
  * Created by Weiran Liu on 17/1/2.

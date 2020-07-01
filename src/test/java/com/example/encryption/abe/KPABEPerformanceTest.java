@@ -4,8 +4,6 @@ import org.bouncycastle.crypto.InvalidCipherTextException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.example.TestUtils;
-
 import cn.edu.ncepu.crypto.access.parser.PolicySyntaxException;
 import cn.edu.ncepu.crypto.algebra.serparams.PairingCipherSerParameter;
 import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerPair;
@@ -379,11 +377,11 @@ public class KPABEPerformanceTest extends TestCase {
 //    public void testRW13Performance() {
 //        KPABEPerformanceTest performanceTest = new KPABEPerformanceTest();
 ////        performanceTest.maximal_attributes = 10;
-////        performanceTest.pairingParameterPath = TestUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256;
-////        performanceTest.test_round = TestUtils.DEFAULT_SIMU_TEST_ROUND;
+////        performanceTest.pairingParameterPath = PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256;
+////        performanceTest.test_round = PairingUtils.DEFAULT_SIMU_TEST_ROUND;
 //        performanceTest.maximal_attributes = 50;
 //        performanceTest.pairingParameterPath = PairingUtils.PATH_a_160_512;
-//        performanceTest.test_round = TestUtils.DEFAULT_PRIME_ORDER_TEST_ROUND;
+//        performanceTest.test_round = PairingUtils.DEFAULT_PRIME_ORDER_TEST_ROUND;
 //        performanceTest.engine = KPABERW13Engine.getInstance();
 //        performanceTest.init();
 //        performanceTest.runPerformanceTest();
@@ -392,11 +390,11 @@ public class KPABEPerformanceTest extends TestCase {
 //    public void testGPSW06bPerformance() {
 //        KPABEPerformanceTest performanceTest = new KPABEPerformanceTest();
 ////        performanceTest.maximal_attributes = 10;
-////        performanceTest.pairingParameterPath = TestUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256;
-////        performanceTest.test_round = TestUtils.DEFAULT_SIMU_TEST_ROUND;
+////        performanceTest.pairingParameterPath = PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256;
+////        performanceTest.test_round = PairingUtils.DEFAULT_SIMU_TEST_ROUND;
 //        performanceTest.maximal_attributes = 50;
 //        performanceTest.pairingParameterPath = PairingUtils.PATH_a_160_512;
-//        performanceTest.test_round = TestUtils.DEFAULT_PRIME_ORDER_TEST_ROUND;
+//        performanceTest.test_round = PairingUtils.DEFAULT_PRIME_ORDER_TEST_ROUND;
 //        performanceTest.engine = KPABEGPSW06bEngine.getInstance();
 //        performanceTest.init();
 //        performanceTest.runPerformanceTest();
@@ -405,11 +403,11 @@ public class KPABEPerformanceTest extends TestCase {
 	public void testLLW14Performance() {
 		KPABEPerformanceTest performanceTest = new KPABEPerformanceTest();
 //        performanceTest.maximal_attributes = 10;
-//        performanceTest.pairingParameterPath = TestUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256;
-//        performanceTest.test_round = TestUtils.DEFAULT_SIMU_TEST_ROUND;
+//        performanceTest.pairingParameterPath = PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256;
+//        performanceTest.test_round = PairingUtils.DEFAULT_SIMU_TEST_ROUND;
 		performanceTest.maximal_attributes = 50;
 		performanceTest.pairingParameterPath = PairingUtils.PATH_a_160_512;
-		performanceTest.test_round = TestUtils.DEFAULT_PRIME_ORDER_TEST_ROUND;
+		performanceTest.test_round = PairingUtils.DEFAULT_PRIME_ORDER_TEST_ROUND;
 		performanceTest.engine = KPABELLW14Engine.getInstance();
 		performanceTest.init();
 		performanceTest.runPerformanceTest();
@@ -418,11 +416,11 @@ public class KPABEPerformanceTest extends TestCase {
 	public void testHW14Performance() {
 		KPABEPerformanceTest performanceTest = new KPABEPerformanceTest();
 //        performanceTest.maximal_attributes = 10;
-//        performanceTest.pairingParameterPath = TestUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256;
-//        performanceTest.test_round = TestUtils.DEFAULT_SIMU_TEST_ROUND;
+//        performanceTest.pairingParameterPath = PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256;
+//        performanceTest.test_round = PairingUtils.DEFAULT_SIMU_TEST_ROUND;
 		performanceTest.maximal_attributes = 50;
 		performanceTest.pairingParameterPath = PairingUtils.PATH_a_160_512;
-		performanceTest.test_round = TestUtils.DEFAULT_PRIME_ORDER_TEST_ROUND;
+		performanceTest.test_round = PairingUtils.DEFAULT_PRIME_ORDER_TEST_ROUND;
 		performanceTest.engine = OOKPABEHW14Engine.getInstance();
 		performanceTest.init();
 		performanceTest.runPerformanceTest();
@@ -431,11 +429,11 @@ public class KPABEPerformanceTest extends TestCase {
 	public void testLLW16Performance() {
 		KPABEPerformanceTest performanceTest = new KPABEPerformanceTest();
 //        performanceTest.maximal_attributes = 10;
-//        performanceTest.pairingParameterPath = TestUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256;
-//        performanceTest.test_round = TestUtils.DEFAULT_SIMU_TEST_ROUND;
+//        performanceTest.pairingParameterPath = PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256;
+//        performanceTest.test_round = PairingUtils.DEFAULT_SIMU_TEST_ROUND;
 		performanceTest.maximal_attributes = 50;
 		performanceTest.pairingParameterPath = PairingUtils.PATH_a_160_512;
-		performanceTest.test_round = TestUtils.DEFAULT_PRIME_ORDER_TEST_ROUND;
+		performanceTest.test_round = PairingUtils.DEFAULT_PRIME_ORDER_TEST_ROUND;
 		performanceTest.engine = OOKPABELLW16Engine.getInstance();
 		performanceTest.init();
 		performanceTest.runPerformanceTest();

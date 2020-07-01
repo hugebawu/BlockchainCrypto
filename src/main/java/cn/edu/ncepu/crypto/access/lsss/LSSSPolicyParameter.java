@@ -1,9 +1,9 @@
 package cn.edu.ncepu.crypto.access.lsss;
 
+import java.util.Arrays;
+
 import cn.edu.ncepu.crypto.access.AccessControlParameter;
 import cn.edu.ncepu.crypto.access.AccessTreeNode;
-
-import java.util.Arrays;
 
 /**
  * Created by Weiran Liu on 2016/7/18.

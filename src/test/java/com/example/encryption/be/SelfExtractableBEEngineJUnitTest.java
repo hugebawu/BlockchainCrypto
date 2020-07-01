@@ -18,8 +18,6 @@ import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.example.TestUtils;
-
 import cn.edu.ncepu.crypto.algebra.serparams.PairingCipherSerParameter;
 import cn.edu.ncepu.crypto.algebra.serparams.PairingKeyEncapsulationSerPair;
 import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerPair;
@@ -27,6 +25,7 @@ import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
 import cn.edu.ncepu.crypto.encryption.be.BEEngine;
 import cn.edu.ncepu.crypto.encryption.be.SelfExtractableBEEngine;
 import cn.edu.ncepu.crypto.encryption.be.bgw05.BEBGW05Engine;
+import cn.edu.ncepu.crypto.utils.PairingUtils;
 import it.unisa.dia.gas.jpbc.PairingParameters;
 import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
 import junit.framework.TestCase;
@@ -93,8 +92,8 @@ public class SelfExtractableBEEngineJUnitTest extends TestCase {
 			int[] indexSet) throws InvalidCipherTextException, IOException, ClassNotFoundException {
 		// KeyGen and serialization
 		PairingKeySerParameter secretKey = engine.keyGen(publicKey, masterKey, index);
-		byte[] byteArraySecretKey = TestUtils.SerCipherParameter(secretKey);
-		CipherParameters anSecretKey = TestUtils.deserCipherParameters(byteArraySecretKey);
+		byte[] byteArraySecretKey = PairingUtils.SerCipherParameter(secretKey);
+		CipherParameters anSecretKey = PairingUtils.deserCipherParameters(byteArraySecretKey);
 		Assert.assertEquals(secretKey, anSecretKey);
 		secretKey = (PairingKeySerParameter) anSecretKey;
 
@@ -105,8 +104,8 @@ public class SelfExtractableBEEngineJUnitTest extends TestCase {
 		PairingKeyEncapsulationSerPair keyEncapsulationSerPair = engine.encapsulation(publicKey, indexSet, ek);
 		byte[] sessionKey = keyEncapsulationSerPair.getSessionKey();
 		PairingCipherSerParameter ciphertext = keyEncapsulationSerPair.getHeader();
-		byte[] byteArrayCiphertext = TestUtils.SerCipherParameter(ciphertext);
-		CipherParameters anCiphertext = TestUtils.deserCipherParameters(byteArrayCiphertext);
+		byte[] byteArrayCiphertext = PairingUtils.SerCipherParameter(ciphertext);
+		CipherParameters anCiphertext = PairingUtils.deserCipherParameters(byteArrayCiphertext);
 		Assert.assertEquals(ciphertext, anCiphertext);
 		ciphertext = (PairingCipherSerParameter) anCiphertext;
 
@@ -123,14 +122,14 @@ public class SelfExtractableBEEngineJUnitTest extends TestCase {
 			// Setup and serialization
 			PairingKeySerPair keyPair = engine.setup(pairingParameters, maxNumUser);
 			PairingKeySerParameter publicKey = keyPair.getPublic();
-			byte[] byteArrayPublicKey = TestUtils.SerCipherParameter(publicKey);
-			CipherParameters anPublicKey = TestUtils.deserCipherParameters(byteArrayPublicKey);
+			byte[] byteArrayPublicKey = PairingUtils.SerCipherParameter(publicKey);
+			CipherParameters anPublicKey = PairingUtils.deserCipherParameters(byteArrayPublicKey);
 			Assert.assertEquals(publicKey, anPublicKey);
 			publicKey = (PairingKeySerParameter) anPublicKey;
 
 			PairingKeySerParameter masterKey = keyPair.getPrivate();
-			byte[] byteArrayMasterKey = TestUtils.SerCipherParameter(masterKey);
-			CipherParameters anMasterKey = TestUtils.deserCipherParameters(byteArrayMasterKey);
+			byte[] byteArrayMasterKey = PairingUtils.SerCipherParameter(masterKey);
+			CipherParameters anMasterKey = PairingUtils.deserCipherParameters(byteArrayMasterKey);
 			Assert.assertEquals(masterKey, anMasterKey);
 			masterKey = (PairingKeySerParameter) anMasterKey;
 
@@ -172,7 +171,7 @@ public class SelfExtractableBEEngineJUnitTest extends TestCase {
 		SelfExtractableBEEngineJUnitTest engineJUnitTest = new SelfExtractableBEEngineJUnitTest();
 		engineJUnitTest.setEngine(seBEEngine);
 		engineJUnitTest
-				.runAllTests(PairingFactory.getPairingParameters(TestUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
+				.runAllTests(PairingFactory.getPairingParameters(PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
 	}
 
 	public void testSEIBEEngineWithPKCS5S2() {
@@ -185,7 +184,7 @@ public class SelfExtractableBEEngineJUnitTest extends TestCase {
 		SelfExtractableBEEngineJUnitTest engineJUnitTest = new SelfExtractableBEEngineJUnitTest();
 		engineJUnitTest.setEngine(seBEEngine);
 		engineJUnitTest
-				.runAllTests(PairingFactory.getPairingParameters(TestUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
+				.runAllTests(PairingFactory.getPairingParameters(PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
 	}
 
 	public void testSEIBEEngineWithPKCS12() {
@@ -198,7 +197,7 @@ public class SelfExtractableBEEngineJUnitTest extends TestCase {
 		SelfExtractableBEEngineJUnitTest engineJUnitTest = new SelfExtractableBEEngineJUnitTest();
 		engineJUnitTest.setEngine(seBEEngine);
 		engineJUnitTest
-				.runAllTests(PairingFactory.getPairingParameters(TestUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
+				.runAllTests(PairingFactory.getPairingParameters(PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
 	}
 
 	public void testSEIBEEngineWithSHA512() {
@@ -211,6 +210,6 @@ public class SelfExtractableBEEngineJUnitTest extends TestCase {
 		SelfExtractableBEEngineJUnitTest engineJUnitTest = new SelfExtractableBEEngineJUnitTest();
 		engineJUnitTest.setEngine(seBEEngine);
 		engineJUnitTest
-				.runAllTests(PairingFactory.getPairingParameters(TestUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
+				.runAllTests(PairingFactory.getPairingParameters(PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
 	}
 }

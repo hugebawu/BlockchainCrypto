@@ -1,12 +1,13 @@
 package cn.edu.ncepu.crypto.signature.pks;
 
-import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
-import it.unisa.dia.gas.jpbc.Element;
+import java.io.IOException;
+
 import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.crypto.Digest;
 import org.bouncycastle.crypto.Signer;
 
-import java.io.IOException;
+import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
+import it.unisa.dia.gas.jpbc.Element;
 
 /**
  * Created by Weiran Liu on 2016/10/18.

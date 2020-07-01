@@ -1,10 +1,11 @@
 package cn.edu.ncepu.crypto.application.llw15.genparams;
 
+import org.bouncycastle.crypto.CipherParameters;
+
 import cn.edu.ncepu.crypto.algebra.serparams.PairingCipherSerParameter;
 import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
 import cn.edu.ncepu.crypto.application.llw15.serparams.RBACLLW15EncapsulationSerParameter;
 import cn.edu.ncepu.crypto.application.llw15.serparams.RBACLLW15PublicKeySerParameter;
-import org.bouncycastle.crypto.CipherParameters;
 
 /**
  * Created by Weiran Liu on 16/5/19.

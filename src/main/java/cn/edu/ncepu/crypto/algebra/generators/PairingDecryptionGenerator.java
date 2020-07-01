@@ -1,8 +1,9 @@
 package cn.edu.ncepu.crypto.algebra.generators;
 
-import it.unisa.dia.gas.jpbc.Element;
 import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.crypto.InvalidCipherTextException;
+
+import it.unisa.dia.gas.jpbc.Element;
 
 /**
  * Created by Weiran Liu on 2016/11/20.

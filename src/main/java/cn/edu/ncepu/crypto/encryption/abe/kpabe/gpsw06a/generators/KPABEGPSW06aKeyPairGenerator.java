@@ -1,5 +1,10 @@
 package cn.edu.ncepu.crypto.encryption.abe.kpabe.gpsw06a.generators;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import org.bouncycastle.crypto.KeyGenerationParameters;
+
 import cn.edu.ncepu.crypto.algebra.generators.PairingKeyPairGenerator;
 import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerPair;
 import cn.edu.ncepu.crypto.encryption.abe.kpabe.genparams.KPABEKeyPairGenerationParameter;
@@ -8,10 +13,6 @@ import cn.edu.ncepu.crypto.encryption.abe.kpabe.gpsw06a.serparams.KPABEGPSW06aPu
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Pairing;
 import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
-import org.bouncycastle.crypto.KeyGenerationParameters;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by Weiran Liu on 2016/11/17.

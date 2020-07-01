@@ -1,9 +1,9 @@
 package cn.edu.ncepu.crypto.access;
 
+import java.util.Map;
+
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Pairing;
-
-import java.util.Map;
 
 /**
  * Created by Weiran Liu on 2016/7/19.

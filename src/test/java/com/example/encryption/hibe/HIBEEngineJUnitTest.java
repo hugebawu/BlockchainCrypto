@@ -9,8 +9,6 @@ import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.example.TestUtils;
-
 import cn.edu.ncepu.crypto.algebra.serparams.PairingCipherSerParameter;
 import cn.edu.ncepu.crypto.algebra.serparams.PairingKeyEncapsulationSerPair;
 import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerPair;
@@ -18,6 +16,7 @@ import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
 import cn.edu.ncepu.crypto.encryption.hibe.HIBEEngine;
 import cn.edu.ncepu.crypto.encryption.hibe.bb04.HIBEBB04Engine;
 import cn.edu.ncepu.crypto.encryption.hibe.bbg05.HIBEBBG05Engine;
+import cn.edu.ncepu.crypto.utils.PairingUtils;
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Pairing;
 import it.unisa.dia.gas.jpbc.PairingParameters;
@@ -72,16 +71,16 @@ public class HIBEEngineJUnitTest extends TestCase {
 			throws InvalidCipherTextException, IOException, ClassNotFoundException {
 		// KeyGen and serialization
 		PairingKeySerParameter secretKey = engine.keyGen(publicKey, masterKey, identityVector);
-		byte[] byteArraySecretKey = TestUtils.SerCipherParameter(secretKey);
-		CipherParameters anSecretKey = TestUtils.deserCipherParameters(byteArraySecretKey);
+		byte[] byteArraySecretKey = PairingUtils.SerCipherParameter(secretKey);
+		CipherParameters anSecretKey = PairingUtils.deserCipherParameters(byteArraySecretKey);
 		Assert.assertEquals(secretKey, anSecretKey);
 		secretKey = (PairingKeySerParameter) anSecretKey;
 
 		// Encryption and serialization
 		Element message = pairing.getGT().newRandomElement().getImmutable();
 		PairingCipherSerParameter ciphertext = engine.encryption(publicKey, identityVectorEnc, message);
-		byte[] byteArrayCiphertext = TestUtils.SerCipherParameter(ciphertext);
-		CipherParameters anCiphertext = TestUtils.deserCipherParameters(byteArrayCiphertext);
+		byte[] byteArrayCiphertext = PairingUtils.SerCipherParameter(ciphertext);
+		CipherParameters anCiphertext = PairingUtils.deserCipherParameters(byteArrayCiphertext);
 		Assert.assertEquals(ciphertext, anCiphertext);
 		ciphertext = (PairingCipherSerParameter) anCiphertext;
 
@@ -93,8 +92,8 @@ public class HIBEEngineJUnitTest extends TestCase {
 		PairingKeyEncapsulationSerPair encapsulationPair = engine.encapsulation(publicKey, identityVectorEnc);
 		byte[] sessionKey = encapsulationPair.getSessionKey();
 		PairingCipherSerParameter header = encapsulationPair.getHeader();
-		byte[] byteArrayHeader = TestUtils.SerCipherParameter(header);
-		CipherParameters anHeader = TestUtils.deserCipherParameters(byteArrayHeader);
+		byte[] byteArrayHeader = PairingUtils.SerCipherParameter(header);
+		CipherParameters anHeader = PairingUtils.deserCipherParameters(byteArrayHeader);
 		Assert.assertEquals(anHeader, anHeader);
 		header = (PairingCipherSerParameter) anHeader;
 
@@ -108,16 +107,16 @@ public class HIBEEngineJUnitTest extends TestCase {
 		try {
 			PairingKeySerParameter secretKey = engine.keyGen(publicKey, masterKey, identityVector);
 			PairingKeySerParameter delegateKey = engine.delegate(publicKey, secretKey, delegateId);
-			byte[] byteArrayDelegateKey = TestUtils.SerCipherParameter(delegateKey);
-			CipherParameters anDelegateKey = TestUtils.deserCipherParameters(byteArrayDelegateKey);
+			byte[] byteArrayDelegateKey = PairingUtils.SerCipherParameter(delegateKey);
+			CipherParameters anDelegateKey = PairingUtils.deserCipherParameters(byteArrayDelegateKey);
 			Assert.assertEquals(delegateKey, anDelegateKey);
 			delegateKey = (PairingKeySerParameter) anDelegateKey;
 
 			// Encryption and serialization
 			Element message = pairing.getGT().newRandomElement().getImmutable();
 			PairingCipherSerParameter ciphertext = engine.encryption(publicKey, identityVectorEnc, message);
-			byte[] byteArrayCiphertext = TestUtils.SerCipherParameter(ciphertext);
-			CipherParameters anCiphertext = TestUtils.deserCipherParameters(byteArrayCiphertext);
+			byte[] byteArrayCiphertext = PairingUtils.SerCipherParameter(ciphertext);
+			CipherParameters anCiphertext = PairingUtils.deserCipherParameters(byteArrayCiphertext);
 			Assert.assertEquals(ciphertext, anCiphertext);
 			ciphertext = (PairingCipherSerParameter) anCiphertext;
 
@@ -129,8 +128,8 @@ public class HIBEEngineJUnitTest extends TestCase {
 			PairingKeyEncapsulationSerPair encapsulationPair = engine.encapsulation(publicKey, identityVectorEnc);
 			byte[] sessionKey = encapsulationPair.getSessionKey();
 			PairingCipherSerParameter header = encapsulationPair.getHeader();
-			byte[] byteArrayHeader = TestUtils.SerCipherParameter(header);
-			CipherParameters anHeader = TestUtils.deserCipherParameters(byteArrayHeader);
+			byte[] byteArrayHeader = PairingUtils.SerCipherParameter(header);
+			CipherParameters anHeader = PairingUtils.deserCipherParameters(byteArrayHeader);
 			Assert.assertEquals(anHeader, anHeader);
 			header = (PairingCipherSerParameter) anHeader;
 
@@ -151,16 +150,16 @@ public class HIBEEngineJUnitTest extends TestCase {
 		try {
 			PairingKeySerParameter secretKey = engine.keyGen(publicKey, masterKey, identityVector);
 			PairingKeySerParameter delegateKey = engine.delegate(publicKey, secretKey, delegateId);
-			byte[] byteArrayDelegateKey = TestUtils.SerCipherParameter(delegateKey);
-			CipherParameters anDelegateKey = TestUtils.deserCipherParameters(byteArrayDelegateKey);
+			byte[] byteArrayDelegateKey = PairingUtils.SerCipherParameter(delegateKey);
+			CipherParameters anDelegateKey = PairingUtils.deserCipherParameters(byteArrayDelegateKey);
 			Assert.assertEquals(delegateKey, anDelegateKey);
 			delegateKey = (PairingKeySerParameter) anDelegateKey;
 
 			// Encryption and serialization
 			Element message = pairing.getGT().newRandomElement().getImmutable();
 			PairingCipherSerParameter ciphertext = engine.encryption(publicKey, identityVectorEnc, message);
-			byte[] byteArrayCiphertext = TestUtils.SerCipherParameter(ciphertext);
-			CipherParameters anCiphertext = TestUtils.deserCipherParameters(byteArrayCiphertext);
+			byte[] byteArrayCiphertext = PairingUtils.SerCipherParameter(ciphertext);
+			CipherParameters anCiphertext = PairingUtils.deserCipherParameters(byteArrayCiphertext);
 			Assert.assertEquals(ciphertext, anCiphertext);
 			ciphertext = (PairingCipherSerParameter) anCiphertext;
 
@@ -172,8 +171,8 @@ public class HIBEEngineJUnitTest extends TestCase {
 			PairingKeyEncapsulationSerPair encapsulationPair = engine.encapsulation(publicKey, identityVectorEnc);
 			byte[] sessionKey = encapsulationPair.getSessionKey();
 			PairingCipherSerParameter header = encapsulationPair.getHeader();
-			byte[] byteArrayHeader = TestUtils.SerCipherParameter(header);
-			CipherParameters anHeader = TestUtils.deserCipherParameters(byteArrayHeader);
+			byte[] byteArrayHeader = PairingUtils.SerCipherParameter(header);
+			CipherParameters anHeader = PairingUtils.deserCipherParameters(byteArrayHeader);
 			Assert.assertEquals(anHeader, anHeader);
 			header = (PairingCipherSerParameter) anHeader;
 
@@ -197,14 +196,14 @@ public class HIBEEngineJUnitTest extends TestCase {
 			// Setup and serialization
 			PairingKeySerPair keyPair = engine.setup(pairingParameters, identityVector123.length);
 			PairingKeySerParameter publicKey = keyPair.getPublic();
-			byte[] byteArrayPublicKey = TestUtils.SerCipherParameter(publicKey);
-			CipherParameters anPublicKey = TestUtils.deserCipherParameters(byteArrayPublicKey);
+			byte[] byteArrayPublicKey = PairingUtils.SerCipherParameter(publicKey);
+			CipherParameters anPublicKey = PairingUtils.deserCipherParameters(byteArrayPublicKey);
 			Assert.assertEquals(publicKey, anPublicKey);
 			publicKey = (PairingKeySerParameter) anPublicKey;
 
 			PairingKeySerParameter masterKey = keyPair.getPrivate();
-			byte[] byteArrayMasterKey = TestUtils.SerCipherParameter(masterKey);
-			CipherParameters anMasterKey = TestUtils.deserCipherParameters(byteArrayMasterKey);
+			byte[] byteArrayMasterKey = PairingUtils.SerCipherParameter(masterKey);
+			CipherParameters anMasterKey = PairingUtils.deserCipherParameters(byteArrayMasterKey);
 			Assert.assertEquals(masterKey, anMasterKey);
 			masterKey = (PairingKeySerParameter) anMasterKey;
 
@@ -241,11 +240,11 @@ public class HIBEEngineJUnitTest extends TestCase {
 
 	public void testHIBEBB04Engine() {
 		this.engine = HIBEBB04Engine.getInstance();
-		runAllTests(PairingFactory.getPairingParameters(TestUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
+		runAllTests(PairingFactory.getPairingParameters(PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
 	}
 
 	public void testHIBEBBG05Engine() {
 		this.engine = HIBEBBG05Engine.getInstance();
-		runAllTests(PairingFactory.getPairingParameters(TestUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
+		runAllTests(PairingFactory.getPairingParameters(PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
 	}
 }

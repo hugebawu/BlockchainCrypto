@@ -10,8 +10,6 @@ import org.bouncycastle.crypto.generators.PKCS5S1ParametersGenerator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.example.TestUtils;
-
 import cn.edu.ncepu.crypto.access.parser.PolicySyntaxException;
 import cn.edu.ncepu.crypto.algebra.serparams.PairingCipherSerParameter;
 import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerPair;
@@ -258,11 +256,11 @@ public class SelfExtractableKPABEPerformanceTest extends TestCase {
 	public void testSelfExtractableRW13Performance() {
 		SelfExtractableKPABEPerformanceTest performanceTest = new SelfExtractableKPABEPerformanceTest();
 //        performanceTest.maximal_attributes = 10;
-//        performanceTest.pairingParameterPath = TestUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256;
-//        performanceTest.test_round = TestUtils.DEFAULT_SIMU_TEST_ROUND;
+//        performanceTest.pairingParameterPath = PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256;
+//        performanceTest.test_round = PairingUtils.DEFAULT_SIMU_TEST_ROUND;
 		performanceTest.maximal_attributes = 50;
 		performanceTest.pairingParameterPath = PairingUtils.PATH_a_160_512;
-		performanceTest.test_round = TestUtils.DEFAULT_PRIME_ORDER_TEST_ROUND;
+		performanceTest.test_round = PairingUtils.DEFAULT_PRIME_ORDER_TEST_ROUND;
 		Digest digest = new SHA256Digest();
 		KPABEEngine kpabeEngine = KPABERW13Engine.getInstance();
 		BlockCipher blockCipher = new AESEngine();
@@ -276,11 +274,11 @@ public class SelfExtractableKPABEPerformanceTest extends TestCase {
 	public void testSelfExtractableGPSW06bPerformance() {
 		SelfExtractableKPABEPerformanceTest performanceTest = new SelfExtractableKPABEPerformanceTest();
 //        performanceTest.maximal_attributes = 10;
-//        performanceTest.pairingParameterPath = TestUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256;
-//        performanceTest.test_round = TestUtils.DEFAULT_SIMU_TEST_ROUND;
+//        performanceTest.pairingParameterPath = PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256;
+//        performanceTest.test_round = PairingUtils.DEFAULT_SIMU_TEST_ROUND;
 		performanceTest.maximal_attributes = 50;
 		performanceTest.pairingParameterPath = PairingUtils.PATH_a_160_512;
-		performanceTest.test_round = TestUtils.DEFAULT_PRIME_ORDER_TEST_ROUND;
+		performanceTest.test_round = PairingUtils.DEFAULT_PRIME_ORDER_TEST_ROUND;
 		Digest digest = new SHA256Digest();
 		KPABEEngine kpabeEngine = KPABEGPSW06bEngine.getInstance();
 		BlockCipher blockCipher = new AESEngine();

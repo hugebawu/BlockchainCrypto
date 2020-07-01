@@ -1,8 +1,8 @@
 package cn.edu.ncepu.crypto.chameleonhash.kr00b;
 
-import org.bouncycastle.crypto.CipherParameters;
-
 import java.math.BigInteger;
+
+import org.bouncycastle.crypto.CipherParameters;
 
 /**
  * Created by Weiran Liu on 2016/10/19.

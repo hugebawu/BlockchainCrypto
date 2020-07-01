@@ -1,5 +1,7 @@
 package cn.edu.ncepu.crypto.encryption.abe.kpabe.llw16.serparams;
 
+import java.util.Arrays;
+
 import cn.edu.ncepu.crypto.algebra.serparams.AsymmetricKeySerParameter;
 import cn.edu.ncepu.crypto.encryption.abe.kpabe.hw14.serparams.KPABEHW14IntermediateSerParameter;
 import cn.edu.ncepu.crypto.utils.PairingUtils;
@@ -7,8 +9,6 @@ import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Pairing;
 import it.unisa.dia.gas.jpbc.PairingParameters;
 import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
-
-import java.util.Arrays;
 
 /**
  * Created by Weiran Liu on 2017/1/3.

@@ -3,12 +3,16 @@
  */
 package cn.edu.ncepu.crypto.encryption.ibe.wp_ibe;
 
+import java.io.UnsupportedEncodingException;
+import java.math.BigInteger;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Field;
 import it.unisa.dia.gas.jpbc.Pairing;
+import it.unisa.dia.gas.jpbc.PairingParameters;
 import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
 
 /**
@@ -28,12 +32,64 @@ public class BasicIdent implements Ident {
 	private static Logger logger = LoggerFactory.getLogger(BasicIdent.class);
 
 	private Element s, r, P, Ppub, Su, Qu, V, T1, T2;
-	private Field G1, Zr;
+	// G1是定义在域Fq上的椭圆曲线，其阶为r.q与r都是质数，且存在一定的关系：这里是 (q+1)=r*h
+	// Zr 是阶为r的环Zr={0,...,r-1}
+	// GT是有限域Fq2。其元素的阶虽然为r，但是其取值范围比q大的多，目前不清楚怎么回事。
+	private Field G1, Zr, GT;
 	private Pairing pairing;
 
-	public BasicIdent(Pairing pairing) {
-		this.pairing = pairing;
+	public BasicIdent(PairingParameters typeAParams) {
+		this.pairing = PairingFactory.getPairing(typeAParams);
 		init();
+		// Create a new element with a specified value
+		// r is the order of ring Zr a prime; q is the order of Filed Fq also a prime.
+		BigInteger r = typeAParams.getBigInteger("r");
+		logger.info("r bit length: " + r.toString(2).length());
+		BigInteger q = typeAParams.getBigInteger("q");
+		logger.info("q bit length: " + q.toString(2).length());
+		logger.info("");
+		logger.info("(q+1) mod r = " + (q.add(new BigInteger("1"))).remainder(r));
+		BigInteger h = q.add(new BigInteger("1")).divide(r);
+		logger.info("q: " + q);
+		logger.info("r: " + r);
+		logger.info("h = (q+1)/r: " + h);
+		logger.info("");
+		logger.info("Zr order: " + Zr.getOrder());
+		logger.info("Zr order bits length: " + Zr.getOrder().bitLength());
+		Element elementZr = Zr.newElement();
+		Element elementZr1 = Zr.newElement(new BigInteger("539084384990328"));
+		Element elementZr2 = Zr.newElement(4);
+		logger.info(elementZr2.invert().toString());
+		logger.info("" + elementZr2.isSqr());
+		logger.info("" + elementZr1.sign());
+		logger.info("");
+		logger.info("G1 order: " + G1.getOrder());
+		logger.info("G1 order bits length: " + G1.getOrder().bitLength());
+		Element elementG1 = G1.newRandomElement().getImmutable();
+		logger.info("");
+		logger.info("GT order: " + GT.getOrder());
+		logger.info("GT order bits length: " + GT.getOrder().bitLength());
+		logger.info("GT bits length: " + GT.getLengthInBytes() * 8);
+		Element elementGT = GT.newRandomElement();
+		logger.info("elementGT: ", elementGT);
+		logger.info("");
+		// 方案1
+		String bigNum = "12345678901234567890123456789012345678901234567890123456789012345678901234567";
+		logger.info("bigNum decimal lengh: " + bigNum.length());
+		logger.info(" original bigNum: " + bigNum);
+		elementGT.set(new BigInteger(bigNum));
+		BigInteger bi = elementGT.toBigInteger();
+		logger.info("recovered bigNum: " + bi.toString(10));
+		// 方案2 由于采用setFromHash的hash方式，不可行
+		try {
+			byte[] bytes = bigNum.getBytes("UTF-8");
+			elementGT.setFromHash(bytes, 0, bytes.length);
+			byte[] bytes2 = elementGT.toBytes();
+			logger.info(new String(bytes2, "UTF-8"));
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		logger.info("");
 	}
 
 	/**
@@ -53,12 +109,12 @@ public class BasicIdent implements Ident {
 		r = Zr.newElement();
 		// 将变量Ppub，Qu，Su，V初始化为G1中的元素，G1是加法群
 		G1 = pairing.getG1();
-		Ppub = G1.newElement();
+		Ppub = G1.newElement(); // Create a new uninitialized element.
 		Qu = G1.newElement();
 		Su = G1.newElement();
 		V = G1.newElement();
 		// 将变量T1，T2V初始化为GT中的元素，GT是乘法群
-		Field GT = pairing.getGT();
+		GT = pairing.getGT();
 		T1 = GT.newElement();
 		T2 = GT.newElement();
 	}

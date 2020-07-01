@@ -1,15 +1,21 @@
 package cn.edu.ncepu.crypto.chameleonhash.kr00b;
 
-import cn.edu.ncepu.crypto.algebra.serparams.AsymmetricKeySerParameter;
-import cn.edu.ncepu.crypto.chameleonhash.ChameleonHasher;
-import org.bouncycastle.asn1.*;
+import java.io.IOException;
+import java.math.BigInteger;
+
+import org.bouncycastle.asn1.ASN1EncodableVector;
+import org.bouncycastle.asn1.ASN1Encoding;
+import org.bouncycastle.asn1.ASN1Integer;
+import org.bouncycastle.asn1.ASN1Primitive;
+import org.bouncycastle.asn1.ASN1Sequence;
+import org.bouncycastle.asn1.DERSequence;
 import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.crypto.CryptoException;
 import org.bouncycastle.crypto.DataLengthException;
 import org.bouncycastle.crypto.Digest;
 
-import java.io.IOException;
-import java.math.BigInteger;
+import cn.edu.ncepu.crypto.algebra.serparams.AsymmetricKeySerParameter;
+import cn.edu.ncepu.crypto.chameleonhash.ChameleonHasher;
 
 /**
  * Created by Weiran Liu on 2016/10/20.

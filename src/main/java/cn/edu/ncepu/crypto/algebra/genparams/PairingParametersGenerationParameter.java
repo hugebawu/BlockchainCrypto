@@ -1,8 +1,8 @@
 package cn.edu.ncepu.crypto.algebra.genparams;
 
-import org.bouncycastle.crypto.CipherParameters;
-
 import java.security.SecureRandom;
+
+import org.bouncycastle.crypto.CipherParameters;
 
 /**
  * Created by Weiran Liu on 2016/10/21.

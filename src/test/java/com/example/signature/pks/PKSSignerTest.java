@@ -13,8 +13,6 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.example.TestUtils;
-
 import cn.edu.ncepu.crypto.algebra.generators.PairingKeyPairGenerator;
 import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerPair;
 import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
@@ -89,15 +87,15 @@ public class PKSSignerTest {
 		try {
 			// serialize public key
 			logger.info("Test serialize & de-serialize public key.");
-			byte[] byteArrayPublicKey = TestUtils.SerCipherParameter(publicKey);
-			CipherParameters anPublicKey = TestUtils.deserCipherParameters(byteArrayPublicKey);
+			byte[] byteArrayPublicKey = PairingUtils.SerCipherParameter(publicKey);
+			CipherParameters anPublicKey = PairingUtils.deserCipherParameters(byteArrayPublicKey);
 			assertEquals(publicKey, anPublicKey);
 
 			// serialize secret key
 			logger.info("Test serialize & de-serialize secret keys.");
 			// serialize sk4
-			byte[] byteArraySecretKey = TestUtils.SerCipherParameter(secretKey);
-			CipherParameters anSecretKey = TestUtils.deserCipherParameters(byteArraySecretKey);
+			byte[] byteArraySecretKey = PairingUtils.SerCipherParameter(secretKey);
+			CipherParameters anSecretKey = PairingUtils.deserCipherParameters(byteArraySecretKey);
 			assertEquals(secretKey, anSecretKey);
 
 			logger.info("Signer parameter serialization tests passed.");

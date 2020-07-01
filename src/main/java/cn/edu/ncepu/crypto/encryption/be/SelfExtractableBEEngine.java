@@ -1,5 +1,10 @@
 package cn.edu.ncepu.crypto.encryption.be;
 
+import org.bouncycastle.crypto.BlockCipher;
+import org.bouncycastle.crypto.Digest;
+import org.bouncycastle.crypto.InvalidCipherTextException;
+import org.bouncycastle.crypto.PBEParametersGenerator;
+
 import cn.edu.ncepu.crypto.algebra.Engine;
 import cn.edu.ncepu.crypto.algebra.serparams.PairingCipherSerParameter;
 import cn.edu.ncepu.crypto.algebra.serparams.PairingKeyEncapsulationSerPair;
@@ -9,10 +14,6 @@ import cn.edu.ncepu.crypto.encryption.sepe.SelfExtractableBaseEngine;
 import cn.edu.ncepu.crypto.encryption.sepe.serparams.SEPEHeaderParameter;
 import cn.edu.ncepu.crypto.utils.PairingUtils;
 import it.unisa.dia.gas.jpbc.PairingParameters;
-import org.bouncycastle.crypto.BlockCipher;
-import org.bouncycastle.crypto.Digest;
-import org.bouncycastle.crypto.InvalidCipherTextException;
-import org.bouncycastle.crypto.PBEParametersGenerator;
 
 /**
  * Created by Weiran Liu on 2016/12/4.

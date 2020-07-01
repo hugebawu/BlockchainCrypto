@@ -1,5 +1,12 @@
 package cn.edu.ncepu.crypto.encryption.re.llw16b.generators;
 
+import java.io.IOException;
+import java.util.Arrays;
+
+import org.bouncycastle.crypto.CipherParameters;
+import org.bouncycastle.crypto.CryptoException;
+import org.bouncycastle.crypto.InvalidCipherTextException;
+
 import cn.edu.ncepu.crypto.algebra.serparams.AsymmetricKeySerParameter;
 import cn.edu.ncepu.crypto.chameleonhash.ChameleonHasher;
 import cn.edu.ncepu.crypto.encryption.re.genparams.REDecryptionGenerationParameter;
@@ -12,12 +19,6 @@ import cn.edu.ncepu.crypto.utils.PairingUtils;
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Pairing;
 import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.CryptoException;
-import org.bouncycastle.crypto.InvalidCipherTextException;
-
-import java.io.IOException;
-import java.util.Arrays;
 
 /**
  * Created by Weiran Liu on 2017/1/4.

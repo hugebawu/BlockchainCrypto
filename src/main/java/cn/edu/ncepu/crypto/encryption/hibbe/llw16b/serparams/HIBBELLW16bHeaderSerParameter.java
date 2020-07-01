@@ -1,11 +1,12 @@
 package cn.edu.ncepu.crypto.encryption.hibbe.llw16b.serparams;
 
+import java.util.Arrays;
+
+import org.bouncycastle.crypto.CipherParameters;
+
 import cn.edu.ncepu.crypto.encryption.hibbe.llw16a.serparams.HIBBELLW16aHeaderSerParameter;
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.PairingParameters;
-import org.bouncycastle.crypto.CipherParameters;
-
-import java.util.Arrays;
 
 /**
  * Created by Weiran Liu on 2016/11/10.

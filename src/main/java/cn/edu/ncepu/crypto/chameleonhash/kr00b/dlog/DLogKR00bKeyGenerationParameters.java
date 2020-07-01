@@ -1,9 +1,10 @@
 package cn.edu.ncepu.crypto.chameleonhash.kr00b.dlog;
 
-import cn.edu.ncepu.crypto.algebra.serparams.SecurePrimeSerParameter;
+import java.security.SecureRandom;
+
 import org.bouncycastle.crypto.KeyGenerationParameters;
 
-import java.security.SecureRandom;
+import cn.edu.ncepu.crypto.algebra.serparams.SecurePrimeSerParameter;
 
 /**
  * Created by Weiran Liu on 2016/10/20.

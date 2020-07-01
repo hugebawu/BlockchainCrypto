@@ -5,14 +5,13 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.example.TestUtils;
-
 import cn.edu.ncepu.crypto.access.AccessControlParameter;
 import cn.edu.ncepu.crypto.access.UnsatisfiedAccessControlException;
 import cn.edu.ncepu.crypto.access.lsss.LSSSPolicyEngine;
 import cn.edu.ncepu.crypto.access.lsss.lw10.LSSSLW10Engine;
 import cn.edu.ncepu.crypto.access.parser.ParserUtils;
 import cn.edu.ncepu.crypto.access.parser.PolicySyntaxException;
+import cn.edu.ncepu.crypto.utils.PairingUtils;
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Pairing;
 import it.unisa.dia.gas.jpbc.PairingParameters;
@@ -167,6 +166,6 @@ public class PolicyParserJUnitTest extends TestCase {
 
 	public void testPolicyParser() {
 		this.lsssPolicyEngine = LSSSLW10Engine.getInstance();
-		runAllTests(PairingFactory.getPairingParameters(TestUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
+		runAllTests(PairingFactory.getPairingParameters(PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
 	}
 }

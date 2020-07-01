@@ -1,16 +1,17 @@
 package cn.edu.ncepu.crypto.encryption.abe.cpabe.hw14.generators;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import org.bouncycastle.crypto.CipherParameters;
+import org.bouncycastle.crypto.InvalidCipherTextException;
+
 import cn.edu.ncepu.crypto.encryption.abe.cpabe.genparams.CPABEDecryptionGenerationParameter;
 import cn.edu.ncepu.crypto.encryption.abe.cpabe.hw14.serparams.CPABEHW14CiphertextSerParameter;
 import cn.edu.ncepu.crypto.encryption.abe.cpabe.hw14.serparams.CPABEHW14HeaderSerParameter;
 import cn.edu.ncepu.crypto.encryption.abe.cpabe.hw14.serparams.CPABEHW14PublicKeySerParameter;
 import cn.edu.ncepu.crypto.encryption.abe.cpabe.rw13.generators.CPABERW13DecryptionGenerator;
 import it.unisa.dia.gas.jpbc.Element;
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.InvalidCipherTextException;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by Weiran Liu on 17/1/2.

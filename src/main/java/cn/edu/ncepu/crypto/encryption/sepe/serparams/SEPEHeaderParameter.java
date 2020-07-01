@@ -1,8 +1,8 @@
 package cn.edu.ncepu.crypto.encryption.sepe.serparams;
 
-import cn.edu.ncepu.crypto.algebra.serparams.PairingCipherSerParameter;
-
 import java.util.Arrays;
+
+import cn.edu.ncepu.crypto.algebra.serparams.PairingCipherSerParameter;
 
 /**
  * Created by Weiran Liu on 2016/12/4.

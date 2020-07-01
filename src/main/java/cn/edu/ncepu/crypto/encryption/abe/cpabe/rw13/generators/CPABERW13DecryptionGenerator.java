@@ -1,5 +1,10 @@
 package cn.edu.ncepu.crypto.encryption.abe.cpabe.rw13.generators;
 
+import java.util.Map;
+
+import org.bouncycastle.crypto.CipherParameters;
+import org.bouncycastle.crypto.InvalidCipherTextException;
+
 import cn.edu.ncepu.crypto.access.AccessControlEngine;
 import cn.edu.ncepu.crypto.access.AccessControlParameter;
 import cn.edu.ncepu.crypto.access.UnsatisfiedAccessControlException;
@@ -13,10 +18,6 @@ import cn.edu.ncepu.crypto.encryption.abe.cpabe.rw13.serparams.CPABERW13SecretKe
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Pairing;
 import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.InvalidCipherTextException;
-
-import java.util.Map;
 
 /**
  * Created by Weiran Liu on 2016/11/29.

@@ -12,8 +12,6 @@ import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.example.TestUtils;
-
 import cn.edu.ncepu.crypto.algebra.generators.AsymmetricKeySerPairGenerator;
 import cn.edu.ncepu.crypto.algebra.serparams.PairingCipherSerParameter;
 import cn.edu.ncepu.crypto.algebra.serparams.PairingKeyEncapsulationSerPair;
@@ -87,16 +85,16 @@ public class REEngineJUnitTest extends TestCase {
 			throws InvalidCipherTextException, IOException, ClassNotFoundException {
 		// KeyGen and serialization
 		PairingKeySerParameter secretKey = engine.keyGen(publicKey, masterKey, identity);
-		byte[] byteArraySecretKey = TestUtils.SerCipherParameter(secretKey);
-		CipherParameters anSecretKey = TestUtils.deserCipherParameters(byteArraySecretKey);
+		byte[] byteArraySecretKey = PairingUtils.SerCipherParameter(secretKey);
+		CipherParameters anSecretKey = PairingUtils.deserCipherParameters(byteArraySecretKey);
 		Assert.assertEquals(secretKey, anSecretKey);
 		secretKey = (PairingKeySerParameter) anSecretKey;
 
 		// Encryption and serialization
 		Element message = pairing.getGT().newRandomElement().getImmutable();
 		PairingCipherSerParameter ciphertext = engine.encryption(publicKey, identityRevokeSet, message);
-		byte[] byteArrayCiphertext = TestUtils.SerCipherParameter(ciphertext);
-		CipherParameters anCiphertext = TestUtils.deserCipherParameters(byteArrayCiphertext);
+		byte[] byteArrayCiphertext = PairingUtils.SerCipherParameter(ciphertext);
+		CipherParameters anCiphertext = PairingUtils.deserCipherParameters(byteArrayCiphertext);
 		Assert.assertEquals(ciphertext, anCiphertext);
 		ciphertext = (PairingCipherSerParameter) anCiphertext;
 
@@ -108,8 +106,8 @@ public class REEngineJUnitTest extends TestCase {
 		PairingKeyEncapsulationSerPair encapsulationPair = engine.encapsulation(publicKey, identityRevokeSet);
 		byte[] sessionKey = encapsulationPair.getSessionKey();
 		PairingCipherSerParameter header = encapsulationPair.getHeader();
-		byte[] byteArrayHeader = TestUtils.SerCipherParameter(header);
-		CipherParameters anHeader = TestUtils.deserCipherParameters(byteArrayHeader);
+		byte[] byteArrayHeader = PairingUtils.SerCipherParameter(header);
+		CipherParameters anHeader = PairingUtils.deserCipherParameters(byteArrayHeader);
 		Assert.assertEquals(header, anHeader);
 		header = (PairingCipherSerParameter) anHeader;
 
@@ -122,15 +120,15 @@ public class REEngineJUnitTest extends TestCase {
 			// offline encryption and serialization
 			PairingCipherSerParameter intermediate = ooEngine.offlineEncryption(publicKey,
 					PairingUtils.removeDuplicates(identityRevokeSet).length);
-			byte[] byteArrayIntermediate = TestUtils.SerCipherParameter(intermediate);
-			CipherParameters anIntermediate = TestUtils.deserCipherParameters(byteArrayIntermediate);
+			byte[] byteArrayIntermediate = PairingUtils.SerCipherParameter(intermediate);
+			CipherParameters anIntermediate = PairingUtils.deserCipherParameters(byteArrayIntermediate);
 			Assert.assertEquals(intermediate, anIntermediate);
 			intermediate = (PairingCipherSerParameter) anIntermediate;
 
 			// Encryption and serialization
 			ciphertext = ooEngine.encryption(publicKey, intermediate, identityRevokeSet, message);
-			byteArrayCiphertext = TestUtils.SerCipherParameter(ciphertext);
-			anCiphertext = TestUtils.deserCipherParameters(byteArrayCiphertext);
+			byteArrayCiphertext = PairingUtils.SerCipherParameter(ciphertext);
+			anCiphertext = PairingUtils.deserCipherParameters(byteArrayCiphertext);
 			Assert.assertEquals(ciphertext, anCiphertext);
 			ciphertext = (PairingCipherSerParameter) anCiphertext;
 
@@ -142,8 +140,8 @@ public class REEngineJUnitTest extends TestCase {
 			encapsulationPair = ooEngine.encapsulation(publicKey, intermediate, identityRevokeSet);
 			sessionKey = encapsulationPair.getSessionKey();
 			header = encapsulationPair.getHeader();
-			byteArrayHeader = TestUtils.SerCipherParameter(header);
-			anHeader = TestUtils.deserCipherParameters(byteArrayHeader);
+			byteArrayHeader = PairingUtils.SerCipherParameter(header);
+			anHeader = PairingUtils.deserCipherParameters(byteArrayHeader);
 			Assert.assertEquals(header, anHeader);
 			header = (PairingCipherSerParameter) anHeader;
 
@@ -159,14 +157,14 @@ public class REEngineJUnitTest extends TestCase {
 			// Setup and serialization
 			PairingKeySerPair keyPair = engine.setup(pairingParameters);
 			PairingKeySerParameter publicKey = keyPair.getPublic();
-			byte[] byteArrayPublicKey = TestUtils.SerCipherParameter(publicKey);
-			CipherParameters anPublicKey = TestUtils.deserCipherParameters(byteArrayPublicKey);
+			byte[] byteArrayPublicKey = PairingUtils.SerCipherParameter(publicKey);
+			CipherParameters anPublicKey = PairingUtils.deserCipherParameters(byteArrayPublicKey);
 			Assert.assertEquals(publicKey, anPublicKey);
 			publicKey = (PairingKeySerParameter) anPublicKey;
 
 			PairingKeySerParameter masterKey = keyPair.getPrivate();
-			byte[] byteArrayMasterKey = TestUtils.SerCipherParameter(masterKey);
-			CipherParameters anMasterKey = TestUtils.deserCipherParameters(byteArrayMasterKey);
+			byte[] byteArrayMasterKey = PairingUtils.SerCipherParameter(masterKey);
+			CipherParameters anMasterKey = PairingUtils.deserCipherParameters(byteArrayMasterKey);
 			Assert.assertEquals(masterKey, anMasterKey);
 			masterKey = (PairingKeySerParameter) anMasterKey;
 
@@ -197,12 +195,12 @@ public class REEngineJUnitTest extends TestCase {
 
 	public void testRELSW10aEngine() {
 		this.engine = RELSW10aEngine.getInstance();
-		runAllTest(PairingFactory.getPairingParameters(TestUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
+		runAllTest(PairingFactory.getPairingParameters(PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
 	}
 
 	public void testRELLW16aEngine() {
 		this.engine = OORELLW16aEngine.getInstance();
-		runAllTest(PairingFactory.getPairingParameters(TestUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
+		runAllTest(PairingFactory.getPairingParameters(PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
 	}
 
 	public void testRELLW16bEngine() {
@@ -214,6 +212,6 @@ public class REEngineJUnitTest extends TestCase {
 				SecurePrimeSerParameter.RFC3526_1536BIT_MODP_GROUP);
 		((OORELLW16bEngine) this.engine).setChameleonHasher(chameleonHasher, chKeyPairGenerator,
 				keyGenerationParameters);
-		runAllTest(PairingFactory.getPairingParameters(TestUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
+		runAllTest(PairingFactory.getPairingParameters(PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
 	}
 }

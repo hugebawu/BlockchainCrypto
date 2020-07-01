@@ -1,14 +1,14 @@
 package cn.edu.ncepu.crypto.encryption.re.llw16a.serparams;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import cn.edu.ncepu.crypto.encryption.re.lsw10a.serparams.RELSW10aHeaderSerParameter;
 import cn.edu.ncepu.crypto.utils.PairingUtils;
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Pairing;
 import it.unisa.dia.gas.jpbc.PairingParameters;
 import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by Weiran Liu on 2017/1/4.

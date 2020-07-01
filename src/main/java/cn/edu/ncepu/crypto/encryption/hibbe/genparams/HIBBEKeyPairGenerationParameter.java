@@ -1,8 +1,9 @@
 package cn.edu.ncepu.crypto.encryption.hibbe.genparams;
 
+import org.bouncycastle.crypto.Signer;
+
 import cn.edu.ncepu.crypto.algebra.genparams.PairingKeyPairGenerationParameter;
 import it.unisa.dia.gas.jpbc.PairingParameters;
-import org.bouncycastle.crypto.Signer;
 
 /**
  * Created by Weiran Liu on 2016/5/16.

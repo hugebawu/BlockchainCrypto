@@ -1,9 +1,9 @@
 package cn.edu.ncepu.crypto.algebra.serparams;
 
-import org.bouncycastle.crypto.CipherParameters;
-
 import java.io.Serializable;
 import java.math.BigInteger;
+
+import org.bouncycastle.crypto.CipherParameters;
 
 /**
  * Created by Weiran Liu on 2016/10/19.

@@ -1,5 +1,7 @@
 package cn.edu.ncepu.crypto.encryption.abe.kpabe.gpsw06a;
 
+import org.bouncycastle.crypto.InvalidCipherTextException;
+
 import cn.edu.ncepu.crypto.algebra.serparams.PairingCipherSerParameter;
 import cn.edu.ncepu.crypto.algebra.serparams.PairingKeyEncapsulationSerPair;
 import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerPair;
@@ -13,11 +15,14 @@ import cn.edu.ncepu.crypto.encryption.abe.kpabe.gpsw06a.generators.KPABEGPSW06aD
 import cn.edu.ncepu.crypto.encryption.abe.kpabe.gpsw06a.generators.KPABEGPSW06aEncryptionGenerator;
 import cn.edu.ncepu.crypto.encryption.abe.kpabe.gpsw06a.generators.KPABEGPSW06aKeyPairGenerator;
 import cn.edu.ncepu.crypto.encryption.abe.kpabe.gpsw06a.generators.KPABEGPSW06aSecretKeyGenerator;
-import cn.edu.ncepu.crypto.encryption.abe.kpabe.gpsw06a.serparams.*;
+import cn.edu.ncepu.crypto.encryption.abe.kpabe.gpsw06a.serparams.KPABEGPSW06aCiphertextSerParameter;
+import cn.edu.ncepu.crypto.encryption.abe.kpabe.gpsw06a.serparams.KPABEGPSW06aHeaderSerParameter;
+import cn.edu.ncepu.crypto.encryption.abe.kpabe.gpsw06a.serparams.KPABEGPSW06aMasterSecretKeySerParameter;
+import cn.edu.ncepu.crypto.encryption.abe.kpabe.gpsw06a.serparams.KPABEGPSW06aPublicKeySerParameter;
+import cn.edu.ncepu.crypto.encryption.abe.kpabe.gpsw06a.serparams.KPABEGPSW06aSecretKeySerParameter;
 import cn.edu.ncepu.crypto.utils.PairingUtils;
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.PairingParameters;
-import org.bouncycastle.crypto.InvalidCipherTextException;
 
 /**
  * Created by Weiran Liu on 2016/11/17.

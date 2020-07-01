@@ -1,16 +1,17 @@
 package cn.edu.ncepu.crypto.chameleonhash.kr00b.dlog;
 
+import java.math.BigInteger;
+import java.security.SecureRandom;
+
+import org.bouncycastle.crypto.KeyGenerationParameters;
+import org.bouncycastle.math.ec.WNafUtil;
+import org.bouncycastle.util.BigIntegers;
+
 import cn.edu.ncepu.crypto.algebra.generators.AsymmetricKeySerPairGenerator;
 import cn.edu.ncepu.crypto.algebra.serparams.AsymmetricKeySerPair;
 import cn.edu.ncepu.crypto.algebra.serparams.SecurePrimeSerParameter;
 import cn.edu.ncepu.crypto.chameleonhash.kr00b.dlog.serparams.DLogKR00bPublicKeySerParameter;
 import cn.edu.ncepu.crypto.chameleonhash.kr00b.dlog.serparams.DLogKR00bSecretKeySerParameter;
-import org.bouncycastle.crypto.KeyGenerationParameters;
-import org.bouncycastle.math.ec.WNafUtil;
-import org.bouncycastle.util.BigIntegers;
-
-import java.math.BigInteger;
-import java.security.SecureRandom;
 
 /**
  * Created by Weiran Liu on 2016/10/19.

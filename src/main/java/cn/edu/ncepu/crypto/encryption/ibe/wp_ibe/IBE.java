@@ -16,11 +16,11 @@ package cn.edu.ncepu.crypto.encryption.ibe.wp_ibe;
  * @修改记录:
  * @版本: 1.0
  */
-public interface Ident {
+public interface IBE {
 
-	void buildSystem();
+	void setup();
 
-	void extractSecretKey();
+	void extract();
 
 	void encrypt();
 

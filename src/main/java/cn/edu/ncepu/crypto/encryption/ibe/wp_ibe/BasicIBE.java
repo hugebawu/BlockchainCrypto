@@ -28,17 +28,28 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  * @版本: 1.0
  */
 
-public class BasicIdent implements Ident {
-	private static Logger logger = LoggerFactory.getLogger(BasicIdent.class);
+public class BasicIBE implements IBE {
+	private static Logger logger = LoggerFactory.getLogger(BasicIBE.class);
 
-	private Element s, r, P, Ppub, Su, Qu, V, T1, T2;
+	// system parameters: params = <q,n,P,Ppub,G,H>
+	private Element s, // master key
+			P, // G1的生成元
+			Ppub, // Ppub = sP
+			Qu, // 用户公钥 Qu = MapToPoin("User ID")
+			Su, // 通过用户公钥生成的用户私钥 Su = sQu
+			r, // Zr中的元素
+			U, // 密文的第一部分 U = rP
+			T1, // T1 = e(Qu,Ppub)^r
+			V, // 密文的第二部分 V = M xor T1; M 是明文. 密文: C = (U, V)
+			T2; // T2 = e(Su,U) = e(sQu,rP) = e(Qu,P)^sr = e(Qu,Ppub)^r = T1; 则明文: M = V xor T2
+
 	// G1是定义在域Fq上的椭圆曲线，其阶为r.q与r都是质数，且存在一定的关系：这里是 (q+1)=r*h
 	// Zr 是阶为r的环Zr={0,...,r-1}
 	// GT是有限域Fq2。其元素的阶虽然为r，但是其取值范围比q大的多，目前不清楚怎么回事。
 	private Field G1, Zr, GT;
 	private Pairing pairing;
 
-	public BasicIdent(PairingParameters typeAParams) {
+	public BasicIBE(PairingParameters typeAParams) {
 		this.pairing = PairingFactory.getPairing(typeAParams);
 		init();
 		// Create a new element with a specified value
@@ -59,8 +70,8 @@ public class BasicIdent implements Ident {
 		Element elementZr = Zr.newElement();
 		Element elementZr1 = Zr.newElement(new BigInteger("539084384990328"));
 		Element elementZr2 = Zr.newElement(4);
-		logger.info(elementZr2.invert().toString());
-		logger.info("" + elementZr2.isSqr());
+		logger.info("elementZr2 invert: " + elementZr2.invert().toString());
+		logger.info("elementZr2 is quadratic residue?: " + elementZr2.isSqr());
 		logger.info("" + elementZr1.sign());
 		logger.info("");
 		logger.info("G1 order: " + G1.getOrder());
@@ -112,10 +123,10 @@ public class BasicIdent implements Ident {
 		Ppub = G1.newElement(); // Create a new uninitialized element.
 		Qu = G1.newElement();
 		Su = G1.newElement();
-		V = G1.newElement();
+		U = G1.newElement();
 		// 将变量T1，T2V初始化为GT中的元素，GT是乘法群
 		GT = pairing.getGT();
-		T1 = GT.newElement();
+		V = GT.newElement();
 		T2 = GT.newElement();
 	}
 
@@ -131,7 +142,7 @@ public class BasicIdent implements Ident {
 	}
 
 	@Override
-	public void buildSystem() {
+	public void setup() {
 		logger.info("-------------------系统建立阶段----------------------");
 		s = Zr.newRandomElement().getImmutable();// //随机生成主密钥s
 		P = G1.newRandomElement().getImmutable();// 生成G1的生成元P
@@ -142,9 +153,11 @@ public class BasicIdent implements Ident {
 	}
 
 	@Override
-	public void extractSecretKey() {
+	public void extract() {
 		logger.info("-------------------密钥提取阶段----------------------");
-		Qu = pairing.getG1().newElement().setFromHash("IDu".getBytes(), 0, 3).getImmutable();// //从长度为3的Hash值IDu确定用户U产生的公钥Qu
+		// 通过Hash函数G从用户IDu产生的公钥Qu
+		Qu = pairing.getG1().newElementFromHash("IDu".getBytes(), 0, "IDu".getBytes().length).getImmutable();
+		// 通过PGK生成用户私钥
 		Su = Qu.mulZn(s).getImmutable();
 		logger.info("Qu=" + Qu);
 		logger.info("Su=" + Su);
@@ -154,20 +167,21 @@ public class BasicIdent implements Ident {
 	public void encrypt() {
 		logger.info("-------------------加密阶段----------------------");
 		r = Zr.newRandomElement().getImmutable();
-		V = P.mulZn(r);
-		T1 = pairing.pairing(Ppub, Qu).getImmutable();// 计算e（Ppub,Qu）
+		U = P.mulZn(r);
+		T1 = pairing.pairing(Qu, Ppub).getImmutable();// 计算e（Ppub,Qu）
 		T1 = T1.powZn(r).getImmutable();
 		logger.info("r=" + r);
-		logger.info("V=" + V);
-		logger.info("T1=e（Ppub,Qu）^r=" + T1);
+		logger.info("U=" + U);
+		logger.info("T1=e（Qu, Ppub）^r=" + T1);
 	}
 
 	@Override
 	public void decrypt() {
 		logger.info("-------------------解密阶段----------------------");
-		T2 = pairing.pairing(V, Su).getImmutable();
-		logger.info("e(V,Su)=" + T2);
-		int byt = V.getLengthInBytes();// 求V的字节长度，假设消息长度为128字节
-		logger.info("文本长度" + (byt + 128));
+		T2 = pairing.pairing(Su, U).getImmutable();
+		logger.info("T2=e(Su, U)=" + T2);
+		logger.info("");
+//		int byt = U.getLengthInBytes();// 求U的字节长度，假设消息长度为128字节
+//		logger.info("文本长度" + (byt + 128));
 	}
 }

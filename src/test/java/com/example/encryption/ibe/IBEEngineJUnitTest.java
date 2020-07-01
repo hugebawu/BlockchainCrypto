@@ -22,8 +22,8 @@ import cn.edu.ncepu.crypto.encryption.ibe.bf01b.IBEBF01bEngine;
 import cn.edu.ncepu.crypto.encryption.ibe.gen06a.IBEGen06aEngine;
 import cn.edu.ncepu.crypto.encryption.ibe.gen06b.IBEGen06bEngine;
 import cn.edu.ncepu.crypto.encryption.ibe.lw10.IBELW10Engine;
-import cn.edu.ncepu.crypto.encryption.ibe.wp_ibe.BasicIdent;
-import cn.edu.ncepu.crypto.encryption.ibe.wp_ibe.Ident;
+import cn.edu.ncepu.crypto.encryption.ibe.wp_ibe.BasicIBE;
+import cn.edu.ncepu.crypto.encryption.ibe.wp_ibe.IBE;
 import cn.edu.ncepu.crypto.utils.PairingUtils;
 import cn.edu.ncepu.crypto.utils.SysProperty;
 import cn.edu.ncepu.crypto.utils.TimeCountProxyHandle;
@@ -216,17 +216,16 @@ public class IBEEngineJUnitTest {
 	 */
 //	@Ignore
 	@Test
-	public void testWPIBE() {
+	public void testBasicIBE() {
 		logger.info("start wp_ibe Testing \n");
 		// 在jpbc配置使用的那个jar包，\params\curves下面
-		PairingParameters typeAParams = PairingFactory
-				.getPairingParameters(PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256);
-		BasicIdent ident = new BasicIdent(typeAParams);
+		PairingParameters typeAParams = PairingFactory.getPairingParameters(PairingUtils.PATH_a);
+		BasicIBE ident = new BasicIBE(typeAParams);
 		// 动态代理，统计各个方法耗时
-		Ident identProxy = (Ident) Proxy.newProxyInstance(BasicIdent.class.getClassLoader(),
-				new Class[] { Ident.class }, new TimeCountProxyHandle(ident));
-		identProxy.buildSystem();
-		identProxy.extractSecretKey();
+		IBE identProxy = (IBE) Proxy.newProxyInstance(BasicIBE.class.getClassLoader(), new Class[] { IBE.class },
+				new TimeCountProxyHandle(ident));
+		identProxy.setup();
+		identProxy.extract();
 		identProxy.encrypt();
 		identProxy.decrypt();
 	}

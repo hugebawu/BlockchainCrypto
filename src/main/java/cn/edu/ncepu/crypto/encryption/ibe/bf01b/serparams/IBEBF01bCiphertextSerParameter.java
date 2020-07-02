@@ -14,35 +14,36 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  * Boneh-Franklin CCA2-secure IBE ciphertext parameter.
  */
 public class IBEBF01bCiphertextSerParameter extends IBEBF01bHeaderSerParameter {
-    private transient Element W;
-    private final byte[] byteArrayW;
+	private transient Element W;
+	private final byte[] byteArrayW;
 
-    public IBEBF01bCiphertextSerParameter(PairingParameters pairingParameters, Element U, Element V, Element W) {
-        super(pairingParameters, U, V);
-        this.W = W.getImmutable();
-        this.byteArrayW = this.W.toBytes();
-    }
+	public IBEBF01bCiphertextSerParameter(PairingParameters pairingParameters, Element U, Element V, Element W) {
+		super(pairingParameters, U, V);
+		this.W = W.getImmutable();
+		this.byteArrayW = this.W.toBytes();
+	}
 
-    public Element getW() { return this.W.duplicate(); }
+	public Element getW() {
+		return this.W.duplicate();
+	}
 
-    @Override
-    public boolean equals(Object anObject) {
-        if (this == anObject) {
-            return true;
-        }
-        if (anObject instanceof IBEBF01bCiphertextSerParameter) {
-            IBEBF01bCiphertextSerParameter that = (IBEBF01bCiphertextSerParameter) anObject;
-            return PairingUtils.isEqualElement(this.W, that.W)
-                    && Arrays.equals(this.byteArrayW, that.byteArrayW)
-                    && super.equals(anObject);
-        }
-        return false;
-    }
+	@Override
+	public boolean equals(Object anObject) {
+		if (this == anObject) {
+			return true;
+		}
+		if (anObject instanceof IBEBF01bCiphertextSerParameter) {
+			IBEBF01bCiphertextSerParameter that = (IBEBF01bCiphertextSerParameter) anObject;
+			return PairingUtils.isEqualElement(this.W, that.W) && Arrays.equals(this.byteArrayW, that.byteArrayW)
+					&& super.equals(anObject);
+		}
+		return false;
+	}
 
-    private void readObject(java.io.ObjectInputStream objectInputStream)
-            throws java.io.IOException, ClassNotFoundException {
-        objectInputStream.defaultReadObject();
-        Pairing pairing = PairingFactory.getPairing(this.getParameters());
-        this.W = pairing.getGT().newElementFromBytes(this.byteArrayW).getImmutable();
-    }
+	private void readObject(java.io.ObjectInputStream objectInputStream)
+			throws java.io.IOException, ClassNotFoundException {
+		objectInputStream.defaultReadObject();
+		Pairing pairing = PairingFactory.getPairing(this.getParameters());
+		this.W = pairing.getGT().newElementFromBytes(this.byteArrayW).getImmutable();
+	}
 }

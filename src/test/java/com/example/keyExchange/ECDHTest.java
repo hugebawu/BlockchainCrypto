@@ -62,9 +62,11 @@ public class ECDHTest {
 				logger.info("ECDH key exchange functionality test pass.");
 			}
 			assertEquals(sharedKey_Alice, sharedKey_Bob);
-		} catch (InvalidKeyException | NoSuchAlgorithmException | IllegalStateException e) {
+		} catch (InvalidKeyException e) {
 			logger.error(e.getLocalizedMessage());
 		} catch (InvalidAlgorithmParameterException e) {
+			logger.error(e.getLocalizedMessage());
+		} catch (NoSuchAlgorithmException e) {
 			logger.error(e.getLocalizedMessage());
 		}
 	}

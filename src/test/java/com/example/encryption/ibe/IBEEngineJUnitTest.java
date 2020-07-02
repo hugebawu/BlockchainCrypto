@@ -85,7 +85,8 @@ public class IBEEngineJUnitTest {
 		secretKey = (PairingKeySerParameter) anSecretKey;
 
 		// Encryption and serialization
-		Element message = pairing.getGT().newElement(new BigInteger("123456789012345678901234567890"));// newRandomElement().getImmutable();
+		Element message = pairing.getGT()
+				.newElement(new BigInteger("123456789012345678901岁的234567890".getBytes("UTF-8"))).getImmutable();// newRandomElement().getImmutable();
 		PairingCipherSerParameter ciphertext = engine.encryption(publicKey, identityForCiphertext, message);
 		byte[] byteArrayCiphertext = PairingUtils.SerCipherParameter(ciphertext);
 		CipherParameters anCiphertext = PairingUtils.deserCipherParameters(byteArrayCiphertext);
@@ -214,7 +215,7 @@ public class IBEEngineJUnitTest {
 	/**
 	 * TODO 本质是testIBEBF01bEngine,不同之出是加载的参数是a.properties
 	 */
-//	@Ignore
+	@Ignore
 	@Test
 	public void testBasicIBE() {
 		logger.info("start wp_ibe Testing \n");
@@ -230,7 +231,7 @@ public class IBEEngineJUnitTest {
 		identProxy.decrypt();
 	}
 
-	@Ignore
+//	@Ignore
 	@Test
 	public void testIBEBF01aEngine() {
 		this.engine = IBEBF01aEngine.getInstance();

@@ -97,8 +97,7 @@ public class CertificateUtilsTest {
 			// 验证签名:
 			boolean verified = CertificateUtils.verify(message, sign, certificate);
 			logger.info("verify: " + verified);
-		} catch (UnsupportedEncodingException | UnrecoverableKeyException | KeyStoreException
-				| NoSuchAlgorithmException e) {
+		} catch (UnsupportedEncodingException e) {
 			logger.error(e.getLocalizedMessage());
 		} catch (FileNotFoundException e) {
 			logger.error(e.getLocalizedMessage());
@@ -115,6 +114,12 @@ public class CertificateUtilsTest {
 		} catch (IOException e) {
 			logger.error(e.getLocalizedMessage());
 		} catch (NoSuchPaddingException e) {
+			logger.error(e.getLocalizedMessage());
+		} catch (KeyStoreException e) {
+			logger.error(e.getLocalizedMessage());
+		} catch (NoSuchAlgorithmException e) {
+			logger.error(e.getLocalizedMessage());
+		} catch (UnrecoverableKeyException e) {
 			logger.error(e.getLocalizedMessage());
 		}
 	}

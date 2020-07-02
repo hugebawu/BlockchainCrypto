@@ -19,19 +19,24 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  * Boneh-Franklin CPA-secure IBE secret key generator.
  */
 public class IBEBF01aSecretKeyGenerator implements PairingKeyParameterGenerator {
-    private IBESecretKeyGenerationParameter parameters;
+	private IBESecretKeyGenerationParameter parameters;
 
-    public void init(KeyGenerationParameters keyGenerationParameters) {
-        this.parameters = (IBESecretKeyGenerationParameter)keyGenerationParameters;
-    }
+	@Override
+	public void init(KeyGenerationParameters keyGenerationParameters) {
+		this.parameters = (IBESecretKeyGenerationParameter) keyGenerationParameters;
+	}
 
-    public PairingKeySerParameter generateKey() {
-        IBEBF01aMasterSecretKeySerParameter masterSecretKeyParameters = (IBEBF01aMasterSecretKeySerParameter)parameters.getMasterSecretKeyParameter();
-        IBEBF01aPublicKeySerParameter publicKeyParameters = (IBEBF01aPublicKeySerParameter)parameters.getPublicKeyParameter();
+	@Override
+	public PairingKeySerParameter generateKey() {
+		IBEBF01aMasterSecretKeySerParameter masterSecretKeyParameters = (IBEBF01aMasterSecretKeySerParameter) parameters
+				.getMasterSecretKeyParameter();
+		IBEBF01aPublicKeySerParameter publicKeyParameters = (IBEBF01aPublicKeySerParameter) parameters
+				.getPublicKeyParameter();
 
-        Pairing pairing = PairingFactory.getPairing(publicKeyParameters.getParameters());
-        Element elementId = PairingUtils.MapStringToGroup(pairing, parameters.getId(), PairingUtils.PairingGroupType.G1).getImmutable();
-        Element d = elementId.powZn(masterSecretKeyParameters.getS()).getImmutable();
-        return new IBEBF01aSecretKeySerParameter(publicKeyParameters.getParameters(), parameters.getId(), elementId, d);
-    }
+		Pairing pairing = PairingFactory.getPairing(publicKeyParameters.getParameters());
+		Element elementId = PairingUtils.MapStringToGroup(pairing, parameters.getId(), PairingUtils.PairingGroupType.G1)
+				.getImmutable();
+		Element d = elementId.powZn(masterSecretKeyParameters.getS()).getImmutable();
+		return new IBEBF01aSecretKeySerParameter(publicKeyParameters.getParameters(), parameters.getId(), elementId, d);
+	}
 }

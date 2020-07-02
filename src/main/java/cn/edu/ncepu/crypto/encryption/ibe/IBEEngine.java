@@ -18,64 +18,66 @@ import it.unisa.dia.gas.jpbc.PairingParameters;
  * This interface is an abstract of IBE definitions.
  */
 public abstract class IBEEngine extends Engine {
-    protected IBEEngine(String schemeName, ProveSecModel proveSecModel, PayloadSecLevel payloadSecLevel, PredicateSecLevel predicateSecLevel) {
-        super(schemeName, proveSecModel, payloadSecLevel, predicateSecLevel);
-    }
+	protected IBEEngine(String schemeName, ProveSecModel proveSecModel, PayloadSecLevel payloadSecLevel,
+			PredicateSecLevel predicateSecLevel) {
+		super(schemeName, proveSecModel, payloadSecLevel, predicateSecLevel);
+	}
 
-    /**
-     * Setup Algorithm for IBE
-     * @param pairingParameters pairingParameters
-     * @return public key / master secret key pair of the scheme
-     */
-    public abstract PairingKeySerPair setup(PairingParameters pairingParameters);
+	/**
+	 * Setup Algorithm for IBE
+	 * @param pairingParameters pairingParameters
+	 * @return public key / master secret key pair of the scheme
+	 */
+	public abstract PairingKeySerPair setup(PairingParameters pairingParameters);
 
-    /**
-     * Secret Key Generation Algorithm for IBE
-     * @param publicKey public key
-     * @param masterKey master secret key
-     * @param id associated identity
-     * @return secret key associated with the identity id
-     */
-    public abstract PairingKeySerParameter keyGen(PairingKeySerParameter publicKey, PairingKeySerParameter masterKey, String id);
+	/**
+	 * Secret Key Generation Algorithm for IBE
+	 * @param publicKey public key
+	 * @param masterKey master secret key
+	 * @param id associated identity
+	 * @return secret key associated with the identity id
+	 */
+	public abstract PairingKeySerParameter keyGen(PairingKeySerParameter publicKey, PairingKeySerParameter masterKey,
+			String id);
 
-    /**
-     * Encryption Algorithm for IBE
-     * @param publicKey public key
-     * @param id an identity
-     * @param message the message in GT
-     * @return ciphertext associated with the identity id
-     */
-    public abstract PairingCipherSerParameter encryption(PairingKeySerParameter publicKey, String id, Element message);
+	/**
+	 * Encryption Algorithm for IBE
+	 * @param publicKey public key
+	 * @param id an identity
+	 * @param message the message in GT
+	 * @return ciphertext associated with the identity id
+	 */
+	public abstract PairingCipherSerParameter encryption(PairingKeySerParameter publicKey, String id, Element message);
 
-    /**
-     * Key Encapsulation Algorithm for IBE
-     * @param publicKey public key
-     * @param id an identity
-     * @return header / session key pair.
-     */
-    public abstract PairingKeyEncapsulationSerPair encapsulation(PairingKeySerParameter publicKey, String id);
+	/**
+	 * Key Encapsulation Algorithm for IBE
+	 * @param publicKey public key
+	 * @param id an identity
+	 * @return header / session key pair.
+	 */
+	public abstract PairingKeyEncapsulationSerPair encapsulation(PairingKeySerParameter publicKey, String id);
 
-    /**
-     * Decryption Algorithm for IBE
-     * @param publicKey public key
-     * @param secretKey secret key associated with an identity
-     * @param id identity associating with the ciphertext
-     * @param ciphertext ciphertext
-     * @return the message in GT
-     * @throws InvalidCipherTextException if the decryption procedure is failure
-     */
-    public abstract Element decryption(PairingKeySerParameter publicKey, PairingKeySerParameter secretKey,
-                        String id, PairingCipherSerParameter ciphertext) throws InvalidCipherTextException;
+	/**
+	 * Decryption Algorithm for IBE
+	 * @param publicKey public key
+	 * @param secretKey secret key associated with an identity
+	 * @param id identity associating with the ciphertext
+	 * @param ciphertext ciphertext
+	 * @return the message in GT
+	 * @throws InvalidCipherTextException if the decryption procedure is failure
+	 */
+	public abstract Element decryption(PairingKeySerParameter publicKey, PairingKeySerParameter secretKey, String id,
+			PairingCipherSerParameter ciphertext) throws InvalidCipherTextException;
 
-    /**
-     * Key Decapsulation Algorithm for IBE
-     * @param publicKey public key
-     * @param secretKey secret key associated with an identity
-     * @param id identity associating with the ciphertext
-     * @param header ciphertext
-     * @return the session key
-     * @throws InvalidCipherTextException if the decryption procedure is failure
-     */
-    public abstract byte[] decapsulation(PairingKeySerParameter publicKey, PairingKeySerParameter secretKey,
-                        String id, PairingCipherSerParameter header) throws InvalidCipherTextException;
+	/**
+	 * Key Decapsulation Algorithm for IBE
+	 * @param publicKey public key
+	 * @param secretKey secret key associated with an identity
+	 * @param id identity associating with the ciphertext
+	 * @param header ciphertext
+	 * @return the session key
+	 * @throws InvalidCipherTextException if the decryption procedure is failure
+	 */
+	public abstract byte[] decapsulation(PairingKeySerParameter publicKey, PairingKeySerParameter secretKey, String id,
+			PairingCipherSerParameter header) throws InvalidCipherTextException;
 }

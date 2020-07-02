@@ -15,34 +15,36 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  * Boneh-Franklin CCA2-secure IBE header parameter.
  */
 public class IBEBF01bHeaderSerParameter extends IBEBF01aHeaderSerParameter {
-    private transient Element V;
-    private final byte[] byteArrayV;
+	private transient Element V;
+	private final byte[] byteArrayV;
 
-    public IBEBF01bHeaderSerParameter(PairingParameters pairingParameters, Element U, Element V) {
-        super(pairingParameters, U);
-        this.V = V.getImmutable();
-        this.byteArrayV = this.V.toBytes();
-    }
-    public Element getV() { return this.V.duplicate(); }
+	public IBEBF01bHeaderSerParameter(PairingParameters pairingParameters, Element U, Element V) {
+		super(pairingParameters, U);
+		this.V = V.getImmutable();
+		this.byteArrayV = this.V.toBytes();
+	}
 
-    @Override
-    public boolean equals(Object anObject) {
-        if (this == anObject) {
-            return true;
-        }
-        if (anObject instanceof IBEBF01bHeaderSerParameter) {
-            IBEBF01bHeaderSerParameter that = (IBEBF01bHeaderSerParameter) anObject;
-            return PairingUtils.isEqualElement(this.V, that.V)
-                    && Arrays.equals(this.byteArrayV, that.byteArrayV)
-                    && super.equals(anObject);
-        }
-        return false;
-    }
+	public Element getV() {
+		return this.V.duplicate();
+	}
 
-    private void readObject(java.io.ObjectInputStream objectInputStream)
-            throws java.io.IOException, ClassNotFoundException {
-        objectInputStream.defaultReadObject();
-        Pairing pairing = PairingFactory.getPairing(this.getParameters());
-        this.V = pairing.getGT().newElementFromBytes(this.byteArrayV).getImmutable();
-    }
+	@Override
+	public boolean equals(Object anObject) {
+		if (this == anObject) {
+			return true;
+		}
+		if (anObject instanceof IBEBF01bHeaderSerParameter) {
+			IBEBF01bHeaderSerParameter that = (IBEBF01bHeaderSerParameter) anObject;
+			return PairingUtils.isEqualElement(this.V, that.V) && Arrays.equals(this.byteArrayV, that.byteArrayV)
+					&& super.equals(anObject);
+		}
+		return false;
+	}
+
+	private void readObject(java.io.ObjectInputStream objectInputStream)
+			throws java.io.IOException, ClassNotFoundException {
+		objectInputStream.defaultReadObject();
+		Pairing pairing = PairingFactory.getPairing(this.getParameters());
+		this.V = pairing.getGT().newElementFromBytes(this.byteArrayV).getImmutable();
+	}
 }

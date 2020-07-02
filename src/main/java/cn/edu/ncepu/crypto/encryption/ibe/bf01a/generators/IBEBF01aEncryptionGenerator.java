@@ -22,38 +22,40 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  */
 public class IBEBF01aEncryptionGenerator implements PairingEncryptionGenerator, PairingEncapsulationPairGenerator {
 
-    private IBEEncryptionGenerationParameter params;
-    private IBEBF01aPublicKeySerParameter publicKeyParameter;
-    private Element sessionKey;
-    private Element U;
+	private IBEEncryptionGenerationParameter params;
+	private IBEBF01aPublicKeySerParameter publicKeyParameter;
+	private Element sessionKey;
+	private Element U;
 
-    public void init(CipherParameters params) {
-        this.params = (IBEEncryptionGenerationParameter) params;
-        this.publicKeyParameter = (IBEBF01aPublicKeySerParameter) this.params.getPublicKeyParameter();
-    }
+	@Override
+	public void init(CipherParameters params) {
+		this.params = (IBEEncryptionGenerationParameter) params;
+		this.publicKeyParameter = (IBEBF01aPublicKeySerParameter) this.params.getPublicKeyParameter();
+	}
 
-    private void computeEncapsulation() {
-        Pairing pairing = PairingFactory.getPairing(publicKeyParameter.getParameters());
-        String id = this.params.getId();
-        Element elementId = PairingUtils.MapStringToGroup(pairing, id, PairingUtils.PairingGroupType.G1).getImmutable();
+	private void computeEncapsulation() {
+		Pairing pairing = PairingFactory.getPairing(publicKeyParameter.getParameters());
+		String id = this.params.getId();
+		Element elementId = PairingUtils.MapStringToGroup(pairing, id, PairingUtils.PairingGroupType.G1).getImmutable();
 
-        Element r = pairing.getZr().newRandomElement().getImmutable();
-        this.sessionKey = PairingUtils.MapByteArrayToGroup(
-                pairing,
-                pairing.pairing(elementId, publicKeyParameter.getGs()).powZn(r).toBytes(),
-                PairingUtils.PairingGroupType.GT);
-        this.U = publicKeyParameter.getG().powZn(r).getImmutable();
-    }
+		Element r = pairing.getZr().newRandomElement().getImmutable();
+		this.sessionKey = PairingUtils.MapByteArrayToGroup(pairing,
+				pairing.pairing(elementId, publicKeyParameter.getGs()).powZn(r).toBytes(),
+				PairingUtils.PairingGroupType.GT);
+		this.U = publicKeyParameter.getG().powZn(r).getImmutable();
+	}
 
-    public PairingKeyEncapsulationSerPair generateEncryptionPair() {
-        computeEncapsulation();
-        return new PairingKeyEncapsulationSerPair(this.sessionKey.toBytes(),
-                new IBEBF01aHeaderSerParameter(publicKeyParameter.getParameters(), U));
-    }
+	@Override
+	public PairingKeyEncapsulationSerPair generateEncryptionPair() {
+		computeEncapsulation();
+		return new PairingKeyEncapsulationSerPair(this.sessionKey.toBytes(),
+				new IBEBF01aHeaderSerParameter(publicKeyParameter.getParameters(), U));
+	}
 
-    public PairingCipherSerParameter generateCiphertext() {
-        computeEncapsulation();
-        Element V = sessionKey.mul(this.params.getMessage()).getImmutable();
-        return new IBEBF01aCiphertextSerParameter(publicKeyParameter.getParameters(), U, V);
-    }
+	@Override
+	public PairingCipherSerParameter generateCiphertext() {
+		computeEncapsulation();
+		Element V = sessionKey.mul(this.params.getMessage()).getImmutable();
+		return new IBEBF01aCiphertextSerParameter(publicKeyParameter.getParameters(), U, V);
+	}
 }

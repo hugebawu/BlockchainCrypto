@@ -17,20 +17,21 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  * Boneh-Franklin CPA-secure IBE public key / master secret key pair generator.
  */
 public class IBEBF01aKeyPairGenerator implements PairingKeyPairGenerator {
-    private IBEKeyPairGenerationParameter params;
+	private IBEKeyPairGenerationParameter params;
 
-    public void init(KeyGenerationParameters keyGenerationParameters) {
-        this.params = (IBEKeyPairGenerationParameter)keyGenerationParameters;
-    }
+	@Override
+	public void init(KeyGenerationParameters keyGenerationParameters) {
+		this.params = (IBEKeyPairGenerationParameter) keyGenerationParameters;
+	}
 
-    public PairingKeySerPair generateKeyPair() {
-        Pairing pairing = PairingFactory.getPairing(this.params.getPairingParameters());
-        Element g = pairing.getG1().newRandomElement().getImmutable();
-        Element s = pairing.getZr().newRandomElement().getImmutable();
-        Element gs = g.powZn(s).getImmutable();
+	@Override
+	public PairingKeySerPair generateKeyPair() {
+		Pairing pairing = PairingFactory.getPairing(this.params.getPairingParameters());
+		Element g = pairing.getG1().newRandomElement().getImmutable();
+		Element s = pairing.getZr().newRandomElement().getImmutable();
+		Element gs = g.powZn(s).getImmutable();
 
-        return new PairingKeySerPair(
-                new IBEBF01aPublicKeySerParameter(this.params.getPairingParameters(), g, gs),
-                new IBEBF01aMasterSecretKeySerParameter(this.params.getPairingParameters(), s));
-    }
+		return new PairingKeySerPair(new IBEBF01aPublicKeySerParameter(this.params.getPairingParameters(), g, gs),
+				new IBEBF01aMasterSecretKeySerParameter(this.params.getPairingParameters(), s));
+	}
 }

@@ -5,10 +5,12 @@ package com.example.encryption.ecies;
 
 import static org.junit.Assert.assertEquals;
 
+import java.io.IOException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.PrivateKey;
 import java.security.PublicKey;
+import java.security.spec.InvalidKeySpecException;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
@@ -56,10 +58,19 @@ public class ECIESEngineJUniteTest {
 			String decryptedtext = ECIESEngine.decrypt(ciphertext, privateKey);
 			logger.info("decrypted plaintext: " + decryptedtext);
 			assertEquals(content, decryptedtext);
-		} catch (InvalidKeyException | NoSuchAlgorithmException | NoSuchPaddingException | IllegalBlockSizeException
-				| BadPaddingException e) {
+		} catch (InvalidKeyException e) {
 			logger.error(e.getLocalizedMessage());
-		} catch (Exception e) {
+		} catch (NoSuchAlgorithmException e) {
+			logger.error(e.getLocalizedMessage());
+		} catch (InvalidKeySpecException e) {
+			logger.error(e.getLocalizedMessage());
+		} catch (IOException e) {
+			logger.error(e.getLocalizedMessage());
+		} catch (NoSuchPaddingException e) {
+			logger.error(e.getLocalizedMessage());
+		} catch (IllegalBlockSizeException e) {
+			logger.error(e.getLocalizedMessage());
+		} catch (BadPaddingException e) {
 			logger.error(e.getLocalizedMessage());
 		}
 	}

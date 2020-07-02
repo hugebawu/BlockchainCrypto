@@ -30,7 +30,8 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
 
 public class BasicIBE implements IBE {
 	private static Logger logger = LoggerFactory.getLogger(BasicIBE.class);
-
+	// 注意，这里M不能过长，受到Fq2中q的大小限制
+	private static String M = "12123464312哈哈的法阿斯顿饭阿斯顿饭s6345674444442323";
 	// system parameters: params = <q,n,P,Ppub,G,H>
 	private Element s, // master key
 			P, // G1的生成元
@@ -170,6 +171,12 @@ public class BasicIBE implements IBE {
 		U = P.mulZn(r);
 		T1 = pairing.pairing(Qu, Ppub).getImmutable();// 计算e（Ppub,Qu）
 		T1 = T1.powZn(r).getImmutable();
+		logger.info("plaintext: " + M);
+		try {
+			V = GT.newElement(new BigInteger(M.getBytes("UTF-8")).xor(T1.toBigInteger()));
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
 		logger.info("r=" + r);
 		logger.info("U=" + U);
 		logger.info("T1=e（Qu, Ppub）^r=" + T1);
@@ -177,11 +184,16 @@ public class BasicIBE implements IBE {
 
 	@Override
 	public void decrypt() {
-		logger.info("-------------------解密阶段----------------------");
-		T2 = pairing.pairing(Su, U).getImmutable();
-		logger.info("T2=e(Su, U)=" + T2);
-		logger.info("");
-//		int byt = U.getLengthInBytes();// 求U的字节长度，假设消息长度为128字节
-//		logger.info("文本长度" + (byt + 128));
+		try {
+			logger.info("-------------------解密阶段----------------------");
+			T2 = pairing.pairing(Su, U).getImmutable();
+			logger.info("T2=e(Su, U)=" + T2);
+			logger.info("");
+			String decrypted_M;
+			decrypted_M = new String(V.toBigInteger().xor(T2.toBigInteger()).toByteArray(), "UTF-8");
+			logger.info("decrypted: " + decrypted_M);
+		} catch (UnsupportedEncodingException e) {
+			logger.error(e.getLocalizedMessage());
+		}
 	}
 }

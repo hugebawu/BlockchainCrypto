@@ -156,7 +156,10 @@ public class ECDSASigner implements Signer {
 			this.signature.initVerify(this.publicKey);
 			signature.update(message);
 			return this.signature.verify(signed);
-		} catch (InvalidKeyException | SignatureException e) {
+		} catch (InvalidKeyException e) {
+			logger.error(e.getLocalizedMessage());
+			throw new IllegalStateException("unable to verify signature");
+		} catch (SignatureException e) {
 			logger.error(e.getLocalizedMessage());
 			throw new IllegalStateException("unable to verify signature");
 		}

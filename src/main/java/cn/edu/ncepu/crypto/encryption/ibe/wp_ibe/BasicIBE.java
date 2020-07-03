@@ -9,6 +9,8 @@ import java.math.BigInteger;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import cn.edu.ncepu.crypto.utils.PairingUtils;
+import cn.edu.ncepu.crypto.utils.PairingUtils.PairingGroupType;
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Field;
 import it.unisa.dia.gas.jpbc.Pairing;
@@ -31,7 +33,7 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
 public class BasicIBE implements IBE {
 	private static Logger logger = LoggerFactory.getLogger(BasicIBE.class);
 	// 注意，这里M不能过长，受到Fq2中q的大小限制
-	private static String M = "12123464312哈哈的法阿斯顿饭阿斯顿饭s6345674444442323";
+	private static String M = "121234643122343453456345674444442323";
 	// system parameters: params = <q,n,P,Ppub,G,H>
 	private Element s, // master key
 			P, // G1的生成元
@@ -86,12 +88,15 @@ public class BasicIBE implements IBE {
 		logger.info("elementGT: ", elementGT);
 		logger.info("");
 		// 方案1
-		String bigNum = "12345678901234567890123456789012345678901234567890123456789012345678901234567";
-		logger.info("bigNum decimal lengh: " + bigNum.length());
+		// 当PairingGroupType = Zr, bigNum需要小于r
+		// 当PairingGroupType = GT, bigNum需要小于q
+		String bigNum = "604462909877683331530750";
+		// 604462909877683331530750
+		// 81869981414486565817042987620009425916711137248094272342132238763687306328558
 		logger.info(" original bigNum: " + bigNum);
-		elementGT.set(new BigInteger(bigNum));
-		BigInteger bi = elementGT.toBigInteger();
-		logger.info("recovered bigNum: " + bi.toString(10));
+		logger.info("bigNum bit lengh: " + new BigInteger(bigNum).bitLength());
+		Element element = PairingUtils.mapNumStringToElement(typeAParams, pairing, bigNum, PairingGroupType.Zr);
+		logger.info("recovered bigNum: " + PairingUtils.mapElementToNumString(element));
 		// 方案2 由于采用setFromHash的hash方式，不可行
 		try {
 			byte[] bytes = bigNum.getBytes("UTF-8");
@@ -172,11 +177,7 @@ public class BasicIBE implements IBE {
 		T1 = pairing.pairing(Qu, Ppub).getImmutable();// 计算e（Ppub,Qu）
 		T1 = T1.powZn(r).getImmutable();
 		logger.info("plaintext: " + M);
-		try {
-			V = GT.newElement(new BigInteger(M.getBytes("UTF-8")).xor(T1.toBigInteger()));
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-		}
+		V = GT.newElement(new BigInteger(M).xor(T1.toBigInteger()));
 		logger.info("r=" + r);
 		logger.info("U=" + U);
 		logger.info("T1=e（Qu, Ppub）^r=" + T1);
@@ -184,16 +185,11 @@ public class BasicIBE implements IBE {
 
 	@Override
 	public void decrypt() {
-		try {
-			logger.info("-------------------解密阶段----------------------");
-			T2 = pairing.pairing(Su, U).getImmutable();
-			logger.info("T2=e(Su, U)=" + T2);
-			logger.info("");
-			String decrypted_M;
-			decrypted_M = new String(V.toBigInteger().xor(T2.toBigInteger()).toByteArray(), "UTF-8");
-			logger.info("decrypted: " + decrypted_M);
-		} catch (UnsupportedEncodingException e) {
-			logger.error(e.getLocalizedMessage());
-		}
+		logger.info("-------------------解密阶段----------------------");
+		T2 = pairing.pairing(Su, U).getImmutable();
+		logger.info("T2=e(Su, U)=" + T2);
+		logger.info("");
+		String decrypted_M = V.toBigInteger().xor(T2.toBigInteger()).toString(10);
+		logger.info("decrypted: " + decrypted_M);
 	}
 }

@@ -69,25 +69,19 @@ public class CommonUtilsTest {
 
 	@Ignore
 	@Test
-	public void testGenHash() {
-		try {
-			String content = "HelloWorld";
+	public void testHash() {
+		String content = "HelloWorld";
 
-			// utilize jdk
-			String algorithm = "SHA256";
-			logger.info("Hash Algorithm: " + algorithm);
-			String hexHash = CommonUtils.genHash(content, algorithm);
-			logger.info("hex hash digest: " + hexHash);
-			logger.info("hex hash digest length: " + hexHash.length());
+		// utilize jdk
+		String algorithm = "SHA256";
+		logger.info("Hash Algorithm: " + algorithm);
+		String hexHash = CommonUtils.hash(content, algorithm);
+		logger.info("hex hash digest: " + hexHash);
+		logger.info("hex hash digest length: " + hexHash.length());
 
-			// utilize third party library.
-			String hash = DigestUtils.sha256Hex(content);
-			assertEquals(hexHash, hash);
-		} catch (NoSuchAlgorithmException e) {
-			logger.error(e.getLocalizedMessage());
-		} catch (UnsupportedEncodingException e) {
-			logger.error(e.getLocalizedMessage());
-		}
+		// utilize third party library.
+		String hash = DigestUtils.sha256Hex(content);
+		assertEquals(hexHash, hash);
 	}
 
 	@Ignore

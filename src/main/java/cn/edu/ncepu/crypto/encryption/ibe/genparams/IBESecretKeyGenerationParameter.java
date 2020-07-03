@@ -9,16 +9,17 @@ import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
  * Identity-Based Encryption secret key generation parameter.
  */
 public class IBESecretKeyGenerationParameter extends PairingKeyGenerationParameter {
-    private String id;
+	// user id used for generating the user secret key
+	private String id;
 
-    public IBESecretKeyGenerationParameter(PairingKeySerParameter publicKeyParameter,
-                                               PairingKeySerParameter masterSecretKeyParameter, String id) {
-        super(publicKeyParameter, masterSecretKeyParameter);
-        this.id = id;
-    }
+	public IBESecretKeyGenerationParameter(PairingKeySerParameter publicKeyParameter,
+			PairingKeySerParameter masterSecretKeyParameter, String id) {
+		super(publicKeyParameter, masterSecretKeyParameter);
+		this.id = id;
+	}
 
-    public String getId() {
-        return this.id;
-    }
+	public String getId() {
+		return this.id;
+	}
 
 }

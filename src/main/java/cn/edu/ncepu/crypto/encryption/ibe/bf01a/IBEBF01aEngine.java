@@ -50,7 +50,6 @@ public class IBEBF01aEngine extends IBEEngine {
 	public PairingKeySerPair setup(PairingParameters pairingParameters) {
 		IBEBF01aKeyPairGenerator keyPairGenerator = new IBEBF01aKeyPairGenerator();
 		keyPairGenerator.init(new IBEKeyPairGenerationParameter(pairingParameters));
-
 		return keyPairGenerator.generateKeyPair();
 	}
 
@@ -67,7 +66,6 @@ public class IBEBF01aEngine extends IBEEngine {
 		}
 		IBEBF01aSecretKeyGenerator secretKeyGenerator = new IBEBF01aSecretKeyGenerator();
 		secretKeyGenerator.init(new IBESecretKeyGenerationParameter(publicKey, masterKey, id));
-
 		return secretKeyGenerator.generateKey();
 	}
 
@@ -79,7 +77,6 @@ public class IBEBF01aEngine extends IBEEngine {
 		}
 		IBEBF01aEncryptionGenerator encryptionGenerator = new IBEBF01aEncryptionGenerator();
 		encryptionGenerator.init(new IBEEncryptionGenerationParameter(publicKey, id, null));
-
 		return encryptionGenerator.generateEncryptionPair();
 	}
 
@@ -91,7 +88,6 @@ public class IBEBF01aEngine extends IBEEngine {
 		}
 		IBEBF01aEncryptionGenerator encryptionGenerator = new IBEBF01aEncryptionGenerator();
 		encryptionGenerator.init(new IBEEncryptionGenerationParameter(publicKey, id, message));
-
 		return encryptionGenerator.generateCiphertext();
 	}
 

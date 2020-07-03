@@ -5,6 +5,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
@@ -18,6 +19,7 @@ import org.bouncycastle.util.encoders.Hex;
 
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Pairing;
+import it.unisa.dia.gas.jpbc.PairingParameters;
 
 /**
  * Created by Weiran Liu on 2016/8/24.
@@ -115,7 +117,7 @@ public class PairingUtils {
 	}
 
 	public static Element MapByteArrayToGroup(Pairing pairing, byte[] message, PairingGroupType pairingGroupType) {
-		byte[] shaResult = hash(message);
+		byte[] shaResult = CommonUtils.hash(message, "SHA256");
 		switch (pairingGroupType) {
 		case Zr:
 			return pairing.getZr().newElement().setFromHash(shaResult, 0, shaResult.length).getImmutable();
@@ -134,15 +136,57 @@ public class PairingUtils {
 		return PairingUtils.MapByteArrayToGroup(pairing, message.getBytes(), pairingGroupType);
 	}
 
+	/**
+	 * 
+	 */
+	/**
+	 * TODO map the decimal String(e.g,"123456789012345678901234567890" into a element in the pairingGroup)
+	 * Attention: when pairingGroupType = Zr, numString need to be smaller than r; 
+	 * when pairingGroupType = GT, numString need to be smaller than q
+	 * @param pairing
+	 * @param numString
+	 * @param pairingGroupType
+	 * @return 
+	 */
+	public static Element mapNumStringToElement(PairingParameters pairingParams, Pairing pairing, String numString,
+			PairingGroupType pairingGroupType) {
+		BigInteger bigNum = new BigInteger(numString);
+		switch (pairingGroupType) {
+		case Zr:
+			BigInteger r = pairingParams.getBigInteger("r");
+			if (1 == bigNum.compareTo(r)) {
+				throw new IllegalArgumentException("numString should less than " + r);
+			}
+			return pairing.getZr().newElement(new BigInteger(numString)).getImmutable();
+		case GT:
+			BigInteger q = pairingParams.getBigInteger("q");
+			if (1 == bigNum.compareTo(q)) {
+				throw new IllegalArgumentException("numString should less than " + q);
+			}
+			return pairing.getGT().newElement(new BigInteger(numString)).getImmutable();
+		default:
+			throw new RuntimeException("Invalid pairing group type.");
+		}
+	}
+
+	/**
+	 * TODO map a element in the pairingGroup into the decimal string(e.g,"123456789012345678901234567890")
+	 * @param e
+	 * @return 参数描述
+	 */
+	public static String mapElementToNumString(Element e) {
+		return e.toBigInteger().toString(10);
+	}
+
 	public static Element MapByteArrayToFirstHalfZr(Pairing pairing, byte[] message) {
-		byte[] shaResult = hash(message);
+		byte[] shaResult = CommonUtils.hash(message, "SHA256");
 		byte[] hashZr = pairing.getZr().newElement().setFromHash(shaResult, 0, shaResult.length).toBytes();
 		hashZr[0] &= 0xEF;
 		return pairing.getZr().newElementFromBytes(hashZr).getImmutable();
 	}
 
 	public static Element MapByteArrayToSecondHalfZr(Pairing pairing, byte[] message) {
-		byte[] shaResult = hash(message);
+		byte[] shaResult = CommonUtils.hash(message, "SHA256");
 		byte[] hash = pairing.getZr().newElement().setFromHash(shaResult, 0, shaResult.length).toBytes();
 		hash[0] |= 0x80;
 		return pairing.getZr().newElementFromBytes(hash).getImmutable();

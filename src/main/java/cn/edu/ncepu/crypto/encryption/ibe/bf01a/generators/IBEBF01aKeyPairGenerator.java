@@ -27,10 +27,12 @@ public class IBEBF01aKeyPairGenerator implements PairingKeyPairGenerator {
 	@Override
 	public PairingKeySerPair generateKeyPair() {
 		Pairing pairing = PairingFactory.getPairing(this.params.getPairingParameters());
+		// P which belongs to E/Fq, can also regard as a generator of the E/Fq
 		Element g = pairing.getG1().newRandomElement().getImmutable();
+		// master key s
 		Element s = pairing.getZr().newRandomElement().getImmutable();
+		// Ppub
 		Element gs = g.powZn(s).getImmutable();
-
 		return new PairingKeySerPair(new IBEBF01aPublicKeySerParameter(this.params.getPairingParameters(), g, gs),
 				new IBEBF01aMasterSecretKeySerParameter(this.params.getPairingParameters(), s));
 	}

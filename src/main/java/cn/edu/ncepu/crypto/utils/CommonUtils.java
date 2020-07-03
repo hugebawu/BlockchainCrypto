@@ -59,7 +59,7 @@ import org.slf4j.LoggerFactory;
  */
 public class CommonUtils {
 
-	private static Logger logger = LoggerFactory.getLogger(CommonUtils.class);
+	private static final Logger logger = LoggerFactory.getLogger(CommonUtils.class);
 
 	/**
 	 * TODO convert Hex or Base64 encoded "String" public or private Key to "PublicKey" or "PrivateKey"
@@ -392,30 +392,54 @@ public class CommonUtils {
 	}
 
 	/**
+	 * TODO hash the string content using the specific algorithm
+	 * @param content
+	 * @param algorithm
+	 * @return hex encoded hash string
+	 * @throws NoSuchAlgorithmException
+	 * @throws UnsupportedEncodingException 参数描述
+	 */
+	public static String hash(String content, String algorithm) {
+		try {
+			return CommonUtils.encodeHexString(hash(content.getBytes("UTF-8"), algorithm));
+		} catch (UnsupportedEncodingException e) {
+			logger.error(e.getLocalizedMessage());
+		}
+		return null;
+	}
+
+	/**
 	 * TODO(generate hash digest according to the specific hash algorithm)
-	 * @param content content waits to be hashed
-	 * @param algorithm specific Hash algorithm, including "MD2, MD5, SHA-1, SHA-256, SHA-512"...
+	 * @param content: content waits to be hashed
+	 * @param algorithm: specific Hash algorithm, including "MD2, MD5, SHA-1, SHA-256, SHA-512"...
 	 * @return 参数描述
 	 * @throws NoSuchAlgorithmException 
 	 * @throws UnsupportedEncodingException 
 	 */
-	public static String genHash(String content, String algorithm)
-			throws NoSuchAlgorithmException, UnsupportedEncodingException {
+	public static byte[] hash(byte[] content, String algorithm) {
 		// Java标准库的java.security包提供了一种标准机制，允许第三方提供商无缝接入。
 		// 我们要使用BouncyCastle提供的RipeMD160算法，需要先把BouncyCastle注册一下。
 		// 注册只需要在启动时进行一次，后续就可以使用BouncyCastle提供的所有哈希算法和加密算法。
 		Security.addProvider(new BouncyCastleProvider());
 		final int BUFFER_SIZE = 1024;
-		final int N = (content.length() - content.length() % BUFFER_SIZE) / BUFFER_SIZE;
-		MessageDigest messageDigest = MessageDigest.getInstance(algorithm);
-		// update input repeatly
-		int i = 0;
-		for (; i < N; i++) {
-			String subString = content.substring(i * BUFFER_SIZE, (i + 1) * BUFFER_SIZE);
-			messageDigest.update(subString.getBytes("UTF-8"));
+		final int N = (content.length - content.length % BUFFER_SIZE) / BUFFER_SIZE;
+		MessageDigest messageDigest = null;
+		try {
+			messageDigest = MessageDigest.getInstance(algorithm);
+			// update input repeatly
+			byte[] subContent = new byte[BUFFER_SIZE];
+			int i = 0;
+			for (; i < N; i++) {
+				System.arraycopy(content, i * BUFFER_SIZE, subContent, 0, BUFFER_SIZE);
+				messageDigest.update(subContent);
+			}
+			subContent = new byte[content.length % BUFFER_SIZE];
+			System.arraycopy(content, i * BUFFER_SIZE, subContent, 0, subContent.length);
+			messageDigest.update(subContent);
+		} catch (NoSuchAlgorithmException e) {
+			logger.error(e.getLocalizedMessage());
 		}
-		messageDigest.update(content.substring(i * BUFFER_SIZE, content.length()).getBytes("UTF-8"));
-		return CommonUtils.encodeHexString(messageDigest.digest());
+		return messageDigest.digest();
 	}
 
 	/**

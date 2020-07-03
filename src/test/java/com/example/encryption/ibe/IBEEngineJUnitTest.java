@@ -25,6 +25,7 @@ import cn.edu.ncepu.crypto.encryption.ibe.lw10.IBELW10Engine;
 import cn.edu.ncepu.crypto.encryption.ibe.wp_ibe.BasicIBE;
 import cn.edu.ncepu.crypto.encryption.ibe.wp_ibe.IBE;
 import cn.edu.ncepu.crypto.utils.PairingUtils;
+import cn.edu.ncepu.crypto.utils.PairingUtils.PairingGroupType;
 import cn.edu.ncepu.crypto.utils.SysProperty;
 import cn.edu.ncepu.crypto.utils.TimeCountProxyHandle;
 import edu.princeton.cs.algs4.Out;
@@ -45,36 +46,38 @@ public class IBEEngineJUnitTest {
 	private static String USER_DIR = SysProperty.USER_DIR;
 	private static final String identity_1 = "ID_1";
 	private static final String identity_2 = "ID_2";
+	private PairingParameters pairingParams = null;
 
 	private IBEEngine engine;
 
-	private void try_valid_decryption(Pairing pairing, PairingKeySerParameter publicKey,
-			PairingKeySerParameter masterKey, String identityForSecretKey, String identityForCiphertext) {
+	private void try_valid_enc_dec(Pairing pairing, PairingKeySerParameter publicKey, PairingKeySerParameter masterKey,
+			String identityForSecretKey, String identityForCiphertext) {
 		try {
-			try_decryption(pairing, publicKey, masterKey, identityForSecretKey, identityForCiphertext);
+			try_enc_dec(pairing, publicKey, masterKey, identityForSecretKey, identityForCiphertext);
 		} catch (Exception e) {
 			logger.info("Valid decryption test failed, " + "secret key identity  = " + identityForSecretKey + ", "
 					+ "ciphertext identity = " + identityForCiphertext);
-			e.printStackTrace();
+			logger.info(e.getLocalizedMessage());
 			System.exit(1);
 		}
 	}
 
-	private void try_invalid_decryption(Pairing pairing, PairingKeySerParameter publicKey,
+	private void try_invalid_enc_dec(Pairing pairing, PairingKeySerParameter publicKey,
 			PairingKeySerParameter masterKey, String identityForSecretKey, String identityForCiphertext) {
 		try {
-			try_decryption(pairing, publicKey, masterKey, identityForSecretKey, identityForCiphertext);
+			try_enc_dec(pairing, publicKey, masterKey, identityForSecretKey, identityForCiphertext);
 		} catch (InvalidCipherTextException e) {
-			// correct if getting there, nothing to do.
-		} catch (Exception e) {
-			logger.info("Invalid decryption test failed, " + "secret key identity  = " + identityForSecretKey + ", "
+			logger.info(e.getLocalizedMessage());
+			logger.info("Invalid decryption test passed!, " + "secret key identity  = " + identityForSecretKey + ", "
 					+ "ciphertext identity = " + identityForCiphertext);
-			e.printStackTrace();
-			System.exit(1);
+		} catch (ClassNotFoundException e) {
+			logger.info(e.getLocalizedMessage());
+		} catch (IOException e) {
+			logger.info(e.getLocalizedMessage());
 		}
 	}
 
-	private void try_decryption(Pairing pairing, PairingKeySerParameter publicKey, PairingKeySerParameter masterKey,
+	private void try_enc_dec(Pairing pairing, PairingKeySerParameter publicKey, PairingKeySerParameter masterKey,
 			String identityForSecretKey, String identityForCiphertext)
 			throws InvalidCipherTextException, IOException, ClassNotFoundException {
 		// KeyGen and serialization
@@ -85,8 +88,10 @@ public class IBEEngineJUnitTest {
 		secretKey = (PairingKeySerParameter) anSecretKey;
 
 		// Encryption and serialization
-		Element message = pairing.getGT()
-				.newElement(new BigInteger("123456789012345678901岁的234567890".getBytes("UTF-8"))).getImmutable();// newRandomElement().getImmutable();
+		// the message waits to be encrypted
+		String plainMessage = "12345678901234567890123456789012345678901234567890123456789012345678901234567";
+		logger.info("plaintext message: " + plainMessage);
+		Element message = PairingUtils.mapNumStringToElement(pairingParams, pairing, plainMessage, PairingGroupType.GT);
 		PairingCipherSerParameter ciphertext = engine.encryption(publicKey, identityForCiphertext, message);
 		byte[] byteArrayCiphertext = PairingUtils.SerCipherParameter(ciphertext);
 		CipherParameters anCiphertext = PairingUtils.deserCipherParameters(byteArrayCiphertext);
@@ -95,10 +100,15 @@ public class IBEEngineJUnitTest {
 
 		// Decryption
 		Element anMessage = engine.decryption(publicKey, secretKey, identityForCiphertext, ciphertext);
-		logger.info("" + anMessage.toBigInteger());
-		Assert.assertEquals(message, anMessage);
+		String decMessage = PairingUtils.mapElementToNumString(anMessage);
+		logger.info("decrypted message: " + decMessage);
+		// new String(anMessage.toBigInteger().toByteArray(), "UTF-8"));
+		Assert.assertEquals(plainMessage, decMessage);
 
 		// Encapsulation and serialization
+		// 将Qu(identityForCiphertext)和Ppub(publicKey)封装成(U,session key)
+		// U=rP: PairingCipherSerParameter header
+		// session key=e(Qu,Ppub)^r=e(Qu,sP)^r=e(Qu,P)^rs: byte[] sessionKey
 		PairingKeyEncapsulationSerPair encapsulationPair = engine.encapsulation(publicKey, identityForCiphertext);
 		byte[] sessionKey = encapsulationPair.getSessionKey();
 		PairingCipherSerParameter header = encapsulationPair.getHeader();
@@ -108,6 +118,9 @@ public class IBEEngineJUnitTest {
 		header = (PairingCipherSerParameter) anHeader;
 
 		// Decapsulation
+		// 将d(secretKey)和U(header)解封装得到session key
+		// session key=e(d,U)=e(sQu, rP)=e(Qu,P)^rs
+		// U在发送方(identityForCiphertext)序列化后通过Internet传输过来
 		byte[] anSessionKey = engine.decapsulation(publicKey, secretKey, identityForCiphertext, header);
 		Assert.assertArrayEquals(sessionKey, anSessionKey);
 	}
@@ -118,12 +131,14 @@ public class IBEEngineJUnitTest {
 		try {
 			// Setup and serialization
 			PairingKeySerPair keyPair = engine.setup(pairingParameters);
+			// get publicKey include (P, Ppub), where Ppub=sP
 			PairingKeySerParameter publicKey = keyPair.getPublic();
 			byte[] byteArrayPublicKey = PairingUtils.SerCipherParameter(publicKey);
 			CipherParameters anPublicKey = PairingUtils.deserCipherParameters(byteArrayPublicKey);
 			Assert.assertEquals(publicKey, anPublicKey);
 			publicKey = (PairingKeySerParameter) anPublicKey;
 
+			// get master-key s
 			PairingKeySerParameter masterKey = keyPair.getPrivate();
 			byte[] byteArrayMasterKey = PairingUtils.SerCipherParameter(masterKey);
 			CipherParameters anMasterKey = PairingUtils.deserCipherParameters(byteArrayMasterKey);
@@ -132,14 +147,15 @@ public class IBEEngineJUnitTest {
 
 			// test valid example
 			logger.info("Test valid examples");
-			try_valid_decryption(pairing, publicKey, masterKey, identity_1, identity_1);
-			try_valid_decryption(pairing, publicKey, masterKey, identity_2, identity_2);
+			try_valid_enc_dec(pairing, publicKey, masterKey, identity_1, identity_1);
+			try_valid_enc_dec(pairing, publicKey, masterKey, identity_2, identity_2);
+			logger.info("");
 
 			// test valid example
 			logger.info("Test invalid examples");
-			try_invalid_decryption(pairing, publicKey, masterKey, identity_1, identity_2);
-			try_invalid_decryption(pairing, publicKey, masterKey, identity_2, identity_1);
-			logger.info(engine.getEngineName() + " test passed");
+			try_invalid_enc_dec(pairing, publicKey, masterKey, identity_1, identity_2);
+			try_invalid_enc_dec(pairing, publicKey, masterKey, identity_2, identity_1);
+			logger.info(engine.getEngineName() + " test passed!");
 		} catch (ClassNotFoundException e) {
 			logger.info("setup test failed.");
 			e.printStackTrace();
@@ -220,8 +236,8 @@ public class IBEEngineJUnitTest {
 	public void testBasicIBE() {
 		logger.info("start wp_ibe Testing \n");
 		// 在jpbc配置使用的那个jar包，\params\curves下面
-		PairingParameters typeAParams = PairingFactory.getPairingParameters(PairingUtils.PATH_a);
-		BasicIBE ident = new BasicIBE(typeAParams);
+		pairingParams = PairingFactory.getPairingParameters(PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256);
+		BasicIBE ident = new BasicIBE(pairingParams);
 		// 动态代理，统计各个方法耗时
 		IBE identProxy = (IBE) Proxy.newProxyInstance(BasicIBE.class.getClassLoader(), new Class[] { IBE.class },
 				new TimeCountProxyHandle(ident));
@@ -231,7 +247,7 @@ public class IBEEngineJUnitTest {
 		identProxy.decrypt();
 	}
 
-//	@Ignore
+	@Ignore
 	@Test
 	public void testIBEBF01aEngine() {
 		this.engine = IBEBF01aEngine.getInstance();
@@ -239,36 +255,39 @@ public class IBEEngineJUnitTest {
 		// 通过文件读取初始化Pairing对象
 		// 从文件中读取PairingParameters对象
 		// PairingParameters的toString()可以用来将Pairing参数存放在文件中
-		PairingParameters typeAParams = PairingFactory
-				.getPairingParameters(PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256);
-		runAllTests(typeAParams);
+		pairingParams = PairingFactory.getPairingParameters(PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256);
+		runAllTests(pairingParams);
 	}
 
 	@Ignore
 	@Test
 	public void testIBEBF01bEngine() {
 		this.engine = IBEBF01bEngine.getInstance();
-		runAllTests(PairingFactory.getPairingParameters(PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
+		pairingParams = PairingFactory.getPairingParameters(PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256);
+		runAllTests(pairingParams);
 	}
 
 	@Ignore
 	@Test
 	public void testIBEGen06aEngine() {
 		this.engine = IBEGen06aEngine.getInstance();
-		runAllTests(PairingFactory.getPairingParameters(PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
+		pairingParams = PairingFactory.getPairingParameters(PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256);
+		runAllTests(pairingParams);
 	}
 
 	@Ignore
 	@Test
 	public void testIBEGen06bEngine() {
 		this.engine = IBEGen06bEngine.getInstance();
-		runAllTests(PairingFactory.getPairingParameters(PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256));
+		pairingParams = PairingFactory.getPairingParameters(PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256);
+		runAllTests(pairingParams);
 	}
 
 	@Ignore
 	@Test
 	public void testIBELW10Engine() {
 		this.engine = IBELW10Engine.getInstance();
-		runAllTests(PairingFactory.getPairingParameters(PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a1_3_128));
+		pairingParams = PairingFactory.getPairingParameters(PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a1_3_128);
+		runAllTests(pairingParams);
 	}
 }

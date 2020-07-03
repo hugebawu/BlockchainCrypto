@@ -10,17 +10,17 @@ import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerPair;
  * Asymmetric serializable key pair generator.
  */
 public interface PairingKeyPairGenerator {
-    /**
-     * intialise the key pair generator.
-     *
-     * @param param the parameters the key pair is to be initialised with.
-     */
-    void init(KeyGenerationParameters param);
+	/**
+	 * intialise the key pair generator.
+	 *
+	 * @param param the parameters the key pair is to be initialized with.
+	 */
+	void init(KeyGenerationParameters param);
 
-    /**
-     * return an AsymmetricCipherKeyPair containing the generated keys.
-     *
-     * @return an AsymmetricCipherKeyPair containing the generated keys.
-     */
-    PairingKeySerPair generateKeyPair();
+	/**
+	 * return an AsymmetricCipherKeyPair containing the generated keys.
+	 *
+	 * @return an AsymmetricCipherKeyPair containing the generated keys.
+	 */
+	PairingKeySerPair generateKeyPair();
 }

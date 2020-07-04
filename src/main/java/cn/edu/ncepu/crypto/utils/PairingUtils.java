@@ -6,8 +6,6 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.math.BigInteger;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
@@ -96,25 +94,6 @@ public class PairingUtils {
 //        PairingParametersGenerator parametersGenerator = new TypeA1CurveGenerator(3, qBitLength);
 //        return (PropertiesParameters) parametersGenerator.generate();
 //    }
-
-	/**
-	 * A standard collision resistant hash function implementations used privately for Map.
-	 * The used hash function is SHA-256.
-	 * @param message mmessage to be hashed
-	 * @return hash result
-	 */
-	private static byte[] hash(byte[] message) {
-		MessageDigest md = null;
-		try {
-			md = MessageDigest.getInstance("SHA-256");
-		} catch (NoSuchAlgorithmException e) {
-			// Impossible to get this exception
-			e.printStackTrace();
-		}
-		assert (md != null);
-		md.update(message);
-		return md.digest();
-	}
 
 	public static Element MapByteArrayToGroup(Pairing pairing, byte[] message, PairingGroupType pairingGroupType) {
 		byte[] shaResult = CommonUtils.hash(message, "SHA256");

@@ -15,43 +15,47 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  * Liu-Liu-Wu EHR role-based access control master secret key parameter.
  */
 public class RBACLLW15MasterSecretKeySerParameter extends PairingKeySerParameter {
-    private transient Element g2Alpha;
-    private final byte[] byteArrayG2Alpha;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5893934120806555005L;
+	private transient Element g2Alpha;
+	private final byte[] byteArrayG2Alpha;
 
-    public RBACLLW15MasterSecretKeySerParameter(PairingParameters pairingParameters, Element g2Alpha) {
-        super(true, pairingParameters);
-        this.g2Alpha = g2Alpha.getImmutable();
-        this.byteArrayG2Alpha = this.g2Alpha.toBytes();
-    }
+	public RBACLLW15MasterSecretKeySerParameter(PairingParameters pairingParameters, Element g2Alpha) {
+		super(true, pairingParameters);
+		this.g2Alpha = g2Alpha.getImmutable();
+		this.byteArrayG2Alpha = this.g2Alpha.toBytes();
+	}
 
-    public Element getG2Alpha(){
-        return this.g2Alpha.duplicate();
-    }
+	public Element getG2Alpha() {
+		return this.g2Alpha.duplicate();
+	}
 
-    @Override
-    public boolean equals(Object anObject) {
-        if (this == anObject) {
-            return true;
-        }
-        if (anObject instanceof RBACLLW15MasterSecretKeySerParameter) {
-            RBACLLW15MasterSecretKeySerParameter that = (RBACLLW15MasterSecretKeySerParameter)anObject;
-            //Compare g2Alpha
-            if (!(PairingUtils.isEqualElement(this.g2Alpha, that.getG2Alpha()))) {
-                return false;
-            }
-            if (!Arrays.equals(this.byteArrayG2Alpha, that.byteArrayG2Alpha)) {
-                return false;
-            }
-            //Compare Pairing Parameters
-            return this.getParameters().toString().equals(that.getParameters().toString());
-        }
-        return false;
-    }
+	@Override
+	public boolean equals(Object anObject) {
+		if (this == anObject) {
+			return true;
+		}
+		if (anObject instanceof RBACLLW15MasterSecretKeySerParameter) {
+			RBACLLW15MasterSecretKeySerParameter that = (RBACLLW15MasterSecretKeySerParameter) anObject;
+			// Compare g2Alpha
+			if (!(PairingUtils.isEqualElement(this.g2Alpha, that.getG2Alpha()))) {
+				return false;
+			}
+			if (!Arrays.equals(this.byteArrayG2Alpha, that.byteArrayG2Alpha)) {
+				return false;
+			}
+			// Compare Pairing Parameters
+			return this.getParameters().toString().equals(that.getParameters().toString());
+		}
+		return false;
+	}
 
-    private void readObject(java.io.ObjectInputStream objectInputStream)
-            throws java.io.IOException, ClassNotFoundException {
-        objectInputStream.defaultReadObject();
-        Pairing pairing = PairingFactory.getPairing(this.getParameters());
-        this.g2Alpha = pairing.getG1().newElementFromBytes(this.byteArrayG2Alpha).getImmutable();
-    }
+	private void readObject(java.io.ObjectInputStream objectInputStream)
+			throws java.io.IOException, ClassNotFoundException {
+		objectInputStream.defaultReadObject();
+		Pairing pairing = PairingFactory.getPairing(this.getParameters());
+		this.g2Alpha = pairing.getG1().newElementFromBytes(this.byteArrayG2Alpha).getImmutable();
+	}
 }

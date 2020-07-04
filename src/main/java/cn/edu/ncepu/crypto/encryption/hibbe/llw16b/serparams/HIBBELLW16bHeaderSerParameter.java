@@ -14,34 +14,42 @@ import it.unisa.dia.gas.jpbc.PairingParameters;
  * Liu-Liu-Wu prime-order CCA2-secure HIBBE header parameter.
  */
 public class HIBBELLW16bHeaderSerParameter extends HIBBELLW16aHeaderSerParameter {
-    private final CipherParameters signPublicKey;
-    private final byte[] signature;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -421218490502720396L;
+	private final CipherParameters signPublicKey;
+	private final byte[] signature;
 
-    public HIBBELLW16bHeaderSerParameter(PairingParameters pairingParameters, CipherParameters signPublicKey,
-                                         byte[] signature, Element C0, Element C1) {
-        super(pairingParameters, C0, C1);
-        this.signPublicKey = signPublicKey;
-        this.signature = signature;
-    }
+	public HIBBELLW16bHeaderSerParameter(PairingParameters pairingParameters, CipherParameters signPublicKey,
+			byte[] signature, Element C0, Element C1) {
+		super(pairingParameters, C0, C1);
+		this.signPublicKey = signPublicKey;
+		this.signature = signature;
+	}
 
-    public byte[] getSignature() { return this.signature; }
+	public byte[] getSignature() {
+		return this.signature;
+	}
 
-    public CipherParameters getSignPublicKey() { return this.signPublicKey; }
+	public CipherParameters getSignPublicKey() {
+		return this.signPublicKey;
+	}
 
-    @Override
-    public boolean equals(Object anObject) {
-        if (this == anObject) {
-            return true;
-        }
-        if (anObject instanceof HIBBELLW16bHeaderSerParameter) {
-            HIBBELLW16bHeaderSerParameter that = (HIBBELLW16bHeaderSerParameter) anObject;
-            //Compare signature
-            if (!Arrays.equals(this.signature, that.signature)) {
-                return false;
-            }
-            //Compare signPublicKey
-            return this.signPublicKey.equals(that.signPublicKey) && super.equals(anObject);
-        }
-        return false;
-    }
+	@Override
+	public boolean equals(Object anObject) {
+		if (this == anObject) {
+			return true;
+		}
+		if (anObject instanceof HIBBELLW16bHeaderSerParameter) {
+			HIBBELLW16bHeaderSerParameter that = (HIBBELLW16bHeaderSerParameter) anObject;
+			// Compare signature
+			if (!Arrays.equals(this.signature, that.signature)) {
+				return false;
+			}
+			// Compare signPublicKey
+			return this.signPublicKey.equals(that.signPublicKey) && super.equals(anObject);
+		}
+		return false;
+	}
 }

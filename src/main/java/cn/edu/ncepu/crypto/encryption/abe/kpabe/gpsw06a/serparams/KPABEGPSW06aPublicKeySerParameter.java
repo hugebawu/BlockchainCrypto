@@ -18,92 +18,107 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  */
 public class KPABEGPSW06aPublicKeySerParameter extends PairingKeySerParameter {
 
-    private final int maxAttributesNum;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6960120171828638802L;
 
-    public transient Element g;
-    private final byte[] byteArrayG;
+	private final int maxAttributesNum;
 
-    private transient Map<String, Element> Ts;
-    private final Map<String, byte[]> byteArraysTs;
+	public transient Element g;
+	private final byte[] byteArrayG;
 
-    private transient Element Y;
-    private final byte[] byteArrayY;
+	private transient Map<String, Element> Ts;
+	private final Map<String, byte[]> byteArraysTs;
 
-    public KPABEGPSW06aPublicKeySerParameter(PairingParameters parameters, Element g, Map<String, Element> Ts, Element Y) {
-        super(false, parameters);
+	private transient Element Y;
+	private final byte[] byteArrayY;
 
-        this.g = g.getImmutable();
-        this.byteArrayG = this.g.toBytes();
+	public KPABEGPSW06aPublicKeySerParameter(PairingParameters parameters, Element g, Map<String, Element> Ts,
+			Element Y) {
+		super(false, parameters);
 
-        this.Ts = new HashMap<String, Element>();
-        this.byteArraysTs = new HashMap<String, byte[]>();
-        for (String attribute : Ts.keySet()) {
-            Element T = Ts.get(attribute).duplicate().getImmutable();
-            this.Ts.put(attribute, T);
-            this.byteArraysTs.put(attribute, T.toBytes());
-        }
+		this.g = g.getImmutable();
+		this.byteArrayG = this.g.toBytes();
 
-        this.Y = Y.getImmutable();
-        this.byteArrayY = this.Y.toBytes();
+		this.Ts = new HashMap<String, Element>();
+		this.byteArraysTs = new HashMap<String, byte[]>();
+		for (String attribute : Ts.keySet()) {
+			Element T = Ts.get(attribute).duplicate().getImmutable();
+			this.Ts.put(attribute, T);
+			this.byteArraysTs.put(attribute, T.toBytes());
+		}
 
-        this.maxAttributesNum = this.Ts.keySet().size();
-    }
+		this.Y = Y.getImmutable();
+		this.byteArrayY = this.Y.toBytes();
 
-    public Element getG() { return this.g.duplicate(); }
+		this.maxAttributesNum = this.Ts.keySet().size();
+	}
 
-    public Element getTsAt(String attribute) { return this.Ts.get(attribute).duplicate(); }
+	public Element getG() {
+		return this.g.duplicate();
+	}
 
-    public Element getY() { return this.Y.duplicate(); }
+	public Element getTsAt(String attribute) {
+		return this.Ts.get(attribute).duplicate();
+	}
 
-    public int getMaxAttributesNum() { return this.maxAttributesNum; }
+	public Element getY() {
+		return this.Y.duplicate();
+	}
 
-    @Override
-    public boolean equals(Object anObject) {
-        if (this == anObject) {
-            return true;
-        }
-        if (anObject instanceof KPABEGPSW06aPublicKeySerParameter) {
-            KPABEGPSW06aPublicKeySerParameter that = (KPABEGPSW06aPublicKeySerParameter)anObject;
-            //Compare maximal broadcast receivers
-            if (this.maxAttributesNum != that.maxAttributesNum) {
-                return false;
-            }
-            //Compare g
-            if (!PairingUtils.isEqualElement(this.g, that.g)) {
-                return false;
-            }
-            if (!Arrays.equals(this.byteArrayG, that.byteArrayG)) {
-                return false;
-            }
-            //Compare Ts
-            if (!this.Ts.equals(that.Ts)) {
-                return false;
-            }
-            if (!PairingUtils.isEqualByteArrayMaps(this.byteArraysTs, that.byteArraysTs)) {
-                return false;
-            }
-            //Compare Y
-            if (!PairingUtils.isEqualElement(this.Y, that.Y)) {
-                return false;
-            }
-            if (!Arrays.equals(this.byteArrayY, that.byteArrayY)) {
-                return false;
-            }
-            //Compare Pairing Parameters
-            return this.getParameters().toString().equals(that.getParameters().toString());
-        }
-        return false;
-    }
+	public int getMaxAttributesNum() {
+		return this.maxAttributesNum;
+	}
 
-    private void readObject(java.io.ObjectInputStream objectInputStream)
-            throws java.io.IOException, ClassNotFoundException {
-        objectInputStream.defaultReadObject();
-        Pairing pairing = PairingFactory.getPairing(this.getParameters());
-        this.g = pairing.getG1().newElementFromBytes(this.byteArrayG).getImmutable();
-        this.Ts = new HashMap<String, Element>();
-        for (String attribute : this.byteArraysTs.keySet()) {
-            this.Ts.put(attribute, pairing.getG1().newElementFromBytes(this.byteArraysTs.get(attribute)).getImmutable());
-        }
-        this.Y = pairing.getGT().newElementFromBytes(this.byteArrayY).getImmutable();
-    }
+	@Override
+	public boolean equals(Object anObject) {
+		if (this == anObject) {
+			return true;
+		}
+		if (anObject instanceof KPABEGPSW06aPublicKeySerParameter) {
+			KPABEGPSW06aPublicKeySerParameter that = (KPABEGPSW06aPublicKeySerParameter) anObject;
+			// Compare maximal broadcast receivers
+			if (this.maxAttributesNum != that.maxAttributesNum) {
+				return false;
+			}
+			// Compare g
+			if (!PairingUtils.isEqualElement(this.g, that.g)) {
+				return false;
+			}
+			if (!Arrays.equals(this.byteArrayG, that.byteArrayG)) {
+				return false;
+			}
+			// Compare Ts
+			if (!this.Ts.equals(that.Ts)) {
+				return false;
+			}
+			if (!PairingUtils.isEqualByteArrayMaps(this.byteArraysTs, that.byteArraysTs)) {
+				return false;
+			}
+			// Compare Y
+			if (!PairingUtils.isEqualElement(this.Y, that.Y)) {
+				return false;
+			}
+			if (!Arrays.equals(this.byteArrayY, that.byteArrayY)) {
+				return false;
+			}
+			// Compare Pairing Parameters
+			return this.getParameters().toString().equals(that.getParameters().toString());
+		}
+		return false;
+	}
+
+	private void readObject(java.io.ObjectInputStream objectInputStream)
+			throws java.io.IOException, ClassNotFoundException {
+		objectInputStream.defaultReadObject();
+		Pairing pairing = PairingFactory.getPairing(this.getParameters());
+		this.g = pairing.getG1().newElementFromBytes(this.byteArrayG).getImmutable();
+		this.Ts = new HashMap<String, Element>();
+		for (String attribute : this.byteArraysTs.keySet()) {
+			this.Ts.put(attribute,
+					pairing.getG1().newElementFromBytes(this.byteArraysTs.get(attribute)).getImmutable());
+		}
+		this.Y = pairing.getGT().newElementFromBytes(this.byteArrayY).getImmutable();
+	}
 }

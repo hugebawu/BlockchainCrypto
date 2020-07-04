@@ -10,28 +10,31 @@ import it.unisa.dia.gas.jpbc.PairingParameters;
  * All the asymmetric key parameters should extend this class for supporting serialization.
  */
 public class PairingKeySerParameter extends PairingCipherSerParameter {
-    private boolean privateKey;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4321962451916033143L;
+	private boolean privateKey;
 
-    public PairingKeySerParameter(boolean privateKey, PairingParameters pairingParameters) {
-        super(pairingParameters);
-        this.privateKey = privateKey;
-    }
+	public PairingKeySerParameter(boolean privateKey, PairingParameters pairingParameters) {
+		super(pairingParameters);
+		this.privateKey = privateKey;
+	}
 
-    public boolean isPrivate()
-    {
-        return privateKey;
-    }
+	public boolean isPrivate() {
+		return privateKey;
+	}
 
-    @Override
-    public boolean equals(Object anOjbect) {
-        if (this == anOjbect) {
-            return true;
-        }
-        if (anOjbect instanceof PairingKeySerParameter) {
-            PairingKeySerParameter that = (PairingKeySerParameter)anOjbect;
-            //Compare Pairing Parameters
-            return (this.privateKey == that.privateKey);
-        }
-        return false;
-    }
+	@Override
+	public boolean equals(Object anOjbect) {
+		if (this == anOjbect) {
+			return true;
+		}
+		if (anOjbect instanceof PairingKeySerParameter) {
+			PairingKeySerParameter that = (PairingKeySerParameter) anOjbect;
+			// Compare Pairing Parameters
+			return (this.privateKey == that.privateKey);
+		}
+		return false;
+	}
 }

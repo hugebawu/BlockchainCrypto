@@ -12,9 +12,13 @@ import it.unisa.dia.gas.jpbc.PairingParameters;
  * Liu-Liu-Wu-14 CCA2-secure CP-ABE secret key parameter.
  */
 public class CPABELLW14SecretKeySerParameter extends CPABERW13SecretKeySerParameter {
-    public CPABELLW14SecretKeySerParameter(
-            PairingParameters pairingParameters,
-            Element K0, Element K1, Map<String, Element> K2s, Map<String, Element> K3s) {
-        super(pairingParameters, K0, K1, K2s, K3s);
-    }
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -651578820486592311L;
+
+	public CPABELLW14SecretKeySerParameter(PairingParameters pairingParameters, Element K0, Element K1,
+			Map<String, Element> K2s, Map<String, Element> K3s) {
+		super(pairingParameters, K0, K1, K2s, K3s);
+	}
 }

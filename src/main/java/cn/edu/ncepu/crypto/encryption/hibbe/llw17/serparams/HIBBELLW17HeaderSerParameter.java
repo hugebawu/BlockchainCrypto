@@ -11,7 +11,12 @@ import it.unisa.dia.gas.jpbc.PairingParameters;
  */
 public class HIBBELLW17HeaderSerParameter extends HIBBELLW14HeaderSerParameter {
 
-    public HIBBELLW17HeaderSerParameter(PairingParameters pairingParameters, Element C0, Element C1) {
-        super(pairingParameters, C0, C1);
-    }
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5046187341923579606L;
+
+	public HIBBELLW17HeaderSerParameter(PairingParameters pairingParameters, Element C0, Element C1) {
+		super(pairingParameters, C0, C1);
+	}
 }

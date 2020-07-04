@@ -15,38 +15,42 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  * Bethencourt-Sahai-Waters large-universe CP-ABE ciphertext parameter.
  */
 public class CPABEBSW07CiphertextSerParameter extends CPABEBSW07HeaderSerParameter {
-    private transient Element CPrime;
-    private final byte[] byteArrayCPrime;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6527466851848208664L;
+	private transient Element CPrime;
+	private final byte[] byteArrayCPrime;
 
-    public CPABEBSW07CiphertextSerParameter(
-            PairingParameters pairingParameters, Element CPrime, Element C,
-            Map<String, Element> C1s, Map<String, Element> C2s) {
-        super(pairingParameters, C, C1s, C2s);
+	public CPABEBSW07CiphertextSerParameter(PairingParameters pairingParameters, Element CPrime, Element C,
+			Map<String, Element> C1s, Map<String, Element> C2s) {
+		super(pairingParameters, C, C1s, C2s);
 
-        this.CPrime = CPrime.getImmutable();
-        this.byteArrayCPrime = this.CPrime.toBytes();
-    }
+		this.CPrime = CPrime.getImmutable();
+		this.byteArrayCPrime = this.CPrime.toBytes();
+	}
 
-    public Element getCPrime() { return this.CPrime.duplicate(); }
+	public Element getCPrime() {
+		return this.CPrime.duplicate();
+	}
 
-    @Override
-    public boolean equals(Object anObject) {
-        if (this == anObject) {
-            return true;
-        }
-        if (anObject instanceof CPABEBSW07CiphertextSerParameter) {
-            CPABEBSW07CiphertextSerParameter that = (CPABEBSW07CiphertextSerParameter) anObject;
-            return PairingUtils.isEqualElement(this.CPrime, that.CPrime)
-                    && Arrays.equals(this.byteArrayCPrime, that.byteArrayCPrime)
-                    && super.equals(anObject);
-        }
-        return false;
-    }
+	@Override
+	public boolean equals(Object anObject) {
+		if (this == anObject) {
+			return true;
+		}
+		if (anObject instanceof CPABEBSW07CiphertextSerParameter) {
+			CPABEBSW07CiphertextSerParameter that = (CPABEBSW07CiphertextSerParameter) anObject;
+			return PairingUtils.isEqualElement(this.CPrime, that.CPrime)
+					&& Arrays.equals(this.byteArrayCPrime, that.byteArrayCPrime) && super.equals(anObject);
+		}
+		return false;
+	}
 
-    private void readObject(java.io.ObjectInputStream objectInputStream)
-            throws java.io.IOException, ClassNotFoundException {
-        objectInputStream.defaultReadObject();
-        Pairing pairing = PairingFactory.getPairing(this.getParameters());
-        this.CPrime = pairing.getGT().newElementFromBytes(this.byteArrayCPrime).getImmutable();
-    }
+	private void readObject(java.io.ObjectInputStream objectInputStream)
+			throws java.io.IOException, ClassNotFoundException {
+		objectInputStream.defaultReadObject();
+		Pairing pairing = PairingFactory.getPairing(this.getParameters());
+		this.CPrime = pairing.getGT().newElementFromBytes(this.byteArrayCPrime).getImmutable();
+	}
 }

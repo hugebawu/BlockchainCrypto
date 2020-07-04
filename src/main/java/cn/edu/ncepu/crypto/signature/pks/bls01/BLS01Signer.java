@@ -19,64 +19,67 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  * Boneh-Lynn-Shacham short signature scheme.
  */
 public class BLS01Signer implements PairingSigner {
-    private static final String SCHEME_NAME = "Boneh-Lynn-Shacham-01 signature scheme";
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 168480488352794000L;
 
-    private PairingKeySerParameter pairingKeySerParameter;
+	private static final String SCHEME_NAME = "Boneh-Lynn-Shacham-01 signature scheme";
 
-    public BLS01Signer() {
+	private PairingKeySerParameter pairingKeySerParameter;
 
-    }
+	public BLS01Signer() {
 
-    public void init(boolean forSigning, CipherParameters param) {
-        if (forSigning) {
-            this.pairingKeySerParameter = (BLS01SignSecretPairingKeySerParameter) param;
-        } else {
-            this.pairingKeySerParameter = (BLS01SignPublicPairingKeySerParameter) param;
-        }
-    }
+	}
 
-    public Element[] generateSignature(byte[] message) {
-        PairingParameters params = this.pairingKeySerParameter.getParameters();
-        Pairing pairing = PairingFactory.getPairing(params);
-        BLS01SignSecretPairingKeySerParameter secretKeyParameters = (BLS01SignSecretPairingKeySerParameter) this.pairingKeySerParameter;
-        Element x = secretKeyParameters.getX();
+	public void init(boolean forSigning, CipherParameters param) {
+		if (forSigning) {
+			this.pairingKeySerParameter = (BLS01SignSecretPairingKeySerParameter) param;
+		} else {
+			this.pairingKeySerParameter = (BLS01SignPublicPairingKeySerParameter) param;
+		}
+	}
 
-        Element m = PairingUtils.MapByteArrayToGroup(pairing, message, PairingUtils.PairingGroupType.G1);
-        Element sigma = m.powZn(x).getImmutable();
+	public Element[] generateSignature(byte[] message) {
+		PairingParameters params = this.pairingKeySerParameter.getParameters();
+		Pairing pairing = PairingFactory.getPairing(params);
+		BLS01SignSecretPairingKeySerParameter secretKeyParameters = (BLS01SignSecretPairingKeySerParameter) this.pairingKeySerParameter;
+		Element x = secretKeyParameters.getX();
 
-        return new Element[]{sigma};
-    }
+		Element m = PairingUtils.MapByteArrayToGroup(pairing, message, PairingUtils.PairingGroupType.G1);
+		Element sigma = m.powZn(x).getImmutable();
 
-    public boolean verifySignature(byte[] message, Element... signature) {
-        PairingParameters params = this.pairingKeySerParameter.getParameters();
-        Pairing pairing = PairingFactory.getPairing(params);
-        BLS01SignPublicPairingKeySerParameter publicKeyParameters = (BLS01SignPublicPairingKeySerParameter) this.pairingKeySerParameter;
-        Element m = PairingUtils.MapByteArrayToGroup(pairing, message, PairingUtils.PairingGroupType.G1);
-        Element g = publicKeyParameters.getG();
-        Element v = publicKeyParameters.getV();
+		return new Element[] { sigma };
+	}
 
-        Element sigma = signature[0];
+	public boolean verifySignature(byte[] message, Element... signature) {
+		PairingParameters params = this.pairingKeySerParameter.getParameters();
+		Pairing pairing = PairingFactory.getPairing(params);
+		BLS01SignPublicPairingKeySerParameter publicKeyParameters = (BLS01SignPublicPairingKeySerParameter) this.pairingKeySerParameter;
+		Element m = PairingUtils.MapByteArrayToGroup(pairing, message, PairingUtils.PairingGroupType.G1);
+		Element g = publicKeyParameters.getG();
+		Element v = publicKeyParameters.getV();
 
-        Element temp1 = pairing.pairing(sigma, g);
-        Element temp2 = pairing.pairing(m, v);
-        return PairingUtils.isEqualElement(temp1, temp2);
-    }
+		Element sigma = signature[0];
 
-    public byte[] derEncode(Element[] signElements) throws IOException {
-        return ((CurveElement)signElements[0]).toBytesCompressed();
-    }
+		Element temp1 = pairing.pairing(sigma, g);
+		Element temp2 = pairing.pairing(m, v);
+		return PairingUtils.isEqualElement(temp1, temp2);
+	}
 
-    public Element[] derDecode(byte[] encoding) throws IOException {
-        PairingParameters params = this.pairingKeySerParameter.getParameters();
-        Pairing pairing = PairingFactory.getPairing(params);
-        Element signature = pairing.getG1().newZeroElement();
-        ((CurveElement)signature).setFromBytesCompressed(encoding);
-        return new Element[]{
-                signature,
-        };
-    }
+	public byte[] derEncode(Element[] signElements) throws IOException {
+		return ((CurveElement<?, ?>) signElements[0]).toBytesCompressed();
+	}
 
-    public String getEngineName() {
-        return SCHEME_NAME;
-    }
+	public Element[] derDecode(byte[] encoding) throws IOException {
+		PairingParameters params = this.pairingKeySerParameter.getParameters();
+		Pairing pairing = PairingFactory.getPairing(params);
+		Element signature = pairing.getG1().newZeroElement();
+		((CurveElement<?, ?>) signature).setFromBytesCompressed(encoding);
+		return new Element[] { signature, };
+	}
+
+	public String getEngineName() {
+		return SCHEME_NAME;
+	}
 }

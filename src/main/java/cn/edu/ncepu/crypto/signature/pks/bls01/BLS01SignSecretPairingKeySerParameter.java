@@ -15,44 +15,48 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  * Boneh-Lynn-Shacham signature secret key parameters.
  */
 class BLS01SignSecretPairingKeySerParameter extends PairingKeySerParameter {
-    private transient Element x;
-    private final byte[] byteArrayX;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -743976565201517469L;
+	private transient Element x;
+	private final byte[] byteArrayX;
 
-    BLS01SignSecretPairingKeySerParameter(PairingParameters parameters, Element x) {
-        super(true, parameters);
-        this.x = x.getImmutable();
-        this.byteArrayX = this.x.toBytes();
-    }
+	BLS01SignSecretPairingKeySerParameter(PairingParameters parameters, Element x) {
+		super(true, parameters);
+		this.x = x.getImmutable();
+		this.byteArrayX = this.x.toBytes();
+	}
 
-    public Element getX() {
-        return this.x.duplicate();
-    }
+	public Element getX() {
+		return this.x.duplicate();
+	}
 
-    @Override
-    public boolean equals(Object anObject) {
-        if (this == anObject) {
-            return true;
-        }
-        if (anObject instanceof BLS01SignSecretPairingKeySerParameter) {
-            BLS01SignSecretPairingKeySerParameter that = (BLS01SignSecretPairingKeySerParameter)anObject;
-            //Compare x
-            if (!PairingUtils.isEqualElement(this.x, that.getX())) {
-                return false;
-            }
-            if (!Arrays.equals(this.byteArrayX, that.byteArrayX)) {
-                return false;
-            }
-            //Compare Pairing Parameters
-            return this.getParameters().toString().equals(that.getParameters().toString());
-        }
-        return false;
-    }
+	@Override
+	public boolean equals(Object anObject) {
+		if (this == anObject) {
+			return true;
+		}
+		if (anObject instanceof BLS01SignSecretPairingKeySerParameter) {
+			BLS01SignSecretPairingKeySerParameter that = (BLS01SignSecretPairingKeySerParameter) anObject;
+			// Compare x
+			if (!PairingUtils.isEqualElement(this.x, that.getX())) {
+				return false;
+			}
+			if (!Arrays.equals(this.byteArrayX, that.byteArrayX)) {
+				return false;
+			}
+			// Compare Pairing Parameters
+			return this.getParameters().toString().equals(that.getParameters().toString());
+		}
+		return false;
+	}
 
-    private void readObject(java.io.ObjectInputStream objectInputStream)
-            throws java.io.IOException, ClassNotFoundException {
-        objectInputStream.defaultReadObject();
-        Pairing pairing = PairingFactory.getPairing(this.getParameters());
+	private void readObject(java.io.ObjectInputStream objectInputStream)
+			throws java.io.IOException, ClassNotFoundException {
+		objectInputStream.defaultReadObject();
+		Pairing pairing = PairingFactory.getPairing(this.getParameters());
 
-        this.x = pairing.getZr().newElementFromBytes(this.byteArrayX).getImmutable();
-    }
+		this.x = pairing.getZr().newElementFromBytes(this.byteArrayX).getImmutable();
+	}
 }

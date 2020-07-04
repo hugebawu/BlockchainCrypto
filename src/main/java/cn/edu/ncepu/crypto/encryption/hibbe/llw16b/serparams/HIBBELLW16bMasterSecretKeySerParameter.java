@@ -11,7 +11,12 @@ import it.unisa.dia.gas.jpbc.PairingParameters;
  */
 public class HIBBELLW16bMasterSecretKeySerParameter extends HIBBELLW16aMasterSecretKeySerParameter {
 
-    public HIBBELLW16bMasterSecretKeySerParameter(PairingParameters pairingParameters, Element g2Alpha) {
-        super(pairingParameters, g2Alpha);
-    }
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3514740453824135480L;
+
+	public HIBBELLW16bMasterSecretKeySerParameter(PairingParameters pairingParameters, Element g2Alpha) {
+		super(pairingParameters, g2Alpha);
+	}
 }

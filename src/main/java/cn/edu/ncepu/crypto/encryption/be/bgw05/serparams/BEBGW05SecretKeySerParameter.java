@@ -15,55 +15,60 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  * Boneh-Gentry-Waters BE secret key parameter.
  */
 public class BEBGW05SecretKeySerParameter extends PairingKeySerParameter {
-    private final int index;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2642536548470115937L;
 
-    private transient Element d;
-    private final byte[] byteArrayD;
+	private final int index;
 
-    public BEBGW05SecretKeySerParameter(PairingParameters pairingParameters, int index, Element d) {
-        super(true, pairingParameters);
+	private transient Element d;
+	private final byte[] byteArrayD;
 
-        this.index = index;
-        this.d = d.getImmutable();
-        this.byteArrayD = this.d.toBytes();
-    }
+	public BEBGW05SecretKeySerParameter(PairingParameters pairingParameters, int index, Element d) {
+		super(true, pairingParameters);
 
-    public int getIndex() {
-        return this.index;
-    }
+		this.index = index;
+		this.d = d.getImmutable();
+		this.byteArrayD = this.d.toBytes();
+	}
 
-    public Element getD() {
-        return this.d.duplicate();
-    }
+	public int getIndex() {
+		return this.index;
+	}
 
-    @Override
-    public boolean equals(Object anObject) {
-        if (this == anObject) {
-            return true;
-        }
-        if (anObject instanceof BEBGW05SecretKeySerParameter) {
-            BEBGW05SecretKeySerParameter that = (BEBGW05SecretKeySerParameter)anObject;
-            //Compare index
-            if (this.index != that.index) {
-                return false;
-            }
-            //Compare K2s
-            if (!PairingUtils.isEqualElement(this.d, that.d)) {
-                return false;
-            }
-            if (!Arrays.equals(this.byteArrayD, that.byteArrayD)) {
-                return false;
-            }
-            //Compare Pairing Parameters
-            return this.getParameters().toString().equals(that.getParameters().toString());
-        }
-        return false;
-    }
+	public Element getD() {
+		return this.d.duplicate();
+	}
 
-    private void readObject(java.io.ObjectInputStream objectInputStream)
-            throws java.io.IOException, ClassNotFoundException {
-        objectInputStream.defaultReadObject();
-        Pairing pairing = PairingFactory.getPairing(this.getParameters());
-        this.d = pairing.getG1().newElementFromBytes(this.byteArrayD).getImmutable();
-    }
+	@Override
+	public boolean equals(Object anObject) {
+		if (this == anObject) {
+			return true;
+		}
+		if (anObject instanceof BEBGW05SecretKeySerParameter) {
+			BEBGW05SecretKeySerParameter that = (BEBGW05SecretKeySerParameter) anObject;
+			// Compare index
+			if (this.index != that.index) {
+				return false;
+			}
+			// Compare K2s
+			if (!PairingUtils.isEqualElement(this.d, that.d)) {
+				return false;
+			}
+			if (!Arrays.equals(this.byteArrayD, that.byteArrayD)) {
+				return false;
+			}
+			// Compare Pairing Parameters
+			return this.getParameters().toString().equals(that.getParameters().toString());
+		}
+		return false;
+	}
+
+	private void readObject(java.io.ObjectInputStream objectInputStream)
+			throws java.io.IOException, ClassNotFoundException {
+		objectInputStream.defaultReadObject();
+		Pairing pairing = PairingFactory.getPairing(this.getParameters());
+		this.d = pairing.getG1().newElementFromBytes(this.byteArrayD).getImmutable();
+	}
 }

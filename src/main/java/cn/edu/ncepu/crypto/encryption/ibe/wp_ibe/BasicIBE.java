@@ -49,6 +49,7 @@ public class BasicIBE implements IBE {
 	// G1是定义在域Fq上的椭圆曲线，其阶为r.q与r都是质数，且存在一定的关系：这里是 (q+1)=r*h
 	// Zr 是阶为r的环Zr={0,...,r-1}
 	// GT是有限域Fq2。其元素的阶虽然为r，但是其取值范围比q大的多，目前不清楚怎么回事。
+	@SuppressWarnings("rawtypes")
 	private Field G1, Zr, GT;
 	private Pairing pairing;
 
@@ -70,7 +71,6 @@ public class BasicIBE implements IBE {
 		logger.info("");
 		logger.info("Zr order: " + Zr.getOrder());
 		logger.info("Zr order bits length: " + Zr.getOrder().bitLength());
-		Element elementZr = Zr.newElement();
 		Element elementZr1 = Zr.newElement(new BigInteger("539084384990328"));
 		Element elementZr2 = Zr.newElement(4);
 		logger.info("elementZr2 invert: " + elementZr2.invert().toString());
@@ -79,7 +79,6 @@ public class BasicIBE implements IBE {
 		logger.info("");
 		logger.info("G1 order: " + G1.getOrder());
 		logger.info("G1 order bits length: " + G1.getOrder().bitLength());
-		Element elementG1 = G1.newRandomElement().getImmutable();
 		logger.info("");
 		logger.info("GT order: " + GT.getOrder());
 		logger.info("GT order bits length: " + GT.getOrder().bitLength());

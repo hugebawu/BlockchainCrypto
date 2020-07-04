@@ -10,7 +10,12 @@ import it.unisa.dia.gas.jpbc.PairingParameters;
  * Hohenberger-Waters-14 OO-CP-ABE master secret key parameter.
  */
 public class CPABEHW14MasterSecretKeySerParameter extends CPABERW13MasterSecretKeySerParameter {
-    public CPABEHW14MasterSecretKeySerParameter(PairingParameters pairingParameters, Element alpha) {
-        super(pairingParameters, alpha);
-    }
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -656668222336859560L;
+
+	public CPABEHW14MasterSecretKeySerParameter(PairingParameters pairingParameters, Element alpha) {
+		super(pairingParameters, alpha);
+	}
 }

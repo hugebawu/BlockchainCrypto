@@ -15,41 +15,47 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  * Gentry CCA2-secure IBE header parameter.
  */
 public class IBEGen06bHeaderSerParameter extends IBEGen06aHeaderSerParameter {
-    private transient Element y;
-    private final byte[] byteArrayY;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5740846903912663569L;
+	private transient Element y;
+	private final byte[] byteArrayY;
 
-    public IBEGen06bHeaderSerParameter(PairingParameters pairingParameters, Element u, Element v, Element y) {
-        super(pairingParameters, u, v);
-        this.y = y.getImmutable();
-        this.byteArrayY = this.y.toBytes();
-    }
+	public IBEGen06bHeaderSerParameter(PairingParameters pairingParameters, Element u, Element v, Element y) {
+		super(pairingParameters, u, v);
+		this.y = y.getImmutable();
+		this.byteArrayY = this.y.toBytes();
+	}
 
-    public Element getY() { return this.y.duplicate(); }
+	public Element getY() {
+		return this.y.duplicate();
+	}
 
-    @Override
-    public boolean equals(Object anObject) {
-        if (this == anObject) {
-            return true;
-        }
-        if (anObject instanceof IBEGen06bHeaderSerParameter) {
-            IBEGen06bHeaderSerParameter that = (IBEGen06bHeaderSerParameter)anObject;
-            //Compare y
-            if (!PairingUtils.isEqualElement(this.y, that.y)){
-                return false;
-            }
-            if (!Arrays.equals(this.byteArrayY, that.byteArrayY)) {
-                return false;
-            }
-            //Compare supers
-            return super.equals(anObject);
-        }
-        return false;
-    }
+	@Override
+	public boolean equals(Object anObject) {
+		if (this == anObject) {
+			return true;
+		}
+		if (anObject instanceof IBEGen06bHeaderSerParameter) {
+			IBEGen06bHeaderSerParameter that = (IBEGen06bHeaderSerParameter) anObject;
+			// Compare y
+			if (!PairingUtils.isEqualElement(this.y, that.y)) {
+				return false;
+			}
+			if (!Arrays.equals(this.byteArrayY, that.byteArrayY)) {
+				return false;
+			}
+			// Compare supers
+			return super.equals(anObject);
+		}
+		return false;
+	}
 
-    private void readObject(java.io.ObjectInputStream objectInputStream)
-            throws java.io.IOException, ClassNotFoundException {
-        objectInputStream.defaultReadObject();
-        Pairing pairing = PairingFactory.getPairing(this.getParameters());
-        this.y = pairing.getGT().newElementFromBytes(this.byteArrayY).getImmutable();
-    }
+	private void readObject(java.io.ObjectInputStream objectInputStream)
+			throws java.io.IOException, ClassNotFoundException {
+		objectInputStream.defaultReadObject();
+		Pairing pairing = PairingFactory.getPairing(this.getParameters());
+		this.y = pairing.getGT().newElementFromBytes(this.byteArrayY).getImmutable();
+	}
 }

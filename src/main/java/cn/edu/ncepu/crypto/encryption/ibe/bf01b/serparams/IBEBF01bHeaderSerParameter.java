@@ -15,6 +15,10 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  * Boneh-Franklin CCA2-secure IBE header parameter.
  */
 public class IBEBF01bHeaderSerParameter extends IBEBF01aHeaderSerParameter {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7451550745201273307L;
 	private transient Element V;
 	private final byte[] byteArrayV;
 

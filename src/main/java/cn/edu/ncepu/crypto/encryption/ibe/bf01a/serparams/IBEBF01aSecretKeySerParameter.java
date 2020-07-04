@@ -15,6 +15,10 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  * Boneh-Franklin CPA-secure IBE secret key parameter.
  */
 public class IBEBF01aSecretKeySerParameter extends PairingKeySerParameter {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6115094070881174675L;
 	// user id used for generating the secret key(i.e., the owner of the secret key)
 	private final String id;
 	// user id that mapped into a element of the group

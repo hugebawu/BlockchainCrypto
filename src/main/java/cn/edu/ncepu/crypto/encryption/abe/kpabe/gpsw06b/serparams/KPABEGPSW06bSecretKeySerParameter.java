@@ -17,80 +17,93 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  * Goyal-Pandey-Sahai-Waters large-universe KP-ABE with random oracles secret key parameter.
  */
 public class KPABEGPSW06bSecretKeySerParameter extends PairingKeySerParameter {
-    private final AccessControlParameter accessControlParameter;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4028973472438588780L;
 
-    private transient Map<String, Element> Ds;
-    private final Map<String, byte[]> byteArraysDs;
+	private final AccessControlParameter accessControlParameter;
 
-    private transient Map<String, Element> Rs;
-    private final Map<String, byte[]> byteArraysRs;
+	private transient Map<String, Element> Ds;
+	private final Map<String, byte[]> byteArraysDs;
 
-    public KPABEGPSW06bSecretKeySerParameter(PairingParameters pairingParameters, AccessControlParameter accessControlParameter,
-                                             Map<String, Element> Ds, Map<String, Element> Rs) {
-        super(true, pairingParameters);
+	private transient Map<String, Element> Rs;
+	private final Map<String, byte[]> byteArraysRs;
 
-        this.accessControlParameter = accessControlParameter;
+	public KPABEGPSW06bSecretKeySerParameter(PairingParameters pairingParameters,
+			AccessControlParameter accessControlParameter, Map<String, Element> Ds, Map<String, Element> Rs) {
+		super(true, pairingParameters);
 
-        this.Ds = new HashMap<String, Element>();
-        this.byteArraysDs = new HashMap<String, byte[]>();
-        this.Rs = new HashMap<String, Element>();
-        this.byteArraysRs = new HashMap<String, byte[]>();
-        for (String rho : Ds.keySet()) {
-            this.Ds.put(rho, Ds.get(rho).duplicate().getImmutable());
-            this.byteArraysDs.put(rho, Ds.get(rho).duplicate().getImmutable().toBytes());
-            this.Rs.put(rho, Rs.get(rho).duplicate().getImmutable());
-            this.byteArraysRs.put(rho, Rs.get(rho).duplicate().getImmutable().toBytes());
-        }
-    }
+		this.accessControlParameter = accessControlParameter;
 
-    public AccessControlParameter getAccessControlParameter() { return this.accessControlParameter; }
+		this.Ds = new HashMap<String, Element>();
+		this.byteArraysDs = new HashMap<String, byte[]>();
+		this.Rs = new HashMap<String, Element>();
+		this.byteArraysRs = new HashMap<String, byte[]>();
+		for (String rho : Ds.keySet()) {
+			this.Ds.put(rho, Ds.get(rho).duplicate().getImmutable());
+			this.byteArraysDs.put(rho, Ds.get(rho).duplicate().getImmutable().toBytes());
+			this.Rs.put(rho, Rs.get(rho).duplicate().getImmutable());
+			this.byteArraysRs.put(rho, Rs.get(rho).duplicate().getImmutable().toBytes());
+		}
+	}
 
-    public String[] getRhos() { return this.Ds.keySet().toArray(new String[1]); }
+	public AccessControlParameter getAccessControlParameter() {
+		return this.accessControlParameter;
+	}
 
-    public Element getDsAt(String rho) { return this.Ds.get(rho).duplicate(); }
+	public String[] getRhos() {
+		return this.Ds.keySet().toArray(new String[1]);
+	}
 
-    public Element getRsAt(String rho) { return this.Rs.get(rho).duplicate(); }
+	public Element getDsAt(String rho) {
+		return this.Ds.get(rho).duplicate();
+	}
 
-    @Override
-    public boolean equals(Object anObject) {
-        if (this == anObject) {
-            return true;
-        }
-        if (anObject instanceof KPABEGPSW06bSecretKeySerParameter) {
-            KPABEGPSW06bSecretKeySerParameter that = (KPABEGPSW06bSecretKeySerParameter)anObject;
-            //Compare access policy
-            if (!this.accessControlParameter.equals(that.accessControlParameter)) {
-                return false;
-            }
-            //Compare Ds
-            if (!this.Ds.equals(that.Ds)) {
-                return false;
-            }
-            if (!PairingUtils.isEqualByteArrayMaps(this.byteArraysDs, that.byteArraysDs)) {
-                return false;
-            }
-            //Compare Rs
-            if (!this.Rs.equals(that.Rs)) {
-                return false;
-            }
-            if (!PairingUtils.isEqualByteArrayMaps(this.byteArraysRs, that.byteArraysRs)) {
-                return false;
-            }
-            //Compare Pairing Parameters
-            return this.getParameters().toString().equals(that.getParameters().toString());
-        }
-        return false;
-    }
+	public Element getRsAt(String rho) {
+		return this.Rs.get(rho).duplicate();
+	}
 
-    private void readObject(java.io.ObjectInputStream objectInputStream)
-            throws java.io.IOException, ClassNotFoundException {
-        objectInputStream.defaultReadObject();
-        Pairing pairing = PairingFactory.getPairing(this.getParameters());
-        this.Ds = new HashMap<String, Element>();
-        this.Rs = new HashMap<String, Element>();
-        for (String rho : this.byteArraysDs.keySet()) {
-            this.Ds.put(rho, pairing.getG1().newElementFromBytes(this.byteArraysDs.get(rho)).getImmutable());
-            this.Rs.put(rho, pairing.getG1().newElementFromBytes(this.byteArraysRs.get(rho)).getImmutable());
-        }
-    }
+	@Override
+	public boolean equals(Object anObject) {
+		if (this == anObject) {
+			return true;
+		}
+		if (anObject instanceof KPABEGPSW06bSecretKeySerParameter) {
+			KPABEGPSW06bSecretKeySerParameter that = (KPABEGPSW06bSecretKeySerParameter) anObject;
+			// Compare access policy
+			if (!this.accessControlParameter.equals(that.accessControlParameter)) {
+				return false;
+			}
+			// Compare Ds
+			if (!this.Ds.equals(that.Ds)) {
+				return false;
+			}
+			if (!PairingUtils.isEqualByteArrayMaps(this.byteArraysDs, that.byteArraysDs)) {
+				return false;
+			}
+			// Compare Rs
+			if (!this.Rs.equals(that.Rs)) {
+				return false;
+			}
+			if (!PairingUtils.isEqualByteArrayMaps(this.byteArraysRs, that.byteArraysRs)) {
+				return false;
+			}
+			// Compare Pairing Parameters
+			return this.getParameters().toString().equals(that.getParameters().toString());
+		}
+		return false;
+	}
+
+	private void readObject(java.io.ObjectInputStream objectInputStream)
+			throws java.io.IOException, ClassNotFoundException {
+		objectInputStream.defaultReadObject();
+		Pairing pairing = PairingFactory.getPairing(this.getParameters());
+		this.Ds = new HashMap<String, Element>();
+		this.Rs = new HashMap<String, Element>();
+		for (String rho : this.byteArraysDs.keySet()) {
+			this.Ds.put(rho, pairing.getG1().newElementFromBytes(this.byteArraysDs.get(rho)).getImmutable());
+			this.Rs.put(rho, pairing.getG1().newElementFromBytes(this.byteArraysRs.get(rho)).getImmutable());
+		}
+	}
 }

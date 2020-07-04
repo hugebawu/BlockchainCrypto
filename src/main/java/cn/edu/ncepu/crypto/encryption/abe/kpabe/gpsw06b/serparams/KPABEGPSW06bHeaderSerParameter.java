@@ -17,69 +17,78 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  * Goyal-Pandey-Sahai-Waters large-universe KP-ABE with random oracles header parameter.
  */
 public class KPABEGPSW06bHeaderSerParameter extends PairingCipherSerParameter {
-    private final String[] attributes;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2635667114129680981L;
 
-    private transient Element E2;
-    private final byte[] byteArrayE2;
+	private final String[] attributes;
 
-    private transient Map<String, Element> Es;
-    private final byte[][] byteArraysEs;
+	private transient Element E2;
+	private final byte[] byteArrayE2;
 
-    public KPABEGPSW06bHeaderSerParameter(PairingParameters pairingParameters, Element E2, Map<String, Element> Es) {
-        super(pairingParameters);
+	private transient Map<String, Element> Es;
+	private final byte[][] byteArraysEs;
 
-        this.E2 = E2.getImmutable();
-        this.byteArrayE2 = this.E2.toBytes();
+	public KPABEGPSW06bHeaderSerParameter(PairingParameters pairingParameters, Element E2, Map<String, Element> Es) {
+		super(pairingParameters);
 
-        this.Es = new HashMap<String, Element>();
-        this.attributes = Es.keySet().toArray(new String[1]);
-        this.byteArraysEs = new byte[this.attributes.length][];
-        for (int i = 0; i < this.attributes.length; i++) {
-            Element E = Es.get(this.attributes[i]).duplicate().getImmutable();
-            this.Es.put(this.attributes[i], E);
-            this.byteArraysEs[i] = E.toBytes();
-        }
-    }
+		this.E2 = E2.getImmutable();
+		this.byteArrayE2 = this.E2.toBytes();
 
-    public Element getEsAt(String attribute) { return this.Es.get(attribute).duplicate(); }
+		this.Es = new HashMap<String, Element>();
+		this.attributes = Es.keySet().toArray(new String[1]);
+		this.byteArraysEs = new byte[this.attributes.length][];
+		for (int i = 0; i < this.attributes.length; i++) {
+			Element E = Es.get(this.attributes[i]).duplicate().getImmutable();
+			this.Es.put(this.attributes[i], E);
+			this.byteArraysEs[i] = E.toBytes();
+		}
+	}
 
-    public Element getE2() { return this.E2.duplicate(); }
+	public Element getEsAt(String attribute) {
+		return this.Es.get(attribute).duplicate();
+	}
 
-    @Override
-    public boolean equals(Object anObject) {
-        if (this == anObject) {
-            return true;
-        }
-        if (anObject instanceof KPABEGPSW06bHeaderSerParameter) {
-            KPABEGPSW06bHeaderSerParameter that = (KPABEGPSW06bHeaderSerParameter)anObject;
-            //Compare E2
-            if (!PairingUtils.isEqualElement(this.E2, that.E2)){
-                return false;
-            }
-            if (!Arrays.equals(this.byteArrayE2, that.byteArrayE2)) {
-                return false;
-            }
-            //Compare Es
-            if (!this.Es.equals(that.Es)){
-                return false;
-            }
-            if (!PairingUtils.isEqualByteArrays(this.byteArraysEs, that.byteArraysEs)) {
-                return false;
-            }
-            //Compare Pairing Parameters
-            return this.getParameters().toString().equals(that.getParameters().toString());
-        }
-        return false;
-    }
+	public Element getE2() {
+		return this.E2.duplicate();
+	}
 
-    private void readObject(java.io.ObjectInputStream objectInputStream)
-            throws java.io.IOException, ClassNotFoundException {
-        objectInputStream.defaultReadObject();
-        Pairing pairing = PairingFactory.getPairing(this.getParameters());
-        this.E2 = pairing.getG1().newElementFromBytes(this.byteArrayE2);
-        this.Es = new HashMap<String, Element>();
-        for (int i = 0; i < this.attributes.length; i++) {
-            this.Es.put(this.attributes[i], pairing.getG1().newElementFromBytes(this.byteArraysEs[i]).getImmutable());
-        }
-    }
+	@Override
+	public boolean equals(Object anObject) {
+		if (this == anObject) {
+			return true;
+		}
+		if (anObject instanceof KPABEGPSW06bHeaderSerParameter) {
+			KPABEGPSW06bHeaderSerParameter that = (KPABEGPSW06bHeaderSerParameter) anObject;
+			// Compare E2
+			if (!PairingUtils.isEqualElement(this.E2, that.E2)) {
+				return false;
+			}
+			if (!Arrays.equals(this.byteArrayE2, that.byteArrayE2)) {
+				return false;
+			}
+			// Compare Es
+			if (!this.Es.equals(that.Es)) {
+				return false;
+			}
+			if (!PairingUtils.isEqualByteArrays(this.byteArraysEs, that.byteArraysEs)) {
+				return false;
+			}
+			// Compare Pairing Parameters
+			return this.getParameters().toString().equals(that.getParameters().toString());
+		}
+		return false;
+	}
+
+	private void readObject(java.io.ObjectInputStream objectInputStream)
+			throws java.io.IOException, ClassNotFoundException {
+		objectInputStream.defaultReadObject();
+		Pairing pairing = PairingFactory.getPairing(this.getParameters());
+		this.E2 = pairing.getG1().newElementFromBytes(this.byteArrayE2);
+		this.Es = new HashMap<String, Element>();
+		for (int i = 0; i < this.attributes.length; i++) {
+			this.Es.put(this.attributes[i], pairing.getG1().newElementFromBytes(this.byteArraysEs[i]).getImmutable());
+		}
+	}
 }

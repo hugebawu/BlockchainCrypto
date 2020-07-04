@@ -10,7 +10,13 @@ import it.unisa.dia.gas.jpbc.PairingParameters;
  * Hohenberger-Waters-14 OO-CP-ABE public key parameter.
  */
 public class CPABEHW14PublicKeySerParameter extends CPABERW13PublicKeySerParameter {
-    public CPABEHW14PublicKeySerParameter(PairingParameters parameters, Element g, Element u, Element h, Element w, Element v, Element eggAlpha) {
-        super(parameters, g, u, h, w, v, eggAlpha);
-    }
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3567597338889603946L;
+
+	public CPABEHW14PublicKeySerParameter(PairingParameters parameters, Element g, Element u, Element h, Element w,
+			Element v, Element eggAlpha) {
+		super(parameters, g, u, h, w, v, eggAlpha);
+	}
 }

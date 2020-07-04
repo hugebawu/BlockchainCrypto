@@ -15,82 +15,95 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  * Gentry CPA-secure IBE secret key parameter.
  */
 public class IBEGen06aSecretKeySerParameter extends PairingKeySerParameter {
-    private final String id;
-    private transient Element elementId;
-    private final byte[] byteArrayElementId;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4945161387081753913L;
+	private final String id;
+	private transient Element elementId;
+	private final byte[] byteArrayElementId;
 
-    private transient Element rId;
-    private final byte[] byteArrayRId;
+	private transient Element rId;
+	private final byte[] byteArrayRId;
 
-    private transient Element hId;
-    private final byte[] byteArrayHId;
+	private transient Element hId;
+	private final byte[] byteArrayHId;
 
-    public IBEGen06aSecretKeySerParameter(PairingParameters pairingParameters, String id, Element elementId, Element rId, Element hId) {
-        super(true, pairingParameters);
+	public IBEGen06aSecretKeySerParameter(PairingParameters pairingParameters, String id, Element elementId,
+			Element rId, Element hId) {
+		super(true, pairingParameters);
 
-        this.rId = rId.getImmutable();
-        this.byteArrayRId = this.rId.toBytes();
+		this.rId = rId.getImmutable();
+		this.byteArrayRId = this.rId.toBytes();
 
-        this.hId = hId.getImmutable();
-        this.byteArrayHId = this.hId.toBytes();
+		this.hId = hId.getImmutable();
+		this.byteArrayHId = this.hId.toBytes();
 
-        this.id = id;
-        this.elementId = elementId.getImmutable();
-        this.byteArrayElementId = this.elementId.toBytes();
-    }
+		this.id = id;
+		this.elementId = elementId.getImmutable();
+		this.byteArrayElementId = this.elementId.toBytes();
+	}
 
-    public String getId() { return this.id; }
+	public String getId() {
+		return this.id;
+	}
 
-    public Element getElementId() { return this.elementId.duplicate(); }
+	public Element getElementId() {
+		return this.elementId.duplicate();
+	}
 
-    public Element getRId() { return this.rId.duplicate(); }
+	public Element getRId() {
+		return this.rId.duplicate();
+	}
 
-    public Element getHId() { return this.hId.duplicate(); }
+	public Element getHId() {
+		return this.hId.duplicate();
+	}
 
-    @Override
-    public boolean equals(Object anOjbect) {
-        if (this == anOjbect) {
-            return true;
-        }
-        if (anOjbect instanceof IBEGen06aSecretKeySerParameter) {
-            IBEGen06aSecretKeySerParameter that = (IBEGen06aSecretKeySerParameter)anOjbect;
-            //Compare id
-            if (!this.id.equals(that.getId())) {
-                return false;
-            }
-            //Compare elementId
-            if (!PairingUtils.isEqualElement(this.elementId, that.getElementId())) {
-                return false;
-            }
-            if (!Arrays.equals(this.byteArrayElementId, that.byteArrayElementId)) {
-                return false;
-            }
-            //Compare rId
-            if (!PairingUtils.isEqualElement(this.rId, that.rId)) {
-                return false;
-            }
-            if (!Arrays.equals(this.byteArrayRId, that.byteArrayRId)) {
-                return false;
-            }
-            //Compare hId
-            if (!PairingUtils.isEqualElement(this.hId, that.hId)) {
-                return false;
-            }
-            if (!Arrays.equals(this.byteArrayHId, that.byteArrayHId)) {
-                return false;
-            }
-            //Compare Pairing Parameters
-            return this.getParameters().toString().equals(that.getParameters().toString());
-        }
-        return false;
-    }
+	@Override
+	public boolean equals(Object anOjbect) {
+		if (this == anOjbect) {
+			return true;
+		}
+		if (anOjbect instanceof IBEGen06aSecretKeySerParameter) {
+			IBEGen06aSecretKeySerParameter that = (IBEGen06aSecretKeySerParameter) anOjbect;
+			// Compare id
+			if (!this.id.equals(that.getId())) {
+				return false;
+			}
+			// Compare elementId
+			if (!PairingUtils.isEqualElement(this.elementId, that.getElementId())) {
+				return false;
+			}
+			if (!Arrays.equals(this.byteArrayElementId, that.byteArrayElementId)) {
+				return false;
+			}
+			// Compare rId
+			if (!PairingUtils.isEqualElement(this.rId, that.rId)) {
+				return false;
+			}
+			if (!Arrays.equals(this.byteArrayRId, that.byteArrayRId)) {
+				return false;
+			}
+			// Compare hId
+			if (!PairingUtils.isEqualElement(this.hId, that.hId)) {
+				return false;
+			}
+			if (!Arrays.equals(this.byteArrayHId, that.byteArrayHId)) {
+				return false;
+			}
+			// Compare Pairing Parameters
+			return this.getParameters().toString().equals(that.getParameters().toString());
+		}
+		return false;
+	}
 
-    private void readObject(java.io.ObjectInputStream objectInputStream)
-            throws java.io.IOException, ClassNotFoundException {
-        objectInputStream.defaultReadObject();
-        Pairing pairing = PairingFactory.getPairing(this.getParameters());
-        this.elementId = pairing.getZr().newElementFromBytes(this.byteArrayElementId).getImmutable();
-        this.rId = pairing.getZr().newElementFromBytes(this.byteArrayRId).getImmutable();
-        this.hId = pairing.getG1().newElementFromBytes(this.byteArrayHId).getImmutable();
-    }
+	private void readObject(java.io.ObjectInputStream objectInputStream)
+			throws java.io.IOException, ClassNotFoundException {
+		objectInputStream.defaultReadObject();
+		Pairing pairing = PairingFactory.getPairing(this.getParameters());
+		this.elementId = pairing.getZr().newElementFromBytes(this.byteArrayElementId).getImmutable();
+		this.rId = pairing.getZr().newElementFromBytes(this.byteArrayRId).getImmutable();
+		this.hId = pairing.getG1().newElementFromBytes(this.byteArrayHId).getImmutable();
+	}
 }

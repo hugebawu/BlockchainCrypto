@@ -8,7 +8,13 @@ import cn.edu.ncepu.crypto.encryption.ibe.bf01a.serparams.IBEBF01aSecretKeySerPa
  * Boneh-Franklin CCA2-secure IBE secret key parameter.
  */
 public class IBEBF01bSecretKeySerParameter extends IBEBF01aSecretKeySerParameter {
-    public IBEBF01bSecretKeySerParameter(IBEBF01aSecretKeySerParameter secretKeyParameter) {
-        super(secretKeyParameter.getParameters(), secretKeyParameter.getId(), secretKeyParameter.getElementId(), secretKeyParameter.getD());
-    }
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -846894374317674040L;
+
+	public IBEBF01bSecretKeySerParameter(IBEBF01aSecretKeySerParameter secretKeyParameter) {
+		super(secretKeyParameter.getParameters(), secretKeyParameter.getId(), secretKeyParameter.getElementId(),
+				secretKeyParameter.getD());
+	}
 }

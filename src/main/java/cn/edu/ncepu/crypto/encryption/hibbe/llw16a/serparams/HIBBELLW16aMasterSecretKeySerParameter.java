@@ -15,43 +15,47 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  * Liu-Liu-Wu prime-order HIBBE master secret key parameter.
  */
 public class HIBBELLW16aMasterSecretKeySerParameter extends PairingKeySerParameter {
-    private transient Element g2Alpha;
-    private final byte[] byteArrayG2Alpha;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3817837752296169677L;
+	private transient Element g2Alpha;
+	private final byte[] byteArrayG2Alpha;
 
-    public HIBBELLW16aMasterSecretKeySerParameter(PairingParameters pairingParameters, Element g2Alpha) {
-        super(true, pairingParameters);
-        this.g2Alpha = g2Alpha.getImmutable();
-        this.byteArrayG2Alpha = this.g2Alpha.toBytes();
-    }
+	public HIBBELLW16aMasterSecretKeySerParameter(PairingParameters pairingParameters, Element g2Alpha) {
+		super(true, pairingParameters);
+		this.g2Alpha = g2Alpha.getImmutable();
+		this.byteArrayG2Alpha = this.g2Alpha.toBytes();
+	}
 
-    public Element getG2Alpha(){
-        return this.g2Alpha.duplicate();
-    }
+	public Element getG2Alpha() {
+		return this.g2Alpha.duplicate();
+	}
 
-    @Override
-    public boolean equals(Object anObject) {
-        if (this == anObject) {
-            return true;
-        }
-        if (anObject instanceof HIBBELLW16aMasterSecretKeySerParameter) {
-            HIBBELLW16aMasterSecretKeySerParameter that = (HIBBELLW16aMasterSecretKeySerParameter)anObject;
-            //Compare g2Alpha
-            if (!(PairingUtils.isEqualElement(this.g2Alpha, that.getG2Alpha()))) {
-                return false;
-            }
-            if (!Arrays.equals(this.byteArrayG2Alpha, that.byteArrayG2Alpha)) {
-                return false;
-            }
-            //Compare Pairing Parameters
-            return this.getParameters().toString().equals(that.getParameters().toString());
-        }
-        return false;
-    }
+	@Override
+	public boolean equals(Object anObject) {
+		if (this == anObject) {
+			return true;
+		}
+		if (anObject instanceof HIBBELLW16aMasterSecretKeySerParameter) {
+			HIBBELLW16aMasterSecretKeySerParameter that = (HIBBELLW16aMasterSecretKeySerParameter) anObject;
+			// Compare g2Alpha
+			if (!(PairingUtils.isEqualElement(this.g2Alpha, that.getG2Alpha()))) {
+				return false;
+			}
+			if (!Arrays.equals(this.byteArrayG2Alpha, that.byteArrayG2Alpha)) {
+				return false;
+			}
+			// Compare Pairing Parameters
+			return this.getParameters().toString().equals(that.getParameters().toString());
+		}
+		return false;
+	}
 
-    private void readObject(java.io.ObjectInputStream objectInputStream)
-            throws java.io.IOException, ClassNotFoundException {
-        objectInputStream.defaultReadObject();
-        Pairing pairing = PairingFactory.getPairing(this.getParameters());
-        this.g2Alpha = pairing.getG1().newElementFromBytes(this.byteArrayG2Alpha).getImmutable();
-    }
+	private void readObject(java.io.ObjectInputStream objectInputStream)
+			throws java.io.IOException, ClassNotFoundException {
+		objectInputStream.defaultReadObject();
+		Pairing pairing = PairingFactory.getPairing(this.getParameters());
+		this.g2Alpha = pairing.getG1().newElementFromBytes(this.byteArrayG2Alpha).getImmutable();
+	}
 }

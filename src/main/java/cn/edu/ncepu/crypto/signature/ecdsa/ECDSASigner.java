@@ -37,6 +37,7 @@ public class ECDSASigner implements Signer {
 	private Signature signature;
 
 	private static Logger logger = LoggerFactory.getLogger(ECDSASigner.class);
+	@SuppressWarnings("unused")
 	private static final String SCHEME_NAME = "Scott-Vanstone-1992 ecdsa signature scheme";
 	private static final String SINGALGORITHM_STRING = "SHA256withECDSA";
 

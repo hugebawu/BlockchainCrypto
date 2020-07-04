@@ -10,8 +10,13 @@ import it.unisa.dia.gas.jpbc.PairingParameters;
  * Liu-Liu-Wu-16 CCA2-secure OO-RE master secret key parameter.
  */
 public class RELLW16bMasterSecretKeySerParameter extends RELLW16aMasterSecretKeySerParameter {
-    public RELLW16bMasterSecretKeySerParameter(
-            PairingParameters pairingParameters, Element alpha, Element b, Element h) {
-        super(pairingParameters, alpha, b, h);
-    }
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2560407705530315132L;
+
+	public RELLW16bMasterSecretKeySerParameter(PairingParameters pairingParameters, Element alpha, Element b,
+			Element h) {
+		super(pairingParameters, alpha, b, h);
+	}
 }

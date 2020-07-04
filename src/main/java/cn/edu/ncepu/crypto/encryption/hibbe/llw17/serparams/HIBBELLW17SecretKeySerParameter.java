@@ -15,37 +15,42 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  * Liu-Liu-Wu composite-order CCA2-secure HIBBE secret key parameter.
  */
 public class HIBBELLW17SecretKeySerParameter extends HIBBELLW14SecretKeySerParameter {
-    private transient Element bv;
-    private final byte[] byteArrayBv;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2823478577571144484L;
+	private transient Element bv;
+	private final byte[] byteArrayBv;
 
-    public HIBBELLW17SecretKeySerParameter(PairingParameters pairingParameters, String[] ids, Element[] elementIds,
-                                           Element a0, Element a1, Element[] bs, Element bv) {
-        super(pairingParameters, ids, elementIds, a0, a1, bs);
-        this.bv = bv.getImmutable();
-        this.byteArrayBv = this.bv.toBytes();
-    }
+	public HIBBELLW17SecretKeySerParameter(PairingParameters pairingParameters, String[] ids, Element[] elementIds,
+			Element a0, Element a1, Element[] bs, Element bv) {
+		super(pairingParameters, ids, elementIds, a0, a1, bs);
+		this.bv = bv.getImmutable();
+		this.byteArrayBv = this.bv.toBytes();
+	}
 
-    public Element getBv() { return this.bv.duplicate(); }
+	public Element getBv() {
+		return this.bv.duplicate();
+	}
 
-    @Override
-    public boolean equals(Object anOjbect) {
-        if (this == anOjbect) {
-            return true;
-        }
-        if (anOjbect instanceof HIBBELLW17SecretKeySerParameter) {
-            HIBBELLW17SecretKeySerParameter that = (HIBBELLW17SecretKeySerParameter) anOjbect;
-            //Compare bv
-            return PairingUtils.isEqualElement(this.bv, that.getBv())
-                    && Arrays.equals(this.byteArrayBv, that.byteArrayBv)
-                    && super.equals(anOjbect);
-        }
-        return false;
-    }
+	@Override
+	public boolean equals(Object anOjbect) {
+		if (this == anOjbect) {
+			return true;
+		}
+		if (anOjbect instanceof HIBBELLW17SecretKeySerParameter) {
+			HIBBELLW17SecretKeySerParameter that = (HIBBELLW17SecretKeySerParameter) anOjbect;
+			// Compare bv
+			return PairingUtils.isEqualElement(this.bv, that.getBv())
+					&& Arrays.equals(this.byteArrayBv, that.byteArrayBv) && super.equals(anOjbect);
+		}
+		return false;
+	}
 
-    private void readObject(java.io.ObjectInputStream objectInputStream)
-            throws java.io.IOException, ClassNotFoundException {
-        objectInputStream.defaultReadObject();
-        Pairing pairing = PairingFactory.getPairing(this.getParameters());
-        this.bv = pairing.getG1().newElementFromBytes(this.byteArrayBv).getImmutable();
-    }
+	private void readObject(java.io.ObjectInputStream objectInputStream)
+			throws java.io.IOException, ClassNotFoundException {
+		objectInputStream.defaultReadObject();
+		Pairing pairing = PairingFactory.getPairing(this.getParameters());
+		this.bv = pairing.getG1().newElementFromBytes(this.byteArrayBv).getImmutable();
+	}
 }

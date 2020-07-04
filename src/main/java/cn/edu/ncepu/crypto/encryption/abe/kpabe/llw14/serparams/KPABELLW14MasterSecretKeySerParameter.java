@@ -10,7 +10,12 @@ import it.unisa.dia.gas.jpbc.PairingParameters;
  * Liu-Liu-Wu-14 CCA2-secure KP-ABE master secret key parameter.
  */
 public class KPABELLW14MasterSecretKeySerParameter extends KPABERW13MasterSecretKeySerParameter {
-    public KPABELLW14MasterSecretKeySerParameter(PairingParameters pairingParameters, Element alpha) {
-        super(pairingParameters, alpha);
-    }
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1792233249866231106L;
+
+	public KPABELLW14MasterSecretKeySerParameter(PairingParameters pairingParameters, Element alpha) {
+		super(pairingParameters, alpha);
+	}
 }

@@ -32,9 +32,11 @@ import cn.edu.ncepu.crypto.utils.CommonUtils;
  */
 public class ECDSASignerTest {
 	private static Logger logger = LoggerFactory.getLogger(ECDSASignerTest.class);
+	@SuppressWarnings("unused")
 	private PairingKeyPairGenerator asymmetricKeySerPairGenerator;
 	private static final String EC_STRING = "EC";
 	private static final String CURVE_NAME = "secp256k1";
+	@SuppressWarnings("unused")
 	private Signer signer;
 
 	@Ignore

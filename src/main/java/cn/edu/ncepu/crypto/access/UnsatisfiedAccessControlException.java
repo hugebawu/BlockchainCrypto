@@ -8,7 +8,12 @@ package cn.edu.ncepu.crypto.access;
 
 public class UnsatisfiedAccessControlException extends Exception {
 
-    public UnsatisfiedAccessControlException(String message){
-        super(message);
-    }
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4622839848943865941L;
+
+	public UnsatisfiedAccessControlException(String message) {
+		super(message);
+	}
 }

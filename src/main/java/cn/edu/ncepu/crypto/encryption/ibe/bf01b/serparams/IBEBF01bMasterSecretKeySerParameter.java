@@ -9,7 +9,12 @@ import cn.edu.ncepu.crypto.encryption.ibe.bf01a.serparams.IBEBF01aMasterSecretKe
  */
 public class IBEBF01bMasterSecretKeySerParameter extends IBEBF01aMasterSecretKeySerParameter {
 
-    public IBEBF01bMasterSecretKeySerParameter(IBEBF01aMasterSecretKeySerParameter masterSecretKeyParameter) {
-        super(masterSecretKeyParameter.getParameters(), masterSecretKeyParameter.getS());
-    }
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7319817067689485938L;
+
+	public IBEBF01bMasterSecretKeySerParameter(IBEBF01aMasterSecretKeySerParameter masterSecretKeyParameter) {
+		super(masterSecretKeyParameter.getParameters(), masterSecretKeyParameter.getS());
+	}
 }

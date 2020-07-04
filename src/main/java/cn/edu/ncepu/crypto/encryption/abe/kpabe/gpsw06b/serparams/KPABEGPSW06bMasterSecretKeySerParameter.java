@@ -15,42 +15,48 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  * Goyal-Pandey-Sahai-Waters large-universe KP-ABE with random oracles master secret key parameter.
  */
 public class KPABEGPSW06bMasterSecretKeySerParameter extends PairingKeySerParameter {
-    private transient Element y;
-    private final byte[] byteArrayY;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8984652303852739196L;
+	private transient Element y;
+	private final byte[] byteArrayY;
 
-    public KPABEGPSW06bMasterSecretKeySerParameter(PairingParameters pairingParameters, Element y) {
-        super(true, pairingParameters);
+	public KPABEGPSW06bMasterSecretKeySerParameter(PairingParameters pairingParameters, Element y) {
+		super(true, pairingParameters);
 
-        this.y = y.getImmutable();
-        this.byteArrayY = this.y.toBytes();
-    }
+		this.y = y.getImmutable();
+		this.byteArrayY = this.y.toBytes();
+	}
 
-    public Element getY() { return this.y.duplicate(); }
+	public Element getY() {
+		return this.y.duplicate();
+	}
 
-    @Override
-    public boolean equals(Object anObject) {
-        if (this == anObject) {
-            return true;
-        }
-        if (anObject instanceof KPABEGPSW06bMasterSecretKeySerParameter) {
-            KPABEGPSW06bMasterSecretKeySerParameter that = (KPABEGPSW06bMasterSecretKeySerParameter)anObject;
-            //compare y
-            if (!(PairingUtils.isEqualElement(this.y, that.y))) {
-                return false;
-            }
-            if (!Arrays.equals(this.byteArrayY, that.byteArrayY)) {
-                return false;
-            }
-            //Compare Pairing Parameters
-            return this.getParameters().toString().equals(that.getParameters().toString());
-        }
-        return false;
-    }
+	@Override
+	public boolean equals(Object anObject) {
+		if (this == anObject) {
+			return true;
+		}
+		if (anObject instanceof KPABEGPSW06bMasterSecretKeySerParameter) {
+			KPABEGPSW06bMasterSecretKeySerParameter that = (KPABEGPSW06bMasterSecretKeySerParameter) anObject;
+			// compare y
+			if (!(PairingUtils.isEqualElement(this.y, that.y))) {
+				return false;
+			}
+			if (!Arrays.equals(this.byteArrayY, that.byteArrayY)) {
+				return false;
+			}
+			// Compare Pairing Parameters
+			return this.getParameters().toString().equals(that.getParameters().toString());
+		}
+		return false;
+	}
 
-    private void readObject(java.io.ObjectInputStream objectInputStream)
-            throws java.io.IOException, ClassNotFoundException {
-        objectInputStream.defaultReadObject();
-        Pairing pairing = PairingFactory.getPairing(this.getParameters());
-        this.y = pairing.getZr().newElementFromBytes(this.byteArrayY).getImmutable();
-    }
+	private void readObject(java.io.ObjectInputStream objectInputStream)
+			throws java.io.IOException, ClassNotFoundException {
+		objectInputStream.defaultReadObject();
+		Pairing pairing = PairingFactory.getPairing(this.getParameters());
+		this.y = pairing.getZr().newElementFromBytes(this.byteArrayY).getImmutable();
+	}
 }

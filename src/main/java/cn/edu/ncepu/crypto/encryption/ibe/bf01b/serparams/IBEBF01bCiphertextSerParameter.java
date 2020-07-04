@@ -14,6 +14,10 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  * Boneh-Franklin CCA2-secure IBE ciphertext parameter.
  */
 public class IBEBF01bCiphertextSerParameter extends IBEBF01bHeaderSerParameter {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5496088207133530812L;
 	private transient Element W;
 	private final byte[] byteArrayW;
 

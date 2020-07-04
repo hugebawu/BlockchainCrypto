@@ -15,8 +15,6 @@ import java.util.concurrent.TimeUnit;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import cn.edu.ncepu.crypto.utils.ShellExecutor.CommandTimeoutException;
-
 /**
  * @Copyright : Copyright (c) 2020-2021 
  * @author: Baiji Hu
@@ -100,6 +98,11 @@ public class ShellExecutor {
 	}
 
 	public static class CommandTimeoutException extends Exception {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1026106726481001198L;
+
 		public CommandTimeoutException(String message) {
 			super(message);
 		}

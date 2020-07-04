@@ -5,4 +5,9 @@ package cn.edu.ncepu.crypto.access.parser;
  */
 public class PolicySyntaxException extends Exception {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3028925965609255132L;
+
 }

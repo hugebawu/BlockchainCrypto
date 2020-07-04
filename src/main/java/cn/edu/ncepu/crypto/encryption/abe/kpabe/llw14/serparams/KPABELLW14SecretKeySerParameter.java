@@ -13,9 +13,14 @@ import it.unisa.dia.gas.jpbc.PairingParameters;
  * Liu-Liu-Wu-14 CCA2-secure KP-ABE secret key parameter.
  */
 public class KPABELLW14SecretKeySerParameter extends KPABERW13SecretKeySerParameter {
-    public KPABELLW14SecretKeySerParameter(
-            PairingParameters pairingParameters, AccessControlParameter accessControlParameter,
-            Map<String, Element> K0s, Map<String, Element> K1s, Map<String, Element> K2s) {
-        super(pairingParameters, accessControlParameter, K0s, K1s, K2s);
-    }
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4324537282141066832L;
+
+	public KPABELLW14SecretKeySerParameter(PairingParameters pairingParameters,
+			AccessControlParameter accessControlParameter, Map<String, Element> K0s, Map<String, Element> K1s,
+			Map<String, Element> K2s) {
+		super(pairingParameters, accessControlParameter, K0s, K1s, K2s);
+	}
 }

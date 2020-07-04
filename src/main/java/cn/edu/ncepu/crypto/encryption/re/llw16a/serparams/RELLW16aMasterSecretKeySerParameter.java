@@ -10,7 +10,13 @@ import it.unisa.dia.gas.jpbc.PairingParameters;
  * Liu-Liu-Wu-16 CPA-secure RE master secret key parameter.
  */
 public class RELLW16aMasterSecretKeySerParameter extends RELSW10aMasterSecretKeySerParameter {
-    public RELLW16aMasterSecretKeySerParameter(PairingParameters pairingParameters, Element alpha, Element b, Element h) {
-        super(pairingParameters, alpha, b, h);
-    }
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5669202552810388646L;
+
+	public RELLW16aMasterSecretKeySerParameter(PairingParameters pairingParameters, Element alpha, Element b,
+			Element h) {
+		super(pairingParameters, alpha, b, h);
+	}
 }

@@ -11,30 +11,33 @@ import it.unisa.dia.gas.jpbc.PairingParameters;
  * Liu-Liu-Wu-14 CCA2-secure KP-ABE public key parameter.
  */
 public class KPABELLW14PublicKeySerParameter extends KPABERW13PublicKeySerParameter {
-    private AsymmetricKeySerParameter chameleonHashPublicKey;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7617331838020938762L;
+	private AsymmetricKeySerParameter chameleonHashPublicKey;
 
+	public KPABELLW14PublicKeySerParameter(PairingParameters pairingParameters,
+			AsymmetricKeySerParameter chameleonHashPublicKey, Element g, Element u, Element h, Element w,
+			Element eggAlpha) {
+		super(pairingParameters, g, u, h, w, eggAlpha);
+		this.chameleonHashPublicKey = chameleonHashPublicKey;
+	}
 
-    public KPABELLW14PublicKeySerParameter(
-            PairingParameters pairingParameters, AsymmetricKeySerParameter chameleonHashPublicKey,
-            Element g, Element u, Element h, Element w, Element eggAlpha) {
-        super(pairingParameters, g, u, h, w, eggAlpha);
-        this.chameleonHashPublicKey = chameleonHashPublicKey;
-    }
+	public AsymmetricKeySerParameter getChameleonHashPublicKey() {
+		return this.chameleonHashPublicKey;
+	}
 
-    public AsymmetricKeySerParameter getChameleonHashPublicKey() {
-        return this.chameleonHashPublicKey;
-    }
-
-    @Override
-    public boolean equals(Object anObject) {
-        if (this == anObject) {
-            return true;
-        }
-        if (anObject instanceof KPABELLW14PublicKeySerParameter) {
-            KPABELLW14PublicKeySerParameter that = (KPABELLW14PublicKeySerParameter) anObject;
-            //Compare chPublicKey
-            return this.chameleonHashPublicKey.equals(that.chameleonHashPublicKey) && super.equals(anObject);
-        }
-        return false;
-    }
+	@Override
+	public boolean equals(Object anObject) {
+		if (this == anObject) {
+			return true;
+		}
+		if (anObject instanceof KPABELLW14PublicKeySerParameter) {
+			KPABELLW14PublicKeySerParameter that = (KPABELLW14PublicKeySerParameter) anObject;
+			// Compare chPublicKey
+			return this.chameleonHashPublicKey.equals(that.chameleonHashPublicKey) && super.equals(anObject);
+		}
+		return false;
+	}
 }

@@ -15,36 +15,42 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  * Lewko-Sahai-Waters reovcation encryption ciphertext parameters.
  */
 public class RELSW10aCiphertextSerParameter extends RELSW10aHeaderSerParameter {
-    private transient Element C;
-    private final byte[] byteArrayC;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 982949750513629302L;
+	private transient Element C;
+	private final byte[] byteArrayC;
 
-    public RELSW10aCiphertextSerParameter(PairingParameters pairingParameters, Element C, Element C0, Map<String, Element> C1s, Map<String, Element> C2s) {
-        super(pairingParameters, C0, C1s, C2s);
+	public RELSW10aCiphertextSerParameter(PairingParameters pairingParameters, Element C, Element C0,
+			Map<String, Element> C1s, Map<String, Element> C2s) {
+		super(pairingParameters, C0, C1s, C2s);
 
-        this.C = C.getImmutable();
-        this.byteArrayC = this.C.toBytes();
-    }
+		this.C = C.getImmutable();
+		this.byteArrayC = this.C.toBytes();
+	}
 
-    public Element getC() { return this.C.duplicate(); }
+	public Element getC() {
+		return this.C.duplicate();
+	}
 
-    @Override
-    public boolean equals(Object anObject) {
-        if (this == anObject) {
-            return true;
-        }
-        if (anObject instanceof RELSW10aCiphertextSerParameter) {
-            RELSW10aCiphertextSerParameter that = (RELSW10aCiphertextSerParameter) anObject;
-            return PairingUtils.isEqualElement(this.C, that.C)
-                    && Arrays.equals(this.byteArrayC, that.byteArrayC)
-                    && super.equals(anObject);
-        }
-        return false;
-    }
+	@Override
+	public boolean equals(Object anObject) {
+		if (this == anObject) {
+			return true;
+		}
+		if (anObject instanceof RELSW10aCiphertextSerParameter) {
+			RELSW10aCiphertextSerParameter that = (RELSW10aCiphertextSerParameter) anObject;
+			return PairingUtils.isEqualElement(this.C, that.C) && Arrays.equals(this.byteArrayC, that.byteArrayC)
+					&& super.equals(anObject);
+		}
+		return false;
+	}
 
-    private void readObject(java.io.ObjectInputStream objectInputStream)
-            throws java.io.IOException, ClassNotFoundException {
-        objectInputStream.defaultReadObject();
-        Pairing pairing = PairingFactory.getPairing(this.getParameters());
-        this.C = pairing.getGT().newElementFromBytes(this.byteArrayC).getImmutable();
-    }
+	private void readObject(java.io.ObjectInputStream objectInputStream)
+			throws java.io.IOException, ClassNotFoundException {
+		objectInputStream.defaultReadObject();
+		Pairing pairing = PairingFactory.getPairing(this.getParameters());
+		this.C = pairing.getGT().newElementFromBytes(this.byteArrayC).getImmutable();
+	}
 }

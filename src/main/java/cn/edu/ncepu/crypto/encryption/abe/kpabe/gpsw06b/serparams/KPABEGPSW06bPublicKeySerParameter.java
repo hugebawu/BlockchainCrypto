@@ -15,78 +15,84 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  * Goyal-Pandey-Sahai-Waters large-universe KP-ABE with random oracles public key parameter.
  */
 public class KPABEGPSW06bPublicKeySerParameter extends PairingKeySerParameter {
-    private transient Element g;
-    private final byte[] byteArrayG;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8541416676859193769L;
+	private transient Element g;
+	private final byte[] byteArrayG;
 
-    private transient Element g1;
-    private final byte[] byteArrayG1;
+	private transient Element g1;
+	private final byte[] byteArrayG1;
 
-    private transient Element g2;
-    private final byte[] byteArrayG2;
+	private transient Element g2;
+	private final byte[] byteArrayG2;
 
-    public KPABEGPSW06bPublicKeySerParameter(PairingParameters pairingParameters, Element g, Element g1, Element g2) {
-        super(true, pairingParameters);
+	public KPABEGPSW06bPublicKeySerParameter(PairingParameters pairingParameters, Element g, Element g1, Element g2) {
+		super(true, pairingParameters);
 
-        this.g = g.getImmutable();
-        this.byteArrayG = this.g.toBytes();
+		this.g = g.getImmutable();
+		this.byteArrayG = this.g.toBytes();
 
-        this.g1 = g1.getImmutable();
-        this.byteArrayG1 = this.g1.toBytes();
+		this.g1 = g1.getImmutable();
+		this.byteArrayG1 = this.g1.toBytes();
 
-        this.g2 = g2.getImmutable();
-        this.byteArrayG2 = this.g2.toBytes();
-    }
+		this.g2 = g2.getImmutable();
+		this.byteArrayG2 = this.g2.toBytes();
+	}
 
-    public Element getG() { return this.g.duplicate(); }
+	public Element getG() {
+		return this.g.duplicate();
+	}
 
-    public Element getG1() {
-        return this.g1.duplicate();
-    }
+	public Element getG1() {
+		return this.g1.duplicate();
+	}
 
-    public Element getG2() {
-        return this.g2.duplicate();
-    }
+	public Element getG2() {
+		return this.g2.duplicate();
+	}
 
-    @Override
-    public boolean equals(Object anObject) {
-        if (this == anObject) {
-            return true;
-        }
-        if (anObject instanceof KPABEGPSW06bPublicKeySerParameter) {
-            KPABEGPSW06bPublicKeySerParameter that = (KPABEGPSW06bPublicKeySerParameter) anObject;
-            //compare g
-            if (!PairingUtils.isEqualElement(this.g, that.g)) {
-                return false;
-            }
-            if (!Arrays.equals(this.byteArrayG, that.byteArrayG)) {
-                return false;
-            }
-            //compare g1
-            if (!PairingUtils.isEqualElement(this.g1, that.g1)) {
-                return false;
-            }
-            if (!Arrays.equals(this.byteArrayG1, that.byteArrayG1)) {
-                return false;
-            }
-            //compare g2
-            if (!PairingUtils.isEqualElement(this.g2, that.g2)) {
-                return false;
-            }
-            if (!Arrays.equals(this.byteArrayG2, that.byteArrayG2)) {
-                return false;
-            }
-            //Compare Pairing Parameters
-            return this.getParameters().toString().equals(that.getParameters().toString());
-        }
-        return false;
-    }
+	@Override
+	public boolean equals(Object anObject) {
+		if (this == anObject) {
+			return true;
+		}
+		if (anObject instanceof KPABEGPSW06bPublicKeySerParameter) {
+			KPABEGPSW06bPublicKeySerParameter that = (KPABEGPSW06bPublicKeySerParameter) anObject;
+			// compare g
+			if (!PairingUtils.isEqualElement(this.g, that.g)) {
+				return false;
+			}
+			if (!Arrays.equals(this.byteArrayG, that.byteArrayG)) {
+				return false;
+			}
+			// compare g1
+			if (!PairingUtils.isEqualElement(this.g1, that.g1)) {
+				return false;
+			}
+			if (!Arrays.equals(this.byteArrayG1, that.byteArrayG1)) {
+				return false;
+			}
+			// compare g2
+			if (!PairingUtils.isEqualElement(this.g2, that.g2)) {
+				return false;
+			}
+			if (!Arrays.equals(this.byteArrayG2, that.byteArrayG2)) {
+				return false;
+			}
+			// Compare Pairing Parameters
+			return this.getParameters().toString().equals(that.getParameters().toString());
+		}
+		return false;
+	}
 
-    private void readObject(java.io.ObjectInputStream objectInputStream)
-            throws java.io.IOException, ClassNotFoundException {
-        objectInputStream.defaultReadObject();
-        Pairing pairing = PairingFactory.getPairing(this.getParameters());
-        this.g = pairing.getG1().newElementFromBytes(this.byteArrayG).getImmutable();
-        this.g1 = pairing.getG1().newElementFromBytes(this.byteArrayG1).getImmutable();
-        this.g2 = pairing.getG1().newElementFromBytes(this.byteArrayG2).getImmutable();
-    }
+	private void readObject(java.io.ObjectInputStream objectInputStream)
+			throws java.io.IOException, ClassNotFoundException {
+		objectInputStream.defaultReadObject();
+		Pairing pairing = PairingFactory.getPairing(this.getParameters());
+		this.g = pairing.getG1().newElementFromBytes(this.byteArrayG).getImmutable();
+		this.g1 = pairing.getG1().newElementFromBytes(this.byteArrayG1).getImmutable();
+		this.g2 = pairing.getG1().newElementFromBytes(this.byteArrayG2).getImmutable();
+	}
 }

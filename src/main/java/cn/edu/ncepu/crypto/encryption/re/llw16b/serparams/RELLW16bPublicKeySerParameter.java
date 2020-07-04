@@ -10,8 +10,13 @@ import it.unisa.dia.gas.jpbc.PairingParameters;
  * Liu-Liu-Wu-16 CCA2-secure OO-RE public key parameter.
  */
 public class RELLW16bPublicKeySerParameter extends RELLW16aPublicKeySerParameter {
-    public RELLW16bPublicKeySerParameter(
-            PairingParameters parameters, Element g, Element g_b, Element g_b2, Element h_b, Element e_g_g_alpha) {
-        super(parameters, g, g_b, g_b2, h_b, e_g_g_alpha);
-    }
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 9049206638279903210L;
+
+	public RELLW16bPublicKeySerParameter(PairingParameters parameters, Element g, Element g_b, Element g_b2,
+			Element h_b, Element e_g_g_alpha) {
+		super(parameters, g, g_b, g_b2, h_b, e_g_g_alpha);
+	}
 }

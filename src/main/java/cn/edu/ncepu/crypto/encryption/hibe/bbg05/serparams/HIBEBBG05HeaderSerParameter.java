@@ -15,58 +15,66 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  * Boneh-Boyen-Goh HIBE header / session key pair parameter.
  */
 public class HIBEBBG05HeaderSerParameter extends PairingCipherSerParameter {
-    private transient Element B;
-    private final byte[] byteArrayB;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1652817407426649728L;
+	private transient Element B;
+	private final byte[] byteArrayB;
 
-    private transient Element C;
-    private final byte[] byteArrayC;
+	private transient Element C;
+	private final byte[] byteArrayC;
 
-    public HIBEBBG05HeaderSerParameter(PairingParameters pairingParameters, Element B, Element C) {
-        super(pairingParameters);
+	public HIBEBBG05HeaderSerParameter(PairingParameters pairingParameters, Element B, Element C) {
+		super(pairingParameters);
 
-        this.B = B.getImmutable();
-        this.byteArrayB = this.B.toBytes();
+		this.B = B.getImmutable();
+		this.byteArrayB = this.B.toBytes();
 
-        this.C = C.getImmutable();
-        this.byteArrayC = this.C.toBytes();
-    }
+		this.C = C.getImmutable();
+		this.byteArrayC = this.C.toBytes();
+	}
 
-    public Element getB() { return this.B.duplicate(); }
+	public Element getB() {
+		return this.B.duplicate();
+	}
 
-    public Element getC() { return this.C.duplicate(); }
+	public Element getC() {
+		return this.C.duplicate();
+	}
 
-    @Override
-    public boolean equals(Object anObject) {
-        if (this == anObject) {
-            return true;
-        }
-        if (anObject instanceof HIBEBBG05HeaderSerParameter) {
-            HIBEBBG05HeaderSerParameter that = (HIBEBBG05HeaderSerParameter)anObject;
-            //Compare B
-            if (!PairingUtils.isEqualElement(this.B, that.getB())){
-                return false;
-            }
-            if (!Arrays.equals(this.byteArrayB, that.byteArrayB)) {
-                return false;
-            }
-            //Compare C
-            if (!PairingUtils.isEqualElement(this.C, that.getC())){
-                return false;
-            }
-            if (!Arrays.equals(this.byteArrayC, that.byteArrayC)) {
-                return false;
-            }
-            //Compare Pairing Parameters
-            return this.getParameters().toString().equals(that.getParameters().toString());
-        }
-        return false;
-    }
+	@Override
+	public boolean equals(Object anObject) {
+		if (this == anObject) {
+			return true;
+		}
+		if (anObject instanceof HIBEBBG05HeaderSerParameter) {
+			HIBEBBG05HeaderSerParameter that = (HIBEBBG05HeaderSerParameter) anObject;
+			// Compare B
+			if (!PairingUtils.isEqualElement(this.B, that.getB())) {
+				return false;
+			}
+			if (!Arrays.equals(this.byteArrayB, that.byteArrayB)) {
+				return false;
+			}
+			// Compare C
+			if (!PairingUtils.isEqualElement(this.C, that.getC())) {
+				return false;
+			}
+			if (!Arrays.equals(this.byteArrayC, that.byteArrayC)) {
+				return false;
+			}
+			// Compare Pairing Parameters
+			return this.getParameters().toString().equals(that.getParameters().toString());
+		}
+		return false;
+	}
 
-    private void readObject(java.io.ObjectInputStream objectInputStream)
-            throws java.io.IOException, ClassNotFoundException {
-        objectInputStream.defaultReadObject();
-        Pairing pairing = PairingFactory.getPairing(this.getParameters());
-        this.B = pairing.getG1().newElementFromBytes(this.byteArrayB).getImmutable();
-        this.C = pairing.getG1().newElementFromBytes(this.byteArrayC).getImmutable();
-    }
+	private void readObject(java.io.ObjectInputStream objectInputStream)
+			throws java.io.IOException, ClassNotFoundException {
+		objectInputStream.defaultReadObject();
+		Pairing pairing = PairingFactory.getPairing(this.getParameters());
+		this.B = pairing.getG1().newElementFromBytes(this.byteArrayB).getImmutable();
+		this.C = pairing.getG1().newElementFromBytes(this.byteArrayC).getImmutable();
+	}
 }

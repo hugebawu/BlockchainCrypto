@@ -15,35 +15,41 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  * Goyal-Pandey-Sahai-Waters large-universe KP-ABE with random oracles ciphertext parameter.
  */
 public class KPABEGPSW06bCiphertextSerParameter extends KPABEGPSW06bHeaderSerParameter {
-    private transient Element E1;
-    private final byte[] byteArrayE1;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2876183560139460575L;
+	private transient Element E1;
+	private final byte[] byteArrayE1;
 
-    public KPABEGPSW06bCiphertextSerParameter(PairingParameters pairingParameters, Element E1, Element E2, Map<String, Element> Es) {
-        super(pairingParameters, E2, Es);
-        this.E1 = E1.getImmutable();
-        this.byteArrayE1 = this.E1.toBytes();
-    }
+	public KPABEGPSW06bCiphertextSerParameter(PairingParameters pairingParameters, Element E1, Element E2,
+			Map<String, Element> Es) {
+		super(pairingParameters, E2, Es);
+		this.E1 = E1.getImmutable();
+		this.byteArrayE1 = this.E1.toBytes();
+	}
 
-    public Element getE1() { return this.E1.duplicate(); }
+	public Element getE1() {
+		return this.E1.duplicate();
+	}
 
-    @Override
-    public boolean equals(Object anObject) {
-        if (this == anObject) {
-            return true;
-        }
-        if (anObject instanceof KPABEGPSW06bCiphertextSerParameter) {
-            KPABEGPSW06bCiphertextSerParameter that = (KPABEGPSW06bCiphertextSerParameter) anObject;
-            return PairingUtils.isEqualElement(this.E1, that.E1)
-                    && Arrays.equals(this.byteArrayE1, that.byteArrayE1)
-                    && super.equals(anObject);
-        }
-        return false;
-    }
+	@Override
+	public boolean equals(Object anObject) {
+		if (this == anObject) {
+			return true;
+		}
+		if (anObject instanceof KPABEGPSW06bCiphertextSerParameter) {
+			KPABEGPSW06bCiphertextSerParameter that = (KPABEGPSW06bCiphertextSerParameter) anObject;
+			return PairingUtils.isEqualElement(this.E1, that.E1) && Arrays.equals(this.byteArrayE1, that.byteArrayE1)
+					&& super.equals(anObject);
+		}
+		return false;
+	}
 
-    private void readObject(java.io.ObjectInputStream objectInputStream)
-            throws java.io.IOException, ClassNotFoundException {
-        objectInputStream.defaultReadObject();
-        Pairing pairing = PairingFactory.getPairing(this.getParameters());
-        this.E1 = pairing.getGT().newElementFromBytes(this.byteArrayE1);
-    }
+	private void readObject(java.io.ObjectInputStream objectInputStream)
+			throws java.io.IOException, ClassNotFoundException {
+		objectInputStream.defaultReadObject();
+		Pairing pairing = PairingFactory.getPairing(this.getParameters());
+		this.E1 = pairing.getGT().newElementFromBytes(this.byteArrayE1);
+	}
 }

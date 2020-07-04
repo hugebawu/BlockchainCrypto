@@ -11,6 +11,7 @@ import cn.edu.ncepu.crypto.encryption.ibe.bf01a.serparams.IBEBF01aHeaderSerParam
 import cn.edu.ncepu.crypto.encryption.ibe.bf01a.serparams.IBEBF01aPublicKeySerParameter;
 import cn.edu.ncepu.crypto.encryption.ibe.genparams.IBEEncryptionGenerationParameter;
 import cn.edu.ncepu.crypto.utils.PairingUtils;
+import cn.edu.ncepu.crypto.utils.PairingUtils.PairingGroupType;
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Pairing;
 import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
@@ -36,7 +37,7 @@ public class IBEBF01aEncryptionGenerator implements PairingEncryptionGenerator, 
 	private void computeEncapsulation() {
 		Pairing pairing = PairingFactory.getPairing(publicKeyParameter.getParameters());
 		String id = this.params.getId();
-		Element elementId = PairingUtils.MapStringToGroup(pairing, id, PairingUtils.PairingGroupType.G1).getImmutable();
+		Element elementId = PairingUtils.MapStringToGroup(pairing, id, PairingGroupType.G1).getImmutable();
 		Element r = pairing.getZr().newRandomElement().getImmutable();
 		this.sessionKey = PairingUtils.MapByteArrayToGroup(pairing,
 				pairing.pairing(elementId, publicKeyParameter.getGs()).powZn(r).toBytes(),

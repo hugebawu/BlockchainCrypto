@@ -17,116 +17,134 @@ import it.unisa.dia.gas.plaf.jpbc.util.ElementUtils;
  */
 public class HIBBELLW14PublicKeySerParameter extends PairingKeySerParameter {
 
-    private final int maxUser;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5064110773401778535L;
 
-    private transient Element g;
-    private final byte[] byteArrayG;
+	private final int maxUser;
 
-    private transient Element h;
-    private final byte[] byteArrayH;
+	private transient Element g;
+	private final byte[] byteArrayG;
 
-    private transient Element[] us;
-    private final byte[][] byteArraysUs;
+	private transient Element h;
+	private final byte[] byteArrayH;
 
-    private transient Element X3;
-    private final byte[] byteArrayX3;
+	private transient Element[] us;
+	private final byte[][] byteArraysUs;
 
-    private transient Element eggAlpha;
-    private final byte[] byteArrayEggAlpha;
+	private transient Element X3;
+	private final byte[] byteArrayX3;
 
-        public HIBBELLW14PublicKeySerParameter(PairingParameters parameters, Element g, Element h, Element[] u, Element X3, Element eggAlpha) {
-            super(false, parameters);
+	private transient Element eggAlpha;
+	private final byte[] byteArrayEggAlpha;
 
-            this.g = g.getImmutable();
-            this.byteArrayG = this.g.toBytes();
+	public HIBBELLW14PublicKeySerParameter(PairingParameters parameters, Element g, Element h, Element[] u, Element X3,
+			Element eggAlpha) {
+		super(false, parameters);
 
-            this.h = h.getImmutable();
-            this.byteArrayH = this.h.toBytes();
+		this.g = g.getImmutable();
+		this.byteArrayG = this.g.toBytes();
 
-            this.us = ElementUtils.cloneImmutable(u);
-            this.byteArraysUs = PairingUtils.GetElementArrayBytes(this.us);
+		this.h = h.getImmutable();
+		this.byteArrayH = this.h.toBytes();
 
-            this.X3 = X3.getImmutable();
-            this.byteArrayX3 = this.X3.toBytes();
+		this.us = ElementUtils.cloneImmutable(u);
+		this.byteArraysUs = PairingUtils.GetElementArrayBytes(this.us);
 
-            this.eggAlpha = eggAlpha.getImmutable();
-            this.byteArrayEggAlpha = this.eggAlpha.toBytes();
+		this.X3 = X3.getImmutable();
+		this.byteArrayX3 = this.X3.toBytes();
 
-            this.maxUser = u.length;
-        }
+		this.eggAlpha = eggAlpha.getImmutable();
+		this.byteArrayEggAlpha = this.eggAlpha.toBytes();
 
-    public Element getG() { return this.g.duplicate(); }
+		this.maxUser = u.length;
+	}
 
-    public Element getH() { return this.h.duplicate(); }
+	public Element getG() {
+		return this.g.duplicate();
+	}
 
-    public Element[] getUs() { return this.us; }
+	public Element getH() {
+		return this.h.duplicate();
+	}
 
-    public Element getUsAt(int index) {
-        return this.us[index].duplicate();
-    }
+	public Element[] getUs() {
+		return this.us;
+	}
 
-    public Element getX3() { return this.X3.duplicate(); }
+	public Element getUsAt(int index) {
+		return this.us[index].duplicate();
+	}
 
-    public Element getEggAlpha() { return this.eggAlpha.duplicate(); }
+	public Element getX3() {
+		return this.X3.duplicate();
+	}
 
-    public int getMaxUser() { return this.maxUser; }
+	public Element getEggAlpha() {
+		return this.eggAlpha.duplicate();
+	}
 
-    @Override
-    public boolean equals(Object anObject) {
-        if (this == anObject) {
-            return true;
-        }
-        if (anObject instanceof HIBBELLW14PublicKeySerParameter) {
-            HIBBELLW14PublicKeySerParameter that = (HIBBELLW14PublicKeySerParameter)anObject;
-            //Compare g
-            if (!PairingUtils.isEqualElement(this.g, that.getG())) {
-                return false;
-            }
-            if (!Arrays.equals(this.byteArrayG, that.byteArrayG)) {
-                return false;
-            }
-            //Compare h
-            if (!PairingUtils.isEqualElement(this.h, that.getH())) {
-                return false;
-            }
-            if (!Arrays.equals(this.byteArrayH, that.byteArrayH)) {
-                return false;
-            }
-            //Compare u
-            if (!PairingUtils.isEqualElementArray(this.us, that.getUs())) {
-                return false;
-            }
-            if (!PairingUtils.isEqualByteArrays(this.byteArraysUs, that.byteArraysUs)) {
-                return false;
-            }
-            //Compare X3
-            if (!PairingUtils.isEqualElement(this.X3, that.getX3())) {
-                return false;
-            }
-            if (!Arrays.equals(this.byteArrayX3, that.byteArrayX3)) {
-                return false;
-            }
-            //Compare eggAlpha
-            if (!PairingUtils.isEqualElement(this.eggAlpha, that.getEggAlpha())) {
-                return false;
-            }
-            if (!Arrays.equals(this.byteArrayEggAlpha, that.byteArrayEggAlpha)) {
-                return false;
-            }
-            //Compare Pairing Parameters
-            return this.getParameters().toString().equals(that.getParameters().toString());
-        }
-        return false;
-    }
+	public int getMaxUser() {
+		return this.maxUser;
+	}
 
-    private void readObject(java.io.ObjectInputStream objectInputStream)
-            throws java.io.IOException, ClassNotFoundException {
-        objectInputStream.defaultReadObject();
-        Pairing pairing = PairingFactory.getPairing(this.getParameters());
-        this.g = pairing.getG1().newElementFromBytes(this.byteArrayG).getImmutable();
-        this.h = pairing.getG1().newElementFromBytes(this.byteArrayH).getImmutable();
-        this.us = PairingUtils.GetElementArrayFromBytes(pairing, this.byteArraysUs, PairingUtils.PairingGroupType.G1);
-        this.X3 = pairing.getG1().newElementFromBytes(this.byteArrayX3).getImmutable();
-        this.eggAlpha = pairing.getGT().newElementFromBytes(this.byteArrayEggAlpha).getImmutable();
-    }
+	@Override
+	public boolean equals(Object anObject) {
+		if (this == anObject) {
+			return true;
+		}
+		if (anObject instanceof HIBBELLW14PublicKeySerParameter) {
+			HIBBELLW14PublicKeySerParameter that = (HIBBELLW14PublicKeySerParameter) anObject;
+			// Compare g
+			if (!PairingUtils.isEqualElement(this.g, that.getG())) {
+				return false;
+			}
+			if (!Arrays.equals(this.byteArrayG, that.byteArrayG)) {
+				return false;
+			}
+			// Compare h
+			if (!PairingUtils.isEqualElement(this.h, that.getH())) {
+				return false;
+			}
+			if (!Arrays.equals(this.byteArrayH, that.byteArrayH)) {
+				return false;
+			}
+			// Compare u
+			if (!PairingUtils.isEqualElementArray(this.us, that.getUs())) {
+				return false;
+			}
+			if (!PairingUtils.isEqualByteArrays(this.byteArraysUs, that.byteArraysUs)) {
+				return false;
+			}
+			// Compare X3
+			if (!PairingUtils.isEqualElement(this.X3, that.getX3())) {
+				return false;
+			}
+			if (!Arrays.equals(this.byteArrayX3, that.byteArrayX3)) {
+				return false;
+			}
+			// Compare eggAlpha
+			if (!PairingUtils.isEqualElement(this.eggAlpha, that.getEggAlpha())) {
+				return false;
+			}
+			if (!Arrays.equals(this.byteArrayEggAlpha, that.byteArrayEggAlpha)) {
+				return false;
+			}
+			// Compare Pairing Parameters
+			return this.getParameters().toString().equals(that.getParameters().toString());
+		}
+		return false;
+	}
+
+	private void readObject(java.io.ObjectInputStream objectInputStream)
+			throws java.io.IOException, ClassNotFoundException {
+		objectInputStream.defaultReadObject();
+		Pairing pairing = PairingFactory.getPairing(this.getParameters());
+		this.g = pairing.getG1().newElementFromBytes(this.byteArrayG).getImmutable();
+		this.h = pairing.getG1().newElementFromBytes(this.byteArrayH).getImmutable();
+		this.us = PairingUtils.GetElementArrayFromBytes(pairing, this.byteArraysUs, PairingUtils.PairingGroupType.G1);
+		this.X3 = pairing.getG1().newElementFromBytes(this.byteArrayX3).getImmutable();
+		this.eggAlpha = pairing.getGT().newElementFromBytes(this.byteArrayEggAlpha).getImmutable();
+	}
 }

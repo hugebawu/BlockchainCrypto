@@ -11,7 +11,12 @@ import it.unisa.dia.gas.jpbc.PairingParameters;
  */
 public class IBEGen06bMasterSecretKeySerParameter extends IBEGen06aMasterSecretKeySerParameter {
 
-    public IBEGen06bMasterSecretKeySerParameter(PairingParameters pairingParameters, Element alpha) {
-        super(pairingParameters, alpha);
-    }
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4212741014826867911L;
+
+	public IBEGen06bMasterSecretKeySerParameter(PairingParameters pairingParameters, Element alpha) {
+		super(pairingParameters, alpha);
+	}
 }

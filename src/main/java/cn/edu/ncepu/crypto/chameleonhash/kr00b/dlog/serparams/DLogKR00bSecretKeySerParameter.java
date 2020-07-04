@@ -10,31 +10,35 @@ import cn.edu.ncepu.crypto.algebra.serparams.SecurePrimeSerParameter;
  * Krawczyk-Rabin secret key parameters
  */
 public class DLogKR00bSecretKeySerParameter extends DLogKR00bKeySerParameter {
-    private BigInteger x;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6292869431140953693L;
+	private BigInteger x;
 
-    public DLogKR00bSecretKeySerParameter(BigInteger x, SecurePrimeSerParameter params) {
-        super(true, params);
-        this.x = x;
-    }
+	public DLogKR00bSecretKeySerParameter(BigInteger x, SecurePrimeSerParameter params) {
+		super(true, params);
+		this.x = x;
+	}
 
-    public BigInteger getX() {
-        return x;
-    }
+	public BigInteger getX() {
+		return x;
+	}
 
-    @Override
-    public boolean equals(Object anOjbect) {
-        if (this == anOjbect) {
-            return true;
-        }
-        if (anOjbect instanceof DLogKR00bSecretKeySerParameter) {
-            DLogKR00bSecretKeySerParameter that = (DLogKR00bSecretKeySerParameter)anOjbect;
-            //Compare x
-            if (!this.x.equals(that.getX())) {
-                return false;
-            }
-            //Compare SecurePrimeSerParameter
-            return this.getParameters().equals(that.getParameters());
-        }
-        return false;
-    }
+	@Override
+	public boolean equals(Object anOjbect) {
+		if (this == anOjbect) {
+			return true;
+		}
+		if (anOjbect instanceof DLogKR00bSecretKeySerParameter) {
+			DLogKR00bSecretKeySerParameter that = (DLogKR00bSecretKeySerParameter) anOjbect;
+			// Compare x
+			if (!this.x.equals(that.getX())) {
+				return false;
+			}
+			// Compare SecurePrimeSerParameter
+			return this.getParameters().equals(that.getParameters());
+		}
+		return false;
+	}
 }

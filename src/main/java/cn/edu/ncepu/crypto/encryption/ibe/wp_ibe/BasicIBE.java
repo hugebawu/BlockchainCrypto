@@ -12,9 +12,12 @@ import org.slf4j.LoggerFactory;
 import cn.edu.ncepu.crypto.utils.PairingUtils;
 import cn.edu.ncepu.crypto.utils.PairingUtils.PairingGroupType;
 import it.unisa.dia.gas.jpbc.Element;
-import it.unisa.dia.gas.jpbc.Field;
 import it.unisa.dia.gas.jpbc.Pairing;
 import it.unisa.dia.gas.jpbc.PairingParameters;
+import it.unisa.dia.gas.plaf.jpbc.field.curve.CurveField;
+import it.unisa.dia.gas.plaf.jpbc.field.gt.GTFiniteField;
+import it.unisa.dia.gas.plaf.jpbc.field.quadratic.DegreeTwoExtensionQuadraticField;
+import it.unisa.dia.gas.plaf.jpbc.field.z.ZrField;
 import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
 
 /**
@@ -49,8 +52,10 @@ public class BasicIBE implements IBE {
 	// G1是定义在域Fq上的椭圆曲线，其阶为r.q与r都是质数，且存在一定的关系：这里是 (q+1)=r*h
 	// Zr 是阶为r的环Zr={0,...,r-1}
 	// GT是有限域Fq2。其元素的阶虽然为r，但是其取值范围比q大的多，目前不清楚怎么回事。
-	@SuppressWarnings("rawtypes")
-	private Field G1, Zr, GT;
+	private ZrField Zr;
+	private CurveField<ZrField> G1;
+	private GTFiniteField<DegreeTwoExtensionQuadraticField<ZrField>> GT;
+
 	private Pairing pairing;
 
 	public BasicIBE(PairingParameters typeAParams) {
@@ -112,6 +117,7 @@ public class BasicIBE implements IBE {
 	 * 初始化
 	 * @return void 
 	 */
+	@SuppressWarnings("unchecked")
 	private void init() {
 		// For bilinear maps only, to use the PBC wrapper and gain in performance, the
 		// usePBCWhenPossible property of the pairing factory must be set.
@@ -121,16 +127,16 @@ public class BasicIBE implements IBE {
 		PairingFactory.getInstance().setUsePBCWhenPossible(true);//
 		checkSymmetric(pairing);
 		// 将变量r初始化为Zr中的元素
-		Zr = pairing.getZr();
+		Zr = (ZrField) pairing.getZr();
 		r = Zr.newElement();
 		// 将变量Ppub，Qu，Su，V初始化为G1中的元素，G1是加法群
-		G1 = pairing.getG1();
+		G1 = (CurveField<ZrField>) pairing.getG1();
 		Ppub = G1.newElement(); // Create a new uninitialized element.
 		Qu = G1.newElement();
 		Su = G1.newElement();
 		U = G1.newElement();
 		// 将变量T1，T2V初始化为GT中的元素，GT是乘法群
-		GT = pairing.getGT();
+		GT = (GTFiniteField<DegreeTwoExtensionQuadraticField<ZrField>>) pairing.getGT();
 		V = GT.newElement();
 		T2 = GT.newElement();
 	}

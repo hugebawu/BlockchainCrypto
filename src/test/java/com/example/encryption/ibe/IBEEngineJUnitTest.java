@@ -231,7 +231,7 @@ public class IBEEngineJUnitTest {
 	/**
 	 * TODO 本质是testIBEBF01bEngine,不同之出是加载的参数是a.properties
 	 */
-	@Ignore
+//	@Ignore
 	@Test
 	public void testBasicIBE() {
 		logger.info("start wp_ibe Testing \n");

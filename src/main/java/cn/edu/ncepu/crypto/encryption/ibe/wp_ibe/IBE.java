@@ -22,7 +22,7 @@ public interface IBE {
 
 	void extract();
 
-	void encrypt();
+	void encrypt(String message);
 
-	void decrypt();
+	String decrypt();
 }

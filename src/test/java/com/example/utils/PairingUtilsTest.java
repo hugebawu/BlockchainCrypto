@@ -16,8 +16,13 @@ import org.slf4j.LoggerFactory;
 import cn.edu.ncepu.crypto.utils.PairingUtils;
 import cn.edu.ncepu.crypto.utils.SysProperty;
 import edu.princeton.cs.algs4.Out;
+import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Pairing;
 import it.unisa.dia.gas.jpbc.PairingParameters;
+import it.unisa.dia.gas.plaf.jpbc.field.curve.CurveField;
+import it.unisa.dia.gas.plaf.jpbc.field.gt.GTFiniteField;
+import it.unisa.dia.gas.plaf.jpbc.field.quadratic.DegreeTwoExtensionQuadraticField;
+import it.unisa.dia.gas.plaf.jpbc.field.z.ZrField;
 import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
 
 /**
@@ -68,7 +73,7 @@ public class PairingUtilsTest {
 	/**
 	 * TODO 测试动态生成Type A1 PairingParameters并保存
 	 */
-//	@Ignore
+	@Ignore
 	@Test
 	public void testGenTypeA1PairParam() {
 		// Type A1 对称合数阶双线性群
@@ -99,5 +104,57 @@ public class PairingUtilsTest {
 		BigInteger n2 = typeA1Params.getBigInteger("n2");
 		assertEquals(n, n0.multiply(n1).multiply(n2));
 		assertTrue(p.add(new BigInteger("1")).equals(n.multiply(l)));
+	}
+
+//	@Ignore
+	@Test
+	// 验证hash函数H是否具有同态性质
+	@SuppressWarnings("unchecked")
+	public void testHomomorphism() {
+
+		PairingParameters typeAParams = PairingFactory
+				.getPairingParameters(PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256);
+		Pairing pairing = PairingFactory.getPairing(typeAParams);
+		ZrField Zr = (ZrField) pairing.getZr();
+		CurveField<ZrField> G1 = (CurveField<ZrField>) pairing.getG1();
+		GTFiniteField<DegreeTwoExtensionQuadraticField<ZrField>> GT = (GTFiniteField<DegreeTwoExtensionQuadraticField<ZrField>>) pairing
+				.getGT();
+
+		Element P = G1.newRandomElement().getImmutable();// 生成G1的生成元P
+		Element s = Zr.newRandomElement().getImmutable();// //随机生成主密钥s
+		Element Ppub = P.mulZn(s).getImmutable();// 计算Ppub=sP,注意顺序
+		Element Qu = PairingUtils.hash_G(G1, "IDu");
+
+		Element r1 = Zr.newRandomElement().getImmutable();
+		Element r2 = Zr.newRandomElement().getImmutable();
+		Element g = pairing.pairing(Qu, Ppub).getImmutable();
+
+		Element gr1 = g.powZn(r1).getImmutable();
+		Element H1 = PairingUtils.hash_H(GT, gr1);
+
+		Element gr2 = g.powZn(r2).getImmutable();
+
+		Element H2 = PairingUtils.hash_H(GT, gr2);
+
+		Element gr12 = g.powZn(r1.add(r2)).getImmutable();
+		Element H12 = PairingUtils.hash_H(GT, gr12);
+
+		logger.info("gr1    :" + gr1);
+		logger.info("gr2    :" + gr2);
+		logger.info("gr12   :" + gr12);
+		logger.info("gr1+gr2:" + gr1.add(gr2));
+		assertTrue(gr12.equals(gr1.add(gr2)));
+
+		logger.info("H1   :" + H1);
+		logger.info("H2   :" + H2);
+		logger.info("H12  :" + H12);
+		logger.info("H1+H2:" + H1.add(H2));
+
+		boolean isEqual = H12.toBigInteger().equals(H1.add(H2).toBigInteger());
+		assertTrue(isEqual);
+
+		if (isEqual) {
+			logger.info("the function H does have the nature of homomorphism");
+		}
 	}
 }

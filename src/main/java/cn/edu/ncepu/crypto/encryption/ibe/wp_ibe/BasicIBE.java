@@ -35,8 +35,6 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
 
 public class BasicIBE implements IBE {
 	private static Logger logger = LoggerFactory.getLogger(BasicIBE.class);
-	// 注意，这里M不能过长，受到Fq2中q的大小限制
-	private static String M = "81869981414486565817042987620009425916711137248094272342132238763687306328559";
 	// system parameters: params = <q,n,P,Ppub,G,H>
 	private Element s, // master key
 			P, // G1的生成元
@@ -45,9 +43,13 @@ public class BasicIBE implements IBE {
 			Su, // 通过用户公钥生成的用户私钥 Su = sQu
 			r, // Zr中的元素
 			U, // 密文的第一部分 U = rP
-			T1, // T1 = e(Qu,Ppub)^r
+			g1, // C1 = e(Qu,Ppub)^r;
+			g2; // C2 = e(Su,U)
+
+	BigInteger T1, // T1 = H(C1)
 			V, // 密文的第二部分 V = M xor T1; M 是明文. 密文: C = (U, V)
-			T2; // T2 = e(Su,U) = e(sQu,rP) = e(Qu,P)^sr = e(Qu,Ppub)^r = T1; 则明文: M = V xor T2
+			T2; // T2=H(C2)=H(e(Su,U))=H(e(sQu,rP))=H(e(Qu,P)^sr)=H(e(Qu,Ppub)^r)=H(C1)=T1;
+	// 则明文: M = V xor T2
 
 	// G1是定义在域Fq上的椭圆曲线，其阶为r.q与r都是质数，且存在一定的关系：这里是 (q+1)=r*h
 	// Zr 是阶为r的环Zr={0,...,r-1}
@@ -76,8 +78,6 @@ public class BasicIBE implements IBE {
 		logger.info("GT order: " + GT.getOrder());
 		logger.info("GT order bits length: " + GT.getOrder().bitLength());
 		logger.info("GT bits length: " + GT.getLengthInBytes() * 8);
-		Element elementGT = GT.newRandomElement();
-		logger.info("elementGT: ", elementGT);
 		logger.info("");
 		// 方案1
 		// 当PairingGroupType = Zr, bigNum需要小于r
@@ -92,7 +92,7 @@ public class BasicIBE implements IBE {
 		// 方案2 由于采用setFromHash的hash方式，不可行
 		try {
 			byte[] bytes = bigNum.getBytes("UTF-8");
-			elementGT.setFromHash(bytes, 0, bytes.length);
+			Element elementGT = GT.newElementFromHash(bytes, 0, bytes.length);
 			byte[] bytes2 = elementGT.toBytes();
 			logger.info(new String(bytes2, "UTF-8"));
 		} catch (UnsupportedEncodingException e) {
@@ -116,17 +116,15 @@ public class BasicIBE implements IBE {
 		checkSymmetric(pairing);
 		// 将变量r初始化为Zr中的元素
 		Zr = (ZrField) pairing.getZr();
-		r = Zr.newElement();
+//		r = Zr.newElement();
 		// 将变量Ppub，Qu，Su，V初始化为G1中的元素，G1是加法群
 		G1 = (CurveField<ZrField>) pairing.getG1();
-		Ppub = G1.newElement(); // Create a new uninitialized element.
-		Qu = G1.newElement();
-		Su = G1.newElement();
-		U = G1.newElement();
+//		Ppub = G1.newElement(); // Create a new uninitialized element.
+//		Qu = G1.newElement();
+//		Su = G1.newElement();
+//		U = G1.newElement();
 		// 将变量T1，T2V初始化为GT中的元素，GT是乘法群
 		GT = (GTFiniteField<DegreeTwoExtensionQuadraticField<ZrField>>) pairing.getGT();
-		V = GT.newElement();
-		T2 = GT.newElement();
 	}
 
 	/**
@@ -142,10 +140,9 @@ public class BasicIBE implements IBE {
 
 	@Override
 	public void setup() {
-		logger.info("-------------------系统建立阶段----------------------");
-		s = Zr.newRandomElement().getImmutable();// //随机生成主密钥s
 		P = G1.newRandomElement().getImmutable();// 生成G1的生成元P
-		Ppub = P.mulZn(s);// 计算Ppub=sP,注意顺序
+		s = Zr.newRandomElement().getImmutable();// //随机生成主密钥s
+		Ppub = P.mulZn(s).getImmutable();// 计算Ppub=sP,注意顺序
 		logger.info("P=" + P);
 		logger.info("s=" + s);
 		logger.info("Ppub=" + Ppub);
@@ -153,9 +150,8 @@ public class BasicIBE implements IBE {
 
 	@Override
 	public void extract() {
-		logger.info("-------------------密钥提取阶段----------------------");
 		// 通过Hash函数G从用户IDu产生的公钥Qu
-		Qu = pairing.getG1().newElementFromHash("IDu".getBytes(), 0, "IDu".getBytes().length).getImmutable();
+		Qu = PairingUtils.hash_G(G1, "IDu");
 		// 通过PGK生成用户私钥
 		Su = Qu.mulZn(s).getImmutable();
 		logger.info("Qu=" + Qu);
@@ -163,27 +159,27 @@ public class BasicIBE implements IBE {
 	}
 
 	@Override
-	public void encrypt() {
-		logger.info("-------------------加密阶段----------------------");
+	public void encrypt(String message) {
 		r = Zr.newRandomElement().getImmutable();
 		U = P.mulZn(r);
-		T1 = pairing.pairing(Qu, Ppub).getImmutable();// 计算e（Ppub,Qu）
-		T1 = T1.powZn(r).getImmutable();
-		logger.info("plaintext: " + M);
+		g1 = pairing.pairing(Qu, Ppub).getImmutable();// 计算e（Ppub,Qu）
+		g1 = g1.powZn(r).getImmutable();
+		// 注意，这里M不能过长，受到Fq2中q的大小限制
+		BigInteger M = new BigInteger(message);
 		// 注意，这里T1没有进一步通过映射H:Fp2->{0,1}^n，是否会降低安全性?
-		V = GT.newElement(new BigInteger(M).xor(T1.toBigInteger()));
+		T1 = PairingUtils.hash_H(GT, g1).toBigInteger();
+		V = M.xor(T1);
 		logger.info("r=" + r);
 		logger.info("U=" + U);
-		logger.info("T1=e（Qu, Ppub）^r=" + T1);
+		logger.info("T1=H(e（Qu, Ppub）^r)=" + T1);
 	}
 
 	@Override
-	public void decrypt() {
-		logger.info("-------------------解密阶段----------------------");
-		T2 = pairing.pairing(Su, U).getImmutable();
-		logger.info("T2=e(Su, U)=" + T2);
-		logger.info("");
-		String decrypted_M = V.toBigInteger().xor(T2.toBigInteger()).toString(10);
-		logger.info("decrypted: " + decrypted_M);
+	public String decrypt() {
+		g2 = pairing.pairing(Su, U).getImmutable();
+		T2 = PairingUtils.hash_H(GT, g2).toBigInteger();
+		logger.info("T2=H(e(Su, U))=" + T2);
+		BigInteger decrypted_M = V.xor(T2);
+		return decrypted_M.toString();
 	}
 }

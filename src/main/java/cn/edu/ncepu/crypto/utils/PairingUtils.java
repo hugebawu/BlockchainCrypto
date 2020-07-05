@@ -16,6 +16,7 @@ import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.util.encoders.Hex;
 
 import it.unisa.dia.gas.jpbc.Element;
+import it.unisa.dia.gas.jpbc.Field;
 import it.unisa.dia.gas.jpbc.Pairing;
 import it.unisa.dia.gas.jpbc.PairingParameters;
 import it.unisa.dia.gas.plaf.jpbc.pairing.a.TypeACurveGenerator;
@@ -75,29 +76,29 @@ public class PairingUtils {
 		return (PropertiesParameters) pairParamGenerator.generate();
 	}
 
-	public static Element MapByteArrayToGroup(Pairing pairing, byte[] message, PairingGroupType pairingGroupType) {
-		byte[] shaResult = CommonUtils.hash(message, "SHA256");
-		switch (pairingGroupType) {
-		case Zr:
-			return pairing.getZr().newElement().setFromHash(shaResult, 0, shaResult.length).getImmutable();
-		case G1:
-			return pairing.getG1().newElement().setFromHash(shaResult, 0, shaResult.length).getImmutable();
-		case G2:
-			return pairing.getG2().newElement().setFromHash(shaResult, 0, shaResult.length).getImmutable();
-		case GT:
-			return pairing.getGT().newElement().setFromHash(shaResult, 0, shaResult.length).getImmutable();
-		default:
-			throw new RuntimeException("Invalid pairing group type.");
-		}
-	}
-
-	public static Element MapStringToGroup(Pairing pairing, String message, PairingGroupType pairingGroupType) {
-		return PairingUtils.MapByteArrayToGroup(pairing, message.getBytes(), pairingGroupType);
+	/**
+	 * TODO the hash function G described in Boneh-Franklin CPA-secure IBE
+	 * G: {0,1}*->Fp, hash user id to a point in the G1
+	 * @param G1: elliptic curve group
+	 * @param ID: user id
+	 * @return 参数描述
+	 */
+	public static Element hash_G(Field<?> G1, String ID) {
+		byte[] bytes = ID.getBytes();
+		return G1.newElementFromHash(bytes, 0, bytes.length).getImmutable();
 	}
 
 	/**
-	 * 
+	 * TODO the hash function H described in Boneh-Franklin CPA-secure IBE
+	 * @param GT: the finite field GT
+	 * @param element: element in GT
+	 * @return a element in GT
 	 */
+	public static Element hash_H(Field<?> GT, Element element) {
+		byte[] bytes = element.toBytes();
+		return GT.newElementFromHash(bytes, 0, bytes.length).getImmutable();
+	}
+
 	/**
 	 * TODO map the decimal String(e.g,"123456789012345678901234567890" into a element in the pairingGroup)
 	 * Attention: when pairingGroupType = Zr, numString need to be smaller than r; 
@@ -135,6 +136,26 @@ public class PairingUtils {
 	 */
 	public static String mapElementToNumString(Element e) {
 		return e.toBigInteger().toString(10);
+	}
+
+	public static Element MapByteArrayToGroup(Pairing pairing, byte[] message, PairingGroupType pairingGroupType) {
+		byte[] shaResult = CommonUtils.hash(message, "SHA256");
+		switch (pairingGroupType) {
+		case Zr:
+			return pairing.getZr().newElement().setFromHash(shaResult, 0, shaResult.length).getImmutable();
+		case G1:
+			return pairing.getG1().newElement().setFromHash(shaResult, 0, shaResult.length).getImmutable();
+		case G2:
+			return pairing.getG2().newElement().setFromHash(shaResult, 0, shaResult.length).getImmutable();
+		case GT:
+			return pairing.getGT().newElement().setFromHash(shaResult, 0, shaResult.length).getImmutable();
+		default:
+			throw new RuntimeException("Invalid pairing group type.");
+		}
+	}
+
+	public static Element MapStringToGroup(Pairing pairing, String message, PairingGroupType pairingGroupType) {
+		return PairingUtils.MapByteArrayToGroup(pairing, message.getBytes(), pairingGroupType);
 	}
 
 	public static Element MapByteArrayToFirstHalfZr(Pairing pairing, byte[] message) {

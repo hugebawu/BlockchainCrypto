@@ -1,5 +1,7 @@
 package com.example.encryption.ibe;
 
+import static org.junit.Assert.assertTrue;
+
 import java.io.IOException;
 import java.lang.reflect.Proxy;
 
@@ -164,20 +166,28 @@ public class IBEEngineJUnitTest {
 	/**
 	 * TODO 本质是testIBEBF01bEngine,不同之出是加载的参数是a.properties
 	 */
-//	@Ignore
+	@Ignore
 	@Test
 	public void testBasicIBE() {
-		logger.info("start wp_ibe Testing \n");
+		logger.info("start BasicIBE Testing \n");
+		String message = "81869981414486565817042987620009425916711137248094272342132238763687306328559";
 		// 在jpbc配置使用的那个jar包，\params\curves下面
 		pairingParams = PairingFactory.getPairingParameters(PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256);
 		BasicIBE ident = new BasicIBE(pairingParams);
 		// 动态代理，统计各个方法耗时
 		IBE identProxy = (IBE) Proxy.newProxyInstance(BasicIBE.class.getClassLoader(), new Class[] { IBE.class },
 				new TimeCountProxyHandle(ident));
+		logger.info("--------------------系统建立阶段----------------------");
 		identProxy.setup();
+		logger.info("--------------------密钥提取阶段----------------------");
 		identProxy.extract();
-		identProxy.encrypt();
-		identProxy.decrypt();
+		logger.info("----------------------加密阶段-----------------------");
+		logger.info("plaintext: " + message);
+		identProxy.encrypt(message);
+		logger.info("-----------------------解密阶段----------------------");
+		String decrypted = identProxy.decrypt();
+		logger.info("decrypted: " + decrypted);
+		assertTrue(message.equals(decrypted));
 	}
 
 	@Ignore

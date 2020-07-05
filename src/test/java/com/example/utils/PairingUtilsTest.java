@@ -106,11 +106,38 @@ public class PairingUtilsTest {
 		assertTrue(p.add(new BigInteger("1")).equals(n.multiply(l)));
 	}
 
-//	@Ignore
+	/**
+	 * TODO 验证hash函数H是否具有同态性质: H(a)+H(b)=H(a*b)
+	 */
+	@Ignore
 	@Test
-	// 验证hash函数H是否具有同态性质
+	@SuppressWarnings({ "unchecked", "unused" })
+	public void testHomJomorphism1() {
+		PairingParameters typeAParams = PairingFactory
+				.getPairingParameters(PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256);
+		Pairing pairing = PairingFactory.getPairing(typeAParams);
+		ZrField Zr = (ZrField) pairing.getZr();
+		CurveField<ZrField> G1 = (CurveField<ZrField>) pairing.getG1();
+		GTFiniteField<DegreeTwoExtensionQuadraticField<ZrField>> GT = (GTFiniteField<DegreeTwoExtensionQuadraticField<ZrField>>) pairing
+				.getGT();
+		Element a = GT.newRandomElement().getImmutable();
+		Element b = GT.newRandomElement().getImmutable();
+		Element Ha = PairingUtils.hash_H(GT, a);
+		Element Hb = PairingUtils.hash_H(GT, b);
+		Element Hab = PairingUtils.hash_H(GT, a.mul(b));
+		boolean isEqual = Hab.toBigInteger().equals(Ha.add(Hb).toBigInteger());
+		assertTrue(isEqual);
+		if (isEqual) {
+			logger.info("the function H have the nature of homomorphism");
+		}
+	}
+
+	@Ignore
+	@Test
+	// 验证 [H(g^r1) + H(g^r2)].toBigInteger = [H(g^(r1+r2))].toBigInteger
+	// 因为 H具有同态性质: H(g^r1) + H(g^r2) = H(g^r1*g^r2);且g^r1*g^r2 = g^(r1+r2);所以成立
 	@SuppressWarnings("unchecked")
-	public void testHomomorphism() {
+	public void testHomomorphism2() {
 
 		PairingParameters typeAParams = PairingFactory
 				.getPairingParameters(PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256);
@@ -154,7 +181,8 @@ public class PairingUtilsTest {
 		assertTrue(isEqual);
 
 		if (isEqual) {
-			logger.info("the function H does have the nature of homomorphism");
+			logger.info("[H(g^r1) + H(g^r2)].toBigInteger = [H(g^(r1+r2))].toBigInteger does hold");
 		}
 	}
+
 }

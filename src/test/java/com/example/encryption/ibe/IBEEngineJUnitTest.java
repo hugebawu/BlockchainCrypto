@@ -2,7 +2,6 @@ package com.example.encryption.ibe;
 
 import java.io.IOException;
 import java.lang.reflect.Proxy;
-import java.math.BigInteger;
 
 import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.crypto.InvalidCipherTextException;
@@ -26,15 +25,11 @@ import cn.edu.ncepu.crypto.encryption.ibe.wp_ibe.BasicIBE;
 import cn.edu.ncepu.crypto.encryption.ibe.wp_ibe.IBE;
 import cn.edu.ncepu.crypto.utils.PairingUtils;
 import cn.edu.ncepu.crypto.utils.PairingUtils.PairingGroupType;
-import cn.edu.ncepu.crypto.utils.SysProperty;
 import cn.edu.ncepu.crypto.utils.TimeCountProxyHandle;
-import edu.princeton.cs.algs4.Out;
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Pairing;
 import it.unisa.dia.gas.jpbc.PairingParameters;
 import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
-import it.unisa.dia.gas.plaf.jpbc.pairing.a.TypeACurveGenerator;
-import it.unisa.dia.gas.plaf.jpbc.pairing.a1.TypeA1CurveGenerator;
 
 /**
  * Created by Weiran Liu on 2015/10/5.
@@ -43,7 +38,6 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.a1.TypeA1CurveGenerator;
  */
 public class IBEEngineJUnitTest {
 	private static Logger logger = LoggerFactory.getLogger(IBEEngineJUnitTest.class);
-	private static String USER_DIR = SysProperty.USER_DIR;
 	private static final String identity_1 = "ID_1";
 	private static final String identity_2 = "ID_2";
 	private PairingParameters pairingParams = null;
@@ -165,67 +159,6 @@ public class IBEEngineJUnitTest {
 			e.printStackTrace();
 			System.exit(1);
 		}
-	}
-
-	/**
-	 * TODO 测试动态生成Type A PairingParameters并保存
-	 */
-	@Ignore
-	@Test
-	public void testGenTypeAPairParam() {
-		this.engine = IBEBF01aEngine.getInstance();
-		int rbits = 80; // rbits是Z其中阶数p的比特长度 a,b属于Zr={0,...,p-1}
-		int qbits = 1024; // qBit是域Fq的中q的比特长度，G是由定义在域Fq上的椭圆曲线E上的点(x,y的取值范围是Fq)构成的群，
-							// G的阶数(即G的元素个数)的比特长度为r。q,r存在一定的关系，比如r=(q+1)/6
-		// 通过代码动态生成Pairing对象
-		// 指定椭圆曲线的种类
-		TypeACurveGenerator pairParamGenerator = new TypeACurveGenerator(rbits, qbits);
-		// 产生椭圆曲线参数
-		PairingParameters typeAParams = pairParamGenerator.generate();
-		// 将参数写入文件a_80_256.properties中，使用Princeton大学封装的文件输出库
-		Out out = new Out(USER_DIR + "/elements/a_80_1024.properties");
-		out.println(typeAParams);
-		// print Pairing parameters
-		logger.info(typeAParams.toString());
-		// 从文件a_80_256.properties中读取参数初始化双线性群
-		typeAParams = PairingFactory.getPairingParameters(USER_DIR + "/elements/a_80_1024.properties");
-		// 初始化Pairing
-		Pairing pairing = PairingFactory.getPairing(typeAParams);
-		// The number of algebraic structures available
-		logger.info("" + pairing.getDegree());
-
-		BigInteger q = new BigInteger(typeAParams.getString("q"));
-		logger.info("q bit length: " + q.toString(2).length());
-		logger.info("");
-	}
-
-	/**
-	 * TODO 测试动态生成Type A1 PairingParameters并保存
-	 */
-	@Ignore
-	@Test
-	public void testGenTypeA1PairParam() {
-		// Type A1 对称合数阶双线性群
-		this.engine = IBELW10Engine.getInstance();
-		int numPrime = 3; // numPrime是阶数N中有几个质数因子
-		int qBit = 128; // qBit是每个质数因子的比特长度
-
-		// Type A1涉及到的阶数很大，其参数产生的时间也比较长
-		// 指定椭圆曲线的种类
-		TypeA1CurveGenerator pairParamGenerator = new TypeA1CurveGenerator(numPrime, qBit);
-		// 产生椭圆曲线参数
-		PairingParameters typeA1Params = pairParamGenerator.generate();
-		// 将参数写入文件a_80_256.properties中，使用Princeton大学封装的文件输出库
-		Out out = new Out(USER_DIR + "/elements/a1_3_128.properties");
-		out.println(typeA1Params);
-		// print Pairing parameters
-		logger.info(typeA1Params.toString());
-		// 从文件a1_3_128.properties中读取参数初始化双线性群
-		typeA1Params = PairingFactory.getPairingParameters("/elements/a1_3_128.properties");
-		// 初始化Pairing
-		Pairing pairing = PairingFactory.getPairing(typeA1Params);
-		// The number of algebraic structures available
-		logger.info("" + pairing.getDegree());
 	}
 
 	/**

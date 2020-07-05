@@ -36,7 +36,7 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
 public class BasicIBE implements IBE {
 	private static Logger logger = LoggerFactory.getLogger(BasicIBE.class);
 	// 注意，这里M不能过长，受到Fq2中q的大小限制
-	private static String M = "121234643122343453456345674444442323";
+	private static String M = "81869981414486565817042987620009425916711137248094272342132238763687306328559";
 	// system parameters: params = <q,n,P,Ppub,G,H>
 	private Element s, // master key
 			P, // G1的生成元
@@ -62,18 +62,6 @@ public class BasicIBE implements IBE {
 		this.pairing = PairingFactory.getPairing(typeAParams);
 		init();
 		// Create a new element with a specified value
-		// r is the order of ring Zr a prime; q is the order of Filed Fq also a prime.
-		BigInteger r = typeAParams.getBigInteger("r");
-		logger.info("r bit length: " + r.toString(2).length());
-		BigInteger q = typeAParams.getBigInteger("q");
-		logger.info("q bit length: " + q.toString(2).length());
-		logger.info("");
-		logger.info("(q+1) mod r = " + (q.add(new BigInteger("1"))).remainder(r));
-		BigInteger h = q.add(new BigInteger("1")).divide(r);
-		logger.info("q: " + q);
-		logger.info("r: " + r);
-		logger.info("h = (q+1)/r: " + h);
-		logger.info("");
 		logger.info("Zr order: " + Zr.getOrder());
 		logger.info("Zr order bits length: " + Zr.getOrder().bitLength());
 		Element elementZr1 = Zr.newElement(new BigInteger("539084384990328"));
@@ -182,6 +170,7 @@ public class BasicIBE implements IBE {
 		T1 = pairing.pairing(Qu, Ppub).getImmutable();// 计算e（Ppub,Qu）
 		T1 = T1.powZn(r).getImmutable();
 		logger.info("plaintext: " + M);
+		// 注意，这里T1没有进一步通过映射H:Fp2->{0,1}^n，是否会降低安全性?
 		V = GT.newElement(new BigInteger(M).xor(T1.toBigInteger()));
 		logger.info("r=" + r);
 		logger.info("U=" + U);

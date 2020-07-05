@@ -18,6 +18,9 @@ import org.bouncycastle.util.encoders.Hex;
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Pairing;
 import it.unisa.dia.gas.jpbc.PairingParameters;
+import it.unisa.dia.gas.plaf.jpbc.pairing.a.TypeACurveGenerator;
+import it.unisa.dia.gas.plaf.jpbc.pairing.a1.TypeA1CurveGenerator;
+import it.unisa.dia.gas.plaf.jpbc.pairing.parameters.PropertiesParameters;
 
 /**
  * Created by Weiran Liu on 2016/8/24.
@@ -46,54 +49,31 @@ public class PairingUtils {
 		Zr, G1, G2, GT,
 	}
 
-//    public static final PairingParameters DEFAULT_TYPE_A_160_512_PAIRING_PARAMETER = PairingFactory.getPairingParameters()
+	/**
+	 * Generate type A pairing parameter in pairing-based cryptography.
+	 * Zr={0,...,r-1}; G is the Elliptic curve defied in the field Fq whose order is r.
+	 * GT is defined in Fq2; h*r = q+1
+	 * @param rbits bit length for the r
+	 * @param qbits bit length for the q
+	 * @return Type A pairing parameters
+	 */
+	public static PropertiesParameters genTypeAPairParam(int rbits, int qbits) {
+		TypeACurveGenerator pairParamGenerator = new TypeACurveGenerator(rbits, qbits);
+		return (PropertiesParameters) pairParamGenerator.generate();
+	}
 
-//    /**
-//     * Generate type A parameter for further used in paiaring-based cryptography.
-//     * @param rBitLength Bit length for the group Z_r
-//     * @param qBitLength Bit length for the group G and G_T
-//     * @return Type A pairing parameters
-//     */
-//    public static PropertiesParameters GenerateTypeAParameters(int rBitLength, int qBitLength) {
-//        PropertiesParameters parameters;
-//        Pairing pairing;
-//        Element g;
-//        // Generate curve parameters
-//        while (true) {
-//            parameters = generate_type_a_curve_params(rBitLength, qBitLength);
-//            pairing = PairingFactory.getPairing(parameters);
-//            g = pairing.getG1().newRandomElement().getImmutable();
-//            if (!pairing.pairing(g, g).isOne()) { break; }
-//        }
-//        return parameters;
-//    }
-
-//    public static PropertiesParameters GenerateTypeA1Parameters(int qBitLength) {
-//        PropertiesParameters parameters;
-//        Pairing pairing;
-//        Element generator;
-//        Element g;
-//
-//        // Generate curve parameters
-//        while (true) {
-//            parameters = generate_type_a1_curve_params(qBitLength);
-//            pairing = PairingFactory.getPairing(parameters);
-//            generator = pairing.getG1().newRandomElement().getImmutable();
-//            g = ElementUtils.getGenerator(pairing, generator, parameters, 0, 3).getImmutable();
-//            if (!pairing.pairing(g, g).isOne()) { break; }
-//        }
-//        return parameters;
-//    }
-
-//    private static PropertiesParameters generate_type_a_curve_params(int rBitLength, int qBitLength) {
-//        PairingParametersGenerator parametersGenerator = new TypeACurveGenerator(rBitLength, qBitLength);
-//        return (PropertiesParameters) parametersGenerator.generate();
-//    }
-
-//    private static PropertiesParameters generate_type_a1_curve_params(int qBitLength) {
-//        PairingParametersGenerator parametersGenerator = new TypeA1CurveGenerator(3, qBitLength);
-//        return (PropertiesParameters) parametersGenerator.generate();
-//    }
+	/**
+	 * Generate type A pairing parameter in pairing-based cryptography.
+	 * r is given and cannot be chosen; p + 1 = n*l;
+	 * p is prime ,same as the q in type A; n is the order of the group
+	 * @param numPrime: the number of prime factors in n
+	 * @param bits: bit length for each prime factor
+	 * @return Type A1 pairing parameters
+	 */
+	public static PropertiesParameters genTypeA1PairParam(int numPrime, int bits) {
+		TypeA1CurveGenerator pairParamGenerator = new TypeA1CurveGenerator(numPrime, bits);
+		return (PropertiesParameters) pairParamGenerator.generate();
+	}
 
 	public static Element MapByteArrayToGroup(Pairing pairing, byte[] message, PairingGroupType pairingGroupType) {
 		byte[] shaResult = CommonUtils.hash(message, "SHA256");

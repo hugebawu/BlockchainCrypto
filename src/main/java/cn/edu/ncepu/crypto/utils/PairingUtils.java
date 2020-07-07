@@ -79,19 +79,19 @@ public class PairingUtils {
 	/**
 	 * TODO the hash function G described in Boneh-Franklin CPA-secure IBE
 	 * G: {0,1}*->Fp, hash user id to a point in the G1
-	 * @param G1: elliptic curve group
-	 * @param ID: user id
+	 * @param G1 elliptic curve group G1
+	 * @param ID user id
 	 * @return 参数描述
 	 */
 	public static Element hash_G(Field<?> G1, String ID) {
-		byte[] bytes = ID.getBytes();
-		return G1.newElementFromHash(bytes, 0, bytes.length).getImmutable();
+		byte[] shaResult = CommonUtils.hash(ID.getBytes(), "SHA256");
+		return G1.newElementFromHash(shaResult, 0, shaResult.length).getImmutable();
 	}
 
 	/**
 	 * TODO the hash function H described in Boneh-Franklin CPA-secure IBE
-	 * @param GT: the finite field GT
-	 * @param element: element in GT
+	 * @param GT the finite field GT
+	 * @param element element in GT
 	 * @return a element in GT
 	 */
 	public static Element hash_H(Field<?> GT, Element element) {

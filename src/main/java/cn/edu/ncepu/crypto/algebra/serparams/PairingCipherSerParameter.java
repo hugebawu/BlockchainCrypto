@@ -28,12 +28,12 @@ public class PairingCipherSerParameter implements CipherParameters, Serializable
 	}
 
 	@Override
-	public boolean equals(Object anOjbect) {
-		if (this == anOjbect) {
+	public boolean equals(Object anObject) {
+		if (this == anObject) {
 			return true;
 		}
-		if (anOjbect instanceof PairingCipherSerParameter) {
-			PairingCipherSerParameter that = (PairingCipherSerParameter) anOjbect;
+		if (anObject instanceof PairingCipherSerParameter) {
+			PairingCipherSerParameter that = (PairingCipherSerParameter) anObject;
 			// Compare Pairing Parameters
 			return this.getParameters().toString().equals(that.getParameters().toString());
 		}

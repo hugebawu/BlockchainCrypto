@@ -26,12 +26,12 @@ public class PairingKeySerParameter extends PairingCipherSerParameter {
 	}
 
 	@Override
-	public boolean equals(Object anOjbect) {
-		if (this == anOjbect) {
+	public boolean equals(Object anObject) {
+		if (this == anObject) {
 			return true;
 		}
-		if (anOjbect instanceof PairingKeySerParameter) {
-			PairingKeySerParameter that = (PairingKeySerParameter) anOjbect;
+		if (anObject instanceof PairingKeySerParameter) {
+			PairingKeySerParameter that = (PairingKeySerParameter) anObject;
 			// Compare Pairing Parameters
 			return (this.privateKey == that.privateKey);
 		}

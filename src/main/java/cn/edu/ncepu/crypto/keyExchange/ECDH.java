@@ -31,8 +31,8 @@ public class ECDH {
 
 	/**
 	 * TODO(generate shared key for ECDH key exchange scheme)
-	 * @param publicKey: the other party's EC public key
-	 * @param privateKey: own private key
+	 * @param publicKey the other party's EC public key
+	 * @param privateKey own private key
 	 * @return shared key string
 	 * @throws NoSuchAlgorithmException 
 	 * @throws IllegalStateException 

@@ -64,7 +64,7 @@ public class CommonUtils {
 	/**
 	 * TODO convert Hex or Base64 encoded "String" public or private Key to "PublicKey" or "PrivateKey"
 	 * @param isECPublicKey
-	 * @param enctype: should be "base64" or "Hex"
+	 * @param enctype should be "base64" or "Hex"
 	 * @param key
 	 * @param algorithm
 	 * @return 

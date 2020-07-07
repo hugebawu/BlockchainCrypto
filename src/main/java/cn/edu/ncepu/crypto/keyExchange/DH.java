@@ -52,8 +52,8 @@ public class DH {
 
 	/**
 	 * TODO(generate shared key for ECDH key exchange scheme)
-	 * @param publickey: the other party's based64 encoded Diffie-Hellman public key
-	 * @param privateKey: own private key
+	 * @param publickey the other party's based64 encoded Diffie-Hellman public key
+	 * @param privateKey own private key
 	 * @return shared key string
 	 * @throws NoSuchAlgorithmException 
 	 * @throws InvalidKeyException 
@@ -68,8 +68,8 @@ public class DH {
 
 	/**
 	 * TODO(generate shared key for ECDH key exchange scheme)
-	 * @param publickey: the other party's based64 encoded Diffie-Hellman public key
-	 * @param privateKey: own private key
+	 * @param publickey the other party's based64 encoded Diffie-Hellman public key
+	 * @param privateKey own private key
 	 * @return shared key string
 	 * @throws NoSuchAlgorithmException 
 	 * @throws InvalidKeyException 

@@ -71,13 +71,13 @@ public class CertificateUtils {
 
 	/**
 	 * TODO(generate key store file, 一个密钥库可以包含多个证书及其对应的公或私钥)
-	 * @param storepass: keystore password
-	 * @param keyalg: encryption algorithm e.g., RSA；
+	 * @param storepass keystore password
+	 * @param keyalg encryption algorithm e.g., RSA；
 	 * @param keysize size of the key
-	 * @param sigalg: signature algorithm e.g., SHA1withRSA；
-	 * @param validity: validity days of the certificate；
-	 * @param alias: alias of keystore
-	 * @param dname: Unique distinguished name(CN: common name, if the certificateis used https,it should be the same as domain name)
+	 * @param sigalg signature algorithm e.g., SHA1withRSA；
+	 * @param validity validity days of the certificate；
+	 * @param alias alias of keystore
+	 * @param dname Unique distinguished name(CN: common name, if the certificateis used https,it should be the same as domain name)
 	 * @return
 	 * @throws Exception 
 	 */
@@ -103,9 +103,9 @@ public class CertificateUtils {
 
 	/**
 	 * TODO(export certificate file from key store)
-	 * @param storepass : keystore password
-	 * @param alias：the name of certificate in programme；
-	 * @param keystore: name of the keystore
+	 * @param storepass keystore password
+	 * @param alias the name of certificate in programme；
+	 * @param keystore name of the keystore
 	 * @param rfc output in the form of RFC
 	 * @throws Exception 
 	 */

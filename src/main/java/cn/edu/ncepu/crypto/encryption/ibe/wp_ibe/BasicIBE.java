@@ -51,6 +51,8 @@ public class BasicIBE implements IBE {
 			T2; // T2=H(C2)=H(e(Su,U))=H(e(sQu,rP))=H(e(Qu,P)^sr)=H(e(Qu,Ppub)^r)=H(C1)=T1;
 	// 则明文: M = V xor T2
 
+	private Pairing pairing;
+
 	// G1是定义在域Fq上的椭圆曲线，其阶为r.q与r都是质数，且存在一定的关系：这里是 (q+1)=r*h
 	// Zr 是阶为r的环Zr={0,...,r-1}
 	// GT是有限域Fq2。其元素的阶虽然为r，但是其取值范围比q大的多，目前不清楚怎么回事。
@@ -58,11 +60,23 @@ public class BasicIBE implements IBE {
 	private CurveField<ZrField> G1;
 	private GTFiniteField<DegreeTwoExtensionQuadraticField<ZrField>> GT;
 
-	private Pairing pairing;
-
 	public BasicIBE(PairingParameters typeAParams) {
 		this.pairing = PairingFactory.getPairing(typeAParams);
-		init();
+
+		// For bilinear maps only, to use the PBC wrapper and gain in performance, the
+		// usePBCWhenPossible property of the pairing factory must be set.
+		// Moreover, if PBC and the JPBC wrapper are not installed properly then the
+		// factory will resort to the JPBC pairing implementation.
+		// 需要配置才能使用http://gas.dia.unisa.it/projects/jpbc/docs/pbcwrapper.html#.XvnxeygzZPY
+		PairingFactory.getInstance().setUsePBCWhenPossible(true);//
+		checkSymmetric(pairing);
+		// 将变量r初始化为Zr中的元素
+		Zr = (ZrField) pairing.getZr();
+		// 将变量Ppub，Qu，Su，V初始化为G1中的元素，G1是加法群
+		G1 = (CurveField<ZrField>) pairing.getG1();
+		// 将变量T1，T2V初始化为GT中的元素，GT是乘法群
+		GT = (GTFiniteField<DegreeTwoExtensionQuadraticField<ZrField>>) pairing.getGT();
+
 		// Create a new element with a specified value
 		logger.info("Zr order: " + Zr.getOrder());
 		logger.info("Zr order bits length: " + Zr.getOrder().bitLength());
@@ -99,32 +113,6 @@ public class BasicIBE implements IBE {
 			e.printStackTrace();
 		}
 		logger.info("");
-	}
-
-	/**
-	 * 初始化
-	 * @return void 
-	 */
-	@SuppressWarnings("unchecked")
-	private void init() {
-		// For bilinear maps only, to use the PBC wrapper and gain in performance, the
-		// usePBCWhenPossible property of the pairing factory must be set.
-		// Moreover, if PBC and the JPBC wrapper are not installed properly then the
-		// factory will resort to the JPBC pairing implementation.
-		// 需要配置才能使用http://gas.dia.unisa.it/projects/jpbc/docs/pbcwrapper.html#.XvnxeygzZPY
-		PairingFactory.getInstance().setUsePBCWhenPossible(true);//
-		checkSymmetric(pairing);
-		// 将变量r初始化为Zr中的元素
-		Zr = (ZrField) pairing.getZr();
-//		r = Zr.newElement();
-		// 将变量Ppub，Qu，Su，V初始化为G1中的元素，G1是加法群
-		G1 = (CurveField<ZrField>) pairing.getG1();
-//		Ppub = G1.newElement(); // Create a new uninitialized element.
-//		Qu = G1.newElement();
-//		Su = G1.newElement();
-//		U = G1.newElement();
-		// 将变量T1，T2V初始化为GT中的元素，GT是乘法群
-		GT = (GTFiniteField<DegreeTwoExtensionQuadraticField<ZrField>>) pairing.getGT();
 	}
 
 	/**

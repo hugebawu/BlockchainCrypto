@@ -26,7 +26,6 @@ public class IBEBF01aEncryptionGenerator implements PairingEncryptionGenerator, 
 	private IBEEncryptionGenerationParameter params;
 	private IBEBF01aPublicKeySerParameter publicKeyParameter;
 	private Element sessionKey;
-	private Element U;
 
 	@Override
 	public void init(CipherParameters params) {
@@ -34,7 +33,7 @@ public class IBEBF01aEncryptionGenerator implements PairingEncryptionGenerator, 
 		this.publicKeyParameter = (IBEBF01aPublicKeySerParameter) this.params.getPublicKeyParameter();
 	}
 
-	private void computeEncapsulation() {
+	private Element computeEncapsulation() {
 		Pairing pairing = PairingFactory.getPairing(publicKeyParameter.getParameters());
 		String id = this.params.getId();
 		Element elementId = PairingUtils.MapStringToGroup(pairing, id, PairingGroupType.G1).getImmutable();
@@ -42,19 +41,19 @@ public class IBEBF01aEncryptionGenerator implements PairingEncryptionGenerator, 
 		this.sessionKey = PairingUtils.MapByteArrayToGroup(pairing,
 				pairing.pairing(elementId, publicKeyParameter.getGs()).powZn(r).toBytes(),
 				PairingUtils.PairingGroupType.GT);
-		this.U = publicKeyParameter.getG().powZn(r).getImmutable();
+		return publicKeyParameter.getG().powZn(r).getImmutable();
 	}
 
 	@Override
 	public PairingKeyEncapsulationSerPair generateEncryptionPair() {
-		computeEncapsulation();
+		Element U = computeEncapsulation();
 		return new PairingKeyEncapsulationSerPair(this.sessionKey.toBytes(),
 				new IBEBF01aHeaderSerParameter(publicKeyParameter.getParameters(), U));
 	}
 
 	@Override
 	public PairingCipherSerParameter generateCiphertext() {
-		computeEncapsulation();
+		Element U = computeEncapsulation();
 		Element V = sessionKey.mul(this.params.getMessage()).getImmutable();
 		return new IBEBF01aCiphertextSerParameter(publicKeyParameter.getParameters(), U, V);
 	}

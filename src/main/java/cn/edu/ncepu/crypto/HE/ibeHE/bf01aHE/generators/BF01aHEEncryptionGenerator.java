@@ -3,8 +3,6 @@
  */
 package cn.edu.ncepu.crypto.HE.ibeHE.bf01aHE.generators;
 
-import java.math.BigInteger;
-
 import org.bouncycastle.crypto.CipherParameters;
 
 import cn.edu.ncepu.crypto.HE.ibeHE.bf01aHE.serparams.BF01aHECiphertextSerParameter;
@@ -14,6 +12,7 @@ import cn.edu.ncepu.crypto.algebra.generators.PairingEncryptionGenerator;
 import cn.edu.ncepu.crypto.algebra.serparams.PairingCipherSerParameter;
 import cn.edu.ncepu.crypto.utils.PairingUtils;
 import it.unisa.dia.gas.jpbc.Element;
+import it.unisa.dia.gas.jpbc.Field;
 import it.unisa.dia.gas.jpbc.Pairing;
 import it.unisa.dia.gas.jpbc.PairingParameters;
 import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
@@ -41,13 +40,15 @@ public class BF01aHEEncryptionGenerator implements PairingEncryptionGenerator {
 	public PairingCipherSerParameter generateCiphertext() {
 		PairingParameters pairingParameters = publicKeyParameter.getParameters();
 		Pairing pairing = PairingFactory.getPairing(pairingParameters);
-		String id = this.params.getId();
-		Element elementId = PairingUtils.hash_G(pairing.getG1(), id);
+		Element elementId = PairingUtils.hash_G(pairing.getG1(), this.params.getId());
 		Element r = pairing.getZr().newRandomElement().getImmutable();
 		Element U = publicKeyParameter.getP().powZn(r).getImmutable();
-		this.g = pairing.pairing(elementId, publicKeyParameter.getsP()).getImmutable();
-		this.g = g.powZn(r).getImmutable();
-		BigInteger V = this.params.getBImessage().xor(PairingUtils.hash_H(pairing.getGT(), this.g).toBigInteger());
+		this.g = pairing.pairing(elementId, publicKeyParameter.getsP()).powZn(r).getImmutable();
+		Field<Element> GT = pairing.getGT();
+		Element V = GT
+				.newElement(this.params.getMessage().toBigInteger().xor(PairingUtils.hash_H(GT, this.g).toBigInteger()))
+				.getImmutable();
+//		Element V = PairingUtils.hash_H(GT, this.g).mul(this.params.getMessage()).getImmutable();
 		return new BF01aHECiphertextSerParameter(pairingParameters, U, V);
 	}
 

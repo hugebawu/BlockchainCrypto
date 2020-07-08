@@ -43,10 +43,18 @@ public class BF01aHEDecryptionGenerator implements PairingDecryptionGenerator {
 				.getCiphertextParameter();
 		Pairing pairing = PairingFactory.getPairing(secretKeyParameter.getParameters());
 
-		this.g = pairing.pairing(secretKeyParameter.getD(), ciphertextParameter.getU());
+		Element elementIdCT = PairingUtils.hash_G(pairing.getG1(), this.params.getId());
+		if (!secretKeyParameter.getElementId().equals(elementIdCT)) {
+			throw new InvalidCipherTextException(
+					"Secret Key identity vector does not match Ciphertext identity vector");
+		}
+
+		this.g = pairing.pairing(secretKeyParameter.getD(), ciphertextParameter.getU()).getImmutable();
 
 		Field<?> GT = pairing.getGT();
-		return GT.newElement(ciphertextParameter.getV().xor(PairingUtils.hash_H(GT, this.g).toBigInteger()));
+		return GT.newElement(
+				ciphertextParameter.getV().toBigInteger().xor(PairingUtils.hash_H(GT, this.g).toBigInteger()));
+//		return ciphertextParameter.getV().div(PairingUtils.hash_H(GT, this.g));
 	}
 
 }

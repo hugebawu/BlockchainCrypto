@@ -16,8 +16,17 @@ import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
  * @Description: TODO(Boneh-Franklin CPA-secure IBE-Based homomorphic encryption decryption generation parameter.)
  */
 public class IBEHEDecryptionGenerationParameter extends PairingDecryptionGenerationParameter {
+	// user id used during decryption
+	String id;
+
 	public IBEHEDecryptionGenerationParameter(PairingKeySerParameter publicKeyParameter,
-			PairingKeySerParameter secretKeyParameter, PairingCipherSerParameter ciphertextParameter) {
+			PairingKeySerParameter secretKeyParameter, String id, PairingCipherSerParameter ciphertextParameter) {
 		super(publicKeyParameter, secretKeyParameter, ciphertextParameter);
+		this.id = id;
 	}
+
+	public String getId() {
+		return id;
+	}
+
 }

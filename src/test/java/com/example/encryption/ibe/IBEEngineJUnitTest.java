@@ -147,7 +147,7 @@ public class IBEEngineJUnitTest {
 			try_valid_enc_dec(pairing, publicKey, masterKey, identity_2, identity_2);
 			logger.info("");
 
-			// test valid example
+			// test invalid example
 			logger.info("Test invalid examples");
 			try_invalid_enc_dec(pairing, publicKey, masterKey, identity_1, identity_2);
 			try_invalid_enc_dec(pairing, publicKey, masterKey, identity_2, identity_1);

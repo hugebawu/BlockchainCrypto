@@ -3,10 +3,9 @@
  */
 package cn.edu.ncepu.crypto.HE.ibeHE.genparams;
 
-import java.math.BigInteger;
-
 import cn.edu.ncepu.crypto.algebra.genparams.PairingEncryptionGenerationParameter;
 import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
+import it.unisa.dia.gas.jpbc.Element;
 
 /**
  * @Copyright : Copyright (c) 2020-2021 
@@ -19,8 +18,7 @@ import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
 public class IBEHEEncryptionGenerationParameter extends PairingEncryptionGenerationParameter {
 	private String id;
 
-	public IBEHEEncryptionGenerationParameter(String id, PairingKeySerParameter publicKeyParameter,
-			BigInteger message) {
+	public IBEHEEncryptionGenerationParameter(String id, PairingKeySerParameter publicKeyParameter, Element message) {
 		super(publicKeyParameter, message);
 		setId(id);
 	}

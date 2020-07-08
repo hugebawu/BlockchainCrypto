@@ -1,7 +1,5 @@
 package cn.edu.ncepu.crypto.algebra.genparams;
 
-import java.math.BigInteger;
-
 import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
 import it.unisa.dia.gas.jpbc.Element;
 
@@ -13,7 +11,6 @@ import it.unisa.dia.gas.jpbc.Element;
 public abstract class PairingEncryptionGenerationParameter extends PairingEncapsulationGenerationParameter {
 	// parameter for encryption.
 	private Element message;
-	private BigInteger biMessage;
 
 	public PairingEncryptionGenerationParameter(PairingKeySerParameter publicKeyParameter, Element message) {
 		super(publicKeyParameter);
@@ -22,23 +19,10 @@ public abstract class PairingEncryptionGenerationParameter extends PairingEncaps
 		}
 	}
 
-	public PairingEncryptionGenerationParameter(PairingKeySerParameter publicKeyParameter, BigInteger biMessage) {
-		super(publicKeyParameter);
-		setBImessage(biMessage);
-	}
-
 	public Element getMessage() {
 		if (message == null) {
 			return null;
 		}
 		return this.message.duplicate();
-	}
-
-	public BigInteger getBImessage() {
-		return biMessage;
-	}
-
-	public void setBImessage(BigInteger bImessage) {
-		this.biMessage = bImessage;
 	}
 }

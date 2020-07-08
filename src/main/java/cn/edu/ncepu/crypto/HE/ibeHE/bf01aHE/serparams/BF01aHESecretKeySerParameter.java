@@ -23,9 +23,6 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  * @Description: TODO(Boneh-Franklin CPA-secure IBE based homomorphic secret key parameter.)
  */
 public class BF01aHESecretKeySerParameter extends PairingKeySerParameter {
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -1831692851746910995L;
 	// user id used for generating the secret key(i.e., the owner of the secret key)
 	private final String id;

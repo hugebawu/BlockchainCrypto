@@ -131,7 +131,7 @@ public class PairingUtils {
 
 	/**
 	 * TODO map a element in the pairingGroup into the decimal string(e.g,"123456789012345678901234567890")
-	 * @param e
+	 * @param e GT element
 	 * @return 参数描述
 	 */
 	public static String mapElementToNumString(Element e) {

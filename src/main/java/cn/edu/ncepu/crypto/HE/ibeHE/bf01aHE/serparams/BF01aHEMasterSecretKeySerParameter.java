@@ -25,10 +25,7 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  */
 public class BF01aHEMasterSecretKeySerParameter extends PairingKeySerParameter {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -6081681219266984628L;
+	private static final long serialVersionUID = 8444150641743284559L;
 	private transient Element s;
 	private final byte[] byteArrayS;
 

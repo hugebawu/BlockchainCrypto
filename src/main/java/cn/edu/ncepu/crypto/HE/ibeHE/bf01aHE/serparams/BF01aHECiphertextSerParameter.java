@@ -3,13 +3,16 @@
  */
 package cn.edu.ncepu.crypto.HE.ibeHE.bf01aHE.serparams;
 
-import java.math.BigInteger;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.util.Arrays;
 
 import cn.edu.ncepu.crypto.algebra.serparams.PairingCipherSerParameter;
 import cn.edu.ncepu.crypto.utils.PairingUtils;
 import it.unisa.dia.gas.jpbc.Element;
+import it.unisa.dia.gas.jpbc.Pairing;
 import it.unisa.dia.gas.jpbc.PairingParameters;
+import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
 
 /**
  * @Copyright : Copyright (c) 2020-2021 
@@ -20,35 +23,28 @@ import it.unisa.dia.gas.jpbc.PairingParameters;
  * @Description: TODO(Boneh-Franklin CPA-secure IBE based homomorphic ciphertext parameter.)
  */
 public class BF01aHECiphertextSerParameter extends PairingCipherSerParameter {
-	private static final long serialVersionUID = -7776255631432449405L;
+
+	private static final long serialVersionUID = -2619864414488802090L;
 	private transient Element U;
 	private final byte[] byteArrayU;
 
-	private transient BigInteger V;
+	private transient Element V;
 	private final byte[] byteArrayV;
 
-	public BF01aHECiphertextSerParameter(PairingParameters parameters, Element U, BigInteger V) {
+	public BF01aHECiphertextSerParameter(PairingParameters parameters, Element U, Element V) {
 		super(parameters);
 		this.U = U.getImmutable();
 		this.byteArrayU = this.U.toBytes();
-		this.V = V;
-		this.byteArrayV = V.toByteArray();
+		this.V = V.getImmutable();
+		this.byteArrayV = this.V.toBytes();
 	}
 
 	public Element getU() {
 		return U.duplicate();
 	}
 
-	public byte[] getByteArrayU() {
-		return byteArrayU;
-	}
-
-	public BigInteger getV() {
-		return V;
-	}
-
-	public byte[] getByteArrayV() {
-		return byteArrayV;
+	public Element getV() {
+		return V.duplicate();
 	}
 
 	@Override
@@ -64,7 +60,7 @@ public class BF01aHECiphertextSerParameter extends PairingCipherSerParameter {
 			if (!Arrays.equals(this.byteArrayU, that.byteArrayU)) {
 				return false;
 			}
-			if (!this.V.equals(that.V)) {
+			if (!PairingUtils.isEqualElement(this.V, that.V)) {
 				return false;
 			}
 			if (!Arrays.equals(this.byteArrayV, that.byteArrayV)) {
@@ -76,4 +72,10 @@ public class BF01aHECiphertextSerParameter extends PairingCipherSerParameter {
 		return false;
 	}
 
+	private void readObject(ObjectInputStream objectInputStream) throws IOException, ClassNotFoundException {
+		objectInputStream.defaultReadObject();
+		Pairing pairing = PairingFactory.getPairing(this.getParameters());
+		this.U = pairing.getG1().newElementFromBytes(this.byteArrayU).getImmutable();
+		this.V = pairing.getGT().newElementFromBytes(this.byteArrayV).getImmutable();
+	}
 }

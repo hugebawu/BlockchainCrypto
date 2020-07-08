@@ -3,14 +3,13 @@
  */
 package cn.edu.ncepu.crypto.HE.ibeHE;
 
-import java.math.BigInteger;
-
 import org.bouncycastle.crypto.InvalidCipherTextException;
 
 import cn.edu.ncepu.crypto.algebra.Engine;
 import cn.edu.ncepu.crypto.algebra.serparams.PairingCipherSerParameter;
 import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerPair;
 import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
+import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.PairingParameters;
 
 /**
@@ -46,7 +45,7 @@ public abstract class IBEHEEngine extends Engine {
 	 * @param pairingParameters: pairing parameters
 	 * @return public key(P, Ppub) / master secret key(s) pair of the system
 	 */
-	protected abstract PairingKeySerPair setup(PairingParameters pairingParameters);
+	public abstract PairingKeySerPair setup(PairingParameters pairingParameters);
 
 	/**
 	 * TODO extract user secret key frome user id for IBEHE
@@ -54,7 +53,7 @@ public abstract class IBEHEEngine extends Engine {
 	 * @param masterKey system master key (s)
 	 * @return user secret key associated with the identity id
 	 */
-	protected abstract PairingKeySerParameter extract(String id, PairingKeySerParameter masterKey);
+	public abstract PairingKeySerParameter extract(String id, PairingKeySerParameter masterKey);
 
 	/**
 	 * Encryption Algorithm for IBE
@@ -66,31 +65,21 @@ public abstract class IBEHEEngine extends Engine {
 
 	/**
 	 * TODO Homomorphic encryption algorithm for IBEHE
-	 * IBE(Num1) + IBE(Num2)+ ... + IBE(Num3) = IBE(Num1+Num2+...+Numn)
-	 * @param id the user id of message receiver
+	 * @param id user identity associating with the ciphertext
 	 * @param publicKey system public key (P, Ppub)
 	 * @param message the message waited to be homomorphic encrypted and added to send to receiver
-	 * @return the cipher text (U,V) of added num associated with the receiver id
+	 * @return the cipher text (U,V) associated with the receiver id
 	 */
-	protected abstract PairingCipherSerParameter encrypt(String id, PairingKeySerParameter publicKey,
-			BigInteger biMessage) throws InvalidCipherTextException;
-
-	/**
-	 * Decryption Algorithm for IBE
-	 * @param publicKey public key
-	 * @param secretKey secret key associated with an identity
-	 * @param id identity associating with the ciphertext
-	 * @param ciphertext ciphertext
-	 * @return the message in GT
-	 * @throws InvalidCipherTextException if the decryption procedure is failure
-	 */
+	public abstract PairingCipherSerParameter encrypt(PairingKeySerParameter publicKey, String id, Element message);
 
 	/**
 	 * TODO decrypt the homomorphic encryption result
 	 * @param secretKey message receiver secret key
-	 * @param ciphertext IBE ciphertext (U,V)
-	 * @return added Num (Num1+Num2+...+Numn)
+	 * @param id user identity associating with the ciphertext
+	 * @param ciphertext IBEHE ciphertext (U,V)
+	 * @return the message in GT
+	 * @throws InvalidCipherTextException if the decryption procedure is failure
 	 */
-	protected abstract BigInteger decrypt(PairingKeySerParameter secretKey, PairingCipherSerParameter ciphertext)
+	public abstract Element decrypt(PairingKeySerParameter secretKey, String id, PairingCipherSerParameter ciphertext)
 			throws InvalidCipherTextException;
 }

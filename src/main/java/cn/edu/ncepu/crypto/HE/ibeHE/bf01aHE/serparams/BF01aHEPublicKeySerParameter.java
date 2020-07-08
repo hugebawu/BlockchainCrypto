@@ -8,7 +8,6 @@ import java.io.ObjectInputStream;
 import java.util.Arrays;
 
 import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
-import cn.edu.ncepu.crypto.encryption.ibe.bf01a.serparams.IBEBF01aPublicKeySerParameter;
 import cn.edu.ncepu.crypto.utils.PairingUtils;
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Pairing;
@@ -54,7 +53,7 @@ public class BF01aHEPublicKeySerParameter extends PairingKeySerParameter {
 		if (this == anObject) {
 			return true;
 		}
-		if (anObject instanceof IBEBF01aPublicKeySerParameter) {
+		if (anObject instanceof BF01aHEPublicKeySerParameter) {
 			BF01aHEPublicKeySerParameter that = (BF01aHEPublicKeySerParameter) anObject;
 			// Compare P
 			if (!PairingUtils.isEqualElement(this.P, that.P)) {

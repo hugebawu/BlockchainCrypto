@@ -29,7 +29,6 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  * @Copyright : Copyright (c) 2020-2021 
  * @author: Baiji Hu
  * @E-mail: drbjhu@163.com
- * @Version: 1.0
  * @CreateData: Jul 5, 2020 3:13:04 PM
  * @ClassName PairingUtilsTest
  * @Description: TODO(test methods of PairingUtils)

@@ -33,114 +33,126 @@ import it.unisa.dia.gas.jpbc.PairingParameters;
  * Liu-Liu-Wu composite-order CCA2-secure HIBBE engine.
  */
 public class HIBBELLW17Engine extends HIBBEEngine {
-    public static final String SCHEME_NAME = "Liu-Liu-Wu-17 CCA2-secure composite-order HIBBE";
-    private static HIBBELLW17Engine engine;
+	public static final String SCHEME_NAME = "Liu-Liu-Wu-17 CCA2-secure composite-order HIBBE";
+	private static HIBBELLW17Engine engine;
 
-    private Digest digest = new SHA256Digest();
+	private Digest digest = new SHA256Digest();
 
-    public void setDigest(Digest digest) {
-        this.digest = digest;
-    }
+	public void setDigest(Digest digest) {
+		this.digest = digest;
+	}
 
-    public static HIBBELLW17Engine getInstance() {
-        if (engine == null) {
-            engine = new HIBBELLW17Engine();
-        }
-        return engine;
-    }
+	public static HIBBELLW17Engine getInstance() {
+		if (engine == null) {
+			engine = new HIBBELLW17Engine();
+		}
+		return engine;
+	}
 
-    private HIBBELLW17Engine() {
-        super(SCHEME_NAME, ProveSecModel.Standard, PayloadSecLevel.CCA2, PredicateSecLevel.NON_ANON);
-    }
+	private HIBBELLW17Engine() {
+		super(SCHEME_NAME, ProveSecModel.Standard, PayloadSecLevel.CCA2, PredicateSecLevel.NON_ANON);
+	}
 
-    public PairingKeySerPair setup(PairingParameters pairingParameters, int maxUser) {
-        HIBBELLW17KeyPairGenerator keyPairGenerator = new HIBBELLW17KeyPairGenerator();
-        keyPairGenerator.init(new HIBBEKeyPairGenerationParameter(pairingParameters, maxUser));
+	public PairingKeySerPair setup(PairingParameters pairingParameters, int maxUser) {
+		HIBBELLW17KeyPairGenerator keyPairGenerator = new HIBBELLW17KeyPairGenerator();
+		keyPairGenerator.init(new HIBBEKeyPairGenerationParameter(pairingParameters, maxUser));
 
-        return keyPairGenerator.generateKeyPair();
-    }
+		return keyPairGenerator.generateKeyPair();
+	}
 
-    public PairingKeySerParameter keyGen(PairingKeySerParameter publicKey, PairingKeySerParameter masterKey, String[] ids) {
-        if (!(publicKey instanceof HIBBELLW17PublicKeySerParameter)){
-            PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, publicKey, HIBBELLW17PublicKeySerParameter.class.getName());
-        }
-        if (!(masterKey instanceof HIBBELLW17MasterSecretKeySerParameter)) {
-            PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, masterKey, HIBBELLW17MasterSecretKeySerParameter.class.getName());
-        }
-        HIBBELLW17SecretKeyGenerator secretKeyGenerator = new HIBBELLW17SecretKeyGenerator();
-        secretKeyGenerator.init(new HIBBESecretKeyGenerationParameter(
-                publicKey, masterKey, ids));
+	public PairingKeySerParameter keyGen(PairingKeySerParameter publicKey, PairingKeySerParameter masterKey,
+			String[] ids) {
+		if (!(publicKey instanceof HIBBELLW17PublicKeySerParameter)) {
+			PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, publicKey,
+					HIBBELLW17PublicKeySerParameter.class.getName());
+		}
+		if (!(masterKey instanceof HIBBELLW17MasterSecretKeySerParameter)) {
+			PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, masterKey,
+					HIBBELLW17MasterSecretKeySerParameter.class.getName());
+		}
+		HIBBELLW17SecretKeyGenerator secretKeyGenerator = new HIBBELLW17SecretKeyGenerator();
+		secretKeyGenerator.init(new HIBBESecretKeyGenerationParameter(publicKey, masterKey, ids));
 
-        return secretKeyGenerator.generateKey();
-    }
+		return secretKeyGenerator.generateKey();
+	}
 
-    public PairingKeySerParameter delegate(PairingKeySerParameter publicKey, PairingKeySerParameter secretKey, int index, String id) {
-        if (!(publicKey instanceof HIBBELLW17PublicKeySerParameter)){
-            PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, publicKey, HIBBELLW17PublicKeySerParameter.class.getName());
-        }
-        if (!(secretKey instanceof HIBBELLW17SecretKeySerParameter)) {
-            PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, secretKey, HIBBELLW17SecretKeySerParameter.class.getName());
-        }
-        HIBBELLW17SecretKeyGenerator secretKeyGenerator = new HIBBELLW17SecretKeyGenerator();
-        secretKeyGenerator.init(new HIBBEDelegateGenerationParameter(
-                publicKey, secretKey, index, id));
+	public PairingKeySerParameter delegate(PairingKeySerParameter publicKey, PairingKeySerParameter secretKey,
+			int index, String id) {
+		if (!(publicKey instanceof HIBBELLW17PublicKeySerParameter)) {
+			PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, publicKey,
+					HIBBELLW17PublicKeySerParameter.class.getName());
+		}
+		if (!(secretKey instanceof HIBBELLW17SecretKeySerParameter)) {
+			PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, secretKey,
+					HIBBELLW17SecretKeySerParameter.class.getName());
+		}
+		HIBBELLW17SecretKeyGenerator secretKeyGenerator = new HIBBELLW17SecretKeyGenerator();
+		secretKeyGenerator.init(new HIBBEDelegateGenerationParameter(publicKey, secretKey, index, id));
 
-        return secretKeyGenerator.generateKey();
-    }
+		return secretKeyGenerator.generateKey();
+	}
 
-    public PairingCipherSerParameter encryption(PairingKeySerParameter publicKey, String[] ids, Element message){
-        if (!(publicKey instanceof HIBBELLW17PublicKeySerParameter)){
-            PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, publicKey, HIBBELLW17PublicKeySerParameter.class.getName());
-        }
-        HIBBELLW17EncryptionGenerator encryptionGenerator = new HIBBELLW17EncryptionGenerator();
-        encryptionGenerator.init(new HIBBEEncryptionGenerationParameter(publicKey, ids, message, digest));
+	public PairingCipherSerParameter encryption(PairingKeySerParameter publicKey, String[] ids, Element message) {
+		if (!(publicKey instanceof HIBBELLW17PublicKeySerParameter)) {
+			PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, publicKey,
+					HIBBELLW17PublicKeySerParameter.class.getName());
+		}
+		HIBBELLW17EncryptionGenerator encryptionGenerator = new HIBBELLW17EncryptionGenerator();
+		encryptionGenerator.init(new HIBBEEncryptionGenerationParameter(publicKey, ids, message, digest));
 
-        return encryptionGenerator.generateCiphertext();
-    }
+		return encryptionGenerator.generateCiphertext();
+	}
 
-    public PairingKeyEncapsulationSerPair encapsulation(PairingKeySerParameter publicKey, String[] ids) {
-        if (!(publicKey instanceof HIBBELLW17PublicKeySerParameter)){
-            PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, publicKey, HIBBELLW17PublicKeySerParameter.class.getName());
-        }
-        HIBBELLW17EncryptionGenerator encryptionGenerator = new HIBBELLW17EncryptionGenerator();
-        encryptionGenerator.init(new HIBBEEncryptionGenerationParameter(publicKey, ids, null, digest));
+	public PairingKeyEncapsulationSerPair encapsulation(PairingKeySerParameter publicKey, String[] ids) {
+		if (!(publicKey instanceof HIBBELLW17PublicKeySerParameter)) {
+			PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, publicKey,
+					HIBBELLW17PublicKeySerParameter.class.getName());
+		}
+		HIBBELLW17EncryptionGenerator encryptionGenerator = new HIBBELLW17EncryptionGenerator();
+		encryptionGenerator.init(new HIBBEEncryptionGenerationParameter(publicKey, ids, null, digest));
 
-        return encryptionGenerator.generateEncryptionPair();
-    }
+		return encryptionGenerator.generateEncryptionPair();
+	}
 
-    public Element decryption(PairingKeySerParameter publicKey, PairingKeySerParameter secretKey, String[] ids, PairingCipherSerParameter ciphertext)
-            throws InvalidCipherTextException {
-        if (!(publicKey instanceof HIBBELLW17PublicKeySerParameter)){
-            PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, publicKey, HIBBELLW17PublicKeySerParameter.class.getName());
-        }
-        if (!(secretKey instanceof HIBBELLW17SecretKeySerParameter)){
-            PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, secretKey, HIBBELLW17SecretKeySerParameter.class.getName());
-        }
-        if (!(ciphertext instanceof HIBBELLW17CiphertextSerParameter)){
-            PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, ciphertext, HIBBELLW17CiphertextSerParameter.class.getName());
-        }
-        HIBBELLW17DecryptionGenerator decryptionGenerator = new HIBBELLW17DecryptionGenerator();
-        decryptionGenerator.init(new HIBBEDecryptionGenerationParameter(publicKey, secretKey, ids, ciphertext, digest));
-        return decryptionGenerator.recoverMessage();
-    }
+	public Element decryption(PairingKeySerParameter publicKey, PairingKeySerParameter secretKey, String[] ids,
+			PairingCipherSerParameter ciphertext) throws InvalidCipherTextException {
+		if (!(publicKey instanceof HIBBELLW17PublicKeySerParameter)) {
+			PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, publicKey,
+					HIBBELLW17PublicKeySerParameter.class.getName());
+		}
+		if (!(secretKey instanceof HIBBELLW17SecretKeySerParameter)) {
+			PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, secretKey,
+					HIBBELLW17SecretKeySerParameter.class.getName());
+		}
+		if (!(ciphertext instanceof HIBBELLW17CiphertextSerParameter)) {
+			PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, ciphertext,
+					HIBBELLW17CiphertextSerParameter.class.getName());
+		}
+		HIBBELLW17DecryptionGenerator decryptionGenerator = new HIBBELLW17DecryptionGenerator();
+		decryptionGenerator.init(new HIBBEDecryptionGenerationParameter(publicKey, secretKey, ids, ciphertext, digest));
+		return decryptionGenerator.recoverMessage();
+	}
 
-    public byte[] decapsulation(PairingKeySerParameter publicKey, PairingKeySerParameter secretKey, String[] ids, PairingCipherSerParameter header)
-            throws InvalidCipherTextException {
-        if (!(publicKey instanceof HIBBELLW17PublicKeySerParameter)){
-            PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, publicKey, HIBBELLW17PublicKeySerParameter.class.getName());
-        }
-        if (!(secretKey instanceof HIBBELLW17SecretKeySerParameter)){
-            PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, secretKey, HIBBELLW17SecretKeySerParameter.class.getName());
-        }
-        if (!(header instanceof HIBBELLW17HeaderSerParameter)){
-            PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, header, HIBBELLW17HeaderSerParameter.class.getName());
-        }
-        HIBBELLW17DecryptionGenerator decryptionGenerator = new HIBBELLW17DecryptionGenerator();
-        decryptionGenerator.init(new HIBBEDecryptionGenerationParameter(publicKey, secretKey, ids, header, digest));
-        return decryptionGenerator.recoverKey();
-    }
+	public byte[] decapsulation(PairingKeySerParameter publicKey, PairingKeySerParameter secretKey, String[] ids,
+			PairingCipherSerParameter header) throws InvalidCipherTextException {
+		if (!(publicKey instanceof HIBBELLW17PublicKeySerParameter)) {
+			PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, publicKey,
+					HIBBELLW17PublicKeySerParameter.class.getName());
+		}
+		if (!(secretKey instanceof HIBBELLW17SecretKeySerParameter)) {
+			PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, secretKey,
+					HIBBELLW17SecretKeySerParameter.class.getName());
+		}
+		if (!(header instanceof HIBBELLW17HeaderSerParameter)) {
+			PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, header,
+					HIBBELLW17HeaderSerParameter.class.getName());
+		}
+		HIBBELLW17DecryptionGenerator decryptionGenerator = new HIBBELLW17DecryptionGenerator();
+		decryptionGenerator.init(new HIBBEDecryptionGenerationParameter(publicKey, secretKey, ids, header, digest));
+		return decryptionGenerator.recoverKey();
+	}
 
-    public String getEngineName() {
-        return SCHEME_NAME;
-    }
+	public String getEngineName() {
+		return SCHEME_NAME;
+	}
 }

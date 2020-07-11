@@ -22,38 +22,38 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  */
 public class IBELW10EncryptionGenerator implements PairingEncryptionGenerator, PairingEncapsulationPairGenerator {
 
-    private IBEEncryptionGenerationParameter params;
-    private IBELW10PublicKeySerParameter publicKeyParameter;
-    private Element sessionKey;
-    private Element C1;
-    private Element C2;
+	private IBEEncryptionGenerationParameter params;
+	private IBELW10PublicKeySerParameter publicKeyParameter;
+	private Element sessionKey;
+	private Element C1;
+	private Element C2;
 
-    public void init(CipherParameters params) {
-        this.params = (IBEEncryptionGenerationParameter) params;
-        this.publicKeyParameter = (IBELW10PublicKeySerParameter) this.params.getPublicKeyParameter();
-    }
+	public void init(CipherParameters params) {
+		this.params = (IBEEncryptionGenerationParameter) params;
+		this.publicKeyParameter = (IBELW10PublicKeySerParameter) this.params.getPublicKeyParameter();
+	}
 
-    private void computeEncapsulation() {
-        Pairing pairing = PairingFactory.getPairing(publicKeyParameter.getParameters());
-        String id = this.params.getId();
-        Element elementId = PairingUtils.MapStringToGroup(pairing, id, PairingUtils.PairingGroupType.Zr).getImmutable();
+	private void computeEncapsulation() {
+		Pairing pairing = PairingFactory.getPairing(publicKeyParameter.getParameters());
+		String id = this.params.getId();
+		Element elementId = PairingUtils.MapStringToGroup(pairing, id, PairingUtils.PairingGroupType.Zr).getImmutable();
 
-        Element s = pairing.getZr().newRandomElement().getImmutable();
-        this.sessionKey = publicKeyParameter.getEggAlpha().powZn(s).getImmutable();
+		Element s = pairing.getZr().newRandomElement().getImmutable();
+		this.sessionKey = publicKeyParameter.getEggAlpha().powZn(s).getImmutable();
 
-        this.C1 = publicKeyParameter.getU().powZn(elementId).mul(publicKeyParameter.getH()).powZn(s).getImmutable();
-        this.C2 = publicKeyParameter.getG().powZn(s).getImmutable();
-    }
+		this.C1 = publicKeyParameter.getU().powZn(elementId).mul(publicKeyParameter.getH()).powZn(s).getImmutable();
+		this.C2 = publicKeyParameter.getG().powZn(s).getImmutable();
+	}
 
-    public PairingKeyEncapsulationSerPair generateEncryptionPair() {
-        computeEncapsulation();
-        return new PairingKeyEncapsulationSerPair(this.sessionKey.toBytes(),
-                new IBELW10HeaderSerParameter(publicKeyParameter.getParameters(), C1, C2));
-    }
+	public PairingKeyEncapsulationSerPair generateEncryptionPair() {
+		computeEncapsulation();
+		return new PairingKeyEncapsulationSerPair(this.sessionKey.toBytes(),
+				new IBELW10HeaderSerParameter(publicKeyParameter.getParameters(), C1, C2));
+	}
 
-    public PairingCipherSerParameter generateCiphertext() {
-        computeEncapsulation();
-        Element C0 = sessionKey.mul(this.params.getMessage()).getImmutable();
-        return new IBELW10CiphertextSerParameter(publicKeyParameter.getParameters(), C0, C1, C2);
-    }
+	public PairingCipherSerParameter generateCiphertext() {
+		computeEncapsulation();
+		Element C0 = sessionKey.mul(this.params.getMessage()).getImmutable();
+		return new IBELW10CiphertextSerParameter(publicKeyParameter.getParameters(), C0, C1, C2);
+	}
 }

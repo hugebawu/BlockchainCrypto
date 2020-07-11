@@ -9,14 +9,15 @@ import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
  * BE secret key generation parameter.
  */
 public class BESecretKeyGenerationParameter extends PairingKeyGenerationParameter {
-    private int index;
+	private int index;
 
-    public BESecretKeyGenerationParameter(PairingKeySerParameter publicKeyParameter,
-            PairingKeySerParameter masterSecretKeyParameter, int index) {
-        super(publicKeyParameter, masterSecretKeyParameter);
-        this.index = index;
-    }
+	public BESecretKeyGenerationParameter(PairingKeySerParameter publicKeyParameter,
+			PairingKeySerParameter masterSecretKeyParameter, int index) {
+		super(publicKeyParameter, masterSecretKeyParameter);
+		this.index = index;
+	}
 
-    public int getIndex() { return this.index; }
+	public int getIndex() {
+		return this.index;
+	}
 }
-

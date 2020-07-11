@@ -10,16 +10,22 @@ import cn.edu.ncepu.crypto.utils.PairingUtils;
  * IBBE encapsulation generation parameter.
  */
 public class IBBEEncapsulationGenerationParameter extends PairingEncapsulationGenerationParameter {
-    private String[] ids;
+	private String[] ids;
 
-    public IBBEEncapsulationGenerationParameter(PairingKeySerParameter publicKeyParameter, String[] ids) {
-        super(publicKeyParameter);
-        this.ids = PairingUtils.removeDuplicates(ids);
-    }
+	public IBBEEncapsulationGenerationParameter(PairingKeySerParameter publicKeyParameter, String[] ids) {
+		super(publicKeyParameter);
+		this.ids = PairingUtils.removeDuplicates(ids);
+	}
 
-    public String[] getIds() { return this.ids; }
+	public String[] getIds() {
+		return this.ids;
+	}
 
-    public String getIdAt(int index) { return ids[index]; }
+	public String getIdAt(int index) {
+		return ids[index];
+	}
 
-    public int getLength() { return this.ids.length; }
+	public int getLength() {
+		return this.ids.length;
+	}
 }

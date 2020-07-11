@@ -24,54 +24,53 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  * Goyal-Pandey-Sahai-Waters small-universe KP-ABE encryption generator.
  */
 public class KPABEGPSW06aEncryptionGenerator implements PairingEncryptionGenerator, PairingEncapsulationPairGenerator {
-    private KPABEEncryptionGenerationParameter params;
+	private KPABEEncryptionGenerationParameter params;
 
-    private KPABEGPSW06aPublicKeySerParameter publicKeyParameter;
-    private Element sessionKey;
-    private Map<String, Element> Es;
+	private KPABEGPSW06aPublicKeySerParameter publicKeyParameter;
+	private Element sessionKey;
+	private Map<String, Element> Es;
 
-    public void init(CipherParameters params) {
-        this.params = (KPABEEncryptionGenerationParameter)params;
-        this.publicKeyParameter = (KPABEGPSW06aPublicKeySerParameter)this.params.getPublicKeyParameter();
-    }
+	public void init(CipherParameters params) {
+		this.params = (KPABEEncryptionGenerationParameter) params;
+		this.publicKeyParameter = (KPABEGPSW06aPublicKeySerParameter) this.params.getPublicKeyParameter();
+	}
 
-    private void computeEncapsulation() {
-        Pairing pairing = PairingFactory.getPairing(publicKeyParameter.getParameters());
-        String[] attributes = this.params.getAttributes();
-        assert(attributes.length <= publicKeyParameter.getMaxAttributesNum());
-        if (attributes.length > publicKeyParameter.getMaxAttributesNum()) {
-            throw new IllegalArgumentException("# of broadcast receiver set " + attributes.length +
-                    " is greater than the maximal number of receivers " + publicKeyParameter.getMaxAttributesNum());
-        }
+	private void computeEncapsulation() {
+		Pairing pairing = PairingFactory.getPairing(publicKeyParameter.getParameters());
+		String[] attributes = this.params.getAttributes();
+		assert (attributes.length <= publicKeyParameter.getMaxAttributesNum());
+		if (attributes.length > publicKeyParameter.getMaxAttributesNum()) {
+			throw new IllegalArgumentException("# of broadcast receiver set " + attributes.length
+					+ " is greater than the maximal number of receivers " + publicKeyParameter.getMaxAttributesNum());
+		}
 
-        try {
-            Element s = pairing.getZr().newRandomElement().getImmutable();
-            this.sessionKey = publicKeyParameter.getY().powZn(s).getImmutable();
-            this.Es = new HashMap<String, Element>();
-            for (String attribute : attributes) {
-                int index = Integer.parseInt(attribute);
-                if (index >= publicKeyParameter.getMaxAttributesNum() || index < 0) {
-                    throw new InvalidParameterException("Rho index greater than or equal to the max number of attributes supported");
-                }
-                Element E = publicKeyParameter.getTsAt(String.valueOf(index)).powZn(s).getImmutable();
-                Es.put(String.valueOf(index), E);
-            }
-        } catch (NumberFormatException e) {
-            throw new InvalidParameterException("Invalid rhos, require rhos represented by integers");
-        }
-    }
+		try {
+			Element s = pairing.getZr().newRandomElement().getImmutable();
+			this.sessionKey = publicKeyParameter.getY().powZn(s).getImmutable();
+			this.Es = new HashMap<String, Element>();
+			for (String attribute : attributes) {
+				int index = Integer.parseInt(attribute);
+				if (index >= publicKeyParameter.getMaxAttributesNum() || index < 0) {
+					throw new InvalidParameterException(
+							"Rho index greater than or equal to the max number of attributes supported");
+				}
+				Element E = publicKeyParameter.getTsAt(String.valueOf(index)).powZn(s).getImmutable();
+				Es.put(String.valueOf(index), E);
+			}
+		} catch (NumberFormatException e) {
+			throw new InvalidParameterException("Invalid rhos, require rhos represented by integers");
+		}
+	}
 
-    public PairingCipherSerParameter generateCiphertext() {
-        computeEncapsulation();
-        Element EPrime = sessionKey.mul(this.params.getMessage()).getImmutable();
-        return new KPABEGPSW06aCiphertextSerParameter(publicKeyParameter.getParameters(), EPrime, Es);
-    }
+	public PairingCipherSerParameter generateCiphertext() {
+		computeEncapsulation();
+		Element EPrime = sessionKey.mul(this.params.getMessage()).getImmutable();
+		return new KPABEGPSW06aCiphertextSerParameter(publicKeyParameter.getParameters(), EPrime, Es);
+	}
 
-    public PairingKeyEncapsulationSerPair generateEncryptionPair() {
-        computeEncapsulation();
-        return new PairingKeyEncapsulationSerPair(
-                this.sessionKey.toBytes(),
-                new KPABEGPSW06aHeaderSerParameter(publicKeyParameter.getParameters(), Es)
-        );
-    }
+	public PairingKeyEncapsulationSerPair generateEncryptionPair() {
+		computeEncapsulation();
+		return new PairingKeyEncapsulationSerPair(this.sessionKey.toBytes(),
+				new KPABEGPSW06aHeaderSerParameter(publicKeyParameter.getParameters(), Es));
+	}
 }

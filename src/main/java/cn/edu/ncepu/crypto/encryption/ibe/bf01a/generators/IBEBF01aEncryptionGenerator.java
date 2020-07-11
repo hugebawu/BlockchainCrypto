@@ -54,7 +54,7 @@ public class IBEBF01aEncryptionGenerator implements PairingEncryptionGenerator, 
 	@Override
 	public PairingCipherSerParameter generateCiphertext() {
 		Element U = computeEncapsulation();
-		Element V = sessionKey.mul(this.params.getMessage()).getImmutable();
+		Element V = this.params.getMessage().mul(sessionKey).getImmutable();
 		return new IBEBF01aCiphertextSerParameter(publicKeyParameter.getParameters(), U, V);
 	}
 }

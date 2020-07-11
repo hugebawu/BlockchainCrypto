@@ -11,13 +11,14 @@ import it.unisa.dia.gas.jpbc.Pairing;
  * Access Control Engine interface, all access control instance should implement this interface.
  */
 public interface AccessControlEngine {
-    String getEngineName();
+	String getEngineName();
 
-    boolean isSupportThresholdGate();
+	boolean isSupportThresholdGate();
 
-    AccessControlParameter generateAccessControl(int[][] accessPolicy, String[] rhos);
+	AccessControlParameter generateAccessControl(int[][] accessPolicy, String[] rhos);
 
-    Map<String, Element> secretSharing(Pairing pairing, Element secret, AccessControlParameter accessControlParameter);
+	Map<String, Element> secretSharing(Pairing pairing, Element secret, AccessControlParameter accessControlParameter);
 
-    Map<String, Element> reconstructOmegas(Pairing pairing, String[] attributes, AccessControlParameter accessControlParameter) throws UnsatisfiedAccessControlException;
+	Map<String, Element> reconstructOmegas(Pairing pairing, String[] attributes,
+			AccessControlParameter accessControlParameter) throws UnsatisfiedAccessControlException;
 }

@@ -25,42 +25,42 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  */
 public class KPABEGPSW06bEncryptionGenerator implements PairingEncryptionGenerator, PairingEncapsulationPairGenerator {
 
-    private KPABEEncryptionGenerationParameter params;
-    private KPABEGPSW06bPublicKeySerParameter publicKeyParameter;
-    private Element sessionKey;
-    private Element E2;
-    private Map<String, Element> Es;
+	private KPABEEncryptionGenerationParameter params;
+	private KPABEGPSW06bPublicKeySerParameter publicKeyParameter;
+	private Element sessionKey;
+	private Element E2;
+	private Map<String, Element> Es;
 
-    public void init(CipherParameters params) {
-        this.params = (KPABEEncryptionGenerationParameter)params;
-        this.publicKeyParameter = (KPABEGPSW06bPublicKeySerParameter)this.params.getPublicKeyParameter();
-    }
+	public void init(CipherParameters params) {
+		this.params = (KPABEEncryptionGenerationParameter) params;
+		this.publicKeyParameter = (KPABEGPSW06bPublicKeySerParameter) this.params.getPublicKeyParameter();
+	}
 
-    private void computeEncapsulation() {
-        Pairing pairing = PairingFactory.getPairing(publicKeyParameter.getParameters());
-        String[] attributes = this.params.getAttributes();
-        Element s = pairing.getZr().newRandomElement().getImmutable();
-        this.sessionKey = pairing.pairing(publicKeyParameter.getG1(), publicKeyParameter.getG2()).powZn(s).getImmutable();
-        this.E2 = publicKeyParameter.getG().powZn(s).getImmutable();
-        this.Es = new HashMap<String, Element>();
-        for (String attribute : attributes) {
-            Element elementAttribute = PairingUtils.MapStringToGroup(pairing, attribute, PairingUtils.PairingGroupType.G1);
-            Element E = elementAttribute.powZn(s).getImmutable();
-            Es.put(attribute, E);
-        }
-    }
+	private void computeEncapsulation() {
+		Pairing pairing = PairingFactory.getPairing(publicKeyParameter.getParameters());
+		String[] attributes = this.params.getAttributes();
+		Element s = pairing.getZr().newRandomElement().getImmutable();
+		this.sessionKey = pairing.pairing(publicKeyParameter.getG1(), publicKeyParameter.getG2()).powZn(s)
+				.getImmutable();
+		this.E2 = publicKeyParameter.getG().powZn(s).getImmutable();
+		this.Es = new HashMap<String, Element>();
+		for (String attribute : attributes) {
+			Element elementAttribute = PairingUtils.MapStringToGroup(pairing, attribute,
+					PairingUtils.PairingGroupType.G1);
+			Element E = elementAttribute.powZn(s).getImmutable();
+			Es.put(attribute, E);
+		}
+	}
 
-    public PairingCipherSerParameter generateCiphertext() {
-        computeEncapsulation();
-        Element E1 = this.sessionKey.mul(this.params.getMessage()).getImmutable();
-        return new KPABEGPSW06bCiphertextSerParameter(publicKeyParameter.getParameters(), E1, E2, Es);
-    }
+	public PairingCipherSerParameter generateCiphertext() {
+		computeEncapsulation();
+		Element E1 = this.sessionKey.mul(this.params.getMessage()).getImmutable();
+		return new KPABEGPSW06bCiphertextSerParameter(publicKeyParameter.getParameters(), E1, E2, Es);
+	}
 
-    public PairingKeyEncapsulationSerPair generateEncryptionPair() {
-        computeEncapsulation();
-        return new PairingKeyEncapsulationSerPair(
-                this.sessionKey.toBytes(),
-                new KPABEGPSW06bHeaderSerParameter(publicKeyParameter.getParameters(), E2, Es)
-        );
-    }
+	public PairingKeyEncapsulationSerPair generateEncryptionPair() {
+		computeEncapsulation();
+		return new PairingKeyEncapsulationSerPair(this.sessionKey.toBytes(),
+				new KPABEGPSW06bHeaderSerParameter(publicKeyParameter.getParameters(), E2, Es));
+	}
 }

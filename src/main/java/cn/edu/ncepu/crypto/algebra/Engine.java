@@ -6,41 +6,44 @@ package cn.edu.ncepu.crypto.algebra;
  * Generic engine
  */
 public abstract class Engine {
-    private final ProveSecModel provable_security_model;
-    private final PayloadSecLevel payload_security_level;
-    private final PredicateSecLevel predicate_security_level;
-    private final String scheme_name;
+	private final ProveSecModel provable_security_model;
+	private final PayloadSecLevel payload_security_level;
+	private final PredicateSecLevel predicate_security_level;
+	private final String scheme_name;
 
-    public enum ProveSecModel {
-        RandomOracle, Standard
-    }
+	public enum ProveSecModel {
+		RandomOracle, Standard
+	}
 
-    public enum PayloadSecLevel {
-        CPA, CCA2
-    }
+	public enum PayloadSecLevel {
+		CPA, CCA2
+	}
 
-    public enum PredicateSecLevel {
-        NON_ANON, ANON,
-    }
+	public enum PredicateSecLevel {
+		NON_ANON, ANON,
+	}
 
-    public Engine(String schemeName, ProveSecModel proveSecModel, PayloadSecLevel payloadSecLevel, PredicateSecLevel predicateSecLevel) {
-        this.scheme_name = schemeName;
-        this.provable_security_model = proveSecModel;
-        this.payload_security_level = payloadSecLevel;
-        this.predicate_security_level = predicateSecLevel;
-    }
+	public Engine(String schemeName, ProveSecModel proveSecModel, PayloadSecLevel payloadSecLevel,
+			PredicateSecLevel predicateSecLevel) {
+		this.scheme_name = schemeName;
+		this.provable_security_model = proveSecModel;
+		this.payload_security_level = payloadSecLevel;
+		this.predicate_security_level = predicateSecLevel;
+	}
 
-    public String getEngineName() {
-        return this.scheme_name;
-    }
+	public String getEngineName() {
+		return this.scheme_name;
+	}
 
-    public PayloadSecLevel getPayloadSecLevel() {
-        return this.payload_security_level;
-    }
+	public PayloadSecLevel getPayloadSecLevel() {
+		return this.payload_security_level;
+	}
 
-    public ProveSecModel getProveSecModel() {
-        return this.provable_security_model;
-    }
+	public ProveSecModel getProveSecModel() {
+		return this.provable_security_model;
+	}
 
-    public PredicateSecLevel getPredicateSecLevel() { return this.predicate_security_level; }
+	public PredicateSecLevel getPredicateSecLevel() {
+		return this.predicate_security_level;
+	}
 }

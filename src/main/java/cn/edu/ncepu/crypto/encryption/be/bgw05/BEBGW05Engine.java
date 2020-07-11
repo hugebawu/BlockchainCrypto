@@ -28,72 +28,77 @@ import it.unisa.dia.gas.jpbc.PairingParameters;
  * Boneh-Gentry-Waters BE engine.
  */
 public class BEBGW05Engine extends BEEngine {
-    //Scheme name, used for exceptions
-    public static final String SCHEME_NAME = "Boneh-Gentry-Waters BE";
+	// Scheme name, used for exceptions
+	public static final String SCHEME_NAME = "Boneh-Gentry-Waters BE";
 
-    private static BEBGW05Engine engine;
+	private static BEBGW05Engine engine;
 
-    public static BEBGW05Engine getInstance() {
-        if (engine == null) {
-            engine = new BEBGW05Engine();
-        }
-        return engine;
-    }
+	public static BEBGW05Engine getInstance() {
+		if (engine == null) {
+			engine = new BEBGW05Engine();
+		}
+		return engine;
+	}
 
-    private BEBGW05Engine() {
-        super(SCHEME_NAME, ProveSecModel.Standard, PayloadSecLevel.CPA, PredicateSecLevel.NON_ANON);
-    }
+	private BEBGW05Engine() {
+		super(SCHEME_NAME, ProveSecModel.Standard, PayloadSecLevel.CPA, PredicateSecLevel.NON_ANON);
+	}
 
-    public PairingKeySerPair setup(PairingParameters pairingParameters, int maxUserNum) {
-        BEBGW05KeyPairGenerator keyPairGenerator = new BEBGW05KeyPairGenerator();
-        keyPairGenerator.init(new BEKeyPairGenerationParameter(pairingParameters, maxUserNum));
+	public PairingKeySerPair setup(PairingParameters pairingParameters, int maxUserNum) {
+		BEBGW05KeyPairGenerator keyPairGenerator = new BEBGW05KeyPairGenerator();
+		keyPairGenerator.init(new BEKeyPairGenerationParameter(pairingParameters, maxUserNum));
 
-        return keyPairGenerator.generateKeyPair();
-    }
+		return keyPairGenerator.generateKeyPair();
+	}
 
-    public PairingKeySerParameter keyGen(PairingKeySerParameter publicKey, PairingKeySerParameter masterKey, int index) {
-        if (!(publicKey instanceof BEBGW05PublicKeySerParameter)){
-            PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, publicKey, BEBGW05PublicKeySerParameter.class.getName());
-        }
-        if (!(masterKey instanceof BEBGW05MasterSecretKeySerParameter)) {
-            PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, masterKey, BEBGW05MasterSecretKeySerParameter.class.getName());
-        }
-        BEBGW05SecretKeyGenerator secretKeyGenerator = new BEBGW05SecretKeyGenerator();
-        secretKeyGenerator.init(new BESecretKeyGenerationParameter(
-                publicKey, masterKey, index));
+	public PairingKeySerParameter keyGen(PairingKeySerParameter publicKey, PairingKeySerParameter masterKey,
+			int index) {
+		if (!(publicKey instanceof BEBGW05PublicKeySerParameter)) {
+			PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, publicKey,
+					BEBGW05PublicKeySerParameter.class.getName());
+		}
+		if (!(masterKey instanceof BEBGW05MasterSecretKeySerParameter)) {
+			PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, masterKey,
+					BEBGW05MasterSecretKeySerParameter.class.getName());
+		}
+		BEBGW05SecretKeyGenerator secretKeyGenerator = new BEBGW05SecretKeyGenerator();
+		secretKeyGenerator.init(new BESecretKeyGenerationParameter(publicKey, masterKey, index));
 
-        return secretKeyGenerator.generateKey();
-    }
+		return secretKeyGenerator.generateKey();
+	}
 
-    public PairingKeyEncapsulationSerPair encapsulation(PairingKeySerParameter publicKey, int[] indexSet) {
-        if (!(publicKey instanceof BEBGW05PublicKeySerParameter)){
-            PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, publicKey, BEBGW05PublicKeySerParameter.class.getName());
-        }
-        BEBGW05EncapsulationPairGenerator keyEncapsulationPairGenerator = new BEBGW05EncapsulationPairGenerator();
-        keyEncapsulationPairGenerator.init(new BEEncapsulationGenerationParameter(
-                publicKey, indexSet));
+	public PairingKeyEncapsulationSerPair encapsulation(PairingKeySerParameter publicKey, int[] indexSet) {
+		if (!(publicKey instanceof BEBGW05PublicKeySerParameter)) {
+			PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, publicKey,
+					BEBGW05PublicKeySerParameter.class.getName());
+		}
+		BEBGW05EncapsulationPairGenerator keyEncapsulationPairGenerator = new BEBGW05EncapsulationPairGenerator();
+		keyEncapsulationPairGenerator.init(new BEEncapsulationGenerationParameter(publicKey, indexSet));
 
-        return keyEncapsulationPairGenerator.generateEncryptionPair();
-    }
+		return keyEncapsulationPairGenerator.generateEncryptionPair();
+	}
 
-    public byte[] decapsulation(PairingKeySerParameter publicKey, PairingKeySerParameter secretKey,
-                                int[] indexSet, PairingCipherSerParameter ciphertext) throws InvalidCipherTextException {
-        if (!(publicKey instanceof BEBGW05PublicKeySerParameter)){
-            PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, publicKey, BEBGW05PublicKeySerParameter.class.getName());
-        }
-        if (!(secretKey instanceof BEBGW05SecretKeySerParameter)){
-            PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, secretKey, BEBGW05SecretKeySerParameter.class.getName());
-        }
-        if (!(ciphertext instanceof BEBGW05HeaderSerParameter)){
-            PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, ciphertext, BEBGW05HeaderSerParameter.class.getName());
-        }
-        BEBGW05DecapsulationGenerator keyDecapsulationGenerator = new BEBGW05DecapsulationGenerator();
-        keyDecapsulationGenerator.init(new BEDecapsulationGenerationParameter(
-                publicKey, secretKey, indexSet, ciphertext));
-        return keyDecapsulationGenerator.recoverKey();
-    }
+	public byte[] decapsulation(PairingKeySerParameter publicKey, PairingKeySerParameter secretKey, int[] indexSet,
+			PairingCipherSerParameter ciphertext) throws InvalidCipherTextException {
+		if (!(publicKey instanceof BEBGW05PublicKeySerParameter)) {
+			PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, publicKey,
+					BEBGW05PublicKeySerParameter.class.getName());
+		}
+		if (!(secretKey instanceof BEBGW05SecretKeySerParameter)) {
+			PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, secretKey,
+					BEBGW05SecretKeySerParameter.class.getName());
+		}
+		if (!(ciphertext instanceof BEBGW05HeaderSerParameter)) {
+			PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, ciphertext,
+					BEBGW05HeaderSerParameter.class.getName());
+		}
+		BEBGW05DecapsulationGenerator keyDecapsulationGenerator = new BEBGW05DecapsulationGenerator();
+		keyDecapsulationGenerator
+				.init(new BEDecapsulationGenerationParameter(publicKey, secretKey, indexSet, ciphertext));
+		return keyDecapsulationGenerator.recoverKey();
+	}
 
-    public String getEngineName() {
-        return SCHEME_NAME;
-    }
+	public String getEngineName() {
+		return SCHEME_NAME;
+	}
 }

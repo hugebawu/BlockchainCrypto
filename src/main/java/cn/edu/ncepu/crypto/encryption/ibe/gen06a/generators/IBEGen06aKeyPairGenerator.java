@@ -17,21 +17,20 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  * Gentry CPA-secure IBE public key / master secret key pair generator.
  */
 public class IBEGen06aKeyPairGenerator implements PairingKeyPairGenerator {
-    private IBEKeyPairGenerationParameter params;
+	private IBEKeyPairGenerationParameter params;
 
-    public void init(KeyGenerationParameters keyGenerationParameters) {
-        this.params = (IBEKeyPairGenerationParameter)keyGenerationParameters;
-    }
+	public void init(KeyGenerationParameters keyGenerationParameters) {
+		this.params = (IBEKeyPairGenerationParameter) keyGenerationParameters;
+	}
 
-    public PairingKeySerPair generateKeyPair() {
-        Pairing pairing = PairingFactory.getPairing(this.params.getPairingParameters());
-        Element g = pairing.getG1().newRandomElement().getImmutable();
-        Element alpha = pairing.getZr().newRandomElement().getImmutable();
-        Element g1 = g.powZn(alpha).getImmutable();
-        Element h = pairing.getG1().newRandomElement().getImmutable();
+	public PairingKeySerPair generateKeyPair() {
+		Pairing pairing = PairingFactory.getPairing(this.params.getPairingParameters());
+		Element g = pairing.getG1().newRandomElement().getImmutable();
+		Element alpha = pairing.getZr().newRandomElement().getImmutable();
+		Element g1 = g.powZn(alpha).getImmutable();
+		Element h = pairing.getG1().newRandomElement().getImmutable();
 
-        return new PairingKeySerPair(
-                new IBEGen06aPublicKeySerParameter(this.params.getPairingParameters(), g, g1, h),
-                new IBEGen06aMasterSecretKeySerParameter(this.params.getPairingParameters(), alpha));
-    }
+		return new PairingKeySerPair(new IBEGen06aPublicKeySerParameter(this.params.getPairingParameters(), g, g1, h),
+				new IBEGen06aMasterSecretKeySerParameter(this.params.getPairingParameters(), alpha));
+	}
 }

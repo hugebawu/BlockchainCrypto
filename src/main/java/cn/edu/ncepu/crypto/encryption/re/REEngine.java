@@ -19,64 +19,67 @@ import it.unisa.dia.gas.jpbc.PairingParameters;
  */
 
 public abstract class REEngine extends Engine {
-    protected REEngine(String schemeName, ProveSecModel proveSecModel, PayloadSecLevel payloadSecLevel, PredicateSecLevel predicateSecLevel) {
-        super(schemeName, proveSecModel, payloadSecLevel, predicateSecLevel);
-    }
+	protected REEngine(String schemeName, ProveSecModel proveSecModel, PayloadSecLevel payloadSecLevel,
+			PredicateSecLevel predicateSecLevel) {
+		super(schemeName, proveSecModel, payloadSecLevel, predicateSecLevel);
+	}
 
-    /**
-     * Setup Algorithm for RE
-     * @param pairingParameters Pairing Parameters
-     * @return public key / master secret key pair of the scheme
-     */
-    public abstract PairingKeySerPair setup(PairingParameters pairingParameters);
+	/**
+	 * Setup Algorithm for RE
+	 * @param pairingParameters Pairing Parameters
+	 * @return public key / master secret key pair of the scheme
+	 */
+	public abstract PairingKeySerPair setup(PairingParameters pairingParameters);
 
-    /**
-     * Secret Key Generation Algorithm for RE
-     * @param publicKey public key
-     * @param masterKey master secret key
-     * @param id associated identity
-     * @return secret key associated with the identity id
-     */
-    public abstract PairingKeySerParameter keyGen(PairingKeySerParameter publicKey, PairingKeySerParameter masterKey, String id);
+	/**
+	 * Secret Key Generation Algorithm for RE
+	 * @param publicKey public key
+	 * @param masterKey master secret key
+	 * @param id associated identity
+	 * @return secret key associated with the identity id
+	 */
+	public abstract PairingKeySerParameter keyGen(PairingKeySerParameter publicKey, PairingKeySerParameter masterKey,
+			String id);
 
-    /**
-     * Encryption Algorithm for RE
-     * @param publicKey public key
-     * @param ids revocation identity set
-     * @param message the message in GT
-     * @return ciphertext associated with the revocation identity set ids
-     */
-    public abstract PairingCipherSerParameter encryption(PairingKeySerParameter publicKey, String[] ids, Element message);
+	/**
+	 * Encryption Algorithm for RE
+	 * @param publicKey public key
+	 * @param ids revocation identity set
+	 * @param message the message in GT
+	 * @return ciphertext associated with the revocation identity set ids
+	 */
+	public abstract PairingCipherSerParameter encryption(PairingKeySerParameter publicKey, String[] ids,
+			Element message);
 
-    /**
-     * Encapsulation Algorithm for RE
-     * @param publicKey public key
-     * @param ids revocation identity set
-     * @return header / session key pair
-     */
-    public abstract PairingKeyEncapsulationSerPair encapsulation(PairingKeySerParameter publicKey, String[] ids);
+	/**
+	 * Encapsulation Algorithm for RE
+	 * @param publicKey public key
+	 * @param ids revocation identity set
+	 * @return header / session key pair
+	 */
+	public abstract PairingKeyEncapsulationSerPair encapsulation(PairingKeySerParameter publicKey, String[] ids);
 
-    /**
-     * Decryption Algorithm for RE
-     * @param publicKey public key
-     * @param secretKey secret key associated with an identity
-     * @param ids revocation identity set associated with the ciphertext
-     * @param ciphertext ciphertext
-     * @return the message in GT
-     * @throws InvalidCipherTextException if the decryption procedure is failure
-     */
-    public abstract Element decryption(PairingKeySerParameter publicKey, PairingKeySerParameter secretKey,
-                       String[] ids, PairingCipherSerParameter ciphertext) throws InvalidCipherTextException;
+	/**
+	 * Decryption Algorithm for RE
+	 * @param publicKey public key
+	 * @param secretKey secret key associated with an identity
+	 * @param ids revocation identity set associated with the ciphertext
+	 * @param ciphertext ciphertext
+	 * @return the message in GT
+	 * @throws InvalidCipherTextException if the decryption procedure is failure
+	 */
+	public abstract Element decryption(PairingKeySerParameter publicKey, PairingKeySerParameter secretKey, String[] ids,
+			PairingCipherSerParameter ciphertext) throws InvalidCipherTextException;
 
-    /**
-     * Decryption Algorithm for RE
-     * @param publicKey public key
-     * @param secretKey secret key associated with an identity
-     * @param ids revocation identity set associated with the ciphertext
-     * @param header header
-     * @return session key
-     * @throws InvalidCipherTextException if the decryption procedure is failure
-     */
-    public abstract byte[] decapsulation(PairingKeySerParameter publicKey, PairingKeySerParameter secretKey,
-                       String[] ids, PairingCipherSerParameter header) throws InvalidCipherTextException;
+	/**
+	 * Decryption Algorithm for RE
+	 * @param publicKey public key
+	 * @param secretKey secret key associated with an identity
+	 * @param ids revocation identity set associated with the ciphertext
+	 * @param header header
+	 * @return session key
+	 * @throws InvalidCipherTextException if the decryption procedure is failure
+	 */
+	public abstract byte[] decapsulation(PairingKeySerParameter publicKey, PairingKeySerParameter secretKey,
+			String[] ids, PairingCipherSerParameter header) throws InvalidCipherTextException;
 }

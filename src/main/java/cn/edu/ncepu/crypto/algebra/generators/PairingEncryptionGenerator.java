@@ -11,17 +11,17 @@ import cn.edu.ncepu.crypto.algebra.serparams.PairingCipherSerParameter;
  */
 public interface PairingEncryptionGenerator {
 
-    /**
-     * intialise the encryption generator.
-     *
-     * @param params the parameters the public key pair is to be initialised with.
-     */
-    void init(CipherParameters params);
+	/**
+	 * intialise the encryption generator.
+	 *
+	 * @param params the parameters the public key pair is to be initialised with.
+	 */
+	void init(CipherParameters params);
 
-    /**
-     * return the generated ciphertext.
-     *
-     * @return a PairingCipherSerParameter representing the ciphertext.
-     */
-    PairingCipherSerParameter generateCiphertext();
+	/**
+	 * return the generated ciphertext.
+	 *
+	 * @return a PairingCipherSerParameter representing the ciphertext.
+	 */
+	PairingCipherSerParameter generateCiphertext();
 }

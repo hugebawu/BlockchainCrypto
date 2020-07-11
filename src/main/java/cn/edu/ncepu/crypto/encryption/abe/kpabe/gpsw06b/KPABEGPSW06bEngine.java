@@ -30,95 +30,105 @@ import it.unisa.dia.gas.jpbc.PairingParameters;
  * Goyal-Pandey-Sahai-Waters large-universe KP-ABE with random oracles engine.
  */
 public class KPABEGPSW06bEngine extends KPABEEngine {
-    private static final String SCHEME_NAME = "Goyal-Pandey-Sahai-Waters-06 large-universe KP-ABE";
+	private static final String SCHEME_NAME = "Goyal-Pandey-Sahai-Waters-06 large-universe KP-ABE";
 
-    private static KPABEGPSW06bEngine engine;
+	private static KPABEGPSW06bEngine engine;
 
-    public static KPABEGPSW06bEngine getInstance() {
-        if (engine == null) {
-            engine = new KPABEGPSW06bEngine();
-        }
-        return engine;
-    }
+	public static KPABEGPSW06bEngine getInstance() {
+		if (engine == null) {
+			engine = new KPABEGPSW06bEngine();
+		}
+		return engine;
+	}
 
-    private KPABEGPSW06bEngine() {
-        super(SCHEME_NAME, ProveSecModel.RandomOracle, PayloadSecLevel.CPA, PredicateSecLevel.NON_ANON);
-    }
+	private KPABEGPSW06bEngine() {
+		super(SCHEME_NAME, ProveSecModel.RandomOracle, PayloadSecLevel.CPA, PredicateSecLevel.NON_ANON);
+	}
 
-    public PairingKeySerPair setup(PairingParameters pairingParameters, int maxAttributesNum) {
-        KPABEGPSW06bKeyPairGenerator keyPairGenerator = new KPABEGPSW06bKeyPairGenerator();
-        keyPairGenerator.init(new KPABEKeyPairGenerationParameter(pairingParameters));
+	public PairingKeySerPair setup(PairingParameters pairingParameters, int maxAttributesNum) {
+		KPABEGPSW06bKeyPairGenerator keyPairGenerator = new KPABEGPSW06bKeyPairGenerator();
+		keyPairGenerator.init(new KPABEKeyPairGenerationParameter(pairingParameters));
 
-        return keyPairGenerator.generateKeyPair();
-    }
+		return keyPairGenerator.generateKeyPair();
+	}
 
-    public PairingKeySerParameter keyGen(PairingKeySerParameter publicKey, PairingKeySerParameter masterKey, int[][] accessPolicyIntArrays, String[] rhos) {
-        if (!(publicKey instanceof KPABEGPSW06bPublicKeySerParameter)){
-            PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, publicKey, KPABEGPSW06bPublicKeySerParameter.class.getName());
-        }
-        if (!(masterKey instanceof KPABEGPSW06bMasterSecretKeySerParameter)) {
-            PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, masterKey, KPABEGPSW06bMasterSecretKeySerParameter.class.getName());
-        }
-        KPABEGPSW06bSecretKeyGenerator secretKeyGenerator = new KPABEGPSW06bSecretKeyGenerator();
-        secretKeyGenerator.init(new KPABESecretKeyGenerationParameter(
-                accessControlEngine, publicKey, masterKey, accessPolicyIntArrays, rhos));
+	public PairingKeySerParameter keyGen(PairingKeySerParameter publicKey, PairingKeySerParameter masterKey,
+			int[][] accessPolicyIntArrays, String[] rhos) {
+		if (!(publicKey instanceof KPABEGPSW06bPublicKeySerParameter)) {
+			PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, publicKey,
+					KPABEGPSW06bPublicKeySerParameter.class.getName());
+		}
+		if (!(masterKey instanceof KPABEGPSW06bMasterSecretKeySerParameter)) {
+			PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, masterKey,
+					KPABEGPSW06bMasterSecretKeySerParameter.class.getName());
+		}
+		KPABEGPSW06bSecretKeyGenerator secretKeyGenerator = new KPABEGPSW06bSecretKeyGenerator();
+		secretKeyGenerator.init(new KPABESecretKeyGenerationParameter(accessControlEngine, publicKey, masterKey,
+				accessPolicyIntArrays, rhos));
 
-        return secretKeyGenerator.generateKey();
-    }
+		return secretKeyGenerator.generateKey();
+	}
 
-    public PairingCipherSerParameter encryption(PairingKeySerParameter publicKey, String[] attributes, Element message) {
-        if (!(publicKey instanceof KPABEGPSW06bPublicKeySerParameter)){
-            PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, publicKey, KPABEGPSW06bPublicKeySerParameter.class.getName());
-        }
-        KPABEGPSW06bEncryptionGenerator encryptionGenerator = new KPABEGPSW06bEncryptionGenerator();
-        encryptionGenerator.init(new KPABEEncryptionGenerationParameter(publicKey, attributes, message));
+	public PairingCipherSerParameter encryption(PairingKeySerParameter publicKey, String[] attributes,
+			Element message) {
+		if (!(publicKey instanceof KPABEGPSW06bPublicKeySerParameter)) {
+			PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, publicKey,
+					KPABEGPSW06bPublicKeySerParameter.class.getName());
+		}
+		KPABEGPSW06bEncryptionGenerator encryptionGenerator = new KPABEGPSW06bEncryptionGenerator();
+		encryptionGenerator.init(new KPABEEncryptionGenerationParameter(publicKey, attributes, message));
 
-        return encryptionGenerator.generateCiphertext();
-    }
+		return encryptionGenerator.generateCiphertext();
+	}
 
-    public PairingKeyEncapsulationSerPair encapsulation(PairingKeySerParameter publicKey, String[] attributes) {
-        if (!(publicKey instanceof KPABEGPSW06bPublicKeySerParameter)){
-            PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, publicKey, KPABEGPSW06bPublicKeySerParameter.class.getName());
-        }
-        KPABEGPSW06bEncryptionGenerator encryptionGenerator = new KPABEGPSW06bEncryptionGenerator();
-        encryptionGenerator.init(new KPABEEncryptionGenerationParameter(publicKey, attributes, null));
+	public PairingKeyEncapsulationSerPair encapsulation(PairingKeySerParameter publicKey, String[] attributes) {
+		if (!(publicKey instanceof KPABEGPSW06bPublicKeySerParameter)) {
+			PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, publicKey,
+					KPABEGPSW06bPublicKeySerParameter.class.getName());
+		}
+		KPABEGPSW06bEncryptionGenerator encryptionGenerator = new KPABEGPSW06bEncryptionGenerator();
+		encryptionGenerator.init(new KPABEEncryptionGenerationParameter(publicKey, attributes, null));
 
-        return encryptionGenerator.generateEncryptionPair();
-    }
+		return encryptionGenerator.generateEncryptionPair();
+	}
 
-    public Element decryption(
-            PairingKeySerParameter publicKey, PairingKeySerParameter secretKey, String[] attributes,
-            PairingCipherSerParameter ciphertext) throws InvalidCipherTextException {
-        if (!(publicKey instanceof KPABEGPSW06bPublicKeySerParameter)){
-            PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, publicKey, KPABEGPSW06bPublicKeySerParameter.class.getName());
-        }
-        if (!(secretKey instanceof KPABEGPSW06bSecretKeySerParameter)){
-            PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, secretKey, KPABEGPSW06bSecretKeySerParameter.class.getName());
-        }
-        if (!(ciphertext instanceof KPABEGPSW06bCiphertextSerParameter)){
-            PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, ciphertext, KPABEGPSW06bCiphertextSerParameter.class.getName());
-        }
-        KPABEGPSW06bDecryptionGenerator decryptionGenerator = new KPABEGPSW06bDecryptionGenerator();
-        decryptionGenerator.init(new KPABEDecryptionGenerationParameter(
-                accessControlEngine, publicKey, secretKey, attributes, ciphertext));
-        return decryptionGenerator.recoverMessage();
-    }
+	public Element decryption(PairingKeySerParameter publicKey, PairingKeySerParameter secretKey, String[] attributes,
+			PairingCipherSerParameter ciphertext) throws InvalidCipherTextException {
+		if (!(publicKey instanceof KPABEGPSW06bPublicKeySerParameter)) {
+			PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, publicKey,
+					KPABEGPSW06bPublicKeySerParameter.class.getName());
+		}
+		if (!(secretKey instanceof KPABEGPSW06bSecretKeySerParameter)) {
+			PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, secretKey,
+					KPABEGPSW06bSecretKeySerParameter.class.getName());
+		}
+		if (!(ciphertext instanceof KPABEGPSW06bCiphertextSerParameter)) {
+			PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, ciphertext,
+					KPABEGPSW06bCiphertextSerParameter.class.getName());
+		}
+		KPABEGPSW06bDecryptionGenerator decryptionGenerator = new KPABEGPSW06bDecryptionGenerator();
+		decryptionGenerator.init(new KPABEDecryptionGenerationParameter(accessControlEngine, publicKey, secretKey,
+				attributes, ciphertext));
+		return decryptionGenerator.recoverMessage();
+	}
 
-    public byte[] decapsulation(
-            PairingKeySerParameter publicKey, PairingKeySerParameter secretKey, String[] attributes,
-            PairingCipherSerParameter header) throws InvalidCipherTextException {
-        if (!(publicKey instanceof KPABEGPSW06bPublicKeySerParameter)){
-            PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, publicKey, KPABEGPSW06bPublicKeySerParameter.class.getName());
-        }
-        if (!(secretKey instanceof KPABEGPSW06bSecretKeySerParameter)){
-            PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, secretKey, KPABEGPSW06bSecretKeySerParameter.class.getName());
-        }
-        if (!(header instanceof KPABEGPSW06bHeaderSerParameter)){
-            PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, header, KPABEGPSW06bHeaderSerParameter.class.getName());
-        }
-        KPABEGPSW06bDecryptionGenerator decryptionGenerator = new KPABEGPSW06bDecryptionGenerator();
-        decryptionGenerator.init(new KPABEDecryptionGenerationParameter(
-                accessControlEngine, publicKey, secretKey, attributes, header));
-        return decryptionGenerator.recoverKey();
-    }
+	public byte[] decapsulation(PairingKeySerParameter publicKey, PairingKeySerParameter secretKey, String[] attributes,
+			PairingCipherSerParameter header) throws InvalidCipherTextException {
+		if (!(publicKey instanceof KPABEGPSW06bPublicKeySerParameter)) {
+			PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, publicKey,
+					KPABEGPSW06bPublicKeySerParameter.class.getName());
+		}
+		if (!(secretKey instanceof KPABEGPSW06bSecretKeySerParameter)) {
+			PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, secretKey,
+					KPABEGPSW06bSecretKeySerParameter.class.getName());
+		}
+		if (!(header instanceof KPABEGPSW06bHeaderSerParameter)) {
+			PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, header,
+					KPABEGPSW06bHeaderSerParameter.class.getName());
+		}
+		KPABEGPSW06bDecryptionGenerator decryptionGenerator = new KPABEGPSW06bDecryptionGenerator();
+		decryptionGenerator.init(
+				new KPABEDecryptionGenerationParameter(accessControlEngine, publicKey, secretKey, attributes, header));
+		return decryptionGenerator.recoverKey();
+	}
 }

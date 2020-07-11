@@ -11,38 +11,37 @@ import cn.edu.ncepu.crypto.application.llw15.serparams.RBACLLW15IntermediateSerP
  * Patient access credential generation parameters for Liu-Liu-Wu EHR role-based access control.
  */
 public class RBACLLW15AccessCredentialPGenParameter extends PairingKeyGenerationParameter {
-    private RBACLLW15IntermediateSerParameter intermediateParameter;
-    private String id;
+	private RBACLLW15IntermediateSerParameter intermediateParameter;
+	private String id;
 
-    public RBACLLW15AccessCredentialPGenParameter(
-            PairingKeySerParameter publicKeyParameter,
-            PairingKeySerParameter masterSecretKeyParameter,
-            String id) {
-        super(publicKeyParameter, masterSecretKeyParameter);
-        this.id = id;
-        //do not use intermediate parameters
-        this.intermediateParameter = null;
-    }
+	public RBACLLW15AccessCredentialPGenParameter(PairingKeySerParameter publicKeyParameter,
+			PairingKeySerParameter masterSecretKeyParameter, String id) {
+		super(publicKeyParameter, masterSecretKeyParameter);
+		this.id = id;
+		// do not use intermediate parameters
+		this.intermediateParameter = null;
+	}
 
-    public RBACLLW15AccessCredentialPGenParameter(PairingKeySerParameter publicKeyParameter,
-                                                  PairingKeySerParameter masterSecretKeyParameter,
-                                                  PairingCipherSerParameter intermediateParameter,
-                                                  String id) {
+	public RBACLLW15AccessCredentialPGenParameter(PairingKeySerParameter publicKeyParameter,
+			PairingKeySerParameter masterSecretKeyParameter, PairingCipherSerParameter intermediateParameter,
+			String id) {
 
-        //use intermediate parameters
-        super(publicKeyParameter, masterSecretKeyParameter);
-        this.id = id;
-        this.intermediateParameter = (RBACLLW15IntermediateSerParameter)intermediateParameter;
-    }
+		// use intermediate parameters
+		super(publicKeyParameter, masterSecretKeyParameter);
+		this.id = id;
+		this.intermediateParameter = (RBACLLW15IntermediateSerParameter) intermediateParameter;
+	}
 
-    public boolean isIntermediateGeneration() {
-        return (this.intermediateParameter != null);
-    }
+	public boolean isIntermediateGeneration() {
+		return (this.intermediateParameter != null);
+	}
 
-    public RBACLLW15IntermediateSerParameter getIntermediateParameters() {
-        return this.intermediateParameter;
-    }
+	public RBACLLW15IntermediateSerParameter getIntermediateParameters() {
+		return this.intermediateParameter;
+	}
 
-    public String getId() { return id; }
+	public String getId() {
+		return id;
+	}
 
 }

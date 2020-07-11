@@ -7,6 +7,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.math.BigInteger;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.KeyPair;
@@ -276,6 +277,16 @@ public class CommonUtilsTest {
 		} catch (Exception e) {
 			logger.error(e.getLocalizedMessage());
 		}
+	}
+
+//	@Ignore
+	@Test
+	public void testXOR() {
+		byte[] num1bytes = new BigInteger("21").toByteArray();
+		byte[] num2bytes = new BigInteger("65").toByteArray();
+		byte[] result = CommonUtils.xor(num1bytes, num2bytes);
+		logger.info("" + new BigInteger(result));
+		logger.info("" + new BigInteger("21").xor(new BigInteger("65")));
 	}
 
 }

@@ -11,15 +11,10 @@ import cn.edu.ncepu.crypto.encryption.re.lsw10a.serparams.RELSW10aSecretKeySerPa
  * Liu-Liu-Wu-16 CPA-secure RE secret key generator.
  */
 public class RELLW16aSecretKeyGenerator extends RELSW10aSecretKeyGenerator {
-    public PairingKeySerParameter generateKey() {
-        RELSW10aSecretKeySerParameter oriSecretKeyParameter = (RELSW10aSecretKeySerParameter) super.generateKey();
-        return new RELLW16aSecretKeySerParameter(
-                oriSecretKeyParameter.getParameters(),
-                oriSecretKeyParameter.getId(),
-                oriSecretKeyParameter.getElementId(),
-                oriSecretKeyParameter.getD0(),
-                oriSecretKeyParameter.getD1(),
-                oriSecretKeyParameter.getD2()
-        );
-    }
+	public PairingKeySerParameter generateKey() {
+		RELSW10aSecretKeySerParameter oriSecretKeyParameter = (RELSW10aSecretKeySerParameter) super.generateKey();
+		return new RELLW16aSecretKeySerParameter(oriSecretKeyParameter.getParameters(), oriSecretKeyParameter.getId(),
+				oriSecretKeyParameter.getElementId(), oriSecretKeyParameter.getD0(), oriSecretKeyParameter.getD1(),
+				oriSecretKeyParameter.getD2());
+	}
 }

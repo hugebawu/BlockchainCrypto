@@ -21,38 +21,43 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  * Lewko-Waters IBE decryption generator.
  */
 public class IBELW10DecryptionGenerator implements PairingDecryptionGenerator, PairingDecapsulationGenerator {
-    private IBEDecryptionGenerationParameter params;
+	private IBEDecryptionGenerationParameter params;
 
-    private Element sessionKey;
+	private Element sessionKey;
 
-    public void init(CipherParameters params) {
-        this.params = (IBEDecryptionGenerationParameter)params;
-    }
+	public void init(CipherParameters params) {
+		this.params = (IBEDecryptionGenerationParameter) params;
+	}
 
-    private void computeDecapsulation() throws InvalidCipherTextException {
-        IBELW10PublicKeySerParameter publicKeyParameter = (IBELW10PublicKeySerParameter)this.params.getPublicKeyParameter();
-        IBELW10SecretKeySerParameter secretKeyParameter = (IBELW10SecretKeySerParameter)this.params.getSecretKeyParameter();
-        IBELW10HeaderSerParameter headerParameter = (IBELW10HeaderSerParameter) this.params.getCiphertextParameter();
-        Pairing pairing = PairingFactory.getPairing(publicKeyParameter.getParameters());
-        Element elementIdCT = PairingUtils.MapStringToGroup(pairing, this.params.getId(), PairingUtils.PairingGroupType.Zr);
+	private void computeDecapsulation() throws InvalidCipherTextException {
+		IBELW10PublicKeySerParameter publicKeyParameter = (IBELW10PublicKeySerParameter) this.params
+				.getPublicKeyParameter();
+		IBELW10SecretKeySerParameter secretKeyParameter = (IBELW10SecretKeySerParameter) this.params
+				.getSecretKeyParameter();
+		IBELW10HeaderSerParameter headerParameter = (IBELW10HeaderSerParameter) this.params.getCiphertextParameter();
+		Pairing pairing = PairingFactory.getPairing(publicKeyParameter.getParameters());
+		Element elementIdCT = PairingUtils.MapStringToGroup(pairing, this.params.getId(),
+				PairingUtils.PairingGroupType.Zr);
 
-        if (!secretKeyParameter.getElementId().equals(elementIdCT)){
-            throw new InvalidCipherTextException("Secret Key identity vector does not match Ciphertext identity vector");
-        }
+		if (!secretKeyParameter.getElementId().equals(elementIdCT)) {
+			throw new InvalidCipherTextException(
+					"Secret Key identity vector does not match Ciphertext identity vector");
+		}
 
-        Element temp0 = pairing.pairing(secretKeyParameter.getK2(), headerParameter.getC2()).getImmutable();
-        Element temp1 = pairing.pairing(secretKeyParameter.getK1(), headerParameter.getC1()).getImmutable();
-        this.sessionKey = temp0.div(temp1).getImmutable();
-    }
+		Element temp0 = pairing.pairing(secretKeyParameter.getK2(), headerParameter.getC2()).getImmutable();
+		Element temp1 = pairing.pairing(secretKeyParameter.getK1(), headerParameter.getC1()).getImmutable();
+		this.sessionKey = temp0.div(temp1).getImmutable();
+	}
 
-    public byte[] recoverKey() throws InvalidCipherTextException {
-        computeDecapsulation();
-        return this.sessionKey.toBytes();
-    }
+	public byte[] recoverKey() throws InvalidCipherTextException {
+		computeDecapsulation();
+		return this.sessionKey.toBytes();
+	}
 
-    public Element recoverMessage() throws InvalidCipherTextException {
-        computeDecapsulation();
-        IBELW10CiphertextSerParameter ciphertextParameter = (IBELW10CiphertextSerParameter)this.params.getCiphertextParameter();
-        return ciphertextParameter.getC0().div(sessionKey).getImmutable();
-    }
+	public Element recoverMessage() throws InvalidCipherTextException {
+		computeDecapsulation();
+		IBELW10CiphertextSerParameter ciphertextParameter = (IBELW10CiphertextSerParameter) this.params
+				.getCiphertextParameter();
+		return ciphertextParameter.getC0().div(sessionKey).getImmutable();
+	}
 }

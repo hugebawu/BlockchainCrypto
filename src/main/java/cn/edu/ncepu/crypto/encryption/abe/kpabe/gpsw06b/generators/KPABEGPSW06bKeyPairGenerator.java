@@ -17,22 +17,22 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  * Goyal-Pandey-Sahai-Waters large-universe KP-ABE with random oracles public key / master secret key pair generator.
  */
 public class KPABEGPSW06bKeyPairGenerator implements PairingKeyPairGenerator {
-    private KPABEKeyPairGenerationParameter parameters;
+	private KPABEKeyPairGenerationParameter parameters;
 
-    public void init(KeyGenerationParameters keyGenerationParameters) {
-        this.parameters = (KPABEKeyPairGenerationParameter) keyGenerationParameters;
-    }
+	public void init(KeyGenerationParameters keyGenerationParameters) {
+		this.parameters = (KPABEKeyPairGenerationParameter) keyGenerationParameters;
+	}
 
-    public PairingKeySerPair generateKeyPair() {
-        Pairing pairing = PairingFactory.getPairing(this.parameters.getPairingParameters());
+	public PairingKeySerPair generateKeyPair() {
+		Pairing pairing = PairingFactory.getPairing(this.parameters.getPairingParameters());
 
-        Element y = pairing.getZr().newRandomElement().getImmutable();
-        Element g = pairing.getG1().newRandomElement().getImmutable();
-        Element g1 = g.powZn(y).getImmutable();
-        Element g2 = pairing.getG1().newRandomElement().getImmutable();
+		Element y = pairing.getZr().newRandomElement().getImmutable();
+		Element g = pairing.getG1().newRandomElement().getImmutable();
+		Element g1 = g.powZn(y).getImmutable();
+		Element g2 = pairing.getG1().newRandomElement().getImmutable();
 
-        return new PairingKeySerPair(
-                new KPABEGPSW06bPublicKeySerParameter(this.parameters.getPairingParameters(), g, g1, g2),
-                new KPABEGPSW06bMasterSecretKeySerParameter(this.parameters.getPairingParameters(), y));
-    }
+		return new PairingKeySerPair(
+				new KPABEGPSW06bPublicKeySerParameter(this.parameters.getPairingParameters(), g, g1, g2),
+				new KPABEGPSW06bMasterSecretKeySerParameter(this.parameters.getPairingParameters(), y));
+	}
 }

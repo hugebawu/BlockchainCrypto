@@ -13,24 +13,17 @@ import cn.edu.ncepu.crypto.encryption.re.lsw10a.serparams.RELSW10aPublicKeySerPa
  * Liu-Liu-Wu-16 CPA-secure RE public key / master secret key generator.
  */
 public class RELLW16aKeyPairGenerator extends RELSW10aKeyPairGenerator {
-    public PairingKeySerPair generateKeyPair() {
-        PairingKeySerPair keyPair = super.generateKeyPair();
-        RELSW10aPublicKeySerParameter oriPublicKeyParameter = (RELSW10aPublicKeySerParameter) keyPair.getPublic();
-        RELSW10aMasterSecretKeySerParameter oriMasterSecretKeyParameter = (RELSW10aMasterSecretKeySerParameter) keyPair.getPrivate();
-        RELLW16aPublicKeySerParameter publicKeyParameter = new RELLW16aPublicKeySerParameter(
-                oriPublicKeyParameter.getParameters(),
-                oriPublicKeyParameter.getG(),
-                oriPublicKeyParameter.getGb(),
-                oriPublicKeyParameter.getGb2(),
-                oriPublicKeyParameter.getHb(),
-                oriPublicKeyParameter.getEggAlpha()
-        );
-        RELLW16aMasterSecretKeySerParameter masterSecretKeyParameter = new RELLW16aMasterSecretKeySerParameter(
-                oriMasterSecretKeyParameter.getParameters(),
-                oriMasterSecretKeyParameter.getAlpha(),
-                oriMasterSecretKeyParameter.getB(),
-                oriMasterSecretKeyParameter.getH()
-        );
-        return new PairingKeySerPair(publicKeyParameter, masterSecretKeyParameter);
-    }
+	public PairingKeySerPair generateKeyPair() {
+		PairingKeySerPair keyPair = super.generateKeyPair();
+		RELSW10aPublicKeySerParameter oriPublicKeyParameter = (RELSW10aPublicKeySerParameter) keyPair.getPublic();
+		RELSW10aMasterSecretKeySerParameter oriMasterSecretKeyParameter = (RELSW10aMasterSecretKeySerParameter) keyPair
+				.getPrivate();
+		RELLW16aPublicKeySerParameter publicKeyParameter = new RELLW16aPublicKeySerParameter(
+				oriPublicKeyParameter.getParameters(), oriPublicKeyParameter.getG(), oriPublicKeyParameter.getGb(),
+				oriPublicKeyParameter.getGb2(), oriPublicKeyParameter.getHb(), oriPublicKeyParameter.getEggAlpha());
+		RELLW16aMasterSecretKeySerParameter masterSecretKeyParameter = new RELLW16aMasterSecretKeySerParameter(
+				oriMasterSecretKeyParameter.getParameters(), oriMasterSecretKeyParameter.getAlpha(),
+				oriMasterSecretKeyParameter.getB(), oriMasterSecretKeyParameter.getH());
+		return new PairingKeySerPair(publicKeyParameter, masterSecretKeyParameter);
+	}
 }

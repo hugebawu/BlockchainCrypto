@@ -3,6 +3,8 @@
  */
 package cn.edu.ncepu.crypto.HE.ibeHE.bf01aHE;
 
+import java.util.Map;
+
 import org.bouncycastle.crypto.InvalidCipherTextException;
 
 import cn.edu.ncepu.crypto.HE.ibeHE.IBEHEEngine;
@@ -23,7 +25,9 @@ import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerPair;
 import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
 import cn.edu.ncepu.crypto.utils.PairingUtils;
 import it.unisa.dia.gas.jpbc.Element;
+import it.unisa.dia.gas.jpbc.Pairing;
 import it.unisa.dia.gas.jpbc.PairingParameters;
+import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
 
 /**
  * @Copyright : Copyright (c) 2020-2021 
@@ -93,6 +97,21 @@ public class BF01aHEEngine extends IBEHEEngine {
 		BF01aHEDecryptionGenerator decryptionGenerator = new BF01aHEDecryptionGenerator();
 		decryptionGenerator.init(new IBEHEDecryptionGenerationParameter(null, secretKey, id, ciphertext));
 		return decryptionGenerator.recoverMessage();
+	}
+
+	@Override
+	public PairingCipherSerParameter add(PairingKeySerParameter publicKey,
+			Map<String, PairingCipherSerParameter> ciphertextMap) {
+		PairingParameters parameters = publicKey.getParameters();
+		Pairing pairing = PairingFactory.getPairing(parameters);
+		Element U = pairing.getG1().newZeroElement();
+		Element V = pairing.getGT().newZeroElement();
+		for (PairingCipherSerParameter cihpertext : ciphertextMap.values()) {
+			BF01aHECiphertextSerParameter ciphertextParameter = (BF01aHECiphertextSerParameter) cihpertext;
+			U = U.add(ciphertextParameter.getU());
+			V = V.add(ciphertextParameter.getV());
+		}
+		return new BF01aHECiphertextSerParameter(parameters, U.getImmutable(), V.getImmutable());
 	}
 
 }

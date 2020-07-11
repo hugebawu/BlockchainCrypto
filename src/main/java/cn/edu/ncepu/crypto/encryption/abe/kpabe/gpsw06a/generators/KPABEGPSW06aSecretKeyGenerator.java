@@ -23,37 +23,44 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  * Goyal-Pandey-Sahai-Waters small-universe KP-ABE secret key generator.
  */
 public class KPABEGPSW06aSecretKeyGenerator implements PairingKeyParameterGenerator {
-    private KPABESecretKeyGenerationParameter parameters;
+	private KPABESecretKeyGenerationParameter parameters;
 
-    public void init(KeyGenerationParameters keyGenerationParameters) {
-        this.parameters = (KPABESecretKeyGenerationParameter)keyGenerationParameters;
-    }
+	public void init(KeyGenerationParameters keyGenerationParameters) {
+		this.parameters = (KPABESecretKeyGenerationParameter) keyGenerationParameters;
+	}
 
-    public PairingKeySerParameter generateKey() {
-        KPABEGPSW06aMasterSecretKeySerParameter masterSecretKeyParameter = (KPABEGPSW06aMasterSecretKeySerParameter)parameters.getMasterSecretKeyParameter();
-        KPABEGPSW06aPublicKeySerParameter publicKeyParameter = (KPABEGPSW06aPublicKeySerParameter)parameters.getPublicKeyParameter();
-        assert(parameters.getRhos().length <= publicKeyParameter.getMaxAttributesNum());
-        int[][] accessPolicy = this.parameters.getAccessPolicy();
-        String[] stringRhos = this.parameters.getRhos();
-        Map<String, Element> Ds = new HashMap<String, Element>();
+	public PairingKeySerParameter generateKey() {
+		KPABEGPSW06aMasterSecretKeySerParameter masterSecretKeyParameter = (KPABEGPSW06aMasterSecretKeySerParameter) parameters
+				.getMasterSecretKeyParameter();
+		KPABEGPSW06aPublicKeySerParameter publicKeyParameter = (KPABEGPSW06aPublicKeySerParameter) parameters
+				.getPublicKeyParameter();
+		assert (parameters.getRhos().length <= publicKeyParameter.getMaxAttributesNum());
+		int[][] accessPolicy = this.parameters.getAccessPolicy();
+		String[] stringRhos = this.parameters.getRhos();
+		Map<String, Element> Ds = new HashMap<String, Element>();
 
-        Pairing pairing = PairingFactory.getPairing(publicKeyParameter.getParameters());
-        try {
-            Element y = masterSecretKeyParameter.getY().getImmutable();
-            AccessControlParameter accessControlParameter =
-                    this.parameters.getAccessControlEngine().generateAccessControl(accessPolicy, stringRhos);
-            Map<String, Element> lambdaElementsMap = this.parameters.getAccessControlEngine().secretSharing(pairing, y, accessControlParameter);
-            for (String rho : lambdaElementsMap.keySet()) {
-                int index = Integer.parseInt(rho);
-                if (index >= publicKeyParameter.getMaxAttributesNum() || index < 0) {
-                    throw new InvalidParameterException("Rho index greater than or equal to the max number of attributes supported");
-                }
-                Element d = publicKeyParameter.getG().powZn(lambdaElementsMap.get(rho).div(masterSecretKeyParameter.getTsAt(String.valueOf(index)))).getImmutable();
-                Ds.put(String.valueOf(index), d);
-            }
-            return new KPABEGPSW06aSecretKeySerParameter(publicKeyParameter.getParameters(), accessControlParameter, Ds);
-        } catch (NumberFormatException e) {
-            throw new InvalidParameterException("Invalid rhos, require rhos represented by integers");
-        }
-    }
+		Pairing pairing = PairingFactory.getPairing(publicKeyParameter.getParameters());
+		try {
+			Element y = masterSecretKeyParameter.getY().getImmutable();
+			AccessControlParameter accessControlParameter = this.parameters.getAccessControlEngine()
+					.generateAccessControl(accessPolicy, stringRhos);
+			Map<String, Element> lambdaElementsMap = this.parameters.getAccessControlEngine().secretSharing(pairing, y,
+					accessControlParameter);
+			for (String rho : lambdaElementsMap.keySet()) {
+				int index = Integer.parseInt(rho);
+				if (index >= publicKeyParameter.getMaxAttributesNum() || index < 0) {
+					throw new InvalidParameterException(
+							"Rho index greater than or equal to the max number of attributes supported");
+				}
+				Element d = publicKeyParameter.getG()
+						.powZn(lambdaElementsMap.get(rho).div(masterSecretKeyParameter.getTsAt(String.valueOf(index))))
+						.getImmutable();
+				Ds.put(String.valueOf(index), d);
+			}
+			return new KPABEGPSW06aSecretKeySerParameter(publicKeyParameter.getParameters(), accessControlParameter,
+					Ds);
+		} catch (NumberFormatException e) {
+			throw new InvalidParameterException("Invalid rhos, require rhos represented by integers");
+		}
+	}
 }

@@ -17,31 +17,32 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  * Boneh-Gentry-Waters BE public key / master secret key pair generator.
  */
 public class BEBGW05KeyPairGenerator implements PairingKeyPairGenerator {
-    private BEKeyPairGenerationParameter parameters;
+	private BEKeyPairGenerationParameter parameters;
 
-    public void init(KeyGenerationParameters keyGenerationParameters) {
-        this.parameters = (BEKeyPairGenerationParameter) keyGenerationParameters;
-    }
+	public void init(KeyGenerationParameters keyGenerationParameters) {
+		this.parameters = (BEKeyPairGenerationParameter) keyGenerationParameters;
+	}
 
-    public PairingKeySerPair generateKeyPair() {
-        Pairing pairing = PairingFactory.getPairing(this.parameters.getPairingParameters());
+	public PairingKeySerPair generateKeyPair() {
+		Pairing pairing = PairingFactory.getPairing(this.parameters.getPairingParameters());
 
-        Element gamma = pairing.getZr().newRandomElement().getImmutable();
-        Element alpha = pairing.getZr().newRandomElement().getImmutable();
-        Element g = pairing.getG1().newRandomElement().getImmutable();
-        Element v = g.powZn(gamma).getImmutable();
-        Element[] gs = new Element[this.parameters.getMaxUserNum() * 2 + 1];
-        Element alphaI = pairing.getZr().newOneElement().getImmutable();
-        for (int i = 1; i < gs.length; i++) {
-            alphaI = alphaI.mulZn(alpha).getImmutable();
-            if (i == this.parameters.getMaxUserNum() + 1) {
-                continue;
-            }
-            gs[i] = g.powZn(alphaI).getImmutable();
-        }
+		Element gamma = pairing.getZr().newRandomElement().getImmutable();
+		Element alpha = pairing.getZr().newRandomElement().getImmutable();
+		Element g = pairing.getG1().newRandomElement().getImmutable();
+		Element v = g.powZn(gamma).getImmutable();
+		Element[] gs = new Element[this.parameters.getMaxUserNum() * 2 + 1];
+		Element alphaI = pairing.getZr().newOneElement().getImmutable();
+		for (int i = 1; i < gs.length; i++) {
+			alphaI = alphaI.mulZn(alpha).getImmutable();
+			if (i == this.parameters.getMaxUserNum() + 1) {
+				continue;
+			}
+			gs[i] = g.powZn(alphaI).getImmutable();
+		}
 
-        return new PairingKeySerPair(
-                new BEBGW05PublicKeySerParameter(this.parameters.getPairingParameters(), this.parameters.getMaxUserNum(), g, gs, v),
-                new BEBGW05MasterSecretKeySerParameter(this.parameters.getPairingParameters(), gamma));
-    }
+		return new PairingKeySerPair(
+				new BEBGW05PublicKeySerParameter(this.parameters.getPairingParameters(),
+						this.parameters.getMaxUserNum(), g, gs, v),
+				new BEBGW05MasterSecretKeySerParameter(this.parameters.getPairingParameters(), gamma));
+	}
 }

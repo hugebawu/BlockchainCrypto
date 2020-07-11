@@ -4,6 +4,8 @@ import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
 import java.lang.reflect.Proxy;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.crypto.InvalidCipherTextException;
@@ -24,6 +26,7 @@ import cn.edu.ncepu.crypto.encryption.ibe.gen06a.IBEGen06aEngine;
 import cn.edu.ncepu.crypto.encryption.ibe.gen06b.IBEGen06bEngine;
 import cn.edu.ncepu.crypto.encryption.ibe.lw10.IBELW10Engine;
 import cn.edu.ncepu.crypto.encryption.ibe.wp_ibe.BasicIBE;
+import cn.edu.ncepu.crypto.encryption.ibe.wp_ibe.BasicIBE.CipherText;
 import cn.edu.ncepu.crypto.encryption.ibe.wp_ibe.IBE;
 import cn.edu.ncepu.crypto.utils.PairingUtils;
 import cn.edu.ncepu.crypto.utils.PairingUtils.PairingGroupType;
@@ -87,7 +90,7 @@ public class IBEEngineJUnitTest {
 		// the message waits to be encrypted
 		String plainMessage = "12345678901234567890123456789012345678901234567890123456789012345678901234567";
 		logger.info("plaintext message: " + plainMessage);
-		Element message = PairingUtils.mapNumStringToElement(pairingParams, pairing, plainMessage, PairingGroupType.GT);
+		Element message = PairingUtils.mapNumStringToElement(pairing, plainMessage, PairingGroupType.GT);
 		PairingCipherSerParameter ciphertext = engine.encryption(publicKey, identityForCiphertext, message);
 		byte[] byteArrayCiphertext = PairingUtils.SerCipherParameter(ciphertext);
 		CipherParameters anCiphertext = PairingUtils.deserCipherParameters(byteArrayCiphertext);
@@ -170,7 +173,7 @@ public class IBEEngineJUnitTest {
 	@Test
 	public void testBasicIBE() {
 		logger.info("start BasicIBE Testing \n");
-		String message = "81869981414486565817042987620009425916711137248094272342132238763687306328559";
+		String message = "123456789012345678901234567890123456789012345678901234567890";
 		// 在jpbc配置使用的那个jar包，\params\curves下面
 		pairingParams = PairingFactory.getPairingParameters(PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256);
 		BasicIBE ident = new BasicIBE(pairingParams);
@@ -180,14 +183,86 @@ public class IBEEngineJUnitTest {
 		logger.info("--------------------系统建立阶段----------------------");
 		identProxy.setup();
 		logger.info("--------------------密钥提取阶段----------------------");
-		identProxy.extract();
+		Element d = identProxy.extract("uID");
 		logger.info("----------------------加密阶段-----------------------");
 		logger.info("plaintext: " + message);
-		identProxy.encrypt(message);
+		CipherText cipherText = identProxy.encrypt(message);
 		logger.info("-----------------------解密阶段----------------------");
-		String decrypted = identProxy.decrypt();
+		String decrypted = identProxy.decrypt(d, cipherText);
 		logger.info("decrypted: " + decrypted);
 		assertTrue(message.equals(decrypted));
+	}
+
+	/**
+	 * TODO GTElement的add方法跟mul方法的实现方式一模一样，满足乘法同态而不是加法同态
+	 * C1 = IBEHE(M1) C2 = IBEHE(M2)  IBEHE(M1*M2) = C1+C2
+	 */
+//	@Ignore
+	@Test
+	public void testHomomorphismOfBasicIBE() {
+		// 在jpbc配置使用的那个jar包，\params\curves下面
+		pairingParams = PairingFactory.getPairingParameters(PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256);
+		Pairing pairing = PairingFactory.getPairing(pairingParams);
+		BasicIBE basicIBE = new BasicIBE(pairingParams);
+		String topLayerAdmin = "TopLayerAdmin";
+		Map<String, CipherText> ciphertextMap = new LinkedHashMap<String, CipherText>();
+		logger.info("--------------------系统建立阶段----------------------");
+		basicIBE.setup();
+		logger.info("--------------------密钥提取阶段----------------------");
+		Element d = basicIBE.extract(topLayerAdmin);
+		logger.info("----------------------加密阶段-----------------------");
+
+		String num_user1_org1 = "2323232342342323423234234";
+		Element e_num_user1_org1 = PairingUtils.mapNumStringToElement(pairing, num_user1_org1, PairingGroupType.GT);
+		CipherText ciphertext_user1_org1 = basicIBE.encrypt(num_user1_org1);
+		ciphertextMap.put("user1_org1", ciphertext_user1_org1);
+		String num_user2_org1 = "2342342342342342344";
+		Element e_num_user2_org1 = PairingUtils.mapNumStringToElement(pairing, num_user2_org1, PairingGroupType.GT);
+		CipherText ciphertext_user2_org1 = basicIBE.encrypt(num_user2_org1);
+		ciphertextMap.put("user2_org1", ciphertext_user2_org1);
+
+		logger.info("--------------------数据聚合阶段----------------------");
+		CipherText ciphertext_org1 = basicIBE.add(ciphertextMap);
+		logger.info("--------------------密文验证阶段----------------------");
+		// 验证U
+		Element U1 = ciphertext_user1_org1.getU();
+		Element U2 = ciphertext_user2_org1.getU();
+		Element U12 = ciphertext_org1.getU();
+		assertTrue(U12.isEqual(U1.add(U2)));
+		// 验证V
+		Element V1 = ciphertext_user1_org1.getV();
+		Element V2 = ciphertext_user2_org1.getV();
+		Element V12 = ciphertext_org1.getV();
+		assertTrue(V12.equals(V1.add(V2)));
+		// 验证r
+		Element r1 = ciphertext_user1_org1.getR();
+		Element r2 = ciphertext_user2_org1.getR();
+		Element r12 = ciphertext_org1.getR();
+		assertTrue(r12.isEqual(r1.add(r2)));
+		// 验证g
+		Element g1 = ciphertext_user1_org1.getG();
+		Element g2 = ciphertext_user2_org1.getG();
+		Element g12 = ciphertext_org1.getG();
+		assertTrue((g1.isEqual(g2) && g2.isEqual(g12)));
+		// 验证gr
+		Element gr1 = ciphertext_user1_org1.getGr();
+		Element gr2 = ciphertext_user2_org1.getGr();
+		Element gr12 = ciphertext_org1.getGr();
+		assertTrue(gr12.isEqual(gr1.mul(gr2)) && gr12.isEqual(g12.powZn(r12)));
+		// 验证H
+		Element H1 = ciphertext_user1_org1.getH();
+		Element H2 = ciphertext_user2_org1.getH();
+		Element H12 = ciphertext_org1.getH();
+		assertTrue(H12.isEqual(H1.add(H2)));
+		logger.info("-----------------------解密阶段----------------------");
+		String decrypted = basicIBE.decrypt(d, ciphertext_org1);
+		logger.info("decrypted: " + decrypted);
+		Element e_decrypted = PairingUtils.mapNumStringToElement(pairing, decrypted, PairingGroupType.GT);
+		Element preNum = e_num_user1_org1.mul(e_num_user2_org1);
+		assertTrue(preNum.isEqual(e_decrypted));
+
+		// --------------------------------------------------------
+
 	}
 
 	@Ignore

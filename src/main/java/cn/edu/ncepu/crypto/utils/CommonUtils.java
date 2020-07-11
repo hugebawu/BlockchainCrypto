@@ -34,6 +34,8 @@ import java.security.spec.EncodedKeySpec;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Base64;
 
 import javax.crypto.BadPaddingException;
@@ -60,6 +62,8 @@ import org.slf4j.LoggerFactory;
 public class CommonUtils {
 
 	private static final Logger logger = LoggerFactory.getLogger(CommonUtils.class);
+	private static final int BUFFER_SIZE = 1024; // char
+	private static final int MESSAGE_SIZE = 128;// byte
 
 	/**
 	 * TODO convert Hex or Base64 encoded "String" public or private Key to "PublicKey" or "PrivateKey"
@@ -192,7 +196,6 @@ public class CommonUtils {
 	 */
 	public static byte[] readBytesFromFile(String pathName) throws IOException {
 		FileInputStream fis = new FileInputStream(pathName);
-		final int BUFFER_SIZE = 1024;
 		ByteArrayOutputStream buffer = new ByteArrayOutputStream();
 		int readCount;
 		byte[] data = new byte[BUFFER_SIZE];
@@ -421,7 +424,6 @@ public class CommonUtils {
 		// 我们要使用BouncyCastle提供的RipeMD160算法，需要先把BouncyCastle注册一下。
 		// 注册只需要在启动时进行一次，后续就可以使用BouncyCastle提供的所有哈希算法和加密算法。
 		Security.addProvider(new BouncyCastleProvider());
-		final int BUFFER_SIZE = 1024;
 		final int N = (content.length - content.length % BUFFER_SIZE) / BUFFER_SIZE;
 		MessageDigest messageDigest = null;
 		try {
@@ -647,5 +649,72 @@ public class CommonUtils {
 		KeyGenerator keyGenerator = KeyGenerator.getInstance(algorithm);
 		SecretKey secretKey = keyGenerator.generateKey();
 		return secretKey;
+	}
+
+	public static byte[] xor(byte[] a, byte[] b) {
+//		byte[] result = new byte[Math.min(a.length, b.length)];
+//		for (int i = 0; i < result.length; i++) {
+//			result[i] = (byte) (((int) a[i]) ^ ((int) b[i]));
+//		}
+		int aLen = a.length;
+		int bLen = b.length;
+		byte[] result = new byte[Math.max(aLen, bLen)];
+		int i = aLen - 1, j = bLen - 1;
+		for (int k = result.length - 1; i >= 0 && j >= 0; i--, j--, k--) {
+			result[k] = (byte) (((int) a[i]) ^ ((int) b[j]));
+		}
+		if (aLen > bLen) {
+			for (int k = i; k >= 0; k--) {
+				result[k] = a[k];
+			}
+		} else {
+			for (int k = j; k >= 0; k--) {
+				result[k] = b[k];
+			}
+		}
+		return result;
+	}
+
+	// 把一个byte[] 分拆成每段MESSAGE_SIZE字节的数组List
+	/**
+	 * TODO slice  byte array into list with size MESSAGE_SIZE byte each element in the list;
+	 * @param message
+	 * @return
+	 */
+	public static ArrayList<byte[]> slice(byte[] message) {
+		ArrayList<byte[]> list = new ArrayList<byte[]>();
+		// boxCount the size of list
+		int boxCount = ((message.length % MESSAGE_SIZE) == 0) ? (message.length / MESSAGE_SIZE)
+				: ((message.length / MESSAGE_SIZE) + 1);
+		for (int i = 0; i < boxCount - 1; ++i) {
+			list.add(Arrays.copyOfRange(message, i * MESSAGE_SIZE, (i + 1) * MESSAGE_SIZE));
+		}
+		list.add(Arrays.copyOfRange(message, (boxCount - 1) * MESSAGE_SIZE, message.length));
+		return list;
+	}
+
+	/**
+	 * TODO splice list as single byte array
+	 * @param byteMessage
+	 * @return 参数描述
+	 */
+	public static byte[] splice(ArrayList<byte[]> byteMessage) {
+		int boxCount = byteMessage.size();
+		// byteSum the number of total bytes
+		int byteSum = (MESSAGE_SIZE * (boxCount - 1)) + byteMessage.get(boxCount - 1).length;
+		byte[] temp = new byte[byteSum];
+		for (int i = 0; i < boxCount - 1; ++i) {
+			for (int t = 0; t < MESSAGE_SIZE; ++t) {
+				temp[i * MESSAGE_SIZE + t] = byteMessage.get(i)[t];
+			}
+		}
+		for (int i = 0; i < byteMessage.get(boxCount - 1).length; ++i) {
+			temp[MESSAGE_SIZE * (boxCount - 1) + i] = byteMessage.get(boxCount - 1)[i];
+		}
+		return temp;
+	}
+
+	public static String toString(ArrayList<byte[]> byteMessage) {
+		return new String(splice(byteMessage));
 	}
 }

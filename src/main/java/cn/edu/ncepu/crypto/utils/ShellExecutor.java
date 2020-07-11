@@ -15,6 +15,8 @@ import java.util.concurrent.TimeUnit;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import cn.edu.ncepu.crypto.utils.ShellExecutor.CommandTimeoutException;
+
 /**
  * @Copyright : Copyright (c) 2020-2021 
  * @author: Baiji Hu

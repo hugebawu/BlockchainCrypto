@@ -9,7 +9,7 @@ import it.unisa.dia.gas.jpbc.PairingParameters;
  * Boneh-Boyen short signatures public key / secret key generation parameters.
  */
 public class BB04SignKeyPairGenerationParameter extends PairingKeyPairGenerationParameter {
-    public BB04SignKeyPairGenerationParameter(PairingParameters pairingParameters) {
-        super(pairingParameters);
-    }
+	public BB04SignKeyPairGenerationParameter(PairingParameters pairingParameters) {
+		super(pairingParameters);
+	}
 }

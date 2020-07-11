@@ -13,23 +13,18 @@ import cn.edu.ncepu.crypto.encryption.abe.kpabe.llw16.serparams.KPABELLW16Public
  * Liu-Liu-Wu-16 CCA2-secure OO-KP-ABE public key / master secret key pair generator.
  */
 public class KPABELLW16KeyPairGenerator extends KPABEHW14KeyPairGenerator {
-    public PairingKeySerPair generateKeyPair() {
-        PairingKeySerPair pairingKeySerPair = super.generateKeyPair();
-        KPABEHW14PublicKeySerParameter publicKeyRW13Parameter = (KPABEHW14PublicKeySerParameter) pairingKeySerPair.getPublic();
-        KPABEHW14MasterSecretKeySerParameter masterKeyRW13Parameter = (KPABEHW14MasterSecretKeySerParameter) pairingKeySerPair.getPrivate();
+	public PairingKeySerPair generateKeyPair() {
+		PairingKeySerPair pairingKeySerPair = super.generateKeyPair();
+		KPABEHW14PublicKeySerParameter publicKeyRW13Parameter = (KPABEHW14PublicKeySerParameter) pairingKeySerPair
+				.getPublic();
+		KPABEHW14MasterSecretKeySerParameter masterKeyRW13Parameter = (KPABEHW14MasterSecretKeySerParameter) pairingKeySerPair
+				.getPrivate();
 
-        KPABELLW16PublicKeySerParameter publicKeyParameter = new KPABELLW16PublicKeySerParameter(
-                publicKeyRW13Parameter.getParameters(),
-                publicKeyRW13Parameter.getG(),
-                publicKeyRW13Parameter.getU(),
-                publicKeyRW13Parameter.getH(),
-                publicKeyRW13Parameter.getW(),
-                publicKeyRW13Parameter.getEggAlpha()
-        );
-        KPABELLW16MasterSecretKeySerParameter masterKeyParameter = new KPABELLW16MasterSecretKeySerParameter(
-                masterKeyRW13Parameter.getParameters(),
-                masterKeyRW13Parameter.getAlpha()
-        );
-        return new PairingKeySerPair(publicKeyParameter, masterKeyParameter);
-    }
+		KPABELLW16PublicKeySerParameter publicKeyParameter = new KPABELLW16PublicKeySerParameter(
+				publicKeyRW13Parameter.getParameters(), publicKeyRW13Parameter.getG(), publicKeyRW13Parameter.getU(),
+				publicKeyRW13Parameter.getH(), publicKeyRW13Parameter.getW(), publicKeyRW13Parameter.getEggAlpha());
+		KPABELLW16MasterSecretKeySerParameter masterKeyParameter = new KPABELLW16MasterSecretKeySerParameter(
+				masterKeyRW13Parameter.getParameters(), masterKeyRW13Parameter.getAlpha());
+		return new PairingKeySerPair(publicKeyParameter, masterKeyParameter);
+	}
 }

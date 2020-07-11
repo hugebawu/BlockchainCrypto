@@ -22,43 +22,44 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  */
 public class HIBEBB04EncryptionGenerator implements PairingEncryptionGenerator, PairingEncapsulationPairGenerator {
 
-    private HIBEEncryptionGenerationParameter params;
+	private HIBEEncryptionGenerationParameter params;
 
-    private HIBEBB04PublicKeySerParameter publicKeyParameter;
-    private Element sessionKey;
-    private Element B;
-    private Element[] Cs;
+	private HIBEBB04PublicKeySerParameter publicKeyParameter;
+	private Element sessionKey;
+	private Element B;
+	private Element[] Cs;
 
-    public void init(CipherParameters params) {
-        this.params = (HIBEEncryptionGenerationParameter)params;
-        this.publicKeyParameter = (HIBEBB04PublicKeySerParameter)this.params.getPublicKeyParameter();
-    }
+	public void init(CipherParameters params) {
+		this.params = (HIBEEncryptionGenerationParameter) params;
+		this.publicKeyParameter = (HIBEBB04PublicKeySerParameter) this.params.getPublicKeyParameter();
+	}
 
-    private void computeEncapsulation() {
-        Pairing pairing = PairingFactory.getPairing(publicKeyParameter.getParameters());
-        String[] ids = this.params.getIds();
-        Element[] elementIds = PairingUtils.MapStringArrayToGroup(pairing, ids, PairingUtils.PairingGroupType.Zr);
+	private void computeEncapsulation() {
+		Pairing pairing = PairingFactory.getPairing(publicKeyParameter.getParameters());
+		String[] ids = this.params.getIds();
+		Element[] elementIds = PairingUtils.MapStringArrayToGroup(pairing, ids, PairingUtils.PairingGroupType.Zr);
 
-        Element s = pairing.getZr().newRandomElement().getImmutable();
-        this.sessionKey = pairing.pairing(publicKeyParameter.getG1(), publicKeyParameter.getG2()).powZn(s).getImmutable();
+		Element s = pairing.getZr().newRandomElement().getImmutable();
+		this.sessionKey = pairing.pairing(publicKeyParameter.getG1(), publicKeyParameter.getG2()).powZn(s)
+				.getImmutable();
 
-        this.B = publicKeyParameter.getG().powZn(s).getImmutable();
-        this.Cs = new Element[ids.length];
-        for (int i = 0; i < Cs.length; i++){
-            Cs[i] = publicKeyParameter.getG1().powZn(elementIds[i]).mul(publicKeyParameter.getHsAt(i)).powZn(s).getImmutable();
-        }
-    }
+		this.B = publicKeyParameter.getG().powZn(s).getImmutable();
+		this.Cs = new Element[ids.length];
+		for (int i = 0; i < Cs.length; i++) {
+			Cs[i] = publicKeyParameter.getG1().powZn(elementIds[i]).mul(publicKeyParameter.getHsAt(i)).powZn(s)
+					.getImmutable();
+		}
+	}
 
-    public PairingCipherSerParameter generateCiphertext() {
-        computeEncapsulation();
-        Element A = sessionKey.mul(this.params.getMessage()).getImmutable();
-        return new HIBEBB04CiphertextSerParameter(publicKeyParameter.getParameters(), A, B, Cs);
-    }
+	public PairingCipherSerParameter generateCiphertext() {
+		computeEncapsulation();
+		Element A = sessionKey.mul(this.params.getMessage()).getImmutable();
+		return new HIBEBB04CiphertextSerParameter(publicKeyParameter.getParameters(), A, B, Cs);
+	}
 
-    public PairingKeyEncapsulationSerPair generateEncryptionPair() {
-        computeEncapsulation();
-        return new PairingKeyEncapsulationSerPair(
-                this.sessionKey.toBytes(),
-                new HIBEBB04HeaderSerParameter(publicKeyParameter.getParameters(), B, Cs));
-    }
+	public PairingKeyEncapsulationSerPair generateEncryptionPair() {
+		computeEncapsulation();
+		return new PairingKeyEncapsulationSerPair(this.sessionKey.toBytes(),
+				new HIBEBB04HeaderSerParameter(publicKeyParameter.getParameters(), B, Cs));
+	}
 }

@@ -41,116 +41,126 @@ import it.unisa.dia.gas.jpbc.PairingParameters;
  * Liu-Liu-Wu-14 CCA2-secure KP-ABE engine.
  */
 public class KPABELLW14Engine extends KPABEEngine {
-    private static final String SCHEME_NAME = "Liu-Liu-Wu-14 CCA2-secure large-universe KP-ABE";
+	private static final String SCHEME_NAME = "Liu-Liu-Wu-14 CCA2-secure large-universe KP-ABE";
 
-    private static KPABELLW14Engine engine;
-    private ChameleonHasher chameleonHasher = new KR00bDigestHasher(new DLogKR00bHasher(), new SHA256Digest());
-    private AsymmetricKeySerPairGenerator chKeyPairGenerator = new DLogKR00bKeyPairGenerator();
-    private KeyGenerationParameters chKeyGenerationParameter
-            = new DLogKR00bKeyGenerationParameters(new SecureRandom(), SecurePrimeSerParameter.RFC3526_1536BIT_MODP_GROUP);
+	private static KPABELLW14Engine engine;
+	private ChameleonHasher chameleonHasher = new KR00bDigestHasher(new DLogKR00bHasher(), new SHA256Digest());
+	private AsymmetricKeySerPairGenerator chKeyPairGenerator = new DLogKR00bKeyPairGenerator();
+	private KeyGenerationParameters chKeyGenerationParameter = new DLogKR00bKeyGenerationParameters(new SecureRandom(),
+			SecurePrimeSerParameter.RFC3526_1536BIT_MODP_GROUP);
 
-    public static KPABELLW14Engine getInstance() {
-        if (engine == null) {
-            engine = new KPABELLW14Engine();
-        }
-        return engine;
-    }
+	public static KPABELLW14Engine getInstance() {
+		if (engine == null) {
+			engine = new KPABELLW14Engine();
+		}
+		return engine;
+	}
 
-    private KPABELLW14Engine() {
-        super(SCHEME_NAME, Engine.ProveSecModel.Standard, Engine.PayloadSecLevel.CCA2, Engine.PredicateSecLevel.NON_ANON);
-    }
+	private KPABELLW14Engine() {
+		super(SCHEME_NAME, Engine.ProveSecModel.Standard, Engine.PayloadSecLevel.CCA2,
+				Engine.PredicateSecLevel.NON_ANON);
+	}
 
-    public void setChameleonHasher(ChameleonHasher chameleonHasher,
-                                   AsymmetricKeySerPairGenerator chKeyPairGenerator,
-                                   KeyGenerationParameters keyGenerationParameter) {
-        this.chameleonHasher = chameleonHasher;
-        this.chKeyPairGenerator = chKeyPairGenerator;
-        this.chKeyGenerationParameter = keyGenerationParameter;
-    }
+	public void setChameleonHasher(ChameleonHasher chameleonHasher, AsymmetricKeySerPairGenerator chKeyPairGenerator,
+			KeyGenerationParameters keyGenerationParameter) {
+		this.chameleonHasher = chameleonHasher;
+		this.chKeyPairGenerator = chKeyPairGenerator;
+		this.chKeyGenerationParameter = keyGenerationParameter;
+	}
 
-    public PairingKeySerPair setup(PairingParameters pairingParameters, int maxAttributesNum) {
-        KPABELLW14KeyPairGenerator keyPairGenerator = new KPABELLW14KeyPairGenerator();
-        keyPairGenerator.init(new KPABEKeyPairGenerationParameter(
-                pairingParameters, this.chKeyPairGenerator, this.chKeyGenerationParameter));
-        return keyPairGenerator.generateKeyPair();
-    }
+	public PairingKeySerPair setup(PairingParameters pairingParameters, int maxAttributesNum) {
+		KPABELLW14KeyPairGenerator keyPairGenerator = new KPABELLW14KeyPairGenerator();
+		keyPairGenerator.init(new KPABEKeyPairGenerationParameter(pairingParameters, this.chKeyPairGenerator,
+				this.chKeyGenerationParameter));
+		return keyPairGenerator.generateKeyPair();
+	}
 
-    public PairingKeySerParameter keyGen(PairingKeySerParameter publicKey, PairingKeySerParameter masterKey, int[][] accessPolicyIntArrays, String[] rhos) {
-        if (!(publicKey instanceof KPABELLW14PublicKeySerParameter)){
-            PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, publicKey, KPABELLW14PublicKeySerParameter.class.getName());
-        }
-        if (!(masterKey instanceof KPABELLW14MasterSecretKeySerParameter)) {
-            PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, masterKey, KPABELLW14MasterSecretKeySerParameter.class.getName());
-        }
-        KPABELLW14SecretKeyGenerator secretKeyGenerator = new KPABELLW14SecretKeyGenerator();
-        secretKeyGenerator.init(new KPABESecretKeyGenerationParameter(
-                accessControlEngine, publicKey, masterKey, accessPolicyIntArrays, rhos));
+	public PairingKeySerParameter keyGen(PairingKeySerParameter publicKey, PairingKeySerParameter masterKey,
+			int[][] accessPolicyIntArrays, String[] rhos) {
+		if (!(publicKey instanceof KPABELLW14PublicKeySerParameter)) {
+			PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, publicKey,
+					KPABELLW14PublicKeySerParameter.class.getName());
+		}
+		if (!(masterKey instanceof KPABELLW14MasterSecretKeySerParameter)) {
+			PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, masterKey,
+					KPABELLW14MasterSecretKeySerParameter.class.getName());
+		}
+		KPABELLW14SecretKeyGenerator secretKeyGenerator = new KPABELLW14SecretKeyGenerator();
+		secretKeyGenerator.init(new KPABESecretKeyGenerationParameter(accessControlEngine, publicKey, masterKey,
+				accessPolicyIntArrays, rhos));
 
-        return secretKeyGenerator.generateKey();
-    }
+		return secretKeyGenerator.generateKey();
+	}
 
-    public PairingCipherSerParameter encryption(PairingKeySerParameter publicKey, String[] attributes, Element message) {
-        if (!(publicKey instanceof KPABELLW14PublicKeySerParameter)){
-            PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, publicKey, KPABELLW14PublicKeySerParameter.class.getName());
-        }
-        KPABELLW14EncryptionGenerator encryptionGenerator = new KPABELLW14EncryptionGenerator();
-        KPABEEncryptionGenerationParameter encryptionGenerationParameter
-                = new KPABEEncryptionGenerationParameter(publicKey, attributes, message);
-        encryptionGenerationParameter.setChameleonHasher(chameleonHasher);
-        encryptionGenerator.init(encryptionGenerationParameter);
-        return encryptionGenerator.generateCiphertext();
-    }
+	public PairingCipherSerParameter encryption(PairingKeySerParameter publicKey, String[] attributes,
+			Element message) {
+		if (!(publicKey instanceof KPABELLW14PublicKeySerParameter)) {
+			PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, publicKey,
+					KPABELLW14PublicKeySerParameter.class.getName());
+		}
+		KPABELLW14EncryptionGenerator encryptionGenerator = new KPABELLW14EncryptionGenerator();
+		KPABEEncryptionGenerationParameter encryptionGenerationParameter = new KPABEEncryptionGenerationParameter(
+				publicKey, attributes, message);
+		encryptionGenerationParameter.setChameleonHasher(chameleonHasher);
+		encryptionGenerator.init(encryptionGenerationParameter);
+		return encryptionGenerator.generateCiphertext();
+	}
 
-    public PairingKeyEncapsulationSerPair encapsulation(PairingKeySerParameter publicKey, String[] attributes) {
-        if (!(publicKey instanceof KPABELLW14PublicKeySerParameter)){
-            PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, publicKey, KPABELLW14PublicKeySerParameter.class.getName());
-        }
-        KPABELLW14EncryptionGenerator encryptionGenerator = new KPABELLW14EncryptionGenerator();
-        KPABEEncryptionGenerationParameter encryptionGenerationParameter
-                = new KPABEEncryptionGenerationParameter(publicKey, attributes, null);
-        encryptionGenerationParameter.setChameleonHasher(this.chameleonHasher);
-        encryptionGenerator.init(encryptionGenerationParameter);
+	public PairingKeyEncapsulationSerPair encapsulation(PairingKeySerParameter publicKey, String[] attributes) {
+		if (!(publicKey instanceof KPABELLW14PublicKeySerParameter)) {
+			PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, publicKey,
+					KPABELLW14PublicKeySerParameter.class.getName());
+		}
+		KPABELLW14EncryptionGenerator encryptionGenerator = new KPABELLW14EncryptionGenerator();
+		KPABEEncryptionGenerationParameter encryptionGenerationParameter = new KPABEEncryptionGenerationParameter(
+				publicKey, attributes, null);
+		encryptionGenerationParameter.setChameleonHasher(this.chameleonHasher);
+		encryptionGenerator.init(encryptionGenerationParameter);
 
-        return encryptionGenerator.generateEncryptionPair();
-    }
+		return encryptionGenerator.generateEncryptionPair();
+	}
 
-    public Element decryption(
-            PairingKeySerParameter publicKey, PairingKeySerParameter secretKey, String[] attributes,
-            PairingCipherSerParameter ciphertext) throws InvalidCipherTextException {
-        if (!(publicKey instanceof KPABELLW14PublicKeySerParameter)){
-            PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, publicKey, KPABELLW14PublicKeySerParameter.class.getName());
-        }
-        if (!(secretKey instanceof KPABELLW14SecretKeySerParameter)){
-            PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, secretKey, KPABELLW14SecretKeySerParameter.class.getName());
-        }
-        if (!(ciphertext instanceof KPABELLW14CiphertextSerParameter)){
-            PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, ciphertext, KPABELLW14CiphertextSerParameter.class.getName());
-        }
-        KPABELLW14DecryptionGenerator decryptionGenerator = new KPABELLW14DecryptionGenerator();
-        KPABEDecryptionGenerationParameter decryptionGenerationParameter
-                = new KPABEDecryptionGenerationParameter(accessControlEngine, publicKey, secretKey, attributes, ciphertext);
-        decryptionGenerationParameter.setChameleonHasher(this.chameleonHasher);
-        decryptionGenerator.init(decryptionGenerationParameter);
-        return decryptionGenerator.recoverMessage();
-    }
+	public Element decryption(PairingKeySerParameter publicKey, PairingKeySerParameter secretKey, String[] attributes,
+			PairingCipherSerParameter ciphertext) throws InvalidCipherTextException {
+		if (!(publicKey instanceof KPABELLW14PublicKeySerParameter)) {
+			PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, publicKey,
+					KPABELLW14PublicKeySerParameter.class.getName());
+		}
+		if (!(secretKey instanceof KPABELLW14SecretKeySerParameter)) {
+			PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, secretKey,
+					KPABELLW14SecretKeySerParameter.class.getName());
+		}
+		if (!(ciphertext instanceof KPABELLW14CiphertextSerParameter)) {
+			PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, ciphertext,
+					KPABELLW14CiphertextSerParameter.class.getName());
+		}
+		KPABELLW14DecryptionGenerator decryptionGenerator = new KPABELLW14DecryptionGenerator();
+		KPABEDecryptionGenerationParameter decryptionGenerationParameter = new KPABEDecryptionGenerationParameter(
+				accessControlEngine, publicKey, secretKey, attributes, ciphertext);
+		decryptionGenerationParameter.setChameleonHasher(this.chameleonHasher);
+		decryptionGenerator.init(decryptionGenerationParameter);
+		return decryptionGenerator.recoverMessage();
+	}
 
-    public byte[] decapsulation(
-            PairingKeySerParameter publicKey, PairingKeySerParameter secretKey, String[] attributes,
-            PairingCipherSerParameter header) throws InvalidCipherTextException {
-        if (!(publicKey instanceof KPABELLW14PublicKeySerParameter)){
-            PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, publicKey, KPABELLW14PublicKeySerParameter.class.getName());
-        }
-        if (!(secretKey instanceof KPABELLW14SecretKeySerParameter)){
-            PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, secretKey, KPABELLW14SecretKeySerParameter.class.getName());
-        }
-        if (!(header instanceof KPABELLW14HeaderSerParameter)){
-            PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, header, KPABELLW14HeaderSerParameter.class.getName());
-        }
-        KPABELLW14DecryptionGenerator decryptionGenerator = new KPABELLW14DecryptionGenerator();
-        KPABEDecryptionGenerationParameter decryptionGenerationParameter
-                = new KPABEDecryptionGenerationParameter(accessControlEngine, publicKey, secretKey, attributes, header);
-        decryptionGenerationParameter.setChameleonHasher(this.chameleonHasher);
-        decryptionGenerator.init(decryptionGenerationParameter);
-        return decryptionGenerator.recoverKey();
-    }
+	public byte[] decapsulation(PairingKeySerParameter publicKey, PairingKeySerParameter secretKey, String[] attributes,
+			PairingCipherSerParameter header) throws InvalidCipherTextException {
+		if (!(publicKey instanceof KPABELLW14PublicKeySerParameter)) {
+			PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, publicKey,
+					KPABELLW14PublicKeySerParameter.class.getName());
+		}
+		if (!(secretKey instanceof KPABELLW14SecretKeySerParameter)) {
+			PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, secretKey,
+					KPABELLW14SecretKeySerParameter.class.getName());
+		}
+		if (!(header instanceof KPABELLW14HeaderSerParameter)) {
+			PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, header,
+					KPABELLW14HeaderSerParameter.class.getName());
+		}
+		KPABELLW14DecryptionGenerator decryptionGenerator = new KPABELLW14DecryptionGenerator();
+		KPABEDecryptionGenerationParameter decryptionGenerationParameter = new KPABEDecryptionGenerationParameter(
+				accessControlEngine, publicKey, secretKey, attributes, header);
+		decryptionGenerationParameter.setChameleonHasher(this.chameleonHasher);
+		decryptionGenerator.init(decryptionGenerationParameter);
+		return decryptionGenerator.recoverKey();
+	}
 }

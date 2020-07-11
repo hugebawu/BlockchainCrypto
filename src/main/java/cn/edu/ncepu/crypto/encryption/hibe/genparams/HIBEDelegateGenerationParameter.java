@@ -9,13 +9,15 @@ import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
  * HIBE delegation generation parameter.
  */
 public class HIBEDelegateGenerationParameter extends PairingKeyDelegationParameter {
-    private String delegateId;
+	private String delegateId;
 
-    public HIBEDelegateGenerationParameter(PairingKeySerParameter publicKeyParameter,
-                                           PairingKeySerParameter secretKeyParameter, String id) {
-        super(publicKeyParameter, secretKeyParameter);
-        this.delegateId = id;
-    }
+	public HIBEDelegateGenerationParameter(PairingKeySerParameter publicKeyParameter,
+			PairingKeySerParameter secretKeyParameter, String id) {
+		super(publicKeyParameter, secretKeyParameter);
+		this.delegateId = id;
+	}
 
-    public String getDelegateId() { return this.delegateId; }
+	public String getDelegateId() {
+		return this.delegateId;
+	}
 }

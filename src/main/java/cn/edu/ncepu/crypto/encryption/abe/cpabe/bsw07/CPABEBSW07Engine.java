@@ -30,96 +30,109 @@ import it.unisa.dia.gas.jpbc.PairingParameters;
  * Bethencourt-Sahai-Waters large-universe CP-ABE engine.
  */
 public class CPABEBSW07Engine extends CPABEEngine {
-    private static final String SCHEME_NAME = "Bethencourt-Sahai-Waters large-universe CP-ABE";
+	private static final String SCHEME_NAME = "Bethencourt-Sahai-Waters large-universe CP-ABE";
 
-    private static CPABEBSW07Engine engine;
+	private static CPABEBSW07Engine engine;
 
-    public static CPABEBSW07Engine getInstance() {
-        if (engine == null) {
-            engine = new CPABEBSW07Engine();
-        }
-        return engine;
-    }
+	public static CPABEBSW07Engine getInstance() {
+		if (engine == null) {
+			engine = new CPABEBSW07Engine();
+		}
+		return engine;
+	}
 
-    private CPABEBSW07Engine() {
-        super(SCHEME_NAME, ProveSecModel.RandomOracle, PayloadSecLevel.CPA, PredicateSecLevel.NON_ANON);
-    }
+	private CPABEBSW07Engine() {
+		super(SCHEME_NAME, ProveSecModel.RandomOracle, PayloadSecLevel.CPA, PredicateSecLevel.NON_ANON);
+	}
 
-    public PairingKeySerPair setup(PairingParameters pairingParameters, int maxAttributesNum) {
-        CPABEBSW07KeyPairGenerator keyPairGenerator = new CPABEBSW07KeyPairGenerator();
-        keyPairGenerator.init(new CPABEKeyPairGenerationParameter(pairingParameters));
+	public PairingKeySerPair setup(PairingParameters pairingParameters, int maxAttributesNum) {
+		CPABEBSW07KeyPairGenerator keyPairGenerator = new CPABEBSW07KeyPairGenerator();
+		keyPairGenerator.init(new CPABEKeyPairGenerationParameter(pairingParameters));
 
-        return keyPairGenerator.generateKeyPair();
-    }
+		return keyPairGenerator.generateKeyPair();
+	}
 
-    public PairingKeySerParameter keyGen(PairingKeySerParameter publicKey, PairingKeySerParameter masterKey, String[] attributes) {
-        if (!(publicKey instanceof CPABEBSW07PublicKeySerParameter)){
-            PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, publicKey, CPABEBSW07PublicKeySerParameter.class.getName());
-        }
-        if (!(masterKey instanceof CPABEBSW07MasterSecretKeySerParameter)) {
-            PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, masterKey, CPABEBSW07MasterSecretKeySerParameter.class.getName());
-        }
-        CPABEBSW07SecretKeyGenerator secretKeyGenerator = new CPABEBSW07SecretKeyGenerator();
-        secretKeyGenerator.init(new CPABESecretKeyGenerationParameter(publicKey, masterKey, attributes));
+	public PairingKeySerParameter keyGen(PairingKeySerParameter publicKey, PairingKeySerParameter masterKey,
+			String[] attributes) {
+		if (!(publicKey instanceof CPABEBSW07PublicKeySerParameter)) {
+			PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, publicKey,
+					CPABEBSW07PublicKeySerParameter.class.getName());
+		}
+		if (!(masterKey instanceof CPABEBSW07MasterSecretKeySerParameter)) {
+			PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, masterKey,
+					CPABEBSW07MasterSecretKeySerParameter.class.getName());
+		}
+		CPABEBSW07SecretKeyGenerator secretKeyGenerator = new CPABEBSW07SecretKeyGenerator();
+		secretKeyGenerator.init(new CPABESecretKeyGenerationParameter(publicKey, masterKey, attributes));
 
-        return secretKeyGenerator.generateKey();
-    }
+		return secretKeyGenerator.generateKey();
+	}
 
-    public PairingCipherSerParameter encryption(PairingKeySerParameter publicKey, int[][] accessPolicyIntArrays, String[] rhos, Element message) {
-        if (!(publicKey instanceof CPABEBSW07PublicKeySerParameter)){
-            PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, publicKey, CPABEBSW07PublicKeySerParameter.class.getName());
-        }
-        CPABEBSW07EncryptionGenerator encryptionGenerator = new CPABEBSW07EncryptionGenerator();
-        encryptionGenerator.init(new CPABEEncryptionGenerationParameter(
-                accessControlEngine, publicKey, accessPolicyIntArrays, rhos, message));
+	public PairingCipherSerParameter encryption(PairingKeySerParameter publicKey, int[][] accessPolicyIntArrays,
+			String[] rhos, Element message) {
+		if (!(publicKey instanceof CPABEBSW07PublicKeySerParameter)) {
+			PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, publicKey,
+					CPABEBSW07PublicKeySerParameter.class.getName());
+		}
+		CPABEBSW07EncryptionGenerator encryptionGenerator = new CPABEBSW07EncryptionGenerator();
+		encryptionGenerator.init(new CPABEEncryptionGenerationParameter(accessControlEngine, publicKey,
+				accessPolicyIntArrays, rhos, message));
 
-        return encryptionGenerator.generateCiphertext();
-    }
+		return encryptionGenerator.generateCiphertext();
+	}
 
-    public PairingKeyEncapsulationSerPair encapsulation(PairingKeySerParameter publicKey, int[][] accessPolicyIntArrays, String[] rhos) {
-        if (!(publicKey instanceof CPABEBSW07PublicKeySerParameter)){
-            PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, publicKey, CPABEBSW07PublicKeySerParameter.class.getName());
-        }
-        CPABEBSW07EncryptionGenerator encryptionGenerator = new CPABEBSW07EncryptionGenerator();
-        encryptionGenerator.init(new CPABEEncryptionGenerationParameter(
-                accessControlEngine, publicKey, accessPolicyIntArrays, rhos, null));
+	public PairingKeyEncapsulationSerPair encapsulation(PairingKeySerParameter publicKey, int[][] accessPolicyIntArrays,
+			String[] rhos) {
+		if (!(publicKey instanceof CPABEBSW07PublicKeySerParameter)) {
+			PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, publicKey,
+					CPABEBSW07PublicKeySerParameter.class.getName());
+		}
+		CPABEBSW07EncryptionGenerator encryptionGenerator = new CPABEBSW07EncryptionGenerator();
+		encryptionGenerator.init(new CPABEEncryptionGenerationParameter(accessControlEngine, publicKey,
+				accessPolicyIntArrays, rhos, null));
 
-        return encryptionGenerator.generateEncryptionPair();
-    }
+		return encryptionGenerator.generateEncryptionPair();
+	}
 
-    public Element decryption(PairingKeySerParameter publicKey, PairingKeySerParameter secretKey,
-                              int[][] accessPolicyIntArrays, String[] rhos, PairingCipherSerParameter ciphertext)
-            throws InvalidCipherTextException {
-        if (!(publicKey instanceof CPABEBSW07PublicKeySerParameter)){
-            PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, publicKey, CPABEBSW07PublicKeySerParameter.class.getName());
-        }
-        if (!(secretKey instanceof CPABEBSW07SecretKeySerParameter)){
-            PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, secretKey, CPABEBSW07SecretKeySerParameter.class.getName());
-        }
-        if (!(ciphertext instanceof CPABEBSW07CiphertextSerParameter)){
-            PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, ciphertext, CPABEBSW07CiphertextSerParameter.class.getName());
-        }
-        CPABEBSW07DecryptionGenerator decryptionGenerator = new CPABEBSW07DecryptionGenerator();
-        decryptionGenerator.init(new CPABEDecryptionGenerationParameter(
-                accessControlEngine, publicKey, secretKey, accessPolicyIntArrays, rhos, ciphertext));
-        return decryptionGenerator.recoverMessage();
-    }
+	public Element decryption(PairingKeySerParameter publicKey, PairingKeySerParameter secretKey,
+			int[][] accessPolicyIntArrays, String[] rhos, PairingCipherSerParameter ciphertext)
+			throws InvalidCipherTextException {
+		if (!(publicKey instanceof CPABEBSW07PublicKeySerParameter)) {
+			PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, publicKey,
+					CPABEBSW07PublicKeySerParameter.class.getName());
+		}
+		if (!(secretKey instanceof CPABEBSW07SecretKeySerParameter)) {
+			PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, secretKey,
+					CPABEBSW07SecretKeySerParameter.class.getName());
+		}
+		if (!(ciphertext instanceof CPABEBSW07CiphertextSerParameter)) {
+			PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, ciphertext,
+					CPABEBSW07CiphertextSerParameter.class.getName());
+		}
+		CPABEBSW07DecryptionGenerator decryptionGenerator = new CPABEBSW07DecryptionGenerator();
+		decryptionGenerator.init(new CPABEDecryptionGenerationParameter(accessControlEngine, publicKey, secretKey,
+				accessPolicyIntArrays, rhos, ciphertext));
+		return decryptionGenerator.recoverMessage();
+	}
 
-    public byte[] decapsulation(PairingKeySerParameter publicKey, PairingKeySerParameter secretKey,
-                                int[][] accessPolicyIntArrays, String[] rhos, PairingCipherSerParameter header)
-            throws InvalidCipherTextException {
-        if (!(publicKey instanceof CPABEBSW07PublicKeySerParameter)){
-            PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, publicKey, CPABEBSW07PublicKeySerParameter.class.getName());
-        }
-        if (!(secretKey instanceof CPABEBSW07SecretKeySerParameter)){
-            PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, secretKey, CPABEBSW07SecretKeySerParameter.class.getName());
-        }
-        if (!(header instanceof CPABEBSW07HeaderSerParameter)){
-            PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, header, CPABEBSW07HeaderSerParameter.class.getName());
-        }
-        CPABEBSW07DecryptionGenerator decryptionGenerator = new CPABEBSW07DecryptionGenerator();
-        decryptionGenerator.init(new CPABEDecryptionGenerationParameter(
-                accessControlEngine, publicKey, secretKey, accessPolicyIntArrays, rhos, header));
-        return decryptionGenerator.recoverKey();
-    }
+	public byte[] decapsulation(PairingKeySerParameter publicKey, PairingKeySerParameter secretKey,
+			int[][] accessPolicyIntArrays, String[] rhos, PairingCipherSerParameter header)
+			throws InvalidCipherTextException {
+		if (!(publicKey instanceof CPABEBSW07PublicKeySerParameter)) {
+			PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, publicKey,
+					CPABEBSW07PublicKeySerParameter.class.getName());
+		}
+		if (!(secretKey instanceof CPABEBSW07SecretKeySerParameter)) {
+			PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, secretKey,
+					CPABEBSW07SecretKeySerParameter.class.getName());
+		}
+		if (!(header instanceof CPABEBSW07HeaderSerParameter)) {
+			PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, header,
+					CPABEBSW07HeaderSerParameter.class.getName());
+		}
+		CPABEBSW07DecryptionGenerator decryptionGenerator = new CPABEBSW07DecryptionGenerator();
+		decryptionGenerator.init(new CPABEDecryptionGenerationParameter(accessControlEngine, publicKey, secretKey,
+				accessPolicyIntArrays, rhos, header));
+		return decryptionGenerator.recoverKey();
+	}
 }

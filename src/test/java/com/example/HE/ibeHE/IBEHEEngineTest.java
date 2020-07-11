@@ -3,11 +3,17 @@
  */
 package com.example.HE.ibeHE;
 
+import static org.junit.Assert.assertTrue;
+
 import java.io.IOException;
+import java.math.BigInteger;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.crypto.InvalidCipherTextException;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -48,7 +54,6 @@ public class IBEHEEngineTest {
 			logger.info("Valid decryption test failed, " + "secret key identity  = " + identityForSecretKey + ", "
 					+ "ciphertext identity = " + identityForCiphertext);
 			logger.info(e.getLocalizedMessage());
-			System.exit(1);
 		}
 	}
 
@@ -81,7 +86,7 @@ public class IBEHEEngineTest {
 		// the message waits to be encrypted
 		String plainMessage = "12345678901234567890123456789012345678901234567890123456789012345678901234567";
 		logger.info("plaintext message: " + plainMessage);
-		Element message = PairingUtils.mapNumStringToElement(pairingParams, pairing, plainMessage, PairingGroupType.GT);
+		Element message = PairingUtils.mapNumStringToElement(pairing, plainMessage, PairingGroupType.GT);
 		PairingCipherSerParameter ciphertext = engine.encrypt(publicKey, identityForCiphertext, message);
 		byte[] byteArrayCiphertext = PairingUtils.SerCipherParameter(ciphertext);
 		CipherParameters anCiphertext = PairingUtils.deserCipherParameters(byteArrayCiphertext);
@@ -139,7 +144,7 @@ public class IBEHEEngineTest {
 		}
 	}
 
-//	@Ignore
+	@Ignore
 	@Test
 	public void testBF01aHEEngine() {
 		this.engine = BF01aHEEngine.getInstance();
@@ -148,4 +153,74 @@ public class IBEHEEngineTest {
 		runAllTests(pairingParams);
 	}
 
+	@Ignore
+	@Test
+	// 经验证只有乘法同态性质
+	public void testHomomorphism() {
+		this.engine = BF01aHEEngine.getInstance();
+		// Type A 对称质数阶双线性群
+		pairingParams = PairingFactory.getPairingParameters(PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256);
+		runHomomorphismTest(pairingParams);
+	}
+
+	private void runHomomorphismTest(PairingParameters pairingParameters) {
+		// 初始化Pairing
+		Pairing pairing = PairingFactory.getPairing(pairingParameters);
+		PairingKeySerPair keyPair = engine.setup(pairingParameters);
+		// get system publicKey include (P, Ppub), where Ppub=sP
+		PairingKeySerParameter publicKey = keyPair.getPublic();
+		// get system masterkey s
+		PairingKeySerParameter masterKey = keyPair.getPrivate();
+
+		String topLayerAdmin = "TopLayerAdmin";
+		// topLayerAdmin secret key extract
+		PairingKeySerParameter secretKey = engine.extract(topLayerAdmin, masterKey);
+
+		try {
+			Map<String, PairingCipherSerParameter> ciphertextMap = new LinkedHashMap<String, PairingCipherSerParameter>();
+
+			// user1_org1 collect, encrypt and report data
+			String num_user1_org1 = "11";
+
+			BigInteger qt = new BigInteger("2").pow(pairing.getPairingPreProcessingLengthInBytes());
+			BigInteger q = pairingParameters.getBigInteger("q");
+			Element e_num_user1_org1 = PairingUtils.mapNumStringToElement(pairing, num_user1_org1, PairingGroupType.GT);
+			PairingCipherSerParameter ciphertext_user1_org1 = engine.encrypt(publicKey, topLayerAdmin,
+					e_num_user1_org1);
+			ciphertextMap.put("user1_org1", ciphertext_user1_org1);
+
+			// user2_org1 collect, encrypt and report data
+			String num_user2_org1 = "21";
+			Element e_num_user2_org1 = PairingUtils.mapNumStringToElement(pairing, num_user2_org1, PairingGroupType.GT);
+			PairingCipherSerParameter ciphertext_user2_org1 = engine.encrypt(publicKey, topLayerAdmin,
+					e_num_user2_org1);
+			ciphertextMap.put("user2_org1", ciphertext_user2_org1);
+
+			// org1 aggregator aggregate the ciphertext of user1_org1 and user2_org1
+			PairingCipherSerParameter ciphertext_org1 = engine.add(publicKey, ciphertextMap);
+
+			// if org1 aggregator knows the secretKey, he can conduct the Decryption
+			Element e_num_org1 = engine.decrypt(secretKey, topLayerAdmin, ciphertext_org1);
+
+			// IBEHE(a*b) = IBEHE(a)+IBEHE(b)
+			assertTrue(e_num_org1.isEqual(e_num_user1_org1.mul(e_num_user2_org1)));
+//-----------------------------------------------------------------------------------------------------------
+			// user1_org2 collect, encrypt and report data
+			String num_user1_org2 = "12";
+			Element e_num_user1_org2 = PairingUtils.mapNumStringToElement(pairing, num_user1_org2, PairingGroupType.GT);
+			PairingCipherSerParameter ciphertext_user1_org2 = engine.encrypt(publicKey, topLayerAdmin,
+					e_num_user1_org2);
+
+			// user2_org2 collect, encrypt and report data
+			String num_user2_org2 = "22";
+			Element e_num_user2_org2 = PairingUtils.mapNumStringToElement(pairing, num_user2_org2, PairingGroupType.GT);
+			PairingCipherSerParameter ciphertext_user2_org2 = engine.encrypt(publicKey, topLayerAdmin,
+					e_num_user2_org2);
+
+		} catch (InvalidCipherTextException e) {
+			logger.info("Valid decryption test failed, " + "secret key identity  = " + topLayerAdmin + ", "
+					+ "ciphertext identity = " + topLayerAdmin);
+			logger.info(e.getLocalizedMessage());
+		}
+	}
 }

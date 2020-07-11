@@ -11,13 +11,15 @@ import cn.edu.ncepu.crypto.utils.PairingUtils;
  * BE decapsulation generation parameter.
  */
 public class BEDecapsulationGenerationParameter extends PairingDecryptionGenerationParameter {
-    private int[] indexSet;
+	private int[] indexSet;
 
-    public BEDecapsulationGenerationParameter(PairingKeySerParameter publicKeyParameter, PairingKeySerParameter secretKeyParameter,
-                                              int[] indexSet, PairingCipherSerParameter ciphertextParameter) {
-        super(publicKeyParameter, secretKeyParameter, ciphertextParameter);
-        this.indexSet = PairingUtils.removeDuplicates(indexSet);
-    }
+	public BEDecapsulationGenerationParameter(PairingKeySerParameter publicKeyParameter,
+			PairingKeySerParameter secretKeyParameter, int[] indexSet, PairingCipherSerParameter ciphertextParameter) {
+		super(publicKeyParameter, secretKeyParameter, ciphertextParameter);
+		this.indexSet = PairingUtils.removeDuplicates(indexSet);
+	}
 
-    public int[] getIndexSet() { return this.indexSet; }
+	public int[] getIndexSet() {
+		return this.indexSet;
+	}
 }

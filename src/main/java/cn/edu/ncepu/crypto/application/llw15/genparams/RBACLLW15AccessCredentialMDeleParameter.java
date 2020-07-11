@@ -12,42 +12,45 @@ import cn.edu.ncepu.crypto.application.llw15.serparams.RBACLLW15IntermediateSerP
  * Medical staff access credential delegation parameters for Liu-Liu-Wu EHR role-based access control.
  */
 public class RBACLLW15AccessCredentialMDeleParameter extends PairingKeyDelegationParameter {
-    private RBACLLW15IntermediateSerParameter intermediateParameter;
-    private int index;
-    private String delegateRole;
+	private RBACLLW15IntermediateSerParameter intermediateParameter;
+	private int index;
+	private String delegateRole;
 
-    public RBACLLW15AccessCredentialMDeleParameter(
-            PairingKeySerParameter publicKeyParameter, PairingKeySerParameter accessCredentialMParameter,
-            int index, String role) {
-        super(publicKeyParameter, accessCredentialMParameter);
-        assert(((RBACLLW15AccessCredentialMSerParameter)accessCredentialMParameter).getRoleAt(index) == null);
-        this.index = index;
-        this.delegateRole = role;
-        //do not use indermerdiate parameters
-        this.intermediateParameter = null;
-    }
+	public RBACLLW15AccessCredentialMDeleParameter(PairingKeySerParameter publicKeyParameter,
+			PairingKeySerParameter accessCredentialMParameter, int index, String role) {
+		super(publicKeyParameter, accessCredentialMParameter);
+		assert (((RBACLLW15AccessCredentialMSerParameter) accessCredentialMParameter).getRoleAt(index) == null);
+		this.index = index;
+		this.delegateRole = role;
+		// do not use indermerdiate parameters
+		this.intermediateParameter = null;
+	}
 
-    public RBACLLW15AccessCredentialMDeleParameter(
-            PairingKeySerParameter publicKeyParameter, PairingKeySerParameter accessCredentialMParameter,
-            PairingCipherSerParameter intermediateParameter, int index, String role) {
-        super(publicKeyParameter, accessCredentialMParameter);
-        assert(((RBACLLW15AccessCredentialMSerParameter)accessCredentialMParameter).getRoleAt(index) == null);
-        this.index = index;
-        this.delegateRole = role;
-        //use indermerdiate parameters
-        this.intermediateParameter = (RBACLLW15IntermediateSerParameter)intermediateParameter;
-    }
+	public RBACLLW15AccessCredentialMDeleParameter(PairingKeySerParameter publicKeyParameter,
+			PairingKeySerParameter accessCredentialMParameter, PairingCipherSerParameter intermediateParameter,
+			int index, String role) {
+		super(publicKeyParameter, accessCredentialMParameter);
+		assert (((RBACLLW15AccessCredentialMSerParameter) accessCredentialMParameter).getRoleAt(index) == null);
+		this.index = index;
+		this.delegateRole = role;
+		// use indermerdiate parameters
+		this.intermediateParameter = (RBACLLW15IntermediateSerParameter) intermediateParameter;
+	}
 
-    public int getIndex() { return this.index; }
+	public int getIndex() {
+		return this.index;
+	}
 
-    public String getDelegateRole() { return this.delegateRole; }
+	public String getDelegateRole() {
+		return this.delegateRole;
+	}
 
-    public boolean isIntermediateGeneration() {
-        return (this.intermediateParameter != null);
-    }
+	public boolean isIntermediateGeneration() {
+		return (this.intermediateParameter != null);
+	}
 
-    public RBACLLW15IntermediateSerParameter getIntermediateParameters() {
-        return this.intermediateParameter;
-    }
+	public RBACLLW15IntermediateSerParameter getIntermediateParameters() {
+		return this.intermediateParameter;
+	}
 
 }

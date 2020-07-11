@@ -13,14 +13,15 @@ import cn.edu.ncepu.crypto.encryption.ibe.bf01b.serparams.IBEBF01bPublicKeySerPa
  * Boneh-Franklin CCA2-secure IBE public key / master secret key pair generator.
  */
 public class IBEBF01bKeyPairGenerator extends IBEBF01aKeyPairGenerator {
-    @Override
-    public PairingKeySerPair generateKeyPair() {
-        PairingKeySerPair pairingKeySerPair = super.generateKeyPair();
-        IBEBF01aPublicKeySerParameter publicKeyParameter = (IBEBF01aPublicKeySerParameter) pairingKeySerPair.getPublic();
-        IBEBF01aMasterSecretKeySerParameter masterSecretKeyParameter = (IBEBF01aMasterSecretKeySerParameter) pairingKeySerPair.getPrivate();
+	@Override
+	public PairingKeySerPair generateKeyPair() {
+		PairingKeySerPair pairingKeySerPair = super.generateKeyPair();
+		IBEBF01aPublicKeySerParameter publicKeyParameter = (IBEBF01aPublicKeySerParameter) pairingKeySerPair
+				.getPublic();
+		IBEBF01aMasterSecretKeySerParameter masterSecretKeyParameter = (IBEBF01aMasterSecretKeySerParameter) pairingKeySerPair
+				.getPrivate();
 
-        return new PairingKeySerPair(
-                new IBEBF01bPublicKeySerParameter(publicKeyParameter),
-                new IBEBF01bMasterSecretKeySerParameter(masterSecretKeyParameter));
-    }
+		return new PairingKeySerPair(new IBEBF01bPublicKeySerParameter(publicKeyParameter),
+				new IBEBF01bMasterSecretKeySerParameter(masterSecretKeyParameter));
+	}
 }

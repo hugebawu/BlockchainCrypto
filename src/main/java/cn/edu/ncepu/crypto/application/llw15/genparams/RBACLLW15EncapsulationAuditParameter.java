@@ -13,37 +13,39 @@ import cn.edu.ncepu.crypto.application.llw15.serparams.RBACLLW15PublicKeySerPara
  * Liu-Liu-Wu EHR role-based access control encapsulation audit parameter.
  */
 public class RBACLLW15EncapsulationAuditParameter implements CipherParameters {
-    private RBACLLW15PublicKeySerParameter publicKeyParameters;
-    private String[] roles;
-    private String id;
-    private String time;
-    private RBACLLW15EncapsulationSerParameter encapsulationParameters;
+	private RBACLLW15PublicKeySerParameter publicKeyParameters;
+	private String[] roles;
+	private String id;
+	private String time;
+	private RBACLLW15EncapsulationSerParameter encapsulationParameters;
 
-    public RBACLLW15EncapsulationAuditParameter(
-            PairingKeySerParameter publicKeyParameters,
-            String id,
-            String[] roles,
-            String time,
-            PairingCipherSerParameter encapsulationParameters) {
-        this.publicKeyParameters = (RBACLLW15PublicKeySerParameter)publicKeyParameters;
-        assert(roles.length == this.publicKeyParameters.getMaxRoleNumber());
-        this.roles = roles;
-        this.id = id;
-        this.time = time;
-        this.encapsulationParameters = (RBACLLW15EncapsulationSerParameter)encapsulationParameters;
-    }
+	public RBACLLW15EncapsulationAuditParameter(PairingKeySerParameter publicKeyParameters, String id, String[] roles,
+			String time, PairingCipherSerParameter encapsulationParameters) {
+		this.publicKeyParameters = (RBACLLW15PublicKeySerParameter) publicKeyParameters;
+		assert (roles.length == this.publicKeyParameters.getMaxRoleNumber());
+		this.roles = roles;
+		this.id = id;
+		this.time = time;
+		this.encapsulationParameters = (RBACLLW15EncapsulationSerParameter) encapsulationParameters;
+	}
 
-    public RBACLLW15PublicKeySerParameter getPublicKeyParameters() {
-        return this.publicKeyParameters;
-    }
+	public RBACLLW15PublicKeySerParameter getPublicKeyParameters() {
+		return this.publicKeyParameters;
+	}
 
-    public RBACLLW15EncapsulationSerParameter getCiphertextParameters() {
-        return this.encapsulationParameters;
-    }
+	public RBACLLW15EncapsulationSerParameter getCiphertextParameters() {
+		return this.encapsulationParameters;
+	}
 
-    public String[] getRoles() { return this.roles; }
+	public String[] getRoles() {
+		return this.roles;
+	}
 
-    public String getId() { return this.id; }
+	public String getId() {
+		return this.id;
+	}
 
-    public String getTime() { return this.time; }
+	public String getTime() {
+		return this.time;
+	}
 }

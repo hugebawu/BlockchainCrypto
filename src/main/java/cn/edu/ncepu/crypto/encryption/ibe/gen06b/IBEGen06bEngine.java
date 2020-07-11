@@ -30,96 +30,106 @@ import it.unisa.dia.gas.jpbc.PairingParameters;
  * Gentry CCA2-secure IBE engine.
  */
 public class IBEGen06bEngine extends IBEEngine {
-    //Scheme name, used for exceptions
-    private static final String SCHEME_NAME = "Gentry-06 CCA2-secure IBE scheme";
+	// Scheme name, used for exceptions
+	private static final String SCHEME_NAME = "Gentry-06 CCA2-secure IBE scheme";
 
-    private static IBEGen06bEngine engine;
+	private static IBEGen06bEngine engine;
 
-    public static IBEGen06bEngine getInstance() {
-        if (engine == null) {
-            engine = new IBEGen06bEngine();
-        }
-        return engine;
-    }
+	public static IBEGen06bEngine getInstance() {
+		if (engine == null) {
+			engine = new IBEGen06bEngine();
+		}
+		return engine;
+	}
 
-    private IBEGen06bEngine() { super(SCHEME_NAME, ProveSecModel.Standard, PayloadSecLevel.CCA2, PredicateSecLevel.ANON); }
+	private IBEGen06bEngine() {
+		super(SCHEME_NAME, ProveSecModel.Standard, PayloadSecLevel.CCA2, PredicateSecLevel.ANON);
+	}
 
-    public PairingKeySerPair setup(PairingParameters pairingParameters) {
-        IBEGen06bKeyPairGenerator keyPairGenerator = new IBEGen06bKeyPairGenerator();
-        keyPairGenerator.init(new IBEKeyPairGenerationParameter(pairingParameters));
+	public PairingKeySerPair setup(PairingParameters pairingParameters) {
+		IBEGen06bKeyPairGenerator keyPairGenerator = new IBEGen06bKeyPairGenerator();
+		keyPairGenerator.init(new IBEKeyPairGenerationParameter(pairingParameters));
 
-        return keyPairGenerator.generateKeyPair();
-    }
+		return keyPairGenerator.generateKeyPair();
+	}
 
-    public PairingKeySerParameter keyGen(PairingKeySerParameter publicKey, PairingKeySerParameter masterKey, String id) {
-        if (!(publicKey instanceof IBEGen06bPublicKeySerParameter)){
-            PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, publicKey, IBEGen06bPublicKeySerParameter.class.getName());
-        }
-        if (!(masterKey instanceof IBEGen06bMasterSecretKeySerParameter)) {
-            PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, masterKey, IBEGen06bMasterSecretKeySerParameter.class.getName());
-        }
-        IBEGen06bSecretKeyGenerator secretKeyGenerator = new IBEGen06bSecretKeyGenerator();
-        secretKeyGenerator.init(new IBESecretKeyGenerationParameter(
-                publicKey, masterKey, id));
+	public PairingKeySerParameter keyGen(PairingKeySerParameter publicKey, PairingKeySerParameter masterKey,
+			String id) {
+		if (!(publicKey instanceof IBEGen06bPublicKeySerParameter)) {
+			PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, publicKey,
+					IBEGen06bPublicKeySerParameter.class.getName());
+		}
+		if (!(masterKey instanceof IBEGen06bMasterSecretKeySerParameter)) {
+			PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, masterKey,
+					IBEGen06bMasterSecretKeySerParameter.class.getName());
+		}
+		IBEGen06bSecretKeyGenerator secretKeyGenerator = new IBEGen06bSecretKeyGenerator();
+		secretKeyGenerator.init(new IBESecretKeyGenerationParameter(publicKey, masterKey, id));
 
-        return secretKeyGenerator.generateKey();
-    }
+		return secretKeyGenerator.generateKey();
+	}
 
-    public PairingKeyEncapsulationSerPair encapsulation(PairingKeySerParameter publicKey, String id){
-        if (!(publicKey instanceof IBEGen06bPublicKeySerParameter)){
-            PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, publicKey, IBEGen06bPublicKeySerParameter.class.getName());
-        }
-        IBEGen06bEncryptionGenerator encryptionGenerator = new IBEGen06bEncryptionGenerator();
-        encryptionGenerator.init(new IBEEncryptionGenerationParameter(publicKey, id, null));
+	public PairingKeyEncapsulationSerPair encapsulation(PairingKeySerParameter publicKey, String id) {
+		if (!(publicKey instanceof IBEGen06bPublicKeySerParameter)) {
+			PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, publicKey,
+					IBEGen06bPublicKeySerParameter.class.getName());
+		}
+		IBEGen06bEncryptionGenerator encryptionGenerator = new IBEGen06bEncryptionGenerator();
+		encryptionGenerator.init(new IBEEncryptionGenerationParameter(publicKey, id, null));
 
-        return encryptionGenerator.generateEncryptionPair();
-    }
+		return encryptionGenerator.generateEncryptionPair();
+	}
 
-    public PairingCipherSerParameter encryption(PairingKeySerParameter publicKey, String id, Element message){
-        if (!(publicKey instanceof IBEGen06bPublicKeySerParameter)){
-            PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, publicKey, IBEGen06bPublicKeySerParameter.class.getName());
-        }
-        IBEGen06bEncryptionGenerator encryptionGenerator = new IBEGen06bEncryptionGenerator();
-        encryptionGenerator.init(new IBEEncryptionGenerationParameter(publicKey, id, message));
+	public PairingCipherSerParameter encryption(PairingKeySerParameter publicKey, String id, Element message) {
+		if (!(publicKey instanceof IBEGen06bPublicKeySerParameter)) {
+			PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, publicKey,
+					IBEGen06bPublicKeySerParameter.class.getName());
+		}
+		IBEGen06bEncryptionGenerator encryptionGenerator = new IBEGen06bEncryptionGenerator();
+		encryptionGenerator.init(new IBEEncryptionGenerationParameter(publicKey, id, message));
 
-        return encryptionGenerator.generateCiphertext();
-    }
+		return encryptionGenerator.generateCiphertext();
+	}
 
-    public Element decryption(PairingKeySerParameter publicKey, PairingKeySerParameter secretKey,
-                              String id, PairingCipherSerParameter ciphertext) throws InvalidCipherTextException {
-        if (!(publicKey instanceof IBEGen06bPublicKeySerParameter)){
-            PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, publicKey, IBEGen06bPublicKeySerParameter.class.getName());
-        }
-        if (!(secretKey instanceof IBEGen06bSecretKeySerParameter)){
-            PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, secretKey, IBEGen06bSecretKeySerParameter.class.getName());
-        }
-        if (!(ciphertext instanceof IBEGen06bCiphertextSerParameter)){
-            PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, ciphertext, IBEGen06bCiphertextSerParameter.class.getName());
-        }
-        IBEGen06bDecryptionGenerator decryptionGenerator = new IBEGen06bDecryptionGenerator();
-        decryptionGenerator.init(new IBEDecryptionGenerationParameter(
-                publicKey, secretKey, id, ciphertext));
-        return decryptionGenerator.recoverMessage();
-    }
+	public Element decryption(PairingKeySerParameter publicKey, PairingKeySerParameter secretKey, String id,
+			PairingCipherSerParameter ciphertext) throws InvalidCipherTextException {
+		if (!(publicKey instanceof IBEGen06bPublicKeySerParameter)) {
+			PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, publicKey,
+					IBEGen06bPublicKeySerParameter.class.getName());
+		}
+		if (!(secretKey instanceof IBEGen06bSecretKeySerParameter)) {
+			PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, secretKey,
+					IBEGen06bSecretKeySerParameter.class.getName());
+		}
+		if (!(ciphertext instanceof IBEGen06bCiphertextSerParameter)) {
+			PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, ciphertext,
+					IBEGen06bCiphertextSerParameter.class.getName());
+		}
+		IBEGen06bDecryptionGenerator decryptionGenerator = new IBEGen06bDecryptionGenerator();
+		decryptionGenerator.init(new IBEDecryptionGenerationParameter(publicKey, secretKey, id, ciphertext));
+		return decryptionGenerator.recoverMessage();
+	}
 
-    public byte[] decapsulation(PairingKeySerParameter publicKey, PairingKeySerParameter secretKey,
-                                String id, PairingCipherSerParameter header) throws InvalidCipherTextException {
-        if (!(publicKey instanceof IBEGen06bPublicKeySerParameter)) {
-            PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, publicKey, IBEGen06bPublicKeySerParameter.class.getName());
-        }
-        if (!(secretKey instanceof IBEGen06bSecretKeySerParameter)) {
-            PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, secretKey, IBEGen06bSecretKeySerParameter.class.getName());
-        }
-        if (!(header instanceof IBEGen06bHeaderSerParameter)) {
-            PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, header, IBEGen06bHeaderSerParameter.class.getName());
-        }
-        IBEGen06bDecryptionGenerator decryptionGenerator = new IBEGen06bDecryptionGenerator();
-        decryptionGenerator.init(new IBEDecryptionGenerationParameter(
-                publicKey, secretKey, id, header));
-        return decryptionGenerator.recoverKey();
-    }
+	public byte[] decapsulation(PairingKeySerParameter publicKey, PairingKeySerParameter secretKey, String id,
+			PairingCipherSerParameter header) throws InvalidCipherTextException {
+		if (!(publicKey instanceof IBEGen06bPublicKeySerParameter)) {
+			PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, publicKey,
+					IBEGen06bPublicKeySerParameter.class.getName());
+		}
+		if (!(secretKey instanceof IBEGen06bSecretKeySerParameter)) {
+			PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, secretKey,
+					IBEGen06bSecretKeySerParameter.class.getName());
+		}
+		if (!(header instanceof IBEGen06bHeaderSerParameter)) {
+			PairingUtils.NotVerifyCipherParameterInstance(SCHEME_NAME, header,
+					IBEGen06bHeaderSerParameter.class.getName());
+		}
+		IBEGen06bDecryptionGenerator decryptionGenerator = new IBEGen06bDecryptionGenerator();
+		decryptionGenerator.init(new IBEDecryptionGenerationParameter(publicKey, secretKey, id, header));
+		return decryptionGenerator.recoverKey();
+	}
 
-    public String getEngineName() {
-        return SCHEME_NAME;
-    }
+	public String getEngineName() {
+		return SCHEME_NAME;
+	}
 }

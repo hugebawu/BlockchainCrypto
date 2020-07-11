@@ -17,26 +17,27 @@ import it.unisa.dia.gas.jpbc.Pairing;
  * Weiran Liu
  */
 public class HornerRule {
-    /**
-     * Compute n coefficients for n-degree polynomials by given n elementary coefficients
-     * @param elementaryCoefficient
-     * @return n coefficients
-     */
-    public static Element[] ComputeEfficients(Pairing pairing, Element[] elementaryCoefficient) {
-        int n = elementaryCoefficient.length;
-        Element[] allCoefficients = new Element[n+1];
-        //set a_{n} to be 1
-        allCoefficients[n] = pairing.getZr().newOneElement().getImmutable();
-        //set all other efficients to be initially zero
-        for (int i = 0; i < n; i++) {
-            allCoefficients[i] = pairing.getZr().newZeroElement().getImmutable();
-        }
-        for (int k = 0; k < n; k++) {
-            for (int i = n - k - 1; i < n - 1; i++) {
-                allCoefficients[i] = allCoefficients[i].add(allCoefficients[i + 1].mulZn(elementaryCoefficient[k])).getImmutable();
-            }
-            allCoefficients[n-1] = allCoefficients[n-1].add(elementaryCoefficient[k]).getImmutable();
-        }
-        return allCoefficients;
-    }
+	/**
+	 * Compute n coefficients for n-degree polynomials by given n elementary coefficients
+	 * @param elementaryCoefficient
+	 * @return n coefficients
+	 */
+	public static Element[] ComputeEfficients(Pairing pairing, Element[] elementaryCoefficient) {
+		int n = elementaryCoefficient.length;
+		Element[] allCoefficients = new Element[n + 1];
+		// set a_{n} to be 1
+		allCoefficients[n] = pairing.getZr().newOneElement().getImmutable();
+		// set all other efficients to be initially zero
+		for (int i = 0; i < n; i++) {
+			allCoefficients[i] = pairing.getZr().newZeroElement().getImmutable();
+		}
+		for (int k = 0; k < n; k++) {
+			for (int i = n - k - 1; i < n - 1; i++) {
+				allCoefficients[i] = allCoefficients[i].add(allCoefficients[i + 1].mulZn(elementaryCoefficient[k]))
+						.getImmutable();
+			}
+			allCoefficients[n - 1] = allCoefficients[n - 1].add(elementaryCoefficient[k]).getImmutable();
+		}
+		return allCoefficients;
+	}
 }

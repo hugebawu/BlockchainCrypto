@@ -10,17 +10,23 @@ import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
  * HIBE decryption generation parameter.
  */
 public class HIBEDecryptionGenerationParameter extends PairingDecryptionGenerationParameter {
-    private String[] ids;
+	private String[] ids;
 
-    public HIBEDecryptionGenerationParameter(PairingKeySerParameter publicKeyParameter, PairingKeySerParameter secretKeyParameter,
-                                             String[] ids, PairingCipherSerParameter ciphertextParameter) {
-        super(publicKeyParameter, secretKeyParameter, ciphertextParameter);
-        this.ids = ids;
-    }
+	public HIBEDecryptionGenerationParameter(PairingKeySerParameter publicKeyParameter,
+			PairingKeySerParameter secretKeyParameter, String[] ids, PairingCipherSerParameter ciphertextParameter) {
+		super(publicKeyParameter, secretKeyParameter, ciphertextParameter);
+		this.ids = ids;
+	}
 
-    public int getLength() { return this.ids.length; }
+	public int getLength() {
+		return this.ids.length;
+	}
 
-    public String[] getIds() { return this.ids; }
+	public String[] getIds() {
+		return this.ids;
+	}
 
-    public String getIdsAt(int index) { return this.ids[index]; }
+	public String getIdsAt(int index) {
+		return this.ids[index];
+	}
 }

@@ -17,25 +17,25 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  * Bethencourt-Sahai-Waters large-universe CP-ABE public key / master secret key pair generator.
  */
 public class CPABEBSW07KeyPairGenerator implements PairingKeyPairGenerator {
-    private CPABEKeyPairGenerationParameter parameters;
+	private CPABEKeyPairGenerationParameter parameters;
 
-    public void init(KeyGenerationParameters keyGenerationParameter) {
-        this.parameters = (CPABEKeyPairGenerationParameter) keyGenerationParameter;
-    }
+	public void init(KeyGenerationParameters keyGenerationParameter) {
+		this.parameters = (CPABEKeyPairGenerationParameter) keyGenerationParameter;
+	}
 
-    public PairingKeySerPair generateKeyPair() {
-        Pairing pairing = PairingFactory.getPairing(this.parameters.getPairingParameters());
+	public PairingKeySerPair generateKeyPair() {
+		Pairing pairing = PairingFactory.getPairing(this.parameters.getPairingParameters());
 
-        Element alpha = pairing.getZr().newRandomElement().getImmutable();
-        Element beta = pairing.getZr().newRandomElement().getImmutable();
-        Element g = pairing.getG1().newRandomElement().getImmutable();
-        Element gAlpha = g.powZn(alpha).getImmutable();
-        Element h = g.powZn(beta).getImmutable();
-        Element f = g.powZn(beta.invert()).getImmutable();
-        Element eggAlpha = pairing.pairing(g, g).powZn(alpha).getImmutable();
+		Element alpha = pairing.getZr().newRandomElement().getImmutable();
+		Element beta = pairing.getZr().newRandomElement().getImmutable();
+		Element g = pairing.getG1().newRandomElement().getImmutable();
+		Element gAlpha = g.powZn(alpha).getImmutable();
+		Element h = g.powZn(beta).getImmutable();
+		Element f = g.powZn(beta.invert()).getImmutable();
+		Element eggAlpha = pairing.pairing(g, g).powZn(alpha).getImmutable();
 
-        return new PairingKeySerPair(
-                new CPABEBSW07PublicKeySerParameter(this.parameters.getPairingParameters(), g, h, f, eggAlpha),
-                new CPABEBSW07MasterSecretKeySerParameter(this.parameters.getPairingParameters(), gAlpha, beta));
-    }
+		return new PairingKeySerPair(
+				new CPABEBSW07PublicKeySerParameter(this.parameters.getPairingParameters(), g, h, f, eggAlpha),
+				new CPABEBSW07MasterSecretKeySerParameter(this.parameters.getPairingParameters(), gAlpha, beta));
+	}
 }

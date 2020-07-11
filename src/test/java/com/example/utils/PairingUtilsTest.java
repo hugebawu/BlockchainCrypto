@@ -4,9 +4,11 @@
 package com.example.utils;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.math.BigInteger;
+import java.util.Arrays;
 
 import org.junit.Ignore;
 import org.junit.Test;
@@ -14,6 +16,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import cn.edu.ncepu.crypto.utils.PairingUtils;
+import cn.edu.ncepu.crypto.utils.PairingUtils.PairingGroupType;
 import cn.edu.ncepu.crypto.utils.SysProperty;
 import edu.princeton.cs.algs4.Out;
 import it.unisa.dia.gas.jpbc.Element;
@@ -24,6 +27,7 @@ import it.unisa.dia.gas.plaf.jpbc.field.gt.GTFiniteField;
 import it.unisa.dia.gas.plaf.jpbc.field.quadratic.DegreeTwoExtensionQuadraticField;
 import it.unisa.dia.gas.plaf.jpbc.field.z.ZrField;
 import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
+import it.unisa.dia.gas.plaf.jpbc.pairing.a.TypeAPairing;
 
 /**
  * @Copyright : Copyright (c) 2020-2021 
@@ -106,12 +110,16 @@ public class PairingUtilsTest {
 	}
 
 	/**
-	 * TODO 验证hash函数H是否具有同态性质: H(a)+H(b)=H(a*b)
+	 * TODO 验证hash函数H是否具有同态性质: H(a)*H(b)=H(a*b)
+	 * H(a) = (x1,y1); H(b)=(x2,y2)
+	 * x = x1*x2-y1*y2
+	 * y = (x1+y1)*(x2+y2)-x1*x2-y1*y2
 	 */
+
 	@Ignore
 	@Test
 	@SuppressWarnings({ "unchecked", "unused" })
-	public void testHomJomorphism1() {
+	public void testHomomorphismOfHash_H() {
 		PairingParameters typeAParams = PairingFactory
 				.getPairingParameters(PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256);
 		Pairing pairing = PairingFactory.getPairing(typeAParams);
@@ -121,49 +129,47 @@ public class PairingUtilsTest {
 				.getGT();
 		Element a = GT.newRandomElement().getImmutable();
 		Element b = GT.newRandomElement().getImmutable();
-		Element Ha = PairingUtils.hash_H(GT, a);
-		Element Hb = PairingUtils.hash_H(GT, b);
-		Element Hab = PairingUtils.hash_H(GT, a.mul(b));
-		boolean isEqual = Hab.toBigInteger().equals(Ha.add(Hb).toBigInteger());
+		Element Ha = PairingUtils.hash_H(pairing, a);
+		Element Hb = PairingUtils.hash_H(pairing, b);
+		Element Hab = PairingUtils.hash_H(pairing, a.mul(b));
+		boolean isEqual = Hab.isEqual(Ha.add(Hb));
 		assertTrue(isEqual);
 		if (isEqual) {
 			logger.info("the function H have the nature of homomorphism");
 		}
 	}
 
+	// 验证 [H(g^r1) + H(g^r2)] = [H(g^(r1+r2))]
+	// 因为 H具有同态性质: H(g^r1) * H(g^r2) = H(g^r1*g^r2);且g^r1*g^r2 = g^(r1+r2);所以成立
 	@Ignore
 	@Test
-	// 验证 [H(g^r1) + H(g^r2)].toBigInteger = [H(g^(r1+r2))].toBigInteger
-	// 因为 H具有同态性质: H(g^r1) + H(g^r2) = H(g^r1*g^r2);且g^r1*g^r2 = g^(r1+r2);所以成立
 	@SuppressWarnings("unchecked")
-	public void testHomomorphism2() {
+	public void testHomomorphismOfHash_H2() {
 
 		PairingParameters typeAParams = PairingFactory
 				.getPairingParameters(PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256);
 		Pairing pairing = PairingFactory.getPairing(typeAParams);
 		ZrField Zr = (ZrField) pairing.getZr();
 		CurveField<ZrField> G1 = (CurveField<ZrField>) pairing.getG1();
-		GTFiniteField<DegreeTwoExtensionQuadraticField<ZrField>> GT = (GTFiniteField<DegreeTwoExtensionQuadraticField<ZrField>>) pairing
-				.getGT();
 
 		Element P = G1.newRandomElement().getImmutable();// 生成G1的生成元P
 		Element s = Zr.newRandomElement().getImmutable();// //随机生成主密钥s
 		Element Ppub = P.mulZn(s).getImmutable();// 计算Ppub=sP,注意顺序
-		Element Qu = PairingUtils.hash_G(G1, "IDu");
+		Element Qu = PairingUtils.hash_G(pairing, "IDu");
 
 		Element r1 = Zr.newRandomElement().getImmutable();
 		Element r2 = Zr.newRandomElement().getImmutable();
 		Element g = pairing.pairing(Qu, Ppub).getImmutable();
 
 		Element gr1 = g.powZn(r1).getImmutable();
-		Element H1 = PairingUtils.hash_H(GT, gr1);
+		Element H1 = PairingUtils.hash_H(pairing, gr1);
 
 		Element gr2 = g.powZn(r2).getImmutable();
 
-		Element H2 = PairingUtils.hash_H(GT, gr2);
+		Element H2 = PairingUtils.hash_H(pairing, gr2);
 
 		Element gr12 = g.powZn(r1.add(r2)).getImmutable();
-		Element H12 = PairingUtils.hash_H(GT, gr12);
+		Element H12 = PairingUtils.hash_H(pairing, gr12);
 
 		logger.info("gr1    :" + gr1);
 		logger.info("gr2    :" + gr2);
@@ -184,4 +190,112 @@ public class PairingUtilsTest {
 		}
 	}
 
+	/**
+	 * TODO 验证 V1+V2 ?= (M1+M2) add (H1+H2)
+	 * GTElement中元素无论加法add还是乘法mul，都是通过DegreeTwoExtensionQuadraticElement中的mul计算的
+	 * x = x1*x2-y1*y2
+	 * y = (x1+y1)*(x2+y2)-x1*x2-y1*y2
+	 */
+//	@Ignore
+	@Test
+	public void test_xor() {
+		PairingParameters typeAParams = PairingFactory
+				.getPairingParameters(PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256);
+		TypeAPairing pairing = (TypeAPairing) PairingFactory.getPairing(typeAParams);
+		BigInteger order = pairing.getQ();
+		String message1 = "12";
+		String message2 = "11";
+		Element M1 = PairingUtils.mapNumStringToElement(pairing, message1, PairingGroupType.GT);
+		Element M2 = PairingUtils.mapNumStringToElement(pairing, message2, PairingGroupType.GT);
+
+		Element P = pairing.getG1().newRandomElement().getImmutable();// 生成G1的生成元P
+		Element s = pairing.getZr().newRandomElement().getImmutable();// //随机生成主密钥s
+		Element Ppub = P.mulZn(s).getImmutable();// 计算Ppub=sP,注意顺序
+		Element Qu = PairingUtils.hash_G(pairing, "IDu");
+		Element g = pairing.pairing(Qu, Ppub).getImmutable();
+
+		Element r1 = pairing.getZr().newRandomElement().getImmutable();
+		Element gr1 = g.powZn(r1).getImmutable();
+		Element H1 = PairingUtils.hash_H(pairing, gr1);
+
+		Element r2 = pairing.getZr().newRandomElement().getImmutable();
+		Element gr2 = g.powZn(r2).getImmutable();
+		Element H2 = PairingUtils.hash_H(pairing, gr2);
+
+		Element gr12 = g.powZn(r1.add(r2)).getImmutable();
+		Element gr12_temp = gr1.mul(gr2).getImmutable();
+		// 测试g^r1 * g^r2 = g^(r1+r2)
+		assertTrue(gr12.isEqual(gr12_temp));
+
+		Element H12 = PairingUtils.hash_H(pairing, gr12);
+		// 测试函数hash_H的同态性质 hash_H(g^r1)+hash_H(g^r2)=hash_H(g^r1*g^r2)=hash_H(g^(r1+r2))
+		assertTrue(H12.isEqual(H1.add(H2)));
+
+		// 方案一: 以BigInteger作为基本数据类型 String<->BigInteger ; Element<->BigInteger
+		// 测试Element 与BigInteger之间的可逆性
+
+		// BigInteger转Element数据完整，成功!!!
+		BigInteger bi = new BigInteger("12345678900987654323456789");
+		Element e = pairing.getGT().newElement(bi).getImmutable();
+		assertTrue(bi.equals(e.toBigInteger()));
+
+		// Element转BigInteger会有数据丢失，所以失败！！！
+		BigInteger biH12 = H12.toBigInteger();
+		Element Temp_H12 = pairing.getGT().newElement(biH12).getImmutable();
+		assertFalse(H12.equals(Temp_H12));
+
+		// 方案二: 以bytes作为基本数据类型 String<->BigInteger<->bytes ; Element<->bytes
+		// 测试String和BigInteger的可逆性(成功!)
+		String message = "1235678901234567890";
+		String Temp_message = new BigInteger(message).toString();
+		assertTrue(message.equals(Temp_message));
+
+		// 测试BigInteger和bytes的可逆性(成功!)
+		BigInteger biMessage = new BigInteger(message);
+		BigInteger temp_biMessage = new BigInteger(biMessage.toByteArray());
+		assertTrue(biMessage.equals(temp_biMessage));
+
+		// 测试Element和bytes的可逆性(成功!)
+		Temp_H12 = pairing.getGT().newElementFromBytes(H12.toBytes()).getImmutable();
+		assertTrue(H12.isEqual(Temp_H12));
+
+		// 测试Element 与BigInteger之间通过bytes的可逆性(成功!)
+		byte[] bytes1 = biMessage.toByteArray();
+		Element Temp = pairing.getGT().newElementFromBytes(bytes1).getImmutable();
+		byte[] bytes2 = Temp.toBytes();
+		int byteLen = Temp.getLengthInBytes();
+		temp_biMessage = new BigInteger(Arrays.copyOf(bytes2, byteLen / 2));
+		assertTrue(biMessage.equals(temp_biMessage));
+
+		// V1 = M1 mul H1
+		BigInteger biMessage1 = new BigInteger(message1);
+//		H1 = pairing.getGT().newElement(new BigInteger("3")).getImmutable();
+		byte[] H1bytes = H1.toBytes();
+		logger.info("M1   :" + biMessage1);
+		logger.info("H1   :" + H1);
+		Element V1 = M1.mul(H1);
+		logger.info("V1   :" + V1);
+
+		// V2 = M2 mul H2
+		BigInteger biMessage2 = new BigInteger(message2);
+//		H2 = pairing.getGT().newElement(new BigInteger("4")).getImmutable();
+		logger.info("M2   :" + biMessage2);
+		logger.info("H2   :" + H2);
+		Element V2 = M2.mul(H2);
+		logger.info("V2   :" + V2);
+
+		// V12=V1 + V2
+		Element V12 = V1.add(V2);
+		logger.info("V1+V2:" + V12);
+
+		// M12 = M1+M2
+		Element M12 = M1.add(M2);
+		// H12 = H1 + H2
+		H12 = H1.add(H2);
+
+		// V1_2 = (M1+M2) mul (H1+H2)
+		Element V1_2 = M12.mul(H12);
+		logger.info("V1_2 :" + V1_2);
+		assertTrue(V12.isEqual(V1_2));
+	}
 }

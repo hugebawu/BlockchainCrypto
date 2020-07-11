@@ -10,7 +10,7 @@ import it.unisa.dia.gas.jpbc.PairingParameters;
  */
 public class REKeyPairGenerationParameter extends PairingKeyPairGenerationParameter {
 
-    public REKeyPairGenerationParameter(PairingParameters pairingParameters) {
-        super(pairingParameters);
-    }
+	public REKeyPairGenerationParameter(PairingParameters pairingParameters) {
+		super(pairingParameters);
+	}
 }

@@ -16,10 +16,9 @@ import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.util.encoders.Hex;
 
 import it.unisa.dia.gas.jpbc.Element;
-import it.unisa.dia.gas.jpbc.Field;
 import it.unisa.dia.gas.jpbc.Pairing;
-import it.unisa.dia.gas.jpbc.PairingParameters;
 import it.unisa.dia.gas.plaf.jpbc.pairing.a.TypeACurveGenerator;
+import it.unisa.dia.gas.plaf.jpbc.pairing.a.TypeAPairing;
 import it.unisa.dia.gas.plaf.jpbc.pairing.a1.TypeA1CurveGenerator;
 import it.unisa.dia.gas.plaf.jpbc.pairing.parameters.PropertiesParameters;
 
@@ -77,15 +76,87 @@ public class PairingUtils {
 	}
 
 	/**
+	 * TODO 这里描述这个方法的作用 参数描述
+	 */
+	@Deprecated
+	public static Element xor(Pairing pairing, byte[] arrayM, byte[] arrayGTElement) {
+		byte[] arrayGTElement1 = Arrays.copyOfRange(arrayGTElement, 0, arrayGTElement.length / 2);
+		byte[] arrayGTElement2 = Arrays.copyOfRange(arrayGTElement, arrayGTElement.length / 2, arrayGTElement.length);
+		byte[] array1 = CommonUtils.xor(arrayM, arrayGTElement1);
+		byte[] array2 = CommonUtils.xor(arrayM, arrayGTElement2);
+		byte[] result = new byte[array1.length + array2.length];
+		System.arraycopy(array1, 0, result, 0, array1.length);
+		System.arraycopy(array2, 0, result, array1.length, array2.length);
+		return pairing.getGT().newElementFromBytes(result).getImmutable();
+	}
+
+	/**
+	 * TODO 这里描述这个方法的作用 参数描述
+	 */
+	@Deprecated
+	public static Element xor(Pairing pairing, Element e1, Element e2) {
+		byte[] results = CommonUtils.xor(e1.toBytes(), e2.toBytes());
+		return pairing.getGT().newElementFromBytes(results).getImmutable();
+	}
+
+	/**
+	 * TODO concate x,y into GTElement
+	 * @param GTEArrayLeft
+	 * @param GTEArrayRight
+	 * @param GTEBytelength
+	 * @return 
+	 */
+	@Deprecated
+	public static byte[] concate(byte[] GTEArrayLeft, byte[] GTEArrayRight, int GTEBytelength) {
+		byte[] result = new byte[GTEBytelength];
+		int aLen = GTEArrayLeft.length;
+		int bLen = GTEArrayRight.length;
+		int i = aLen - 1, j = bLen - 1;
+		for (int k = result.length / 2 - 1; i >= 0; i--, k--) {
+			result[k] = GTEArrayLeft[i];
+		}
+		for (int k = result.length - 1; j >= 0; j--, k--) {
+			result[k] = GTEArrayRight[j];
+		}
+		return result;
+	}
+
+	/**
+	 * TODO add two GT element
+	 * @param pairing
+	 * @param order the order of GT element x,y value
+	 * @param e1
+	 * @param e2
+	 * @return 
+	 */
+	@Deprecated
+	public static Element add(Pairing pairing, BigInteger order, Element e1, Element e2) {
+		byte[] e1Left = Arrays.copyOfRange(e1.toBytes(), 0, e1.getLengthInBytes() / 2);
+		byte[] e1Right = Arrays.copyOfRange(e1.toBytes(), e1.getLengthInBytes() / 2, e1.getLengthInBytes());
+
+		byte[] e2Left = Arrays.copyOfRange(e2.toBytes(), 0, e2.getLengthInBytes() / 2);
+		byte[] e2Right = Arrays.copyOfRange(e2.toBytes(), e2.getLengthInBytes() / 2, e2.getLengthInBytes());
+
+		int len = order.bitLength();
+		BigInteger temp = new BigInteger(e1Left).add(new BigInteger(e2Left));
+		BigInteger temp2 = temp.add(order).mod(order);
+		byte[] resultLeft = temp2.toByteArray();
+		byte[] resultRight = (new BigInteger(e1Right).add(new BigInteger(e2Right))).mod(order).toByteArray();
+
+		byte[] results = concate(resultLeft, resultRight, e1.getLengthInBytes());
+		return pairing.getGT().newElementFromBytes(results).getImmutable();
+	}
+
+	/**
 	 * TODO the hash function G described in Boneh-Franklin CPA-secure IBE
 	 * G: {0,1}*->Fp, hash user id to a point in the G1
 	 * @param G1 elliptic curve group G1
 	 * @param ID user id
 	 * @return 参数描述
 	 */
-	public static Element hash_G(Field<?> G1, String ID) {
+	public static Element hash_G(Pairing Pairing, String ID) {
 		byte[] shaResult = CommonUtils.hash(ID.getBytes(), "SHA256");
-		return G1.newElementFromHash(shaResult, 0, shaResult.length).getImmutable();
+		return Pairing.getG1().newElementFromHash(shaResult, 0, shaResult.length).getImmutable();
 	}
 
 	/**
@@ -94,9 +165,9 @@ public class PairingUtils {
 	 * @param element element in GT
 	 * @return a element in GT
 	 */
-	public static Element hash_H(Field<?> GT, Element element) {
+	public static Element hash_H(Pairing pairing, Element element) {
 		byte[] bytes = element.toBytes();
-		return GT.newElementFromHash(bytes, 0, bytes.length).getImmutable();
+		return pairing.getGT().newElementFromHash(bytes, 0, bytes.length).getImmutable();
 	}
 
 	/**
@@ -108,22 +179,25 @@ public class PairingUtils {
 	 * @param pairingGroupType
 	 * @return 
 	 */
-	public static Element mapNumStringToElement(PairingParameters pairingParams, Pairing pairing, String numString,
-			PairingGroupType pairingGroupType) {
-		BigInteger bigNum = new BigInteger(numString);
+	public static Element mapNumStringToElement(Pairing pairing, String numString, PairingGroupType pairingGroupType) {
+		TypeAPairing typeAPairing = null;
+		if (pairing instanceof TypeAPairing) {
+			typeAPairing = (TypeAPairing) pairing;
+		}
+		BigInteger biNum = new BigInteger(numString);
 		switch (pairingGroupType) {
 		case Zr:
-			BigInteger r = pairingParams.getBigInteger("r");
-			if (1 == bigNum.compareTo(r)) {
+			BigInteger r = typeAPairing.getR();
+			if (1 == biNum.compareTo(r)) {
 				throw new IllegalArgumentException("numString should less than " + r);
 			}
-			return pairing.getZr().newElement(new BigInteger(numString)).getImmutable();
+			return pairing.getZr().newElement(biNum).getImmutable();
 		case GT:
-			BigInteger q = pairingParams.getBigInteger("q");
-			if (1 == bigNum.compareTo(q)) {
+			BigInteger q = typeAPairing.getQ();
+			if (1 == biNum.compareTo(q)) {
 				throw new IllegalArgumentException("numString should less than " + q);
 			}
-			return pairing.getGT().newElement(new BigInteger(numString)).getImmutable();
+			return pairing.getGT().newElement(biNum).getImmutable();
 		default:
 			throw new RuntimeException("Invalid pairing group type.");
 		}

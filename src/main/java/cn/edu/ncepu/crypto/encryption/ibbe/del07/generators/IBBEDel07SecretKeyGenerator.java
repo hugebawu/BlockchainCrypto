@@ -19,21 +19,26 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  * Secret key generator for Delerablée IBBE scheme.
  */
 public class IBBEDel07SecretKeyGenerator implements PairingKeyParameterGenerator {
-    private IBBESecretKeyGenerationParameter parameters;
+	private IBBESecretKeyGenerationParameter parameters;
 
-    public void init(KeyGenerationParameters keyGenerationParameters) {
-        this.parameters = (IBBESecretKeyGenerationParameter)keyGenerationParameters;
-    }
+	public void init(KeyGenerationParameters keyGenerationParameters) {
+		this.parameters = (IBBESecretKeyGenerationParameter) keyGenerationParameters;
+	}
 
-    public PairingKeySerParameter generateKey() {
-        IBBEDel07MasterSecretKeySerParameter masterSecretKeyParameters = (IBBEDel07MasterSecretKeySerParameter)parameters.getMasterSecretKeyParameter();
-        IBBEDel07PublicKeySerParameter publicKeyParameters = (IBBEDel07PublicKeySerParameter)parameters.getPublicKeyParameter();
+	public PairingKeySerParameter generateKey() {
+		IBBEDel07MasterSecretKeySerParameter masterSecretKeyParameters = (IBBEDel07MasterSecretKeySerParameter) parameters
+				.getMasterSecretKeyParameter();
+		IBBEDel07PublicKeySerParameter publicKeyParameters = (IBBEDel07PublicKeySerParameter) parameters
+				.getPublicKeyParameter();
 
-        Pairing pairing = PairingFactory.getPairing(publicKeyParameters.getParameters());
-        Element elementId = PairingUtils.MapStringToGroup(pairing, parameters.getId(), PairingUtils.PairingGroupType.Zr);
+		Pairing pairing = PairingFactory.getPairing(publicKeyParameters.getParameters());
+		Element elementId = PairingUtils.MapStringToGroup(pairing, parameters.getId(),
+				PairingUtils.PairingGroupType.Zr);
 
-        Element secretKey = masterSecretKeyParameters.getG().powZn(masterSecretKeyParameters.getGamma().add(elementId).invert()).getImmutable();
+		Element secretKey = masterSecretKeyParameters.getG()
+				.powZn(masterSecretKeyParameters.getGamma().add(elementId).invert()).getImmutable();
 
-        return new IBBEDel07SecretKeySerParameter(publicKeyParameters.getParameters(), parameters.getId(), elementId, secretKey);
-    }
+		return new IBBEDel07SecretKeySerParameter(publicKeyParameters.getParameters(), parameters.getId(), elementId,
+				secretKey);
+	}
 }

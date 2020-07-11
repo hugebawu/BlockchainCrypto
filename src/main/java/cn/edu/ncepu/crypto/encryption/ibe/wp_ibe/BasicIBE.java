@@ -3,8 +3,12 @@
  */
 package cn.edu.ncepu.crypto.encryption.ibe.wp_ibe;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,6 +23,7 @@ import it.unisa.dia.gas.plaf.jpbc.field.gt.GTFiniteField;
 import it.unisa.dia.gas.plaf.jpbc.field.quadratic.DegreeTwoExtensionQuadraticField;
 import it.unisa.dia.gas.plaf.jpbc.field.z.ZrField;
 import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
+import it.unisa.dia.gas.plaf.jpbc.pairing.a.TypeAPairing;
 
 /**
  *
@@ -39,20 +44,8 @@ public class BasicIBE implements IBE {
 	private Element s, // master key
 			P, // G1的生成元
 			Ppub, // Ppub = sP
-			Qu, // 用户公钥 Qu = MapToPoin("User ID")
-			Su, // 通过用户公钥生成的用户私钥 Su = sQu
-			r, // Zr中的元素
-			U, // 密文的第一部分 U = rP
-			g1, // C1 = e(Qu,Ppub)^r;
-			g2; // C2 = e(Su,U)
-
-	BigInteger T1, // T1 = H(C1)
-			V, // 密文的第二部分 V = M xor T1; M 是明文. 密文: C = (U, V)
-			T2; // T2=H(C2)=H(e(Su,U))=H(e(sQu,rP))=H(e(Qu,P)^sr)=H(e(Qu,Ppub)^r)=H(C1)=T1;
-	// 则明文: M = V xor T2
-
-	private Pairing pairing;
-
+			Qu; // 用户公钥 Qu = hash_G("User ID")
+	private TypeAPairing pairing;
 	// G1是定义在域Fq上的椭圆曲线，其阶为r.q与r都是质数，且存在一定的关系：这里是 (q+1)=r*h
 	// Zr 是阶为r的环Zr={0,...,r-1}
 	// GT是有限域Fq2。其元素的阶虽然为r，但是其取值范围比q大的多，目前不清楚怎么回事。
@@ -61,8 +54,7 @@ public class BasicIBE implements IBE {
 	private GTFiniteField<DegreeTwoExtensionQuadraticField<ZrField>> GT;
 
 	public BasicIBE(PairingParameters typeAParams) {
-		this.pairing = PairingFactory.getPairing(typeAParams);
-
+		this.pairing = (TypeAPairing) PairingFactory.getPairing(typeAParams);
 		// For bilinear maps only, to use the PBC wrapper and gain in performance, the
 		// usePBCWhenPossible property of the pairing factory must be set.
 		// Moreover, if PBC and the JPBC wrapper are not installed properly then the
@@ -101,18 +93,78 @@ public class BasicIBE implements IBE {
 		// 81869981414486565817042987620009425916711137248094272342132238763687306328558
 		logger.info(" original bigNum: " + bigNum);
 		logger.info("bigNum bit lengh: " + new BigInteger(bigNum).bitLength());
-		Element element = PairingUtils.mapNumStringToElement(typeAParams, pairing, bigNum, PairingGroupType.Zr);
+		Element element = PairingUtils.mapNumStringToElement(pairing, bigNum, PairingGroupType.Zr);
 		logger.info("recovered bigNum: " + PairingUtils.mapElementToNumString(element));
-		// 方案2 由于采用setFromHash的hash方式，不可行
+		// 方案2 由于采用setFromHash的hash方式，不可逆
 		try {
 			byte[] bytes = bigNum.getBytes("UTF-8");
 			Element elementGT = GT.newElementFromHash(bytes, 0, bytes.length);
 			byte[] bytes2 = elementGT.toBytes();
-			logger.info(new String(bytes2, "UTF-8"));
+			assertFalse(bigNum.equals(new String(bytes2, "UTF-8")));
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
 		logger.info("");
+	}
+
+	public class CipherText {
+
+		// U = rP
+		private Element U;
+		// V = M.xor(H.toBigInter())
+		private Element V;
+		private Element r;
+		private Element g;
+		// gr = g^r
+		private Element gr;
+		// H = hash_H(gr)
+		private Element H;
+
+		CipherText(Element U, Element V, Element r, Element g, Element gr, Element H) {
+			this.U = U.getImmutable();
+			this.V = V.getImmutable();
+			this.r = r.getImmutable();
+			this.g = g.getImmutable();
+			this.gr = gr.getImmutable();
+			this.H = H.getImmutable();
+		}
+
+		@Override
+		public boolean equals(Object object) {
+			if (this == object) {
+				return true;
+			}
+			if (object instanceof CipherText) {
+				CipherText that = (CipherText) object;
+				return (this.U.isEqual(that.U)) && (this.V.isEqual(that.V)) && (this.r.isEqual(that.r))
+						&& (this.g.isEqual(that.g)) && (this.gr.isEqual(that.gr)) && (this.H.isEqual(that.H));
+			}
+			return false;
+		}
+
+		public Element getU() {
+			return U.duplicate();
+		}
+
+		public Element getV() {
+			return V.duplicate();
+		}
+
+		public Element getR() {
+			return r.duplicate();
+		}
+
+		public Element getG() {
+			return g.duplicate();
+		}
+
+		public Element getGr() {
+			return gr.duplicate();
+		}
+
+		public Element getH() {
+			return H.duplicate();
+		}
 	}
 
 	/**
@@ -137,37 +189,78 @@ public class BasicIBE implements IBE {
 	}
 
 	@Override
-	public void extract() {
+	public Element extract(String id) {
 		// 通过Hash函数G从用户IDu产生的公钥Qu
-		Qu = PairingUtils.hash_G(G1, "IDu");
+		Qu = PairingUtils.hash_G(pairing, id);
 		// 通过PGK生成用户私钥
-		Su = Qu.mulZn(s).getImmutable();
-		logger.info("Qu=" + Qu);
-		logger.info("Su=" + Su);
+		Element d = Qu.mulZn(s).getImmutable();
+		return d;
 	}
 
 	@Override
-	public void encrypt(String message) {
-		r = Zr.newRandomElement().getImmutable();
-		U = P.mulZn(r);
-		g1 = pairing.pairing(Qu, Ppub).getImmutable();// 计算e（Ppub,Qu）
-		g1 = g1.powZn(r).getImmutable();
-		// 注意，这里M不能过长，受到Fq2中q的大小限制
-		BigInteger M = new BigInteger(message);
-		// 注意，这里T1没有进一步通过映射H:Fp2->{0,1}^n，是否会降低安全性?
-		T1 = PairingUtils.hash_H(GT, g1).toBigInteger();
-		V = M.xor(T1);
-		logger.info("r=" + r);
-		logger.info("U=" + U);
-		logger.info("T1=H(e（Qu, Ppub）^r)=" + T1);
+	// 注意，这里M不能过长，受到Fq2中q的大小限制
+	public CipherText encrypt(String message) {
+		Element r = Zr.newRandomElement().getImmutable();
+		// 密文的第一部分 U = rP
+		Element U = P.mulZn(r);
+		// g = e(Qu,Ppub);
+		Element g = this.pairing.pairing(Qu, Ppub).getImmutable();// 计算e（Ppub,Qu）
+		// gr = g^r
+		Element gr = g.powZn(r).getImmutable();
+		// Hash_H:Fp2->{0,1}^n
+		// H1 = hash_H(g^r)
+		Element H1 = PairingUtils.hash_H(this.pairing, gr);
+		logger.info("H1=Hash_H(e（Qu, Ppub）^r):" + H1);
+		// 密文的第二部分 V = M xor H; M 是明文. 密文: C = (U, V)
+		Element M = PairingUtils.mapNumStringToElement(pairing, message, PairingGroupType.GT);
+		Element V = M.add(H1);
+//		byte[] messageBytes = biMessage.toByteArray();
+//		int byteLen = H1.getLengthInBytes();
+//		Element V = PairingUtils.xor(pairing, messageBytes, H1.toBytes());
+		logger.info("V                        :" + V);
+		return new CipherText(U, V, r, g, gr, H1);
 	}
 
 	@Override
-	public String decrypt() {
-		g2 = pairing.pairing(Su, U).getImmutable();
-		T2 = PairingUtils.hash_H(GT, g2).toBigInteger();
-		logger.info("T2=H(e(Su, U))=" + T2);
-		BigInteger decrypted_M = V.xor(T2);
-		return decrypted_M.toString();
+	public String decrypt(Element d, CipherText ciphertext) {
+		// g2 = e(d,U)
+		Element g2 = this.pairing.pairing(d, ciphertext.getU()).getImmutable();
+		// 因为 g2=e(d,U)= e(sQu,rP)=e(Qu,P)^sr=e(Qu,Ppub)^r=g^r
+		// H2 = hash_H(g2)
+		// 则明文: M = V xor H
+		Element H2 = PairingUtils.hash_H(this.pairing, g2);
+		logger.info("H2=Hash_H(e(Su, U))      =" + H2);
+		Element V = ciphertext.V;
+//		Element decrypte_M = PairingUtils.xor(pairing, V, H2);
+//		byte[] decryptedBytes = decrypte_M.toBytes();
+//		return new BigInteger(Arrays.copyOfRange(decryptedBytes, 0, decrypte_M.getLengthInBytes() / 2)).toString();
+		Element decrypte_M = V.sub(H2);
+		return PairingUtils.mapElementToNumString(decrypte_M);
 	}
+
+	@Override
+	public CipherText add(Map<String, CipherText> ciphertextMap) {
+		Element U = this.G1.newZeroElement();
+		Element V = this.GT.newZeroElement();
+		Element r = this.Zr.newZeroElement();
+		Element g = this.GT.newZeroElement();
+		Element gr = this.GT.newOneElement();
+		Element H = this.GT.newZeroElement();
+		for (CipherText ciphertext : ciphertextMap.values()) {
+			U = U.add(ciphertext.getU());
+			V = V.add(ciphertext.getV());
+			r = r.add(ciphertext.getR());
+			Element temp_g = ciphertext.getG();
+			if (g.isZero()) {
+				g = temp_g;
+			} else {
+				assertTrue(g.isEqual(temp_g));
+			}
+			gr = gr.mul(ciphertext.getGr());
+			H = H.add(ciphertext.getH());
+		}
+		return new CipherText(U.getImmutable(), V.getImmutable(), r.getImmutable(), g.getImmutable(), gr.getImmutable(),
+				H.getImmutable());
+	}
+
 }

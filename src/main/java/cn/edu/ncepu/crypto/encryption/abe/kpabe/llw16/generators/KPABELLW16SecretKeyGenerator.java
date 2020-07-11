@@ -18,29 +18,22 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  * Liu-Liu-Wu-16 CCA2-secure OO-KP-ABE secret key generator.
  */
 public class KPABELLW16SecretKeyGenerator extends KPABEHW14SecretKeyGenerator {
-    public void init(KeyGenerationParameters keyGenerationParameter) {
-        KPABESecretKeyGenerationParameter oriParameter = (KPABESecretKeyGenerationParameter)keyGenerationParameter;
-        String[] rhos = oriParameter.getRhos();
-        Pairing pairing = PairingFactory.getPairing(oriParameter.getPublicKeyParameter().getParameters());
-        Element[] mappedElementRhos = PairingUtils.MapStringArrayToFirstHalfZr(pairing, rhos);
-        String[] mappedRhos = PairingUtils.MapElementArrayToStringArray(mappedElementRhos);
-        KPABESecretKeyGenerationParameter parameter = new KPABESecretKeyGenerationParameter(
-                oriParameter.getAccessControlEngine(),
-                oriParameter.getPublicKeyParameter(),
-                oriParameter.getMasterSecretKeyParameter(),
-                oriParameter.getAccessPolicy(),
-                mappedRhos
-        );
-        super.init(parameter);
-    }
+	public void init(KeyGenerationParameters keyGenerationParameter) {
+		KPABESecretKeyGenerationParameter oriParameter = (KPABESecretKeyGenerationParameter) keyGenerationParameter;
+		String[] rhos = oriParameter.getRhos();
+		Pairing pairing = PairingFactory.getPairing(oriParameter.getPublicKeyParameter().getParameters());
+		Element[] mappedElementRhos = PairingUtils.MapStringArrayToFirstHalfZr(pairing, rhos);
+		String[] mappedRhos = PairingUtils.MapElementArrayToStringArray(mappedElementRhos);
+		KPABESecretKeyGenerationParameter parameter = new KPABESecretKeyGenerationParameter(
+				oriParameter.getAccessControlEngine(), oriParameter.getPublicKeyParameter(),
+				oriParameter.getMasterSecretKeyParameter(), oriParameter.getAccessPolicy(), mappedRhos);
+		super.init(parameter);
+	}
 
-    public PairingKeySerParameter generateKey() {
-        KPABEHW14SecretKeySerParameter oriParameter = (KPABEHW14SecretKeySerParameter) super.generateKey();
-        return new KPABELLW16SecretKeySerParameter(
-                oriParameter.getParameters(),
-                oriParameter.getAccessControlParameter(),
-                oriParameter.getK0s(),
-                oriParameter.getK1s(),
-                oriParameter.getK2s());
-    }
+	public PairingKeySerParameter generateKey() {
+		KPABEHW14SecretKeySerParameter oriParameter = (KPABEHW14SecretKeySerParameter) super.generateKey();
+		return new KPABELLW16SecretKeySerParameter(oriParameter.getParameters(),
+				oriParameter.getAccessControlParameter(), oriParameter.getK0s(), oriParameter.getK1s(),
+				oriParameter.getK2s());
+	}
 }

@@ -11,17 +11,17 @@ import cn.edu.ncepu.crypto.algebra.serparams.PairingKeyEncapsulationSerPair;
 
 public interface PairingEncapsulationPairGenerator {
 
-    /**
-     * intialise the KEM encryption pair generator.
-     *
-     * @param params the parameters the public key pair is to be initialised with.
-     */
-    void init(CipherParameters params);
+	/**
+	 * intialise the KEM encryption pair generator.
+	 *
+	 * @param params the parameters the public key pair is to be initialised with.
+	 */
+	void init(CipherParameters params);
 
-    /**
-     * return an PairingKeyEncapsulationSerPair containing the generated session key and the ciphertext.
-     *
-     * @return an PairingKeyEncapsulationSerPair containing the generated session key and the ciphertext.
-     */
-    PairingKeyEncapsulationSerPair generateEncryptionPair();
+	/**
+	 * return an PairingKeyEncapsulationSerPair containing the generated session key and the ciphertext.
+	 *
+	 * @return an PairingKeyEncapsulationSerPair containing the generated session key and the ciphertext.
+	 */
+	PairingKeyEncapsulationSerPair generateEncryptionPair();
 }

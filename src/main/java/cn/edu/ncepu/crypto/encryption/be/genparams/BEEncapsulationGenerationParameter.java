@@ -10,12 +10,14 @@ import cn.edu.ncepu.crypto.utils.PairingUtils;
  * BE key encapsulation generation parameter.
  */
 public class BEEncapsulationGenerationParameter extends PairingEncapsulationGenerationParameter {
-    private int[] indexSet;
+	private int[] indexSet;
 
-    public BEEncapsulationGenerationParameter(PairingKeySerParameter publicKeyParameter, int[] indexSet) {
-        super(publicKeyParameter);
-        this.indexSet = PairingUtils.removeDuplicates(indexSet);
-    }
+	public BEEncapsulationGenerationParameter(PairingKeySerParameter publicKeyParameter, int[] indexSet) {
+		super(publicKeyParameter);
+		this.indexSet = PairingUtils.removeDuplicates(indexSet);
+	}
 
-    public int[] getIndexSet() { return this.indexSet; }
+	public int[] getIndexSet() {
+		return this.indexSet;
+	}
 }

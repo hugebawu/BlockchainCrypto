@@ -19,30 +19,34 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  * Lewko-Waters secret key generator.
  */
 public class IBELW10SecretKeyGenerator implements PairingKeyParameterGenerator {
-    private IBESecretKeyGenerationParameter parameters;
+	private IBESecretKeyGenerationParameter parameters;
 
-    public void init(KeyGenerationParameters keyGenerationParameters) {
-        this.parameters = (IBESecretKeyGenerationParameter)keyGenerationParameters;
-    }
+	public void init(KeyGenerationParameters keyGenerationParameters) {
+		this.parameters = (IBESecretKeyGenerationParameter) keyGenerationParameters;
+	}
 
-    public PairingKeySerParameter generateKey() {
-        IBELW10MasterSecretKeySerParameter masterSecretKeyParameters = (IBELW10MasterSecretKeySerParameter)parameters.getMasterSecretKeyParameter();
-        IBELW10PublicKeySerParameter publicKeyParameters = (IBELW10PublicKeySerParameter)parameters.getPublicKeyParameter();
+	public PairingKeySerParameter generateKey() {
+		IBELW10MasterSecretKeySerParameter masterSecretKeyParameters = (IBELW10MasterSecretKeySerParameter) parameters
+				.getMasterSecretKeyParameter();
+		IBELW10PublicKeySerParameter publicKeyParameters = (IBELW10PublicKeySerParameter) parameters
+				.getPublicKeyParameter();
 
-        Pairing pairing = PairingFactory.getPairing(publicKeyParameters.getParameters());
-        Element elementId = PairingUtils.MapStringToGroup(pairing, parameters.getId(), PairingUtils.PairingGroupType.Zr).getImmutable();
-        Element Zr_R3 = pairing.getZr().newRandomElement().getImmutable();
-        Element R3 = masterSecretKeyParameters.getG3Generator().powZn(Zr_R3).getImmutable();
-        Element Zr_R3Prime = pairing.getZr().newRandomElement().getImmutable();
-        Element R3Prime = masterSecretKeyParameters.getG3Generator().powZn(Zr_R3Prime).getImmutable();
-        Element r = pairing.getZr().newRandomElement().getImmutable();
+		Pairing pairing = PairingFactory.getPairing(publicKeyParameters.getParameters());
+		Element elementId = PairingUtils.MapStringToGroup(pairing, parameters.getId(), PairingUtils.PairingGroupType.Zr)
+				.getImmutable();
+		Element Zr_R3 = pairing.getZr().newRandomElement().getImmutable();
+		Element R3 = masterSecretKeyParameters.getG3Generator().powZn(Zr_R3).getImmutable();
+		Element Zr_R3Prime = pairing.getZr().newRandomElement().getImmutable();
+		Element R3Prime = masterSecretKeyParameters.getG3Generator().powZn(Zr_R3Prime).getImmutable();
+		Element r = pairing.getZr().newRandomElement().getImmutable();
 
-        //Compute k1
-        Element k1 = publicKeyParameters.getG().powZn(r).mul(R3).getImmutable();
-        //Compute k2
-        Element k2 = publicKeyParameters.getG().powZn(masterSecretKeyParameters.getAlpha())
-                .mul(publicKeyParameters.getU().powZn(elementId).mul(publicKeyParameters.getH()).powZn(r))
-                .mul(R3Prime).getImmutable();
-            return new IBELW10SecretKeySerParameter(publicKeyParameters.getParameters(), parameters.getId(), elementId, k1, k2);
-        }
+		// Compute k1
+		Element k1 = publicKeyParameters.getG().powZn(r).mul(R3).getImmutable();
+		// Compute k2
+		Element k2 = publicKeyParameters.getG().powZn(masterSecretKeyParameters.getAlpha())
+				.mul(publicKeyParameters.getU().powZn(elementId).mul(publicKeyParameters.getH()).powZn(r)).mul(R3Prime)
+				.getImmutable();
+		return new IBELW10SecretKeySerParameter(publicKeyParameters.getParameters(), parameters.getId(), elementId, k1,
+				k2);
+	}
 }

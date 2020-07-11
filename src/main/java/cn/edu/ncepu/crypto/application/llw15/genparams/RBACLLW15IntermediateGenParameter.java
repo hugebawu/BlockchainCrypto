@@ -9,7 +9,7 @@ import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
  * Liu-Liu-Wu role-based access control intermediate generation parameters.
  */
 public class RBACLLW15IntermediateGenParameter extends PairingEncapsulationGenerationParameter {
-    public RBACLLW15IntermediateGenParameter(PairingKeySerParameter publicKeyParameter) {
-        super(publicKeyParameter);
-    }
+	public RBACLLW15IntermediateGenParameter(PairingKeySerParameter publicKeyParameter) {
+		super(publicKeyParameter);
+	}
 }

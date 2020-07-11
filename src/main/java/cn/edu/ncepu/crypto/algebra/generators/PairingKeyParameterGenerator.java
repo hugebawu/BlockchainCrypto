@@ -11,7 +11,7 @@ import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
  */
 public interface PairingKeyParameterGenerator {
 
-    void init(KeyGenerationParameters keyGenerationParameters);
+	void init(KeyGenerationParameters keyGenerationParameters);
 
-    PairingKeySerParameter generateKey();
+	PairingKeySerParameter generateKey();
 }

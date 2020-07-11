@@ -17,25 +17,25 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  * Rouselakis-Waters CP-ABE public key / master secret key generator.
  */
 public class CPABERW13KeyPairGenerator implements PairingKeyPairGenerator {
-    protected CPABEKeyPairGenerationParameter parameters;
+	protected CPABEKeyPairGenerationParameter parameters;
 
-    public void init(KeyGenerationParameters keyGenerationParameter) {
-        this.parameters = (CPABEKeyPairGenerationParameter) keyGenerationParameter;
-    }
+	public void init(KeyGenerationParameters keyGenerationParameter) {
+		this.parameters = (CPABEKeyPairGenerationParameter) keyGenerationParameter;
+	}
 
-    public PairingKeySerPair generateKeyPair() {
-        Pairing pairing = PairingFactory.getPairing(this.parameters.getPairingParameters());
+	public PairingKeySerPair generateKeyPair() {
+		Pairing pairing = PairingFactory.getPairing(this.parameters.getPairingParameters());
 
-        Element alpha = pairing.getZr().newRandomElement().getImmutable();
-        Element g = pairing.getG1().newRandomElement().getImmutable();
-        Element u = pairing.getG1().newRandomElement().getImmutable();
-        Element h = pairing.getG1().newRandomElement().getImmutable();
-        Element w = pairing.getG1().newRandomElement().getImmutable();
-        Element v = pairing.getG1().newRandomElement().getImmutable();
-        Element eggAlpha = pairing.pairing(g, g).powZn(alpha).getImmutable();
+		Element alpha = pairing.getZr().newRandomElement().getImmutable();
+		Element g = pairing.getG1().newRandomElement().getImmutable();
+		Element u = pairing.getG1().newRandomElement().getImmutable();
+		Element h = pairing.getG1().newRandomElement().getImmutable();
+		Element w = pairing.getG1().newRandomElement().getImmutable();
+		Element v = pairing.getG1().newRandomElement().getImmutable();
+		Element eggAlpha = pairing.pairing(g, g).powZn(alpha).getImmutable();
 
-        return new PairingKeySerPair(
-                new CPABERW13PublicKeySerParameter(this.parameters.getPairingParameters(), g, u, h, w, v, eggAlpha),
-                new CPABERW13MasterSecretKeySerParameter(this.parameters.getPairingParameters(), alpha));
-    }
+		return new PairingKeySerPair(
+				new CPABERW13PublicKeySerParameter(this.parameters.getPairingParameters(), g, u, h, w, v, eggAlpha),
+				new CPABERW13MasterSecretKeySerParameter(this.parameters.getPairingParameters(), alpha));
+	}
 }

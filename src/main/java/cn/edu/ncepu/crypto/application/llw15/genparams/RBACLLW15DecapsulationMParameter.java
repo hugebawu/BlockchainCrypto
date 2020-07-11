@@ -11,29 +11,33 @@ import cn.edu.ncepu.crypto.application.llw15.serparams.RBACLLW15PublicKeySerPara
  * Liu-Liu-Wu role-based access control medical staff's session key decapsulation parameter.
  */
 public class RBACLLW15DecapsulationMParameter extends PairingDecryptionGenerationParameter {
-    private String id;
-    private String[] roles;
-    private String time;
+	private String id;
+	private String[] roles;
+	private String time;
 
-    public RBACLLW15DecapsulationMParameter(
-            PairingKeySerParameter publicKeyParameter,
-            PairingKeySerParameter accessCredentialMParameter,
-            String id,
-            String[] roles,
-            String time,
-            PairingCipherSerParameter encapsulationParameter) {
-        super(publicKeyParameter, accessCredentialMParameter, encapsulationParameter);
-        assert(roles.length == ((RBACLLW15PublicKeySerParameter)publicKeyParameter).getMaxRoleNumber());
-        this.id = id;
-        this.roles = roles;
-        this.time = time;
-    }
+	public RBACLLW15DecapsulationMParameter(PairingKeySerParameter publicKeyParameter,
+			PairingKeySerParameter accessCredentialMParameter, String id, String[] roles, String time,
+			PairingCipherSerParameter encapsulationParameter) {
+		super(publicKeyParameter, accessCredentialMParameter, encapsulationParameter);
+		assert (roles.length == ((RBACLLW15PublicKeySerParameter) publicKeyParameter).getMaxRoleNumber());
+		this.id = id;
+		this.roles = roles;
+		this.time = time;
+	}
 
-    public String getId() { return this.id; }
+	public String getId() {
+		return this.id;
+	}
 
-    public String[] getRoles() { return this.roles; }
+	public String[] getRoles() {
+		return this.roles;
+	}
 
-    public String getRoleAt(int index) { return this.roles[index]; }
+	public String getRoleAt(int index) {
+		return this.roles[index];
+	}
 
-    public String getTime() { return this.time; }
+	public String getTime() {
+		return this.time;
+	}
 }

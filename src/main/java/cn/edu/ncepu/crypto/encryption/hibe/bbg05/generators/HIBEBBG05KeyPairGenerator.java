@@ -17,29 +17,29 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  * Public Key / Master Secret Key pair generator for Boneh-Boyen-Goh HIBE.
  */
 public class HIBEBBG05KeyPairGenerator implements PairingKeyPairGenerator {
-    private HIBEKeyPairGenerationParameter parameters;
+	private HIBEKeyPairGenerationParameter parameters;
 
-    public void init(KeyGenerationParameters keyGenerationParameters) {
-        this.parameters = (HIBEKeyPairGenerationParameter)keyGenerationParameters;
-    }
+	public void init(KeyGenerationParameters keyGenerationParameters) {
+		this.parameters = (HIBEKeyPairGenerationParameter) keyGenerationParameters;
+	}
 
-    public PairingKeySerPair generateKeyPair() {
-        Pairing pairing = PairingFactory.getPairing(this.parameters.getPairingParameters());
+	public PairingKeySerPair generateKeyPair() {
+		Pairing pairing = PairingFactory.getPairing(this.parameters.getPairingParameters());
 
-        Element g = pairing.getG1().newRandomElement().getImmutable();
-        Element alpha = pairing.getZr().newRandomElement().getImmutable();
-        Element g1 = g.powZn(alpha).getImmutable();
-        Element g2 = pairing.getG1().newRandomElement().getImmutable();
-        Element g3 = pairing.getG1().newRandomElement().getImmutable();
-        Element g2Alpha = g2.powZn(alpha).getImmutable();
+		Element g = pairing.getG1().newRandomElement().getImmutable();
+		Element alpha = pairing.getZr().newRandomElement().getImmutable();
+		Element g1 = g.powZn(alpha).getImmutable();
+		Element g2 = pairing.getG1().newRandomElement().getImmutable();
+		Element g3 = pairing.getG1().newRandomElement().getImmutable();
+		Element g2Alpha = g2.powZn(alpha).getImmutable();
 
-        Element[] hs = new Element[this.parameters.getMaxDepth()];
-        for (int i=0; i<this.parameters.getMaxDepth(); i++) {
-            hs[i] = pairing.getG1().newRandomElement().getImmutable();
-        }
+		Element[] hs = new Element[this.parameters.getMaxDepth()];
+		for (int i = 0; i < this.parameters.getMaxDepth(); i++) {
+			hs[i] = pairing.getG1().newRandomElement().getImmutable();
+		}
 
-        return new PairingKeySerPair(
-                new HIBEBBG05PublicKeySerParameter(this.parameters.getPairingParameters(), g, g1, g2, g3, hs),
-                new HIBEBBG05MasterSecretKeySerParameter(this.parameters.getPairingParameters(), g2Alpha));
-    }
+		return new PairingKeySerPair(
+				new HIBEBBG05PublicKeySerParameter(this.parameters.getPairingParameters(), g, g1, g2, g3, hs),
+				new HIBEBBG05MasterSecretKeySerParameter(this.parameters.getPairingParameters(), g2Alpha));
+	}
 }

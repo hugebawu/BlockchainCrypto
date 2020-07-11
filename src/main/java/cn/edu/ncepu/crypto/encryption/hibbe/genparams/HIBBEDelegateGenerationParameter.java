@@ -9,17 +9,21 @@ import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
  * HIBBE secret key delegation parameter.
  */
 public class HIBBEDelegateGenerationParameter extends PairingKeyDelegationParameter {
-    private int index;
-    private String delegateId;
+	private int index;
+	private String delegateId;
 
-    public HIBBEDelegateGenerationParameter(PairingKeySerParameter publicKeyParameter,
-                                            PairingKeySerParameter secretKeyParameter, int index, String id) {
-        super(publicKeyParameter, secretKeyParameter);
-        this.index = index;
-        this.delegateId = id;
-    }
+	public HIBBEDelegateGenerationParameter(PairingKeySerParameter publicKeyParameter,
+			PairingKeySerParameter secretKeyParameter, int index, String id) {
+		super(publicKeyParameter, secretKeyParameter);
+		this.index = index;
+		this.delegateId = id;
+	}
 
-    public int getIndex() { return this.index; }
+	public int getIndex() {
+		return this.index;
+	}
 
-    public String getDelegateId() { return this.delegateId; }
+	public String getDelegateId() {
+		return this.delegateId;
+	}
 }

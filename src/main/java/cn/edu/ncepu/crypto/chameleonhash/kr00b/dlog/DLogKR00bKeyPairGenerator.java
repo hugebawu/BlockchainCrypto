@@ -19,37 +19,36 @@ import cn.edu.ncepu.crypto.chameleonhash.kr00b.dlog.serparams.DLogKR00bSecretKey
  * Krawczyk-Rabin Chameleon hash.key pair generator.
  */
 public class DLogKR00bKeyPairGenerator implements AsymmetricKeySerPairGenerator {
-    private static final BigInteger ONE = BigInteger.valueOf(1);
+	private static final BigInteger ONE = BigInteger.valueOf(1);
 
-    private DLogKR00bKeyGenerationParameters param;
+	private DLogKR00bKeyGenerationParameters param;
 
-    public void init(KeyGenerationParameters param) {
-        this.param = (DLogKR00bKeyGenerationParameters) param;
-    }
+	public void init(KeyGenerationParameters param) {
+		this.param = (DLogKR00bKeyGenerationParameters) param;
+	}
 
-    public AsymmetricKeySerPair generateKeyPair() {
-        SecurePrimeSerParameter securePrimeSerParameter = param.getParameters();
+	public AsymmetricKeySerPair generateKeyPair() {
+		SecurePrimeSerParameter securePrimeSerParameter = param.getParameters();
 
-        BigInteger x = generatePrivateKey(securePrimeSerParameter.getQ(), param.getRandom());
-        BigInteger y = calculatePublicKey(securePrimeSerParameter.getP(), securePrimeSerParameter.getG(), x);
+		BigInteger x = generatePrivateKey(securePrimeSerParameter.getQ(), param.getRandom());
+		BigInteger y = calculatePublicKey(securePrimeSerParameter.getP(), securePrimeSerParameter.getG(), x);
 
-        return new AsymmetricKeySerPair(
-                new DLogKR00bPublicKeySerParameter(y, securePrimeSerParameter),
-                new DLogKR00bSecretKeySerParameter(x, securePrimeSerParameter));
-    }
+		return new AsymmetricKeySerPair(new DLogKR00bPublicKeySerParameter(y, securePrimeSerParameter),
+				new DLogKR00bSecretKeySerParameter(x, securePrimeSerParameter));
+	}
 
-    private static BigInteger generatePrivateKey(BigInteger q, SecureRandom random) {
-        // B.1.2 Key Pair Generation by Testing Candidates
-        int minWeight = q.bitLength() >>> 2;
-        for (; ; ) {
-            BigInteger x = BigIntegers.createRandomInRange(ONE, q.subtract(ONE), random);
-            if (WNafUtil.getNafWeight(x) >= minWeight) {
-                return x;
-            }
-        }
-    }
+	private static BigInteger generatePrivateKey(BigInteger q, SecureRandom random) {
+		// B.1.2 Key Pair Generation by Testing Candidates
+		int minWeight = q.bitLength() >>> 2;
+		for (;;) {
+			BigInteger x = BigIntegers.createRandomInRange(ONE, q.subtract(ONE), random);
+			if (WNafUtil.getNafWeight(x) >= minWeight) {
+				return x;
+			}
+		}
+	}
 
-    private static BigInteger calculatePublicKey(BigInteger p, BigInteger g, BigInteger x) {
-        return g.modPow(x, p);
-    }
+	private static BigInteger calculatePublicKey(BigInteger p, BigInteger g, BigInteger x) {
+		return g.modPow(x, p);
+	}
 }

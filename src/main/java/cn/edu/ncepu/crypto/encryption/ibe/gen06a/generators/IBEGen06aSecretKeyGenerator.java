@@ -19,21 +19,25 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  * Gentry CPA-secure IBE secret key generator.
  */
 public class IBEGen06aSecretKeyGenerator implements PairingKeyParameterGenerator {
-    private IBESecretKeyGenerationParameter parameters;
+	private IBESecretKeyGenerationParameter parameters;
 
-    public void init(KeyGenerationParameters keyGenerationParameters) {
-        this.parameters = (IBESecretKeyGenerationParameter)keyGenerationParameters;
-    }
+	public void init(KeyGenerationParameters keyGenerationParameters) {
+		this.parameters = (IBESecretKeyGenerationParameter) keyGenerationParameters;
+	}
 
-    public PairingKeySerParameter generateKey() {
-        IBEGen06aMasterSecretKeySerParameter masterSecretKeyParameters = (IBEGen06aMasterSecretKeySerParameter)parameters.getMasterSecretKeyParameter();
-        IBEGen06aPublicKeySerParameter publicKeyParameters = (IBEGen06aPublicKeySerParameter)parameters.getPublicKeyParameter();
+	public PairingKeySerParameter generateKey() {
+		IBEGen06aMasterSecretKeySerParameter masterSecretKeyParameters = (IBEGen06aMasterSecretKeySerParameter) parameters
+				.getMasterSecretKeyParameter();
+		IBEGen06aPublicKeySerParameter publicKeyParameters = (IBEGen06aPublicKeySerParameter) parameters
+				.getPublicKeyParameter();
 
-        Pairing pairing = PairingFactory.getPairing(publicKeyParameters.getParameters());
-        Element elementId = PairingUtils.MapStringToGroup(pairing, parameters.getId(), PairingUtils.PairingGroupType.Zr).getImmutable();
-        Element rId = pairing.getZr().newRandomElement().getImmutable();
-        Element hId = publicKeyParameters.getG().powZn(rId.negate()).mul(publicKeyParameters.getH())
-                .powZn(masterSecretKeyParameters.getAlpha().sub(elementId).invert()).getImmutable();
-        return new IBEGen06aSecretKeySerParameter(publicKeyParameters.getParameters(), parameters.getId(), elementId, rId, hId);
-    }
+		Pairing pairing = PairingFactory.getPairing(publicKeyParameters.getParameters());
+		Element elementId = PairingUtils.MapStringToGroup(pairing, parameters.getId(), PairingUtils.PairingGroupType.Zr)
+				.getImmutable();
+		Element rId = pairing.getZr().newRandomElement().getImmutable();
+		Element hId = publicKeyParameters.getG().powZn(rId.negate()).mul(publicKeyParameters.getH())
+				.powZn(masterSecretKeyParameters.getAlpha().sub(elementId).invert()).getImmutable();
+		return new IBEGen06aSecretKeySerParameter(publicKeyParameters.getParameters(), parameters.getId(), elementId,
+				rId, hId);
+	}
 }

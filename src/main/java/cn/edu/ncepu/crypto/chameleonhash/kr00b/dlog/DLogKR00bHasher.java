@@ -17,75 +17,73 @@ import cn.edu.ncepu.crypto.chameleonhash.kr00b.dlog.serparams.DLogKR00bSecretKey
  * Krawczyk-Rabin Chameleon hash scheme
  */
 public class DLogKR00bHasher implements KR00b {
-    protected DLogKR00bKeySerParameter key;
-    private SecureRandom random;
+	protected DLogKR00bKeySerParameter key;
+	private SecureRandom random;
 
-    /**
-     * Default configuration.
-     */
-    public DLogKR00bHasher() {
+	/**
+	 * Default configuration.
+	 */
+	public DLogKR00bHasher() {
 
-    }
+	}
 
-    public void init(boolean forCollisionFind, CipherParameters param) {
-        if (forCollisionFind) {
-            this.key = (DLogKR00bSecretKeySerParameter)param;
-        } else {
-            this.key = (DLogKR00bPublicKeySerParameter)param;
-        }
-        this.random = new SecureRandom();
-    }
+	public void init(boolean forCollisionFind, CipherParameters param) {
+		if (forCollisionFind) {
+			this.key = (DLogKR00bSecretKeySerParameter) param;
+		} else {
+			this.key = (DLogKR00bPublicKeySerParameter) param;
+		}
+		this.random = new SecureRandom();
+	}
 
-    public BigInteger[] computeHash(byte[] message) {
-        BigInteger q = this.key.getParameters().getQ();
-        BigInteger p = this.key.getParameters().getP();
-        BigInteger g = this.key.getParameters().getG();
-        BigInteger m = calculateE(q, message);
-        BigInteger y = ((DLogKR00bPublicKeySerParameter)this.key).getY();
+	public BigInteger[] computeHash(byte[] message) {
+		BigInteger q = this.key.getParameters().getQ();
+		BigInteger p = this.key.getParameters().getP();
+		BigInteger g = this.key.getParameters().getG();
+		BigInteger m = calculateE(q, message);
+		BigInteger y = ((DLogKR00bPublicKeySerParameter) this.key).getY();
 
-        int qBitLength = q.bitLength();
-        BigInteger r;
-        do
-        {
-            r = new BigInteger(qBitLength, random);
-        }
-        while (r.equals(BigInteger.ZERO) || r.compareTo(q) >= 0);
+		int qBitLength = q.bitLength();
+		BigInteger r;
+		do {
+			r = new BigInteger(qBitLength, random);
+		} while (r.equals(BigInteger.ZERO) || r.compareTo(q) >= 0);
 
-        BigInteger hash = g.modPow(m, p).multiply(y.modPow(r, p)).mod(p);
-        return new BigInteger[]{ hash, m, r };
-    }
+		BigInteger hash = g.modPow(m, p).multiply(y.modPow(r, p)).mod(p);
+		return new BigInteger[] { hash, m, r };
+	}
 
-    public BigInteger[] computeHash(byte[] message, BigInteger r) {
-        BigInteger q = this.key.getParameters().getQ();
-        BigInteger p = this.key.getParameters().getP();
-        BigInteger g = this.key.getParameters().getG();
-        BigInteger m = calculateE(q, message);
-        BigInteger y = ((DLogKR00bPublicKeySerParameter)this.key).getY();
+	public BigInteger[] computeHash(byte[] message, BigInteger r) {
+		BigInteger q = this.key.getParameters().getQ();
+		BigInteger p = this.key.getParameters().getP();
+		BigInteger g = this.key.getParameters().getG();
+		BigInteger m = calculateE(q, message);
+		BigInteger y = ((DLogKR00bPublicKeySerParameter) this.key).getY();
 
-        BigInteger hash = g.modPow(m, p).multiply(y.modPow(r, p)).mod(p);
-        return new BigInteger[]{ hash, m, r };
-    }
+		BigInteger hash = g.modPow(m, p).multiply(y.modPow(r, p)).mod(p);
+		return new BigInteger[] { hash, m, r };
+	}
 
-    public BigInteger[] findCollision(byte[] messagePrime, BigInteger message, BigInteger hash, BigInteger r) {
-        SecurePrimeSerParameter params = key.getParameters();
-        BigInteger q = params.getQ();
-        BigInteger mPrime = calculateE(q, messagePrime);
-        BigInteger x = ((DLogKR00bSecretKeySerParameter)key).getX();
+	public BigInteger[] findCollision(byte[] messagePrime, BigInteger message, BigInteger hash, BigInteger r) {
+		SecurePrimeSerParameter params = key.getParameters();
+		BigInteger q = params.getQ();
+		BigInteger mPrime = calculateE(q, messagePrime);
+		BigInteger x = ((DLogKR00bSecretKeySerParameter) key).getX();
 
-        BigInteger rPrime = x.modInverse(q).multiply(message.subtract(mPrime).mod(q)).mod(q).add(r).mod(q);
+		BigInteger rPrime = x.modInverse(q).multiply(message.subtract(mPrime).mod(q)).mod(q).add(r).mod(q);
 
-        return new BigInteger[]{ hash, mPrime, rPrime };
-    }
+		return new BigInteger[] { hash, mPrime, rPrime };
+	}
 
-    private BigInteger calculateE(BigInteger n, byte[] message) {
-        if (n.bitLength() >= message.length * 8) {
-            return new BigInteger(1, message);
-        } else {
-            byte[] trunc = new byte[n.bitLength() / 8];
+	private BigInteger calculateE(BigInteger n, byte[] message) {
+		if (n.bitLength() >= message.length * 8) {
+			return new BigInteger(1, message);
+		} else {
+			byte[] trunc = new byte[n.bitLength() / 8];
 
-            System.arraycopy(message, 0, trunc, 0, trunc.length);
+			System.arraycopy(message, 0, trunc, 0, trunc.length);
 
-            return new BigInteger(1, trunc);
-        }
-    }
+			return new BigInteger(1, trunc);
+		}
+	}
 }

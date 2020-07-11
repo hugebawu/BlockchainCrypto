@@ -10,20 +10,21 @@ import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
  * Pairing secret key delegation parameter.
  */
 public class PairingKeyDelegationParameter extends KeyGenerationParameters {
-    private PairingKeySerParameter publicKeyParameter;
-    private PairingKeySerParameter secretKeyParameter;
+	private PairingKeySerParameter publicKeyParameter;
+	private PairingKeySerParameter secretKeyParameter;
 
-    public PairingKeyDelegationParameter(PairingKeySerParameter publicKeyParameter, PairingKeySerParameter secretKeyParameter) {
-        super(null, PairingParametersGenerationParameter.STENGTH);
-        this.publicKeyParameter = publicKeyParameter;
-        this.secretKeyParameter = secretKeyParameter;
-    }
+	public PairingKeyDelegationParameter(PairingKeySerParameter publicKeyParameter,
+			PairingKeySerParameter secretKeyParameter) {
+		super(null, PairingParametersGenerationParameter.STENGTH);
+		this.publicKeyParameter = publicKeyParameter;
+		this.secretKeyParameter = secretKeyParameter;
+	}
 
-    public PairingKeySerParameter getPublicKeyParameter() {
-        return this.publicKeyParameter;
-    }
+	public PairingKeySerParameter getPublicKeyParameter() {
+		return this.publicKeyParameter;
+	}
 
-    public PairingKeySerParameter getSecretKeyParameter() {
-        return this.secretKeyParameter;
-    }
+	public PairingKeySerParameter getSecretKeyParameter() {
+		return this.secretKeyParameter;
+	}
 }

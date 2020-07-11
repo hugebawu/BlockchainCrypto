@@ -12,7 +12,6 @@ import cn.edu.ncepu.crypto.HE.ibeHE.genparams.IBEHEDecryptionGenerationParameter
 import cn.edu.ncepu.crypto.algebra.generators.PairingDecryptionGenerator;
 import cn.edu.ncepu.crypto.utils.PairingUtils;
 import it.unisa.dia.gas.jpbc.Element;
-import it.unisa.dia.gas.jpbc.Field;
 import it.unisa.dia.gas.jpbc.Pairing;
 import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
 
@@ -43,18 +42,13 @@ public class BF01aHEDecryptionGenerator implements PairingDecryptionGenerator {
 				.getCiphertextParameter();
 		Pairing pairing = PairingFactory.getPairing(secretKeyParameter.getParameters());
 
-		Element elementIdCT = PairingUtils.hash_G(pairing.getG1(), this.params.getId());
+		Element elementIdCT = PairingUtils.hash_G(pairing, this.params.getId());
 		if (!secretKeyParameter.getElementId().equals(elementIdCT)) {
 			throw new InvalidCipherTextException(
 					"Secret Key identity vector does not match Ciphertext identity vector");
 		}
-
 		this.g = pairing.pairing(secretKeyParameter.getD(), ciphertextParameter.getU()).getImmutable();
-
-		Field<?> GT = pairing.getGT();
-		return GT.newElement(
-				ciphertextParameter.getV().toBigInteger().xor(PairingUtils.hash_H(GT, this.g).toBigInteger()));
-//		return ciphertextParameter.getV().div(PairingUtils.hash_H(GT, this.g));
+		return ciphertextParameter.getV().sub(PairingUtils.hash_H(pairing, this.g));
 	}
 
 }

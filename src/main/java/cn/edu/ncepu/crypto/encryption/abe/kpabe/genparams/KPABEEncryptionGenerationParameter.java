@@ -16,52 +16,55 @@ import it.unisa.dia.gas.jpbc.Element;
  * KP-ABE ciphertext generation parameter.
  */
 public class KPABEEncryptionGenerationParameter extends PairingEncryptionGenerationParameter {
-    private String[] attributes;
-    private ChameleonHasher chameleonHasher;
-    private AsymmetricKeySerPairGenerator chameleonHashKeyPairGenerator;
-    private KeyGenerationParameters chameleonHashKeyPairGenerationParameter;
-    private PairingCipherSerParameter intermediate;
+	private String[] attributes;
+	private ChameleonHasher chameleonHasher;
+	private AsymmetricKeySerPairGenerator chameleonHashKeyPairGenerator;
+	private KeyGenerationParameters chameleonHashKeyPairGenerationParameter;
+	private PairingCipherSerParameter intermediate;
 
-    public KPABEEncryptionGenerationParameter(PairingKeySerParameter publicKeyParameter, String[] attributes, Element message) {
-        super(publicKeyParameter, message);
-        this.attributes = PairingUtils.removeDuplicates(attributes);
-    }
+	public KPABEEncryptionGenerationParameter(PairingKeySerParameter publicKeyParameter, String[] attributes,
+			Element message) {
+		super(publicKeyParameter, message);
+		this.attributes = PairingUtils.removeDuplicates(attributes);
+	}
 
-    public void setChameleonHasher(ChameleonHasher chameleonHasher) {
-        this.chameleonHasher = chameleonHasher;
-    }
+	public void setChameleonHasher(ChameleonHasher chameleonHasher) {
+		this.chameleonHasher = chameleonHasher;
+	}
 
-    public void setChameleonHashKeyPairGenerator(AsymmetricKeySerPairGenerator keyPairGenerator) {
-        this.chameleonHashKeyPairGenerator = keyPairGenerator;
-    }
+	public void setChameleonHashKeyPairGenerator(AsymmetricKeySerPairGenerator keyPairGenerator) {
+		this.chameleonHashKeyPairGenerator = keyPairGenerator;
+	}
 
-    public void setChameleonHashKeyPairGenerationParameter(KeyGenerationParameters keyGenerationParameters) {
-        this.chameleonHashKeyPairGenerationParameter = keyGenerationParameters;
-    }
+	public void setChameleonHashKeyPairGenerationParameter(KeyGenerationParameters keyGenerationParameters) {
+		this.chameleonHashKeyPairGenerationParameter = keyGenerationParameters;
+	}
 
-    public void setIntermediate(PairingCipherSerParameter intermediate) {
-        this.intermediate = intermediate;
-    }
+	public void setIntermediate(PairingCipherSerParameter intermediate) {
+		this.intermediate = intermediate;
+	}
 
-    public String[] getAttributes() { return this.attributes; }
+	public String[] getAttributes() {
+		return this.attributes;
+	}
 
-    public ChameleonHasher getChameleonHasher() {
-        return this.chameleonHasher;
-    }
+	public ChameleonHasher getChameleonHasher() {
+		return this.chameleonHasher;
+	}
 
-    public AsymmetricKeySerPairGenerator getChameleonHashKeyPairGenerator() {
-        return this.chameleonHashKeyPairGenerator;
-    }
+	public AsymmetricKeySerPairGenerator getChameleonHashKeyPairGenerator() {
+		return this.chameleonHashKeyPairGenerator;
+	}
 
-    public KeyGenerationParameters getChameleonHashKeyPairGenerationParameter() {
-        return this.chameleonHashKeyPairGenerationParameter;
-    }
+	public KeyGenerationParameters getChameleonHashKeyPairGenerationParameter() {
+		return this.chameleonHashKeyPairGenerationParameter;
+	}
 
-    public boolean isIntermediateGeneration() {
-        return (this.intermediate != null);
-    }
+	public boolean isIntermediateGeneration() {
+		return (this.intermediate != null);
+	}
 
-    public PairingCipherSerParameter getIntermediate() {
-        return this.intermediate;
-    }
+	public PairingCipherSerParameter getIntermediate() {
+		return this.intermediate;
+	}
 }

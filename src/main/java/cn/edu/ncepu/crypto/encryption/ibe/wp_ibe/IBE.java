@@ -3,6 +3,11 @@
  */
 package cn.edu.ncepu.crypto.encryption.ibe.wp_ibe;
 
+import java.util.Map;
+
+import cn.edu.ncepu.crypto.encryption.ibe.wp_ibe.BasicIBE.CipherText;
+import it.unisa.dia.gas.jpbc.Element;
+
 /**
  *
  * @版权 : Copyright (c) 2018-2019 E1101智能电网信息安全中心
@@ -18,11 +23,33 @@ package cn.edu.ncepu.crypto.encryption.ibe.wp_ibe;
  */
 public interface IBE {
 
+	/**
+	 * TODO generate system parameters
+	 */
 	void setup();
 
-	void extract();
+	/**
+	 * TODO extract user secret key
+	 * @param id user identity
+	 * @return 
+	 */
+	Element extract(String id);
 
-	void encrypt(String message);
+	/**
+	 * TODO encrypt
+	 * @param message
+	 * @return 参数描述
+	 */
+	CipherText encrypt(String message);
 
-	String decrypt();
+	/**
+	 * TODO IBE decrypt
+	 * @param d user secret key
+	 * @param ciphertext
+	 * @return 参数描述
+	 */
+	String decrypt(Element d, CipherText ciphertext);
+
+	@Deprecated
+	public CipherText add(Map<String, CipherText> ciphertextMap);
 }

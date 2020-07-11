@@ -12,24 +12,29 @@ import cn.edu.ncepu.crypto.utils.PairingUtils;
  * Revocation encryption decryption generation parameter.
  */
 public class REDecryptionGenerationParameter extends PairingDecryptionGenerationParameter {
-    private String[] ids;
-    private ChameleonHasher chameleonHasher;
+	private String[] ids;
+	private ChameleonHasher chameleonHasher;
 
-    public REDecryptionGenerationParameter(
-            PairingKeySerParameter publicKeyParameter, PairingKeySerParameter secretKeyParameter,
-            String[] ids, PairingCipherSerParameter ciphertextParameter) {
-        super(publicKeyParameter, secretKeyParameter, ciphertextParameter);
-        //remove repeated ids
-        this.ids = PairingUtils.removeDuplicates(ids);
-    }
+	public REDecryptionGenerationParameter(PairingKeySerParameter publicKeyParameter,
+			PairingKeySerParameter secretKeyParameter, String[] ids, PairingCipherSerParameter ciphertextParameter) {
+		super(publicKeyParameter, secretKeyParameter, ciphertextParameter);
+		// remove repeated ids
+		this.ids = PairingUtils.removeDuplicates(ids);
+	}
 
-    public int getLength() { return this.ids.length; }
+	public int getLength() {
+		return this.ids.length;
+	}
 
-    public String[] getIds() { return this.ids; }
+	public String[] getIds() {
+		return this.ids;
+	}
 
-    public void setChameleonHasher(ChameleonHasher chameleonHasher) {
-        this.chameleonHasher = chameleonHasher;
-    }
+	public void setChameleonHasher(ChameleonHasher chameleonHasher) {
+		this.chameleonHasher = chameleonHasher;
+	}
 
-    public ChameleonHasher getChameleonHasher() { return this.chameleonHasher; }
+	public ChameleonHasher getChameleonHasher() {
+		return this.chameleonHasher;
+	}
 }

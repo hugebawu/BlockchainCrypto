@@ -22,37 +22,38 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  */
 public class IBEGen06aEncryptionGenerator implements PairingEncryptionGenerator, PairingEncapsulationPairGenerator {
 
-    private IBEEncryptionGenerationParameter params;
-    private IBEGen06aPublicKeySerParameter publicKeyParameter;
-    private Element sessionKey;
-    private Element u;
-    private Element v;
+	private IBEEncryptionGenerationParameter params;
+	private IBEGen06aPublicKeySerParameter publicKeyParameter;
+	private Element sessionKey;
+	private Element u;
+	private Element v;
 
-    public void init(CipherParameters params) {
-        this.params = (IBEEncryptionGenerationParameter) params;
-        this.publicKeyParameter = (IBEGen06aPublicKeySerParameter) this.params.getPublicKeyParameter();
-    }
+	public void init(CipherParameters params) {
+		this.params = (IBEEncryptionGenerationParameter) params;
+		this.publicKeyParameter = (IBEGen06aPublicKeySerParameter) this.params.getPublicKeyParameter();
+	}
 
-    private void computeEncapsulation() {
-        Pairing pairing = PairingFactory.getPairing(publicKeyParameter.getParameters());
-        String id = this.params.getId();
-        Element elementId = PairingUtils.MapStringToGroup(pairing, id, PairingUtils.PairingGroupType.Zr).getImmutable();
+	private void computeEncapsulation() {
+		Pairing pairing = PairingFactory.getPairing(publicKeyParameter.getParameters());
+		String id = this.params.getId();
+		Element elementId = PairingUtils.MapStringToGroup(pairing, id, PairingUtils.PairingGroupType.Zr).getImmutable();
 
-        Element s = pairing.getZr().newRandomElement().getImmutable();
-        this.sessionKey = pairing.pairing(publicKeyParameter.getG(), publicKeyParameter.getH()).powZn(s).getImmutable();
-        this.u = publicKeyParameter.getG1().powZn(s).mul(publicKeyParameter.getG().powZn(elementId.mul(s).negate())).getImmutable();
-        this.v = pairing.pairing(publicKeyParameter.getG(), publicKeyParameter.getG()).powZn(s).getImmutable();
-    }
+		Element s = pairing.getZr().newRandomElement().getImmutable();
+		this.sessionKey = pairing.pairing(publicKeyParameter.getG(), publicKeyParameter.getH()).powZn(s).getImmutable();
+		this.u = publicKeyParameter.getG1().powZn(s).mul(publicKeyParameter.getG().powZn(elementId.mul(s).negate()))
+				.getImmutable();
+		this.v = pairing.pairing(publicKeyParameter.getG(), publicKeyParameter.getG()).powZn(s).getImmutable();
+	}
 
-    public PairingKeyEncapsulationSerPair generateEncryptionPair() {
-        computeEncapsulation();
-        return new PairingKeyEncapsulationSerPair(this.sessionKey.toBytes(),
-                new IBEGen06aHeaderSerParameter(publicKeyParameter.getParameters(), u, v));
-    }
+	public PairingKeyEncapsulationSerPair generateEncryptionPair() {
+		computeEncapsulation();
+		return new PairingKeyEncapsulationSerPair(this.sessionKey.toBytes(),
+				new IBEGen06aHeaderSerParameter(publicKeyParameter.getParameters(), u, v));
+	}
 
-    public PairingCipherSerParameter generateCiphertext() {
-        computeEncapsulation();
-        Element w = sessionKey.mul(this.params.getMessage()).getImmutable();
-        return new IBEGen06aCiphertextSerParameter(publicKeyParameter.getParameters(), u, v, w);
-    }
+	public PairingCipherSerParameter generateCiphertext() {
+		computeEncapsulation();
+		Element w = sessionKey.mul(this.params.getMessage()).getImmutable();
+		return new IBEGen06aCiphertextSerParameter(publicKeyParameter.getParameters(), u, v, w);
+	}
 }

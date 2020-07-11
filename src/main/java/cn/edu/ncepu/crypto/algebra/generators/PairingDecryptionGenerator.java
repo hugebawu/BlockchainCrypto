@@ -11,17 +11,17 @@ import it.unisa.dia.gas.jpbc.Element;
  * interface that a pairing-based decryption generator should conform to.
  */
 public interface PairingDecryptionGenerator {
-    /**
-     * intialise the pairing-based decryption generator.
-     *
-     * @param params the parameters the decryption is to be initialised with.
-     */
-    void init(CipherParameters params);
+	/**
+	 * intialise the pairing-based decryption generator.
+	 *
+	 * @param params the parameters the decryption is to be initialised with.
+	 */
+	void init(CipherParameters params);
 
-    /**
-     * return the message recovered from the ciphertext.
-     *
-     * @return the message recovered from the ciphertext.
-     */
-    Element recoverMessage() throws InvalidCipherTextException;
+	/**
+	 * return the message recovered from the ciphertext.
+	 *
+	 * @return the message recovered from the ciphertext.
+	 */
+	Element recoverMessage() throws InvalidCipherTextException;
 }

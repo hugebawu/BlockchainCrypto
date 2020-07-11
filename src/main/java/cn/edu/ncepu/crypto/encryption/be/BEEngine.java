@@ -15,44 +15,46 @@ import it.unisa.dia.gas.jpbc.PairingParameters;
  * Broadcast encryption engine.
  */
 public abstract class BEEngine extends Engine {
-    protected BEEngine(String schemeName, ProveSecModel proveSecModel, PayloadSecLevel payloadSecLevel, PredicateSecLevel predicateSecLevel) {
-        super(schemeName, proveSecModel, payloadSecLevel, predicateSecLevel);
-    }
+	protected BEEngine(String schemeName, ProveSecModel proveSecModel, PayloadSecLevel payloadSecLevel,
+			PredicateSecLevel predicateSecLevel) {
+		super(schemeName, proveSecModel, payloadSecLevel, predicateSecLevel);
+	}
 
-    /**
-     * Setup Algorithm for BE
-     * @param pairingParameters pairingParameters
-     * @param maxUser maximal number of users
-     * @return public key / master secret key pair of the scheme
-     */
-    public abstract PairingKeySerPair setup(PairingParameters pairingParameters, int maxUser);
+	/**
+	 * Setup Algorithm for BE
+	 * @param pairingParameters pairingParameters
+	 * @param maxUser maximal number of users
+	 * @return public key / master secret key pair of the scheme
+	 */
+	public abstract PairingKeySerPair setup(PairingParameters pairingParameters, int maxUser);
 
-    /**
-     * Secret Key Generation Algorithm for BE
-     * @param publicKey public key
-     * @param masterKey master secret key
-     * @param index user index
-     * @return secret key for the user with the given index
-     */
-    public abstract PairingKeySerParameter keyGen(PairingKeySerParameter publicKey, PairingKeySerParameter masterKey, int index);
+	/**
+	 * Secret Key Generation Algorithm for BE
+	 * @param publicKey public key
+	 * @param masterKey master secret key
+	 * @param index user index
+	 * @return secret key for the user with the given index
+	 */
+	public abstract PairingKeySerParameter keyGen(PairingKeySerParameter publicKey, PairingKeySerParameter masterKey,
+			int index);
 
-    /**
-     * Key Encapsulation Algorithm for BE
-     * @param publicKey public key
-     * @param indexSet the set of indexes
-     * @return header / session key pair.
-     */
-    public abstract PairingKeyEncapsulationSerPair encapsulation(PairingKeySerParameter publicKey, int[] indexSet);
+	/**
+	 * Key Encapsulation Algorithm for BE
+	 * @param publicKey public key
+	 * @param indexSet the set of indexes
+	 * @return header / session key pair.
+	 */
+	public abstract PairingKeyEncapsulationSerPair encapsulation(PairingKeySerParameter publicKey, int[] indexSet);
 
-    /**
-     * Key Decapsulation Algorithm for BE
-     * @param publicKey public key
-     * @param secretKey secret key associated with an index
-     * @param indexSet the set of indexes
-     * @param header ciphertext
-     * @return the session key
-     * @throws InvalidCipherTextException if the decryption procedure is failure
-     */
-    public abstract byte[] decapsulation(PairingKeySerParameter publicKey, PairingKeySerParameter secretKey,
-                                         int[] indexSet, PairingCipherSerParameter header) throws InvalidCipherTextException;
+	/**
+	 * Key Decapsulation Algorithm for BE
+	 * @param publicKey public key
+	 * @param secretKey secret key associated with an index
+	 * @param indexSet the set of indexes
+	 * @param header ciphertext
+	 * @return the session key
+	 * @throws InvalidCipherTextException if the decryption procedure is failure
+	 */
+	public abstract byte[] decapsulation(PairingKeySerParameter publicKey, PairingKeySerParameter secretKey,
+			int[] indexSet, PairingCipherSerParameter header) throws InvalidCipherTextException;
 }

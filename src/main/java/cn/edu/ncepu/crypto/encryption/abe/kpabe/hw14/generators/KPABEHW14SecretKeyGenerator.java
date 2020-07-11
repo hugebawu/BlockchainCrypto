@@ -11,14 +11,10 @@ import cn.edu.ncepu.crypto.encryption.abe.kpabe.rw13.serparams.KPABERW13SecretKe
  * Hohenberger-Waters-14 CPA-secure OO-KP-ABE secret key generator.
  */
 public class KPABEHW14SecretKeyGenerator extends KPABERW13SecretKeyGenerator {
-    public PairingKeySerParameter generateKey() {
-        KPABERW13SecretKeySerParameter oriSecretKeyParameter = (KPABERW13SecretKeySerParameter) super.generateKey();
-        return new KPABEHW14SecretKeySerParameter(
-                oriSecretKeyParameter.getParameters(),
-                oriSecretKeyParameter.getAccessControlParameter(),
-                oriSecretKeyParameter.getK0s(),
-                oriSecretKeyParameter.getK1s(),
-                oriSecretKeyParameter.getK2s()
-        );
-    }
+	public PairingKeySerParameter generateKey() {
+		KPABERW13SecretKeySerParameter oriSecretKeyParameter = (KPABERW13SecretKeySerParameter) super.generateKey();
+		return new KPABEHW14SecretKeySerParameter(oriSecretKeyParameter.getParameters(),
+				oriSecretKeyParameter.getAccessControlParameter(), oriSecretKeyParameter.getK0s(),
+				oriSecretKeyParameter.getK1s(), oriSecretKeyParameter.getK2s());
+	}
 }

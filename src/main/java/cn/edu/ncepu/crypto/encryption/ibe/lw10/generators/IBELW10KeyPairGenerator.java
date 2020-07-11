@@ -19,30 +19,29 @@ import it.unisa.dia.gas.plaf.jpbc.util.ElementUtils;
  * Lewko-Waters IBE public key / master secret key pair generator.
  */
 public class IBELW10KeyPairGenerator implements PairingKeyPairGenerator {
-    private IBEKeyPairGenerationParameter params;
+	private IBEKeyPairGenerationParameter params;
 
-    public void init(KeyGenerationParameters keyGenerationParameters) {
-        this.params = (IBEKeyPairGenerationParameter)keyGenerationParameters;
-    }
+	public void init(KeyGenerationParameters keyGenerationParameters) {
+		this.params = (IBEKeyPairGenerationParameter) keyGenerationParameters;
+	}
 
-    public PairingKeySerPair generateKeyPair() {
-        PropertiesParameters parameters = (PropertiesParameters) this.params.getPairingParameters();
-        Pairing pairing = PairingFactory.getPairing(parameters);
-        Element generator = pairing.getG1().newRandomElement().getImmutable();
+	public PairingKeySerPair generateKeyPair() {
+		PropertiesParameters parameters = (PropertiesParameters) this.params.getPairingParameters();
+		Pairing pairing = PairingFactory.getPairing(parameters);
+		Element generator = pairing.getG1().newRandomElement().getImmutable();
 
-        Element g = ElementUtils.getGenerator(pairing, generator, parameters, 0, 3).getImmutable();
-        Element alpha = pairing.getZr().newRandomElement().getImmutable();
-        Element u = ElementUtils.getGenerator(pairing, generator, parameters, 0, 3).getImmutable();
-        Element h = ElementUtils.getGenerator(pairing, generator, parameters, 0, 3).getImmutable();
-        Element g3Generator = ElementUtils.getGenerator(pairing, generator, parameters, 2, 3).getImmutable();
-        Element eggAlpha = pairing.pairing(g, g).powZn(alpha).getImmutable();
+		Element g = ElementUtils.getGenerator(pairing, generator, parameters, 0, 3).getImmutable();
+		Element alpha = pairing.getZr().newRandomElement().getImmutable();
+		Element u = ElementUtils.getGenerator(pairing, generator, parameters, 0, 3).getImmutable();
+		Element h = ElementUtils.getGenerator(pairing, generator, parameters, 0, 3).getImmutable();
+		Element g3Generator = ElementUtils.getGenerator(pairing, generator, parameters, 2, 3).getImmutable();
+		Element eggAlpha = pairing.pairing(g, g).powZn(alpha).getImmutable();
 
-        // Remove factorization from curveParams
-        parameters.remove("n0");
-        parameters.remove("n1");
-        parameters.remove("n2");
-        return new PairingKeySerPair(
-                new IBELW10PublicKeySerParameter(parameters, u, g, h, eggAlpha),
-                new IBELW10MasterSecretKeySerParameter(parameters, alpha, g3Generator));
-    }
+		// Remove factorization from curveParams
+		parameters.remove("n0");
+		parameters.remove("n1");
+		parameters.remove("n2");
+		return new PairingKeySerPair(new IBELW10PublicKeySerParameter(parameters, u, g, h, eggAlpha),
+				new IBELW10MasterSecretKeySerParameter(parameters, alpha, g3Generator));
+	}
 }

@@ -10,7 +10,7 @@ import it.unisa.dia.gas.jpbc.PairingParameters;
  */
 public class BLS01SignKeyPairGenerationParameter extends PairingKeyPairGenerationParameter {
 
-    public BLS01SignKeyPairGenerationParameter(PairingParameters pairingParameters) {
-        super(pairingParameters);
-    }
+	public BLS01SignKeyPairGenerationParameter(PairingParameters pairingParameters) {
+		super(pairingParameters);
+	}
 }

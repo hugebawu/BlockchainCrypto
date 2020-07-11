@@ -3,6 +3,8 @@
  */
 package cn.edu.ncepu.crypto.HE.ibeHE;
 
+import java.util.Map;
+
 import org.bouncycastle.crypto.InvalidCipherTextException;
 
 import cn.edu.ncepu.crypto.algebra.Engine;
@@ -19,7 +21,7 @@ import it.unisa.dia.gas.jpbc.PairingParameters;
  * @Version: 1.0
  * @CreateData: Jul 6, 2020 10:18:58 PM
  * @ClassName IBEHEEngine
- * @Description: TODO(This interface is an abstract of IBE based homomorphic encryption definitions)
+ * @Description: TODO(This interface is an abstract of IBE based additive homomorphic encryption definitions)
  */
 public abstract class IBEHEEngine extends Engine {
 
@@ -82,4 +84,13 @@ public abstract class IBEHEEngine extends Engine {
 	 */
 	public abstract Element decrypt(PairingKeySerParameter secretKey, String id, PairingCipherSerParameter ciphertext)
 			throws InvalidCipherTextException;
+
+	/**
+	 * TODO the add method of the IBE-based additive homomorphic encryption
+	 * @param publicKey system public key
+	 * @param ciphertextMap list of 
+	 * @return added chiphertext
+	 */
+	public abstract PairingCipherSerParameter add(PairingKeySerParameter publicKey,
+			Map<String, PairingCipherSerParameter> ciphertextMap);
 }

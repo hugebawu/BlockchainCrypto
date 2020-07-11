@@ -16,20 +16,22 @@ import it.unisa.dia.gas.jpbc.Element;
  * Boneh-Gentry-Waters BE secret key generator.
  */
 public class BEBGW05SecretKeyGenerator implements PairingKeyParameterGenerator {
-    private BESecretKeyGenerationParameter parameter;
+	private BESecretKeyGenerationParameter parameter;
 
-    public void init(KeyGenerationParameters keyGenerationParameter) {
-        this.parameter = (BESecretKeyGenerationParameter)keyGenerationParameter;
-    }
+	public void init(KeyGenerationParameters keyGenerationParameter) {
+		this.parameter = (BESecretKeyGenerationParameter) keyGenerationParameter;
+	}
 
-    public PairingKeySerParameter generateKey() {
-        BEBGW05MasterSecretKeySerParameter masterSecretKeyParameter = (BEBGW05MasterSecretKeySerParameter)parameter.getMasterSecretKeyParameter();
-        BEBGW05PublicKeySerParameter publicKeyParameter = (BEBGW05PublicKeySerParameter)parameter.getPublicKeyParameter();
-        int index = this.parameter.getIndex();
-        if (index > publicKeyParameter.getMaxUserNum() || index < 1) {
-            throw new IllegalArgumentException("Illegal index: " + index);
-        }
-        Element d = publicKeyParameter.getGsAt(index).powZn(masterSecretKeyParameter.getGamma()).getImmutable();
-        return new BEBGW05SecretKeySerParameter(publicKeyParameter.getParameters(), index, d);
-    }
+	public PairingKeySerParameter generateKey() {
+		BEBGW05MasterSecretKeySerParameter masterSecretKeyParameter = (BEBGW05MasterSecretKeySerParameter) parameter
+				.getMasterSecretKeyParameter();
+		BEBGW05PublicKeySerParameter publicKeyParameter = (BEBGW05PublicKeySerParameter) parameter
+				.getPublicKeyParameter();
+		int index = this.parameter.getIndex();
+		if (index > publicKeyParameter.getMaxUserNum() || index < 1) {
+			throw new IllegalArgumentException("Illegal index: " + index);
+		}
+		Element d = publicKeyParameter.getGsAt(index).powZn(masterSecretKeyParameter.getGamma()).getImmutable();
+		return new BEBGW05SecretKeySerParameter(publicKeyParameter.getParameters(), index, d);
+	}
 }

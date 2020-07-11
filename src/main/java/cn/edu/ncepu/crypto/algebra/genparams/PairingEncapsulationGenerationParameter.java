@@ -10,11 +10,13 @@ import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
  * Pairing key encapsulation generation parameter.
  */
 public abstract class PairingEncapsulationGenerationParameter implements CipherParameters {
-    private PairingKeySerParameter publicKeyParameter;
+	private PairingKeySerParameter publicKeyParameter;
 
-    public PairingEncapsulationGenerationParameter(PairingKeySerParameter publicKeyParameter) {
-        this.publicKeyParameter = publicKeyParameter;
-    }
+	public PairingEncapsulationGenerationParameter(PairingKeySerParameter publicKeyParameter) {
+		this.publicKeyParameter = publicKeyParameter;
+	}
 
-    public PairingKeySerParameter getPublicKeyParameter() { return this.publicKeyParameter; }
+	public PairingKeySerParameter getPublicKeyParameter() {
+		return this.publicKeyParameter;
+	}
 }

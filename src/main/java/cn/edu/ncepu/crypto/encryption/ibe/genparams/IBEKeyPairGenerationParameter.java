@@ -9,7 +9,7 @@ import it.unisa.dia.gas.jpbc.PairingParameters;
  * Identity-Based Encryption public key / master secret key pair generation parameter.
  */
 public class IBEKeyPairGenerationParameter extends PairingKeyPairGenerationParameter {
-    public IBEKeyPairGenerationParameter(PairingParameters pairingParameters) {
-        super(pairingParameters);
-    }
+	public IBEKeyPairGenerationParameter(PairingParameters pairingParameters) {
+		super(pairingParameters);
+	}
 }

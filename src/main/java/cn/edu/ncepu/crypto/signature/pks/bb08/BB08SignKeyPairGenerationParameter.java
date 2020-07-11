@@ -9,7 +9,7 @@ import it.unisa.dia.gas.jpbc.PairingParameters;
  * Boneh-Boyen 2008 signature key pair generation parameter.
  */
 public class BB08SignKeyPairGenerationParameter extends PairingKeyPairGenerationParameter {
-    public BB08SignKeyPairGenerationParameter(PairingParameters pairingParameters) {
-        super(pairingParameters);
-    }
+	public BB08SignKeyPairGenerationParameter(PairingParameters pairingParameters) {
+		super(pairingParameters);
+	}
 }

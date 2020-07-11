@@ -13,41 +13,41 @@ import cn.edu.ncepu.crypto.chameleonhash.ChameleonHasher;
  * KP-ABE intermediate ciphertext generation parameter.
  */
 public class KPABEIntermediateGenerationParameter extends PairingEncapsulationGenerationParameter {
-    private int n;
-    private ChameleonHasher chameleonHasher;
-    private AsymmetricKeySerPairGenerator chameleonHashKeyPairGenerator;
-    private KeyGenerationParameters chameleonHashKeyGenerationParameter;
+	private int n;
+	private ChameleonHasher chameleonHasher;
+	private AsymmetricKeySerPairGenerator chameleonHashKeyPairGenerator;
+	private KeyGenerationParameters chameleonHashKeyGenerationParameter;
 
-    public KPABEIntermediateGenerationParameter(PairingKeySerParameter publicKeyParameter, int n) {
-        super(publicKeyParameter);
-        this.n = n;
-    }
+	public KPABEIntermediateGenerationParameter(PairingKeySerParameter publicKeyParameter, int n) {
+		super(publicKeyParameter);
+		this.n = n;
+	}
 
-    public void setChameleonHasher(ChameleonHasher chameleonHasher) {
-        this.chameleonHasher = chameleonHasher;
-    }
+	public void setChameleonHasher(ChameleonHasher chameleonHasher) {
+		this.chameleonHasher = chameleonHasher;
+	}
 
-    public void setChameleonHashKeyPairGenerator(AsymmetricKeySerPairGenerator keyPairGenerator) {
-        this.chameleonHashKeyPairGenerator = keyPairGenerator;
-    }
+	public void setChameleonHashKeyPairGenerator(AsymmetricKeySerPairGenerator keyPairGenerator) {
+		this.chameleonHashKeyPairGenerator = keyPairGenerator;
+	}
 
-    public void setChameleonHashKeyGenerationParameter(KeyGenerationParameters keyGenerationParameter) {
-        this.chameleonHashKeyGenerationParameter = keyGenerationParameter;
-    }
+	public void setChameleonHashKeyGenerationParameter(KeyGenerationParameters keyGenerationParameter) {
+		this.chameleonHashKeyGenerationParameter = keyGenerationParameter;
+	}
 
-    public ChameleonHasher getChameleonHasher() {
-        return this.chameleonHasher;
-    }
+	public ChameleonHasher getChameleonHasher() {
+		return this.chameleonHasher;
+	}
 
-    public AsymmetricKeySerPairGenerator getChameleonHashKeyPairGenerator() {
-        return this.chameleonHashKeyPairGenerator;
-    }
+	public AsymmetricKeySerPairGenerator getChameleonHashKeyPairGenerator() {
+		return this.chameleonHashKeyPairGenerator;
+	}
 
-    public KeyGenerationParameters getChameleonHashKeyGenerationParameter() {
-        return this.chameleonHashKeyGenerationParameter;
-    }
+	public KeyGenerationParameters getChameleonHashKeyGenerationParameter() {
+		return this.chameleonHashKeyGenerationParameter;
+	}
 
-    public int getN() {
-        return this.n;
-    }
+	public int getN() {
+		return this.n;
+	}
 }

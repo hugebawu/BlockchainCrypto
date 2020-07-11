@@ -9,13 +9,14 @@ import it.unisa.dia.gas.jpbc.PairingParameters;
  * Public Key / Master Secret Key generation parameters for Liu-Liu-Wu EHR role-based access control.
  */
 public class RBACLLW15KeyPairGenerationParameter extends PairingKeyPairGenerationParameter {
-    private int maxRoleNumber;
+	private int maxRoleNumber;
 
-    public RBACLLW15KeyPairGenerationParameter(PairingParameters pairingParameters, int maxRoleNumber) {
-        super(pairingParameters);
-        this.maxRoleNumber = maxRoleNumber;
-    }
+	public RBACLLW15KeyPairGenerationParameter(PairingParameters pairingParameters, int maxRoleNumber) {
+		super(pairingParameters);
+		this.maxRoleNumber = maxRoleNumber;
+	}
 
-    public int getMaxRoleNumber() { return this.maxRoleNumber; }
+	public int getMaxRoleNumber() {
+		return this.maxRoleNumber;
+	}
 }
-

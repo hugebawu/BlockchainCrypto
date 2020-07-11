@@ -21,46 +21,45 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  * Ciphertext Encapsulation generator for Boneh-Boyen-Goh HIBE.
  */
 public class HIBEBBG05EncryptionGenerator implements PairingEncryptionGenerator, PairingEncapsulationPairGenerator {
-    private HIBEEncryptionGenerationParameter params;
+	private HIBEEncryptionGenerationParameter params;
 
-    private HIBEBBG05PublicKeySerParameter publicKeyParameter;
-    private Element sessionKey;
-    private Element B;
-    private Element C;
+	private HIBEBBG05PublicKeySerParameter publicKeyParameter;
+	private Element sessionKey;
+	private Element B;
+	private Element C;
 
-    public void init(CipherParameters params) {
-        this.params = (HIBEEncryptionGenerationParameter)params;
-        this.publicKeyParameter = (HIBEBBG05PublicKeySerParameter)this.params.getPublicKeyParameter();
-        assert(this.params.getLength() <= publicKeyParameter.getMaxLength());
-    }
+	public void init(CipherParameters params) {
+		this.params = (HIBEEncryptionGenerationParameter) params;
+		this.publicKeyParameter = (HIBEBBG05PublicKeySerParameter) this.params.getPublicKeyParameter();
+		assert (this.params.getLength() <= publicKeyParameter.getMaxLength());
+	}
 
-    private void computeEncapsulation() {
-        Pairing pairing = PairingFactory.getPairing(publicKeyParameter.getParameters());
-        String[] ids = this.params.getIds();
-        Element[] elementIds = PairingUtils.MapStringArrayToGroup(pairing, ids, PairingUtils.PairingGroupType.Zr);
+	private void computeEncapsulation() {
+		Pairing pairing = PairingFactory.getPairing(publicKeyParameter.getParameters());
+		String[] ids = this.params.getIds();
+		Element[] elementIds = PairingUtils.MapStringArrayToGroup(pairing, ids, PairingUtils.PairingGroupType.Zr);
 
-        Element s = pairing.getZr().newRandomElement().getImmutable();
-        this.sessionKey = pairing.pairing(publicKeyParameter.getG1(), publicKeyParameter.getG2()).powZn(s).getImmutable();
+		Element s = pairing.getZr().newRandomElement().getImmutable();
+		this.sessionKey = pairing.pairing(publicKeyParameter.getG1(), publicKeyParameter.getG2()).powZn(s)
+				.getImmutable();
 
-        this.B = publicKeyParameter.getG().powZn(s).getImmutable();
-        this.C = publicKeyParameter.getG3().getImmutable();
-        for (int i=0; i<this.params.getLength(); i++){
-            C = C.mul(publicKeyParameter.getHsAt(i).powZn(elementIds[i])).getImmutable();
-        }
-        C = C.powZn(s).getImmutable();
-    }
+		this.B = publicKeyParameter.getG().powZn(s).getImmutable();
+		this.C = publicKeyParameter.getG3().getImmutable();
+		for (int i = 0; i < this.params.getLength(); i++) {
+			C = C.mul(publicKeyParameter.getHsAt(i).powZn(elementIds[i])).getImmutable();
+		}
+		C = C.powZn(s).getImmutable();
+	}
 
-    public PairingCipherSerParameter generateCiphertext() {
-        computeEncapsulation();
-        Element A = sessionKey.mul(this.params.getMessage()).getImmutable();
-        return new HIBEBBG05CiphertextSerParameter(publicKeyParameter.getParameters(), A, B, C);
-    }
+	public PairingCipherSerParameter generateCiphertext() {
+		computeEncapsulation();
+		Element A = sessionKey.mul(this.params.getMessage()).getImmutable();
+		return new HIBEBBG05CiphertextSerParameter(publicKeyParameter.getParameters(), A, B, C);
+	}
 
-    public PairingKeyEncapsulationSerPair generateEncryptionPair() {
-        computeEncapsulation();
-        return new PairingKeyEncapsulationSerPair(
-                this.sessionKey.toBytes(),
-                new HIBEBBG05HeaderSerParameter(publicKeyParameter.getParameters(), B, C)
-        );
-    }
+	public PairingKeyEncapsulationSerPair generateEncryptionPair() {
+		computeEncapsulation();
+		return new PairingKeyEncapsulationSerPair(this.sessionKey.toBytes(),
+				new HIBEBBG05HeaderSerParameter(publicKeyParameter.getParameters(), B, C));
+	}
 }

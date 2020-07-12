@@ -1,9 +1,9 @@
 /**
  * 
  */
-package cn.edu.ncepu.crypto.HE.basicIBEHE;
+package cn.edu.ncepu.crypto.homomorphiencryption.basicIBEHE;
 
-import cn.edu.ncepu.crypto.HE.CipherText;
+import cn.edu.ncepu.crypto.homomorphiencryption.CipherText;
 import it.unisa.dia.gas.jpbc.Element;
 
 /**

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package cn.edu.ncepu.crypto.HE.ecElgamalHE;
+package cn.edu.ncepu.crypto.homomorphiencryption.ecElgamalHE;
 
 import static org.junit.Assert.assertTrue;
 
@@ -11,9 +11,9 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import cn.edu.ncepu.crypto.HE.CipherText;
-import cn.edu.ncepu.crypto.HE.HE;
 import cn.edu.ncepu.crypto.algebra.Engine;
+import cn.edu.ncepu.crypto.homomorphiencryption.CipherText;
+import cn.edu.ncepu.crypto.homomorphiencryption.HE;
 import cn.edu.ncepu.crypto.utils.PairingUtils;
 import cn.edu.ncepu.crypto.utils.PairingUtils.PairingGroupType;
 import it.unisa.dia.gas.jpbc.Element;

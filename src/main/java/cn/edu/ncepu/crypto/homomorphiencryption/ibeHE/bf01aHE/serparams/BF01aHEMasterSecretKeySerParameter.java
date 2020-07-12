@@ -1,7 +1,7 @@
 /**
  * 
  */
-package cn.edu.ncepu.crypto.HE.ibeHE.bf01aHE.serparams;
+package cn.edu.ncepu.crypto.homomorphiencryption.ibeHE.bf01aHE.serparams;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;

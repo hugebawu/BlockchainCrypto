@@ -1,7 +1,7 @@
 /**
  * 
  */
-package cn.edu.ncepu.crypto.HE.ibeHE.genparams;
+package cn.edu.ncepu.crypto.homomorphiencryption.ibeHE.genparams;
 
 import cn.edu.ncepu.crypto.algebra.genparams.PairingDecryptionGenerationParameter;
 import cn.edu.ncepu.crypto.algebra.serparams.PairingCipherSerParameter;

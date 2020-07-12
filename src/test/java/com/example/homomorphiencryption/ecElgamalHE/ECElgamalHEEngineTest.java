@@ -14,10 +14,10 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import cn.edu.ncepu.crypto.HE.CipherText;
-import cn.edu.ncepu.crypto.HE.HE;
-import cn.edu.ncepu.crypto.HE.ecElgamalHE.ECElgamalHECipherText;
-import cn.edu.ncepu.crypto.HE.ecElgamalHE.ECElgamalHEEngine;
+import cn.edu.ncepu.crypto.homomorphiencryption.CipherText;
+import cn.edu.ncepu.crypto.homomorphiencryption.HE;
+import cn.edu.ncepu.crypto.homomorphiencryption.ecElgamalHE.ECElgamalHECipherText;
+import cn.edu.ncepu.crypto.homomorphiencryption.ecElgamalHE.ECElgamalHEEngine;
 import cn.edu.ncepu.crypto.utils.PairingUtils;
 import cn.edu.ncepu.crypto.utils.PairingUtils.PairingGroupType;
 import cn.edu.ncepu.crypto.utils.TimeCountProxyHandle;

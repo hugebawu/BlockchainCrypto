@@ -1,15 +1,15 @@
 /**
  * 
  */
-package cn.edu.ncepu.crypto.HE.ibeHE.bf01aHE.generators;
+package cn.edu.ncepu.crypto.homomorphiencryption.ibeHE.bf01aHE.generators;
 
 import org.bouncycastle.crypto.KeyGenerationParameters;
 
-import cn.edu.ncepu.crypto.HE.ibeHE.bf01aHE.serparams.BF01aHEMasterSecretKeySerParameter;
-import cn.edu.ncepu.crypto.HE.ibeHE.bf01aHE.serparams.BF01aHESecretKeySerParameter;
-import cn.edu.ncepu.crypto.HE.ibeHE.genparams.IBEHESecretKeyGenerationParameter;
 import cn.edu.ncepu.crypto.algebra.generators.PairingKeyParameterGenerator;
 import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
+import cn.edu.ncepu.crypto.homomorphiencryption.ibeHE.bf01aHE.serparams.BF01aHEMasterSecretKeySerParameter;
+import cn.edu.ncepu.crypto.homomorphiencryption.ibeHE.bf01aHE.serparams.BF01aHESecretKeySerParameter;
+import cn.edu.ncepu.crypto.homomorphiencryption.ibeHE.genparams.IBEHESecretKeyGenerationParameter;
 import cn.edu.ncepu.crypto.utils.PairingUtils;
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Pairing;

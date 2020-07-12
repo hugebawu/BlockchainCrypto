@@ -1,7 +1,7 @@
 /**
  * 
  */
-package cn.edu.ncepu.crypto.HE.ibeHE;
+package cn.edu.ncepu.crypto.homomorphiencryption.ibeHE;
 
 import java.util.Map;
 

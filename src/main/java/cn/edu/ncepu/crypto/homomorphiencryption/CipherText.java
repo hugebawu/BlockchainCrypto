@@ -1,7 +1,7 @@
 /**
  * 
  */
-package cn.edu.ncepu.crypto.HE;
+package cn.edu.ncepu.crypto.homomorphiencryption;
 
 import it.unisa.dia.gas.jpbc.Element;
 

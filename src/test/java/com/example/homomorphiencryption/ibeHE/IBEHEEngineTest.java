@@ -1,11 +1,12 @@
 /**
  * 
  */
-package com.example.HE.ibeHE;
+package com.example.homomorphiencryption.ibeHE;
 
 import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
+import java.lang.reflect.Proxy;
 import java.math.BigInteger;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -18,6 +19,10 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import cn.edu.ncepu.crypto.HE.CipherText;
+import cn.edu.ncepu.crypto.HE.HE;
+import cn.edu.ncepu.crypto.HE.basicIBEHE.BasicIBEHEEngine;
+import cn.edu.ncepu.crypto.HE.basicIBEHE.IBEHECipherText;
 import cn.edu.ncepu.crypto.HE.ibeHE.IBEHEEngine;
 import cn.edu.ncepu.crypto.HE.ibeHE.bf01aHE.BF01aHEEngine;
 import cn.edu.ncepu.crypto.algebra.serparams.PairingCipherSerParameter;
@@ -25,6 +30,7 @@ import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerPair;
 import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
 import cn.edu.ncepu.crypto.utils.PairingUtils;
 import cn.edu.ncepu.crypto.utils.PairingUtils.PairingGroupType;
+import cn.edu.ncepu.crypto.utils.TimeCountProxyHandle;
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Pairing;
 import it.unisa.dia.gas.jpbc.PairingParameters;
@@ -95,7 +101,7 @@ public class IBEHEEngineTest {
 
 		// Decryption
 		Element anMessage = engine.decrypt(secretKey, identityForCiphertext, ciphertext);
-		String decMessage = PairingUtils.mapElementToNumString(anMessage);
+		String decMessage = PairingUtils.mapElementToNumString(anMessage, PairingGroupType.GT);
 		logger.info("decrypted message: " + decMessage);
 		// new String(anMessage.toBigInteger().toByteArray(), "UTF-8"));
 		Assert.assertEquals(plainMessage, decMessage);
@@ -144,6 +150,9 @@ public class IBEHEEngineTest {
 		}
 	}
 
+	/**
+	 * TODO 测试BF01aHE的加密解密功能
+	 */
 	@Ignore
 	@Test
 	public void testBF01aHEEngine() {
@@ -153,20 +162,122 @@ public class IBEHEEngineTest {
 		runAllTests(pairingParams);
 	}
 
+	/**
+	 * TODO 测试BasicIBE(本质是IBEBF01aEngine的非抽象实现方式)的加密解密功能
+	 */
+	@Ignore
+	@Test
+	public void testBasicIBE() {
+		logger.info("start BasicIBE Testing \n");
+		String message = "123456789012345678901234567890123456789012345678901234567890";
+		// 在jpbc配置使用的那个jar包，\params\curves下面
+		pairingParams = PairingFactory.getPairingParameters(PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256);
+		BasicIBEHEEngine ident = new BasicIBEHEEngine(pairingParams);
+		// 动态代理，统计各个方法耗时
+		HE identProxy = (HE) Proxy.newProxyInstance(BasicIBEHEEngine.class.getClassLoader(), new Class[] { HE.class },
+				new TimeCountProxyHandle(ident));
+		logger.info("--------------------系统建立阶段----------------------");
+		identProxy.setup();
+		logger.info("--------------------密钥提取阶段----------------------");
+		Element d = identProxy.extract("uID");
+		logger.info("----------------------加密阶段-----------------------");
+		logger.info("plaintext: " + message);
+		CipherText cipherText = identProxy.encrypt(message);
+		logger.info("-----------------------解密阶段----------------------");
+		String decrypted = identProxy.decrypt(d, cipherText);
+		logger.info("decrypted: " + decrypted);
+		try {
+			assertTrue(message.equals(decrypted));
+			logger.info("BasicIBE encryption and decryption test passed!");
+		} catch (Exception e) {
+			logger.info("BasicIBE encryption and decryption test failed!");
+			logger.info("" + e.getLocalizedMessage());
+		}
+	}
+
+	/**
+	 * TODO GTElement的add方法跟mul方法的实现方式一模一样，满足乘法同态而不是加法同态
+	 * C1 = BasicIBEHE(M1) C2 = BasicIBEHE(M2)  C1+C2 = BasicIBEHE(M1*M2)
+	 */
+	@Ignore
+	@Test
+	public void testHomomorphismOfBasicIBE() {
+		// 在jpbc配置使用的那个jar包，\params\curves下面
+		pairingParams = PairingFactory.getPairingParameters(PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256);
+		Pairing pairing = PairingFactory.getPairing(pairingParams);
+		BasicIBEHEEngine basicIBE = new BasicIBEHEEngine(pairingParams);
+		String topLayerAdmin = "TopLayerAdmin";
+		Map<String, CipherText> ciphertextMap = new LinkedHashMap<String, CipherText>();
+		logger.info("--------------------系统建立阶段----------------------");
+		basicIBE.setup();
+		logger.info("--------------------密钥提取阶段----------------------");
+		Element d = basicIBE.extract(topLayerAdmin);
+		logger.info("----------------------加密阶段-----------------------");
+		String num_user1_org1 = "12";
+		Element e_num_user1_org1 = PairingUtils.mapNumStringToElement(pairing, num_user1_org1, PairingGroupType.GT);
+		IBEHECipherText ciphertext_user1_org1 = basicIBE.encrypt(num_user1_org1);
+		ciphertextMap.put("user1_org1", ciphertext_user1_org1);
+		String num_user2_org1 = "12";
+		Element e_num_user2_org1 = PairingUtils.mapNumStringToElement(pairing, num_user2_org1, PairingGroupType.GT);
+		IBEHECipherText ciphertext_user2_org1 = basicIBE.encrypt(num_user2_org1);
+		ciphertextMap.put("user2_org1", ciphertext_user2_org1);
+		logger.info("--------------------数据聚合阶段----------------------");
+		IBEHECipherText ciphertext_org1 = (IBEHECipherText) basicIBE.add(ciphertextMap);
+		logger.info("--------------------密文验证阶段----------------------");
+		// 验证U
+		Element U1 = ciphertext_user1_org1.getU();
+		Element U2 = ciphertext_user2_org1.getU();
+		Element U12 = ciphertext_org1.getU();
+		assertTrue(U12.isEqual(U1.add(U2)));
+		// 验证V
+		Element V1 = ciphertext_user1_org1.getV();
+		Element V2 = ciphertext_user2_org1.getV();
+		Element V12 = ciphertext_org1.getV();
+		assertTrue(V12.equals(V1.add(V2)));
+		// 验证r
+		Element r1 = ciphertext_user1_org1.getR();
+		Element r2 = ciphertext_user2_org1.getR();
+		Element r12 = ciphertext_org1.getR();
+		assertTrue(r12.isEqual(r1.add(r2)));
+		// 验证g
+		Element g1 = ciphertext_user1_org1.getG();
+		Element g2 = ciphertext_user2_org1.getG();
+		Element g12 = ciphertext_org1.getG();
+		assertTrue((g1.isEqual(g2) && g2.isEqual(g12)));
+		// 验证gr
+		Element gr1 = ciphertext_user1_org1.getGr();
+		Element gr2 = ciphertext_user2_org1.getGr();
+		Element gr12 = ciphertext_org1.getGr();
+		assertTrue(gr12.isEqual(gr1.mul(gr2)) && gr12.isEqual(g12.powZn(r12)));
+		// 验证H
+		Element H1 = ciphertext_user1_org1.getH();
+		Element H2 = ciphertext_user2_org1.getH();
+		Element H12 = ciphertext_org1.getH();
+		assertTrue(H12.isEqual(H1.add(H2)));
+		logger.info("-----------------------解密阶段----------------------");
+		String decrypted = basicIBE.decrypt(d, ciphertext_org1);
+		logger.info("decrypted: " + decrypted);
+		Element e_decrypted = PairingUtils.mapNumStringToElement(pairing, decrypted, PairingGroupType.GT);
+		Element preNum = e_num_user1_org1.mul(e_num_user2_org1);
+		try {
+			assertTrue(preNum.isEqual(e_decrypted));
+			logger.info("BasicIBE possesses multiplicative homomorphism!");
+		} catch (Exception e) {
+			logger.info("BasicIBE homomorphism test failed!");
+			logger.info("" + e.getLocalizedMessage());
+		}
+	}
+
 	@Ignore
 	@Test
 	// 经验证只有乘法同态性质
-	public void testHomomorphism() {
+	public void testHomomorphismOfBF01aHE() {
 		this.engine = BF01aHEEngine.getInstance();
 		// Type A 对称质数阶双线性群
 		pairingParams = PairingFactory.getPairingParameters(PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256);
-		runHomomorphismTest(pairingParams);
-	}
-
-	private void runHomomorphismTest(PairingParameters pairingParameters) {
 		// 初始化Pairing
-		Pairing pairing = PairingFactory.getPairing(pairingParameters);
-		PairingKeySerPair keyPair = engine.setup(pairingParameters);
+		Pairing pairing = PairingFactory.getPairing(pairingParams);
+		PairingKeySerPair keyPair = engine.setup(pairingParams);
 		// get system publicKey include (P, Ppub), where Ppub=sP
 		PairingKeySerParameter publicKey = keyPair.getPublic();
 		// get system masterkey s
@@ -181,10 +292,9 @@ public class IBEHEEngineTest {
 
 			// user1_org1 collect, encrypt and report data
 			String num_user1_org1 = "11";
-
-			BigInteger qt = new BigInteger("2").pow(pairing.getPairingPreProcessingLengthInBytes());
-			BigInteger q = pairingParameters.getBigInteger("q");
+			BigInteger q = pairingParams.getBigInteger("q");
 			Element e_num_user1_org1 = PairingUtils.mapNumStringToElement(pairing, num_user1_org1, PairingGroupType.GT);
+			logger.info("e_num_user1_org1:" + e_num_user1_org1);
 			PairingCipherSerParameter ciphertext_user1_org1 = engine.encrypt(publicKey, topLayerAdmin,
 					e_num_user1_org1);
 			ciphertextMap.put("user1_org1", ciphertext_user1_org1);
@@ -192,6 +302,7 @@ public class IBEHEEngineTest {
 			// user2_org1 collect, encrypt and report data
 			String num_user2_org1 = "21";
 			Element e_num_user2_org1 = PairingUtils.mapNumStringToElement(pairing, num_user2_org1, PairingGroupType.GT);
+			logger.info("e_num_user2_org1:" + e_num_user2_org1);
 			PairingCipherSerParameter ciphertext_user2_org1 = engine.encrypt(publicKey, topLayerAdmin,
 					e_num_user2_org1);
 			ciphertextMap.put("user2_org1", ciphertext_user2_org1);
@@ -201,21 +312,27 @@ public class IBEHEEngineTest {
 
 			// if org1 aggregator knows the secretKey, he can conduct the Decryption
 			Element e_num_org1 = engine.decrypt(secretKey, topLayerAdmin, ciphertext_org1);
-
-			// IBEHE(a*b) = IBEHE(a)+IBEHE(b)
-			assertTrue(e_num_org1.isEqual(e_num_user1_org1.mul(e_num_user2_org1)));
-//-----------------------------------------------------------------------------------------------------------
+			logger.info("e_num_org1      :" + e_num_org1);
+			try {
+				// IBEHE(a*b) = IBEHE(a)+IBEHE(b)
+				assertTrue(e_num_org1.isEqual(e_num_user1_org1.mul(e_num_user2_org1)));
+				logger.info(engine.getEngineName() + " possesses multiplicative homomorphism!");
+			} catch (Exception e) {
+				logger.info(engine.getEngineName() + " homomorphism test failed!");
+				logger.info("" + e.getLocalizedMessage());
+			}
+			// -----------------------------------------------------------------------------------------------------------
 			// user1_org2 collect, encrypt and report data
-			String num_user1_org2 = "12";
-			Element e_num_user1_org2 = PairingUtils.mapNumStringToElement(pairing, num_user1_org2, PairingGroupType.GT);
-			PairingCipherSerParameter ciphertext_user1_org2 = engine.encrypt(publicKey, topLayerAdmin,
-					e_num_user1_org2);
-
-			// user2_org2 collect, encrypt and report data
-			String num_user2_org2 = "22";
-			Element e_num_user2_org2 = PairingUtils.mapNumStringToElement(pairing, num_user2_org2, PairingGroupType.GT);
-			PairingCipherSerParameter ciphertext_user2_org2 = engine.encrypt(publicKey, topLayerAdmin,
-					e_num_user2_org2);
+//			String num_user1_org2 = "12";
+//			Element e_num_user1_org2 = PairingUtils.mapNumStringToElement(pairing, num_user1_org2, PairingGroupType.GT);
+//			PairingCipherSerParameter ciphertext_user1_org2 = engine.encrypt(publicKey, topLayerAdmin,
+//					e_num_user1_org2);
+//
+//			// user2_org2 collect, encrypt and report data
+//			String num_user2_org2 = "22";
+//			Element e_num_user2_org2 = PairingUtils.mapNumStringToElement(pairing, num_user2_org2, PairingGroupType.GT);
+//			PairingCipherSerParameter ciphertext_user2_org2 = engine.encrypt(publicKey, topLayerAdmin,
+//					e_num_user2_org2);
 
 		} catch (InvalidCipherTextException e) {
 			logger.info("Valid decryption test failed, " + "secret key identity  = " + topLayerAdmin + ", "

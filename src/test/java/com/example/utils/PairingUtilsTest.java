@@ -202,7 +202,6 @@ public class PairingUtilsTest {
 		PairingParameters typeAParams = PairingFactory
 				.getPairingParameters(PairingUtils.TEST_PAIRING_PARAMETERS_PATH_a_80_256);
 		TypeAPairing pairing = (TypeAPairing) PairingFactory.getPairing(typeAParams);
-		BigInteger order = pairing.getQ();
 		String message1 = "12";
 		String message2 = "11";
 		Element M1 = PairingUtils.mapNumStringToElement(pairing, message1, PairingGroupType.GT);
@@ -270,7 +269,6 @@ public class PairingUtilsTest {
 		// V1 = M1 mul H1
 		BigInteger biMessage1 = new BigInteger(message1);
 //		H1 = pairing.getGT().newElement(new BigInteger("3")).getImmutable();
-		byte[] H1bytes = H1.toBytes();
 		logger.info("M1   :" + biMessage1);
 		logger.info("H1   :" + H1);
 		Element V1 = M1.mul(H1);

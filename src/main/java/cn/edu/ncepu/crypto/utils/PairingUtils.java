@@ -137,7 +137,6 @@ public class PairingUtils {
 		byte[] e2Left = Arrays.copyOfRange(e2.toBytes(), 0, e2.getLengthInBytes() / 2);
 		byte[] e2Right = Arrays.copyOfRange(e2.toBytes(), e2.getLengthInBytes() / 2, e2.getLengthInBytes());
 
-		int len = order.bitLength();
 		BigInteger temp = new BigInteger(e1Left).add(new BigInteger(e2Left));
 		BigInteger temp2 = temp.add(order).mod(order);
 		byte[] resultLeft = temp2.toByteArray();
@@ -185,6 +184,7 @@ public class PairingUtils {
 			typeAPairing = (TypeAPairing) pairing;
 		}
 		BigInteger biNum = new BigInteger(numString);
+		byte[] bytes = biNum.toByteArray();
 		switch (pairingGroupType) {
 		case Zr:
 			BigInteger r = typeAPairing.getR();
@@ -192,6 +192,12 @@ public class PairingUtils {
 				throw new IllegalArgumentException("numString should less than " + r);
 			}
 			return pairing.getZr().newElement(biNum).getImmutable();
+		case G1:
+//			BigInteger r = typeAPairing.getR();
+//			if (1 == biNum.compareTo(r)) {
+//				throw new IllegalArgumentException("numString should less than " + r);
+//			}
+			return pairing.getG1().newElementFromBytes(bytes).getImmutable();
 		case GT:
 			BigInteger q = typeAPairing.getQ();
 			if (1 == biNum.compareTo(q)) {
@@ -208,8 +214,17 @@ public class PairingUtils {
 	 * @param e GT element
 	 * @return 参数描述
 	 */
-	public static String mapElementToNumString(Element e) {
-		return e.toBigInteger().toString(10);
+	public static String mapElementToNumString(Element e, PairingGroupType pairingGroupType) {
+		switch (pairingGroupType) {
+		case Zr:
+		case G1:
+			return new BigInteger(e.toBytes()).toString(10);
+//			e.toBigInteger().toString(10);
+		case GT:
+			return e.toBigInteger().toString(10);
+		default:
+			throw new RuntimeException("Invalid pairing group type.");
+		}
 	}
 
 	public static Element MapByteArrayToGroup(Pairing pairing, byte[] message, PairingGroupType pairingGroupType) {

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package cn.edu.ncepu.crypto.encryption.ibe.wp_ibe;
+package cn.edu.ncepu.crypto.HE.basicIBEHE;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -13,10 +13,11 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import cn.edu.ncepu.crypto.HE.CipherText;
+import cn.edu.ncepu.crypto.HE.HE;
 import cn.edu.ncepu.crypto.utils.PairingUtils;
 import cn.edu.ncepu.crypto.utils.PairingUtils.PairingGroupType;
 import it.unisa.dia.gas.jpbc.Element;
-import it.unisa.dia.gas.jpbc.Pairing;
 import it.unisa.dia.gas.jpbc.PairingParameters;
 import it.unisa.dia.gas.plaf.jpbc.field.curve.CurveField;
 import it.unisa.dia.gas.plaf.jpbc.field.gt.GTFiniteField;
@@ -32,14 +33,15 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.a.TypeAPairing;
  * @E-mail: drbjhu@163.com
  * @创建日期: 2019年10月16日 下午7:37:14
  * @ClassName BasicIdent2
- * @类描述-Description:  这个类是核心类，包括初始化init()，配对的对称性判断checkSymmetric()，
+ * @类描述-Description: basec ibe based homomorphic encryption
  * 系统建立buildSystem()，密钥提取extractSecretKey()，加密encrypt()，解密decrypt()。
+ * BasicIdent的基于身份的加密体制是由Boneh和Franklin在《Identity-Based Encryption fromthe Weil Pairing》提出的
  * @修改记录:
  * @版本: 1.0
  */
 
-public class BasicIBE implements IBE {
-	private static Logger logger = LoggerFactory.getLogger(BasicIBE.class);
+public class BasicIBEHEEngine implements HE {
+	private static Logger logger = LoggerFactory.getLogger(BasicIBEHEEngine.class);
 	// system parameters: params = <q,n,P,Ppub,G,H>
 	private Element s, // master key
 			P, // G1的生成元
@@ -53,7 +55,8 @@ public class BasicIBE implements IBE {
 	private CurveField<ZrField> G1;
 	private GTFiniteField<DegreeTwoExtensionQuadraticField<ZrField>> GT;
 
-	public BasicIBE(PairingParameters typeAParams) {
+	@SuppressWarnings("unchecked")
+	public BasicIBEHEEngine(PairingParameters typeAParams) {
 		this.pairing = (TypeAPairing) PairingFactory.getPairing(typeAParams);
 		// For bilinear maps only, to use the PBC wrapper and gain in performance, the
 		// usePBCWhenPossible property of the pairing factory must be set.
@@ -61,7 +64,10 @@ public class BasicIBE implements IBE {
 		// factory will resort to the JPBC pairing implementation.
 		// 需要配置才能使用http://gas.dia.unisa.it/projects/jpbc/docs/pbcwrapper.html#.XvnxeygzZPY
 		PairingFactory.getInstance().setUsePBCWhenPossible(true);//
-		checkSymmetric(pairing);
+		// 判断配对是否为对称配对，不对称则输出错误信息
+		if (!pairing.isSymmetric()) {
+			throw new RuntimeException("密钥不对称!");
+		}
 		// 将变量r初始化为Zr中的元素
 		Zr = (ZrField) pairing.getZr();
 		// 将变量Ppub，Qu，Su，V初始化为G1中的元素，G1是加法群
@@ -94,7 +100,7 @@ public class BasicIBE implements IBE {
 		logger.info(" original bigNum: " + bigNum);
 		logger.info("bigNum bit lengh: " + new BigInteger(bigNum).bitLength());
 		Element element = PairingUtils.mapNumStringToElement(pairing, bigNum, PairingGroupType.Zr);
-		logger.info("recovered bigNum: " + PairingUtils.mapElementToNumString(element));
+		logger.info("recovered bigNum: " + PairingUtils.mapElementToNumString(element, PairingGroupType.GT));
 		// 方案2 由于采用setFromHash的hash方式，不可逆
 		try {
 			byte[] bytes = bigNum.getBytes("UTF-8");
@@ -105,77 +111,6 @@ public class BasicIBE implements IBE {
 			e.printStackTrace();
 		}
 		logger.info("");
-	}
-
-	public class CipherText {
-
-		// U = rP
-		private Element U;
-		// V = M.xor(H.toBigInter())
-		private Element V;
-		private Element r;
-		private Element g;
-		// gr = g^r
-		private Element gr;
-		// H = hash_H(gr)
-		private Element H;
-
-		CipherText(Element U, Element V, Element r, Element g, Element gr, Element H) {
-			this.U = U.getImmutable();
-			this.V = V.getImmutable();
-			this.r = r.getImmutable();
-			this.g = g.getImmutable();
-			this.gr = gr.getImmutable();
-			this.H = H.getImmutable();
-		}
-
-		@Override
-		public boolean equals(Object object) {
-			if (this == object) {
-				return true;
-			}
-			if (object instanceof CipherText) {
-				CipherText that = (CipherText) object;
-				return (this.U.isEqual(that.U)) && (this.V.isEqual(that.V)) && (this.r.isEqual(that.r))
-						&& (this.g.isEqual(that.g)) && (this.gr.isEqual(that.gr)) && (this.H.isEqual(that.H));
-			}
-			return false;
-		}
-
-		public Element getU() {
-			return U.duplicate();
-		}
-
-		public Element getV() {
-			return V.duplicate();
-		}
-
-		public Element getR() {
-			return r.duplicate();
-		}
-
-		public Element getG() {
-			return g.duplicate();
-		}
-
-		public Element getGr() {
-			return gr.duplicate();
-		}
-
-		public Element getH() {
-			return H.duplicate();
-		}
-	}
-
-	/**
-	 * 判断配对是否为对称配对，不对称则输出错误信息
-	 * @param pairing 
-	 * @return void  
-	 */
-	private void checkSymmetric(Pairing pairing) {
-		if (!pairing.isSymmetric()) {
-			throw new RuntimeException("密钥不对称!");
-		}
 	}
 
 	@Override
@@ -199,7 +134,7 @@ public class BasicIBE implements IBE {
 
 	@Override
 	// 注意，这里M不能过长，受到Fq2中q的大小限制
-	public CipherText encrypt(String message) {
+	public IBEHECipherText encrypt(String message) {
 		Element r = Zr.newRandomElement().getImmutable();
 		// 密文的第一部分 U = rP
 		Element U = P.mulZn(r);
@@ -218,11 +153,12 @@ public class BasicIBE implements IBE {
 //		int byteLen = H1.getLengthInBytes();
 //		Element V = PairingUtils.xor(pairing, messageBytes, H1.toBytes());
 		logger.info("V                        :" + V);
-		return new CipherText(U, V, r, g, gr, H1);
+		return new IBEHECipherText(U, V, r, g, gr, H1);
 	}
 
 	@Override
 	public String decrypt(Element d, CipherText ciphertext) {
+		ciphertext = (IBEHECipherText) ciphertext;
 		// g2 = e(d,U)
 		Element g2 = this.pairing.pairing(d, ciphertext.getU()).getImmutable();
 		// 因为 g2=e(d,U)= e(sQu,rP)=e(Qu,P)^sr=e(Qu,Ppub)^r=g^r
@@ -230,12 +166,12 @@ public class BasicIBE implements IBE {
 		// 则明文: M = V xor H
 		Element H2 = PairingUtils.hash_H(this.pairing, g2);
 		logger.info("H2=Hash_H(e(Su, U))      =" + H2);
-		Element V = ciphertext.V;
+		Element V = ciphertext.getV();
 //		Element decrypte_M = PairingUtils.xor(pairing, V, H2);
 //		byte[] decryptedBytes = decrypte_M.toBytes();
 //		return new BigInteger(Arrays.copyOfRange(decryptedBytes, 0, decrypte_M.getLengthInBytes() / 2)).toString();
 		Element decrypte_M = V.sub(H2);
-		return PairingUtils.mapElementToNumString(decrypte_M);
+		return PairingUtils.mapElementToNumString(decrypte_M, PairingGroupType.GT);
 	}
 
 	@Override
@@ -247,20 +183,21 @@ public class BasicIBE implements IBE {
 		Element gr = this.GT.newOneElement();
 		Element H = this.GT.newZeroElement();
 		for (CipherText ciphertext : ciphertextMap.values()) {
-			U = U.add(ciphertext.getU());
-			V = V.add(ciphertext.getV());
-			r = r.add(ciphertext.getR());
-			Element temp_g = ciphertext.getG();
+			IBEHECipherText ibeCiphertext = (IBEHECipherText) ciphertext;
+			U = U.add(ibeCiphertext.getU());
+			V = V.add(ibeCiphertext.getV());
+			r = r.add(ibeCiphertext.getR());
+			Element temp_g = ibeCiphertext.getG();
 			if (g.isZero()) {
 				g = temp_g;
 			} else {
 				assertTrue(g.isEqual(temp_g));
 			}
-			gr = gr.mul(ciphertext.getGr());
-			H = H.add(ciphertext.getH());
+			gr = gr.mul(ibeCiphertext.getGr());
+			H = H.add(ibeCiphertext.getH());
 		}
-		return new CipherText(U.getImmutable(), V.getImmutable(), r.getImmutable(), g.getImmutable(), gr.getImmutable(),
-				H.getImmutable());
+		return new IBEHECipherText(U.getImmutable(), V.getImmutable(), r.getImmutable(), g.getImmutable(),
+				gr.getImmutable(), H.getImmutable());
 	}
 
 }

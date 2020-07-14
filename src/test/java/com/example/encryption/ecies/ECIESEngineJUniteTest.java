@@ -39,6 +39,8 @@ public class ECIESEngineJUniteTest {
 	private static String USER_DIR = SysProperty.USER_DIR;
 	private static final String EC_STRING = "EC";
 
+	ECIESEngine engine = ECIESEngine.getInstance();
+
 	@Ignore
 	@Test
 	public void testECIES_Encrypt_Eecrypt() {
@@ -50,12 +52,12 @@ public class ECIESEngineJUniteTest {
 					USER_DIR + "/elements/privateKey.pem");
 			String content = "cryptography12342qer45taredfghdfghj/？！#@￥##%……";
 			// encrypt the ciphertext can be transmitted directly through network.
-			String ciphertext = ECIESEngine.encrypt(content, publicKey);
+			String ciphertext = engine.encrypt(content, publicKey);
 			logger.info("plaintext: " + content);
 			logger.info("base64 ciphertext: " + ciphertext);
 			logger.info("base64 ciphertext length: " + ciphertext.length());
 			// decrypt
-			String decryptedtext = ECIESEngine.decrypt(ciphertext, privateKey);
+			String decryptedtext = engine.decrypt(ciphertext, privateKey);
 			logger.info("decrypted plaintext: " + decryptedtext);
 			assertEquals(content, decryptedtext);
 		} catch (InvalidKeyException e) {

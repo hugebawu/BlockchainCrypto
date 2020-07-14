@@ -16,6 +16,8 @@ import javax.crypto.NoSuchPaddingException;
 
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 
+import cn.edu.ncepu.crypto.algebra.Engine;
+
 /**
  * @Copyright : Copyright (c) 2020-2021 
  * @author: Baiji Hu
@@ -26,7 +28,27 @@ import org.bouncycastle.jce.provider.BouncyCastleProvider;
  * @Description: TODO(Utilize BouncyCastls to realize elliptic curve based Integrated Encryption Engine)
  * @Description The ECC was firstly proposed by Neal Koblitz and Victor Miller in 1985 separately.
  */
-public class ECIESEngine {
+public class ECIESEngine extends Engine {
+
+	private static final String SCHEME_NAME = "elliptic curve based Integrated Encryption";
+	private static ECIESEngine engine;
+
+	public static ECIESEngine getInstance() {
+		if (engine == null) {
+			engine = new ECIESEngine();
+		}
+		return engine;
+	}
+
+	/**
+	 * @param schemeName
+	 * @param proveSecModel
+	 * @param payloadSecLevel
+	 * @param predicateSecLevel
+	 */
+	public ECIESEngine() {
+		super(SCHEME_NAME, ProveSecModel.RandomOracle, PayloadSecLevel.CPA, PredicateSecLevel.ANON);
+	}
 
 	/**
 	 * TODO encrypt content as ecies using EC publicKey
@@ -37,8 +59,8 @@ public class ECIESEngine {
 	 * @throws InvalidKeyException 
 	 * @throws NoSuchPaddingException 
 	 */
-	public static String encrypt(String content, PublicKey publicKey) throws NoSuchAlgorithmException,
-			NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
+	public String encrypt(String content, PublicKey publicKey) throws NoSuchAlgorithmException, NoSuchPaddingException,
+			InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
 		BouncyCastleProvider bcProvider = new BouncyCastleProvider();
 		Cipher cipher = Cipher.getInstance("ECIES", bcProvider);
 		cipher.init(Cipher.ENCRYPT_MODE, publicKey);
@@ -58,7 +80,7 @@ public class ECIESEngine {
 	 * @throws IllegalBlockSizeException 
 	 * @throws InvalidKeyException 
 	 */
-	public static String decrypt(String ciphertext, PrivateKey privateKey) throws NoSuchAlgorithmException,
+	public String decrypt(String ciphertext, PrivateKey privateKey) throws NoSuchAlgorithmException,
 			NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, InvalidKeyException {
 		BouncyCastleProvider bcProvider = new BouncyCastleProvider();
 		Cipher cipher = Cipher.getInstance("ECIES", bcProvider);

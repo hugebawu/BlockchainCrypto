@@ -17,8 +17,8 @@ import org.bouncycastle.util.encoders.Hex;
 
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Pairing;
+import it.unisa.dia.gas.plaf.jpbc.field.curve.CurveElement;
 import it.unisa.dia.gas.plaf.jpbc.pairing.a.TypeACurveGenerator;
-import it.unisa.dia.gas.plaf.jpbc.pairing.a.TypeAPairing;
 import it.unisa.dia.gas.plaf.jpbc.pairing.a1.TypeA1CurveGenerator;
 import it.unisa.dia.gas.plaf.jpbc.pairing.parameters.PropertiesParameters;
 
@@ -169,6 +169,17 @@ public class PairingUtils {
 		return pairing.getGT().newElementFromHash(bytes, 0, bytes.length).getImmutable();
 	}
 
+//	public CurveElement mapString2CurveElement(String numString) {
+//		CurveElement M = (CurveElement) curveField.newElement();
+//		M.setFromBytesX(new BigInteger(numString).toByteArray());
+//		return (CurveElement) M.getImmutable();
+//	}
+//
+//	public String mapCurveElement2String(CurveElement element) {
+//		ZrElement M = (ZrElement) element.getX();
+//		return M.toBigInteger().toString();
+//	}
+
 	/**
 	 * TODO map the decimal String(e.g,"123456789012345678901234567890" into a element in the pairingGroup)
 	 * Attention: when pairingGroupType = Zr, numString need to be smaller than r; 
@@ -179,29 +190,27 @@ public class PairingUtils {
 	 * @return 
 	 */
 	public static Element mapNumStringToElement(Pairing pairing, String numString, PairingGroupType pairingGroupType) {
-		TypeAPairing typeAPairing = null;
-		if (pairing instanceof TypeAPairing) {
-			typeAPairing = (TypeAPairing) pairing;
-		}
 		BigInteger biNum = new BigInteger(numString);
-		byte[] bytes = biNum.toByteArray();
+		BigInteger order = null;
 		switch (pairingGroupType) {
 		case Zr:
-			BigInteger r = typeAPairing.getR();
-			if (1 == biNum.compareTo(r)) {
-				throw new IllegalArgumentException("numString should less than " + r);
+			order = pairing.getZr().getOrder();
+			if (1 == biNum.compareTo(order)) {
+				throw new IllegalArgumentException("numString should less than " + order);
 			}
 			return pairing.getZr().newElement(biNum).getImmutable();
 		case G1:
-//			BigInteger r = typeAPairing.getR();
-//			if (1 == biNum.compareTo(r)) {
-//				throw new IllegalArgumentException("numString should less than " + r);
+//			order = (BigInteger) (pairing.getG1().newElement().getField().getOrder());
+//			if (1 == biNum.compareTo(order)) {
+//				throw new IllegalArgumentException("numString should less than " + order);
 //			}
-			return pairing.getG1().newElementFromBytes(bytes).getImmutable();
+			CurveElement M = (CurveElement) pairing.getG1().newElement();
+			M.setFromBytesX(new BigInteger(numString).toByteArray());
+			return M.getImmutable();
 		case GT:
-			BigInteger q = typeAPairing.getQ();
-			if (1 == biNum.compareTo(q)) {
-				throw new IllegalArgumentException("numString should less than " + q);
+			order = pairing.getGT().getOrder();
+			if (1 == biNum.compareTo(order)) {
+				throw new IllegalArgumentException("numString should less than " + order);
 			}
 			return pairing.getGT().newElement(biNum).getImmutable();
 		default:
@@ -218,8 +227,7 @@ public class PairingUtils {
 		switch (pairingGroupType) {
 		case Zr:
 		case G1:
-			return new BigInteger(e.toBytes()).toString(10);
-//			e.toBigInteger().toString(10);
+			return ((CurveElement) e).getX().toBigInteger().toString();
 		case GT:
 			return e.toBigInteger().toString(10);
 		default:

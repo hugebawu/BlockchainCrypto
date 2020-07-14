@@ -31,6 +31,7 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.a.TypeAPairing;
  * @CreateData: Jul 12, 2020 2:11:08 PM
  * @ClassName ECElgamalHEEngine
  * @Description: TODO(elliptic curve based elgamal cryptosystem which has the characteristic of homomorphism)
+ * 虽然没验证成功，但是通过文献看出来是乘法同态。
  */
 public class ECElgamalHEEngine extends Engine implements HE {
 	private static Logger logger = LoggerFactory.getLogger(ECElgamalHEEngine.class);

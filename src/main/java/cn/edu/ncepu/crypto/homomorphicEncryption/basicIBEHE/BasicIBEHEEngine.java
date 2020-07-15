@@ -124,7 +124,7 @@ public class BasicIBEHEEngine implements HE {
 	}
 
 	@Override
-	public Element extract(String id) {
+	public Element keyGen(String id) {
 		// 通过Hash函数G从用户IDu产生的公钥Qu
 		Qu = PairingUtils.hash_G(pairing, id);
 		// 通过PGK生成用户私钥
@@ -175,7 +175,7 @@ public class BasicIBEHEEngine implements HE {
 	}
 
 	@Override
-	public CipherText add(Map<String, CipherText> ciphertextMap) {
+	public CipherText eval(Map<String, CipherText> ciphertextMap) {
 		Element U = this.G1.newZeroElement();
 		Element V = this.GT.newZeroElement();
 		Element r = this.Zr.newZeroElement();

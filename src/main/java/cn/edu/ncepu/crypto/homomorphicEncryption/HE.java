@@ -30,7 +30,7 @@ public interface HE {
 	 * @param id user identity
 	 * @return 
 	 */
-	Element extract(String id);
+	Element keyGen(String id);
 
 	/**
 	 * TODO encrypt
@@ -52,5 +52,5 @@ public interface HE {
 	 * @param ciphertextMap map of ciphertext
 	 * @return
 	 */
-	public CipherText add(Map<String, CipherText> ciphertextMap);
+	public CipherText eval(Map<String, CipherText> ciphertextMap);
 }

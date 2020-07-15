@@ -55,7 +55,7 @@ public class ECElgamalHEEngineTest {
 		logger.info("--------------------系统建立阶段----------------------");
 		identProxy.setup();
 		logger.info("--------------------密钥提取阶段----------------------");
-		Element d = identProxy.extract("");
+		Element d = identProxy.keyGen("");
 		logger.info("----------------------加密阶段-----------------------");
 		String message = "2";
 		logger.info("plaintext: " + message);
@@ -82,7 +82,7 @@ public class ECElgamalHEEngineTest {
 		logger.info("--------------------系统建立阶段----------------------");
 		engine.setup();
 		logger.info("--------------------密钥提取阶段----------------------");
-		Element d = engine.extract("");
+		Element d = engine.keyGen("");
 		logger.info("----------------------加密阶段-----------------------");
 		String num_user1_org1 = "11";
 		Element e_num_user1_org1 = PairingUtils.mapNumStringToElement(pairing, num_user1_org1, PairingGroupType.G1);
@@ -93,7 +93,7 @@ public class ECElgamalHEEngineTest {
 		ECElgamalHECipherText ciphertext_user2_org1 = engine.encrypt(num_user2_org1);
 		ciphertextMap.put("user2_org1", ciphertext_user2_org1);
 		logger.info("--------------------数据聚合阶段----------------------");
-		ECElgamalHECipherText ciphertext_org1 = (ECElgamalHECipherText) engine.add(ciphertextMap);
+		ECElgamalHECipherText ciphertext_org1 = (ECElgamalHECipherText) engine.eval(ciphertextMap);
 		logger.info("--------------------密文验证阶段----------------------");
 		// 验证r
 		Element r1 = ciphertext_user1_org1.getR();

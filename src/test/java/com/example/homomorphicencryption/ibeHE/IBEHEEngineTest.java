@@ -179,7 +179,7 @@ public class IBEHEEngineTest {
 		logger.info("--------------------系统建立阶段----------------------");
 		identProxy.setup();
 		logger.info("--------------------密钥提取阶段----------------------");
-		Element d = identProxy.extract("uID");
+		Element d = identProxy.keyGen("uID");
 		logger.info("----------------------加密阶段-----------------------");
 		logger.info("plaintext: " + message);
 		CipherText cipherText = identProxy.encrypt(message);
@@ -211,7 +211,7 @@ public class IBEHEEngineTest {
 		logger.info("--------------------系统建立阶段----------------------");
 		basicIBE.setup();
 		logger.info("--------------------密钥提取阶段----------------------");
-		Element d = basicIBE.extract(topLayerAdmin);
+		Element d = basicIBE.keyGen(topLayerAdmin);
 		logger.info("----------------------加密阶段-----------------------");
 		String num_user1_org1 = "12";
 		Element e_num_user1_org1 = PairingUtils.mapNumStringToElement(pairing, num_user1_org1, PairingGroupType.GT);
@@ -222,7 +222,7 @@ public class IBEHEEngineTest {
 		IBEHECipherText ciphertext_user2_org1 = basicIBE.encrypt(num_user2_org1);
 		ciphertextMap.put("user2_org1", ciphertext_user2_org1);
 		logger.info("--------------------数据聚合阶段----------------------");
-		IBEHECipherText ciphertext_org1 = (IBEHECipherText) basicIBE.add(ciphertextMap);
+		IBEHECipherText ciphertext_org1 = (IBEHECipherText) basicIBE.eval(ciphertextMap);
 		logger.info("--------------------密文验证阶段----------------------");
 		// 验证U
 		Element U1 = ciphertext_user1_org1.getU();

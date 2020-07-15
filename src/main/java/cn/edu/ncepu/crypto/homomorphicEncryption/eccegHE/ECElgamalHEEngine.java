@@ -71,7 +71,7 @@ public class ECElgamalHEEngine extends Engine implements HE {
 	}
 
 	@Override
-	public Element extract(String id) {
+	public Element keyGen(String id) {
 		// 用户随即生成私钥, 并发布公钥
 		Element d = Zr.newRandomElement().getImmutable();
 		// Q = dP
@@ -120,7 +120,7 @@ public class ECElgamalHEEngine extends Engine implements HE {
 	}
 
 	@Override
-	public CipherText add(Map<String, CipherText> ciphertextMap) {
+	public CipherText eval(Map<String, CipherText> ciphertextMap) {
 		Element U = this.G1.newZeroElement();
 		Element V = this.G1.newZeroElement();
 		Element r = this.Zr.newZeroElement();

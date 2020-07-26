@@ -367,34 +367,6 @@ public class CommonUtils {
 	}
 
 	/**
-	 * TODO(print the content of DER or PEM ECKey file)
-	 * @param isECPublicKey
-	 * @param isDER
-	 * @param pathName pathName for the DER or PEM, and PublicKey or PrivateKey file
-	 * @throws Exception 
-	 */
-	public static void printECKeywithOpenssl(boolean isECPublicKey, boolean isDER, String pathName) throws Exception {
-		int indexofSlash = pathName.lastIndexOf("/");
-		String filePath = pathName.substring(0, indexofSlash);
-		String fileName = pathName.substring(indexofSlash + 1, pathName.length());
-		String shell = "";
-		if (isECPublicKey) {
-			if (isDER) {
-				shell = "openssl pkey -inform DER -pubin -in " + fileName + " -text";
-			} else {
-				shell = "openssl ec -in " + fileName + " -pubin -text -noout";
-			}
-		} else {
-			if (isDER) {
-				shell = "openssl pkey -inform DER -in " + fileName + " -text";
-			} else {
-				shell = "openssl ec -in " + fileName + " -text -noout";
-			}
-		}
-		CommonUtils.callCMD(shell, filePath);
-	}
-
-	/**
 	 * TODO hash the string content using the specific algorithm
 	 * @param content
 	 * @param algorithm

@@ -7,10 +7,12 @@ import static org.junit.Assert.assertEquals;
 
 import java.io.IOException;
 import java.security.InvalidKeyException;
+import java.security.KeyPair;
 import java.security.NoSuchAlgorithmException;
-import java.security.PrivateKey;
-import java.security.PublicKey;
+import java.security.interfaces.ECPrivateKey;
+import java.security.interfaces.ECPublicKey;
 import java.security.spec.InvalidKeySpecException;
+import java.util.Base64;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
@@ -22,8 +24,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import cn.edu.ncepu.crypto.encryption.ecies.ECIESEngine;
-import cn.edu.ncepu.crypto.utils.CommonUtils;
-import cn.edu.ncepu.crypto.utils.SysProperty;
+import cn.edu.ncepu.crypto.utils.EccUtils;
 
 /**
  * @Copyright : Copyright (c) 2020-2021 
@@ -36,8 +37,6 @@ import cn.edu.ncepu.crypto.utils.SysProperty;
  */
 public class ECIESEngineJUniteTest {
 	private static Logger logger = LoggerFactory.getLogger(ECIESEngineJUniteTest.class);
-	private static String USER_DIR = SysProperty.USER_DIR;
-	private static final String EC_STRING = "EC";
 
 	ECIESEngine engine = ECIESEngine.getInstance();
 
@@ -45,19 +44,32 @@ public class ECIESEngineJUniteTest {
 	@Test
 	public void testECIES_Encrypt_Eecrypt() {
 		try {
-			PublicKey publicKey = null;
-			PrivateKey privateKey = null;
-			publicKey = (PublicKey) CommonUtils.loadKeyFromPEM(true, EC_STRING, USER_DIR + "/elements/publicKey.pem");
-			privateKey = (PrivateKey) CommonUtils.loadKeyFromPEM(false, EC_STRING,
-					USER_DIR + "/elements/privateKey.pem");
+			KeyPair keyPair = EccUtils.getKeyPair(256);
+
+			ECPublicKey publicKey = (ECPublicKey) keyPair.getPublic();
+			ECPrivateKey privateKey = (ECPrivateKey) keyPair.getPrivate();
+
+			// 生成一个Base64编码的公钥字符串，可用来传输
+			String ecBase64PublicKey = EccUtils.publicKey2String(publicKey);
+			String ecBase64PrivateKey = EccUtils.privateKey2String(privateKey);
+			logger.info("[publickey]:\t" + ecBase64PublicKey);
+			logger.info("[privateKey]:\t" + ecBase64PrivateKey);
+
+			// 从base64编码的字符串恢复密钥
+			ECPublicKey publicKey2 = EccUtils.string2PublicKey(ecBase64PublicKey);
+			ECPrivateKey privateKey2 = EccUtils.string2PrivateKey(ecBase64PrivateKey);
+
 			String content = "cryptography12342qer45taredfghdfghj/？！#@￥##%……";
+			byte[] contentBytes = content.getBytes("UTF-8");
 			// encrypt the ciphertext can be transmitted directly through network.
-			String ciphertext = engine.encrypt(content, publicKey);
+			byte[] ciphertextBytes = engine.encrypt(contentBytes, publicKey2);
+			// for transmission encode cipherText as Base64
+			String ciphertext = Base64.getEncoder().encodeToString(ciphertextBytes);
 			logger.info("plaintext: " + content);
 			logger.info("base64 ciphertext: " + ciphertext);
 			logger.info("base64 ciphertext length: " + ciphertext.length());
 			// decrypt
-			String decryptedtext = engine.decrypt(ciphertext, privateKey);
+			String decryptedtext = new String(engine.decrypt(ciphertext, privateKey2), "UTF-8");
 			logger.info("decrypted plaintext: " + decryptedtext);
 			assertEquals(content, decryptedtext);
 		} catch (InvalidKeyException e) {
@@ -73,6 +85,9 @@ public class ECIESEngineJUniteTest {
 		} catch (IllegalBlockSizeException e) {
 			logger.error(e.getLocalizedMessage());
 		} catch (BadPaddingException e) {
+			logger.error(e.getLocalizedMessage());
+		} catch (Exception e) {
+			e.printStackTrace();
 			logger.error(e.getLocalizedMessage());
 		}
 	}

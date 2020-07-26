@@ -5,28 +5,38 @@ package com.example.utils;
 
 import static org.junit.Assert.assertEquals;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.KeyPair;
+import java.security.KeyStore;
 import java.security.NoSuchAlgorithmException;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.security.SignatureException;
-import java.util.Base64;
+import java.security.cert.X509Certificate;
+import java.security.interfaces.ECPrivateKey;
+import java.security.interfaces.ECPublicKey;
+import java.util.UUID;
 
 import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.codec.digest.DigestUtils;
+import org.apache.commons.lang3.time.StopWatch;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import cn.edu.ncepu.crypto.signature.ecdsa.ECDSASigner;
+import cn.edu.ncepu.crypto.utils.CertificateUtils;
+import cn.edu.ncepu.crypto.utils.CertificateUtils.JKeyStoreType;
 import cn.edu.ncepu.crypto.utils.CommonUtils;
+import cn.edu.ncepu.crypto.utils.EccUtils;
 import cn.edu.ncepu.crypto.utils.SysProperty;
 
 /**
@@ -42,7 +52,6 @@ public class CommonUtilsTest {
 	private static Logger logger = LoggerFactory.getLogger(CommonUtilsTest.class);
 	private static String USER_DIR = SysProperty.USER_DIR;
 	private static final String EC_STRING = "EC";
-	private static final String CURVE_NAME = "secp256k1";
 
 	@Ignore
 	@Test
@@ -83,6 +92,74 @@ public class CommonUtilsTest {
 		// utilize third party library.
 		String hash = DigestUtils.sha256Hex(content);
 		assertEquals(hexHash, hash);
+	}
+
+	private static final int TIMES = 1_000_000;
+
+	public static long sha256() {
+		String message = generateStringToHash();
+		StopWatch watch = new StopWatch();
+		watch.start();
+		for (int i = 0; i < TIMES; i++) {
+			DigestUtils.sha256Hex(message);
+		}
+		watch.stop();
+		System.out.println(DigestUtils.sha256Hex(message));
+		return watch.getTime();
+	}
+
+	public static String generateStringToHash() {
+		String UUID_STRING = UUID.randomUUID().toString();
+		return UUID_STRING + System.currentTimeMillis();
+	}
+
+	@Ignore
+	@Test
+	public void testHashTimeCost() {
+		logger.info(generateStringToHash());
+//		System.out.println("MD5: " + md5());
+//		System.out.println("SHA-1: " + sha1());
+		logger.info("SHA-256: " + sha256());
+//		System.out.println("SHA-512: " + sha512());
+	}
+
+	@Ignore
+	@Test
+	public void testSignAndVerify() {
+		try {
+			String message = "Hello, use X.509 cert!";
+			String algorithm = "SHA256";
+			byte[] hexHash = CommonUtils.hash(message.getBytes("UTF-8"), algorithm);
+			// 从keystore file读取KeyStore:
+			FileInputStream input = new FileInputStream(new File(USER_DIR + "/elements/my.keystore"));
+			KeyStore ks = CertificateUtils.getKeyStore(input, "123456".toCharArray(), JKeyStoreType.JKS);
+			// 从keyStore读取私钥:
+			String alias = "mykeystore1";
+			PrivateKey privateKey = (PrivateKey) ks.getKey(alias, "123456".toCharArray());
+			logger.info("privateKey length = " + Hex.encodeHexString(privateKey.getEncoded()).length());
+			// 从keyStore读取证书:
+			X509Certificate certificate = (X509Certificate) ks.getCertificate("mykeystore1");
+			logger.info("certificate signature algorithm: " + certificate.getSigAlgName());
+			logger.info("certificate encryption algorithm: " + certificate.getPublicKey().getAlgorithm());
+			// 从证书读取publicKey
+			PublicKey publicKey = certificate.getPublicKey();
+			logger.info("Test SHA256withRSA signature.");
+			// 签名:
+			byte[] sign = CommonUtils.sign(hexHash, privateKey, certificate.getSigAlgName());
+			String singHex = Hex.encodeHexString(sign);
+			logger.info("Hex signature: " + singHex);
+			logger.info(String.format("signature: %x", new BigInteger(1, sign)));
+			logger.info("Signature length = " + singHex.length());
+			// 验证签名:
+			if (false == CommonUtils.verify(hexHash, sign, publicKey, certificate.getSigAlgName())) {
+				logger.info("Verify passed for invalid signature, test abort...");
+				System.exit(0);
+			}
+			logger.info("SHA256withRSA signer functionality test pass.");
+		} catch (Exception e) {
+			logger.error(e.getLocalizedMessage());
+		}
+
 	}
 
 	@Ignore
@@ -144,16 +221,20 @@ public class CommonUtilsTest {
 	public void testSaveKeyAsPEM() {
 		KeyPair keyPair;
 		try {
-			keyPair = CommonUtils.initKey(EC_STRING, CURVE_NAME);
-			PublicKey publicKey = keyPair.getPublic();
-			PrivateKey privateKey = keyPair.getPrivate();
-			CommonUtils.saveKeyAsPEM(publicKey, USER_DIR + "/elements/publicKey.pem");
-			CommonUtils.saveKeyAsPEM(privateKey, USER_DIR + "/elements/privateKey.pem");
+//			keyPair = CommonUtils.initKey(EC_STRING, CURVE_NAME);
+			keyPair = EccUtils.getKeyPair(256);
+			ECPublicKey publicKey = (ECPublicKey) keyPair.getPublic();
+			ECPrivateKey privateKey = (ECPrivateKey) keyPair.getPrivate();
+			CommonUtils.saveKeyAsPEM(publicKey, USER_DIR + "/elements/ECPublicKey.pem");
+			CommonUtils.saveKeyAsPEM(privateKey, USER_DIR + "/elements/ECPrivateKey.pem");
 		} catch (NoSuchAlgorithmException e) {
 			logger.error(e.getLocalizedMessage());
 		} catch (InvalidAlgorithmParameterException e) {
 			logger.error(e.getLocalizedMessage());
 		} catch (IOException e) {
+			logger.error(e.getLocalizedMessage());
+		} catch (Exception e) {
+			e.printStackTrace();
 			logger.error(e.getLocalizedMessage());
 		}
 
@@ -164,16 +245,20 @@ public class CommonUtilsTest {
 	public void testSaveECKeyAsDER() {
 		KeyPair keyPair;
 		try {
-			keyPair = CommonUtils.initKey(EC_STRING, CURVE_NAME);
-			PublicKey publicKey = keyPair.getPublic();
-			PrivateKey privateKey = keyPair.getPrivate();
-			CommonUtils.saveKeyAsDER(publicKey, USER_DIR + "/elements/publicKey.der");
-			CommonUtils.saveKeyAsDER(privateKey, USER_DIR + "/elements/privateKey.der");
+//			keyPair = CommonUtils.initKey(EC_STRING, CURVE_NAME);
+			keyPair = EccUtils.getKeyPair(256);
+			ECPublicKey publicKey = (ECPublicKey) keyPair.getPublic();
+			ECPrivateKey privateKey = (ECPrivateKey) keyPair.getPrivate();
+			CommonUtils.saveKeyAsDER(publicKey, USER_DIR + "/elements/ECPublicKey.der");
+			CommonUtils.saveKeyAsDER(privateKey, USER_DIR + "/elements/ECPrivateKey.der");
 		} catch (NoSuchAlgorithmException e) {
 			logger.error(e.getLocalizedMessage());
 		} catch (IOException e) {
 			logger.error(e.getLocalizedMessage());
 		} catch (InvalidAlgorithmParameterException e) {
+			logger.error(e.getLocalizedMessage());
+		} catch (Exception e) {
+			e.printStackTrace();
 			logger.error(e.getLocalizedMessage());
 		}
 	}
@@ -182,28 +267,24 @@ public class CommonUtilsTest {
 	@Test
 	public void testLoadECKeyFromPEM() {
 		try {
-			PublicKey publicKey = null;
-			PrivateKey privateKey = null;
-			publicKey = (PublicKey) CommonUtils.loadKeyFromPEM(true, EC_STRING, USER_DIR + "/elements/publicKey.pem");
-			privateKey = (PrivateKey) CommonUtils.loadKeyFromPEM(false, EC_STRING,
-					USER_DIR + "/elements/privateKey.pem");
-			logger.info(
-					"Base64 publicKey length = " + Base64.getEncoder().encodeToString(publicKey.getEncoded()).length());
-			logger.info("Base64 privateKey length = "
-					+ Base64.getEncoder().encodeToString(privateKey.getEncoded()).length());
+			ECPublicKey publicKey = (ECPublicKey) CommonUtils.loadKeyFromPEM(true, EC_STRING,
+					USER_DIR + "/elements/ECPublicKey.pem");
+			ECPrivateKey privateKey = (ECPrivateKey) CommonUtils.loadKeyFromPEM(false, EC_STRING,
+					USER_DIR + "/elements/ECPrivateKey.pem");
+			logger.info("Base64 publicKey length = " + EccUtils.publicKey2String(publicKey).length());
+			logger.info("Base64 privateKey length = " + EccUtils.privateKey2String(privateKey).length());
 
 			logger.info("Hex string publicKey length = " + Hex.encodeHexString(publicKey.getEncoded()).length());
-			System.out
-					.println("Hex string privateKey length = " + Hex.encodeHexString(privateKey.getEncoded()).length());
+			logger.info("Hex string privateKey length = " + Hex.encodeHexString(privateKey.getEncoded()).length());
 			logger.info("========================================");
 			// signature
-			byte[] signed = ECDSASigner.signECDSA(privateKey, "message".getBytes("UTF-8"));
+			byte[] signed = ECDSASigner.sign(privateKey, "message".getBytes("UTF-8"));
 			String signature = Hex.encodeHexString(signed);
 			logger.info("Hex Signature String = " + signature);
 			logger.info("Hex Signature length = " + signature.length());
 
 			// verify
-			if (false == ECDSASigner.verifyECDSA(publicKey, "message".getBytes("UTF-8"), signed)) {
+			if (false == ECDSASigner.verify(publicKey, "message".getBytes("UTF-8"), signed)) {
 				logger.info("Verify passed for invalid signature, test abort...");
 				System.exit(0);
 			}
@@ -227,30 +308,26 @@ public class CommonUtilsTest {
 	@Ignore
 	@Test
 	public void testLoadECKeyFromDER() {
-		PublicKey publicKey = null;
-		PrivateKey privateKey = null;
 		try {
-			publicKey = (PublicKey) CommonUtils.loadKeyFromDER(true, EC_STRING, USER_DIR + "/elements/publicKey.der");
-			privateKey = (PrivateKey) CommonUtils.loadKeyFromDER(false, EC_STRING,
-					USER_DIR + "/elements/privateKey.der");
+			ECPublicKey publicKey = (ECPublicKey) CommonUtils.loadKeyFromDER(true, EC_STRING,
+					USER_DIR + "/elements/ECPublicKey.der");
+			ECPrivateKey privateKey = (ECPrivateKey) CommonUtils.loadKeyFromDER(false, EC_STRING,
+					USER_DIR + "/elements/ECPrivateKey.der");
 
-			logger.info(
-					"Base64 publicKey length = " + Base64.getEncoder().encodeToString(publicKey.getEncoded()).length());
-			logger.info("Base64 privateKey length = "
-					+ Base64.getEncoder().encodeToString(privateKey.getEncoded()).length());
+			logger.info("Base64 publicKey length = " + EccUtils.publicKey2String(publicKey).length());
+			logger.info("Base64 privateKey length = " + EccUtils.privateKey2String(privateKey).length());
 
 			logger.info("Hex string publicKey length = " + Hex.encodeHexString(publicKey.getEncoded()).length());
-			System.out
-					.println("Hex string privateKey length = " + Hex.encodeHexString(privateKey.getEncoded()).length());
+			logger.info("Hex string privateKey length = " + Hex.encodeHexString(privateKey.getEncoded()).length());
 			logger.info("========================================");
 			// signature
-			byte[] signed = ECDSASigner.signECDSA(privateKey, "message".getBytes("UTF-8"));
+			byte[] signed = ECDSASigner.sign(privateKey, "message".getBytes("UTF-8"));
 			String signature = Hex.encodeHexString(signed);
 			logger.info("Hex Signature String = " + signature);
 			logger.info("Hex Signature length = " + signature.length());
 
 			// verify
-			if (false == ECDSASigner.verifyECDSA(publicKey, "message".getBytes("UTF-8"), signed)) {
+			if (false == ECDSASigner.verify(publicKey, "message".getBytes("UTF-8"), signed)) {
 				logger.info("Verify passed for invalid signature, test abort...");
 				System.exit(0);
 			}
@@ -262,24 +339,6 @@ public class CommonUtilsTest {
 	}
 
 	@Ignore
-	@Test
-	public void testPrintECKeywithOpenssl() {
-		logger.info("==================DER publicKey==================");
-		try {
-			CommonUtils.printECKeywithOpenssl(true, true, USER_DIR + "/elements/publicKey.der");
-			logger.info("\n==================DER privateKey==================");
-			CommonUtils.printECKeywithOpenssl(false, true, USER_DIR + "/elements/privateKey.der");
-			logger.info("\n");
-			logger.info("==================PEM publicKey==================");
-			CommonUtils.printECKeywithOpenssl(true, false, USER_DIR + "/elements/publicKey.pem");
-			logger.info("\n==================PEM privateKey==================");
-			CommonUtils.printECKeywithOpenssl(false, false, USER_DIR + "/elements/privateKey.pem");
-		} catch (Exception e) {
-			logger.error(e.getLocalizedMessage());
-		}
-	}
-
-//	@Ignore
 	@Test
 	public void testXOR() {
 		byte[] num1bytes = new BigInteger("21").toByteArray();

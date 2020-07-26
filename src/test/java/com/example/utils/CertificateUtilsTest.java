@@ -78,10 +78,10 @@ public class CertificateUtilsTest {
 			FileInputStream input = new FileInputStream(new File(USER_DIR + "/elements/my.keystore"));
 			KeyStore ks = CertificateUtils.getKeyStore(input, "123456".toCharArray(), JKeyStoreType.JKS);
 			// 从keyStore读取私钥:
-			String alias = "mykeystore";
+			String alias = "mykeystore1";
 			PrivateKey privateKey = (PrivateKey) ks.getKey(alias, "123456".toCharArray());
 			// 从keyStore读取证书:
-			X509Certificate certificate = (X509Certificate) ks.getCertificate("mykeystore");
+			X509Certificate certificate = (X509Certificate) ks.getCertificate("mykeystore1");
 			logger.info("certificate signature algorithm: " + certificate.getSigAlgName());
 			logger.info("certificate encryption algorithm: " + certificate.getPublicKey().getAlgorithm());
 			// 从证书读取公钥加密:
@@ -126,11 +126,11 @@ public class CertificateUtilsTest {
 
 	@Ignore
 	@Test
-	public void test() {
+	public void testPrintCertificate() {
 		try {
 			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 			char[] password = "123456".toCharArray();
-			String alias = "mykeystore";
+			String alias = "mykeystore1";
 			String certificatePath = USER_DIR + "/elements/my.cer";
 			String keyStorePath = USER_DIR + "/elements/my.keystore"; // "my.pfx";
 			byte[] data = "Hello, use X.509 cert!".getBytes("UTF-8");

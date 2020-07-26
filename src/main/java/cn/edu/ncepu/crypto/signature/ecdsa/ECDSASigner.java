@@ -6,6 +6,8 @@ import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.security.Signature;
 import java.security.SignatureException;
+import java.security.interfaces.ECPrivateKey;
+import java.security.interfaces.ECPublicKey;
 
 import org.apache.commons.codec.DecoderException;
 import org.bouncycastle.crypto.CipherParameters;
@@ -90,7 +92,7 @@ public class ECDSASigner implements Signer {
 	 * @throws SignatureException 
 	 * @throws InvalidKeyException 
 	 */
-	public static byte[] signECDSA(PrivateKey privateKey, byte[] message)
+	public static byte[] sign(ECPrivateKey privateKey, byte[] message)
 			throws NoSuchAlgorithmException, SignatureException, InvalidKeyException {
 		Signature signature = Signature.getInstance(SINGALGORITHM_STRING);
 		signature.initSign(privateKey);
@@ -108,7 +110,7 @@ public class ECDSASigner implements Signer {
 	@Override
 	public byte[] generateSignature() throws CryptoException, DataLengthException {
 		if (!forSigning) {
-			throw new IllegalStateException("ECDSASigner not initialised for signature generation.");
+			throw new IllegalStateException("ECDSA Signer not initialised for signature generation.");
 		}
 		try {
 			signature.initSign(this.privateKey);
@@ -142,7 +144,7 @@ public class ECDSASigner implements Signer {
 	 * @throws SignatureException 
 	 * @throws DecoderException 
 	 */
-	public static boolean verifyECDSA(PublicKey publicKey, byte[] message, byte[] signed)
+	public static boolean verify(ECPublicKey publicKey, byte[] message, byte[] signed)
 			throws NoSuchAlgorithmException, InvalidKeyException, SignatureException, DecoderException {
 		Signature signature = Signature.getInstance(SINGALGORITHM_STRING);
 		signature.initVerify(publicKey);

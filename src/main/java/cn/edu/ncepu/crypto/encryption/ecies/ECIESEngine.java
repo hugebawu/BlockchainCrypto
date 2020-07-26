@@ -59,14 +59,14 @@ public class ECIESEngine extends Engine {
 	 * @throws InvalidKeyException 
 	 * @throws NoSuchPaddingException 
 	 */
-	public String encrypt(String content, PublicKey publicKey) throws NoSuchAlgorithmException, NoSuchPaddingException,
+	public byte[] encrypt(byte[] content, PublicKey publicKey) throws NoSuchAlgorithmException, NoSuchPaddingException,
 			InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
 		BouncyCastleProvider bcProvider = new BouncyCastleProvider();
 		Cipher cipher = Cipher.getInstance("ECIES", bcProvider);
+//		EccUtils.setFieldValueByFieldName(cipher);
 		cipher.init(Cipher.ENCRYPT_MODE, publicKey);
-		byte[] ciphertext = cipher.doFinal(content.getBytes());
-		// for transmission encode cipherText as Base64
-		return Base64.getEncoder().encodeToString(ciphertext);
+		byte[] ciphertext = cipher.doFinal(content);
+		return ciphertext;
 	}
 
 	/**
@@ -80,11 +80,13 @@ public class ECIESEngine extends Engine {
 	 * @throws IllegalBlockSizeException 
 	 * @throws InvalidKeyException 
 	 */
-	public String decrypt(String ciphertext, PrivateKey privateKey) throws NoSuchAlgorithmException,
+	public byte[] decrypt(String ciphertext, PrivateKey privateKey) throws NoSuchAlgorithmException,
 			NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, InvalidKeyException {
+		// ciphertext是采用base64编码后的内容，方便用于传输，下面会解码为byte[]类型的值
 		BouncyCastleProvider bcProvider = new BouncyCastleProvider();
 		Cipher cipher = Cipher.getInstance("ECIES", bcProvider);
+//		EccUtils.setFieldValueByFieldName(cipher);
 		cipher.init(Cipher.DECRYPT_MODE, privateKey);
-		return new String(cipher.doFinal(Base64.getDecoder().decode(ciphertext)));
+		return cipher.doFinal(Base64.getDecoder().decode(ciphertext));
 	}
 }

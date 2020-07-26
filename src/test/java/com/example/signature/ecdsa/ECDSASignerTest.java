@@ -5,21 +5,20 @@ import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.KeyPair;
 import java.security.NoSuchAlgorithmException;
-import java.security.PrivateKey;
-import java.security.PublicKey;
 import java.security.SignatureException;
+import java.security.interfaces.ECPrivateKey;
+import java.security.interfaces.ECPublicKey;
 
 import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.binary.Hex;
 import org.bouncycastle.crypto.Signer;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import cn.edu.ncepu.crypto.algebra.generators.PairingKeyPairGenerator;
 import cn.edu.ncepu.crypto.signature.ecdsa.ECDSASigner;
-import cn.edu.ncepu.crypto.utils.CommonUtils;
+import cn.edu.ncepu.crypto.utils.EccUtils;
 
 /**
  * @Copyright : Copyright (c) 2020-2021 
@@ -37,15 +36,26 @@ public class ECDSASignerTest {
 	private static final String CURVE_NAME = "secp256k1";
 	private Signer signer;
 
-	@Ignore
+//	@Ignore
 	@Test
 	public void testECDSASigner() {
 		try {
 			// keyGen
-			KeyPair keyPair = CommonUtils.initKey(EC_STRING, CURVE_NAME);
-			PublicKey publicKey = keyPair.getPublic();
-			PrivateKey privateKey = keyPair.getPrivate();
-			logger.info("privateKey length = " + Hex.encodeHexString(privateKey.getEncoded()).length());
+//			KeyPair keyPair = CommonUtils.initKey(EC_STRING, CURVE_NAME);
+			KeyPair keyPair = EccUtils.getKeyPair(256);
+
+			ECPublicKey publicKey = (ECPublicKey) keyPair.getPublic();
+			ECPrivateKey privateKey = (ECPrivateKey) keyPair.getPrivate();
+
+			// 生成一个Base64编码的公钥字符串，可用来传输
+			String ecBase64PublicKey = EccUtils.publicKey2String(publicKey);
+			String ecBase64PrivateKey = EccUtils.privateKey2String(privateKey);
+			logger.info("[publickey]:\t" + ecBase64PublicKey);
+			logger.info("[privateKey]:\t" + ecBase64PrivateKey);
+
+			// 从base64编码的字符串恢复密钥
+			ECPublicKey publicKey2 = EccUtils.string2PublicKey(ecBase64PublicKey);
+			ECPrivateKey privateKey2 = EccUtils.string2PrivateKey(ecBase64PrivateKey);
 
 			logger.info("Test Scott-Vanstone 1992 signature.");
 			logger.info("========================================");
@@ -53,13 +63,13 @@ public class ECDSASignerTest {
 
 			// signature
 			byte[] message = "message".getBytes("UTF-8");
-			byte[] sign = ECDSASigner.signECDSA(privateKey, message);
+			byte[] sign = ECDSASigner.sign(privateKey2, message);
 			String singHex = Hex.encodeHexString(sign);
 			logger.info("Hex signature: " + singHex);
 			logger.info("Signature length = " + singHex.length());
 
 			// verify
-			if (false == ECDSASigner.verifyECDSA(publicKey, "message".getBytes("UTF-8"), sign)) {
+			if (false == ECDSASigner.verify(publicKey2, "message".getBytes("UTF-8"), sign)) {
 				logger.info("Verify passed for invalid signature, test abort...");
 				System.exit(0);
 			}
@@ -79,6 +89,8 @@ public class ECDSASignerTest {
 		} catch (UnsupportedEncodingException e) {
 			logger.error(e.getLocalizedMessage());
 		} catch (SignatureException e) {
+			logger.error(e.getLocalizedMessage());
+		} catch (Exception e) {
 			logger.error(e.getLocalizedMessage());
 		}
 	}

@@ -52,6 +52,7 @@ public class CommonUtilsTest {
 	private static Logger logger = LoggerFactory.getLogger(CommonUtilsTest.class);
 	private static String USER_DIR = SysProperty.USER_DIR;
 	private static final String EC_STRING = "EC";
+	private static final int TIMES = 100_000;
 
 	@Ignore
 	@Test
@@ -94,18 +95,22 @@ public class CommonUtilsTest {
 		assertEquals(hexHash, hash);
 	}
 
-	private static final int TIMES = 1_000_000;
-
 	public static long sha256() {
 		String message = generateStringToHash();
 		StopWatch watch = new StopWatch();
-		watch.start();
-		for (int i = 0; i < TIMES; i++) {
-			DigestUtils.sha256Hex(message);
+		int BATCH_SIZE = 10;
+		long count = 0;
+		for (int i = 0; i < BATCH_SIZE; i++) {
+			watch.start();
+			for (int j = 0; j < TIMES; j++) {
+				DigestUtils.sha256Hex(message);
+			}
+			watch.stop();
+			count += watch.getTime();
+			watch.reset();
 		}
-		watch.stop();
-		System.out.println(DigestUtils.sha256Hex(message));
-		return watch.getTime();
+		count = count / BATCH_SIZE;
+		return count;
 	}
 
 	public static String generateStringToHash() {

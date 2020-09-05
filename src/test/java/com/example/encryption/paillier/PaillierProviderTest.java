@@ -51,13 +51,11 @@ public class PaillierProviderTest {
 		final Cipher cipher = Cipher.getInstance("Paillier");
 		final Cipher cipherHP = Cipher.getInstance("PaillierHP");
 
-		logger.info("The Paillier public key through Generator is \n" + keyPair.toString());
-		System.err.println("The Paillier public key is \n" + keyPair.getPublic().toString());
-		System.err.println("The Paillier private key is \n" + keyPair.getPrivate().toString());
+		logger.info("The Paillier public key is: " + pubKey.toString());
+		logger.info("The Paillier private key is: " + privKey.toString());
 		String plainText = "101";
 		String plaintext1 = "101";
 		// get the n
-
 		String[] keyComponents = pubKey.toString().split(DELIMITER);
 		String keyComponent = "";
 		for (String component : keyComponents) {
@@ -78,7 +76,7 @@ public class PaillierProviderTest {
 
 		// product mod n^2
 		BigInteger tallyProduct = product.mod(n2);
-		System.err.println(" Product mod n^2:      " + tallyProduct);
+		logger.info(" Product mod n^2:      " + tallyProduct);
 		decrypt(tallyProduct.toByteArray(), privKey, cipherHP);
 
 		decrypt(codedBytes.toByteArray(), privKey, cipherHP);
@@ -86,26 +84,26 @@ public class PaillierProviderTest {
 
 		////////////////////////////// BLOCK EXAMPLE/////////////////////////////////
 		String plainTextBlock = "This Provider working correctly and its safe 10000000000000000011000000000000000001";
-		System.err.println("This is the message which will be encrypted: " + plainTextBlock);
+		logger.info("\n" + "This is the message which will be encrypted: " + plainTextBlock);
 
 		// encrypt
 		byte[] codedBytesBlock = encryptBlock(plainTextBlock.getBytes(), pubKey, cipher);
 		String codedMessageBlock = new String(codedBytesBlock);
 		String codedMessageBlockInHEX = formatingHexRepresentation(codedBytesBlock);
-		System.err.println("\n" + "ENCRYPTED :  \n" + codedMessageBlock);
-		System.err.println("\n" + "ENCRYPTED in HEX:  \n" + codedMessageBlockInHEX);
+		logger.info("ENCRYPTED :  \n" + codedMessageBlock + "\n");
+		logger.info("ENCRYPTED in HEX:  \n" + codedMessageBlockInHEX + "\n");
 
 		// decrypt
 		byte[] encodedBytesBlock = decryptBlock(codedMessageBlock, privKey, cipher);
 		String encodedMessageBlock = new String(encodedBytesBlock);
-		System.err.println("\n" + "DECRYPTED:  \n" + encodedMessageBlock);
+		logger.info("DECRYPTED:  \n" + encodedMessageBlock);
 	}
 
 	public byte[] encryptBlock(final byte[] text, final PublicKey key, final Cipher cipher) throws Exception {
 
 		byte[] cipherText = null;
 
-		System.err.println("\n" + "Provider encryption is: " + cipher.getProvider().getInfo());
+		logger.info("\n" + "Provider encryption is: " + cipher.getProvider().getInfo());
 		// encrypt the plaintext using the public key
 		cipher.init(Cipher.ENCRYPT_MODE, key);
 		cipherText = cipher.doFinal(text);
@@ -119,7 +117,7 @@ public class PaillierProviderTest {
 	public byte[] decryptBlock(final String text, final PrivateKey key, final Cipher cipher) throws Exception {
 
 		byte[] dectyptedBytes = null;
-		System.err.println("\n" + "Provider for decryption is: " + cipher.getProvider().getInfo());
+		logger.info("\n" + "Provider for decryption is: " + cipher.getProvider().getInfo());
 		cipher.init(Cipher.DECRYPT_MODE, key);
 		final BASE64Decoder decoder = new BASE64Decoder();
 		final byte[] raw = decoder.decodeBuffer(text);
@@ -153,13 +151,13 @@ public class PaillierProviderTest {
 	public BigInteger encrypt(final byte[] text, final PublicKey key, final Cipher cipher) throws Exception {
 
 		byte[] cipherText = null;
-		System.err.println("\n" + "Provider encryption is: " + cipher.getProvider().getInfo());
+		logger.info("\n" + "Provider for encryption is: " + cipher.getProvider().getInfo());
 
 		// encrypt the plaintext using the public key
 		cipher.init(Cipher.ENCRYPT_MODE, key);
 		cipherText = cipher.doFinal(text);
 		BigInteger result = new BigInteger(cipherText);
-		System.err.println("BigInteger ciphertext: " + result);
+		logger.info("BigInteger ciphertext: " + result);
 
 		return result;
 	}
@@ -167,11 +165,11 @@ public class PaillierProviderTest {
 	public BigInteger decrypt(final byte[] text, final PrivateKey key, final Cipher cipher) throws Exception {
 
 		byte[] dectyptedBytes = null;
-		System.out.println("\n" + "Provider for decryption is: " + cipher.getProvider().getInfo());
+		logger.info("\n" + "Provider for decryption is: " + cipher.getProvider().getInfo());
 		cipher.init(Cipher.DECRYPT_MODE, key);
 		dectyptedBytes = cipher.doFinal(text);
 		BigInteger resultPlain = new BigInteger(dectyptedBytes);
-		System.err.println("BigInteger plaintext: " + resultPlain);
+		logger.info("BigInteger plaintext: " + resultPlain);
 
 		return resultPlain;
 	}

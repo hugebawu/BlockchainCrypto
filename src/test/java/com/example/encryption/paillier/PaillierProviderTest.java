@@ -3,6 +3,8 @@
  */
 package com.example.encryption.paillier;
 
+import static org.junit.Assert.assertTrue;
+
 import java.math.BigInteger;
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
@@ -12,13 +14,14 @@ import java.security.Security;
 
 import javax.crypto.Cipher;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import cn.edu.ncepu.crypto.encryption.paillier.PaillierEngine;
 import cn.edu.ncepu.crypto.encryption.paillier.PaillierProvider;
-import sun.misc.BASE64Decoder;
-import sun.misc.BASE64Encoder;
+import cn.edu.ncepu.crypto.utils.CommonUtils;
 
 /**
  * @Copyright : Copyright (c) 2020-2021 E1101智能电网信息安全中心
@@ -29,14 +32,15 @@ import sun.misc.BASE64Encoder;
  * @Description: TODO(test encryption,decryption paillier JCA Provider and several properties including hommomorphism)
  */
 
-@SuppressWarnings("restriction")
 public class PaillierProviderTest {
 
 	private static final String DELIMITER = "[,]";
 	private static Logger logger = LoggerFactory.getLogger(PaillierProviderTest.class);
+	private static PaillierEngine engine = PaillierEngine.getInstance();
 
+	@Ignore
 	@Test
-	public void testEnc_Dec() throws Exception {
+	public void testHomomorphism() throws Exception {
 
 		// Add dynamically the desired provider
 		Security.addProvider(new PaillierProvider());
@@ -48,7 +52,6 @@ public class PaillierProviderTest {
 		PublicKey pubKey = keyPair.getPublic();
 		PrivateKey privKey = keyPair.getPrivate();
 
-		final Cipher cipher = Cipher.getInstance("Paillier");
 		final Cipher cipherHP = Cipher.getInstance("PaillierHP");
 
 		logger.info("The Paillier public key is: " + pubKey.toString());
@@ -69,61 +72,64 @@ public class PaillierProviderTest {
 		BigInteger n2 = n.multiply(n);
 
 		// encrypt
-		BigInteger codedBytes = encrypt(first.toByteArray(), pubKey, cipherHP);
-		BigInteger codedBytes12 = encrypt(second.toByteArray(), pubKey, cipherHP);
+		logger.info("\n" + "Provider for encryption is: " + cipherHP.getProvider().getInfo());
+		BigInteger codedBytes = engine.encrypt(first.toByteArray(), pubKey, cipherHP);
+		logger.info("BigInteger ciphertext: " + codedBytes);
+
+		BigInteger codedBytes12 = engine.encrypt(second.toByteArray(), pubKey, cipherHP);
+		logger.info("BigInteger ciphertext: " + codedBytes12);
+
+		BigInteger resultPlain1 = engine.decrypt(codedBytes.toByteArray(), privKey, cipherHP);
+		logger.info("BigInteger resultPlain: " + resultPlain1);
+
+		BigInteger resultPlain2 = engine.decrypt(codedBytes12.toByteArray(), privKey, cipherHP);
+		logger.info("BigInteger resultPlain: " + resultPlain2);
+
 		// product
 		BigInteger product = codedBytes.multiply(codedBytes12);
 
 		// product mod n^2
 		BigInteger tallyProduct = product.mod(n2);
 		logger.info(" Product mod n^2:      " + tallyProduct);
-		decrypt(tallyProduct.toByteArray(), privKey, cipherHP);
 
-		decrypt(codedBytes.toByteArray(), privKey, cipherHP);
-		decrypt(codedBytes12.toByteArray(), privKey, cipherHP);
+		logger.info("\n" + "Provider for decryption is: " + cipherHP.getProvider().getInfo());
+		BigInteger resultPlain = engine.decrypt(tallyProduct.toByteArray(), privKey, cipherHP);
+		logger.info("BigInteger resultPlain: " + resultPlain);
+		assertTrue(resultPlain.equals(resultPlain1.add(resultPlain2)));
+
+	}
+
+	@Ignore
+	@Test
+	public void testBlockEncryption() throws Exception {
+		// Add dynamically the desired provider
+		Security.addProvider(new PaillierProvider());
+		/////////////////////////////////////////////////////////////////////
+		KeyPairGenerator kpg = KeyPairGenerator.getInstance("Paillier");
+		kpg.initialize(32);
+		KeyPair keyPair = kpg.generateKeyPair();
+		PublicKey pubKey = keyPair.getPublic();
+		PrivateKey privKey = keyPair.getPrivate();
+
+		final Cipher cipher = Cipher.getInstance("Paillier");
 
 		////////////////////////////// BLOCK EXAMPLE/////////////////////////////////
 		String plainTextBlock = "This Provider working correctly and its safe 10000000000000000011000000000000000001";
-		logger.info("\n" + "This is the message which will be encrypted: " + plainTextBlock);
+		logger.info("This is the message which will be encrypted: " + plainTextBlock);
 
 		// encrypt
-		byte[] codedBytesBlock = encryptBlock(plainTextBlock.getBytes(), pubKey, cipher);
-		String codedMessageBlock = new String(codedBytesBlock);
+		logger.info("Provider for encryption is: " + cipher.getProvider().getInfo());
+		byte[] codedBytesBlock = engine.encryptBlock(plainTextBlock.getBytes(), pubKey, cipher);
+		String codedMessageBlock = new String(codedBytesBlock, "UTF-8");
 		String codedMessageBlockInHEX = formatingHexRepresentation(codedBytesBlock);
 		logger.info("ENCRYPTED :  \n" + codedMessageBlock + "\n");
 		logger.info("ENCRYPTED in HEX:  \n" + codedMessageBlockInHEX + "\n");
 
 		// decrypt
-		byte[] encodedBytesBlock = decryptBlock(codedMessageBlock, privKey, cipher);
+		logger.info("\n" + "Provider for decryption is: " + cipher.getProvider().getInfo());
+		byte[] encodedBytesBlock = engine.decryptBlock(codedMessageBlock, privKey, cipher);
 		String encodedMessageBlock = new String(encodedBytesBlock);
 		logger.info("DECRYPTED:  \n" + encodedMessageBlock);
-	}
-
-	public byte[] encryptBlock(final byte[] text, final PublicKey key, final Cipher cipher) throws Exception {
-
-		byte[] cipherText = null;
-
-		logger.info("\n" + "Provider encryption is: " + cipher.getProvider().getInfo());
-		// encrypt the plaintext using the public key
-		cipher.init(Cipher.ENCRYPT_MODE, key);
-		cipherText = cipher.doFinal(text);
-		final BASE64Encoder encoder = new BASE64Encoder();
-		final String base64 = encoder.encode(cipherText);
-		final byte[] encryptedBytes = base64.getBytes();
-
-		return encryptedBytes;
-	}
-
-	public byte[] decryptBlock(final String text, final PrivateKey key, final Cipher cipher) throws Exception {
-
-		byte[] dectyptedBytes = null;
-		logger.info("\n" + "Provider for decryption is: " + cipher.getProvider().getInfo());
-		cipher.init(Cipher.DECRYPT_MODE, key);
-		final BASE64Decoder decoder = new BASE64Decoder();
-		final byte[] raw = decoder.decodeBuffer(text);
-		dectyptedBytes = cipher.doFinal(raw);
-
-		return dectyptedBytes;
 	}
 
 	/**
@@ -134,73 +140,15 @@ public class PaillierProviderTest {
 	 * @return String in Hex form with ":" between every two symbols
 	 */
 	public static String formatingHexRepresentation(final byte[] codedBytes) {
-
 		String hexRepresentation = "";
 		String eye;
 		for (int i = 0; i < codedBytes.length; i++) {
-			eye = byteToHex(codedBytes[i]);
+			eye = CommonUtils.byteToHex(codedBytes[i]);
 			hexRepresentation += eye;
 			if (i < codedBytes.length - 1) {
 				hexRepresentation += ":";
 			}
 		}
-
 		return hexRepresentation;
-	}
-
-	public BigInteger encrypt(final byte[] text, final PublicKey key, final Cipher cipher) throws Exception {
-
-		byte[] cipherText = null;
-		logger.info("\n" + "Provider for encryption is: " + cipher.getProvider().getInfo());
-
-		// encrypt the plaintext using the public key
-		cipher.init(Cipher.ENCRYPT_MODE, key);
-		cipherText = cipher.doFinal(text);
-		BigInteger result = new BigInteger(cipherText);
-		logger.info("BigInteger ciphertext: " + result);
-
-		return result;
-	}
-
-	public BigInteger decrypt(final byte[] text, final PrivateKey key, final Cipher cipher) throws Exception {
-
-		byte[] dectyptedBytes = null;
-		logger.info("\n" + "Provider for decryption is: " + cipher.getProvider().getInfo());
-		cipher.init(Cipher.DECRYPT_MODE, key);
-		dectyptedBytes = cipher.doFinal(text);
-		BigInteger resultPlain = new BigInteger(dectyptedBytes);
-		logger.info("BigInteger plaintext: " + resultPlain);
-
-		return resultPlain;
-	}
-
-	/**
-	 * Convenience method to convert a byte to a hex string.
-	 * 
-	 * @param data the byte to convert
-	 * @return String the converted byte
-	 */
-	public static String byteToHex(byte data) {
-
-		StringBuffer buf = new StringBuffer();
-		buf.append(toHexChar((data >>> 4) & 0x0F));
-		buf.append(toHexChar(data & 0x0F));
-
-		return buf.toString();
-	}
-
-	/**
-	 * Convenience method to convert an int to a hex char.
-	 * 
-	 * @param i the int to convert
-	 * @return char the converted char
-	 */
-	public static char toHexChar(int i) {
-
-		if ((0 <= i) && (i <= 9)) {
-			return (char) ('0' + i);
-		} else {
-			return (char) ('A' + (i - 10));
-		}
 	}
 }

@@ -417,6 +417,36 @@ public class CommonUtils {
 	}
 
 	/**
+	 * Convenience method to convert a byte to a hex string.
+	 * 
+	 * @param data the byte to convert
+	 * @return String the converted byte
+	 */
+	public static String byteToHex(byte data) {
+
+		StringBuffer buf = new StringBuffer();
+		buf.append(toHexChar((data >>> 4) & 0x0F));
+		buf.append(toHexChar(data & 0x0F));
+
+		return buf.toString();
+	}
+
+	/**
+	 * Convenience method to convert an int to a hex char.
+	 * 
+	 * @param i the int to convert
+	 * @return char the converted char
+	 */
+	public static char toHexChar(int i) {
+
+		if ((0 <= i) && (i <= 9)) {
+			return (char) ('0' + i);
+		} else {
+			return (char) ('A' + (i - 10));
+		}
+	}
+
+	/**
 	 * TODO(function the same as org.apache.commons.codec.binary.Hex.encodeHexString)
 	 * @param bytes bytes waits to be encoded to Hex(Base 16)
 	 * @return 参数描述

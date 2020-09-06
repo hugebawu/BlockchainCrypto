@@ -20,7 +20,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import cn.edu.ncepu.crypto.encryption.paillier.PaillierEngine;
+import cn.edu.ncepu.crypto.encryption.paillier.PaillierPrivateKey;
 import cn.edu.ncepu.crypto.encryption.paillier.PaillierProvider;
+import cn.edu.ncepu.crypto.encryption.paillier.PaillierPublicKey;
 import cn.edu.ncepu.crypto.utils.CommonUtils;
 
 /**
@@ -38,9 +40,13 @@ public class PaillierProviderTest {
 	private static Logger logger = LoggerFactory.getLogger(PaillierProviderTest.class);
 	private static PaillierEngine engine = PaillierEngine.getInstance();
 
+	/**
+	 * Verify for every m1,m2属于Zn, D( E(m1)E(m2) mod n^2)= m1+m2 mod n
+	 * @throws Exception 参数描述
+	 */
 	@Ignore
 	@Test
-	public void testHomomorphism() throws Exception {
+	public void testHomomorphism1() throws Exception {
 
 		// Add dynamically the desired provider
 		Security.addProvider(new PaillierProvider());
@@ -79,6 +85,7 @@ public class PaillierProviderTest {
 		BigInteger codedBytes12 = engine.encrypt(second.toByteArray(), pubKey, cipherHP);
 		logger.info("BigInteger ciphertext: " + codedBytes12);
 
+		// encrypt
 		BigInteger resultPlain1 = engine.decrypt(codedBytes.toByteArray(), privKey, cipherHP);
 		logger.info("BigInteger resultPlain: " + resultPlain1);
 
@@ -95,8 +102,79 @@ public class PaillierProviderTest {
 		logger.info("\n" + "Provider for decryption is: " + cipherHP.getProvider().getInfo());
 		BigInteger resultPlain = engine.decrypt(tallyProduct.toByteArray(), privKey, cipherHP);
 		logger.info("BigInteger resultPlain: " + resultPlain);
-		assertTrue(resultPlain.equals(resultPlain1.add(resultPlain2)));
 
+		// verify homomorphism
+		assertTrue(resultPlain.equals(resultPlain1.add(resultPlain2).mod(n)));
+	}
+
+	/**
+	 * Verify for every m belong to Zn, D( E(m)^k mod n^2)= km mod n
+	 * @throws Exception 参数描述
+	 */
+	@Ignore
+	@Test
+	public void testHomomorphism2() throws Exception {
+		// Add dynamically the desired provider
+		Security.addProvider(new PaillierProvider());
+
+		KeyPairGenerator kpg = KeyPairGenerator.getInstance("Paillier");
+		kpg.initialize(32);
+		KeyPair keyPair = kpg.generateKeyPair();
+		PaillierPublicKey pubKey = (PaillierPublicKey) keyPair.getPublic();
+		PaillierPrivateKey privKey = (PaillierPrivateKey) keyPair.getPrivate();
+		final Cipher cipherHP = Cipher.getInstance("PaillierHP");
+
+		BigInteger m = new BigInteger("101");
+		// get the n
+		BigInteger n = pubKey.getN();
+		BigInteger nSquare = pubKey.getNSquare();
+
+		// encrypt
+		BigInteger encrypted_m = engine.encrypt(m.toByteArray(), pubKey, cipherHP);
+
+		BigInteger k = new BigInteger("56756756765");
+		BigInteger km = k.multiply(m).mod(n);
+
+		// decrypt
+		BigInteger resultPlain = engine.decrypt(encrypted_m.modPow(k, nSquare).toByteArray(), privKey, cipherHP);
+		logger.info("BigInteger resultPlain: " + resultPlain);
+
+		// verify homomorphism
+		assertTrue(resultPlain.equals(km.mod(n)));
+	}
+
+	/**
+	 * Verify for every m1,m2 belong to Zn, D( E(m1)^m2 mod n^2)= m1m2 mod n
+	 * @throws Exception 参数描述
+	 */
+	@Ignore
+	@Test
+	public void testHomomorphism3() throws Exception {
+		// Add dynamically the desired provider
+		Security.addProvider(new PaillierProvider());
+
+		KeyPairGenerator kpg = KeyPairGenerator.getInstance("Paillier");
+		kpg.initialize(32);
+		KeyPair keyPair = kpg.generateKeyPair();
+		PaillierPublicKey pubKey = (PaillierPublicKey) keyPair.getPublic();
+		PaillierPrivateKey privKey = (PaillierPrivateKey) keyPair.getPrivate();
+		final Cipher cipherHP = Cipher.getInstance("PaillierHP");
+
+		BigInteger m1 = new BigInteger("101");
+		BigInteger m2 = new BigInteger("3");
+		// get the n
+		BigInteger n = pubKey.getN();
+		BigInteger nSquare = pubKey.getNSquare();
+
+		// encrypt
+		BigInteger encrypted_m1 = engine.encrypt(m1.toByteArray(), pubKey, cipherHP);
+
+		// decrypt
+		BigInteger resultPlain = engine.decrypt(encrypted_m1.modPow(m2, nSquare).toByteArray(), privKey, cipherHP);
+		logger.info("BigInteger resultPlain: " + resultPlain);
+
+		// verify homomorphism
+		assertTrue(resultPlain.equals(m1.multiply(m2).mod(n)));
 	}
 
 	@Ignore

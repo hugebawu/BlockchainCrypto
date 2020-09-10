@@ -26,6 +26,7 @@ import cn.edu.ncepu.crypto.utils.ShellExecutor.CommandTimeoutException;
  * @ClassName ShellExecutor
  * @Description: TODO(interactive shell command execution tool)
  */
+@SuppressWarnings("unused")
 public class ShellExecutor {
 
 	private static Logger logger = LoggerFactory.getLogger(ShellExecutor.class);

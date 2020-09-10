@@ -19,6 +19,7 @@ import cn.edu.ncepu.crypto.utils.SysProperty;
  * @ClassName EccUtilsTest
  * @Description: TODO(这里用一句话描述这个方法的作用)
  */
+@SuppressWarnings("unused")
 public class EccUtilsTest {
 	private static Logger logger = LoggerFactory.getLogger(EccUtilsTest.class);
 	private static String USER_DIR = SysProperty.USER_DIR;

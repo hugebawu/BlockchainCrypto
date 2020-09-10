@@ -27,6 +27,7 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.parameters.PropertiesParameters;
  *
  * Utilities for pairing-based cryptography.
  */
+@SuppressWarnings("rawtypes")
 public class PairingUtils {
 	public static final String PATH_a_160_512 = "params/a_160_512.properties";
 //    public static final String PATH_a_320_512 = "params/a_320_512.properties";

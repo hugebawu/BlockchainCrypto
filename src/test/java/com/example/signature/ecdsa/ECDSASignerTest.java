@@ -36,6 +36,7 @@ import cn.edu.ncepu.crypto.utils.SysProperty;
  * @ClassName ECDSASignerTest
  * @Description: TODO(elliptic curve based dsa(Digital Signature Algorithm) test.)
  */
+@SuppressWarnings("unused")
 public class ECDSASignerTest {
 	private static Logger logger = LoggerFactory.getLogger(ECDSASignerTest.class);
 	private PairingKeyPairGenerator asymmetricKeySerPairGenerator;

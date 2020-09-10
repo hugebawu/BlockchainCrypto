@@ -35,6 +35,7 @@ import org.bouncycastle.jce.provider.BouncyCastleProvider;
  * （当然自己也可以替换jre环境的jar包，具体jar包可以去网上查找异常的解决方案）。
  * 2.私钥和公钥可以使用Base'64进行编码，后用来传输。到其他服务使用时，可以将Base64字符串转成相应的私钥和公钥对象。
  */
+@SuppressWarnings("unused")
 public class EccUtils {
 	// 密钥长度
 	private final static int KEY_SIZE = 256;

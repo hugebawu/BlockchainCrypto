@@ -14,6 +14,7 @@ import it.unisa.dia.gas.plaf.jpbc.field.z.ZrElement;
  * @ClassName ECCEGKeyPair
  * @Description: TODO(这里用一句话描述这个方法的作用)
  */
+@SuppressWarnings("rawtypes")
 public class ECCEGKeyPair {
 
 	ZrElement privateKey;

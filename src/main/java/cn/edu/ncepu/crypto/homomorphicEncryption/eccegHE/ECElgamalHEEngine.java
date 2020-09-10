@@ -54,6 +54,7 @@ public class ECElgamalHEEngine extends Engine implements HE {
 		return engine;
 	}
 
+	@SuppressWarnings("unchecked")
 	public ECElgamalHEEngine(Pairing pairing) {
 		super(SCHEME_NAME, ProveSecModel.RandomOracle, PayloadSecLevel.CPA, PredicateSecLevel.ANON);
 		this.pairing = (TypeAPairing) pairing;

@@ -44,6 +44,7 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  * @ClassName IBEHEEngineTest
  * @Description: TODO(IBE-based homomorphic encryption engine test.)
  */
+@SuppressWarnings("unused")
 public class IBEHEEngineTest {
 	private static Logger logger = LoggerFactory.getLogger(IBEHEEngineTest.class);
 	private static final String identity_1 = "ID_1";

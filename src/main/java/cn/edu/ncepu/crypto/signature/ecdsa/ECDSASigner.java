@@ -29,6 +29,7 @@ import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
  * @ClassName ECDSASigner
  * @Description: TODO(ecdsa signature scheme)
  */
+@SuppressWarnings("unused")
 public class ECDSASigner implements Signer {
 	private final Digest digest;
 	private final byte[] message;

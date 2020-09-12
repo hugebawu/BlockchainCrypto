@@ -12,7 +12,7 @@ import it.unisa.dia.gas.jpbc.Element;
  * @E-mail: drbjhu@163.com
  * @CreateData: Jul 11, 2020 6:05:18 PM
  * @ClassName IBEHECipherText
- * @Description: TODO(这里用一句话描述这个方法的作用)
+ * @Description:  (这里用一句话描述这个方法的作用)
  */
 public class ECElgamalHECipherText extends CipherText {
 	private Element r;

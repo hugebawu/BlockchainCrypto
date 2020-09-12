@@ -12,7 +12,7 @@ import it.unisa.dia.gas.plaf.jpbc.field.z.ZrElement;
  * @E-mail: drbjhu@163.com
  * @CreateData: Jul 14, 2020 4:28:54 PM
  * @ClassName ECCEGCipherText
- * @Description: TODO(这里用一句话描述这个方法的作用)
+ * @Description:  (这里用一句话描述这个方法的作用)
  */
 @SuppressWarnings("rawtypes")
 public class ECCEGCipherText {

@@ -28,7 +28,7 @@ import cn.edu.ncepu.crypto.keyExchange.DH;
  * @Version: 1.0
  * @CreateData: Jun 25, 2020 12:10:12 AM
  * @ClassName DHTest
- * @Description: TODO(Diffie-Hellman key exchange algorithm test)
+ * @Description:  (Diffie-Hellman key exchange algorithm test)
  */
 public class DHTest {
 
@@ -37,7 +37,7 @@ public class DHTest {
 	@Ignore
 	@Test
 	/**
-	 * TODO(test shared key generation method)
+	 *  (test shared key generation method)
 	 */
 	public void testGenSharedKey() {
 		try {

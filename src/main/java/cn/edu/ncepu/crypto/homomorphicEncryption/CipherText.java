@@ -11,7 +11,7 @@ import it.unisa.dia.gas.jpbc.Element;
  * @E-mail: drbjhu@163.com
  * @CreateData: Jul 11, 2020 6:06:28 PM
  * @ClassName CipherText
- * @Description: TODO(这里用一句话描述这个方法的作用)
+ * @Description:  (这里用一句话描述这个方法的作用)
  */
 public abstract class CipherText {
 	private Element U;

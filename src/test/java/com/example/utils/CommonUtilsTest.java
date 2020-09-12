@@ -46,7 +46,7 @@ import cn.edu.ncepu.crypto.utils.SysProperty;
  * @Version: 1.0
  * @CreateData: Jun 21, 2020 12:08:45 AM
  * @ClassName CommonUtilsTest
- * @Description: TODO(test methods of CommonUtils)
+ * @Description:  (test methods of CommonUtils)
  */
 public class CommonUtilsTest {
 	private static Logger logger = LoggerFactory.getLogger(CommonUtilsTest.class);
@@ -305,7 +305,7 @@ public class CommonUtilsTest {
 		} catch (DecoderException e) {
 			e.printStackTrace();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			//   Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

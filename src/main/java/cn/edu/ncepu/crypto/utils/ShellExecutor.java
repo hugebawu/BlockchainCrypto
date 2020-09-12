@@ -24,7 +24,7 @@ import cn.edu.ncepu.crypto.utils.ShellExecutor.CommandTimeoutException;
  * @Version: 1.0
  * @CreateData: Jun 26, 2020 4:10:40 PM
  * @ClassName ShellExecutor
- * @Description: TODO(interactive shell command execution tool)
+ * @Description:  (interactive shell command execution tool)
  */
 @SuppressWarnings("unused")
 public class ShellExecutor {
@@ -33,7 +33,7 @@ public class ShellExecutor {
 	private static ExecutorService communicatorExecutor = Executors.newCachedThreadPool();
 
 	/**
-	 * TODO(Execute interactive shell command, return process exit value.)
+	 *  (Execute interactive shell command, return process exit value.)
 	 * If {@param timeout} was set, {@throws CommandTimeoutException} may be thrown if the command execution timeout.
 	 * @param command       shell command.
 	 * @param directory     working directory where the command would be executed.

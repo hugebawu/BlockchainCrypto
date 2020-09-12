@@ -27,7 +27,7 @@ import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
  * @Version: 1.0
  * @CreateData: Jun 17, 2020 10:54:36 PM
  * @ClassName ECDSASigner
- * @Description: TODO(ecdsa signature scheme)
+ * @Description:  (ecdsa signature scheme)
  */
 @SuppressWarnings("unused")
 public class ECDSASigner implements Signer {
@@ -84,7 +84,7 @@ public class ECDSASigner implements Signer {
 	}
 
 	/**
-	 * TODO(sign the message with private key)
+	 *  (sign the message with private key)
 	 * @param privateKey
 	 * @param message
 	 * @return signed message
@@ -134,7 +134,7 @@ public class ECDSASigner implements Signer {
 	}
 
 	/**
-	 * TODO(verify the ECDSA signature)
+	 *  (verify the ECDSA signature)
 	 * @param publickey
 	 * @param message
 	 * @param singed

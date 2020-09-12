@@ -27,7 +27,7 @@ import cn.edu.ncepu.crypto.utils.CommonUtils;
  * @Version: 1.0
  * @CreateData: Jun 19, 2020 4:15:27 PM
  * @ClassName ECDHJUnitTest
- * @Description: TODO(elliptic curve based Diffie-Hellman key exchange algorithm test)
+ * @Description:  (elliptic curve based Diffie-Hellman key exchange algorithm test)
  */
 public class ECDHTest {
 	private static Logger logger = LoggerFactory.getLogger(DHTest.class);
@@ -37,7 +37,7 @@ public class ECDHTest {
 	@Ignore
 	@Test
 	/**
-	 * @Description: TODO(test shared key generation method) 参数描述
+	 * @Description:  (test shared key generation method) 参数描述
 	 * @throws
 	 */
 	public void testGenSharedKey() {

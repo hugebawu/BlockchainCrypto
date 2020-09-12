@@ -18,7 +18,7 @@ import cn.edu.ncepu.crypto.algebra.Engine;
  * @E-mail: drbjhu@163.com
  * @CreateData: Sep 6, 2020 11:19:55 AM
  * @ClassName PaillierEngine
- * @Description: TODO(paillier cryptosystems was formally defined and constructed in 1999)
+ * @Description:  (paillier cryptosystems was formally defined and constructed in 1999)
  */
 public class PaillierEngine extends Engine {
 	// Scheme name, used for exceptions

@@ -12,7 +12,7 @@ import java.io.File;
  * @Version: 1.0
  * @CreateData: Jun 26, 2020 4:21:06 PM
  * @ClassName SysProperty
- * @Description: TODO(System.getProperty详解)
+ * @Description:  (System.getProperty详解)
  */
 
 @SuppressWarnings("all")

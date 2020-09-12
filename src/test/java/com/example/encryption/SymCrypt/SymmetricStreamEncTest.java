@@ -26,7 +26,7 @@ import edu.princeton.cs.algs4.StdOut;
  * @Version: 1.0
  * @CreateData: Jun 23, 2020 3:53:48 PM
  * @ClassName SymmetricStreamEncTest
- * @Description: TODO(test the symmetric stream encryption algorithm)
+ * @Description:  (test the symmetric stream encryption algorithm)
  */
 public class SymmetricStreamEncTest {
 	private static Logger logger = LoggerFactory.getLogger(SymmetricStreamEncTest.class);

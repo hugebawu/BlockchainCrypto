@@ -34,7 +34,7 @@ import cn.edu.ncepu.crypto.utils.SysProperty;
  * @Version: 1.0
  * @CreateData: Jun 18, 2020 3:24:26 PM
  * @ClassName ECDSASignerTest
- * @Description: TODO(elliptic curve based dsa(Digital Signature Algorithm) test.)
+ * @Description:  (elliptic curve based dsa(Digital Signature Algorithm) test.)
  */
 @SuppressWarnings("unused")
 public class ECDSASignerTest {

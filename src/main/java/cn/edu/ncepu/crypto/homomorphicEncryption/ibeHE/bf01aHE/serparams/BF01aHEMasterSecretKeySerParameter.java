@@ -21,7 +21,7 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  * @Version: 1.0
  * @CreateData: Jul 7, 2020 12:40:03 PM
  * @ClassName BF01aHEMasterSecretKeySerParameter
- * @Description: TODO(Boneh-Franklin CPA-secure IBE based Homomorphic encryption master secret key parameter)
+ * @Description:  (Boneh-Franklin CPA-secure IBE based Homomorphic encryption master secret key parameter)
  */
 public class BF01aHEMasterSecretKeySerParameter extends PairingKeySerParameter {
 
@@ -63,7 +63,7 @@ public class BF01aHEMasterSecretKeySerParameter extends PairingKeySerParameter {
 	}
 
 	/**
-	 * TODO get master secret key s from pairing parameters and the bytes of s
+	 *   get master secret key s from pairing parameters and the bytes of s
 	 * @param objectInputStream
 	 * @throws IOException
 	 * @throws ClassNotFoundException

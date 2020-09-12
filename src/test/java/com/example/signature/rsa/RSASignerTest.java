@@ -25,7 +25,7 @@ import cn.edu.ncepu.crypto.signature.rsa.RSASigner;
  * @Version: 1.0
  * @CreateData: Jun 25, 2020 2:36:03 PM
  * @ClassName RSASignerTest
- * @Description: TODO(RSA digit signature test)
+ * @Description: RSA digit signature test
  */
 public class RSASignerTest {
 	private static Logger logger = LoggerFactory.getLogger(RSASignerTest.class);

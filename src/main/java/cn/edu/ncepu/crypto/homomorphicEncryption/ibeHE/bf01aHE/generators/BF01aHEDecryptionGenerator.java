@@ -21,7 +21,7 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  * @E-mail: drbjhu@163.com
  * @CreateData: Jul 7, 2020 11:11:19 PM
  * @ClassName BF01aHEDecryptionGenerator
- * @Description: TODO(Boneh-Franklin CPA-secure IBE based homomorphic decryption generator.)
+ * @Description:  (Boneh-Franklin CPA-secure IBE based homomorphic decryption generator.)
  */
 public class BF01aHEDecryptionGenerator implements PairingDecryptionGenerator {
 	IBEHEDecryptionGenerationParameter params;

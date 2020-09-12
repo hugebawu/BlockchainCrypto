@@ -33,7 +33,7 @@ import cn.edu.ncepu.crypto.encryption.SymCrypt.pbe.PBEEngine;
  * @Version: 1.0
  * @CreateData: Jun 24, 2020 9:21:41 PM
  * @ClassName PBEEngineTest
- * @Description: TODO(password based encryption)
+ * @Description:  (password based encryption)
  */
 public class PBEEngineTest {
 	private static Logger logger = LoggerFactory.getLogger(PBEEngineTest.class);

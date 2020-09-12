@@ -22,7 +22,7 @@ import org.bouncycastle.util.encoders.Hex;
  * @Version: 1.0
  * @CreateData: Jun 23, 2020 3:42:09 PM
  * @ClassName SymmetricStreamEnc
- * @Description: TODO(流密码算法这里只实现了RC4算法，实际上Bouncy Castle里面实现了所有已经公开的流密码算法，
+ * @Description:  (流密码算法这里只实现了RC4算法，实际上Bouncy Castle里面实现了所有已经公开的流密码算法，
  * 但是RC4算法依然是流密码算法的主流。我们的单钥加密函数有两部分：对于任意byte[]的加密，以及对于任意inputstream的加密。
  * 这里要注意的是，inputstream的加密我们使用了格式化输出，而非传统的将加密结果直接写入outputstream。这么做的原因是，
  * 对于不同操作系统，其编码方式有所不同。在Windows下面，如果打开一个byte[]文件，那么系统会自动对文件进行可行的转换操作，
@@ -33,7 +33,7 @@ public class SymmetricStreamEnc {
 	private static final int DEFUALT_BLOCK_SIZE = 128;
 
 	/**
-	 * TODO RC4 file encryption method
+	 *   RC4 file encryption method
 	 * @param key
 	 * @param plaintext
 	 * @return 参数描述
@@ -53,7 +53,7 @@ public class SymmetricStreamEnc {
 	}
 
 	/**
-	 * TODO RC4 string decryption method
+	 *   RC4 string decryption method
 	 * @param key
 	 * @param ciphertext
 	 * @return 
@@ -73,7 +73,7 @@ public class SymmetricStreamEnc {
 	}
 
 	/**
-	 * TODO RC4 file decryption method
+	 *   RC4 file decryption method
 	 * @param key
 	 * @param in
 	 * @param out 
@@ -103,7 +103,7 @@ public class SymmetricStreamEnc {
 	}
 
 	/**
-	 * TODO RC4 file encryption method
+	 *   RC4 file encryption method
 	 * @param key
 	 * @param in
 	 * @param out

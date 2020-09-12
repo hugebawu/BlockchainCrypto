@@ -20,7 +20,7 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  * @E-mail: drbjhu@163.com
  * @CreateData: Jul 7, 2020 10:01:04 PM
  * @ClassName BF01aHECiphertextSerParameter
- * @Description: TODO(Boneh-Franklin CPA-secure IBE based homomorphic ciphertext parameter.)
+ * @Description:  (Boneh-Franklin CPA-secure IBE based homomorphic ciphertext parameter.)
  */
 public class BF01aHECiphertextSerParameter extends PairingCipherSerParameter {
 

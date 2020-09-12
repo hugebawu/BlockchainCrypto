@@ -32,7 +32,7 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  * @E-mail: drbjhu@163.com
  * @CreateData: Jul 11, 2020 7:26:24 PM
  * @ClassName ECElgamalHEEngineTest
- * @Description: TODO(这里用一句话描述这个方法的作用)
+ * @Description:  (这里用一句话描述这个方法的作用)
  */
 public class ECElgamalHEEngineTest {
 	private static Logger logger = LoggerFactory.getLogger(ECElgamalHEEngineTest.class);
@@ -40,7 +40,7 @@ public class ECElgamalHEEngineTest {
 	private ECElgamalHEEngine engine;
 
 	/**
-	 * TODO 测试ECElgamalHE的加密解密功能
+	 *   测试ECElgamalHE的加密解密功能
 	 */
 	@Ignore
 	@Test

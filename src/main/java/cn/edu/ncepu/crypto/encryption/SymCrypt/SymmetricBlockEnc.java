@@ -38,7 +38,7 @@ import org.bouncycastle.util.encoders.Hex;
  * @Version: 1.0
  * @CreateData: Jun 23, 2020 4:07:12 PM
  * @ClassName SymmetricBlockEnc
- * @Description: TODO(对于分组密码算法，这里只实现了AES（128bit, 192bit和256bit版本），我们实现了不同的工作模式。
+ * @Description:  (对于分组密码算法，这里只实现了AES（128bit, 192bit和256bit版本），我们实现了不同的工作模式。
  * 工作模式的控制由枚举类来完成。对于分组密码，其加密解密过程要稍微复杂一点，需要引入BufferedStream，不过大致的加密流程类似。)
  */
 public class SymmetricBlockEnc {
@@ -78,7 +78,7 @@ public class SymmetricBlockEnc {
 	private static int DEFAULT_SIZE = 16;
 
 	/**
-	 * TODO(AEC encrytion and decryption method realized through BouncyCastle)
+	 *  (AEC encrytion and decryption method realized through BouncyCastle)
 	 * @param isEnc used for encryption or decryption
 	 * @param mode work mode including ECB, CBC, CFB, OFB
 	 * @param key symmetric key
@@ -143,7 +143,7 @@ public class SymmetricBlockEnc {
 	}
 
 	/**
-	 * TODO AES string encryption method
+	 *   AES string encryption method
 	 * @param mode
 	 * @param key
 	 * @param iv
@@ -204,7 +204,7 @@ public class SymmetricBlockEnc {
 	}
 
 	/**
-	 * TODO AES file encryption method
+	 *   AES file encryption method
 	 * @param mode
 	 * @param key
 	 * @param iv
@@ -285,7 +285,7 @@ public class SymmetricBlockEnc {
 	}
 
 	/**
-	 * TODO AES string decryption method
+	 *   AES string decryption method
 	 * @param mode
 	 * @param key
 	 * @param iv
@@ -345,7 +345,7 @@ public class SymmetricBlockEnc {
 	}
 
 	/**
-	 * TODO AES file decryption method
+	 *   AES file decryption method
 	 * @param mode
 	 * @param key
 	 * @param iv
@@ -422,7 +422,7 @@ public class SymmetricBlockEnc {
 	}
 
 	/**
-	 * TODO(concatenate two byte array)
+	 *  (concatenate two byte array)
 	 * @param bs1
 	 * @param bs2
 	 * @return concatenated array

@@ -44,7 +44,7 @@ import cn.edu.ncepu.crypto.utils.SysProperty;
  * @Version: 1.0
  * @CreateData: Jun 26, 2020 2:49:49 PM
  * @ClassName CertificateUtilsTest
- * @Description: TODO(test the function of CertificateUtils)
+ * @Description: test the function of CertificateUtils
  */
 public class CertificateUtilsTest {
 	private static Logger logger = LoggerFactory.getLogger(CertificateUtilsTest.class);

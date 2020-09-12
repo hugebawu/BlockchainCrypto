@@ -25,7 +25,7 @@ import cn.edu.ncepu.crypto.algebra.Engine;
  * @Version: 1.0
  * @CreateData: Jun 19, 2020 4:08:16 PM
  * @ClassName ECIESEngine
- * @Description: TODO(Utilize BouncyCastls to realize elliptic curve based Integrated Encryption Engine)
+ * @Description:  (Utilize BouncyCastls to realize elliptic curve based Integrated Encryption Engine)
  * @Description The ECC was firstly proposed by Neal Koblitz and Victor Miller in 1985 separately.
  */
 public class ECIESEngine extends Engine {
@@ -51,7 +51,7 @@ public class ECIESEngine extends Engine {
 	}
 
 	/**
-	 * TODO encrypt content as ecies using EC publicKey
+	 *   encrypt content as ecies using EC publicKey
 	 * @param content content waits to be encrypted
 	 * @param publicKey EC publicKey
 	 * @return Based64 coded ciphertext to convenient network transmission.
@@ -70,7 +70,7 @@ public class ECIESEngine extends Engine {
 	}
 
 	/**
-	 * TODO decrypt cyphertext as ecies using EC privateKey
+	 *   decrypt cyphertext as ecies using EC privateKey
 	 * @param ciphertext ciphertext waits to be encrypted
 	 * @param privateKey EC privateKey
 	 * @return original plaintext string.

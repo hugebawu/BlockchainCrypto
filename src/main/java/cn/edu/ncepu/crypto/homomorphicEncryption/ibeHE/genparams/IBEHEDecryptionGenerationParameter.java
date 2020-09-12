@@ -13,7 +13,7 @@ import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
  * @E-mail: drbjhu@163.com
  * @CreateData: Jul 7, 2020 11:21:46 PM
  * @ClassName IBEHEDecryptionGenerationParameter
- * @Description: TODO(Boneh-Franklin CPA-secure IBE-Based homomorphic encryption decryption generation parameter.)
+ * @Description:  (Boneh-Franklin CPA-secure IBE-Based homomorphic encryption decryption generation parameter.)
  */
 public class IBEHEDecryptionGenerationParameter extends PairingDecryptionGenerationParameter {
 	// user id used during decryption

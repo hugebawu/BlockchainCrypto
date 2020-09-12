@@ -57,7 +57,7 @@ import org.slf4j.LoggerFactory;
  * @Version: 1.0
  * @CreateData: Jun 20, 2020 11:34:12 PM
  * @ClassName CommonUtils
- * @Description: TODO(some common utils for java programme)
+ * @Description:  (some common utils for java programme)
  */
 public class CommonUtils {
 
@@ -66,7 +66,7 @@ public class CommonUtils {
 	private static final int MESSAGE_SIZE = 128;// byte
 
 	/**
-	 * TODO convert Hex or Base64 encoded "String" public or private Key to "PublicKey" or "PrivateKey"
+	 *   convert Hex or Base64 encoded "String" public or private Key to "PublicKey" or "PrivateKey"
 	 * @param isECPublicKey
 	 * @param enctype should be "base64" or "Hex"
 	 * @param key
@@ -103,7 +103,7 @@ public class CommonUtils {
 	}
 
 	/**
-	 * TODO print the input byte stream as char stream line
+	 *   print the input byte stream as char stream line
 	 * @param inputStream
 	 * @throws IOException
 	 */
@@ -144,7 +144,7 @@ public class CommonUtils {
 	}
 
 	/**
-	 * TODO(execute shell command array through java method)
+	 *  (execute shell command array through java method)
 	 * @param cmdArray
 	 * @param workDir
 	 * @return the output of shell command
@@ -166,7 +166,7 @@ public class CommonUtils {
 	}
 
 	/**
-	 * TODO(execute shell command through java method)
+	 *  (execute shell command through java method)
 	 * @param shell
 	 * @param workDir
 	 * @return the output of shell command
@@ -189,7 +189,7 @@ public class CommonUtils {
 	}
 
 	/**
-	 * TODO(read bytes from binary file(e.g., PEM, DER))
+	 *  (read bytes from binary file(e.g., PEM, DER))
 	 * @param pathName path name of the binary file
 	 * @return 
 	 * @throws IOException 
@@ -208,7 +208,7 @@ public class CommonUtils {
 	}
 
 	/**
-	 * TODO(write bytes to binary file(e.g., PEM, DER))
+	 *  (write bytes to binary file(e.g., PEM, DER))
 	 * @param pathName path name of the binary file
 	 * @param bytes 参数描述
 	 * @throws IOException 
@@ -227,7 +227,7 @@ public class CommonUtils {
 	}
 
 	/**
-	 * TODO(save PublicKey or PrivateKey as PEM file)
+	 *  (save PublicKey or PrivateKey as PEM file)
 	 * @param key should be PublicKey or PrivateKey which is the subclass of Key.
 	 * @param filePath the complete file Path for PEM file to store
 	 * @throws IOException 
@@ -270,7 +270,7 @@ public class CommonUtils {
 	}
 
 	/**
-	 * TODO(save PublicKey or PrivateKey as DER file)
+	 *  (save PublicKey or PrivateKey as DER file)
 	 * @param key should be PublicKey or PrivateKey which is the subclass of Key.
 	 * @param pathName the complete file Path for DER file to store
 	 * @throws IOException 
@@ -289,7 +289,7 @@ public class CommonUtils {
 	}
 
 	/**
-	 * TODO(load Type PublicKey or PrivateKey from PEM key file)
+	 *  (load Type PublicKey or PrivateKey from PEM key file)
 	 * @param isPublicKey
 	 * @param algorithm
 	 * @param pathName pathName of PEM key file.
@@ -335,7 +335,7 @@ public class CommonUtils {
 	}
 
 	/**
-	 * TODO(load Type PublicKey or PrivateKey from DER key file)
+	 *  (load Type PublicKey or PrivateKey from DER key file)
 	 * @param isPublicKey
 	 * @param algorithm
 	 * @param pathName pathName of DER key file.
@@ -367,7 +367,7 @@ public class CommonUtils {
 	}
 
 	/**
-	 * TODO hash the string content using the specific algorithm
+	 *   hash the string content using the specific algorithm
 	 * @param content
 	 * @param algorithm
 	 * @return hex encoded hash string
@@ -384,7 +384,7 @@ public class CommonUtils {
 	}
 
 	/**
-	 * TODO(generate hash digest according to the specific hash algorithm)
+	 *  (generate hash digest according to the specific hash algorithm)
 	 * @param content: content waits to be hashed
 	 * @param algorithm: specific Hash algorithm, including "MD2, MD5, SHA-1, SHA-256, SHA-512"...
 	 * @return 参数描述
@@ -447,7 +447,7 @@ public class CommonUtils {
 	}
 
 	/**
-	 * TODO(function the same as org.apache.commons.codec.binary.Hex.encodeHexString)
+	 *  (function the same as org.apache.commons.codec.binary.Hex.encodeHexString)
 	 * @param bytes bytes waits to be encoded to Hex(Base 16)
 	 * @return 参数描述
 	 */
@@ -467,7 +467,7 @@ public class CommonUtils {
 	}
 
 	/**
-	 * TODO(function the same as org.apache.commons.codec.binary.Hex.decodeHex)
+	 *  (function the same as org.apache.commons.codec.binary.Hex.decodeHex)
 	 * @param hexdata Hex string waits to be decoded
 	 * @return
 	 * @throws Exception 参数描述
@@ -491,7 +491,7 @@ public class CommonUtils {
 	}
 
 	/**
-	 * TODO(encode the url into %XX like format)
+	 *  (encode the url into %XX like format)
 	 * @param content
 	 * @return 参数描述
 	 * @throws UnsupportedEncodingException 
@@ -501,7 +501,7 @@ public class CommonUtils {
 	}
 
 	/**
-	 * TODO(decode %XX like URL)
+	 *  (decode %XX like URL)
 	 * @param content
 	 * @return 参数描述
 	 * @throws UnsupportedEncodingException 
@@ -621,7 +621,7 @@ public class CommonUtils {
 	}
 
 	/**
-	 * TODO(get specific elliptic curve key pairs for ecdsa)
+	 *  (get specific elliptic curve key pairs for ecdsa)
 	 * @param param
 	 * @return KeyPair
 	 * @return the generated key pair
@@ -679,7 +679,7 @@ public class CommonUtils {
 
 	// 把一个byte[] 分拆成每段MESSAGE_SIZE字节的数组List
 	/**
-	 * TODO slice  byte array into list with size MESSAGE_SIZE byte each element in the list;
+	 *   slice  byte array into list with size MESSAGE_SIZE byte each element in the list;
 	 * @param message
 	 * @return
 	 */
@@ -696,7 +696,7 @@ public class CommonUtils {
 	}
 
 	/**
-	 * TODO splice list as single byte array
+	 *   splice list as single byte array
 	 * @param byteMessage
 	 * @return 参数描述
 	 */

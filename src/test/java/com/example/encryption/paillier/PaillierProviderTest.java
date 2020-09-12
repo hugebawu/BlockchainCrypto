@@ -31,7 +31,7 @@ import cn.edu.ncepu.crypto.utils.CommonUtils;
  * @E-mail: drbjhu@163.com
  * @CreateData: Sep 4, 2020 8:09:35 PM
  * @ClassName PaillierProviderTest
- * @Description: TODO(test encryption,decryption paillier JCA Provider and several properties including hommomorphism)
+ * @Description:  (test encryption,decryption paillier JCA Provider and several properties including hommomorphism)
  */
 
 public class PaillierProviderTest {

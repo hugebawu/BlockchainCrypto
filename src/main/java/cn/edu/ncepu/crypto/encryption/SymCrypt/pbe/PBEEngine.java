@@ -27,7 +27,7 @@ import org.bouncycastle.jce.provider.BouncyCastleProvider;
  * @Version: 1.0
  * @CreateData: Jun 24, 2020 8:43:53 PM
  * @ClassName PBEEngine
- * @Description: TODO(口令加密算法，password based encryption)
+ * @Description:  (口令加密算法，password based encryption)
  */
 public class PBEEngine {
 
@@ -37,7 +37,7 @@ public class PBEEngine {
 	final static int ITERATIONCOUNT = 1000;
 
 	/**
-	 * TODO e.g., AES. hash to generate the real key for AES through the password and secure 
+	 *   e.g., AES. hash to generate the real key for AES through the password and secure
 	 * random salt, and then use it to encrypt or decrypt the input
 	 * @param isEnc encryption or decryption
 	 * @param digest_alg

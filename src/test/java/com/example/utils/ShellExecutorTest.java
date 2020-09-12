@@ -21,7 +21,7 @@ import cn.edu.ncepu.crypto.utils.SysProperty;
  * @Version: 1.0
  * @CreateData: Jun 26, 2020 4:12:11 PM
  * @ClassName ShellExecutorTest
- * @Description: TODO(这里用一句话描述这个方法的作用)
+ * @Description: (这里用一句话描述这个方法的作用)
  */
 public class ShellExecutorTest {
 	private static Logger logger = LoggerFactory.getLogger(ShellExecutorTest.class);

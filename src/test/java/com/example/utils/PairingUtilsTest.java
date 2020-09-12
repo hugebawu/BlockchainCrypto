@@ -35,14 +35,14 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.a.TypeAPairing;
  * @E-mail: drbjhu@163.com
  * @CreateData: Jul 5, 2020 3:13:04 PM
  * @ClassName PairingUtilsTest
- * @Description: TODO(test methods of PairingUtils)
+ * @Description:  (test methods of PairingUtils)
  */
 public class PairingUtilsTest {
 	private static Logger logger = LoggerFactory.getLogger(PairingUtilsTest.class);
 	private static String USER_DIR = SysProperty.USER_DIR;
 
 	/**
-	 * TODO 测试动态生成Type A PairingParameters并保存
+	 *   测试动态生成Type A PairingParameters并保存
 	 */
 	@Ignore
 	@Test
@@ -74,7 +74,7 @@ public class PairingUtilsTest {
 	}
 
 	/**
-	 * TODO 测试动态生成Type A1 PairingParameters并保存
+	 *   测试动态生成Type A1 PairingParameters并保存
 	 */
 	@Ignore
 	@Test
@@ -110,7 +110,7 @@ public class PairingUtilsTest {
 	}
 
 	/**
-	 * TODO 验证hash函数H是否具有同态性质: H(a)*H(b)=H(a*b)
+	 *   验证hash函数H是否具有同态性质: H(a)*H(b)=H(a*b)
 	 * H(a) = (x1,y1); H(b)=(x2,y2)
 	 * x = x1*x2-y1*y2
 	 * y = (x1+y1)*(x2+y2)-x1*x2-y1*y2
@@ -191,7 +191,7 @@ public class PairingUtilsTest {
 	}
 
 	/**
-	 * TODO 验证 V1+V2 ?= (M1+M2) add (H1+H2)
+	 *   验证 V1+V2 ?= (M1+M2) add (H1+H2)
 	 * GTElement中元素无论加法add还是乘法mul，都是通过DegreeTwoExtensionQuadraticElement中的mul计算的
 	 * x = x1*x2-y1*y2
 	 * y = (x1+y1)*(x2+y2)-x1*x2-y1*y2

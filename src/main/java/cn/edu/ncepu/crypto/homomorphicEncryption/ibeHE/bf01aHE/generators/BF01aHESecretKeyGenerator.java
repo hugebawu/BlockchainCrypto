@@ -22,7 +22,7 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  * @Version: 1.0
  * @CreateData: Jul 7, 2020 2:10:55 PM
  * @ClassName BF01aHESecretKeyGenerator
- * @Description: TODO(这里用一句话描述这个方法的作用)
+ * @Description:  (这里用一句话描述这个方法的作用)
  */
 public class BF01aHESecretKeyGenerator implements PairingKeyParameterGenerator {
 	IBEHESecretKeyGenerationParameter parameters;

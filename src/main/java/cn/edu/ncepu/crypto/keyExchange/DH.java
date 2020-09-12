@@ -26,13 +26,13 @@ import cn.edu.ncepu.crypto.utils.CommonUtils;
  * @Version: 1.0
  * @CreateData: Jun 24, 2020 11:34:06 PM
  * @ClassName DH
- * @Description: TODO(Diffie-Hellman shared key exchange methods)
+ * @Description:  (Diffie-Hellman shared key exchange methods)
  */
 public class DH {
 	private static final String DH_STRING = "DH";
 
 	/**
-	 * TODO get Diffie_Hellman algorithm key pair
+	 *   get Diffie_Hellman algorithm key pair
 	 * @param keysize
 	 * @return
 	 * @throws NoSuchAlgorithmException 
@@ -51,7 +51,7 @@ public class DH {
 	}
 
 	/**
-	 * TODO(generate shared key for ECDH key exchange scheme)
+	 *  (generate shared key for ECDH key exchange scheme)
 	 * @param publickey the other party's based64 encoded Diffie-Hellman public key
 	 * @param privateKey own private key
 	 * @return shared key string
@@ -67,7 +67,7 @@ public class DH {
 	}
 
 	/**
-	 * TODO(generate shared key for ECDH key exchange scheme)
+	 *  (generate shared key for ECDH key exchange scheme)
 	 * @param publickey the other party's based64 encoded Diffie-Hellman public key
 	 * @param privateKey own private key
 	 * @return shared key string
@@ -86,7 +86,7 @@ public class DH {
 	}
 
 	/**
-	 * TODO(generate shared key from public and private String key)
+	 *  (generate shared key from public and private String key)
 	 * @param publicKey String
 	 * @param PrivateKey String
 	 * @return shared key string

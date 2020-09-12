@@ -22,7 +22,7 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  * @E-mail: drbjhu@163.com
  * @CreateData: Jul 7, 2020 4:00:16 PM
  * @ClassName BF01aHEEncryptionGenerator
- * @Description: TODO(这里用一句话描述这个方法的作用)
+ * @Description:  (这里用一句话描述这个方法的作用)
  */
 public class BF01aHEEncryptionGenerator implements PairingEncryptionGenerator {
 	private IBEHEEncryptionGenerationParameter params;

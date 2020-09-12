@@ -17,14 +17,14 @@ import java.security.interfaces.RSAPublicKey;
  * @Version: 1.0
  * @CreateData: Jun 25, 2020 2:19:06 PM
  * @ClassName RSASigner
- * @Description: TODO(sign and verify the hash of message with RSA)
+ * @Description:  (sign and verify the hash of message with RSA)
  */
 public class RSASigner {
 	// e.g., MD5withRSA, SHA1withRSA, SHA256withRSA
 	private static final String SINGALGORITHM_STRING = "SHA256withRSA";
 
 	/**
-	 * TODO(sign the message with private key)
+	 *  (sign the message with private key)
 	 * @param privateKey
 	 * @param message
 	 * @return base64 encoded signature
@@ -42,7 +42,7 @@ public class RSASigner {
 	}
 
 	/**
-	 * TODO(verify the RSA signature)
+	 *  (verify the RSA signature)
 	 * @param publickey
 	 * @param message
 	 * @param singed

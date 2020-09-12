@@ -42,7 +42,7 @@ import javax.crypto.NoSuchPaddingException;
  * @Version: 1.0
  * @CreateData: Jun 25, 2020 3:02:06 PM
  * @ClassName CertificateUtils
- * @Description: TODO(utilize certificate to realize the function of 
+ * @Description:  (utilize certificate to realize the function of
  * digital signature, identity authentication, data encryption and decryption)
  */
 public class CertificateUtils {
@@ -70,7 +70,7 @@ public class CertificateUtils {
 	}
 
 	/**
-	 * TODO(generate key store file, 一个密钥库可以包含多个证书及其对应的公或私钥)
+	 *  (generate key store file, 一个密钥库可以包含多个证书及其对应的公或私钥)
 	 * @param storepass keystore password
 	 * @param keyalg encryption algorithm e.g., RSA；
 	 * @param keysize size of the key
@@ -102,7 +102,7 @@ public class CertificateUtils {
 	}
 
 	/**
-	 * TODO(export certificate file from key store)
+	 *  (export certificate file from key store)
 	 * @param storepass keystore password
 	 * @param alias the name of certificate in programme；
 	 * @param keystore name of the keystore

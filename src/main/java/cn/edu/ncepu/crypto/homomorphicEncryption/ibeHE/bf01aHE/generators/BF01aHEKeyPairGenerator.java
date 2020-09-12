@@ -21,7 +21,7 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  * @Version: 1.0
  * @CreateData: Jul 7, 2020 12:21:15 PM
  * @ClassName BF01aHEKeyPairGenerator
- * @Description: TODO(Boneh-Franklin CPA-secure IBE based Homomorphic encryption system public key / master secret key pair generator.)
+ * @Description:  (Boneh-Franklin CPA-secure IBE based Homomorphic encryption system public key / master secret key pair generator.)
  */
 public class BF01aHEKeyPairGenerator implements PairingKeyPairGenerator {
 	private IBEHEKeyPairGenerationParameter params;

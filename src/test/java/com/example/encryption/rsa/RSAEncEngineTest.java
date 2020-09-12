@@ -32,7 +32,7 @@ import cn.edu.ncepu.crypto.encryption.rsa.RSAEncEngine;
  * @Version: 1.0
  * @CreateData: Jun 25, 2020 12:33:33 PM
  * @ClassName RSAEngineTest
- * @Description: TODO(RSA encryption scheme)
+ * @Description:  (RSA encryption scheme)
  */
 public class RSAEncEngineTest {
 	private static Logger logger = LoggerFactory.getLogger(RSAEncEngineTest.class);
@@ -40,7 +40,7 @@ public class RSAEncEngineTest {
 	@Ignore
 	@Test
 	/**
-	 * TODO(test RSA encryption and decryption method)
+	 *  (test RSA encryption and decryption method)
 	 * @throws
 	 */
 	public void test_enc_dec_RSA() {

@@ -21,26 +21,26 @@ import it.unisa.dia.gas.jpbc.Element;
 public interface HE {
 
 	/**
-	 * TODO generate system parameters
+	 *   generate system parameters
 	 */
 	void setup();
 
 	/**
-	 * TODO extract user secret key
+	 *   extract user secret key
 	 * @param id user identity
 	 * @return 
 	 */
 	Element keyGen(String id);
 
 	/**
-	 * TODO encrypt
+	 *   encrypt
 	 * @param message
 	 * @return 参数描述
 	 */
 	CipherText encrypt(String message);
 
 	/**
-	 * TODO  decrypt
+	 *    decrypt
 	 * @param d user secret key
 	 * @param ciphertext
 	 * @return 参数描述
@@ -48,7 +48,7 @@ public interface HE {
 	String decrypt(Element d, CipherText ciphertext);
 
 	/**
-	 * TODO add method for ciphertext
+	 *   add method for ciphertext
 	 * @param ciphertextMap map of ciphertext
 	 * @return
 	 */

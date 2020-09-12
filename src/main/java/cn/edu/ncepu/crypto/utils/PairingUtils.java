@@ -77,7 +77,7 @@ public class PairingUtils {
 	}
 
 	/**
-	 * TODO 这里描述这个方法的作用 参数描述
+	 *   这里描述这个方法的作用 参数描述
 	 */
 	@Deprecated
 	public static Element xor(Pairing pairing, byte[] arrayM, byte[] arrayGTElement) {
@@ -92,7 +92,7 @@ public class PairingUtils {
 	}
 
 	/**
-	 * TODO 这里描述这个方法的作用 参数描述
+	 *   这里描述这个方法的作用 参数描述
 	 */
 	@Deprecated
 	public static Element xor(Pairing pairing, Element e1, Element e2) {
@@ -101,7 +101,7 @@ public class PairingUtils {
 	}
 
 	/**
-	 * TODO concate x,y into GTElement
+	 *   concate x,y into GTElement
 	 * @param GTEArrayLeft
 	 * @param GTEArrayRight
 	 * @param GTEBytelength
@@ -123,7 +123,7 @@ public class PairingUtils {
 	}
 
 	/**
-	 * TODO add two GT element
+	 *   add two GT element
 	 * @param pairing
 	 * @param order the order of GT element x,y value
 	 * @param e1
@@ -148,7 +148,7 @@ public class PairingUtils {
 	}
 
 	/**
-	 * TODO the hash function G described in Boneh-Franklin CPA-secure IBE
+	 *   the hash function G described in Boneh-Franklin CPA-secure IBE
 	 * G: {0,1}*->Fp, hash user id to a point in the G1
 	 * @param G1 elliptic curve group G1
 	 * @param ID user id
@@ -160,7 +160,7 @@ public class PairingUtils {
 	}
 
 	/**
-	 * TODO the hash function H described in Boneh-Franklin CPA-secure IBE
+	 *   the hash function H described in Boneh-Franklin CPA-secure IBE
 	 * @param GT the finite field GT
 	 * @param element element in GT
 	 * @return a element in GT
@@ -182,7 +182,7 @@ public class PairingUtils {
 //	}
 
 	/**
-	 * TODO map the decimal String(e.g,"123456789012345678901234567890" into a element in the pairingGroup)
+	 *   map the decimal String(e.g,"123456789012345678901234567890" into a element in the pairingGroup)
 	 * Attention: when pairingGroupType = Zr, numString need to be smaller than r; 
 	 * when pairingGroupType = GT, numString need to be smaller than q
 	 * @param pairing
@@ -220,7 +220,7 @@ public class PairingUtils {
 	}
 
 	/**
-	 * TODO map a element in the pairingGroup into the decimal string(e.g,"123456789012345678901234567890")
+	 *   map a element in the pairingGroup into the decimal string(e.g,"123456789012345678901234567890")
 	 * @param e GT element
 	 * @return 参数描述
 	 */

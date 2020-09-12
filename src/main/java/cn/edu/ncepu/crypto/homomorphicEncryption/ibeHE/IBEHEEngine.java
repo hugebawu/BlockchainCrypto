@@ -21,7 +21,7 @@ import it.unisa.dia.gas.jpbc.PairingParameters;
  * @Version: 1.0
  * @CreateData: Jul 6, 2020 10:18:58 PM
  * @ClassName IBEHEEngine
- * @Description: TODO(This interface is an abstract of IBE based additive homomorphic encryption definitions)
+ * @Description:  (This interface is an abstract of IBE based additive homomorphic encryption definitions)
  */
 public abstract class IBEHEEngine extends Engine {
 
@@ -43,14 +43,14 @@ public abstract class IBEHEEngine extends Engine {
 	}
 
 	/** 
-	 * TODO Setup Algorithm for IBEHE
+	 *   Setup Algorithm for IBEHE
 	 * @param pairingParameters: pairing parameters
 	 * @return public key(P, Ppub) / master secret key(s) pair of the system
 	 */
 	public abstract PairingKeySerPair setup(PairingParameters pairingParameters);
 
 	/**
-	 * TODO extract user secret key frome user id for IBEHE
+	 *   extract user secret key frome user id for IBEHE
 	 * @param id user id
 	 * @param masterKey system master key (s)
 	 * @return user secret key associated with the identity id
@@ -66,7 +66,7 @@ public abstract class IBEHEEngine extends Engine {
 	 */
 
 	/**
-	 * TODO Homomorphic encryption algorithm for IBEHE
+	 *   Homomorphic encryption algorithm for IBEHE
 	 * @param id user identity associating with the ciphertext
 	 * @param publicKey system public key (P, Ppub)
 	 * @param message the message waited to be homomorphic encrypted and added to send to receiver
@@ -75,7 +75,7 @@ public abstract class IBEHEEngine extends Engine {
 	public abstract PairingCipherSerParameter encrypt(PairingKeySerParameter publicKey, String id, Element message);
 
 	/**
-	 * TODO decrypt the homomorphic encryption result
+	 *   decrypt the homomorphic encryption result
 	 * @param secretKey message receiver secret key
 	 * @param id user identity associating with the ciphertext
 	 * @param ciphertext IBEHE ciphertext (U,V)
@@ -86,7 +86,7 @@ public abstract class IBEHEEngine extends Engine {
 			throws InvalidCipherTextException;
 
 	/**
-	 * TODO the add method of the IBE-based additive homomorphic encryption
+	 *   the add method of the IBE-based additive homomorphic encryption
 	 * @param publicKey system public key
 	 * @param ciphertextMap list of 
 	 * @return added chiphertext

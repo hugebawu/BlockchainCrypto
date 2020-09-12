@@ -42,7 +42,7 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  * @E-mail: drbjhu@163.com
  * @CreateData: Jul 8, 2020 11:47:24 AM
  * @ClassName IBEHEEngineTest
- * @Description: TODO(IBE-based homomorphic encryption engine test.)
+ * @Description:  (IBE-based homomorphic encryption engine test.)
  */
 @SuppressWarnings("unused")
 public class IBEHEEngineTest {
@@ -152,7 +152,7 @@ public class IBEHEEngineTest {
 	}
 
 	/**
-	 * TODO 测试BF01aHE的加密解密功能
+	 *   测试BF01aHE的加密解密功能
 	 */
 	@Ignore
 	@Test
@@ -164,7 +164,7 @@ public class IBEHEEngineTest {
 	}
 
 	/**
-	 * TODO 测试BasicIBE(本质是IBEBF01aEngine的非抽象实现方式)的加密解密功能
+	 *   测试BasicIBE(本质是IBEBF01aEngine的非抽象实现方式)的加密解密功能
 	 */
 	@Ignore
 	@Test
@@ -197,7 +197,7 @@ public class IBEHEEngineTest {
 	}
 
 	/**
-	 * TODO GTElement的add方法跟mul方法的实现方式一模一样，满足乘法同态而不是加法同态
+	 *   GTElement的add方法跟mul方法的实现方式一模一样，满足乘法同态而不是加法同态
 	 * C1 = BasicIBEHE(M1) C2 = BasicIBEHE(M2)  C1+C2 = BasicIBEHE(M1*M2)
 	 */
 	@Ignore

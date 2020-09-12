@@ -17,7 +17,7 @@ import cn.edu.ncepu.crypto.utils.SysProperty;
  * @E-mail: drbjhu@163.com
  * @CreateData: Jul 27, 2020 12:04:49 AM
  * @ClassName EccUtilsTest
- * @Description: TODO(这里用一句话描述这个方法的作用)
+ * @Description: (这里用一句话描述这个方法的作用)
  */
 @SuppressWarnings("unused")
 public class EccUtilsTest {
@@ -25,7 +25,7 @@ public class EccUtilsTest {
 	private static String USER_DIR = SysProperty.USER_DIR;
 	private static final String CURVE_NAME = "secp256k1";
 
-	@Ignore
+//	@Ignore
 	@Test
 	public void testPrintECKeywithOpenssl() {
 		logger.info("==================DER publicKey==================");

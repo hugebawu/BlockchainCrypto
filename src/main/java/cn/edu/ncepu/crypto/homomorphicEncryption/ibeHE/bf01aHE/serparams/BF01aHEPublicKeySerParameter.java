@@ -21,7 +21,7 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  * @Version: 1.0
  * @CreateData: Jul 7, 2020 1:07:14 PM
  * @ClassName BF01aHEPublicKeySerParameter
- * @Description: TODO(Boneh-Franklin CPA-secure IBE based homomorphic encryption system public key parameter.)
+ * @Description:  (Boneh-Franklin CPA-secure IBE based homomorphic encryption system public key parameter.)
  */
 public class BF01aHEPublicKeySerParameter extends PairingKeySerParameter {
 	private static final long serialVersionUID = 8512049019183179324L;

@@ -23,14 +23,14 @@ import cn.edu.ncepu.crypto.utils.CommonUtils;
  * @Version: 1.0
  * @CreateData: Jun 19, 2020 4:02:31 PM
  * @ClassName ECDH
- * @Description: TODO(elliptic curve based Diffie-Hellman secure key exchange algorithm)
+ * @Description:  (elliptic curve based Diffie-Hellman secure key exchange algorithm)
  */
 public class ECDH {
 	private static final String EC_STRING = "EC";
 	private static final String ECDH_STRING = "ECDH";
 
 	/**
-	 * TODO(generate shared key for ECDH key exchange scheme)
+	 *  (generate shared key for ECDH key exchange scheme)
 	 * @param publicKey the other party's EC public key
 	 * @param privateKey own private key
 	 * @return shared key string
@@ -48,7 +48,7 @@ public class ECDH {
 	}
 
 	/**
-	 * TODO(generate shared key from Hex public or private String key)
+	 *  (generate shared key from Hex public or private String key)
 	 * @param publicKey String
 	 * @param PrivateKey String
 	 * @return shared key string

@@ -13,7 +13,7 @@ import it.unisa.dia.gas.jpbc.Element;
  * @E-mail: drbjhu@163.com
  * @CreateData: Jul 7, 2020 4:01:54 PM
  * @ClassName IBEHEEncryptionGenerationParameter
- * @Description: TODO(IBE-Based homomorphic encryption ciphertext generation parameter.)
+ * @Description:  (IBE-Based homomorphic encryption ciphertext generation parameter.)
  */
 public class IBEHEEncryptionGenerationParameter extends PairingEncryptionGenerationParameter {
 	private String id;

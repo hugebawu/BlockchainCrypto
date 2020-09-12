@@ -33,7 +33,7 @@ import cn.edu.ncepu.crypto.utils.EccUtils;
  * @Version: 1.0
  * @CreateData: Jun 19, 2020 4:20:39 PM
  * @ClassName ECIESEngineJUniteTest
- * @Description: TODO(elliptic curve integrated encryption scheme test)
+ * @Description:  (elliptic curve integrated encryption scheme test)
  */
 public class ECIESEngineJUniteTest {
 	private static Logger logger = LoggerFactory.getLogger(ECIESEngineJUniteTest.class);

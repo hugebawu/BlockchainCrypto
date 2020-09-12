@@ -12,7 +12,7 @@ import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
  * @E-mail: drbjhu@163.com
  * @CreateData: Jul 7, 2020 2:15:17 PM
  * @ClassName IBEHESecretKeyGenerationParameter
- * @Description: TODO(IBE-Based homomorphic encryption user secret key generation parameter.)
+ * @Description:  (IBE-Based homomorphic encryption user secret key generation parameter.)
  */
 public class IBEHESecretKeyGenerationParameter extends PairingKeyGenerationParameter {
 	// user id used for generating the user secret key

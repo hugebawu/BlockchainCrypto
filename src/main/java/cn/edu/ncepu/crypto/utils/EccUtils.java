@@ -216,7 +216,7 @@ public class EccUtils {
 	}
 
 	/**
-	 * TODO(print the content of DER or PEM ECKey file)
+	 *  (print the content of DER or PEM ECKey file)
 	 * @param isECPublicKey
 	 * @param isDER
 	 * @param pathName pathName for the DER or PEM, and PublicKey or PrivateKey file

@@ -38,7 +38,7 @@ import edu.princeton.cs.algs4.StdOut;
  * @Version: 1.0
  * @CreateData: Jun 23, 2020 4:09:41 PM
  * @ClassName SymmetricBlockEncTest
- * @Description: TODO(test the symmetric block encryption algorithm)
+ * @Description:  (test the symmetric block encryption algorithm)
  */
 public class SymmetricBlockEncTest {
 	private static Logger logger = LoggerFactory.getLogger(SymmetricBlockEncTest.class);

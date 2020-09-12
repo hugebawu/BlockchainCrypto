@@ -12,7 +12,7 @@ import it.unisa.dia.gas.jpbc.PairingParameters;
  * @E-mail: drbjhu@163.com
  * @CreateData: Jul 7, 2020 1:35:49 PM
  * @ClassName IBEHEKeyPairGenerationParameter
- * @Description: TODO(IBE based homomorphic system public key / master secret key pair generation parameter.)
+ * @Description:  (IBE based homomorphic system public key / master secret key pair generation parameter.)
  */
 public class IBEHEKeyPairGenerationParameter extends PairingKeyPairGenerationParameter {
 

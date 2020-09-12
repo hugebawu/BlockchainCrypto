@@ -3,16 +3,15 @@
  */
 package com.example.utils;
 
-import java.io.IOException;
-
+import cn.edu.ncepu.crypto.utils.ShellExecutor;
+import cn.edu.ncepu.crypto.utils.ShellExecutor.CommandTimeoutException;
+import cn.edu.ncepu.crypto.utils.SysProperty;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import cn.edu.ncepu.crypto.utils.ShellExecutor;
-import cn.edu.ncepu.crypto.utils.ShellExecutor.CommandTimeoutException;
-import cn.edu.ncepu.crypto.utils.SysProperty;
+import java.io.IOException;
 
 /**
  * @Copyright : Copyright (c) 2020-2021 
@@ -24,8 +23,8 @@ import cn.edu.ncepu.crypto.utils.SysProperty;
  * @Description: (这里用一句话描述这个方法的作用)
  */
 public class ShellExecutorTest {
-	private static Logger logger = LoggerFactory.getLogger(ShellExecutorTest.class);
-	private static String userDir = SysProperty.USER_DIR;
+	private static final Logger logger = LoggerFactory.getLogger(ShellExecutorTest.class);
+	private static final String userDir = SysProperty.USER_DIR;
 
 	@Ignore
 	@Test

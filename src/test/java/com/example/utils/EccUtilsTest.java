@@ -1,15 +1,10 @@
-/**
- * 
- */
 package com.example.utils;
-
-import org.junit.Ignore;
-import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import cn.edu.ncepu.crypto.utils.EccUtils;
 import cn.edu.ncepu.crypto.utils.SysProperty;
+import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @Copyright : Copyright (c) 2020-2021 E1101智能电网信息安全中心
@@ -21,13 +16,13 @@ import cn.edu.ncepu.crypto.utils.SysProperty;
  */
 @SuppressWarnings("unused")
 public class EccUtilsTest {
-	private static Logger logger = LoggerFactory.getLogger(EccUtilsTest.class);
-	private static String USER_DIR = SysProperty.USER_DIR;
+	private static final Logger logger = LoggerFactory.getLogger(EccUtilsTest.class);
+	private static final String USER_DIR = SysProperty.USER_DIR;
 	private static final String CURVE_NAME = "secp256k1";
 
 //	@Ignore
 	@Test
-	public void testPrintECKeywithOpenssl() {
+	public void testPrintECKeyWithOpenssl() {
 		logger.info("==================DER publicKey==================");
 		try {
 			EccUtils.printECKeywithOpenssl(true, true, USER_DIR + "/elements/ECPublicKey.der");

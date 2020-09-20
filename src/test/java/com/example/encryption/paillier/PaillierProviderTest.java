@@ -3,8 +3,17 @@
  */
 package com.example.encryption.paillier;
 
-import static org.junit.Assert.assertTrue;
+import cn.edu.ncepu.crypto.encryption.paillier.PaillierEngine;
+import cn.edu.ncepu.crypto.encryption.paillier.PaillierPrivateKey;
+import cn.edu.ncepu.crypto.encryption.paillier.PaillierProvider;
+import cn.edu.ncepu.crypto.encryption.paillier.PaillierPublicKey;
+import cn.edu.ncepu.crypto.utils.CommonUtils;
+import org.junit.Ignore;
+import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import javax.crypto.Cipher;
 import java.math.BigInteger;
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
@@ -12,18 +21,7 @@ import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.security.Security;
 
-import javax.crypto.Cipher;
-
-import org.junit.Ignore;
-import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import cn.edu.ncepu.crypto.encryption.paillier.PaillierEngine;
-import cn.edu.ncepu.crypto.encryption.paillier.PaillierPrivateKey;
-import cn.edu.ncepu.crypto.encryption.paillier.PaillierProvider;
-import cn.edu.ncepu.crypto.encryption.paillier.PaillierPublicKey;
-import cn.edu.ncepu.crypto.utils.CommonUtils;
+import static org.junit.Assert.assertTrue;
 
 /**
  * @Copyright : Copyright (c) 2020-2021 E1101智能电网信息安全中心

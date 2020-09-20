@@ -13,7 +13,7 @@ import cn.edu.ncepu.crypto.chameleonhash.ChameleonHasher;
  * OO-CP-ABE intermediate ciphertext generation parameter.
  */
 public class CPABEIntermediateGenerationParameter extends PairingEncapsulationGenerationParameter {
-	private int n;
+	private final int n;
 	private ChameleonHasher chameleonHasher;
 	private AsymmetricKeySerPairGenerator chameleonHashKeyPairGenerator;
 	private KeyGenerationParameters chameleonHashKeyGenerationParameter;

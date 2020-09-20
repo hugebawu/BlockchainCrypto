@@ -38,7 +38,7 @@ import junit.framework.TestCase;
  * HIBBE engine test procedures. All instances should pass this unit test.
  */
 public class HIBBEEngineJUnitTest extends TestCase {
-	private static Logger logger = LoggerFactory.getLogger(HIBBEEngineJUnitTest.class);
+	private static final Logger logger = LoggerFactory.getLogger(HIBBEEngineJUnitTest.class);
 	private static final String[] identityVector4_satisfied = { null, null, null, "ID_4", null, null, null, null };
 	private static final String[] identityVector46_satisfied = { null, null, null, "ID_4", null, "ID_6", null, null };
 	private static final String[] identityVector467_satisfied = { null, null, null, "ID_4", null, "ID_6", "ID_7",

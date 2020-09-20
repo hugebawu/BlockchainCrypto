@@ -9,7 +9,7 @@ import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
  * BE secret key generation parameter.
  */
 public class BESecretKeyGenerationParameter extends PairingKeyGenerationParameter {
-	private int index;
+	private final int index;
 
 	public BESecretKeyGenerationParameter(PairingKeySerParameter publicKeyParameter,
 			PairingKeySerParameter masterSecretKeyParameter, int index) {

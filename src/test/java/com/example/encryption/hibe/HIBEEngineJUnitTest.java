@@ -29,7 +29,7 @@ import junit.framework.TestCase;
  * HIBE engine test procedures. All instances should pass this unit test.
  */
 public class HIBEEngineJUnitTest extends TestCase {
-	private static Logger logger = LoggerFactory.getLogger(HIBEEngineJUnitTest.class);
+	private static final Logger logger = LoggerFactory.getLogger(HIBEEngineJUnitTest.class);
 	private static final String[] identityVector1 = { "ID_1" };
 	private static final String[] identityVector12 = { "ID_1", "ID_2" };
 	private static final String[] identityVector123 = { "ID_1", "ID_2", "ID_3" };

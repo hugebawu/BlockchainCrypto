@@ -29,7 +29,7 @@ import junit.framework.TestCase;
  * Chameleon hash test.
  */
 public class ChameleonHasherJUnitTest extends TestCase {
-	private static Logger logger = LoggerFactory.getLogger(ChameleonHasherJUnitTest.class);
+	private static final Logger logger = LoggerFactory.getLogger(ChameleonHasherJUnitTest.class);
 
 	private AsymmetricKeySerPairGenerator asymmetricCipherKeyPairGenerator;
 	private ChameleonHasher chameleonHasher;

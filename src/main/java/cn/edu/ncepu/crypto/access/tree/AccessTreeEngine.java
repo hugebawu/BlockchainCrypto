@@ -20,7 +20,7 @@ import it.unisa.dia.gas.jpbc.Pairing;
 public class AccessTreeEngine implements AccessControlEngine {
 	public static String SCHEME_NAME = "general access tree";
 
-	private static AccessTreeEngine instance = new AccessTreeEngine();
+	private static final AccessTreeEngine instance = new AccessTreeEngine();
 
 	private AccessTreeEngine() {
 

@@ -41,7 +41,7 @@
         and PaillierPrivateKey.   
      
  ## PREREQUSITES 
- * OpenJDK not OracleJDK
+ * OpenJDK
  
  ## AUTHOR
  * **Petar Stefanov** - *inital work* - [git(peterstefanov)](https://github.com/peterstefanov/paillier)

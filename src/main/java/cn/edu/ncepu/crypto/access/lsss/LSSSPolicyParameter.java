@@ -16,11 +16,11 @@ public class LSSSPolicyParameter extends AccessControlParameter {
 	 */
 	private static final long serialVersionUID = -341681778998114135L;
 	// The LSSS matrix
-	private int[][] lsssMatrix;
+	private final int[][] lsssMatrix;
 	// number of rows
-	private int row;
+	private final int row;
 	// number of columns
-	private int column;
+	private final int column;
 
 	public LSSSPolicyParameter(AccessTreeNode rootAccessTreeNode, int[][] accessPolicy, int[][] lsssMatrix,
 			String[] rhos) {

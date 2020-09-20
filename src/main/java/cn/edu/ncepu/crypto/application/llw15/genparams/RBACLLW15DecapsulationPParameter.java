@@ -11,9 +11,9 @@ import cn.edu.ncepu.crypto.application.llw15.serparams.RBACLLW15PublicKeySerPara
  * Liu-Liu-Wu role-based access control patient's session key decapsulation parameter.
  */
 public class RBACLLW15DecapsulationPParameter extends PairingDecryptionGenerationParameter {
-	private String[] roles;
-	private String time;
-	private String id;
+	private final String[] roles;
+	private final String time;
+	private final String id;
 
 	public RBACLLW15DecapsulationPParameter(PairingKeySerParameter publicKeyParameter,
 			PairingKeySerParameter accessCredentialPParameter, String id, String[] roles, String time,

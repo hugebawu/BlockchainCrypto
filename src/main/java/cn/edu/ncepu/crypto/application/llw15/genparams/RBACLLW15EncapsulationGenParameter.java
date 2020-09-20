@@ -12,10 +12,10 @@ import cn.edu.ncepu.crypto.application.llw15.serparams.RBACLLW15PublicKeySerPara
  * Liu-Liu-Wu role-based access control key encapsulation generation parameters.
  */
 public class RBACLLW15EncapsulationGenParameter extends PairingEncapsulationGenerationParameter {
-	private RBACLLW15IntermediateSerParameter intermediateParameter;
-	private String id;
-	private String[] roles;
-	private String time;
+	private final RBACLLW15IntermediateSerParameter intermediateParameter;
+	private final String id;
+	private final String[] roles;
+	private final String time;
 
 	public RBACLLW15EncapsulationGenParameter(PairingKeySerParameter publicKeyParameter, String id, String[] roles,
 			String time) {

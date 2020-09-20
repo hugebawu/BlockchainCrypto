@@ -15,6 +15,7 @@ import org.slf4j.LoggerFactory;
 
 import javax.crypto.Cipher;
 import java.math.BigInteger;
+import java.nio.charset.StandardCharsets;
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
 import java.security.PrivateKey;
@@ -35,8 +36,8 @@ import static org.junit.Assert.assertTrue;
 public class PaillierProviderTest {
 
 	private static final String DELIMITER = "[,]";
-	private static Logger logger = LoggerFactory.getLogger(PaillierProviderTest.class);
-	private static PaillierEngine engine = PaillierEngine.getInstance();
+	private static final Logger logger = LoggerFactory.getLogger(PaillierProviderTest.class);
+	private static final PaillierEngine engine = PaillierEngine.getInstance();
 
 	/**
 	 * Verify for every m1,m2属于Zn, D( E(m1)E(m2) mod n^2)= m1+m2 mod n
@@ -83,7 +84,7 @@ public class PaillierProviderTest {
 		BigInteger codedBytes12 = engine.encrypt(second.toByteArray(), pubKey, cipherHP);
 		logger.info("BigInteger ciphertext: " + codedBytes12);
 
-		// encrypt
+		// decrypt
 		BigInteger resultPlain1 = engine.decrypt(codedBytes.toByteArray(), privKey, cipherHP);
 		logger.info("BigInteger resultPlain: " + resultPlain1);
 
@@ -196,7 +197,7 @@ public class PaillierProviderTest {
 		// encrypt
 		logger.info("Provider for encryption is: " + cipher.getProvider().getInfo());
 		byte[] codedBytesBlock = engine.encryptBlock(plainTextBlock.getBytes(), pubKey, cipher);
-		String codedMessageBlock = new String(codedBytesBlock, "UTF-8");
+		String codedMessageBlock = new String(codedBytesBlock, StandardCharsets.UTF_8);
 		String codedMessageBlockInHEX = formatingHexRepresentation(codedBytesBlock);
 		logger.info("ENCRYPTED :  \n" + codedMessageBlock + "\n");
 		logger.info("ENCRYPTED in HEX:  \n" + codedMessageBlockInHEX + "\n");

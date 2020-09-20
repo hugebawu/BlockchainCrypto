@@ -21,7 +21,7 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  * Liu-Liu-Wu EHR role-based access control scheme performance test
  */
 public class RBACLLW15PerformanceTest {
-	private static Logger logger = LoggerFactory.getLogger(RBACLLW15PerformanceTest.class);
+	private static final Logger logger = LoggerFactory.getLogger(RBACLLW15PerformanceTest.class);
 	// file path for performance test result
 	private static final String path = "benchmarks/application/LLW15/" + RBACLLW15Engine.SCHEME_NAME + ".txt";
 	// the test round is chosen according to the full version of our paper.
@@ -45,37 +45,37 @@ public class RBACLLW15PerformanceTest {
 	// time
 	private static final String timeT = "2016.06";
 	// medical staff role vectors
-	private String[][] medicalStaffRoleVectors = new String[maximal_depth][maximal_roles];
+	private final String[][] medicalStaffRoleVectors = new String[maximal_depth][maximal_roles];
 	// medical staff access credential generation time
-	private double[] timeAccessCredentialGenM = new double[maximal_depth];
+	private final double[] timeAccessCredentialGenM = new double[maximal_depth];
 	// medical staff access credential generation time using intermediate parameters
-	private double[] timeAccessCredentialGenMWithIntermediate = new double[maximal_depth];
+	private final double[] timeAccessCredentialGenMWithIntermediate = new double[maximal_depth];
 
 	// medical staff access credential delegation time
-	private double[] timeAccessCredentialDeleM = new double[maximal_depth];
+	private final double[] timeAccessCredentialDeleM = new double[maximal_depth];
 	// medical staff access credential delegation time using intermediate parameters
-	private double[] timeAccessCredentialDeleMWithIntermediate = new double[maximal_depth];
+	private final double[] timeAccessCredentialDeleMWithIntermediate = new double[maximal_depth];
 
 	// role vectors for key encapsulation
-	private String[][] encapsulationRoleVectorSets = new String[maximal_roles][maximal_roles];
+	private final String[][] encapsulationRoleVectorSets = new String[maximal_roles][maximal_roles];
 	// EHR key encapsulation time
-	private double[] timeEHREncapsulation = new double[maximal_roles];
+	private final double[] timeEHREncapsulation = new double[maximal_roles];
 	// EHR key encapsulation time using intermediate parameters
-	private double[] timeEHREncapsulationWithIntermediate = new double[maximal_roles];
+	private final double[] timeEHREncapsulationWithIntermediate = new double[maximal_roles];
 
 	// EHR audit time
-	private double[] timeEHRAudit = new double[maximal_roles];
+	private final double[] timeEHRAudit = new double[maximal_roles];
 
 	// patient EHR decapsulation time
-	private double[] timeEHRDecapsulationP = new double[maximal_roles];
+	private final double[] timeEHRDecapsulationP = new double[maximal_roles];
 
 	// medical staff EHR decapsulation time
-	private double[][] timeEHRDecapsulationM = new double[maximal_depth][maximal_roles];
+	private final double[][] timeEHRDecapsulationM = new double[maximal_depth][maximal_roles];
 
-	private RBACLLW15Engine engine;
-	private PairingParameters pairingParameters;
+	private final RBACLLW15Engine engine;
+	private final PairingParameters pairingParameters;
 
-	private Out out;
+	private final Out out;
 
 	private RBACLLW15PerformanceTest(PairingParameters pairingParameters, RBACLLW15Engine engine) {
 		this.engine = engine;

@@ -32,7 +32,7 @@ import cn.edu.ncepu.crypto.keyExchange.DH;
  */
 public class DHTest {
 
-	private static Logger logger = LoggerFactory.getLogger(DHTest.class);
+	private static final Logger logger = LoggerFactory.getLogger(DHTest.class);
 
 	@Ignore
 	@Test

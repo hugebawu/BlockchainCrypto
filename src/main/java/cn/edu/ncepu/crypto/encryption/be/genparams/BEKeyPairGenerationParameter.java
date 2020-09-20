@@ -9,7 +9,7 @@ import it.unisa.dia.gas.jpbc.PairingParameters;
  * BE public key / master secret key pair generation parameter.
  */
 public class BEKeyPairGenerationParameter extends PairingKeyPairGenerationParameter {
-	private int maxUserNum;
+	private final int maxUserNum;
 
 	public BEKeyPairGenerationParameter(PairingParameters pairingParameters, int maxUserNum) {
 		super(pairingParameters);

@@ -63,7 +63,7 @@ import org.slf4j.LoggerFactory;
  *  @author Kevin Wayne
  */
 public final class StdOut {
-	private static Logger logger = LoggerFactory.getLogger(StdOut.class);
+	private static final Logger logger = LoggerFactory.getLogger(StdOut.class);
 
 	// force Unicode UTF-8 encoding; otherwise it's system dependent
 	private static final String CHARSET_NAME = "UTF-8";

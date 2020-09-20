@@ -5,6 +5,7 @@ package com.example.signature.rsa;
 
 import static org.junit.Assert.assertTrue;
 
+import java.nio.charset.StandardCharsets;
 import java.security.KeyPair;
 import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
@@ -28,7 +29,7 @@ import cn.edu.ncepu.crypto.signature.rsa.RSASigner;
  * @Description: RSA digit signature test
  */
 public class RSASignerTest {
-	private static Logger logger = LoggerFactory.getLogger(RSASignerTest.class);
+	private static final Logger logger = LoggerFactory.getLogger(RSASignerTest.class);
 
 //	@Ignore
 	@Test
@@ -48,13 +49,13 @@ public class RSASignerTest {
 			String message = "Message";
 			logger.info("message: " + message);
 			// signature
-			byte[] signed = RSASigner.signRSA(rsaPrivateKey, message.getBytes("UTF-8"));
+			byte[] signed = RSASigner.signRSA(rsaPrivateKey, message.getBytes(StandardCharsets.UTF_8));
 			String signature = Base64.getEncoder().encodeToString(signed);
 			logger.info("Base64 signature: " + signature);
 			logger.info("Base64 Signature length = " + signature.length());
 
 			// verify
-			assertTrue(RSASigner.verifyRSA(rsaPublicKey, message.getBytes("UTF-8"), signed));
+			assertTrue(RSASigner.verifyRSA(rsaPublicKey, message.getBytes(StandardCharsets.UTF_8), signed));
 		} catch (Exception e) {
 			logger.error(e.getLocalizedMessage());
 		}

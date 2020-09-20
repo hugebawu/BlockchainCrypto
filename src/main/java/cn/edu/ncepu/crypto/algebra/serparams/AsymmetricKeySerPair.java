@@ -8,8 +8,8 @@ import org.bouncycastle.crypto.CipherParameters;
  * a holding class for serializable public/private parameter pairs.
  */
 public class AsymmetricKeySerPair {
-	private AsymmetricKeySerParameter publicParam;
-	private AsymmetricKeySerParameter privateParam;
+	private final AsymmetricKeySerParameter publicParam;
+	private final AsymmetricKeySerParameter privateParam;
 
 	/**
 	 * basic constructor.

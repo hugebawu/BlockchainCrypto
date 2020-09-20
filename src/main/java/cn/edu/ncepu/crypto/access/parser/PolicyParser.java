@@ -22,7 +22,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class PolicyParser {
-	private static Logger logger = LoggerFactory.getLogger(PolicyParser.class);
+	private static final Logger logger = LoggerFactory.getLogger(PolicyParser.class);
 
 	boolean yydebug; // do I want debug output?
 	int yynerrs; // number of errors so far
@@ -40,7 +40,7 @@ public class PolicyParser {
 
 	// ########## STATE STACK ##########
 	final static int YYSTACKSIZE = 500; // maximum stack size
-	int statestk[] = new int[YYSTACKSIZE]; // state stack
+	int[] statestk = new int[YYSTACKSIZE]; // state stack
 	int stateptr;
 	int stateptrmax; // highest index of stackptr
 	int statemax; // state when highest index reached
@@ -100,7 +100,7 @@ public class PolicyParser {
 	String yytext;// user variable to return contextual strings
 	ParserVal yyval; // used to return semantic vals from action routines
 	ParserVal yylval;// the 'lval' (result) I got from yylex()
-	ParserVal valstk[];
+	ParserVal[] valstk;
 	int valptr;
 
 	// ###############################################################
@@ -155,15 +155,15 @@ public class PolicyParser {
 	public final static short OR = 258;
 	public final static short AND = 259;
 	public final static short YYERRCODE = 256;
-	final static short yylhs[] = { -1, 0, 1, 1, 1, 1, };
-	final static short yylen[] = { 2, 1, 1, 3, 3, 3, };
-	final static short yydefred[] = { 0, 2, 0, 0, 0, 0, 0, 0, 5, 0, 4, };
-	final static short yydgoto[] = { 3, 4, };
-	final static short yysindex[] = { -38, 0, -38, 0, -253, -41, -38, -38, 0, -256, 0, };
-	final static short yyrindex[] = { 0, 0, 0, 0, 7, 0, 0, 0, 0, 1, 0, };
-	final static short yygindex[] = { 0, 2, };
+	final static short[] yylhs = { -1, 0, 1, 1, 1, 1, };
+	final static short[] yylen = { 2, 1, 1, 3, 3, 3, };
+	final static short[] yydefred = { 0, 2, 0, 0, 0, 0, 0, 0, 5, 0, 4, };
+	final static short[] yydgoto = { 3, 4, };
+	final static short[] yysindex = { -38, 0, -38, 0, -253, -41, -38, -38, 0, -256, 0, };
+	final static short[] yyrindex = { 0, 0, 0, 0, 7, 0, 0, 0, 0, 1, 0, };
+	final static short[] yygindex = { 0, 2, };
 	final static int YYTABLESIZE = 259;
-	static short yytable[];
+	static short[] yytable;
 	static {
 		yytable();
 	}
@@ -179,7 +179,7 @@ public class PolicyParser {
 				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, };
 	}
 
-	static short yycheck[];
+	static short[] yycheck;
 	static {
 		yycheck();
 	}
@@ -200,7 +200,7 @@ public class PolicyParser {
 
 	final static short YYFINAL = 3;
 	final static short YYMAXTOKEN = 259;
-	final static String yyname[] = { "end-of-file", null, null, null, null, null, null, null, null, null, null, null,
+	final static String[] yyname = { "end-of-file", null, null, null, null, null, null, null, null, null, null, null,
 			null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null,
 			null, null, null, null, null, null, null, null, null, null, "'('", "')'", null, null, null, null, null,
 			null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null,
@@ -215,7 +215,7 @@ public class PolicyParser {
 			null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null,
 			null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null,
 			null, null, null, null, null, null, null, null, null, null, null, null, "ATTR", "OR", "AND", };
-	final static String yyrule[] = { "$accept : result", "result : policy", "policy : ATTR",
+	final static String[] yyrule = { "$accept : result", "result : policy", "policy : ATTR",
 			"policy : policy OR policy", "policy : policy AND policy", "policy : '(' policy ')'", };
 
 	// #line 24 "policy_lang.y"

@@ -11,7 +11,7 @@ import cn.edu.ncepu.crypto.utils.PairingUtils;
  * IBBE decapsulation generation parameter.
  */
 public class IBBEDecapsulationGenerationParameter extends PairingDecryptionGenerationParameter {
-	private String[] ids;
+	private final String[] ids;
 
 	public IBBEDecapsulationGenerationParameter(PairingKeySerParameter publicKeyParameter,
 			PairingKeySerParameter secretKeyParameter, String[] ids, PairingCipherSerParameter ciphertextParameter) {

@@ -15,7 +15,7 @@ public class CPABELLW14PublicKeySerParameter extends CPABERW13PublicKeySerParame
 	 * 
 	 */
 	private static final long serialVersionUID = 4357746015065829291L;
-	private AsymmetricKeySerParameter chameleonHashPublicKey;
+	private final AsymmetricKeySerParameter chameleonHashPublicKey;
 
 	public CPABELLW14PublicKeySerParameter(PairingParameters parameters,
 			AsymmetricKeySerParameter chameleonHashPublicKey, Element g, Element u, Element h, Element w, Element v,

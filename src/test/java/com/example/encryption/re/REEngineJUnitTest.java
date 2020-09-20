@@ -41,7 +41,7 @@ import junit.framework.TestCase;
  * Revocation encryption engine test.
  */
 public class REEngineJUnitTest extends TestCase {
-	private static Logger logger = LoggerFactory.getLogger(REEngineJUnitTest.class);
+	private static final Logger logger = LoggerFactory.getLogger(REEngineJUnitTest.class);
 	private static final String identity = "ID";
 	private static final String identityRevoke = "RevokeID";
 

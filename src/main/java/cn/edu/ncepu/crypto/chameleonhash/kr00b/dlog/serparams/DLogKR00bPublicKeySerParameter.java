@@ -14,7 +14,7 @@ public class DLogKR00bPublicKeySerParameter extends DLogKR00bKeySerParameter {
 	 * 
 	 */
 	private static final long serialVersionUID = 3565981306694014994L;
-	private BigInteger y;
+	private final BigInteger y;
 
 	public DLogKR00bPublicKeySerParameter(BigInteger y, SecurePrimeSerParameter params) {
 		super(false, params);

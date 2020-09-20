@@ -31,7 +31,7 @@ import junit.framework.TestCase;
  * Self-extractable CP-ABE performance test.
  */
 public class SelfExtractableCPABEPerformanceTest extends TestCase {
-	private static Logger logger = LoggerFactory.getLogger(SelfExtractableCPABEPerformanceTest.class);
+	private static final Logger logger = LoggerFactory.getLogger(SelfExtractableCPABEPerformanceTest.class);
 	private String pairingParameterPath;
 	// file path for performance test result
 	private static final String default_path = "benchmarks/encryption/cpabe/";

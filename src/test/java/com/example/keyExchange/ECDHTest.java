@@ -30,7 +30,7 @@ import cn.edu.ncepu.crypto.utils.CommonUtils;
  * @Description:  (elliptic curve based Diffie-Hellman key exchange algorithm test)
  */
 public class ECDHTest {
-	private static Logger logger = LoggerFactory.getLogger(DHTest.class);
+	private static final Logger logger = LoggerFactory.getLogger(DHTest.class);
 	private static final String EC_STRING = "EC";
 	private static final String CURVE_NAME = "secp256k1";
 

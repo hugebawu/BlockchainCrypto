@@ -13,8 +13,8 @@ import cn.edu.ncepu.crypto.utils.PairingUtils;
  * Goyal-Pandey-Sahai-Waters small-universe KP-ABE decryption generation parameter.
  */
 public class KPABEDecryptionGenerationParameter extends PairingDecryptionGenerationParameter {
-	private String[] attributes;
-	private AccessControlEngine accessControlEngine;
+	private final String[] attributes;
+	private final AccessControlEngine accessControlEngine;
 	private ChameleonHasher chameleonHasher;
 
 	public KPABEDecryptionGenerationParameter(AccessControlEngine accessControlEngine,

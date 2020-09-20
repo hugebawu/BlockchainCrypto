@@ -9,7 +9,7 @@ import it.unisa.dia.gas.jpbc.PairingParameters;
  * IBBE public key / master secret key generation parameter.
  */
 public class IBBEKeyPairGenerationParameter extends PairingKeyPairGenerationParameter {
-	private int maxBroadcastReceiver;
+	private final int maxBroadcastReceiver;
 
 	public IBBEKeyPairGenerationParameter(PairingParameters pairingParameters, int maxBroadcastReceiver) {
 		super(pairingParameters);

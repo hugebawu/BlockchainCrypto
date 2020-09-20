@@ -10,6 +10,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
+import java.nio.charset.StandardCharsets;
 import java.security.InvalidKeyException;
 import java.security.KeyStore;
 import java.security.KeyStoreException;
@@ -47,8 +48,8 @@ import cn.edu.ncepu.crypto.utils.SysProperty;
  * @Description: test the function of CertificateUtils
  */
 public class CertificateUtilsTest {
-	private static Logger logger = LoggerFactory.getLogger(CertificateUtilsTest.class);
-	private static String USER_DIR = SysProperty.USER_DIR;
+	private static final Logger logger = LoggerFactory.getLogger(CertificateUtilsTest.class);
+	private static final String USER_DIR = SysProperty.USER_DIR;
 
 	@Ignore
 	@Test
@@ -72,8 +73,8 @@ public class CertificateUtilsTest {
 	public void testLoadCer() {
 		byte[] message;
 		try {
-			message = "Hello, use X.509 cert!".getBytes("UTF-8");
-			logger.info(new String(message, "UTF-8"));
+			message = "Hello, use X.509 cert!".getBytes(StandardCharsets.UTF_8);
+			logger.info(new String(message, StandardCharsets.UTF_8));
 			// 从keystore file读取KeyStore:
 			FileInputStream input = new FileInputStream(new File(USER_DIR + "/elements/my.keystore"));
 			KeyStore ks = CertificateUtils.getKeyStore(input, "123456".toCharArray(), JKeyStoreType.JKS);
@@ -90,7 +91,7 @@ public class CertificateUtilsTest {
 			logger.info(String.format("encrypted: %s", Hex.toHexString(encrypted)));
 			// 私钥解密:
 			byte[] decrypted = CertificateUtils.decrypt(encrypted, privateKey);
-			logger.info("decrypted: " + new String(decrypted, "UTF-8"));
+			logger.info("decrypted: " + new String(decrypted, StandardCharsets.UTF_8));
 			// 签名:
 			byte[] sign = CertificateUtils.sign(message, certificate, privateKey);
 			logger.info(String.format("signature: %x", new BigInteger(1, sign)));
@@ -133,8 +134,8 @@ public class CertificateUtilsTest {
 			String alias = "mykeystore1";
 			String certificatePath = USER_DIR + "/elements/my.cer";
 			String keyStorePath = USER_DIR + "/elements/my.keystore"; // "my.pfx";
-			byte[] data = "Hello, use X.509 cert!".getBytes("UTF-8");
-			logger.info(new String(data, "UTF-8"));
+			byte[] data = "Hello, use X.509 cert!".getBytes(StandardCharsets.UTF_8);
+			logger.info(new String(data, StandardCharsets.UTF_8));
 
 			FileInputStream input = new FileInputStream(keyStorePath);
 			// JSK == KeyStore.getDefaultType();
@@ -163,11 +164,11 @@ public class CertificateUtilsTest {
 
 			byte[] result = CertificateUtils.encrypt(data, privateKey);
 			logger.info("私钥加密：" + Base64.getEncoder().encodeToString(result));
-			logger.info("公钥解密：" + new String(CertificateUtils.decrypt(result, publicKey), "UTF-8"));
+			logger.info("公钥解密：" + new String(CertificateUtils.decrypt(result, publicKey), StandardCharsets.UTF_8));
 
 			result = CertificateUtils.encrypt(data, publicKey);
 			logger.info("公钥加密：" + Base64.getEncoder().encodeToString(result));
-			logger.info("私钥解密：" + new String(CertificateUtils.decrypt(result, privateKey), "UTF-8"));
+			logger.info("私钥解密：" + new String(CertificateUtils.decrypt(result, privateKey), StandardCharsets.UTF_8));
 
 			byte[] signResult = CertificateUtils.sign(data, keyStore, alias, password);
 			logger.info("签名：" + Base64.getEncoder().encodeToString(signResult));

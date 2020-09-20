@@ -12,9 +12,9 @@ import cn.edu.ncepu.crypto.chameleonhash.ChameleonHasher;
  * CP-ABE decryption generation parameter.
  */
 public class CPABEDecryptionGenerationParameter extends PairingDecryptionGenerationParameter {
-	private int[][] accessPolicy;
-	private String[] rhos;
-	private AccessControlEngine accessControlEngine;
+	private final int[][] accessPolicy;
+	private final String[] rhos;
+	private final AccessControlEngine accessControlEngine;
 	private ChameleonHasher chameleonHasher;
 
 	public CPABEDecryptionGenerationParameter(AccessControlEngine accessControlEngine,

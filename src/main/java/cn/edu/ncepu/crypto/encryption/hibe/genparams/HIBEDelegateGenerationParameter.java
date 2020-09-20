@@ -9,7 +9,7 @@ import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
  * HIBE delegation generation parameter.
  */
 public class HIBEDelegateGenerationParameter extends PairingKeyDelegationParameter {
-	private String delegateId;
+	private final String delegateId;
 
 	public HIBEDelegateGenerationParameter(PairingKeySerParameter publicKeyParameter,
 			PairingKeySerParameter secretKeyParameter, String id) {

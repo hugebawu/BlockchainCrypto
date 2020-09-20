@@ -13,11 +13,11 @@ import cn.edu.ncepu.crypto.application.llw15.serparams.RBACLLW15PublicKeySerPara
  * Liu-Liu-Wu EHR role-based access control encapsulation audit parameter.
  */
 public class RBACLLW15EncapsulationAuditParameter implements CipherParameters {
-	private RBACLLW15PublicKeySerParameter publicKeyParameters;
-	private String[] roles;
-	private String id;
-	private String time;
-	private RBACLLW15EncapsulationSerParameter encapsulationParameters;
+	private final RBACLLW15PublicKeySerParameter publicKeyParameters;
+	private final String[] roles;
+	private final String id;
+	private final String time;
+	private final RBACLLW15EncapsulationSerParameter encapsulationParameters;
 
 	public RBACLLW15EncapsulationAuditParameter(PairingKeySerParameter publicKeyParameters, String id, String[] roles,
 			String time, PairingCipherSerParameter encapsulationParameters) {

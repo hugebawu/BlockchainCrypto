@@ -60,7 +60,7 @@ public class CertificateUtils {
 	 *PKCS12，一种标准的密钥库类型，可以在Java和其他语言中使用。可以参考sun.security.pkcs12.PKCS12KeyStore类。它通常具有p12或pfx的扩展名。可以在此类型上存储私钥，密钥和证书。与JKS不同，PKCS12密钥库上的私钥可以用Java提取。此类型是可以与其他语言（如C，C ++或C＃）编写的其他库一起使用。
 	 *BKS，BoucyCastle密钥库，是一种密钥库格式，提供了流行的第三方Java加密库提供程序–BouncyCastle。它是一个类似于Oracle JDK提供的JKS的密钥库。支持存储密钥，私钥和证书，经常用于移动应用程序开发。
 	 */
-	public static enum JKeyStoreType {
+	public enum JKeyStoreType {
 
 		JCEKS, JKS, DKS, PKCS11, PKCS12;
 

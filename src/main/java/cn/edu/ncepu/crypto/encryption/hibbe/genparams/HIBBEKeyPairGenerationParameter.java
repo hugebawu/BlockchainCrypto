@@ -11,8 +11,8 @@ import it.unisa.dia.gas.jpbc.PairingParameters;
  * HIBBE public key / master secret key generation parameter.
  */
 public class HIBBEKeyPairGenerationParameter extends PairingKeyPairGenerationParameter {
-	private int maxUser;
-	private Signer signer;
+	private final int maxUser;
+	private final Signer signer;
 
 	public HIBBEKeyPairGenerationParameter(PairingParameters pairingParameters, int maxUser) {
 		super(pairingParameters);

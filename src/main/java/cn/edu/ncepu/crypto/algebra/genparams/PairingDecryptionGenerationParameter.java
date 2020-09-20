@@ -11,9 +11,9 @@ import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
  * Pairing decryption generation parameter
  */
 public abstract class PairingDecryptionGenerationParameter implements CipherParameters {
-	private PairingKeySerParameter publicKeyParameter;
-	private PairingKeySerParameter secretKeyParameter;
-	private PairingCipherSerParameter ciphertextParameter;
+	private final PairingKeySerParameter publicKeyParameter;
+	private final PairingKeySerParameter secretKeyParameter;
+	private final PairingCipherSerParameter ciphertextParameter;
 
 	public PairingDecryptionGenerationParameter(PairingKeySerParameter publicKeyParameter,
 			PairingKeySerParameter secretKeyParameter, PairingCipherSerParameter ciphertextParameter) {

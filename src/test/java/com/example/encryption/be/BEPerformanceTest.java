@@ -22,7 +22,7 @@ import junit.framework.TestCase;
  * Generic BE performance test.
  */
 public class BEPerformanceTest extends TestCase {
-	private static Logger logger = LoggerFactory.getLogger(BEPerformanceTest.class);
+	private static final Logger logger = LoggerFactory.getLogger(BEPerformanceTest.class);
 	private String pairingParameterPath;
 	// file path for performance test result
 	private static final String default_path = "benchmarks/encryption/be/";

@@ -3,6 +3,17 @@
  */
 package cn.edu.ncepu.crypto.utils;
 
+import org.apache.commons.codec.DecoderException;
+import org.apache.commons.codec.binary.Hex;
+import org.bouncycastle.jce.provider.BouncyCastleProvider;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import javax.crypto.BadPaddingException;
+import javax.crypto.Cipher;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.KeyGenerator;
+import javax.crypto.SecretKey;
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -15,6 +26,7 @@ import java.io.RandomAccessFile;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.Key;
@@ -37,18 +49,6 @@ import java.security.spec.X509EncodedKeySpec;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Base64;
-
-import javax.crypto.BadPaddingException;
-import javax.crypto.Cipher;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.KeyGenerator;
-import javax.crypto.SecretKey;
-
-import org.apache.commons.codec.DecoderException;
-import org.apache.commons.codec.binary.Hex;
-import org.bouncycastle.jce.provider.BouncyCastleProvider;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * @Copyright : Copyright (c) 2020-2021 
@@ -166,11 +166,12 @@ public class CommonUtils {
 	}
 
 	/**
-	 *  (execute shell command through java method)
-	 * @param shell
-	 * @param workDir
-	 * @return the output of shell command
-	 * @throws Exception 
+	 * @description: (execute shell command through java method)
+	 * @param: script
+	 * @param: args
+	 * @param: workDir
+	 * @return: the output of shell command
+	 * @throw:
 	 */
 	public static void callScript(String script, String args, String workDir) throws Exception {
 		String command = "sh " + script + " " + args;
@@ -229,16 +230,16 @@ public class CommonUtils {
 	/**
 	 *  (save PublicKey or PrivateKey as PEM file)
 	 * @param key should be PublicKey or PrivateKey which is the subclass of Key.
-	 * @param filePath the complete file Path for PEM file to store
+	 * @param pathName the complete file Path for PEM file to store
 	 * @throws IOException 
 	 * @throws Exception
 	 */
 	public static void saveKeyAsPEM(Key key, String pathName) throws IOException {
 		boolean isPublicKey = key instanceof PublicKey;
 		if (isPublicKey) {
-			key = (PublicKey) key;
+			key = key;
 		} else {
-			key = (PrivateKey) key;
+			key = key;
 		}
 		// PrivateKey.getEncode() return PKCS #8 format and DER encoded bytes
 		// PublicKey.getEncode() return X.509 format and DER encoded bytes
@@ -259,7 +260,7 @@ public class CommonUtils {
 			randomAccessFile.write(content.substring(i, i + 64).getBytes());
 			randomAccessFile.write('\n');
 		}
-		randomAccessFile.write(content.substring(i, content.length()).getBytes());
+		randomAccessFile.write(content.substring(i).getBytes());
 		randomAccessFile.write('\n');
 		if (isPublicKey) {
 			randomAccessFile.write("-----END PUBLIC KEY-----\n".getBytes());
@@ -278,9 +279,9 @@ public class CommonUtils {
 	public static void saveKeyAsDER(Key key, String pathName) throws IOException {
 		boolean isPublicKey = key instanceof PublicKey;
 		if (isPublicKey) {
-			key = (PublicKey) key;
+			key = key;
 		} else {
-			key = (PrivateKey) key;
+			key = key;
 		}
 		// PrivateKey.getEncode() return PKCS #8 format and DER encoded bytes
 		// Public.getEncode() return X.509 format and DER encoded bytes
@@ -375,12 +376,7 @@ public class CommonUtils {
 	 * @throws UnsupportedEncodingException 参数描述
 	 */
 	public static String hash(String content, String algorithm) {
-		try {
-			return CommonUtils.encodeHexString(hash(content.getBytes("UTF-8"), algorithm));
-		} catch (UnsupportedEncodingException e) {
-			logger.error(e.getLocalizedMessage());
-		}
-		return null;
+		return CommonUtils.encodeHexString(hash(content.getBytes(StandardCharsets.UTF_8), algorithm));
 	}
 
 	/**
@@ -448,7 +444,7 @@ public class CommonUtils {
 
 	/**
 	 *  (function the same as org.apache.commons.codec.binary.Hex.encodeHexString)
-	 * @param bytes bytes waits to be encoded to Hex(Base 16)
+	 * @param data bytes waits to be encoded to Hex(Base 16)
 	 * @return 参数描述
 	 */
 	public static String encodeHexString(final byte[] data) {
@@ -622,7 +618,8 @@ public class CommonUtils {
 
 	/**
 	 *  (get specific elliptic curve key pairs for ecdsa)
-	 * @param param
+	 * @param algorithm
+	 * @param curve
 	 * @return KeyPair
 	 * @return the generated key pair
 	 * @throws NoSuchAlgorithmException 

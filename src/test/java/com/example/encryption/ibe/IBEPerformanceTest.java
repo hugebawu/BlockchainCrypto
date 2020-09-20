@@ -26,7 +26,7 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  * Generic IBE performance test.
  */
 public class IBEPerformanceTest {
-	private static Logger logger = LoggerFactory.getLogger(IBEPerformanceTest.class);
+	private static final Logger logger = LoggerFactory.getLogger(IBEPerformanceTest.class);
 	private String pairingParameterPath;
 	// file path for performance test result
 	private static final String default_path = "benchmarks/encryption/ibe/";

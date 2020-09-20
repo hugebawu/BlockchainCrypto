@@ -15,7 +15,7 @@ public class SEPEHeaderParameter extends PairingCipherSerParameter {
 	 */
 	private static final long serialVersionUID = 700530996421720423L;
 	private final PairingCipherSerParameter ct_y;
-	private byte[] ct_k;
+	private final byte[] ct_k;
 
 	public SEPEHeaderParameter(PairingCipherSerParameter ct_y, byte[] ct_k) {
 		super(ct_y.getParameters());

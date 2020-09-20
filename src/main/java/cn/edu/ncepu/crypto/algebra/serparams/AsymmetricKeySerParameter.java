@@ -12,7 +12,7 @@ public class AsymmetricKeySerParameter implements CipherParameters, java.io.Seri
 	 * 
 	 */
 	private static final long serialVersionUID = -1223127335634276848L;
-	private boolean privateKey;
+	private final boolean privateKey;
 
 	public AsymmetricKeySerParameter(boolean privateKey) {
 		this.privateKey = privateKey;

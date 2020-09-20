@@ -10,9 +10,9 @@ import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
  * KP-ABE secret key generation parameter.
  */
 public class KPABESecretKeyGenerationParameter extends PairingKeyGenerationParameter {
-	private AccessControlEngine accessControlEngine;
-	private int[][] accessPolicy;
-	private String[] rhos;
+	private final AccessControlEngine accessControlEngine;
+	private final int[][] accessPolicy;
+	private final String[] rhos;
 
 	public KPABESecretKeyGenerationParameter(AccessControlEngine accessControlEngines,
 			PairingKeySerParameter publicKeyParameter, PairingKeySerParameter masterSecretKeyParameter,

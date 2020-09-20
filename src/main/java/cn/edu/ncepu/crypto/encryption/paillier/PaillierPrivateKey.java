@@ -15,8 +15,8 @@ public class PaillierPrivateKey extends PaillierKey implements PrivateKey {
 	 * 
 	 */
 	private static final long serialVersionUID = 120674253906670457L;
-	private BigInteger LAMBDA;
-	private BigInteger MU;
+	private final BigInteger LAMBDA;
+	private final BigInteger MU;
 
 	protected PaillierPrivateKey(BigInteger lambda, BigInteger mu,
 			BigInteger nsquare, BigInteger n) {

@@ -26,7 +26,7 @@ import junit.framework.TestCase;
  * IBBE engine test procedures. All instances should pass this unit test.
  */
 public class IBBEEngineJUnitTest extends TestCase {
-	private static Logger logger = LoggerFactory.getLogger(IBBEEngineJUnitTest.class);
+	private static final Logger logger = LoggerFactory.getLogger(IBBEEngineJUnitTest.class);
 	private static final String identity_satisfied = "ID_0";
 	private static final String identity_unsatisfied = "ID_9";
 

@@ -29,7 +29,7 @@ import edu.princeton.cs.algs4.StdOut;
  * @Description:  (test the symmetric stream encryption algorithm)
  */
 public class SymmetricStreamEncTest {
-	private static Logger logger = LoggerFactory.getLogger(SymmetricStreamEncTest.class);
+	private static final Logger logger = LoggerFactory.getLogger(SymmetricStreamEncTest.class);
 	final private static String USER_DIR = SysProperty.USER_DIR;
 
 	@Ignore

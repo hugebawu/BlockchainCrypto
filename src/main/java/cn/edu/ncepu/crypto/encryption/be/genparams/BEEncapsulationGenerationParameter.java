@@ -10,7 +10,7 @@ import cn.edu.ncepu.crypto.utils.PairingUtils;
  * BE key encapsulation generation parameter.
  */
 public class BEEncapsulationGenerationParameter extends PairingEncapsulationGenerationParameter {
-	private int[] indexSet;
+	private final int[] indexSet;
 
 	public BEEncapsulationGenerationParameter(PairingKeySerParameter publicKeyParameter, int[] indexSet) {
 		super(publicKeyParameter);

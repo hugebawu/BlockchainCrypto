@@ -16,9 +16,9 @@ public class Timer {
 	private static final int DEFAULT_MAX_NUM_TIMER = 10;
 	private final int MAX_NUM_TIMER;
 
-	private long[] timeRecorder;
-	private boolean[] isTimerStart;
-	private FORMAT[] outFormat;
+	private final long[] timeRecorder;
+	private final boolean[] isTimerStart;
+	private final FORMAT[] outFormat;
 
 	public static String nowTime() {
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");// �������ڸ�ʽ

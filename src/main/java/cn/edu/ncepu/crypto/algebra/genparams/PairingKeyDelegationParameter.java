@@ -10,8 +10,8 @@ import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
  * Pairing secret key delegation parameter.
  */
 public class PairingKeyDelegationParameter extends KeyGenerationParameters {
-	private PairingKeySerParameter publicKeyParameter;
-	private PairingKeySerParameter secretKeyParameter;
+	private final PairingKeySerParameter publicKeyParameter;
+	private final PairingKeySerParameter secretKeyParameter;
 
 	public PairingKeyDelegationParameter(PairingKeySerParameter publicKeyParameter,
 			PairingKeySerParameter secretKeyParameter) {

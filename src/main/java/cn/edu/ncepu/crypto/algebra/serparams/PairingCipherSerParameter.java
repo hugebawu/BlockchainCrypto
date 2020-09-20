@@ -17,7 +17,7 @@ public class PairingCipherSerParameter implements CipherParameters, Serializable
 	 * 
 	 */
 	private static final long serialVersionUID = -6967900737813920207L;
-	private PairingParameters parameters;
+	private final PairingParameters parameters;
 
 	public PairingCipherSerParameter(PairingParameters parameters) {
 		this.parameters = parameters;

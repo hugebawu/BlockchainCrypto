@@ -225,7 +225,7 @@ public class EccUtils {
 	public static void printECKeywithOpenssl(boolean isECPublicKey, boolean isDER, String pathName) throws Exception {
 		int indexofSlash = pathName.lastIndexOf("/");
 		String filePath = pathName.substring(0, indexofSlash);
-		String fileName = pathName.substring(indexofSlash + 1, pathName.length());
+		String fileName = pathName.substring(indexofSlash + 1);
 		String shell = "";
 		if (isECPublicKey) {
 			if (isDER) {

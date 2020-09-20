@@ -13,7 +13,7 @@ public class DLogKR00bKeySerParameter extends AsymmetricKeySerParameter {
 	 * 
 	 */
 	private static final long serialVersionUID = 3894516402132237441L;
-	private SecurePrimeSerParameter params;
+	private final SecurePrimeSerParameter params;
 
 	DLogKR00bKeySerParameter(boolean isPrivate, SecurePrimeSerParameter params) {
 		super(isPrivate);

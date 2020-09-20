@@ -16,7 +16,7 @@ import it.unisa.dia.gas.jpbc.Element;
  * KP-ABE ciphertext generation parameter.
  */
 public class KPABEEncryptionGenerationParameter extends PairingEncryptionGenerationParameter {
-	private String[] attributes;
+	private final String[] attributes;
 	private ChameleonHasher chameleonHasher;
 	private AsymmetricKeySerPairGenerator chameleonHashKeyPairGenerator;
 	private KeyGenerationParameters chameleonHashKeyPairGenerationParameter;

@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
  * Binary tree node
  */
 public class BinaryTreeNode {
-	private static Logger logger = LoggerFactory.getLogger(BinaryTreeNode.class);
+	private static final Logger logger = LoggerFactory.getLogger(BinaryTreeNode.class);
 
 	public enum NodeType {
 		AND, OR, LEAF,

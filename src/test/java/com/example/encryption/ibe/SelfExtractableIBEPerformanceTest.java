@@ -30,7 +30,7 @@ import junit.framework.TestCase;
  * Self-extractable IBE performance test.
  */
 public class SelfExtractableIBEPerformanceTest extends TestCase {
-	private static Logger logger = LoggerFactory.getLogger(SelfExtractableIBEPerformanceTest.class);
+	private static final Logger logger = LoggerFactory.getLogger(SelfExtractableIBEPerformanceTest.class);
 	private String pairingParameterPath;
 	// file path for performance test result
 	private static final String default_path = "benchmarks/encryption/ibe/";

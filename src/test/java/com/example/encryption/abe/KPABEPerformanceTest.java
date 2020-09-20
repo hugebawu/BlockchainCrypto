@@ -28,7 +28,7 @@ import junit.framework.TestCase;
  * Generic KP-ABE performance test.
  */
 public class KPABEPerformanceTest extends TestCase {
-	private static Logger logger = LoggerFactory.getLogger(KPABEPerformanceTest.class);
+	private static final Logger logger = LoggerFactory.getLogger(KPABEPerformanceTest.class);
 	private String pairingParameterPath;
 	// file path for performance test result
 	private static final String default_path = "benchmarks/encryption/kpabe/";

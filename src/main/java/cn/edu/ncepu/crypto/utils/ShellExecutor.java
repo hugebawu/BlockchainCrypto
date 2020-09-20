@@ -29,8 +29,8 @@ import cn.edu.ncepu.crypto.utils.ShellExecutor.CommandTimeoutException;
 @SuppressWarnings("unused")
 public class ShellExecutor {
 
-	private static Logger logger = LoggerFactory.getLogger(ShellExecutor.class);
-	private static ExecutorService communicatorExecutor = Executors.newCachedThreadPool();
+	private static final Logger logger = LoggerFactory.getLogger(ShellExecutor.class);
+	private static final ExecutorService communicatorExecutor = Executors.newCachedThreadPool();
 
 	/**
 	 *  (Execute interactive shell command, return process exit value.)

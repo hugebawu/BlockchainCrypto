@@ -14,8 +14,8 @@ import it.unisa.dia.gas.jpbc.Element;
  * @Description:  (这里用一句话描述这个方法的作用)
  */
 public abstract class CipherText {
-	private Element U;
-	private Element V;
+	private final Element U;
+	private final Element V;
 
 	public CipherText(Element U, Element V) {
 		this.U = U.getImmutable();

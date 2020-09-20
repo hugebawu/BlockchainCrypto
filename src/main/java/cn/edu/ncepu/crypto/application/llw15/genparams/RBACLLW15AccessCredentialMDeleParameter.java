@@ -12,9 +12,9 @@ import cn.edu.ncepu.crypto.application.llw15.serparams.RBACLLW15IntermediateSerP
  * Medical staff access credential delegation parameters for Liu-Liu-Wu EHR role-based access control.
  */
 public class RBACLLW15AccessCredentialMDeleParameter extends PairingKeyDelegationParameter {
-	private RBACLLW15IntermediateSerParameter intermediateParameter;
-	private int index;
-	private String delegateRole;
+	private final RBACLLW15IntermediateSerParameter intermediateParameter;
+	private final int index;
+	private final String delegateRole;
 
 	public RBACLLW15AccessCredentialMDeleParameter(PairingKeySerParameter publicKeyParameter,
 			PairingKeySerParameter accessCredentialMParameter, int index, String role) {

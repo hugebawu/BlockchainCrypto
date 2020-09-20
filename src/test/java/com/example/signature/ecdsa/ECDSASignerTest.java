@@ -2,6 +2,7 @@ package com.example.signature.ecdsa;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.KeyPair;
@@ -38,12 +39,12 @@ import cn.edu.ncepu.crypto.utils.SysProperty;
  */
 @SuppressWarnings("unused")
 public class ECDSASignerTest {
-	private static Logger logger = LoggerFactory.getLogger(ECDSASignerTest.class);
+	private static final Logger logger = LoggerFactory.getLogger(ECDSASignerTest.class);
 	private PairingKeyPairGenerator asymmetricKeySerPairGenerator;
 	private static final String EC_STRING = "EC";
 	private static final String CURVE_NAME = "secp256k1";
 	private Signer signer;
-	private static String USER_DIR = SysProperty.USER_DIR;
+	private static final String USER_DIR = SysProperty.USER_DIR;
 	private static final int TIMES = 100_000;
 
 	@Ignore
@@ -72,14 +73,14 @@ public class ECDSASignerTest {
 			logger.info("Test signer functionality");
 
 			// signature
-			byte[] message = "message".getBytes("UTF-8");
+			byte[] message = "message".getBytes(StandardCharsets.UTF_8);
 			byte[] sign = ECDSASigner.sign(privateKey2, message);
 			String singHex = Hex.encodeHexString(sign);
 			logger.info("Hex signature: " + singHex);
 			logger.info("Signature length = " + singHex.length());
 
 			// verify
-			if (false == ECDSASigner.verify(publicKey2, "message".getBytes("UTF-8"), sign)) {
+			if (false == ECDSASigner.verify(publicKey2, "message".getBytes(StandardCharsets.UTF_8), sign)) {
 				logger.info("Verify passed for invalid signature, test abort...");
 				System.exit(0);
 			}
@@ -114,7 +115,7 @@ public class ECDSASignerTest {
 		try {
 			privateKey = (ECPrivateKey) CommonUtils.loadKeyFromPEM(false, EC_STRING,
 					USER_DIR + "/elements/ECPrivateKey.pem");
-			byte[] bytes = hexString.getBytes("UTF-8");
+			byte[] bytes = hexString.getBytes(StandardCharsets.UTF_8);
 			StopWatch watch = new StopWatch();
 			watch.start();
 			for (int i = 0; i < TIMES; i++) {
@@ -152,7 +153,7 @@ public class ECDSASignerTest {
 					USER_DIR + "/elements/ECPublicKey.pem");
 			privateKey = (ECPrivateKey) CommonUtils.loadKeyFromPEM(false, EC_STRING,
 					USER_DIR + "/elements/ECPrivateKey.pem");
-			byte[] bytes = hexString.getBytes("UTF-8");
+			byte[] bytes = hexString.getBytes(StandardCharsets.UTF_8);
 			byte[] sign = ECDSASigner.sign(privateKey, bytes);
 			StopWatch watch = new StopWatch();
 			watch.start();

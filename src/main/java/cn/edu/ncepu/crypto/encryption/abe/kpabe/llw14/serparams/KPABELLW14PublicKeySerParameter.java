@@ -15,7 +15,7 @@ public class KPABELLW14PublicKeySerParameter extends KPABERW13PublicKeySerParame
 	 * 
 	 */
 	private static final long serialVersionUID = -7617331838020938762L;
-	private AsymmetricKeySerParameter chameleonHashPublicKey;
+	private final AsymmetricKeySerParameter chameleonHashPublicKey;
 
 	public KPABELLW14PublicKeySerParameter(PairingParameters pairingParameters,
 			AsymmetricKeySerParameter chameleonHashPublicKey, Element g, Element u, Element h, Element w,

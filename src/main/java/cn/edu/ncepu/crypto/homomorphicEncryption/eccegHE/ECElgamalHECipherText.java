@@ -15,10 +15,10 @@ import it.unisa.dia.gas.jpbc.Element;
  * @Description:  (这里用一句话描述这个方法的作用)
  */
 public class ECElgamalHECipherText extends CipherText {
-	private Element r;
-	private Element P;
+	private final Element r;
+	private final Element P;
 	// Q = dP
-	private Element Q;
+	private final Element Q;
 
 	ECElgamalHECipherText(Element U, Element V, Element r, Element P, Element Q) {
 		// U = rP

@@ -9,6 +9,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -41,7 +42,7 @@ import edu.princeton.cs.algs4.StdOut;
  * @Description:  (test the symmetric block encryption algorithm)
  */
 public class SymmetricBlockEncTest {
-	private static Logger logger = LoggerFactory.getLogger(SymmetricBlockEncTest.class);
+	private static final Logger logger = LoggerFactory.getLogger(SymmetricBlockEncTest.class);
 
 	@Ignore
 	@Test
@@ -125,8 +126,8 @@ public class SymmetricBlockEncTest {
 			// generate random 16 bytes initialization vector
 			SecureRandom sr = SecureRandom.getInstanceStrong();
 			byte[] randIV = sr.generateSeed(16);
-			ciphertext = SymmetricBlockEnc.enc_dec_AES_BC(true, Mode.CBC, key.getBytes("UTF-8"), randIV,
-					message.getBytes("UTF-8"));
+			ciphertext = SymmetricBlockEnc.enc_dec_AES_BC(true, Mode.CBC, key.getBytes(StandardCharsets.UTF_8), randIV,
+					message.getBytes(StandardCharsets.UTF_8));
 			StdOut.println("Encrypted Base64 Ciphertext = " + Base64.getEncoder().encodeToString(ciphertext));
 			byte[] transmission = SymmetricBlockEnc.concat(randIV, ciphertext);
 			// receiver receive [IV,ciphertext] frome sender
@@ -135,8 +136,8 @@ public class SymmetricBlockEncTest {
 			System.arraycopy(transmission, 0, randIV, 0, 16);
 			System.arraycopy(transmission, 16, ciphertext, 0, ciphertext.length);
 			plaintext = new String(
-					SymmetricBlockEnc.enc_dec_AES_BC(false, Mode.CBC, key.getBytes("UTF-8"), randIV, ciphertext),
-					"UTF-8");
+					SymmetricBlockEnc.enc_dec_AES_BC(false, Mode.CBC, key.getBytes(StandardCharsets.UTF_8), randIV, ciphertext),
+                    StandardCharsets.UTF_8);
 			StdOut.println("Decrypted Plaintext = " + plaintext);
 			// Test for Encryption with distinct IV
 			ciphertext_p = SymmetricBlockEnc.enc_dec_AES_BC(true, Mode.CBC, Hex.decode(key), Hex.decode(iv_p),
@@ -159,8 +160,6 @@ public class SymmetricBlockEncTest {
 		} catch (IllegalBlockSizeException e) {
 			logger.error(e.getLocalizedMessage());
 		} catch (BadPaddingException e) {
-			logger.error(e.getLocalizedMessage());
-		} catch (UnsupportedEncodingException e) {
 			logger.error(e.getLocalizedMessage());
 		} catch (IllegalStateException e) {
 			logger.error(e.getLocalizedMessage());

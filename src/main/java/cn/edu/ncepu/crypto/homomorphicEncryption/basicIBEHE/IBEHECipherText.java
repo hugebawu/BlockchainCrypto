@@ -15,12 +15,12 @@ import it.unisa.dia.gas.jpbc.Element;
  * @Description:  (这里用一句话描述这个方法的作用)
  */
 public class IBEHECipherText extends CipherText {
-	private Element r;
-	private Element g;
+	private final Element r;
+	private final Element g;
 	// gr = g^r
-	private Element gr;
+	private final Element gr;
 	// H = hash_H(gr)
-	private Element H;
+	private final Element H;
 
 	IBEHECipherText(Element U, Element V, Element r, Element g, Element gr, Element H) {
 		// U = rP

@@ -26,7 +26,7 @@ import junit.framework.TestCase;
  */
 
 public class RBACLLW15EngineJUnitTest extends TestCase {
-	private static Logger logger = LoggerFactory.getLogger(RBACLLW15EngineJUnitTest.class);
+	private static final Logger logger = LoggerFactory.getLogger(RBACLLW15EngineJUnitTest.class);
 	// Access Credential Generation for Medical Staff
 	private static final String[] role4 = { null, null, null, "Role_4", null, null, null, null };
 	private static final String[] role46 = { null, null, null, "Role_4", null, "Role_6", null, null };

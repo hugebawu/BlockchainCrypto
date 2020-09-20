@@ -9,7 +9,7 @@ import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
  * Revocation encryption secret key generation parameter.
  */
 public class RESecretKeyGenerationParameter extends PairingKeyGenerationParameter {
-	private String id;
+	private final String id;
 
 	public RESecretKeyGenerationParameter(PairingKeySerParameter publicKeyParameter,
 			PairingKeySerParameter masterSecretKeyParameter, String id) {

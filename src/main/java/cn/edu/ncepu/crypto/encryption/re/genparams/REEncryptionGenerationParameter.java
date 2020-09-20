@@ -16,7 +16,7 @@ import it.unisa.dia.gas.jpbc.Element;
  * Revocation encryption ciphertext generation parameter.
  */
 public class REEncryptionGenerationParameter extends PairingEncryptionGenerationParameter {
-	private String[] ids;
+	private final String[] ids;
 	private ChameleonHasher chameleonHasher;
 	private AsymmetricKeySerPairGenerator chameleonHashKeyPairGenerator;
 	private KeyGenerationParameters chameleonHashKeyPairGenerationParameter;

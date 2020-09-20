@@ -23,7 +23,7 @@ public class PaillierPublicKey extends PaillierKey implements PublicKey {
 	 * 
 	 */
 	private static final long serialVersionUID = -7321682822593305457L;
-	private BigInteger G;
+	private final BigInteger G;
 
 	protected PaillierPublicKey(BigInteger n, BigInteger g, BigInteger nsquare) {
 		super(n, nsquare);

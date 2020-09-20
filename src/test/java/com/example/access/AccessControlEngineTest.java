@@ -28,7 +28,7 @@ import junit.framework.TestCase;
  * Access control engine test.
  */
 public class AccessControlEngineTest extends TestCase {
-	private static Logger logger = LoggerFactory.getLogger(AccessControlEngineTest.class);
+	private static final Logger logger = LoggerFactory.getLogger(AccessControlEngineTest.class);
 	private AccessControlEngine accessControlEngine;
 
 	public void runAllTests(PairingParameters pairingParameters) {

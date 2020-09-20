@@ -22,7 +22,7 @@ import junit.framework.TestCase;
  * Generic IBBE performance test.
  */
 public class IBBEPerformanceTest extends TestCase {
-	private static Logger logger = LoggerFactory.getLogger(IBBEPerformanceTest.class);
+	private static final Logger logger = LoggerFactory.getLogger(IBBEPerformanceTest.class);
 	private String pairingParameterPath;
 	// file path for performance test result
 	private static final String default_path = "benchmarks/encryption/ibbe/";

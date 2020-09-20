@@ -10,7 +10,7 @@ import it.unisa.dia.gas.jpbc.Element;
  * HIBE encryption generation parameter.
  */
 public class HIBEEncryptionGenerationParameter extends PairingEncryptionGenerationParameter {
-	private String[] ids;
+	private final String[] ids;
 
 	public HIBEEncryptionGenerationParameter(PairingKeySerParameter publicKeyParameter, String[] ids, Element message) {
 		super(publicKeyParameter, message);

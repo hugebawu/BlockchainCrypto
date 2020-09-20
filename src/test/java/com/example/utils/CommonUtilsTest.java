@@ -10,6 +10,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
+import java.nio.charset.StandardCharsets;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.KeyPair;
@@ -49,8 +50,8 @@ import cn.edu.ncepu.crypto.utils.SysProperty;
  * @Description:  (test methods of CommonUtils)
  */
 public class CommonUtilsTest {
-	private static Logger logger = LoggerFactory.getLogger(CommonUtilsTest.class);
-	private static String USER_DIR = SysProperty.USER_DIR;
+	private static final Logger logger = LoggerFactory.getLogger(CommonUtilsTest.class);
+	private static final String USER_DIR = SysProperty.USER_DIR;
 	private static final String EC_STRING = "EC";
 	private static final int TIMES = 100_000;
 
@@ -134,7 +135,7 @@ public class CommonUtilsTest {
 		try {
 			String message = "Hello, use X.509 cert!";
 			String algorithm = "SHA256";
-			byte[] hexHash = CommonUtils.hash(message.getBytes("UTF-8"), algorithm);
+			byte[] hexHash = CommonUtils.hash(message.getBytes(StandardCharsets.UTF_8), algorithm);
 			// 从keystore file读取KeyStore:
 			FileInputStream input = new FileInputStream(new File(USER_DIR + "/elements/my.keystore"));
 			KeyStore ks = CertificateUtils.getKeyStore(input, "123456".toCharArray(), JKeyStoreType.JKS);
@@ -174,14 +175,12 @@ public class CommonUtilsTest {
 		logger.info("initial content " + content);
 		try {
 			// encode
-			String hexdata = CommonUtils.encodeHexString(content.getBytes("UTF-8"));
+			String hexdata = CommonUtils.encodeHexString(content.getBytes(StandardCharsets.UTF_8));
 			// decode
 			String decoded = new String(Hex.decodeHex(hexdata));
 			logger.info("encoded Hex string: " + hexdata);
 			logger.info("decoded content " + decoded);
 			assertEquals(content, decoded);
-		} catch (UnsupportedEncodingException e) {
-			logger.error(e.getLocalizedMessage());
 		} catch (DecoderException e) {
 			logger.error(e.getLocalizedMessage());
 		}
@@ -193,7 +192,7 @@ public class CommonUtilsTest {
 		String content = "abc123!@#阿萨德'}|";
 		logger.info("initial content " + content);
 		try {
-			final String hexdata = Hex.encodeHexString(content.getBytes("UTF-8"));
+			final String hexdata = Hex.encodeHexString(content.getBytes(StandardCharsets.UTF_8));
 			logger.info("encoded Hex string: " + hexdata);
 			String decoded = new String(CommonUtils.decodeHex(hexdata));
 			logger.info("decoded content " + decoded);
@@ -283,13 +282,13 @@ public class CommonUtilsTest {
 			logger.info("Hex string privateKey length = " + Hex.encodeHexString(privateKey.getEncoded()).length());
 			logger.info("========================================");
 			// signature
-			byte[] signed = ECDSASigner.sign(privateKey, "message".getBytes("UTF-8"));
+			byte[] signed = ECDSASigner.sign(privateKey, "message".getBytes(StandardCharsets.UTF_8));
 			String signature = Hex.encodeHexString(signed);
 			logger.info("Hex Signature String = " + signature);
 			logger.info("Hex Signature length = " + signature.length());
 
 			// verify
-			if (false == ECDSASigner.verify(publicKey, "message".getBytes("UTF-8"), signed)) {
+			if (false == ECDSASigner.verify(publicKey, "message".getBytes(StandardCharsets.UTF_8), signed)) {
 				logger.info("Verify passed for invalid signature, test abort...");
 				System.exit(0);
 			}
@@ -326,13 +325,13 @@ public class CommonUtilsTest {
 			logger.info("Hex string privateKey length = " + Hex.encodeHexString(privateKey.getEncoded()).length());
 			logger.info("========================================");
 			// signature
-			byte[] signed = ECDSASigner.sign(privateKey, "message".getBytes("UTF-8"));
+			byte[] signed = ECDSASigner.sign(privateKey, "message".getBytes(StandardCharsets.UTF_8));
 			String signature = Hex.encodeHexString(signed);
 			logger.info("Hex Signature String = " + signature);
 			logger.info("Hex Signature length = " + signature.length());
 
 			// verify
-			if (false == ECDSASigner.verify(publicKey, "message".getBytes("UTF-8"), signed)) {
+			if (false == ECDSASigner.verify(publicKey, "message".getBytes(StandardCharsets.UTF_8), signed)) {
 				logger.info("Verify passed for invalid signature, test abort...");
 				System.exit(0);
 			}

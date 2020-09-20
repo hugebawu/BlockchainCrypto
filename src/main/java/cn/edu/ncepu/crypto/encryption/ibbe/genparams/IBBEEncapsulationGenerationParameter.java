@@ -10,7 +10,7 @@ import cn.edu.ncepu.crypto.utils.PairingUtils;
  * IBBE encapsulation generation parameter.
  */
 public class IBBEEncapsulationGenerationParameter extends PairingEncapsulationGenerationParameter {
-	private String[] ids;
+	private final String[] ids;
 
 	public IBBEEncapsulationGenerationParameter(PairingKeySerParameter publicKeyParameter, String[] ids) {
 		super(publicKeyParameter);

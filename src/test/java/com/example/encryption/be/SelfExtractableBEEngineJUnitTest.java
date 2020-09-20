@@ -36,7 +36,7 @@ import junit.framework.TestCase;
  * Self-extractable BE unit test.
  */
 public class SelfExtractableBEEngineJUnitTest extends TestCase {
-	private static Logger logger = LoggerFactory.getLogger(SelfExtractableBEEngineJUnitTest.class);
+	private static final Logger logger = LoggerFactory.getLogger(SelfExtractableBEEngineJUnitTest.class);
 	private static final int maxNumUser = 8;
 	private static final int index1_valid = 1;
 	private static final int index8_valid = 8;

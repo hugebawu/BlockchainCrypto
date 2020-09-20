@@ -22,8 +22,8 @@ import org.slf4j.LoggerFactory;
  */
 public class TimeCountProxyHandle implements InvocationHandler {
 
-	private static Logger logger = LoggerFactory.getLogger(TimeCountProxyHandle.class);
-	private Object proxied;
+	private static final Logger logger = LoggerFactory.getLogger(TimeCountProxyHandle.class);
+	private final Object proxied;
 
 	public TimeCountProxyHandle(Object obj) {
 		proxied = obj;

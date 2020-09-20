@@ -33,13 +33,13 @@ import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
 public class ECDSASigner implements Signer {
 	private final Digest digest;
 	private final byte[] message;
-	private PublicKey publicKey;
-	private PrivateKey privateKey;
+	private final PublicKey publicKey;
+	private final PrivateKey privateKey;
 	private boolean forSigning;
 
 	private Signature signature;
 
-	private static Logger logger = LoggerFactory.getLogger(ECDSASigner.class);
+	private static final Logger logger = LoggerFactory.getLogger(ECDSASigner.class);
 	private static final String SCHEME_NAME = "Scott-Vanstone-1992 ecdsa signature scheme";
 	private static final String SINGALGORITHM_STRING = "SHA256withECDSA";
 

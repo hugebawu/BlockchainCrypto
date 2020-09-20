@@ -10,7 +10,7 @@ import cn.edu.ncepu.crypto.utils.PairingUtils;
  * CP-ABE secret key generation parameter.
  */
 public class CPABESecretKeyGenerationParameter extends PairingKeyGenerationParameter {
-	private String[] attributes;
+	private final String[] attributes;
 
 	public CPABESecretKeyGenerationParameter(PairingKeySerParameter publicKeyParameter,
 			PairingKeySerParameter masterSecretKeyParameter, String[] attributes) {

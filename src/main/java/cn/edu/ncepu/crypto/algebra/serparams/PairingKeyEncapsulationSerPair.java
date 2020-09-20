@@ -8,8 +8,8 @@ import org.bouncycastle.crypto.CipherParameters;
  * Generic pairing-based key encapsulation ciphertext / session key encapsulation pair.
  */
 public class PairingKeyEncapsulationSerPair implements CipherParameters {
-	private byte[] sessionKey;
-	private PairingCipherSerParameter header;
+	private final byte[] sessionKey;
+	private final PairingCipherSerParameter header;
 
 	/**
 	 * basic constructor.

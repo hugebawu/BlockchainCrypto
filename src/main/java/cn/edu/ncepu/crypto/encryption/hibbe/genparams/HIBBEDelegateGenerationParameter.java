@@ -9,8 +9,8 @@ import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
  * HIBBE secret key delegation parameter.
  */
 public class HIBBEDelegateGenerationParameter extends PairingKeyDelegationParameter {
-	private int index;
-	private String delegateId;
+	private final int index;
+	private final String delegateId;
 
 	public HIBBEDelegateGenerationParameter(PairingKeySerParameter publicKeyParameter,
 			PairingKeySerParameter secretKeyParameter, int index, String id) {

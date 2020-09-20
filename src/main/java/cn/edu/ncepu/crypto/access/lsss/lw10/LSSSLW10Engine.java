@@ -24,7 +24,7 @@ import cn.edu.ncepu.crypto.access.parser.BinaryTreeNode;
 public class LSSSLW10Engine extends LSSSPolicyEngine {
 	public static final String SCHEME_NAME = "Lewko-Waters-10 linear secret-sharing scheme";
 
-	private static LSSSLW10Engine instance = new LSSSLW10Engine();
+	private static final LSSSLW10Engine instance = new LSSSLW10Engine();
 
 	private LSSSLW10Engine() {
 

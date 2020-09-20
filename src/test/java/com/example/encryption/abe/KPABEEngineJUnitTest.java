@@ -51,7 +51,7 @@ import junit.framework.TestCase;
  * KP-ABE engine test.
  */
 public class KPABEEngineJUnitTest extends TestCase {
-	private static Logger logger = LoggerFactory.getLogger(KPABEEngineJUnitTest.class);
+	private static final Logger logger = LoggerFactory.getLogger(KPABEEngineJUnitTest.class);
 	private KPABEEngine engine;
 
 	private void try_valid_access_policy(Pairing pairing, PairingKeySerParameter publicKey,

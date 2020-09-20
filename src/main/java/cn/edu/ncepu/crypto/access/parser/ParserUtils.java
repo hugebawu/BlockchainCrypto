@@ -7,7 +7,7 @@ import java.util.LinkedList;
  * Created by Weiran Liu on 2016/7/20.
  */
 public class ParserUtils {
-	private static char SPACE = ' ';
+	private static final char SPACE = ' ';
 
 	private static String StringPolicyFormat(String policy) {
 		policy = policy.trim();

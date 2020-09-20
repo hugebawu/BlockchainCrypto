@@ -13,9 +13,9 @@ import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
  * HIBBE decryption generation parameter.
  */
 public class HIBBEDecryptionGenerationParameter extends PairingDecryptionGenerationParameter {
-	private String[] ids;
-	private Signer signer;
-	private Digest digest;
+	private final String[] ids;
+	private final Signer signer;
+	private final Digest digest;
 
 	public HIBBEDecryptionGenerationParameter(PairingKeySerParameter publicKeyParameter,
 			PairingKeySerParameter secretKeyParameter, String[] ids, PairingCipherSerParameter ciphertextParameter) {

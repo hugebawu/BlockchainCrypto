@@ -10,7 +10,7 @@ import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
  * HIBE decryption generation parameter.
  */
 public class HIBEDecryptionGenerationParameter extends PairingDecryptionGenerationParameter {
-	private String[] ids;
+	private final String[] ids;
 
 	public HIBEDecryptionGenerationParameter(PairingKeySerParameter publicKeyParameter,
 			PairingKeySerParameter secretKeyParameter, String[] ids, PairingCipherSerParameter ciphertextParameter) {

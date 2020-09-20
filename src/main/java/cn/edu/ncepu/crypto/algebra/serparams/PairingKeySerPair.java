@@ -8,8 +8,8 @@ import org.bouncycastle.crypto.CipherParameters;
  * a holding class for pairing-based serializable public/private parameter pairs.
  */
 public class PairingKeySerPair {
-	private PairingKeySerParameter publicParam;
-	private PairingKeySerParameter privateParam;
+	private final PairingKeySerParameter publicParam;
+	private final PairingKeySerParameter privateParam;
 
 	/**
 	 * basic constructor.

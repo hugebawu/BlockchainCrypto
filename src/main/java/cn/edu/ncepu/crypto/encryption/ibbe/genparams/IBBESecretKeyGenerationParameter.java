@@ -9,7 +9,7 @@ import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
  * IBBE secret key generation parameter.
  */
 public class IBBESecretKeyGenerationParameter extends PairingKeyGenerationParameter {
-	private String id;
+	private final String id;
 
 	public IBBESecretKeyGenerationParameter(PairingKeySerParameter publicKeyParameter,
 			PairingKeySerParameter masterSecretKeyParameter, String id) {

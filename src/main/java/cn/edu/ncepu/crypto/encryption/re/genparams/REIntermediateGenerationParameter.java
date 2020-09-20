@@ -13,7 +13,7 @@ import cn.edu.ncepu.crypto.chameleonhash.ChameleonHasher;
  * RE intermediate ciphertext generation parameter.
  */
 public class REIntermediateGenerationParameter extends PairingEncapsulationGenerationParameter {
-	private int n;
+	private final int n;
 	private ChameleonHasher chameleonHasher;
 	private AsymmetricKeySerPairGenerator chameleonHashKeyPairGenerator;
 	private KeyGenerationParameters chameleonHashKeyGenerationParameter;

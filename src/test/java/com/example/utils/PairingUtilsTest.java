@@ -38,8 +38,8 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.a.TypeAPairing;
  * @Description:  (test methods of PairingUtils)
  */
 public class PairingUtilsTest {
-	private static Logger logger = LoggerFactory.getLogger(PairingUtilsTest.class);
-	private static String USER_DIR = SysProperty.USER_DIR;
+	private static final Logger logger = LoggerFactory.getLogger(PairingUtilsTest.class);
+	private static final String USER_DIR = SysProperty.USER_DIR;
 
 	/**
 	 *   测试动态生成Type A PairingParameters并保存

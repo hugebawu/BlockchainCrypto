@@ -12,7 +12,7 @@ import it.unisa.dia.gas.jpbc.PairingParameters;
  * KP-ABE public key / master secret key pair generation parameter.
  */
 public class KPABEKeyPairGenerationParameter extends PairingKeyPairGenerationParameter {
-	private int maxAttributesNum;
+	private final int maxAttributesNum;
 	private AsymmetricKeySerPairGenerator chameleonHashKeyPairGenerator;
 	private KeyGenerationParameters chameleonHashKeyGenerationParameter;
 

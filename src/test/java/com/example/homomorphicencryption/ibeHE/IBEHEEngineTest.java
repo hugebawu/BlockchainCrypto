@@ -46,7 +46,7 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  */
 @SuppressWarnings("unused")
 public class IBEHEEngineTest {
-	private static Logger logger = LoggerFactory.getLogger(IBEHEEngineTest.class);
+	private static final Logger logger = LoggerFactory.getLogger(IBEHEEngineTest.class);
 	private static final String identity_1 = "ID_1";
 	private static final String identity_2 = "ID_2";
 	private PairingParameters pairingParams = null;

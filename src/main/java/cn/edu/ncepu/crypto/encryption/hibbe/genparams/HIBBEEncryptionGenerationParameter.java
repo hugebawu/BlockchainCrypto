@@ -14,10 +14,10 @@ import it.unisa.dia.gas.jpbc.Element;
  * HIBBE encryption generation parameter.
  */
 public class HIBBEEncryptionGenerationParameter extends PairingEncryptionGenerationParameter {
-	private String[] ids;
-	private Signer signer;
-	private PairingKeyPairGenerator signKeyPairGenerator;
-	private Digest digest;
+	private final String[] ids;
+	private final Signer signer;
+	private final PairingKeyPairGenerator signKeyPairGenerator;
+	private final Digest digest;
 
 	public HIBBEEncryptionGenerationParameter(PairingKeySerParameter publicKeyParameter, String[] ids,
 			Element message) {

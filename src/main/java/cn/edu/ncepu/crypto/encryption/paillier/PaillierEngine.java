@@ -4,6 +4,7 @@
 package cn.edu.ncepu.crypto.encryption.paillier;
 
 import java.math.BigInteger;
+import java.nio.charset.StandardCharsets;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.util.Base64;
@@ -86,7 +87,7 @@ public class PaillierEngine extends Engine {
 		cipher.init(Cipher.ENCRYPT_MODE, key);
 		cipherText = cipher.doFinal(text);
 		final String base64 = Base64.getEncoder().encodeToString(cipherText);
-		final byte[] encryptedBytes = base64.getBytes("UTF-8");
+		final byte[] encryptedBytes = base64.getBytes(StandardCharsets.UTF_8);
 		return encryptedBytes;
 	}
 

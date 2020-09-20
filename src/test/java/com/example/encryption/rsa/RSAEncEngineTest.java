@@ -6,6 +6,7 @@ package com.example.encryption.rsa;
 import static org.junit.Assert.assertEquals;
 
 import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 import java.security.InvalidKeyException;
 import java.security.KeyPair;
 import java.security.NoSuchAlgorithmException;
@@ -35,7 +36,7 @@ import cn.edu.ncepu.crypto.encryption.rsa.RSAEncEngine;
  * @Description:  (RSA encryption scheme)
  */
 public class RSAEncEngineTest {
-	private static Logger logger = LoggerFactory.getLogger(RSAEncEngineTest.class);
+	private static final Logger logger = LoggerFactory.getLogger(RSAEncEngineTest.class);
 
 	@Ignore
 	@Test
@@ -57,7 +58,7 @@ public class RSAEncEngineTest {
 
 			// encrypt the base64 ciphertext can be transmitted directly through network.
 			String base64_publciKey = Base64.getEncoder().encodeToString(publicKey.getEncoded());
-			byte[] encryptedtext = RSAEncEngine.encrypt(message.getBytes("UTF-8"), base64_publciKey);
+			byte[] encryptedtext = RSAEncEngine.encrypt(message.getBytes(StandardCharsets.UTF_8), base64_publciKey);
 			String ciphertext = Base64.getEncoder().encodeToString(encryptedtext);
 			logger.info("base64 ciphertext: " + ciphertext);
 			logger.info("base64 ciphertext length: " + ciphertext.length());
@@ -65,11 +66,9 @@ public class RSAEncEngineTest {
 			// decrypt
 			String base64_privateKey = Base64.getEncoder().encodeToString(privateKey.getEncoded());
 			byte[] decryptedtext = RSAEncEngine.decrypt(Base64.getDecoder().decode(ciphertext), base64_privateKey);
-			String decryptString = new String(decryptedtext, "UTF-8");
+			String decryptString = new String(decryptedtext, StandardCharsets.UTF_8);
 			logger.info("decrypted plaintext: " + decryptString);
 			assertEquals(message, decryptedtext);
-		} catch (UnsupportedEncodingException e) {
-			logger.error(e.getLocalizedMessage());
 		} catch (NoSuchAlgorithmException e) {
 			logger.error(e.getLocalizedMessage());
 		} catch (InvalidKeyException e) {

@@ -18,7 +18,7 @@ public class PairingParametersGenerationParameter implements CipherParameters {
 		TYPE_A, TYPE_A1, TYPE_E, TYPE_F,
 	}
 
-	private PairingType pairingType;
+	private final PairingType pairingType;
 	private final int rBitLength;
 	private final int qBitLength;
 	private final int n;

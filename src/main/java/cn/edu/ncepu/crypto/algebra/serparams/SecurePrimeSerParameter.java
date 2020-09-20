@@ -296,9 +296,9 @@ public class SecurePrimeSerParameter implements CipherParameters, Serializable {
 					16),
 			TWO);
 
-	private BigInteger p; // prime order of G
-	private BigInteger q;
-	private BigInteger g; // generate G
+	private final BigInteger p; // prime order of G
+	private final BigInteger q;
+	private final BigInteger g; // generate G
 
 	public SecurePrimeSerParameter(BigInteger p, BigInteger q, BigInteger g) {
 		this.p = p;

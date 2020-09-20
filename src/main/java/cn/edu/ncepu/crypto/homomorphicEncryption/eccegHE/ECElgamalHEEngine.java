@@ -34,18 +34,18 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.a.TypeAPairing;
  * 虽然没验证成功，但是通过文献看出来是乘法同态。
  */
 public class ECElgamalHEEngine extends Engine implements HE {
-	private static Logger logger = LoggerFactory.getLogger(ECElgamalHEEngine.class);
+	private static final Logger logger = LoggerFactory.getLogger(ECElgamalHEEngine.class);
 	// Scheme name, used for exceptions
 	private static final String SCHEME_NAME = "elleptic curve based elgamal encryption based homomorphic encryption scheme";
 	private static ECElgamalHEEngine engine;
 	// system parameters: params = <p,q,n,P,G>
 	private Element P; // G1的生成元
 	private Element Q; // 用户公钥
-	private TypeAPairing pairing;
+	private final TypeAPairing pairing;
 	// G1是定义在域Fq上的椭圆曲线，其阶为r.q与r都是质数，且存在一定的关系：这里是 (q+1)=r*h
 	// Zr 是阶为r的环Zr={0,...,r-1}
-	private ZrField Zr;
-	private CurveField<ZrField> G1;
+	private final ZrField Zr;
+	private final CurveField<ZrField> G1;
 
 	public static ECElgamalHEEngine getInstance(Pairing pairing) {
 		if (null == engine) {
@@ -94,8 +94,8 @@ public class ECElgamalHEEngine extends Engine implements HE {
 		// 密文的第二部分 V = M + rQ; M 是明文. 密文: C = (U, V)
 		// -------------------------------------------------------------------------------
 		// 验证G1中的元素(x,y)满足 y^2 mod (q) = (x^3+x) mod (q)
-		BigInteger x = ((ImmutableZrElement) U.getX()).toBigInteger();
-		BigInteger y = ((ImmutableZrElement) U.getY()).toBigInteger();
+		BigInteger x = U.getX().toBigInteger();
+		BigInteger y = U.getY().toBigInteger();
 		BigInteger q = pairing.getQ();
 		BigInteger left = y.modPow(new BigInteger("2"), q);
 		BigInteger right = (x.modPow(new BigInteger("3"), q).add(x)).mod(q);

@@ -35,7 +35,7 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  * @Description:  (这里用一句话描述这个方法的作用)
  */
 public class ECElgamalHEEngineTest {
-	private static Logger logger = LoggerFactory.getLogger(ECElgamalHEEngineTest.class);
+	private static final Logger logger = LoggerFactory.getLogger(ECElgamalHEEngineTest.class);
 	private PairingParameters pairingParams = null;
 	private ECElgamalHEEngine engine;
 

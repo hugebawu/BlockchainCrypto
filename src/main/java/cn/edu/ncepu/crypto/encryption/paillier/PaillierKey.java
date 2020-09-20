@@ -23,8 +23,8 @@ public class PaillierKey implements Key {
 	 * 
 	 */
 	private static final long serialVersionUID = -956635038205758445L;
-	private BigInteger N;
-	private BigInteger NSquare;
+	private final BigInteger N;
+	private final BigInteger NSquare;
 	private BigInteger R;
 
 	protected PaillierKey(BigInteger n, BigInteger nsquare) {

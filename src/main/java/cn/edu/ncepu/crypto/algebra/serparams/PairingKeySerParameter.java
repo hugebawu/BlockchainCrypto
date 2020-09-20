@@ -14,7 +14,7 @@ public class PairingKeySerParameter extends PairingCipherSerParameter {
 	 * 
 	 */
 	private static final long serialVersionUID = -4321962451916033143L;
-	private boolean privateKey;
+	private final boolean privateKey;
 
 	public PairingKeySerParameter(boolean privateKey, PairingParameters pairingParameters) {
 		super(pairingParameters);

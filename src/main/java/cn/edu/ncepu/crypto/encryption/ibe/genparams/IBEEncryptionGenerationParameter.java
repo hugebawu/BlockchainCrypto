@@ -10,7 +10,7 @@ import it.unisa.dia.gas.jpbc.Element;
  * Identity-Based Encryption ciphertext generation parameter.
  */
 public class IBEEncryptionGenerationParameter extends PairingEncryptionGenerationParameter {
-	private String id;
+	private final String id;
 
 	public IBEEncryptionGenerationParameter(PairingKeySerParameter publicKeyParameter, String id, Element message) {
 		super(publicKeyParameter, message);

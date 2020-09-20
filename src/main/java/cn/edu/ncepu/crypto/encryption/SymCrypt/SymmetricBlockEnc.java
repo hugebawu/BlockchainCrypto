@@ -75,7 +75,7 @@ public class SymmetricBlockEnc {
 	}
 
 	// The default block size in bits (note: a multiple of 8)
-	private static int DEFAULT_SIZE = 16;
+	private static final int DEFAULT_SIZE = 16;
 
 	/**
 	 *  (AEC encrytion and decryption method realized through BouncyCastle)

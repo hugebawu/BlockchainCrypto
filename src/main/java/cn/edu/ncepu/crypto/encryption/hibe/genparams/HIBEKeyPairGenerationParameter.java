@@ -9,7 +9,7 @@ import it.unisa.dia.gas.jpbc.PairingParameters;
  * HIBE public key / master secret key generation parameter.
  */
 public class HIBEKeyPairGenerationParameter extends PairingKeyPairGenerationParameter {
-	private int maxDepth;
+	private final int maxDepth;
 
 	public HIBEKeyPairGenerationParameter(PairingParameters pairingParameters, int maxDepth) {
 		super(pairingParameters);

@@ -9,7 +9,7 @@ import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
  * HIBE secret key generation parameter.
  */
 public class HIBESecretKeyGenerationParameter extends PairingKeyGenerationParameter {
-	private String[] ids;
+	private final String[] ids;
 
 	public HIBESecretKeyGenerationParameter(PairingKeySerParameter publicKeyParameter,
 			PairingKeySerParameter masterSecretKeyParameter, String[] ids) {

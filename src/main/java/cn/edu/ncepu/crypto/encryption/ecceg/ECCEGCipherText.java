@@ -16,9 +16,9 @@ import it.unisa.dia.gas.plaf.jpbc.field.z.ZrElement;
  */
 @SuppressWarnings("rawtypes")
 public class ECCEGCipherText {
-	private CurveElement U;
-	private CurveElement V;
-	private ZrElement r;
+	private final CurveElement U;
+	private final CurveElement V;
+	private final ZrElement r;
 
 	public ECCEGCipherText(CurveElement U, CurveElement V, ZrElement r) {
 		this.U = (CurveElement) U.getImmutable();

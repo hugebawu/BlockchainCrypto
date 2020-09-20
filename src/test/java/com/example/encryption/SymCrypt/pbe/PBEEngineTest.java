@@ -7,6 +7,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
+import java.nio.charset.StandardCharsets;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -36,7 +37,7 @@ import cn.edu.ncepu.crypto.encryption.SymCrypt.pbe.PBEEngine;
  * @Description:  (password based encryption)
  */
 public class PBEEngineTest {
-	private static Logger logger = LoggerFactory.getLogger(PBEEngineTest.class);
+	private static final Logger logger = LoggerFactory.getLogger(PBEEngineTest.class);
 
 	@Ignore
 	@Test
@@ -55,16 +56,14 @@ public class PBEEngineTest {
 			String digest_alg = "SHA256";
 			String enc_alg = "256bitAES-CBC-BC";
 			byte[] encrypted = PBEEngine.enc_dec_PBE(true, digest_alg, enc_alg, password, salt,
-					message.getBytes("UTF8"));
+					message.getBytes(StandardCharsets.UTF_8));
 			logger.info("Encrypted Ciphertext = " + Base64.getEncoder().encodeToString(encrypted));
 			// decryption
 			byte[] decrypted = PBEEngine.enc_dec_PBE(false, digest_alg, enc_alg, password, salt, encrypted);
-			String decryptedMessage = new String(decrypted, "UTF-8");
+			String decryptedMessage = new String(decrypted, StandardCharsets.UTF_8);
 			logger.info("Decrypted Plaintext = " + decryptedMessage);
 			assertEquals(message, decryptedMessage);
 		} catch (NoSuchAlgorithmException e) {
-			logger.error(e.getLocalizedMessage());
-		} catch (UnsupportedEncodingException e) {
 			logger.error(e.getLocalizedMessage());
 		} catch (InvalidKeyException e) {
 			logger.error(e.getLocalizedMessage());

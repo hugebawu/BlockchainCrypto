@@ -25,7 +25,7 @@ import junit.framework.TestCase;
  */
 
 public class PolicyParserJUnitTest extends TestCase {
-	private static Logger logger = LoggerFactory.getLogger(PolicyParserJUnitTest.class);
+	private static final Logger logger = LoggerFactory.getLogger(PolicyParserJUnitTest.class);
 	private static final String access_policy_example_1 = "school:pku and professor and (academy:software or academy:computer)";
 	private static final String[] access_policy_exampe_1_satisfied_1 = new String[] { "school:pku", "professor",
 			"academy:software" };

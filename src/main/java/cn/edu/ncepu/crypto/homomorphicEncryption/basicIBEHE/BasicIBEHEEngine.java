@@ -3,16 +3,6 @@
  */
 package cn.edu.ncepu.crypto.homomorphicEncryption.basicIBEHE;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-
-import java.io.UnsupportedEncodingException;
-import java.math.BigInteger;
-import java.util.Map;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import cn.edu.ncepu.crypto.homomorphicEncryption.CipherText;
 import cn.edu.ncepu.crypto.homomorphicEncryption.HE;
 import cn.edu.ncepu.crypto.utils.PairingUtils;
@@ -25,6 +15,15 @@ import it.unisa.dia.gas.plaf.jpbc.field.quadratic.DegreeTwoExtensionQuadraticFie
 import it.unisa.dia.gas.plaf.jpbc.field.z.ZrField;
 import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
 import it.unisa.dia.gas.plaf.jpbc.pairing.a.TypeAPairing;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.math.BigInteger;
+import java.nio.charset.StandardCharsets;
+import java.util.Map;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 /**
  *
@@ -41,19 +40,19 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.a.TypeAPairing;
  */
 
 public class BasicIBEHEEngine implements HE {
-	private static Logger logger = LoggerFactory.getLogger(BasicIBEHEEngine.class);
+	private static final Logger logger = LoggerFactory.getLogger(BasicIBEHEEngine.class);
 	// system parameters: params = <q,n,P,Ppub,G,H>
 	private Element s, // master key
 			P, // G1的生成元
 			Ppub, // Ppub = sP
 			Qu; // 用户公钥 Qu = hash_G("User ID")
-	private TypeAPairing pairing;
+	private final TypeAPairing pairing;
 	// G1是定义在域Fq上的椭圆曲线，其阶为r.q与r都是质数，且存在一定的关系：这里是 (q+1)=r*h
 	// Zr 是阶为r的环Zr={0,...,r-1}
 	// GT是有限域Fq2。其元素的阶虽然为r，但是其取值范围比q大的多，目前不清楚怎么回事。
-	private ZrField Zr;
-	private CurveField<ZrField> G1;
-	private GTFiniteField<DegreeTwoExtensionQuadraticField<ZrField>> GT;
+	private final ZrField Zr;
+	private final CurveField<ZrField> G1;
+	private final GTFiniteField<DegreeTwoExtensionQuadraticField<ZrField>> GT;
 
 	@SuppressWarnings("unchecked")
 	public BasicIBEHEEngine(PairingParameters typeAParams) {
@@ -102,14 +101,10 @@ public class BasicIBEHEEngine implements HE {
 		Element element = PairingUtils.mapNumStringToElement(pairing, bigNum, PairingGroupType.Zr);
 		logger.info("recovered bigNum: " + PairingUtils.mapElementToNumString(element, PairingGroupType.GT));
 		// 方案2 由于采用setFromHash的hash方式，不可逆
-		try {
-			byte[] bytes = bigNum.getBytes("UTF-8");
-			Element elementGT = GT.newElementFromHash(bytes, 0, bytes.length);
-			byte[] bytes2 = elementGT.toBytes();
-			assertFalse(bigNum.equals(new String(bytes2, "UTF-8")));
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-		}
+		byte[] bytes = bigNum.getBytes(StandardCharsets.UTF_8);
+		Element elementGT = GT.newElementFromHash(bytes, 0, bytes.length);
+		byte[] bytes2 = elementGT.toBytes();
+		assertFalse(bigNum.equals(new String(bytes2, StandardCharsets.UTF_8)));
 		logger.info("");
 	}
 
@@ -158,7 +153,7 @@ public class BasicIBEHEEngine implements HE {
 
 	@Override
 	public String decrypt(Element d, CipherText ciphertext) {
-		ciphertext = (IBEHECipherText) ciphertext;
+		ciphertext = ciphertext;
 		// g2 = e(d,U)
 		Element g2 = this.pairing.pairing(d, ciphertext.getU()).getImmutable();
 		// 因为 g2=e(d,U)= e(sQu,rP)=e(Qu,P)^sr=e(Qu,Ppub)^r=g^r

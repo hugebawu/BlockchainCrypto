@@ -23,9 +23,9 @@ public final class PaillierKeyPairGenerator extends KeyPairGeneratorSpi {
 
 	private int STRENGTH = 0;
 	private SecureRandom SECURE_RANDOM = null;
-	private int KEYSIZE_MIN = 8;
-	private int KEYSIZE_DEFAULT = 64;
-	private int KEYSIZE_MAX = 3096;
+	private final int KEYSIZE_MIN = 8;
+	private final int KEYSIZE_DEFAULT = 64;
+	private final int KEYSIZE_MAX = 3096;
 
 	/**
 	 * Initialises <code>KeyPairGenerator</code> The key size is bound between 8

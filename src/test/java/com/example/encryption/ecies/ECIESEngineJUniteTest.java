@@ -6,6 +6,7 @@ package com.example.encryption.ecies;
 import static org.junit.Assert.assertEquals;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.security.InvalidKeyException;
 import java.security.KeyPair;
 import java.security.NoSuchAlgorithmException;
@@ -36,7 +37,7 @@ import cn.edu.ncepu.crypto.utils.EccUtils;
  * @Description:  (elliptic curve integrated encryption scheme test)
  */
 public class ECIESEngineJUniteTest {
-	private static Logger logger = LoggerFactory.getLogger(ECIESEngineJUniteTest.class);
+	private static final Logger logger = LoggerFactory.getLogger(ECIESEngineJUniteTest.class);
 
 	ECIESEngine engine = ECIESEngine.getInstance();
 
@@ -60,7 +61,7 @@ public class ECIESEngineJUniteTest {
 			ECPrivateKey privateKey2 = EccUtils.string2PrivateKey(ecBase64PrivateKey);
 
 			String content = "cryptography12342qer45taredfghdfghj/？！#@￥##%……";
-			byte[] contentBytes = content.getBytes("UTF-8");
+			byte[] contentBytes = content.getBytes(StandardCharsets.UTF_8);
 			// encrypt the ciphertext can be transmitted directly through network.
 			byte[] ciphertextBytes = engine.encrypt(contentBytes, publicKey2);
 			// for transmission encode cipherText as Base64
@@ -69,7 +70,7 @@ public class ECIESEngineJUniteTest {
 			logger.info("base64 ciphertext: " + ciphertext);
 			logger.info("base64 ciphertext length: " + ciphertext.length());
 			// decrypt
-			String decryptedtext = new String(engine.decrypt(ciphertext, privateKey2), "UTF-8");
+			String decryptedtext = new String(engine.decrypt(ciphertext, privateKey2), StandardCharsets.UTF_8);
 			logger.info("decrypted plaintext: " + decryptedtext);
 			assertEquals(content, decryptedtext);
 		} catch (InvalidKeyException e) {

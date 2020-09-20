@@ -43,7 +43,7 @@ import junit.framework.TestCase;
  * Self-extractable KP-ABE engine unit test.
  */
 public class SelfExtractableKPABEEngineJUnitTest extends TestCase {
-	private static Logger logger = LoggerFactory.getLogger(SelfExtractableCPABEPerformanceTest.class);
+	private static final Logger logger = LoggerFactory.getLogger(SelfExtractableCPABEPerformanceTest.class);
 	private SelfExtractableKPABEEngine engine;
 
 	public void setEngine(SelfExtractableKPABEEngine engine) {

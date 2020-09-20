@@ -29,7 +29,7 @@ import junit.framework.TestCase;
  * Self-extractable BE performance test.
  */
 public class SelfExtractableBEPerformanceTest extends TestCase {
-	private static Logger logger = LoggerFactory.getLogger(SelfExtractableBEPerformanceTest.class);
+	private static final Logger logger = LoggerFactory.getLogger(SelfExtractableBEPerformanceTest.class);
 	private String pairingParameterPath;
 	// file path for performance test result
 	private static final String default_path = "benchmarks/encryption/be/";

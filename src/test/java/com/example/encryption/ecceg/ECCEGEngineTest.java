@@ -24,7 +24,7 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
 
 @SuppressWarnings("rawtypes")
 public class ECCEGEngineTest {
-	private static Logger logger = LoggerFactory.getLogger(ECCEGEngineTest.class);
+	private static final Logger logger = LoggerFactory.getLogger(ECCEGEngineTest.class);
 	private ECCEGEngine engine;
 
 //	@Ignore

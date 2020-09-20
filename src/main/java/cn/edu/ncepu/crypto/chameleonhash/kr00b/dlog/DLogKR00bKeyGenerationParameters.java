@@ -12,7 +12,7 @@ import cn.edu.ncepu.crypto.algebra.serparams.SecurePrimeSerParameter;
  * Krawczyk-Rabin Chameleon hash public key / secret key generation parameters.
  */
 public class DLogKR00bKeyGenerationParameters extends KeyGenerationParameters {
-	private SecurePrimeSerParameter params;
+	private final SecurePrimeSerParameter params;
 
 	public DLogKR00bKeyGenerationParameters(SecureRandom random, SecurePrimeSerParameter params) {
 		super(random, params.getP().bitLength() - 1);

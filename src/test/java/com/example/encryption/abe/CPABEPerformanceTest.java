@@ -28,7 +28,7 @@ import junit.framework.TestCase;
  * CP-ABE engine performance test.
  */
 public class CPABEPerformanceTest extends TestCase {
-	private static Logger logger = LoggerFactory.getLogger(CPABEPerformanceTest.class);
+	private static final Logger logger = LoggerFactory.getLogger(CPABEPerformanceTest.class);
 	private String pairingParameterPath;
 	// file path for performance test result
 	private static final String default_path = "benchmarks/encryption/cpabe/";

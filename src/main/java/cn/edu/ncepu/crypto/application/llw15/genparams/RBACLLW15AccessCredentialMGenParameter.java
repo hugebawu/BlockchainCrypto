@@ -12,9 +12,9 @@ import cn.edu.ncepu.crypto.application.llw15.serparams.RBACLLW15PublicKeySerPara
  * Medical staff generation parameters for Liu-Liu-Wu EHR role-based access control.
  */
 public class RBACLLW15AccessCredentialMGenParameter extends PairingKeyGenerationParameter {
-	private RBACLLW15IntermediateSerParameter intermediateParameter;
-	private String[] roles;
-	private String time;
+	private final RBACLLW15IntermediateSerParameter intermediateParameter;
+	private final String[] roles;
+	private final String time;
 
 	public RBACLLW15AccessCredentialMGenParameter(PairingKeySerParameter publicKeyParameter,
 			PairingKeySerParameter masterSecretKeyParameter, String[] roles, String time) {

@@ -11,8 +11,8 @@ import cn.edu.ncepu.crypto.application.llw15.serparams.RBACLLW15IntermediateSerP
  * Patient access credential generation parameters for Liu-Liu-Wu EHR role-based access control.
  */
 public class RBACLLW15AccessCredentialPGenParameter extends PairingKeyGenerationParameter {
-	private RBACLLW15IntermediateSerParameter intermediateParameter;
-	private String id;
+	private final RBACLLW15IntermediateSerParameter intermediateParameter;
+	private final String id;
 
 	public RBACLLW15AccessCredentialPGenParameter(PairingKeySerParameter publicKeyParameter,
 			PairingKeySerParameter masterSecretKeyParameter, String id) {

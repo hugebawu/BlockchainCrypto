@@ -27,7 +27,7 @@ import junit.framework.TestCase;
  * HIBBE scheme performance test.
  */
 public class HIBBEPerformanceTest extends TestCase {
-	private static Logger logger = LoggerFactory.getLogger(HIBBEPerformanceTest.class);
+	private static final Logger logger = LoggerFactory.getLogger(HIBBEPerformanceTest.class);
 	private String pairingParameterPath;
 	// file path for performance test result
 	private static final String default_path = "benchmarks/encryption/hibbe/";

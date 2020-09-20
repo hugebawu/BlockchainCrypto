@@ -50,7 +50,7 @@ import junit.framework.TestCase;
  * CP-ABE engine test.
  */
 public class CPABEEngineJUnitTest extends TestCase {
-	private static Logger logger = LoggerFactory.getLogger(CPABEEngineJUnitTest.class);
+	private static final Logger logger = LoggerFactory.getLogger(CPABEEngineJUnitTest.class);
 	private CPABEEngine engine;
 
 	private void try_valid_access_policy(Pairing pairing, PairingKeySerParameter publicKey,

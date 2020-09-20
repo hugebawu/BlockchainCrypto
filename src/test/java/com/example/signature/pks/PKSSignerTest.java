@@ -3,6 +3,7 @@ package com.example.signature.pks;
 import static org.junit.Assert.assertEquals;
 
 import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 
 import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.crypto.CryptoException;
@@ -36,7 +37,7 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  * Public key signature test.
  */
 public class PKSSignerTest {
-	private static Logger logger = LoggerFactory.getLogger(PKSSignerTest.class);
+	private static final Logger logger = LoggerFactory.getLogger(PKSSignerTest.class);
 	private PairingKeyPairGenerator asymmetricKeySerPairGenerator;
 	private Signer signer;
 
@@ -50,13 +51,13 @@ public class PKSSignerTest {
 		logger.info("Test signer functionality");
 		try {
 			// signature
-			byte[] message = "Message".getBytes("UTF-8");
+			byte[] message = "Message".getBytes(StandardCharsets.UTF_8);
 			signer.init(true, secretKey);
 			signer.update(message, 0, message.length);
 			byte[] signature = signer.generateSignature();
 			logger.info("Signature length = " + signature.length);
 
-			byte[] messagePrime = "MessagePrime".getBytes("UTF-8");
+			byte[] messagePrime = "MessagePrime".getBytes(StandardCharsets.UTF_8);
 			signer.init(true, secretKey);
 			signer.update(messagePrime, 0, messagePrime.length);
 			byte[] signaturePrime = signer.generateSignature();
@@ -77,10 +78,8 @@ public class PKSSignerTest {
 			}
 		} catch (CryptoException e) {
 			e.printStackTrace();
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
 		}
-		logger.info("Pairing signer functionality test pass.");
+        logger.info("Pairing signer functionality test pass.");
 
 		logger.info("========================================");
 		logger.info("Test signer parameters serialization & de-serialization.");

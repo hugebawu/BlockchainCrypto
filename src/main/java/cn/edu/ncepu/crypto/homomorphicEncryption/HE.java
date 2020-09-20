@@ -52,5 +52,5 @@ public interface HE {
 	 * @param ciphertextMap map of ciphertext
 	 * @return
 	 */
-	public CipherText eval(Map<String, CipherText> ciphertextMap);
+    CipherText eval(Map<String, CipherText> ciphertextMap);
 }

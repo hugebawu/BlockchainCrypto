@@ -12,7 +12,7 @@ import cn.edu.ncepu.crypto.utils.PairingUtils;
  * Revocation encryption decryption generation parameter.
  */
 public class REDecryptionGenerationParameter extends PairingDecryptionGenerationParameter {
-	private String[] ids;
+	private final String[] ids;
 	private ChameleonHasher chameleonHasher;
 
 	public REDecryptionGenerationParameter(PairingKeySerParameter publicKeyParameter,

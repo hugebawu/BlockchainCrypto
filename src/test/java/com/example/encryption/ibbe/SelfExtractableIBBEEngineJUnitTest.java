@@ -36,7 +36,7 @@ import junit.framework.TestCase;
  * Self-extractable IBBE engine unit test.
  */
 public class SelfExtractableIBBEEngineJUnitTest extends TestCase {
-	private static Logger logger = LoggerFactory.getLogger(SelfExtractableIBBEEngineJUnitTest.class);
+	private static final Logger logger = LoggerFactory.getLogger(SelfExtractableIBBEEngineJUnitTest.class);
 	private static final String identity_satisfied = "ID_0";
 	private static final String identity_unsatisfied = "ID_9";
 

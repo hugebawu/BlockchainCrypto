@@ -10,7 +10,7 @@ import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
  */
 public class IBESecretKeyGenerationParameter extends PairingKeyGenerationParameter {
 	// user id used for generating the user secret key
-	private String id;
+	private final String id;
 
 	public IBESecretKeyGenerationParameter(PairingKeySerParameter publicKeyParameter,
 			PairingKeySerParameter masterSecretKeyParameter, String id) {

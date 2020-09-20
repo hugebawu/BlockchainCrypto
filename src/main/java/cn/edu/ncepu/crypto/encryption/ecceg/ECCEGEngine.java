@@ -25,7 +25,7 @@ import it.unisa.dia.gas.plaf.jpbc.field.z.ZrField;
  */
 @SuppressWarnings("rawtypes")
 public class ECCEGEngine extends Engine {
-	private static Logger logger = LoggerFactory.getLogger(ECCEGEngine.class);
+	private static final Logger logger = LoggerFactory.getLogger(ECCEGEngine.class);
 	private static final String SCHEME_NAME = "ecliptic curve cryptography based elgamal encryption scheme";
 	private static ECCEGEngine engine;
 

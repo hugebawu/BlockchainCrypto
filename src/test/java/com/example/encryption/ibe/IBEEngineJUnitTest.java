@@ -33,7 +33,7 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
  * IBE engine test.
  */
 public class IBEEngineJUnitTest {
-	private static Logger logger = LoggerFactory.getLogger(IBEEngineJUnitTest.class);
+	private static final Logger logger = LoggerFactory.getLogger(IBEEngineJUnitTest.class);
 	private static final String identity_1 = "ID_1";
 	private static final String identity_2 = "ID_2";
 	private PairingParameters pairingParams = null;

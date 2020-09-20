@@ -11,7 +11,7 @@ import cn.edu.ncepu.crypto.utils.PairingUtils;
  * BE decapsulation generation parameter.
  */
 public class BEDecapsulationGenerationParameter extends PairingDecryptionGenerationParameter {
-	private int[] indexSet;
+	private final int[] indexSet;
 
 	public BEDecapsulationGenerationParameter(PairingKeySerParameter publicKeyParameter,
 			PairingKeySerParameter secretKeyParameter, int[] indexSet, PairingCipherSerParameter ciphertextParameter) {

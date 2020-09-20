@@ -10,7 +10,7 @@ import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
  * Pairing key encapsulation generation parameter.
  */
 public abstract class PairingEncapsulationGenerationParameter implements CipherParameters {
-	private PairingKeySerParameter publicKeyParameter;
+	private final PairingKeySerParameter publicKeyParameter;
 
 	public PairingEncapsulationGenerationParameter(PairingKeySerParameter publicKeyParameter) {
 		this.publicKeyParameter = publicKeyParameter;

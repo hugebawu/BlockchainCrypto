@@ -12,7 +12,7 @@ import cn.edu.ncepu.crypto.chameleonhash.kr00b.dlog.serparams.DLogKR00bPublicKey
  *
  */
 public class DLogKR00bUniversalHasher extends DLogKR00bHasher {
-	private Digest digest;
+	private final Digest digest;
 
 	public DLogKR00bUniversalHasher(Digest digest) {
 		this.digest = digest;

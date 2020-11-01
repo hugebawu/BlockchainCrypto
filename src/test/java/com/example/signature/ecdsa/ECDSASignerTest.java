@@ -1,8 +1,18 @@
 package com.example.signature.ecdsa;
 
-import java.io.IOException;
+import cn.edu.ncepu.crypto.algebra.generators.PairingKeyPairGenerator;
+import cn.edu.ncepu.crypto.signature.ecdsa.ECDSASigner;
+import cn.edu.ncepu.crypto.utils.CommonUtils;
+import cn.edu.ncepu.crypto.utils.EccUtils;
+import org.apache.commons.codec.DecoderException;
+import org.apache.commons.codec.binary.Hex;
+import org.apache.commons.codec.digest.DigestUtils;
+import org.bouncycastle.crypto.Signer;
+import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.UnsupportedEncodingException;
-import java.nio.charset.StandardCharsets;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.KeyPair;
@@ -10,23 +20,6 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SignatureException;
 import java.security.interfaces.ECPrivateKey;
 import java.security.interfaces.ECPublicKey;
-import java.security.spec.InvalidKeySpecException;
-
-import org.apache.commons.codec.DecoderException;
-import org.apache.commons.codec.binary.Hex;
-import org.apache.commons.codec.digest.DigestUtils;
-import org.apache.commons.lang3.time.StopWatch;
-import org.bouncycastle.crypto.Signer;
-import org.junit.Ignore;
-import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import cn.edu.ncepu.crypto.algebra.generators.PairingKeyPairGenerator;
-import cn.edu.ncepu.crypto.signature.ecdsa.ECDSASigner;
-import cn.edu.ncepu.crypto.utils.CommonUtils;
-import cn.edu.ncepu.crypto.utils.EccUtils;
-import cn.edu.ncepu.crypto.utils.SysProperty;
 
 /**
  * @Copyright : Copyright (c) 2020-2021 
@@ -44,16 +37,15 @@ public class ECDSASignerTest {
 	private static final String EC_STRING = "EC";
 	private static final String CURVE_NAME = "secp256k1";
 	private Signer signer;
-	private static final String USER_DIR = SysProperty.USER_DIR;
-	private static final int TIMES = 100_000;
 
-	@Ignore
+
+//	@Ignore
 	@Test
 	public void testECDSASigner() {
 		try {
 			// keyGen
-//			KeyPair keyPair = CommonUtils.initKey(EC_STRING, CURVE_NAME);
-			KeyPair keyPair = EccUtils.getKeyPair(256);
+			KeyPair keyPair = CommonUtils.initKey(EC_STRING, CURVE_NAME);
+//			KeyPair keyPair = EccUtils.getKeyPair(256);
 
 			ECPublicKey publicKey = (ECPublicKey) keyPair.getPublic();
 			ECPrivateKey privateKey = (ECPrivateKey) keyPair.getPrivate();
@@ -73,14 +65,15 @@ public class ECDSASignerTest {
 			logger.info("Test signer functionality");
 
 			// signature
-			byte[] message = "message".getBytes(StandardCharsets.UTF_8);
-			byte[] sign = ECDSASigner.sign(privateKey2, message);
-			String singHex = Hex.encodeHexString(sign);
-			logger.info("Hex signature: " + singHex);
-			logger.info("Signature length = " + singHex.length());
+			String message = "message";
+			String hashString = DigestUtils.sha256Hex(message);
+			byte[] sign = ECDSASigner.sign(privateKey2, hashString.getBytes("UTF-8"));
+			String signHex = Hex.encodeHexString(sign);
+			logger.info("Hex signature: " + signHex);
+			logger.info("Signature length = " + signHex.length()/4 + "Byte");
 
 			// verify
-			if (false == ECDSASigner.verify(publicKey2, "message".getBytes(StandardCharsets.UTF_8), sign)) {
+			if (false == ECDSASigner.verify(publicKey2, hashString.getBytes("UTF-8"), sign)) {
 				logger.info("Verify passed for invalid signature, test abort...");
 				System.exit(0);
 			}
@@ -102,83 +95,6 @@ public class ECDSASignerTest {
 		} catch (SignatureException e) {
 			logger.error(e.getLocalizedMessage());
 		} catch (Exception e) {
-			logger.error(e.getLocalizedMessage());
-		}
-	}
-
-	@Ignore
-	@Test
-	public void testSignTimeCost() {
-		String message = "NACCFFFFFFFF";
-		String hexString = DigestUtils.sha256Hex(message);
-		ECPrivateKey privateKey = null;
-		try {
-			privateKey = (ECPrivateKey) CommonUtils.loadKeyFromPEM(false, EC_STRING,
-					USER_DIR + "/elements/ECPrivateKey.pem");
-			byte[] bytes = hexString.getBytes(StandardCharsets.UTF_8);
-			StopWatch watch = new StopWatch();
-			watch.start();
-			for (int i = 0; i < TIMES; i++) {
-				ECDSASigner.sign(privateKey, bytes);
-			}
-			watch.stop();
-			logger.info("ECDSA sign: " + watch.getTime());
-		} catch (NoSuchAlgorithmException e) {
-			e.printStackTrace();
-			logger.error(e.getLocalizedMessage());
-		} catch (InvalidKeySpecException e) {
-			e.printStackTrace();
-			logger.error(e.getLocalizedMessage());
-		} catch (IOException e) {
-			e.printStackTrace();
-			logger.error(e.getLocalizedMessage());
-		} catch (InvalidKeyException e) {
-			e.printStackTrace();
-			logger.error(e.getLocalizedMessage());
-		} catch (SignatureException e) {
-			e.printStackTrace();
-			logger.error(e.getLocalizedMessage());
-		}
-	}
-
-	@Ignore
-	@Test
-	public void testVerifyTimeCost() {
-		String message = "NACCFFFFFFFF";
-		String hexString = DigestUtils.sha256Hex(message);
-		ECPublicKey publicKey = null;
-		ECPrivateKey privateKey = null;
-		try {
-			publicKey = (ECPublicKey) CommonUtils.loadKeyFromPEM(true, EC_STRING,
-					USER_DIR + "/elements/ECPublicKey.pem");
-			privateKey = (ECPrivateKey) CommonUtils.loadKeyFromPEM(false, EC_STRING,
-					USER_DIR + "/elements/ECPrivateKey.pem");
-			byte[] bytes = hexString.getBytes(StandardCharsets.UTF_8);
-			byte[] sign = ECDSASigner.sign(privateKey, bytes);
-			StopWatch watch = new StopWatch();
-			watch.start();
-			for (int i = 0; i < TIMES; i++) {
-				ECDSASigner.verify(publicKey, bytes, sign);
-			}
-			watch.stop();
-			logger.info("ECDSA sign: " + watch.getTime());
-		} catch (NoSuchAlgorithmException e) {
-			e.printStackTrace();
-			logger.error(e.getLocalizedMessage());
-		} catch (InvalidKeySpecException e) {
-			e.printStackTrace();
-			logger.error(e.getLocalizedMessage());
-		} catch (IOException e) {
-			e.printStackTrace();
-			logger.error(e.getLocalizedMessage());
-		} catch (InvalidKeyException e) {
-			e.printStackTrace();
-			logger.error(e.getLocalizedMessage());
-		} catch (SignatureException e) {
-			e.printStackTrace();
-			logger.error(e.getLocalizedMessage());
-		} catch (DecoderException e) {
-			e.printStackTrace();
 			logger.error(e.getLocalizedMessage());
 		}
 	}

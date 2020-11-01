@@ -1,9 +1,5 @@
 package cn.edu.ncepu.crypto.signature.pks.bls01;
 
-import java.io.IOException;
-
-import org.bouncycastle.crypto.CipherParameters;
-
 import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
 import cn.edu.ncepu.crypto.signature.pks.PairingSigner;
 import cn.edu.ncepu.crypto.utils.PairingUtils;
@@ -12,6 +8,9 @@ import it.unisa.dia.gas.jpbc.Pairing;
 import it.unisa.dia.gas.jpbc.PairingParameters;
 import it.unisa.dia.gas.plaf.jpbc.field.curve.CurveElement;
 import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
+import org.bouncycastle.crypto.CipherParameters;
+
+import java.io.IOException;
 
 /**
  * Created by Weiran Liu on 2016/10/18.
@@ -24,7 +23,7 @@ public class BLS01Signer implements PairingSigner {
 	 */
 	private static final long serialVersionUID = 168480488352794000L;
 
-	private static final String SCHEME_NAME = "Boneh-Lynn-Shacham-01 signature scheme";
+	public static final String SCHEME_NAME = "Boneh-Lynn-Shacham-01 signature scheme";
 
 	private PairingKeySerParameter pairingKeySerParameter;
 

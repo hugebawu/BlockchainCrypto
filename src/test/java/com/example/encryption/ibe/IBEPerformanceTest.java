@@ -1,11 +1,5 @@
 package com.example.encryption.ibe;
 
-import org.bouncycastle.crypto.InvalidCipherTextException;
-import org.junit.Ignore;
-import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import cn.edu.ncepu.crypto.algebra.serparams.PairingCipherSerParameter;
 import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerPair;
 import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
@@ -19,6 +13,11 @@ import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Pairing;
 import it.unisa.dia.gas.jpbc.PairingParameters;
 import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
+import org.bouncycastle.crypto.InvalidCipherTextException;
+import org.junit.Ignore;
+import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Created by Weiran Liu on 2016/12/5.
@@ -70,33 +69,27 @@ public class IBEPerformanceTest {
 		// write results to the file
 		// write setup time
 		out.print("Setup : ");
-		out.print("\t" + this.timeSetup / test_round);
-		out.println();
+		out.println("\t" + this.timeSetup / test_round);
 
 		// write KeyGen
 		out.print("KeyGen: ");
-		out.print("\t" + this.timeKeyGen / test_round);
-		out.println();
+		out.println("\t" + this.timeKeyGen / test_round);
 
 		// write encapsulation
 		out.print("Encapsulation: ");
-		out.print("\t" + this.timeEncapsulation / test_round);
-		out.println();
+		out.println("\t" + this.timeEncapsulation / test_round);
 
 		// write encrption
 		out.print("Encryption: ");
-		out.print("\t" + this.timeEncryption / test_round);
-		out.println();
+		out.println("\t" + this.timeEncryption / test_round);
 
 		// write decapsulation
 		out.print("Decapsulation: ");
-		out.print("\t" + this.timeDecapsulation / test_round);
-		out.println();
+		out.println("\t" + this.timeDecapsulation / test_round);
 
 		// write decryption
 		out.print("Decryption: ");
-		out.print("\t" + this.timeDecryption / test_round);
-		out.println();
+		out.println("\t" + this.timeDecryption / test_round);
 	}
 
 	private void run_one_round() {
@@ -107,80 +100,69 @@ public class IBEPerformanceTest {
 			double temperTime;
 			Timer timer = new Timer();
 			// test setup performance
-			System.out.print("Setup; ");
 			out.print("Setup : ");
 			timer.start(0);
 			PairingKeySerPair keyPair = engine.setup(pairingParameters);
 			temperTime = timer.stop(0);
-			out.print("\t" + temperTime);
+
+			logger.info("Setup; " + "\t" + temperTime);
+			out.println("\t" + temperTime);
 			this.timeSetup += temperTime;
-			out.println();
-			logger.info("");
 
 			PairingKeySerParameter publicKey = keyPair.getPublic();
 			PairingKeySerParameter masterKey = keyPair.getPrivate();
 
 			// test secret key generation performance
-			System.out.print("KeyGen;");
 			out.print("KeyGen: ");
 			timer.start(0);
 			PairingKeySerParameter secretKey = engine.keyGen(publicKey, masterKey, identity);
 			temperTime = timer.stop(0);
-			out.print("\t" + temperTime);
+			logger.info("KeyGen;" + "\t" + temperTime);
+			out.println("\t" + temperTime);
 			this.timeKeyGen += temperTime;
-			out.println();
-			logger.info("");
 
 			// test encapsulation performance
 			out.print("Encapsulation: ");
-			System.out.print("Encapsulation: ");
 			timer.start(0);
 			PairingCipherSerParameter header = engine.encapsulation(publicKey, identity).getHeader();
 			temperTime = timer.stop(0);
-			out.print("\t" + temperTime);
+			logger.info("Encapsulation; " + "\t" + temperTime);
+			out.println("\t" + temperTime);
 			this.timeEncapsulation += temperTime;
-			out.println();
-			logger.info("");
 
 			// test encryption performance
 			out.print("Encryption: ");
-			System.out.print("Encryption: ");
 			Element message = pairing.getGT().newRandomElement().getImmutable();
 			timer.start(0);
 			PairingCipherSerParameter ciphertext = engine.encryption(publicKey, identity, message);
 			temperTime = timer.stop(0);
-			out.print("\t" + temperTime);
+			logger.info("Encryption; " + "\t" + temperTime);
+			out.println("\t" + temperTime);
 			this.timeEncryption += temperTime;
-			out.println();
-			logger.info("");
 
 			// test decapsulation performance
 			out.print("Decapsulation: ");
-			System.out.print("Decapsulation: ");
 			timer.start(0);
 			engine.decapsulation(publicKey, secretKey, identity, header);
 			temperTime = timer.stop(0);
-			out.print("\t" + temperTime);
+			logger.info("Decapsulation; " + "\t" + temperTime);
+			out.println("\t" + temperTime);
 			this.timeDecapsulation += temperTime;
-			out.println();
-			logger.info("");
 
 			// test decryption performance
 			out.print("Decryption: ");
-			System.out.print("Decryption: ");
 			timer.start(0);
 			engine.decryption(publicKey, secretKey, identity, ciphertext);
 			temperTime = timer.stop(0);
-			out.print("\t" + temperTime);
+			logger.info("Decryption; " + "\t" + temperTime);
+			out.println("\t" + temperTime);
 			this.timeDecryption += temperTime;
-			out.println();
-			logger.info("");
 		} catch (InvalidCipherTextException e) {
 			e.printStackTrace();
 		}
 	}
 
-	@Ignore
+//	@Ignore
 	@Test
 	public void testBF01aPerformance() {
 		IBEPerformanceTest performanceTest = new IBEPerformanceTest();

@@ -1,14 +1,6 @@
 package cn.edu.ncepu.crypto.signature.ecdsa;
 
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
-import java.security.PrivateKey;
-import java.security.PublicKey;
-import java.security.Signature;
-import java.security.SignatureException;
-import java.security.interfaces.ECPrivateKey;
-import java.security.interfaces.ECPublicKey;
-
+import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
 import org.apache.commons.codec.DecoderException;
 import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.crypto.CryptoException;
@@ -18,7 +10,14 @@ import org.bouncycastle.crypto.Signer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.security.PrivateKey;
+import java.security.PublicKey;
+import java.security.Signature;
+import java.security.SignatureException;
+import java.security.interfaces.ECPrivateKey;
+import java.security.interfaces.ECPublicKey;
 
 /**
  * @Copyright : Copyright (c) 2020-2021 
@@ -31,24 +30,19 @@ import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
  */
 @SuppressWarnings("unused")
 public class ECDSASigner implements Signer {
-	private final Digest digest;
-	private final byte[] message;
-	private final PublicKey publicKey;
-	private final PrivateKey privateKey;
+	private  byte[] message;
+	private  PublicKey publicKey;
+	private  PrivateKey privateKey;
+	private  Digest digest;
 	private boolean forSigning;
 
 	private Signature signature;
 
 	private static final Logger logger = LoggerFactory.getLogger(ECDSASigner.class);
-	private static final String SCHEME_NAME = "Scott-Vanstone-1992 ecdsa signature scheme";
+	public static final String SCHEME_NAME = "Scott-Vanstone-1992 ecdsa signature scheme";
 	private static final String SINGALGORITHM_STRING = "SHA256withECDSA";
 
-	public ECDSASigner(Digest digest, byte[] message, PublicKey publicKey, PrivateKey privateKey) {
-		this.digest = digest;
-		this.message = message;
-		this.publicKey = publicKey;
-		this.privateKey = privateKey;
-	}
+	private static ECDSASigner signer;
 
 	@Override
 	public void init(boolean forSigning, CipherParameters param) {
@@ -135,9 +129,9 @@ public class ECDSASigner implements Signer {
 
 	/**
 	 *  (verify the ECDSA signature)
-	 * @param publickey
+	 * @param publicKey
 	 * @param message
-	 * @param singed
+	 * @param signed
 	 * @return ture or false
 	 * @return boolean
 	 * @throws NoSuchAlgorithmException 

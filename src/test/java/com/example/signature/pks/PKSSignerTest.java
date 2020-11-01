@@ -1,19 +1,5 @@
 package com.example.signature.pks;
 
-import static org.junit.Assert.assertEquals;
-
-import java.io.UnsupportedEncodingException;
-import java.nio.charset.StandardCharsets;
-
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.CryptoException;
-import org.bouncycastle.crypto.Signer;
-import org.bouncycastle.crypto.digests.SHA256Digest;
-import org.junit.Ignore;
-import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import cn.edu.ncepu.crypto.algebra.generators.PairingKeyPairGenerator;
 import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerPair;
 import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
@@ -30,6 +16,18 @@ import cn.edu.ncepu.crypto.signature.pks.bls01.BLS01Signer;
 import cn.edu.ncepu.crypto.utils.PairingUtils;
 import it.unisa.dia.gas.jpbc.PairingParameters;
 import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
+import org.bouncycastle.crypto.CipherParameters;
+import org.bouncycastle.crypto.CryptoException;
+import org.bouncycastle.crypto.Signer;
+import org.bouncycastle.crypto.digests.SHA256Digest;
+import org.junit.Ignore;
+import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.nio.charset.StandardCharsets;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * Created by Weiran Liu on 2016/10/18.
@@ -70,6 +68,7 @@ public class PKSSignerTest {
 				logger.info("cannot verify valid signature, test abort...");
 				System.exit(0);
 			}
+
 			signer.init(false, publicKey);
 			signer.update(message, 0, message.length);
 			if (signer.verifySignature(signaturePrime)) {
@@ -137,9 +136,4 @@ public class PKSSignerTest {
 		this.processTest();
 	}
 
-	@Ignore
-	@Test
-	public void testECDSASigner() {
-		logger.info("Test Scott-Vanstone 1992 signature.");
-	}
 }

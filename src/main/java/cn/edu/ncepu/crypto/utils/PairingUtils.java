@@ -1,5 +1,15 @@
 package cn.edu.ncepu.crypto.utils;
 
+import it.unisa.dia.gas.jpbc.Element;
+import it.unisa.dia.gas.jpbc.Pairing;
+import it.unisa.dia.gas.plaf.jpbc.field.curve.CurveElement;
+import it.unisa.dia.gas.plaf.jpbc.pairing.a.TypeACurveGenerator;
+import it.unisa.dia.gas.plaf.jpbc.pairing.a1.TypeA1CurveGenerator;
+import it.unisa.dia.gas.plaf.jpbc.pairing.f.TypeFCurveGenerator;
+import it.unisa.dia.gas.plaf.jpbc.pairing.parameters.PropertiesParameters;
+import org.bouncycastle.crypto.CipherParameters;
+import org.bouncycastle.util.encoders.Hex;
+
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -12,16 +22,6 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.util.encoders.Hex;
-
-import it.unisa.dia.gas.jpbc.Element;
-import it.unisa.dia.gas.jpbc.Pairing;
-import it.unisa.dia.gas.plaf.jpbc.field.curve.CurveElement;
-import it.unisa.dia.gas.plaf.jpbc.pairing.a.TypeACurveGenerator;
-import it.unisa.dia.gas.plaf.jpbc.pairing.a1.TypeA1CurveGenerator;
-import it.unisa.dia.gas.plaf.jpbc.pairing.parameters.PropertiesParameters;
-
 /**
  * Created by Weiran Liu on 2016/8/24.
  *
@@ -30,12 +30,15 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.parameters.PropertiesParameters;
 @SuppressWarnings("rawtypes")
 public class PairingUtils {
 	public static final String PATH_a_160_512 = "params/a_160_512.properties";
+	public static final String PATH_a_256_1024 = "params/a_256_1024.properties";
 //    public static final String PATH_a_320_512 = "params/a_320_512.properties";
 //    public static final String PATH_a1_2_256 = "params/a1_2_256.properties";
+    public static final String PATH_a1_3_128 = "params/a1_3_128.properties";
 //    public static final String PATH_a1_3_256 = "params/a1_3_256.properties";
 //    public static final String PATH_a1_2_512 = "params/a1_2_512.properties";
 	public static final String PATH_a1_3_512 = "params/a1_3_512.properties";
 	public static final String PATH_f_160 = "params/f_160.properties";
+	public static final String PATH_f_256 = "params/f_256.properties";
 	public static final String PATH_a = "params/a.properties";
 
 	public static final String TEST_PAIRING_PARAMETERS_PATH_a_80_256 = "params/a_80_256.properties";
@@ -73,6 +76,18 @@ public class PairingUtils {
 	 */
 	public static PropertiesParameters genTypeA1PairParam(int numPrime, int bits) {
 		TypeA1CurveGenerator pairParamGenerator = new TypeA1CurveGenerator(numPrime, bits);
+		return (PropertiesParameters) pairParamGenerator.generate();
+	}
+
+	/**
+	 * @description: type F pairing parameter in pairing-based cryptography.
+	 * @param qbits the curve is defined over Fq
+	 * @param: rbits the order of ther curve
+	 * @return: b E: y^2=x^3 + b
+	 * @throw:
+	 */
+	public static PropertiesParameters genTypeFPairParam(int rbits) {
+		TypeFCurveGenerator pairParamGenerator = new TypeFCurveGenerator(rbits);
 		return (PropertiesParameters) pairParamGenerator.generate();
 	}
 

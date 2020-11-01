@@ -162,7 +162,7 @@ public class IBEPerformanceTest {
 		}
 	}
 
-//	@Ignore
+	@Ignore
 	@Test
 	public void testBF01aPerformance() {
 		IBEPerformanceTest performanceTest = new IBEPerformanceTest();

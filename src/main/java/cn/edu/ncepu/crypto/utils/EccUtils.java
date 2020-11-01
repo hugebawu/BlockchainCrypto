@@ -3,6 +3,9 @@
  */
 package cn.edu.ncepu.crypto.utils;
 
+import org.bouncycastle.jce.provider.BouncyCastleProvider;
+
+import javax.crypto.Cipher;
 import java.io.File;
 import java.io.FileInputStream;
 import java.lang.reflect.Field;
@@ -20,10 +23,6 @@ import java.security.interfaces.ECPublicKey;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
 import java.util.Base64;
-
-import javax.crypto.Cipher;
-
-import org.bouncycastle.jce.provider.BouncyCastleProvider;
 
 /**
  * @Copyright : Copyright (c) 2020-2021 E1101智能电网信息安全中心
@@ -70,7 +69,7 @@ public class EccUtils {
 
 	/**
 	 * 获取公钥（BASE64编码成字符串后方便用于其他人解码）
-	 * @param keyPair
+	 * @param publicKey
 	 * @return
 	 */
 	public static String publicKey2String(ECPublicKey publicKey) {
@@ -80,7 +79,7 @@ public class EccUtils {
 
 	/**
 	* 获取私钥（Base64编码）
-	* @param keyPair
+	* @param privateKey
 	* @return
 	*/
 	public static String privateKey2String(ECPrivateKey privateKey) {

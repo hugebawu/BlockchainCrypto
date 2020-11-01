@@ -39,7 +39,7 @@ public class ECDSAPerformanceTest {
     // file path for performance test result
     private static final String default_path = "benchmarks/signature/ecdsa/";
     // test round
-    private static int test_round = 100_00;
+    private static long test_round = 10_000L;
     // keyGen time
     private double timeKeyGen;
     // sign time
@@ -62,12 +62,12 @@ public class ECDSAPerformanceTest {
             out.println("Test round: " + (i + 1));
             run_one_round();
         }
-        logger.info("average keyGen time: " + this.timeKeyGen * 1.0 / test_round);
-        out.println("average keyGen time: " + this.timeKeyGen * 1.0 / test_round);
-        logger.info("average sign time:   " + this.timeSign   * 1.0 / test_round);
-        out.println("average sign time:   " + this.timeSign   * 1.0 / test_round);
-        logger.info("average verify time: " + this.timeVerify * 1.0 / test_round);
-        out.println("average verify time: " + this.timeVerify * 1.0 / test_round);
+        logger.info("average keyGen time: " + this.timeKeyGen / test_round);
+        out.println("average keyGen time: " + this.timeKeyGen / test_round);
+        logger.info("average sign time:   " + this.timeSign   / test_round);
+        out.println("average sign time:   " + this.timeSign   / test_round);
+        logger.info("average verify time: " + this.timeVerify / test_round);
+        out.println("average verify time: " + this.timeVerify / test_round);
     }
 
     private void run_one_round() {
@@ -113,7 +113,7 @@ public class ECDSAPerformanceTest {
 
     }
 
-//    @Ignore
+    @Ignore
     @Test
     public void testECDSAPerformance() {
         ECDSAPerformanceTest performanceTest = new ECDSAPerformanceTest();
@@ -125,9 +125,8 @@ public class ECDSAPerformanceTest {
     public void testSignTimeCost() {
         String message = "NACCFFFFFFFF";
         String hexString = DigestUtils.sha256Hex(message);
-        ECPrivateKey privateKey = null;
         try {
-            privateKey = (ECPrivateKey) CommonUtils.loadKeyFromPEM(false, EC_STRING,
+            ECPrivateKey privateKey = (ECPrivateKey) CommonUtils.loadKeyFromPEM(false, EC_STRING,
                     USER_DIR + "/elements/ECPrivateKey.pem");
             byte[] bytes = hexString.getBytes(StandardCharsets.UTF_8);
             StopWatch watch = new StopWatch();
@@ -136,7 +135,7 @@ public class ECDSAPerformanceTest {
                 ECDSASigner.sign(privateKey, bytes);
             }
             watch.stop();
-            logger.info("average ECDSA sign: " + watch.getTime() * 1.0 / test_round);
+            logger.info("average ECDSA sign: " + watch.getTime() / test_round);
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
             logger.error(e.getLocalizedMessage());
@@ -175,7 +174,7 @@ public class ECDSAPerformanceTest {
                 ECDSASigner.verify(publicKey, bytes, sign);
             }
             watch.stop();
-            logger.info("average ECDSA verify: " + watch.getTime() * 1.0 / test_round);
+            logger.info("average ECDSA verify: " + watch.getTime() / test_round);
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
             logger.error(e.getLocalizedMessage());

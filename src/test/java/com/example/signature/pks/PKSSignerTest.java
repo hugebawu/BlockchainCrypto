@@ -53,13 +53,13 @@ public class PKSSignerTest {
 			signer.init(true, secretKey);
 			signer.update(message, 0, message.length);
 			byte[] signature = signer.generateSignature();
-			logger.info("Signature length = " + signature.length);
+			logger.info("Signature length = " + signature.length + " byte");
 
 			byte[] messagePrime = "MessagePrime".getBytes(StandardCharsets.UTF_8);
 			signer.init(true, secretKey);
 			signer.update(messagePrime, 0, messagePrime.length);
 			byte[] signaturePrime = signer.generateSignature();
-			logger.info("Signature' length = " + signature.length);
+			logger.info("Signature' length = " + signaturePrime.length + " byte");
 
 			// verify
 			signer.init(false, publicKey);
@@ -106,7 +106,7 @@ public class PKSSignerTest {
 	@Ignore
 	@Test
 	public void testBLS01Signer() {
-		PairingParameters pairingParameters = PairingFactory.getPairingParameters(PairingUtils.PATH_f_160);
+		PairingParameters pairingParameters = PairingFactory.getPairingParameters(PairingUtils.PATH_f_256);
 		logger.info("Test Boneh-Lynn-Shacham 2001 signature.");
 		this.asymmetricKeySerPairGenerator = new BLS01SignKeyPairGenerator();
 		this.asymmetricKeySerPairGenerator.init(new BLS01SignKeyPairGenerationParameter(pairingParameters));

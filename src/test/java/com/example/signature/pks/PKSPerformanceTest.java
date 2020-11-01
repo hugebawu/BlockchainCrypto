@@ -14,6 +14,7 @@ import cn.edu.ncepu.crypto.signature.pks.bls01.BLS01SignKeyPairGenerationParamet
 import cn.edu.ncepu.crypto.signature.pks.bls01.BLS01SignKeyPairGenerator;
 import cn.edu.ncepu.crypto.signature.pks.bls01.BLS01Signer;
 import cn.edu.ncepu.crypto.utils.PairingUtils;
+import cn.edu.ncepu.crypto.utils.SysProperty;
 import cn.edu.ncepu.crypto.utils.Timer;
 import edu.princeton.cs.algs4.Out;
 import it.unisa.dia.gas.jpbc.PairingParameters;
@@ -41,11 +42,13 @@ public class PKSPerformanceTest {
     private Signer signer;
     private String  SCHEME_NAME;
 
+    private static final String USER_DIR = SysProperty.USER_DIR;
+
     private String pairingParameterPath;
     // file path for performance test result
     private static final String default_path = "benchmarks/signature/pks/";
     // test round
-    private static final int test_round = 100_0;
+    private static final long test_round = 100L;
     // keyGen time
     private double timeKeyGen;
     // sign time
@@ -65,12 +68,12 @@ public class PKSPerformanceTest {
             run_one_round();
             logger.info("");
         }
-        logger.info("average keyGen time: " + this.timeKeyGen * 1.0 / test_round);
-        out.println("average keyGen time: " + this.timeKeyGen * 1.0 / test_round);
-        logger.info("average sign time:   " + this.timeSign   * 1.0 / test_round);
-        out.println("average sign time:   " + this.timeSign   * 1.0 / test_round);
-        logger.info("average verify time: " + this.timeVerify * 1.0 / test_round);
-        out.println("average verify time: " + this.timeVerify * 1.0 / test_round);
+        logger.info("average keyGen time: " + this.timeKeyGen / test_round);
+        out.println("average keyGen time: " + this.timeKeyGen / test_round);
+        logger.info("average sign time:   " + this.timeSign   / test_round);
+        out.println("average sign time:   " + this.timeSign   / test_round);
+        logger.info("average verify time: " + this.timeVerify / test_round);
+        out.println("average verify time: " + this.timeVerify / test_round);
     }
 
     private void run_one_round() {
@@ -127,7 +130,7 @@ public class PKSPerformanceTest {
     @Test
     public void testBLS01Performance() {
         PKSPerformanceTest performanceTest = new PKSPerformanceTest();
-        PairingParameters pairingParameters = PairingFactory.getPairingParameters(PairingUtils.PATH_f_160);
+        PairingParameters pairingParameters = PairingFactory.getPairingParameters(PairingUtils.PATH_f_256);
         performanceTest.asymmetricKeySerPairGenerator = new BLS01SignKeyPairGenerator();
         performanceTest.asymmetricKeySerPairGenerator.init(new BLS01SignKeyPairGenerationParameter(pairingParameters));
         performanceTest.signer = new PairingDigestSigner(new BLS01Signer(), new SHA256Digest());
@@ -139,7 +142,7 @@ public class PKSPerformanceTest {
     @Test
     public void testBB04Performance() {
         PKSPerformanceTest performanceTest = new PKSPerformanceTest();
-        PairingParameters pairingParameters = PairingFactory.getPairingParameters(PairingUtils.PATH_a_160_512);
+        PairingParameters pairingParameters = PairingFactory.getPairingParameters(PairingUtils.PATH_a_256_1024);
         performanceTest.asymmetricKeySerPairGenerator = new BB04SignKeyPairGenerator();
         performanceTest.asymmetricKeySerPairGenerator.init(new BB04SignKeyPairGenerationParameter(pairingParameters));
         performanceTest.signer = new PairingDigestSigner(new BB04Signer(), new SHA256Digest());
@@ -151,7 +154,7 @@ public class PKSPerformanceTest {
     @Test
     public void testBB08Performance() {
         PKSPerformanceTest performanceTest = new PKSPerformanceTest();
-        PairingParameters pairingParameters = PairingFactory.getPairingParameters(PairingUtils.PATH_a_160_512);
+        PairingParameters pairingParameters = PairingFactory.getPairingParameters(PairingUtils.PATH_a_256_1024);
         performanceTest.asymmetricKeySerPairGenerator = new BB08SignKeyPairGenerator();
         performanceTest.asymmetricKeySerPairGenerator.init(new BB08SignKeyPairGenerationParameter(pairingParameters));
         performanceTest.signer = new PairingDigestSigner(new BB08Signer(), new SHA256Digest());

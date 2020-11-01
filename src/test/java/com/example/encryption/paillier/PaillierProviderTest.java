@@ -51,18 +51,17 @@ public class PaillierProviderTest {
 		Security.addProvider(new PaillierProvider());
 
 		/////////////////////////////////////////////////////////////////////
+		// keyGen
 		KeyPairGenerator kpg = KeyPairGenerator.getInstance("Paillier");
 		kpg.initialize(32);
 		KeyPair keyPair = kpg.generateKeyPair();
 		PublicKey pubKey = keyPair.getPublic();
 		PrivateKey privKey = keyPair.getPrivate();
 
-		final Cipher cipherHP = Cipher.getInstance("PaillierHP");
-
 		logger.info("The Paillier public key is: " + pubKey.toString());
 		logger.info("The Paillier private key is: " + privKey.toString());
 		String plainText = "101";
-		String plaintext1 = "101";
+		String plaintext1 = "102";
 		// get the n
 		String[] keyComponents = pubKey.toString().split(DELIMITER);
 		String keyComponent = "";
@@ -76,6 +75,7 @@ public class PaillierProviderTest {
 		BigInteger second = new BigInteger(plaintext1);
 		BigInteger n2 = n.multiply(n);
 
+		final Cipher cipherHP = Cipher.getInstance("PaillierHP");
 		// encrypt
 		logger.info("\n" + "Provider for encryption is: " + cipherHP.getProvider().getInfo());
 		BigInteger codedBytes = engine.encrypt(first.toByteArray(), pubKey, cipherHP);

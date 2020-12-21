@@ -109,7 +109,7 @@ public class PairingUtilsTest {
 	}
 
 	/**
-	 *   测试动态生成Type A PairingParameters并保存
+	 * 测试动态生成Type F PairingParameters并保存
 	 */
 	@Ignore
 	@Test

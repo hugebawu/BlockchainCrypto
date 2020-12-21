@@ -4,10 +4,10 @@ package com.example.encryption.bgn;/**
  * @date 2020/12/21 9:17
  */
 
-import cn.edu.ncepu.crypto.encryption.BGN.BGNEngine;
-import cn.edu.ncepu.crypto.encryption.BGN.BGNKeyPairGenerator;
-import cn.edu.ncepu.crypto.encryption.BGN.BGNPrivateKey;
-import cn.edu.ncepu.crypto.encryption.BGN.BGNPublicKey;
+import cn.edu.ncepu.crypto.encryption.bgn.BGNEngine;
+import cn.edu.ncepu.crypto.encryption.bgn.BGNKeyPairGenerator;
+import cn.edu.ncepu.crypto.encryption.bgn.BGNPrivateKey;
+import cn.edu.ncepu.crypto.encryption.bgn.BGNPublicKey;
 import it.unisa.dia.gas.jpbc.Element;
 import org.junit.Test;
 import org.slf4j.Logger;

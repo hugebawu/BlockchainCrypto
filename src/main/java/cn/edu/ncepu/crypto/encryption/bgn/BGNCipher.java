@@ -1,4 +1,4 @@
-package cn.edu.ncepu.crypto.encryption.BGN;/**
+package cn.edu.ncepu.crypto.encryption.bgn;/**
  * @author Baiji Hu
  * email: drbjhu@163.com
  * @date 2020/12/21 11:20
@@ -28,7 +28,7 @@ public class BGNCipher extends CipherSpi {
 
     @Override
     protected void engineSetMode(String mode) throws NoSuchAlgorithmException {
-        
+
     }
 
     @Override

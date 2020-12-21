@@ -1,4 +1,4 @@
-package cn.edu.ncepu.crypto.encryption.BGN;/**
+package cn.edu.ncepu.crypto.encryption.bgn;/**
  * @author Baiji Hu
  * email: drbjhu@163.com
  * @date 2020/12/17 10:17

@@ -1,4 +1,4 @@
-package com.example.encryption.bgn;/**
+package com.example.homomorphicencryption.bgn;/**
  * @author Baiji Hu
  * email: drbjhu@163.com
  * @date 2020/12/21 9:17
@@ -63,13 +63,15 @@ public class BGNEngineJUnitTest {
         BGNPublicKey publicKey = (BGNPublicKey) keyPair.getPublic();
         BGNPrivateKey privateKey = (BGNPrivateKey) keyPair.getPrivate();
         try {
-            int m1 = 20, m2 = 30;
+            int m1 = 20, m2 = 30, m3 = 40;
             Element c1 = bgnEngine.encrypt(m1, publicKey);
             Element c2 = bgnEngine.encrypt(m2, publicKey);
-            Element c1mulc2 = bgnEngine.add(c1, c2);
-            int decrypted_m1plusm2 = bgnEngine.decrypt(c1mulc2, publicKey, privateKey);
-            logger.info("decrypted_m1plusm2: " + decrypted_m1plusm2);
-            assertTrue(decrypted_m1plusm2 == (m1 + m2));
+            Element c3 = bgnEngine.encrypt(m3, publicKey);
+
+            Element c1mulc2mulc3 = bgnEngine.add(c3, bgnEngine.add(c1, c2));
+            int decrypted_m1plusm2plus3 = bgnEngine.decrypt(c1mulc2mulc3, publicKey, privateKey);
+            logger.info("decrypted_m1plusm2plus3: " + decrypted_m1plusm2plus3);
+            assertTrue(decrypted_m1plusm2plus3 == (m1 + m2 + m3));
             logger.info("Homomorphic addition tests successfully.");
         } catch (Exception e) {
             e.printStackTrace();

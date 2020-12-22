@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.example.encryption.paillier;
+package com.example.homomorphicencryption.paillier;
 
 import cn.edu.ncepu.crypto.encryption.paillier.PaillierEngine;
 import cn.edu.ncepu.crypto.encryption.paillier.PaillierPrivateKey;

@@ -1,4 +1,4 @@
-package com.example.encryption.bgn;/**
+package com.example.homomorphicencryption.bgn;/**
  * @author Baiji Hu
  * email: drbjhu@163.com
  * @date 2020/12/21 9:17
@@ -30,7 +30,7 @@ public class BGNPerformanceTest {
     private static final Logger logger = LoggerFactory.getLogger(BGNPerformanceTest.class);
 
     // file path for performance test result
-    private static final String default_path = "benchmarks/encryption/bgn/";
+    private static final String default_path = "benchmarks/homomorphicencryption/bgn/";
     // test round
     private final long test_round = 100L;
 
@@ -87,7 +87,7 @@ public class BGNPerformanceTest {
             out.print("KeyGen: ");
             timer.start(0);
             BGNKeyPairGenerator kpg = new BGNKeyPairGenerator();
-            kpg.initialize(128, null);
+            kpg.initialize(64, null);
             KeyPair keyPair = kpg.generateKeyPair();
             BGNPublicKey pubKey = (BGNPublicKey) keyPair.getPublic();
             BGNPrivateKey privKey = (BGNPrivateKey) keyPair.getPrivate();

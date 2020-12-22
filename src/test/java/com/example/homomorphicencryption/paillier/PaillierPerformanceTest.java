@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.example.encryption.paillier;
+package com.example.homomorphicencryption.paillier;
 
 import cn.edu.ncepu.crypto.encryption.paillier.PaillierEngine;
 import cn.edu.ncepu.crypto.encryption.paillier.PaillierProvider;
@@ -33,7 +33,7 @@ public class PaillierPerformanceTest {
     private static final Logger logger = LoggerFactory.getLogger(PaillierPerformanceTest.class);
     private static final String DELIMITER = "[,]";
     // file path for performance test result
-    private static final String default_path = "benchmarks/encryption/paillier/";
+    private static final String default_path = "benchmarks/homomorphicencryption/paillier/";
     // test round
     private final long test_round = 100L;
 

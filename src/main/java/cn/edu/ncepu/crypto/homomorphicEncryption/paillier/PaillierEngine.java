@@ -1,17 +1,16 @@
 /**
  * 
  */
-package cn.edu.ncepu.crypto.encryption.paillier;
+package cn.edu.ncepu.crypto.homomorphicEncryption.paillier;
 
+import cn.edu.ncepu.crypto.algebra.Engine;
+
+import javax.crypto.Cipher;
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.util.Base64;
-
-import javax.crypto.Cipher;
-
-import cn.edu.ncepu.crypto.algebra.Engine;
 
 /**
  * @Copyright : Copyright (c) 2020-2021 E1101智能电网信息安全中心

@@ -1,4 +1,4 @@
-package cn.edu.ncepu.crypto.encryption.paillier;
+package cn.edu.ncepu.crypto.homomorphicEncryption.paillier;
 
 import java.security.Provider;
 
@@ -25,15 +25,15 @@ public class PaillierProvider extends Provider {
 		/**
 		 * Key Pair Generator engine
 		 */
-		put("KeyPairGenerator.Paillier", "cn.edu.ncepu.crypto.encryption.paillier.PaillierKeyPairGenerator");
+		put("KeyPairGenerator.Paillier", "cn.edu.ncepu.crypto.homomorphicEncryption.paillier.PaillierKeyPairGenerator");
 		/**
 		 * Cipher engine for homomorphic operations
 		 */
-		put("Cipher.PaillierHP", "cn.edu.ncepu.crypto.encryption.paillier.PaillierHomomorphicCipher");
+		put("Cipher.PaillierHP", "cn.edu.ncepu.crypto.homomorphicEncryption.paillier.PaillierHomomorphicCipher");
 		/**
 		 * Cipher engine
 		 */
-		put("Cipher.Paillier", "cn.edu.ncepu.crypto.encryption.paillier.PaillierCipher");
+		put("Cipher.Paillier", "cn.edu.ncepu.crypto.homomorphicEncryption.paillier.PaillierCipher");
 
 	}
 

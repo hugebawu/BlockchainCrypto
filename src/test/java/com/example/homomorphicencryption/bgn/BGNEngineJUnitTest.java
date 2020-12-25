@@ -4,10 +4,10 @@ package com.example.homomorphicencryption.bgn;/**
  * @date 2020/12/21 9:17
  */
 
-import cn.edu.ncepu.crypto.encryption.bgn.BGNEngine;
-import cn.edu.ncepu.crypto.encryption.bgn.BGNKeyPairGenerator;
-import cn.edu.ncepu.crypto.encryption.bgn.BGNPrivateKey;
-import cn.edu.ncepu.crypto.encryption.bgn.BGNPublicKey;
+import cn.edu.ncepu.crypto.homomorphicEncryption.bgn.BGNEngine;
+import cn.edu.ncepu.crypto.homomorphicEncryption.bgn.BGNKeyPairGenerator;
+import cn.edu.ncepu.crypto.homomorphicEncryption.bgn.BGNPrivateKey;
+import cn.edu.ncepu.crypto.homomorphicEncryption.bgn.BGNPublicKey;
 import it.unisa.dia.gas.jpbc.Element;
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -38,7 +38,7 @@ public class BGNEngineJUnitTest {
         BGNPublicKey publicKey = (BGNPublicKey) keyPair.getPublic();
         BGNPrivateKey privateKey = (BGNPrivateKey) keyPair.getPrivate();
         try {
-            int m = 99;
+            int m = 100;
             Element c = bgnEngine.encrypt(m, publicKey);
             int decrypted_m = bgnEngine.decrypt(c, publicKey, privateKey);
             logger.info("decrypted_m: " + decrypted_m);

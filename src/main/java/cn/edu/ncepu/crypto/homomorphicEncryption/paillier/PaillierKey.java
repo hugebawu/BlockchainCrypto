@@ -1,7 +1,8 @@
-package cn.edu.ncepu.crypto.encryption.paillier;
+package cn.edu.ncepu.crypto.homomorphicEncryption.paillier;
 
 import java.math.BigInteger;
-import java.security.*;
+import java.security.Key;
+import java.security.SecureRandom;
 
 /**
  * The Key interface is the top-level interface for all keys.

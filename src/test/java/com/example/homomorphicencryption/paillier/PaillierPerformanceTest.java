@@ -3,8 +3,8 @@
  */
 package com.example.homomorphicencryption.paillier;
 
-import cn.edu.ncepu.crypto.encryption.paillier.PaillierEngine;
-import cn.edu.ncepu.crypto.encryption.paillier.PaillierProvider;
+import cn.edu.ncepu.crypto.homomorphicEncryption.paillier.PaillierEngine;
+import cn.edu.ncepu.crypto.homomorphicEncryption.paillier.PaillierProvider;
 import cn.edu.ncepu.crypto.utils.Timer;
 import edu.princeton.cs.algs4.Out;
 import org.junit.Test;

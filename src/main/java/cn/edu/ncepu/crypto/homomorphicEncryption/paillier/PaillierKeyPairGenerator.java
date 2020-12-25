@@ -1,4 +1,4 @@
-package cn.edu.ncepu.crypto.encryption.paillier;
+package cn.edu.ncepu.crypto.homomorphicEncryption.paillier;
 
 import java.math.BigInteger;
 import java.security.KeyPair;

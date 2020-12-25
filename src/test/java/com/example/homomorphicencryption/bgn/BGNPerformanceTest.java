@@ -4,10 +4,10 @@ package com.example.homomorphicencryption.bgn;/**
  * @date 2020/12/21 9:17
  */
 
-import cn.edu.ncepu.crypto.encryption.bgn.BGNEngine;
-import cn.edu.ncepu.crypto.encryption.bgn.BGNKeyPairGenerator;
-import cn.edu.ncepu.crypto.encryption.bgn.BGNPrivateKey;
-import cn.edu.ncepu.crypto.encryption.bgn.BGNPublicKey;
+import cn.edu.ncepu.crypto.homomorphicEncryption.bgn.BGNEngine;
+import cn.edu.ncepu.crypto.homomorphicEncryption.bgn.BGNKeyPairGenerator;
+import cn.edu.ncepu.crypto.homomorphicEncryption.bgn.BGNPrivateKey;
+import cn.edu.ncepu.crypto.homomorphicEncryption.bgn.BGNPublicKey;
 import cn.edu.ncepu.crypto.utils.Timer;
 import edu.princeton.cs.algs4.Out;
 import it.unisa.dia.gas.jpbc.Element;

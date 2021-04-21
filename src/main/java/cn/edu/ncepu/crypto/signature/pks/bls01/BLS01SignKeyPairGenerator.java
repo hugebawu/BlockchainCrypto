@@ -1,12 +1,11 @@
 package cn.edu.ncepu.crypto.signature.pks.bls01;
 
-import org.bouncycastle.crypto.KeyGenerationParameters;
-
 import cn.edu.ncepu.crypto.algebra.generators.PairingKeyPairGenerator;
 import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerPair;
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Pairing;
 import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
+import org.bouncycastle.crypto.KeyGenerationParameters;
 
 /**
  * Created by Weiran Liu on 2016/10/18.
@@ -28,8 +27,22 @@ public class BLS01SignKeyPairGenerator implements PairingKeyPairGenerator {
 		Element v = g.powZn(x).getImmutable();
 		BLS01SignPublicPairingKeySerParameter publicKeyParameters = new BLS01SignPublicPairingKeySerParameter(
 				this.param.getPairingParameters(), g, v);
+		BLS01SignSecretPairingKeySerParameter secretKeyParameters = new BLS01SignSecretPairingKeySerParameter(this.param.getPairingParameters(), x);
+		return new PairingKeySerPair(publicKeyParameters, secretKeyParameters);
+	}
 
-		return new PairingKeySerPair(publicKeyParameters,
-				new BLS01SignSecretPairingKeySerParameter(this.param.getPairingParameters(), x));
+	public PairingKeySerPair[] batchGenerateKeyPair(int Num) {
+		Pairing pairing = PairingFactory.getPairing(this.param.getPairingParameters());
+		Element g = pairing.getG2().newRandomElement().getImmutable();
+		PairingKeySerPair[] pairingKeySerPairArray = new PairingKeySerPair[Num];
+		for (int i = 0; i < Num; i++) {
+			Element xi = pairing.getZr().newRandomElement().getImmutable();
+			Element vi = g.powZn(xi).getImmutable();
+			BLS01SignPublicPairingKeySerParameter publicKeyParameters = new BLS01SignPublicPairingKeySerParameter(
+					this.param.getPairingParameters(), g, vi);
+			BLS01SignSecretPairingKeySerParameter secretKeyParameters = new BLS01SignSecretPairingKeySerParameter(this.param.getPairingParameters(), xi);
+			pairingKeySerPairArray[i] = new PairingKeySerPair(publicKeyParameters, secretKeyParameters);
+		}
+		return pairingKeySerPairArray;
 	}
 }

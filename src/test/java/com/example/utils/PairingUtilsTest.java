@@ -41,15 +41,16 @@ public class PairingUtilsTest {
 	private static final String USER_DIR = SysProperty.USER_DIR;
 
 	/**
-	 *   测试动态生成Type A PairingParameters并保存
+	 * test dynamically generate and save Type A PairingParameters
+	 * <p>
+	 * symmetric prime-order bilinear pairing
 	 */
 	@Ignore
 	@Test
 	public void testGenTypeAPairParam() {
-		int rbits = 256; // rbits是Z其中阶数p的比特长度 a,b属于Zr={0,...,p-1}
-		int qbits = 1024; // qBit是域Fq的中q的比特长度，G是由定义在域Fq上的椭圆曲线E上的点(x,y的取值范围是Fq)构成的群，
-							// G的阶数(即G的元素个数)的比特长度为r。q,r存在一定的关系，比如r=(q+1)/6
-		// 通过代码动态生成Pairing对象
+		int rbits = 256; // rbit是域Zr的阶r的比特长度
+		int qbits = 1024; // qBit是域Fq的阶q的比特长度，G1,G2是由定义在域Fq上的椭圆曲线E上的点E(F_q)(x,y /in F_q)构成的群，
+		// G1,G2的阶(即G的元素个数)为r. The order r is some prime factor of q + 1，such as q + 1 = r * h. GT is subgroup of F_q^2
 		PairingParameters typeAParams = PairingUtils.genTypeAPairParam(rbits, qbits);
 		// 将参数写入文件a_256_1024.properties中，使用Princeton大学封装的文件输出库
 		Out out = new Out(PairingUtils.PATH_a_256_1024);
@@ -58,7 +59,7 @@ public class PairingUtilsTest {
 		logger.info(typeAParams.toString());
 		// 从文件a_256_1024.properties中读取参数初始化双线性群
 		typeAParams = PairingFactory.getPairingParameters(PairingUtils.PATH_a_256_1024);
-		// 初始化Pairing
+		//通过代码动态生成Pairing对象
 		Pairing pairing = PairingFactory.getPairing(typeAParams);
 		// The number of algebraic structures available
 		logger.info("degree: j" + pairing.getDegree());
@@ -73,12 +74,13 @@ public class PairingUtilsTest {
 	}
 
 	/**
-	 *   测试动态生成Type A1 PairingParameters并保存
+	 *   test dynamically generate and save Type A1 PairingParameters
+	 *   <p>
+	 *   symmetric composite-order bilinear pairing
 	 */
 	@Ignore
 	@Test
 	public void testGenTypeA1PairParam() {
-		// Type A1 对称合数阶双线性群
 		int numPrime = 3; // numPrime是阶数N中有几个质数因子
 		int bits = 128; // bit是每个质数因子的比特长度
 
@@ -109,23 +111,23 @@ public class PairingUtilsTest {
 	}
 
 	/**
-	 * 测试动态生成Type F PairingParameters并保存
+	 * test dynamically generate and save Type F PairingParameters
+	 * <p>
+	 * asymmetric prime-order bilinear pairing
 	 */
 	@Ignore
 	@Test
 	public void testGenTypeFPairParam() {
-		int rbits = 256; // rbits是Z其中阶数p的比特长度 a,b属于Zr={0,...,p-1}
-//		int qbits = 1024; // qBit是域Fq的中q的比特长度，G是由定义在域Fq上的椭圆曲线E上的点(x,y的取值范围是Fq)构成的群，
-		// G的阶数(即G的元素个数)的比特长度为r。q,r存在一定的关系，比如r=(q+1)/6
+		int rbits = 512; // rbits是Z其中阶数p的比特长度 a,b属于Zr={0,...,p-1}
 		// 通过代码动态生成Pairing对象
 		PairingParameters typeFParams = PairingUtils.genTypeFPairParam(rbits);
-		// 将参数写入文件f_256.properties中，使用Princeton大学封装的文件输出库
-		Out out = new Out(PairingUtils.PATH_f_256);
+		// 将参数写入文件f_512.properties中，使用Princeton大学封装的文件输出库
+		Out out = new Out(PairingUtils.PATH_f_512);
 		out.println(typeFParams);
 		// print Pairing parameters
 		logger.info(typeFParams.toString());
-		// 从文件f_256.properties中读取参数初始化双线性群
-		typeFParams = PairingFactory.getPairingParameters(PairingUtils.PATH_f_256);
+		// 从文件f_512.properties中读取参数初始化双线性群
+		typeFParams = PairingFactory.getPairingParameters(PairingUtils.PATH_f_512);
 		// 初始化Pairing
 		Pairing pairing = PairingFactory.getPairing(typeFParams);
 		// The number of algebraic structures available

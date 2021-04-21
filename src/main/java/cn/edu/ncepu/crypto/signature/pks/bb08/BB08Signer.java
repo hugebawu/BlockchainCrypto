@@ -44,6 +44,11 @@ public class BB08Signer implements PairingSigner {
 		}
 	}
 
+	@Override
+	public void init(boolean forSigning, CipherParameters[] paramArray) {
+
+	}
+
 	public Element[] generateSignature(byte[] message) {
 		PairingParameters params = this.pairingKeySerParameter.getParameters();
 		Pairing pairing = PairingFactory.getPairing(params);
@@ -60,7 +65,12 @@ public class BB08Signer implements PairingSigner {
 
 		Element sigma = g1.powZn(y.mulZn(r).add(m).add(x).invert()).getImmutable();
 
-		return new Element[] { sigma, r };
+		return new Element[]{sigma, r};
+	}
+
+	@Override
+	public Element[] batchGenerateSignature(byte[][] message) {
+		return new Element[0];
 	}
 
 	public boolean verifySignature(byte[] message, Element... signature) {
@@ -80,6 +90,11 @@ public class BB08Signer implements PairingSigner {
 		return PairingUtils.isEqualElement(temp, z);
 	}
 
+	@Override
+	public boolean batchVerifySignature(byte[][] messageArray, Element[] signatureArray) {
+		return false;
+	}
+
 	public byte[] derEncode(Element[] signElements) throws IOException {
 		ASN1EncodableVector v = new ASN1EncodableVector();
 		v.add(new DERPrintableString(Hex.toHexString(signElements[0].toBytes())));
@@ -87,14 +102,24 @@ public class BB08Signer implements PairingSigner {
 		return new DERSequence(v).getEncoded(ASN1Encoding.DER);
 	}
 
+	@Override
+	public byte[][] derBatchEncode(Element[] signElements) throws IOException {
+		return new byte[0][];
+	}
+
 	public Element[] derDecode(byte[] encoding) throws IOException {
 		ASN1Sequence s = (ASN1Sequence) ASN1Primitive.fromByteArray(encoding);
 		PairingParameters params = this.pairingKeySerParameter.getParameters();
 		Pairing pairing = PairingFactory.getPairing(params);
 
-		return new Element[] {
+		return new Element[]{
 				pairing.getG1().newElementFromBytes(Hex.decode(((ASN1String) s.getObjectAt(0)).getString())),
-				pairing.getZr().newElementFromBytes(Hex.decode(((ASN1String) s.getObjectAt(1)).getString())), };
+				pairing.getZr().newElementFromBytes(Hex.decode(((ASN1String) s.getObjectAt(1)).getString())),};
+	}
+
+	@Override
+	public Element[] derBatchDecode(byte[][] encodingArray) throws IOException {
+		return new Element[0];
 	}
 
 	public String getEngineName() {

@@ -31,14 +31,15 @@ import java.util.Set;
 public class PairingUtils {
 	public static final String PATH_a_160_512 = "params/a_160_512.properties";
 	public static final String PATH_a_256_1024 = "params/a_256_1024.properties";
-//    public static final String PATH_a_320_512 = "params/a_320_512.properties";
+	//    public static final String PATH_a_320_512 = "params/a_320_512.properties";
 //    public static final String PATH_a1_2_256 = "params/a1_2_256.properties";
-    public static final String PATH_a1_3_128 = "params/a1_3_128.properties";
-//    public static final String PATH_a1_3_256 = "params/a1_3_256.properties";
+	public static final String PATH_a1_3_128 = "params/a1_3_128.properties";
+	//    public static final String PATH_a1_3_256 = "params/a1_3_256.properties";
 //    public static final String PATH_a1_2_512 = "params/a1_2_512.properties";
 	public static final String PATH_a1_3_512 = "params/a1_3_512.properties";
 	public static final String PATH_f_160 = "params/f_160.properties";
 	public static final String PATH_f_256 = "params/f_256.properties";
+	public static final String PATH_f_512 = "params/f_512.properties";
 	public static final String PATH_a = "params/a.properties";
 
 	public static final String TEST_PAIRING_PARAMETERS_PATH_a_80_256 = "params/a_80_256.properties";

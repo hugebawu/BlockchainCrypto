@@ -68,7 +68,7 @@ public class ECDSASignerTest {
 			String message = "message";
 			String hashString = DigestUtils.sha256Hex(message);
 			byte[] sign = ECDSASigner.sign(privateKey2, hashString.getBytes("UTF-8"));
-			logger.info("Signature length = " + sign.length + " byte");
+			logger.info("Signature length = " + sign.length + " bytes");
 			String signHex = Hex.encodeHexString(sign);
 			logger.info("signature: " + signHex);
 			logger.info("hex signature length: " + signHex.length());

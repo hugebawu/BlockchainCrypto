@@ -93,7 +93,7 @@ public class PKSPerformanceTest {
             this.timeKeyGen += temperTime;
 
             // test sign performance
-//            String hash = DigestUtils.sha256Hex("message");
+            // String hash = DigestUtils.sha256Hex("message");
             out.print("Sign : ");
             timer.start(0);
             byte[] message = "Message".getBytes("UTF-8");
@@ -124,7 +124,6 @@ public class PKSPerformanceTest {
             e.printStackTrace();
         }
     }
-
 
     @Ignore
     @Test

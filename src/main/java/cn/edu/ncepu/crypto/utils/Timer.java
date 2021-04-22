@@ -21,7 +21,7 @@ public class Timer {
 	private final FORMAT[] outFormat;
 
 	public static String nowTime() {
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");// �������ڸ�ʽ
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");// 设置日期格式
 		return df.format(new Date());
 	}
 

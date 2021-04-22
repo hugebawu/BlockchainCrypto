@@ -164,10 +164,11 @@ public class PairingUtils {
 	}
 
 	/**
-	 *   the hash function G described in Boneh-Franklin CPA-secure IBE
+	 * the hash function G described in Boneh-Franklin CPA-secure IBE
 	 * G: {0,1}*->Fp, hash user id to a point in the G1
-	 * @param G1 elliptic curve group G1
-	 * @param ID user id
+	 *
+	 * @param Pairing
+	 * @param ID      user id
 	 * @return 参数描述
 	 */
 	public static Element hash_G(Pairing Pairing, String ID) {
@@ -177,7 +178,7 @@ public class PairingUtils {
 
 	/**
 	 *   the hash function H described in Boneh-Franklin CPA-secure IBE
-	 * @param GT the finite field GT
+	 * @param pairing
 	 * @param element element in GT
 	 * @return a element in GT
 	 */

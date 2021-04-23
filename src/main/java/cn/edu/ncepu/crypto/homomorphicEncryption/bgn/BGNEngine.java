@@ -5,10 +5,15 @@ package cn.edu.ncepu.crypto.homomorphicEncryption.bgn;/**
  */
 
 import cn.edu.ncepu.crypto.algebra.Engine;
+import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerPair;
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Pairing;
+import it.unisa.dia.gas.jpbc.PairingParameters;
+import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
+import org.bouncycastle.crypto.KeyGenerationParameters;
 
 import java.math.BigInteger;
+import java.security.InvalidAlgorithmParameterException;
 
 /**
  * @ClassName BGNEngine
@@ -21,9 +26,11 @@ public class BGNEngine extends Engine {
 
     private static BGNEngine engine;
     private static final String SCHEME_NAME = "BGN 2006";
-    private static final int T = 100; // The max range of message m
-    private BGNPublicKey pubkey;
-    private BGNPrivateKey prikey;
+    private static final int M = 100; // The max range of message m
+
+    public BGNEngine(String schemeName, ProveSecModel proveSecModel, PayloadSecLevel payloadSecLevel, PredicateSecLevel predicateSecLevel) {
+        super(schemeName, proveSecModel, payloadSecLevel, predicateSecLevel);
+    }
 
     public static BGNEngine getInstance() {
         if (null == engine) {
@@ -34,24 +41,11 @@ public class BGNEngine extends Engine {
         return engine;
     }
 
-    public BGNEngine(String schemeName, ProveSecModel proveSecModel, PayloadSecLevel payloadSecLevel, PredicateSecLevel predicateSecLevel) {
-        super(schemeName, proveSecModel, payloadSecLevel, predicateSecLevel);
-    }
-
-    /**
-     * @description: This function returns the public key of BGN.
-     * @return: The public key used to encrypt
-     */
-    public BGNPublicKey getPubkey() {
-        return pubkey;
-    }
-
-    /**
-     * @description: This function returns the private key of BGN
-     * @return: the private key used to decrypt the data
-     */
-    public BGNPrivateKey getPrikey() {
-        return prikey;
+    public PairingKeySerPair keyGen(PairingParameters pairingParameters) throws InvalidAlgorithmParameterException {
+        BGNKeyPairGenerator kpg = new BGNKeyPairGenerator(pairingParameters);
+        kpg.init(new KeyGenerationParameters(null, 32));
+        PairingKeySerPair keyPair = kpg.generateKeyPair();
+        return keyPair;
     }
 
     /*
@@ -62,15 +56,15 @@ public class BGNEngine extends Engine {
      * @return: Element: The ciphertext.
      * @throws: If the plaintext is not in [0,1,2,...,n], there is an exception.
      **/
-    public Element encrypt(int m, BGNPublicKey pubkey) throws Exception {
-        if (m > T) {
-            throw new Exception("plaintext m should be in [0,1,2,...," + T + "]");
+    public Element encrypt(int m, BGNPublicKeySerParameter pubkey) throws Exception {
+        if (m > M) {
+            throw new Exception("plaintext m should be in [0,1,2,...," + M + "]");
         }
-        Pairing pairing = pubkey.getPairing();
         Element g = pubkey.getG();
         Element h = pubkey.getH();
-        BigInteger r = pairing.getZr().newElement().toBigInteger();
-        return g.pow(BigInteger.valueOf(m)).mul(h.pow(r)).getImmutable(); // g^m * h^r
+        Pairing pairing = PairingFactory.getPairing(pubkey.getParameters());
+        Element r = pairing.getZr().newRandomElement().getImmutable();
+        return g.pow(BigInteger.valueOf(m)).mul(h.powZn(r)).getImmutable(); // g^m * h^r
     }
 
     /*
@@ -81,31 +75,32 @@ public class BGNEngine extends Engine {
      * @return: int: The plaintext.
      * @throws: Exception If the plaintext is not in [0,1,2,...,n], there is an exception.
      **/
-    public int decrypt(Element c, BGNPublicKey pubkey, BGNPrivateKey prikey) throws Exception {
+    public int decrypt(Element c, BGNPrivateKeySerParameter prikey) throws Exception {
         BigInteger p = prikey.getP();
-        Element g = pubkey.getG();
+        Element g = prikey.getG();
         Element cp = c.pow(p).getImmutable();
         Element gp = g.pow(p).getImmutable();
-        for (int i = 0; i <= T; i++) {
-            if (gp.pow(BigInteger.valueOf(i)).isEqual(cp)) {
+        Pairing pairing = PairingFactory.getPairing(prikey.getParameters());
+        for (int i = 0; i <= M; i++) {
+            if (gp.powZn(pairing.getZr().newElement(i)).isEqual(cp)) {
                 return i;
             }
         }
-        throw new Exception("plaintext m is not in [0,1,2,...," + T + "]");
+        throw new Exception("plaintext m is not in [0,1,2,...," + M + "]");
     }
 
-    public int decrypt_mul2(Element c, BGNPublicKey pubkey, BGNPrivateKey prikey) throws Exception {
+    public int decrypt_mul2(Element c, BGNPrivateKeySerParameter prikey) throws Exception {
         BigInteger p = prikey.getP();
-        Element g = pubkey.getG();
+        Element g = prikey.getG();
         Element cp = c.pow(p).getImmutable();
-        Pairing pairing = pubkey.getPairing();
-        Element egg = pairing.pairing(g, g).pow(p).getImmutable();
-        for (int i = 0; i <= T; i++) {
-            if (egg.pow(BigInteger.valueOf(i)).isEqual(cp)) {
+        Pairing pairing = PairingFactory.getPairing(prikey.getParameters());
+        Element egg = (pairing.pairing(g, g).pow(p)).getImmutable();
+        for (int i = 0; i <= M; i++) {
+            if (egg.powZn(pairing.getZr().newElement(i)).isEqual(cp)) {
                 return i;
             }
         }
-        throw new Exception("plaintext m is not in [0,1,2,...," + T + "]");
+        throw new Exception("plaintext m is not in [0,1,2,...," + M + "]");
     }
 
     /*
@@ -126,8 +121,9 @@ public class BGNEngine extends Engine {
      * @return: The return value is c^m.
      * @throws:
      **/
-    public Element mul1(Element c1, int m2) {
-        return c1.pow(BigInteger.valueOf(m2)).getImmutable();
+    public Element mul1(Element c1, int m2, BGNPublicKeySerParameter pubkey) {
+        Pairing pairing = PairingFactory.getPairing(pubkey.getParameters());
+        return c1.powZn(pairing.getZr().newElement(m2)).getImmutable();
     }
 
     /*
@@ -138,8 +134,8 @@ public class BGNEngine extends Engine {
      * @return: Element The return value is e(c1,c2).
      * @throws:
      **/
-    public Element mul2(Element c1, Element c2, BGNPublicKey pubkey) {
-        Pairing pairing = pubkey.getPairing();
+    public Element mul2(Element c1, Element c2, BGNPublicKeySerParameter pubkey) {
+        Pairing pairing = PairingFactory.getPairing(pubkey.getParameters());
         return pairing.pairing(c1, c2).getImmutable();
     }
 
@@ -150,7 +146,9 @@ public class BGNEngine extends Engine {
      * @param pubkey:
      * @return: Element The return value is c1*h^r2.
      **/
-    public Element selfBlind(Element c1, BigInteger r, BGNPublicKey pubkey) {
+    public Element selfBlind(Element c1, BGNPublicKeySerParameter pubkey) {
+        Pairing pairing = PairingFactory.getPairing(pubkey.getParameters());
+        BigInteger r = pairing.getZr().newRandomElement().toBigInteger();
         Element h = pubkey.getH();
         return c1.mul(h.pow(r)).getImmutable();
     }

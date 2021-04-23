@@ -1,607 +1,607 @@
 Test engine: BGN 2006
 All test rounds: 100
 Test round: 1
-KeyGen: 	1873.6323
-Encryption: 	0.7011
-Decryption: 	173.9745
-Addition	0.1656
-Multiply	110.3372
+KeyGen: 	409.4552
+Encryption: 	39.2904
+Decryption: 	40.0295
+Addition	0.1427
+Multiply	44.1169
 Test round: 2
-KeyGen: 	1870.6757
-Encryption: 	0.585
-Decryption: 	180.0003
-Addition	0.2049
-Multiply	108.4353
+KeyGen: 	31.7587
+Encryption: 	39.6266
+Decryption: 	45.4563
+Addition	0.0925
+Multiply	25.9216
 Test round: 3
-KeyGen: 	2196.9183
-Encryption: 	0.5749
-Decryption: 	177.8665
-Addition	0.1547
-Multiply	107.9506
+KeyGen: 	37.1184
+Encryption: 	36.6328
+Decryption: 	35.0408
+Addition	0.056
+Multiply	23.4379
 Test round: 4
-KeyGen: 	1328.7759
-Encryption: 	0.5789
-Decryption: 	178.6438
-Addition	0.149
-Multiply	106.9444
+KeyGen: 	33.2947
+Encryption: 	34.0549
+Decryption: 	35.273
+Addition	0.0584
+Multiply	28.0174
 Test round: 5
-KeyGen: 	1253.4133
-Encryption: 	0.5769
-Decryption: 	176.9586
-Addition	0.1447
-Multiply	100.7921
+KeyGen: 	28.1168
+Encryption: 	33.4112
+Decryption: 	34.8607
+Addition	0.0595
+Multiply	21.4248
 Test round: 6
-KeyGen: 	1783.1976
-Encryption: 	0.5685
-Decryption: 	178.6442
-Addition	0.1546
-Multiply	103.8533
+KeyGen: 	27.7501
+Encryption: 	34.0727
+Decryption: 	34.7903
+Addition	0.0572
+Multiply	24.1269
 Test round: 7
-KeyGen: 	1606.0248
-Encryption: 	0.5856
-Decryption: 	177.5279
-Addition	0.1447
-Multiply	105.209
+KeyGen: 	27.5473
+Encryption: 	33.8256
+Decryption: 	34.583
+Addition	0.0597
+Multiply	21.3645
 Test round: 8
-KeyGen: 	1684.5958
-Encryption: 	0.5959
-Decryption: 	183.207
-Addition	0.1473
-Multiply	105.2643
+KeyGen: 	29.5631
+Encryption: 	33.8481
+Decryption: 	35.0395
+Addition	0.0582
+Multiply	21.3499
 Test round: 9
-KeyGen: 	1176.228
-Encryption: 	0.5807
-Decryption: 	175.3778
-Addition	0.1454
-Multiply	105.6449
+KeyGen: 	32.1092
+Encryption: 	33.3029
+Decryption: 	34.9324
+Addition	0.0553
+Multiply	24.3191
 Test round: 10
-KeyGen: 	1848.595
-Encryption: 	0.5846
-Decryption: 	178.4355
-Addition	0.1495
-Multiply	105.4651
+KeyGen: 	27.6711
+Encryption: 	33.616
+Decryption: 	34.5221
+Addition	0.0562
+Multiply	21.0512
 Test round: 11
-KeyGen: 	1202.9687
-Encryption: 	0.5649
-Decryption: 	178.1805
-Addition	0.1485
-Multiply	104.5749
+KeyGen: 	27.7031
+Encryption: 	35.2238
+Decryption: 	34.7925
+Addition	0.0579
+Multiply	21.3733
 Test round: 12
-KeyGen: 	2115.0476
-Encryption: 	0.5982
-Decryption: 	178.2237
-Addition	0.1479
-Multiply	105.6588
+KeyGen: 	27.5822
+Encryption: 	33.5469
+Decryption: 	34.4616
+Addition	0.0631
+Multiply	21.5392
 Test round: 13
-KeyGen: 	1383.0443
-Encryption: 	0.6011
-Decryption: 	176.2896
-Addition	0.1479
-Multiply	103.6327
+KeyGen: 	27.4596
+Encryption: 	33.5388
+Decryption: 	34.3005
+Addition	0.0567
+Multiply	21.8667
 Test round: 14
-KeyGen: 	1927.2995
-Encryption: 	0.6524
-Decryption: 	178.7627
-Addition	0.1656
-Multiply	104.969
+KeyGen: 	27.384
+Encryption: 	33.8722
+Decryption: 	34.7855
+Addition	0.0608
+Multiply	21.7456
 Test round: 15
-KeyGen: 	1142.0373
-Encryption: 	0.6008
-Decryption: 	176.1543
-Addition	0.1497
-Multiply	107.2492
+KeyGen: 	27.3832
+Encryption: 	33.5761
+Decryption: 	35.0233
+Addition	0.0607
+Multiply	22.2607
 Test round: 16
-KeyGen: 	1376.739
-Encryption: 	0.578
-Decryption: 	177.1837
-Addition	0.1484
-Multiply	105.1261
+KeyGen: 	27.4699
+Encryption: 	33.5331
+Decryption: 	34.2886
+Addition	0.0553
+Multiply	21.1719
 Test round: 17
-KeyGen: 	1282.8844
-Encryption: 	0.5731
-Decryption: 	176.0303
-Addition	0.1495
-Multiply	106.8015
+KeyGen: 	27.205
+Encryption: 	35.9076
+Decryption: 	35.0676
+Addition	0.0557
+Multiply	24.5207
 Test round: 18
-KeyGen: 	1895.6059
-Encryption: 	0.6026
-Decryption: 	177.3829
-Addition	0.1537
-Multiply	104.9483
+KeyGen: 	27.4421
+Encryption: 	33.2303
+Decryption: 	34.668
+Addition	0.0571
+Multiply	22.0036
 Test round: 19
-KeyGen: 	2066.5598
-Encryption: 	0.5681
-Decryption: 	178.7075
-Addition	0.1522
-Multiply	103.9659
+KeyGen: 	27.5175
+Encryption: 	33.6297
+Decryption: 	35.328
+Addition	0.0572
+Multiply	22.0353
 Test round: 20
-KeyGen: 	1121.529
-Encryption: 	0.5882
-Decryption: 	174.6206
-Addition	0.1442
-Multiply	105.3899
+KeyGen: 	27.2412
+Encryption: 	33.5116
+Decryption: 	37.5534
+Addition	0.0572
+Multiply	21.2863
 Test round: 21
-KeyGen: 	1133.8476
-Encryption: 	0.5752
-Decryption: 	175.1486
-Addition	0.1503
-Multiply	105.9197
+KeyGen: 	27.2423
+Encryption: 	34.2022
+Decryption: 	34.6217
+Addition	0.0549
+Multiply	21.9368
 Test round: 22
-KeyGen: 	1252.391
-Encryption: 	0.5751
-Decryption: 	176.7394
-Addition	0.1769
-Multiply	106.7206
+KeyGen: 	27.3317
+Encryption: 	33.6537
+Decryption: 	34.5046
+Addition	0.0539
+Multiply	21.0044
 Test round: 23
-KeyGen: 	1375.8464
-Encryption: 	0.5666
-Decryption: 	175.3292
-Addition	0.1481
-Multiply	103.1013
+KeyGen: 	27.4771
+Encryption: 	33.6976
+Decryption: 	35.7059
+Addition	0.0596
+Multiply	21.1826
 Test round: 24
-KeyGen: 	1594.3355
-Encryption: 	0.5795
-Decryption: 	178.4652
-Addition	0.1497
-Multiply	102.726
+KeyGen: 	27.6908
+Encryption: 	33.4013
+Decryption: 	34.7173
+Addition	0.0572
+Multiply	22.0727
 Test round: 25
-KeyGen: 	1321.8241
-Encryption: 	0.5732
-Decryption: 	178.215
-Addition	0.1478
-Multiply	107.5779
+KeyGen: 	27.5658
+Encryption: 	33.5647
+Decryption: 	34.3571
+Addition	0.0536
+Multiply	21.8009
 Test round: 26
-KeyGen: 	1871.4672
-Encryption: 	0.5692
-Decryption: 	177.3227
-Addition	0.2476
-Multiply	108.5509
+KeyGen: 	27.1171
+Encryption: 	34.6795
+Decryption: 	34.7204
+Addition	0.0642
+Multiply	22.8252
 Test round: 27
-KeyGen: 	1195.0452
-Encryption: 	0.5613
-Decryption: 	175.6373
-Addition	0.1508
-Multiply	106.4308
+KeyGen: 	27.3648
+Encryption: 	34.5386
+Decryption: 	34.5374
+Addition	0.0566
+Multiply	22.0313
 Test round: 28
-KeyGen: 	2257.0724
-Encryption: 	0.5841
-Decryption: 	178.1842
-Addition	0.1498
-Multiply	107.5814
+KeyGen: 	27.2242
+Encryption: 	33.1354
+Decryption: 	34.3516
+Addition	0.0567
+Multiply	21.7174
 Test round: 29
-KeyGen: 	1943.4035
-Encryption: 	0.5661
-Decryption: 	178.3293
-Addition	0.1455
-Multiply	107.2365
+KeyGen: 	27.204
+Encryption: 	33.4927
+Decryption: 	35.1769
+Addition	0.055
+Multiply	21.897
 Test round: 30
-KeyGen: 	2291.1908
-Encryption: 	0.5729
-Decryption: 	176.0961
-Addition	0.1515
-Multiply	107.9789
+KeyGen: 	26.7668
+Encryption: 	33.1245
+Decryption: 	44.0968
+Addition	0.055
+Multiply	22.0638
 Test round: 31
-KeyGen: 	1610.8136
-Encryption: 	0.5772
-Decryption: 	174.8064
-Addition	0.1511
-Multiply	101.2675
+KeyGen: 	27.228
+Encryption: 	33.0041
+Decryption: 	34.3702
+Addition	0.0537
+Multiply	22.9129
 Test round: 32
-KeyGen: 	3014.6969
-Encryption: 	0.5864
-Decryption: 	177.8459
-Addition	0.1468
-Multiply	107.9773
+KeyGen: 	27.6354
+Encryption: 	33.4407
+Decryption: 	34.6653
+Addition	0.0648
+Multiply	23.9692
 Test round: 33
-KeyGen: 	1312.9734
-Encryption: 	0.5691
-Decryption: 	174.9601
-Addition	0.1486
-Multiply	101.7775
+KeyGen: 	27.5971
+Encryption: 	44.5814
+Decryption: 	34.6415
+Addition	0.0562
+Multiply	22.0473
 Test round: 34
-KeyGen: 	2056.9937
-Encryption: 	0.5743
-Decryption: 	178.8651
-Addition	0.1459
-Multiply	104.5313
+KeyGen: 	27.4171
+Encryption: 	33.3906
+Decryption: 	37.3649
+Addition	0.059
+Multiply	23.3357
 Test round: 35
-KeyGen: 	1183.2258
-Encryption: 	0.5672
-Decryption: 	177.1599
-Addition	0.1464
-Multiply	105.4686
+KeyGen: 	32.9242
+Encryption: 	33.3839
+Decryption: 	34.782
+Addition	0.0544
+Multiply	21.8463
 Test round: 36
-KeyGen: 	1406.5919
-Encryption: 	0.6022
-Decryption: 	176.2791
-Addition	0.1494
-Multiply	106.1986
+KeyGen: 	27.6114
+Encryption: 	33.7783
+Decryption: 	34.5795
+Addition	0.0556
+Multiply	22.2626
 Test round: 37
-KeyGen: 	1198.9438
-Encryption: 	0.6211
-Decryption: 	176.1525
-Addition	0.1493
-Multiply	105.4852
+KeyGen: 	27.9334
+Encryption: 	33.8699
+Decryption: 	41.2809
+Addition	0.054
+Multiply	21.8401
 Test round: 38
-KeyGen: 	1583.2651
-Encryption: 	0.5688
-Decryption: 	176.3598
-Addition	0.1494
-Multiply	104.7865
+KeyGen: 	27.9542
+Encryption: 	33.4984
+Decryption: 	34.7052
+Addition	0.0582
+Multiply	21.9747
 Test round: 39
-KeyGen: 	1250.4878
-Encryption: 	0.5672
-Decryption: 	177.0801
-Addition	0.1553
-Multiply	105.6914
+KeyGen: 	27.7924
+Encryption: 	33.1572
+Decryption: 	34.4864
+Addition	0.0572
+Multiply	21.7925
 Test round: 40
-KeyGen: 	1442.7048
-Encryption: 	0.5742
-Decryption: 	176.3244
-Addition	0.1472
-Multiply	106.044
+KeyGen: 	35.4433
+Encryption: 	33.5715
+Decryption: 	35.1201
+Addition	0.0577
+Multiply	21.1491
 Test round: 41
-KeyGen: 	1246.2625
-Encryption: 	0.5824
-Decryption: 	176.1005
-Addition	0.1457
-Multiply	105.9267
+KeyGen: 	27.5805
+Encryption: 	33.485
+Decryption: 	35.677
+Addition	0.0559
+Multiply	21.1725
 Test round: 42
-KeyGen: 	2683.1223
-Encryption: 	0.5836
-Decryption: 	176.3839
-Addition	0.1639
-Multiply	104.2718
+KeyGen: 	27.633
+Encryption: 	32.9756
+Decryption: 	34.5403
+Addition	0.0568
+Multiply	21.3895
 Test round: 43
-KeyGen: 	1388.8041
-Encryption: 	0.5591
-Decryption: 	179.0666
-Addition	0.1499
-Multiply	107.066
+KeyGen: 	27.7009
+Encryption: 	33.9307
+Decryption: 	34.3089
+Addition	0.0566
+Multiply	21.1253
 Test round: 44
-KeyGen: 	1661.3384
-Encryption: 	0.5701
-Decryption: 	176.6131
-Addition	0.1445
-Multiply	104.3765
+KeyGen: 	27.7684
+Encryption: 	33.8243
+Decryption: 	34.7751
+Addition	0.0577
+Multiply	21.6794
 Test round: 45
-KeyGen: 	1481.0164
-Encryption: 	0.5693
-Decryption: 	175.8928
-Addition	0.1773
-Multiply	105.1842
+KeyGen: 	27.204
+Encryption: 	33.3414
+Decryption: 	34.4745
+Addition	0.0577
+Multiply	21.8235
 Test round: 46
-KeyGen: 	1511.1852
-Encryption: 	0.5927
-Decryption: 	176.3292
-Addition	0.1504
-Multiply	104.7163
+KeyGen: 	28.3359
+Encryption: 	34.2355
+Decryption: 	34.9795
+Addition	0.0559
+Multiply	21.8196
 Test round: 47
-KeyGen: 	1074.624
-Encryption: 	0.5566
-Decryption: 	173.6979
-Addition	0.1443
-Multiply	102.9523
+KeyGen: 	27.3197
+Encryption: 	34.0529
+Decryption: 	34.6985
+Addition	0.0597
+Multiply	21.1637
 Test round: 48
-KeyGen: 	1502.2944
-Encryption: 	0.5716
-Decryption: 	177.2751
-Addition	0.14
-Multiply	104.7889
+KeyGen: 	27.6818
+Encryption: 	34.1188
+Decryption: 	34.5178
+Addition	0.0604
+Multiply	21.7551
 Test round: 49
-KeyGen: 	2991.0426
-Encryption: 	0.5712
-Decryption: 	177.7529
-Addition	0.1503
-Multiply	103.012
+KeyGen: 	27.2013
+Encryption: 	33.4383
+Decryption: 	34.4089
+Addition	0.0566
+Multiply	21.8208
 Test round: 50
-KeyGen: 	1290.06
-Encryption: 	0.554
-Decryption: 	176.0736
-Addition	0.1477
-Multiply	104.8994
+KeyGen: 	27.3243
+Encryption: 	33.9594
+Decryption: 	35.2413
+Addition	0.0594
+Multiply	21.2516
 Test round: 51
-KeyGen: 	1038.2258
-Encryption: 	0.5954
-Decryption: 	172.1996
-Addition	0.146
-Multiply	101.272
+KeyGen: 	27.0027
+Encryption: 	33.8526
+Decryption: 	34.7702
+Addition	0.0567
+Multiply	21.7171
 Test round: 52
-KeyGen: 	1541.2533
-Encryption: 	0.5749
-Decryption: 	179.0546
-Addition	0.1529
-Multiply	107.3193
+KeyGen: 	29.0124
+Encryption: 	33.1925
+Decryption: 	34.1476
+Addition	0.0551
+Multiply	21.597
 Test round: 53
-KeyGen: 	2322.6788
-Encryption: 	0.5654
-Decryption: 	177.1969
-Addition	0.1484
-Multiply	107.6752
+KeyGen: 	27.336
+Encryption: 	33.3288
+Decryption: 	35.975
+Addition	0.0612
+Multiply	21.4899
 Test round: 54
-KeyGen: 	1350.8647
-Encryption: 	0.566
-Decryption: 	174.338
-Addition	0.1478
-Multiply	106.8721
+KeyGen: 	26.9432
+Encryption: 	33.7928
+Decryption: 	34.6954
+Addition	0.0541
+Multiply	21.7908
 Test round: 55
-KeyGen: 	1167.7691
-Encryption: 	0.5627
-Decryption: 	175.3811
-Addition	0.1493
-Multiply	105.6968
+KeyGen: 	27.4067
+Encryption: 	33.6433
+Decryption: 	34.4071
+Addition	0.0556
+Multiply	21.6372
 Test round: 56
-KeyGen: 	1398.1192
-Encryption: 	0.5642
-Decryption: 	175.0997
-Addition	0.1458
-Multiply	103.9783
+KeyGen: 	27.3326
+Encryption: 	33.1723
+Decryption: 	34.4842
+Addition	0.0615
+Multiply	22.1288
 Test round: 57
-KeyGen: 	1696.4733
-Encryption: 	0.5686
-Decryption: 	179.0758
-Addition	0.15
-Multiply	104.3001
+KeyGen: 	27.0777
+Encryption: 	33.0673
+Decryption: 	41.799
+Addition	0.0558
+Multiply	21.833
 Test round: 58
-KeyGen: 	1519.3872
-Encryption: 	0.5673
-Decryption: 	175.748
-Addition	0.1488
-Multiply	104.9841
+KeyGen: 	27.3061
+Encryption: 	33.4398
+Decryption: 	35.5843
+Addition	0.0577
+Multiply	21.0279
 Test round: 59
-KeyGen: 	1741.6147
-Encryption: 	0.5787
-Decryption: 	177.8509
-Addition	0.152
-Multiply	107.033
+KeyGen: 	27.9081
+Encryption: 	34.0894
+Decryption: 	43.0276
+Addition	0.0779
+Multiply	24.0311
 Test round: 60
-KeyGen: 	1147.0576
-Encryption: 	0.5635
-Decryption: 	175.8126
-Addition	0.1453
-Multiply	104.1249
+KeyGen: 	34.412
+Encryption: 	33.3461
+Decryption: 	34.9377
+Addition	0.0556
+Multiply	21.2149
 Test round: 61
-KeyGen: 	1300.7837
-Encryption: 	0.576
-Decryption: 	178.2461
-Addition	0.1476
-Multiply	106.3193
+KeyGen: 	27.2525
+Encryption: 	33.769
+Decryption: 	36.2571
+Addition	0.0615
+Multiply	21.5819
 Test round: 62
-KeyGen: 	1538.3545
-Encryption: 	0.5756
-Decryption: 	178.9918
-Addition	0.1595
-Multiply	106.46
+KeyGen: 	27.0756
+Encryption: 	34.317
+Decryption: 	34.7388
+Addition	0.0784
+Multiply	23.4247
 Test round: 63
-KeyGen: 	1498.9828
-Encryption: 	0.5657
-Decryption: 	178.9215
-Addition	0.1454
-Multiply	107.0471
+KeyGen: 	27.7621
+Encryption: 	33.399
+Decryption: 	34.3952
+Addition	0.0556
+Multiply	21.5043
 Test round: 64
-KeyGen: 	1822.3529
-Encryption: 	0.5994
-Decryption: 	175.9088
-Addition	0.1434
-Multiply	106.1057
+KeyGen: 	27.9371
+Encryption: 	33.3523
+Decryption: 	34.3623
+Addition	0.0554
+Multiply	21.5928
 Test round: 65
-KeyGen: 	1263.4488
-Encryption: 	0.5813
-Decryption: 	176.6915
-Addition	0.1468
-Multiply	104.18
+KeyGen: 	27.2118
+Encryption: 	33.1986
+Decryption: 	35.557
+Addition	0.0575
+Multiply	23.163
 Test round: 66
-KeyGen: 	1989.2368
-Encryption: 	0.5736
-Decryption: 	177.7198
-Addition	0.1518
-Multiply	107.7746
+KeyGen: 	27.3431
+Encryption: 	33.7981
+Decryption: 	34.3845
+Addition	0.0602
+Multiply	21.8248
 Test round: 67
-KeyGen: 	1389.0046
-Encryption: 	0.5618
-Decryption: 	175.6951
-Addition	0.1452
-Multiply	104.5333
+KeyGen: 	27.2267
+Encryption: 	34.0249
+Decryption: 	41.7155
+Addition	0.0617
+Multiply	23.5599
 Test round: 68
-KeyGen: 	1091.5619
-Encryption: 	0.5846
-Decryption: 	176.5062
-Addition	0.1502
-Multiply	108.9363
+KeyGen: 	27.2966
+Encryption: 	35.8238
+Decryption: 	39.4852
+Addition	0.0637
+Multiply	21.1864
 Test round: 69
-KeyGen: 	1315.0646
-Encryption: 	0.5664
-Decryption: 	176.3981
-Addition	0.147
-Multiply	105.6954
+KeyGen: 	27.4258
+Encryption: 	33.4069
+Decryption: 	34.9206
+Addition	0.0577
+Multiply	21.6651
 Test round: 70
-KeyGen: 	1502.1885
-Encryption: 	0.5705
-Decryption: 	176.5704
-Addition	0.1579
-Multiply	105.0135
+KeyGen: 	27.6986
+Encryption: 	33.2031
+Decryption: 	34.9315
+Addition	0.0562
+Multiply	20.9804
 Test round: 71
-KeyGen: 	2482.043
-Encryption: 	0.5774
-Decryption: 	176.3119
-Addition	0.152
-Multiply	103.1742
+KeyGen: 	27.0934
+Encryption: 	34.7654
+Decryption: 	34.6505
+Addition	0.0607
+Multiply	21.5329
 Test round: 72
-KeyGen: 	1793.2512
-Encryption: 	0.5782
-Decryption: 	174.0066
-Addition	0.153
-Multiply	106.1798
+KeyGen: 	27.4212
+Encryption: 	33.0482
+Decryption: 	34.5761
+Addition	0.0574
+Multiply	23.1355
 Test round: 73
-KeyGen: 	1062.8303
-Encryption: 	0.5454
-Decryption: 	172.3283
-Addition	0.1437
-Multiply	101.3814
+KeyGen: 	27.0954
+Encryption: 	33.743
+Decryption: 	34.9912
+Addition	0.0563
+Multiply	21.0833
 Test round: 74
-KeyGen: 	3387.6164
-Encryption: 	0.5707
-Decryption: 	179.93
-Addition	0.1519
-Multiply	106.5875
+KeyGen: 	26.8395
+Encryption: 	33.2568
+Decryption: 	34.4353
+Addition	0.056
+Multiply	21.574
 Test round: 75
-KeyGen: 	1790.1219
-Encryption: 	0.5785
-Decryption: 	179.3551
-Addition	0.1478
-Multiply	107.4619
+KeyGen: 	26.7858
+Encryption: 	33.5129
+Decryption: 	34.9469
+Addition	0.0566
+Multiply	23.9698
 Test round: 76
-KeyGen: 	1687.8017
-Encryption: 	0.5673
-Decryption: 	177.876
-Addition	0.1614
-Multiply	102.926
+KeyGen: 	27.3264
+Encryption: 	33.9192
+Decryption: 	34.3355
+Addition	0.0568
+Multiply	21.5212
 Test round: 77
-KeyGen: 	1310.5342
-Encryption: 	0.5639
-Decryption: 	176.5498
-Addition	0.1441
-Multiply	104.3013
+KeyGen: 	27.2203
+Encryption: 	33.5665
+Decryption: 	34.5807
+Addition	0.0566
+Multiply	21.6188
 Test round: 78
-KeyGen: 	1230.4013
-Encryption: 	0.572
-Decryption: 	177.4541
-Addition	0.1471
-Multiply	107.9614
+KeyGen: 	27.5152
+Encryption: 	33.5722
+Decryption: 	34.6219
+Addition	0.0565
+Multiply	21.7621
 Test round: 79
-KeyGen: 	1048.8377
-Encryption: 	0.5457
-Decryption: 	173.5413
-Addition	0.1484
-Multiply	101.4445
+KeyGen: 	27.587
+Encryption: 	33.1756
+Decryption: 	34.4479
+Addition	0.0571
+Multiply	21.5892
 Test round: 80
-KeyGen: 	3221.5994
-Encryption: 	0.576
-Decryption: 	178.5603
-Addition	0.1512
-Multiply	102.3003
+KeyGen: 	27.0946
+Encryption: 	33.3144
+Decryption: 	34.5606
+Addition	0.056
+Multiply	21.158
 Test round: 81
-KeyGen: 	1322.2537
-Encryption: 	0.567
-Decryption: 	178.1554
-Addition	0.1433
-Multiply	105.541
+KeyGen: 	27.7781
+Encryption: 	33.683
+Decryption: 	34.3349
+Addition	0.0587
+Multiply	21.7409
 Test round: 82
-KeyGen: 	1471.0017
-Encryption: 	0.7206
-Decryption: 	175.7897
-Addition	0.2058
-Multiply	103.8537
+KeyGen: 	27.308
+Encryption: 	33.6629
+Decryption: 	34.8131
+Addition	0.0588
+Multiply	21.0211
 Test round: 83
-KeyGen: 	1982.2146
-Encryption: 	0.5639
-Decryption: 	176.4341
-Addition	0.1482
-Multiply	104.1518
+KeyGen: 	27.1758
+Encryption: 	34.2591
+Decryption: 	34.5766
+Addition	0.0566
+Multiply	21.5957
 Test round: 84
-KeyGen: 	2240.6064
-Encryption: 	0.5707
-Decryption: 	177.6646
-Addition	0.1513
-Multiply	105.2636
+KeyGen: 	27.7119
+Encryption: 	33.1982
+Decryption: 	34.4455
+Addition	0.0577
+Multiply	21.6078
 Test round: 85
-KeyGen: 	1407.9069
-Encryption: 	0.5695
-Decryption: 	176.313
-Addition	0.1478
-Multiply	104.9119
+KeyGen: 	27.4256
+Encryption: 	33.3223
+Decryption: 	34.4841
+Addition	0.0559
+Multiply	21.1046
 Test round: 86
-KeyGen: 	1216.6618
-Encryption: 	0.5822
-Decryption: 	177.137
-Addition	0.1646
-Multiply	106.2451
+KeyGen: 	27.6007
+Encryption: 	33.3303
+Decryption: 	34.5765
+Addition	0.0549
+Multiply	21.5858
 Test round: 87
-KeyGen: 	1965.6577
-Encryption: 	0.5667
-Decryption: 	174.8649
-Addition	0.1509
-Multiply	104.3729
+KeyGen: 	27.1994
+Encryption: 	33.3876
+Decryption: 	34.9258
+Addition	0.054
+Multiply	21.259
 Test round: 88
-KeyGen: 	1119.4491
-Encryption: 	0.5699
-Decryption: 	176.0652
-Addition	0.1433
-Multiply	102.2391
+KeyGen: 	27.0427
+Encryption: 	33.9146
+Decryption: 	34.2355
+Addition	0.0566
+Multiply	21.6151
 Test round: 89
-KeyGen: 	1522.7177
-Encryption: 	0.5692
-Decryption: 	176.359
-Addition	0.149
-Multiply	106.1375
+KeyGen: 	27.3098
+Encryption: 	38.0671
+Decryption: 	34.7357
+Addition	0.0558
+Multiply	21.5076
 Test round: 90
-KeyGen: 	1486.0831
-Encryption: 	0.5694
-Decryption: 	176.8574
-Addition	0.148
-Multiply	103.9878
+KeyGen: 	27.3912
+Encryption: 	33.0602
+Decryption: 	34.2487
+Addition	0.0545
+Multiply	21.2965
 Test round: 91
-KeyGen: 	1086.8013
-Encryption: 	0.5683
-Decryption: 	175.5379
-Addition	0.1467
-Multiply	105.0851
+KeyGen: 	28.2527
+Encryption: 	33.1245
+Decryption: 	34.6327
+Addition	0.0561
+Multiply	21.5985
 Test round: 92
-KeyGen: 	1946.369
-Encryption: 	0.5688
-Decryption: 	177.7423
-Addition	0.1509
-Multiply	107.4679
+KeyGen: 	27.239
+Encryption: 	33.5379
+Decryption: 	35.0192
+Addition	0.0552
+Multiply	21.1419
 Test round: 93
-KeyGen: 	1406.5873
-Encryption: 	0.5818
-Decryption: 	178.2555
-Addition	0.1493
-Multiply	103.7297
+KeyGen: 	27.2997
+Encryption: 	33.6115
+Decryption: 	36.849
+Addition	0.0559
+Multiply	21.5948
 Test round: 94
-KeyGen: 	2212.1422
-Encryption: 	0.5739
-Decryption: 	177.7795
-Addition	0.1442
-Multiply	105.0602
+KeyGen: 	27.4743
+Encryption: 	33.2288
+Decryption: 	34.1967
+Addition	0.0556
+Multiply	21.5511
 Test round: 95
-KeyGen: 	1307.6001
-Encryption: 	0.5676
-Decryption: 	176.7364
-Addition	0.1502
-Multiply	103.8926
+KeyGen: 	27.2849
+Encryption: 	33.4129
+Decryption: 	34.4964
+Addition	0.0565
+Multiply	21.5277
 Test round: 96
-KeyGen: 	1187.7922
-Encryption: 	0.5691
-Decryption: 	175.7133
-Addition	0.1459
-Multiply	106.2295
+KeyGen: 	27.0198
+Encryption: 	33.3062
+Decryption: 	37.5783
+Addition	0.0565
+Multiply	21.7879
 Test round: 97
-KeyGen: 	1174.6443
-Encryption: 	0.5654
-Decryption: 	173.9479
-Addition	0.1492
-Multiply	106.0756
+KeyGen: 	28.1581
+Encryption: 	33.3609
+Decryption: 	34.7632
+Addition	0.0543
+Multiply	21.7652
 Test round: 98
-KeyGen: 	1259.2145
-Encryption: 	0.555
-Decryption: 	175.6756
-Addition	0.1484
-Multiply	107.1626
+KeyGen: 	27.4405
+Encryption: 	34.3769
+Decryption: 	34.5459
+Addition	0.0546
+Multiply	21.6815
 Test round: 99
-KeyGen: 	1085.0638
-Encryption: 	0.5568
-Decryption: 	178.34
-Addition	0.149
-Multiply	104.2184
+KeyGen: 	27.247
+Encryption: 	32.9206
+Decryption: 	34.4703
+Addition	0.0627
+Multiply	21.9065
 Test round: 100
-KeyGen: 	1785.0635
-Encryption: 	0.5621
-Decryption: 	178.5078
-Addition	0.1471
-Multiply	103.2701
-average keyGen time:  1600.9793339999999
-average encrypt time: 0.5775560000000001
-average decrypt time: 176.85854200000006
-average addition time:0.15204199999999998
-average multiply time:105.30393899999999
+KeyGen: 	31.7437
+Encryption: 	33.153
+Decryption: 	34.2373
+Addition	0.0599
+Multiply	21.4408
+average keyGen time:  31.78092400000001
+average encrypt time: 33.94789699999999
+average decrypt time: 35.420919
+average addition time:0.058914999999999995
+average multiply time:22.198227999999993

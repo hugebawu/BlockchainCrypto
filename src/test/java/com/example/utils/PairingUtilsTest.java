@@ -6,7 +6,6 @@ package com.example.utils;
 import cn.edu.ncepu.crypto.utils.PairingUtils;
 import cn.edu.ncepu.crypto.utils.PairingUtils.PairingGroupType;
 import cn.edu.ncepu.crypto.utils.SysProperty;
-import cn.edu.ncepu.crypto.utils.Timer;
 import edu.princeton.cs.algs4.Out;
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Pairing;
@@ -40,11 +39,6 @@ import static org.junit.Assert.assertTrue;
 public class PairingUtilsTest {
 	private static final Logger logger = LoggerFactory.getLogger(PairingUtilsTest.class);
 	private static final String USER_DIR = SysProperty.USER_DIR;
-	private Out out;
-	private static final String default_path = "benchmarks/utils/"; // file path for performance test result
-	private double timeExpInG1, timeMulInG1, timeMulInGT, timePairInE;
-	Element g1, g2, gt, x;
-	Pairing pairing;
 
 	/**
 	 * test dynamically generate and save Type A PairingParameters
@@ -332,79 +326,5 @@ public class PairingUtilsTest {
 		Element V1_2 = M12.mul(H12);
 		logger.info("V1_2 :" + V1_2);
 		assertTrue(V12.isEqual(V1_2));
-	}
-
-	@Test
-	public void testTypeFPerformance() {
-		PairingParameters pairingParameters = PairingFactory.getPairingParameters(PairingUtils.PATH_f_256);
-		pairing = PairingFactory.getPairing(pairingParameters);
-
-		String PAIRING_NAME = "type F prime order bilinear pairing";
-		int test_round = 1_000;
-
-		this.out = new Out(default_path + PAIRING_NAME);
-		this.out.println("Test various cryptography operation of " + PAIRING_NAME);
-		this.out.println("All test rounds: " + test_round);
-		for (int i = 0; i < test_round; i++) {
-			logger.info("Test round: " + (i + 1));
-			out.println("Test round: " + (i + 1));
-			run_one_round();
-			logger.info("");
-		}
-		logger.info("average ExpInG1 time: " + timeExpInG1 / test_round);
-		out.println("average ExpInG1 time: " + timeExpInG1 / test_round);
-		logger.info("average MulInG1 time: " + timeMulInG1 / test_round);
-		out.println("average MulInG1 time: " + timeMulInG1 / test_round);
-		logger.info("average MulInGT time: " + timeMulInGT / test_round);
-		out.println("average MulInGT time: " + timeMulInGT / test_round);
-		logger.info("average PairInE time: " + timePairInE / test_round);
-		out.println("average PairInE time: " + timePairInE / test_round);
-	}
-
-	private void run_one_round() {
-		g1 = pairing.getG1().newRandomElement().getImmutable();
-		g2 = pairing.getG2().newRandomElement().getImmutable();
-		gt = pairing.pairing(g1, g2).getImmutable();
-		x = pairing.getZr().newRandomElement().getImmutable();
-
-		double tempTime;
-		Timer timer = new Timer();
-		timer.setFormat(0, Timer.FORMAT.MICRO_SECOND); //设置以微秒为单位
-
-		//test performance of exponential operation in G1
-		out.print("expInG1:");
-		timer.start(0);
-		g1.powZn(x);
-		tempTime = timer.stop(0);
-		logger.info("expInG1:" + "\t" + tempTime);
-		out.println("\t" + tempTime);
-		this.timeExpInG1 += tempTime;
-
-		//test performance of multiplicative operation in G1
-		out.print("mulInG1:");
-		timer.start(0);
-		g1.mul(g1);
-		tempTime = timer.stop(0);
-		logger.info("mulInG1:" + "\t" + tempTime);
-		out.println("\t" + tempTime);
-		this.timeMulInG1 += tempTime;
-
-		//test performance of multiplicative operation in GT
-		out.print("mulInGT:");
-		timer.start(0);
-		gt.mul(gt);
-		tempTime = timer.stop(0);
-		logger.info("mulInGT:" + "\t" + tempTime);
-		out.println("\t" + tempTime);
-		this.timeMulInGT += tempTime;
-
-		//test performance of pairing operation in e
-		out.print("PairInE:");
-		timer.start(0);
-		pairing.pairing(g1, g2);
-		tempTime = timer.stop(0);
-		logger.info("PairInE:" + "\t" + tempTime);
-		out.println("\t" + tempTime);
-		this.timePairInE += tempTime;
 	}
 }

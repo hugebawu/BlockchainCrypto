@@ -1,3004 +1,4005 @@
 Test various cryptography operation of type A1 composite order bilinear pairing
 All test rounds: 1000
 Test round: 1
-expInG:	45423.5
-mulInG:	165.1
+expInG:	47258.0
+mulInG:	90.8
+Pollard's Lamda:	49082.4
 Test round: 2
-expInG:	49096.399
-mulInG:	111.7
+expInG:	38812.1
+mulInG:	71.4
+Pollard's Lamda:	46512.2
 Test round: 3
-expInG:	39148.3
-mulInG:	102.401
+expInG:	44180.8
+mulInG:	233.6
+Pollard's Lamda:	40099.0
 Test round: 4
-expInG:	42376.1
-mulInG:	71.7
+expInG:	34698.6
+mulInG:	62.4
+Pollard's Lamda:	39782.5
 Test round: 5
-expInG:	39372.2
-mulInG:	64.9
+expInG:	36677.6
+mulInG:	74.5
+Pollard's Lamda:	40219.7
 Test round: 6
-expInG:	38543.899
-mulInG:	67.799
+expInG:	34461.0
+mulInG:	64.6
+Pollard's Lamda:	50741.1
 Test round: 7
-expInG:	47358.4
-mulInG:	71.9
+expInG:	36128.4
+mulInG:	65.7
+Pollard's Lamda:	42845.7
 Test round: 8
-expInG:	39728.401
-mulInG:	82.0
+expInG:	34688.9
+mulInG:	72.3
+Pollard's Lamda:	40117.5
 Test round: 9
-expInG:	34930.1
-mulInG:	61.8
+expInG:	40242.5
+mulInG:	63.4
+Pollard's Lamda:	41887.5
 Test round: 10
-expInG:	34628.1
-mulInG:	90.1
+expInG:	35911.4
+mulInG:	62.6
+Pollard's Lamda:	40430.9
 Test round: 11
-expInG:	38349.199
-mulInG:	68.1
+expInG:	34739.3
+mulInG:	62.3
+Pollard's Lamda:	39457.8
 Test round: 12
-expInG:	38604.599
-mulInG:	87.201
+expInG:	34600.5
+mulInG:	63.4
+Pollard's Lamda:	39574.6
 Test round: 13
-expInG:	33875.5
-mulInG:	84.7
-Test round: 14
-expInG:	37561.999
-mulInG:	83.699
-Test round: 15
-expInG:	34965.0
-mulInG:	86.4
-Test round: 16
-expInG:	33620.301
-mulInG:	63.1
-Test round: 17
-expInG:	44585.2
-mulInG:	87.2
-Test round: 18
-expInG:	34379.8
-mulInG:	87.9
-Test round: 19
-expInG:	41023.3
-mulInG:	93.7
-Test round: 20
-expInG:	42705.8
-mulInG:	67.6
-Test round: 21
-expInG:	34095.3
-mulInG:	76.701
-Test round: 22
-expInG:	45294.901
-mulInG:	84.9
-Test round: 23
-expInG:	38140.101
-mulInG:	84.1
-Test round: 24
-expInG:	40566.8
-mulInG:	60.1
-Test round: 25
-expInG:	38972.001
-mulInG:	63.0
-Test round: 26
-expInG:	34204.3
-mulInG:	79.1
-Test round: 27
-expInG:	35100.6
-mulInG:	60.001
-Test round: 28
-expInG:	34422.6
-mulInG:	71.5
-Test round: 29
-expInG:	39290.301
-mulInG:	61.7
-Test round: 30
-expInG:	38072.6
-mulInG:	82.2
-Test round: 31
-expInG:	38083.8
-mulInG:	90.2
-Test round: 32
-expInG:	34411.299
-mulInG:	62.399
-Test round: 33
-expInG:	35254.399
-mulInG:	99.4
-Test round: 34
-expInG:	35280.1
-mulInG:	62.399
-Test round: 35
-expInG:	40397.001
-mulInG:	103.699
-Test round: 36
-expInG:	35182.4
-mulInG:	62.7
-Test round: 37
-expInG:	33840.9
-mulInG:	77.001
-Test round: 38
-expInG:	34745.9
-mulInG:	62.501
-Test round: 39
-expInG:	33977.0
-mulInG:	59.499
-Test round: 40
-expInG:	33904.1
-mulInG:	62.9
-Test round: 41
-expInG:	33456.1
-mulInG:	63.2
-Test round: 42
-expInG:	32843.101
-mulInG:	61.3
-Test round: 43
-expInG:	35832.1
-mulInG:	61.699
-Test round: 44
-expInG:	33409.6
-mulInG:	61.7
-Test round: 45
-expInG:	34931.799
-mulInG:	61.4
-Test round: 46
-expInG:	33708.8
-mulInG:	129.001
-Test round: 47
-expInG:	33485.001
-mulInG:	66.601
-Test round: 48
-expInG:	33085.801
-mulInG:	63.4
-Test round: 49
-expInG:	33181.1
-mulInG:	61.2
-Test round: 50
-expInG:	33105.301
-mulInG:	62.9
-Test round: 51
-expInG:	35602.9
-mulInG:	63.9
-Test round: 52
-expInG:	33061.5
-mulInG:	61.901
-Test round: 53
-expInG:	33146.0
-mulInG:	61.401
-Test round: 54
-expInG:	33604.6
-mulInG:	61.8
-Test round: 55
-expInG:	33461.501
-mulInG:	61.601
-Test round: 56
-expInG:	33298.7
-mulInG:	57.5
-Test round: 57
-expInG:	33058.901
-mulInG:	61.9
-Test round: 58
-expInG:	32920.8
-mulInG:	61.2
-Test round: 59
-expInG:	33992.3
-mulInG:	59.901
-Test round: 60
-expInG:	33915.4
-mulInG:	99.0
-Test round: 61
-expInG:	38508.7
-mulInG:	64.8
-Test round: 62
-expInG:	33174.701
-mulInG:	61.9
-Test round: 63
-expInG:	33292.4
-mulInG:	59.7
-Test round: 64
-expInG:	34287.401
-mulInG:	68.9
-Test round: 65
-expInG:	33417.8
-mulInG:	61.0
-Test round: 66
-expInG:	33874.8
-mulInG:	63.2
-Test round: 67
-expInG:	33290.301
-mulInG:	60.6
-Test round: 68
-expInG:	33170.899
-mulInG:	62.001
-Test round: 69
-expInG:	33418.6
-mulInG:	60.7
-Test round: 70
-expInG:	33403.5
-mulInG:	60.399
-Test round: 71
-expInG:	33497.7
-mulInG:	59.0
-Test round: 72
-expInG:	32837.701
-mulInG:	62.9
-Test round: 73
-expInG:	33230.9
-mulInG:	61.8
-Test round: 74
-expInG:	33842.6
-mulInG:	60.3
-Test round: 75
-expInG:	33892.6
-mulInG:	59.4
-Test round: 76
-expInG:	33727.4
-mulInG:	63.8
-Test round: 77
-expInG:	32948.3
-mulInG:	65.8
-Test round: 78
-expInG:	33425.9
-mulInG:	62.0
-Test round: 79
-expInG:	33372.0
-mulInG:	62.6
-Test round: 80
-expInG:	34417.4
-mulInG:	68.299
-Test round: 81
-expInG:	33502.4
-mulInG:	59.5
-Test round: 82
-expInG:	33235.6
-mulInG:	61.7
-Test round: 83
-expInG:	33240.6
-mulInG:	69.4
-Test round: 84
-expInG:	33456.4
-mulInG:	59.6
-Test round: 85
-expInG:	33986.5
-mulInG:	60.501
-Test round: 86
-expInG:	34118.901
-mulInG:	69.401
-Test round: 87
-expInG:	33140.4
-mulInG:	61.801
-Test round: 88
-expInG:	34048.7
-mulInG:	74.4
-Test round: 89
-expInG:	33494.099
-mulInG:	61.499
-Test round: 90
-expInG:	33656.699
-mulInG:	62.4
-Test round: 91
-expInG:	33624.301
-mulInG:	60.501
-Test round: 92
-expInG:	33276.999
-mulInG:	61.5
-Test round: 93
-expInG:	33306.8
-mulInG:	60.9
-Test round: 94
-expInG:	33392.8
-mulInG:	59.4
-Test round: 95
-expInG:	33557.199
-mulInG:	70.4
-Test round: 96
-expInG:	33313.199
-mulInG:	63.0
-Test round: 97
-expInG:	33774.5
-mulInG:	60.101
-Test round: 98
-expInG:	33094.0
-mulInG:	59.999
-Test round: 99
-expInG:	32802.699
-mulInG:	59.001
-Test round: 100
-expInG:	33435.099
-mulInG:	64.199
-Test round: 101
-expInG:	33445.7
-mulInG:	62.001
-Test round: 102
-expInG:	33310.5
-mulInG:	60.0
-Test round: 103
-expInG:	33359.199
-mulInG:	61.9
-Test round: 104
-expInG:	32952.3
-mulInG:	60.799
-Test round: 105
-expInG:	33553.2
-mulInG:	59.2
-Test round: 106
-expInG:	33528.7
-mulInG:	60.299
-Test round: 107
-expInG:	33286.2
-mulInG:	61.4
-Test round: 108
-expInG:	33460.8
-mulInG:	60.901
-Test round: 109
-expInG:	33883.4
-mulInG:	58.0
-Test round: 110
-expInG:	33464.201
-mulInG:	59.701
-Test round: 111
-expInG:	33395.8
-mulInG:	57.999
-Test round: 112
-expInG:	33306.7
-mulInG:	57.1
-Test round: 113
-expInG:	32768.101
-mulInG:	74.001
-Test round: 114
-expInG:	36199.901
-mulInG:	59.9
-Test round: 115
-expInG:	34055.7
-mulInG:	61.399
-Test round: 116
-expInG:	35015.1
-mulInG:	61.2
-Test round: 117
-expInG:	33507.999
-mulInG:	60.799
-Test round: 118
-expInG:	39033.5
-mulInG:	97.0
-Test round: 119
-expInG:	33846.299
-mulInG:	65.299
-Test round: 120
-expInG:	33823.8
-mulInG:	60.6
-Test round: 121
-expInG:	34056.401
-mulInG:	62.3
-Test round: 122
-expInG:	32947.3
-mulInG:	59.9
-Test round: 123
-expInG:	39482.501
-mulInG:	63.2
-Test round: 124
-expInG:	34914.599
-mulInG:	59.3
-Test round: 125
-expInG:	34006.899
-mulInG:	62.4
-Test round: 126
-expInG:	36359.0
-mulInG:	61.3
-Test round: 127
-expInG:	33098.0
-mulInG:	62.499
-Test round: 128
-expInG:	33107.0
-mulInG:	91.001
-Test round: 129
-expInG:	33915.2
-mulInG:	61.4
-Test round: 130
-expInG:	33739.501
-mulInG:	62.1
-Test round: 131
-expInG:	37051.0
-mulInG:	65.8
-Test round: 132
-expInG:	39759.1
-mulInG:	60.201
-Test round: 133
-expInG:	36621.101
-mulInG:	61.6
-Test round: 134
-expInG:	33445.2
-mulInG:	60.5
-Test round: 135
-expInG:	36742.901
-mulInG:	59.901
-Test round: 136
-expInG:	40006.3
-mulInG:	61.699
-Test round: 137
-expInG:	33175.7
-mulInG:	80.599
-Test round: 138
-expInG:	33070.6
-mulInG:	59.7
-Test round: 139
-expInG:	38463.999
-mulInG:	68.7
-Test round: 140
-expInG:	33521.6
-mulInG:	59.6
-Test round: 141
-expInG:	39772.1
-mulInG:	60.9
-Test round: 142
-expInG:	40028.501
-mulInG:	59.899
-Test round: 143
-expInG:	33223.8
-mulInG:	61.3
-Test round: 144
-expInG:	33626.3
-mulInG:	64.2
-Test round: 145
-expInG:	35386.1
-mulInG:	95.199
-Test round: 146
-expInG:	33505.9
-mulInG:	61.6
-Test round: 147
-expInG:	33334.399
-mulInG:	59.6
-Test round: 148
-expInG:	33009.8
-mulInG:	57.6
-Test round: 149
-expInG:	33181.001
-mulInG:	58.9
-Test round: 150
-expInG:	34044.5
-mulInG:	60.801
-Test round: 151
-expInG:	33207.8
-mulInG:	58.501
-Test round: 152
-expInG:	32716.3
-mulInG:	60.901
-Test round: 153
-expInG:	33327.7
-mulInG:	63.2
-Test round: 154
-expInG:	33250.1
-mulInG:	59.4
-Test round: 155
-expInG:	33099.8
-mulInG:	59.3
-Test round: 156
-expInG:	33055.1
-mulInG:	59.4
-Test round: 157
-expInG:	33121.2
-mulInG:	59.2
-Test round: 158
-expInG:	32905.2
-mulInG:	61.5
-Test round: 159
-expInG:	34406.2
-mulInG:	69.5
-Test round: 160
-expInG:	34189.799
-mulInG:	60.701
-Test round: 161
-expInG:	33222.3
-mulInG:	59.0
-Test round: 162
-expInG:	32988.9
-mulInG:	59.101
-Test round: 163
-expInG:	32910.0
-mulInG:	58.3
-Test round: 164
-expInG:	32892.9
-mulInG:	60.501
-Test round: 165
-expInG:	34190.201
-mulInG:	63.2
-Test round: 166
-expInG:	42098.9
-mulInG:	62.5
-Test round: 167
-expInG:	33284.6
-mulInG:	59.899
-Test round: 168
-expInG:	33079.701
-mulInG:	59.6
-Test round: 169
-expInG:	32868.1
-mulInG:	58.701
-Test round: 170
-expInG:	33834.0
-mulInG:	110.8
-Test round: 171
-expInG:	33965.099
-mulInG:	60.9
-Test round: 172
-expInG:	33045.999
-mulInG:	59.6
-Test round: 173
-expInG:	32813.8
-mulInG:	60.3
-Test round: 174
-expInG:	33404.7
-mulInG:	60.501
-Test round: 175
-expInG:	33151.4
-mulInG:	58.601
-Test round: 176
-expInG:	32887.5
-mulInG:	57.3
-Test round: 177
-expInG:	33691.8
-mulInG:	60.101
-Test round: 178
-expInG:	32759.9
-mulInG:	59.2
-Test round: 179
-expInG:	33126.2
-mulInG:	74.1
-Test round: 180
-expInG:	33200.801
-mulInG:	57.8
-Test round: 181
-expInG:	33508.5
-mulInG:	61.501
-Test round: 182
-expInG:	33434.1
-mulInG:	66.5
-Test round: 183
-expInG:	33348.3
-mulInG:	68.6
-Test round: 184
-expInG:	33161.0
-mulInG:	61.2
-Test round: 185
-expInG:	33051.7
-mulInG:	67.2
-Test round: 186
-expInG:	32859.6
-mulInG:	62.601
-Test round: 187
-expInG:	33471.301
-mulInG:	62.0
-Test round: 188
-expInG:	33279.6
-mulInG:	60.1
-Test round: 189
-expInG:	33048.2
-mulInG:	59.6
-Test round: 190
-expInG:	33406.999
-mulInG:	55.899
-Test round: 191
-expInG:	33192.199
-mulInG:	60.099
-Test round: 192
-expInG:	33120.401
-mulInG:	61.4
-Test round: 193
-expInG:	33064.701
-mulInG:	60.9
-Test round: 194
-expInG:	33058.9
-mulInG:	61.8
-Test round: 195
-expInG:	33101.701
-mulInG:	59.1
-Test round: 196
-expInG:	33045.301
-mulInG:	64.5
-Test round: 197
-expInG:	33395.5
-mulInG:	58.4
-Test round: 198
-expInG:	32788.7
-mulInG:	57.2
-Test round: 199
-expInG:	33596.399
-mulInG:	60.499
-Test round: 200
-expInG:	33320.301
-mulInG:	59.5
-Test round: 201
-expInG:	33250.8
-mulInG:	61.3
-Test round: 202
-expInG:	33307.8
-mulInG:	59.901
-Test round: 203
-expInG:	32898.6
-mulInG:	62.599
-Test round: 204
-expInG:	33383.7
-mulInG:	58.1
-Test round: 205
-expInG:	33396.701
-mulInG:	58.201
-Test round: 206
-expInG:	33481.2
-mulInG:	58.101
-Test round: 207
-expInG:	32919.8
-mulInG:	61.9
-Test round: 208
-expInG:	32689.299
-mulInG:	61.601
-Test round: 209
-expInG:	38226.901
-mulInG:	62.1
-Test round: 210
-expInG:	33538.5
-mulInG:	60.6
-Test round: 211
-expInG:	33366.3
-mulInG:	60.8
-Test round: 212
-expInG:	33389.4
-mulInG:	71.399
-Test round: 213
-expInG:	33685.3
-mulInG:	60.801
-Test round: 214
-expInG:	32980.699
-mulInG:	62.8
-Test round: 215
-expInG:	33800.499
-mulInG:	60.4
-Test round: 216
-expInG:	33245.799
-mulInG:	65.4
-Test round: 217
-expInG:	32990.5
-mulInG:	59.2
-Test round: 218
-expInG:	33027.4
-mulInG:	59.1
-Test round: 219
-expInG:	33259.401
-mulInG:	61.6
-Test round: 220
-expInG:	33989.9
-mulInG:	58.8
-Test round: 221
-expInG:	33385.999
-mulInG:	62.9
-Test round: 222
-expInG:	32627.2
-mulInG:	57.8
-Test round: 223
-expInG:	32881.5
-mulInG:	57.801
-Test round: 224
-expInG:	32991.7
+expInG:	35549.2
 mulInG:	64.4
-Test round: 225
-expInG:	33802.801
-mulInG:	59.701
-Test round: 226
-expInG:	33165.0
-mulInG:	62.699
-Test round: 227
-expInG:	32915.1
-mulInG:	59.8
-Test round: 228
-expInG:	35963.499
-mulInG:	57.5
-Test round: 229
-expInG:	37640.101
-mulInG:	64.8
-Test round: 230
-expInG:	38243.199
-mulInG:	60.899
-Test round: 231
-expInG:	33888.8
-mulInG:	59.6
-Test round: 232
-expInG:	36587.0
-mulInG:	60.1
-Test round: 233
-expInG:	32953.201
-mulInG:	59.899
-Test round: 234
-expInG:	33098.499
-mulInG:	63.301
-Test round: 235
-expInG:	33699.199
-mulInG:	58.401
-Test round: 236
-expInG:	33466.1
-mulInG:	61.3
-Test round: 237
-expInG:	33010.299
-mulInG:	60.701
-Test round: 238
-expInG:	32893.9
-mulInG:	59.701
-Test round: 239
-expInG:	33147.001
-mulInG:	64.501
-Test round: 240
-expInG:	33678.799
-mulInG:	60.7
-Test round: 241
-expInG:	33621.8
-mulInG:	60.7
-Test round: 242
-expInG:	32690.3
-mulInG:	63.4
-Test round: 243
-expInG:	32858.5
-mulInG:	62.9
-Test round: 244
-expInG:	33301.4
-mulInG:	60.7
-Test round: 245
-expInG:	34107.401
-mulInG:	59.8
-Test round: 246
-expInG:	32989.3
-mulInG:	61.2
-Test round: 247
-expInG:	33014.701
-mulInG:	61.8
-Test round: 248
-expInG:	33121.301
-mulInG:	60.299
-Test round: 249
-expInG:	32959.701
-mulInG:	59.701
-Test round: 250
-expInG:	33655.2
-mulInG:	62.7
-Test round: 251
-expInG:	33653.399
-mulInG:	60.9
-Test round: 252
-expInG:	32922.501
-mulInG:	98.699
-Test round: 253
-expInG:	32956.2
-mulInG:	60.3
-Test round: 254
-expInG:	33035.0
-mulInG:	61.4
-Test round: 255
-expInG:	33184.5
-mulInG:	65.799
-Test round: 256
-expInG:	33376.5
-mulInG:	72.6
-Test round: 257
-expInG:	33362.999
-mulInG:	73.201
-Test round: 258
-expInG:	32752.199
-mulInG:	56.799
-Test round: 259
-expInG:	33595.801
-mulInG:	56.501
-Test round: 260
-expInG:	33159.1
-mulInG:	57.9
-Test round: 261
-expInG:	33148.7
-mulInG:	57.199
-Test round: 262
-expInG:	32968.4
-mulInG:	58.8
-Test round: 263
-expInG:	32998.4
-mulInG:	59.4
-Test round: 264
-expInG:	33503.9
-mulInG:	58.2
-Test round: 265
-expInG:	33047.401
-mulInG:	61.4
-Test round: 266
-expInG:	33012.1
-mulInG:	57.099
-Test round: 267
-expInG:	33686.3
-mulInG:	56.9
-Test round: 268
-expInG:	33006.2
-mulInG:	55.8
-Test round: 269
-expInG:	34362.1
-mulInG:	57.8
-Test round: 270
-expInG:	33351.4
-mulInG:	58.801
-Test round: 271
-expInG:	32870.1
-mulInG:	62.4
-Test round: 272
-expInG:	33279.7
-mulInG:	57.699
-Test round: 273
-expInG:	33254.699
-mulInG:	57.701
-Test round: 274
-expInG:	33757.2
-mulInG:	61.4
-Test round: 275
-expInG:	33416.699
-mulInG:	58.6
-Test round: 276
-expInG:	32936.6
-mulInG:	59.3
-Test round: 277
-expInG:	33874.0
-mulInG:	56.401
-Test round: 278
-expInG:	33364.899
-mulInG:	57.9
-Test round: 279
-expInG:	33080.9
-mulInG:	66.9
-Test round: 280
-expInG:	33289.3
-mulInG:	58.299
-Test round: 281
-expInG:	32975.4
-mulInG:	58.4
-Test round: 282
-expInG:	33108.0
-mulInG:	58.199
-Test round: 283
-expInG:	33243.3
-mulInG:	60.0
-Test round: 284
-expInG:	36412.999
-mulInG:	65.0
-Test round: 285
-expInG:	33142.1
-mulInG:	59.099
-Test round: 286
-expInG:	34312.901
-mulInG:	60.799
-Test round: 287
-expInG:	33000.3
-mulInG:	57.4
-Test round: 288
-expInG:	32708.999
-mulInG:	57.3
-Test round: 289
-expInG:	32942.099
-mulInG:	59.1
-Test round: 290
-expInG:	33747.599
-mulInG:	58.1
-Test round: 291
-expInG:	33100.8
-mulInG:	58.701
-Test round: 292
-expInG:	32743.301
-mulInG:	55.4
-Test round: 293
-expInG:	32747.601
-mulInG:	60.299
-Test round: 294
-expInG:	33646.5
-mulInG:	57.501
-Test round: 295
-expInG:	33077.0
-mulInG:	57.701
-Test round: 296
-expInG:	33323.4
-mulInG:	56.799
-Test round: 297
-expInG:	35654.099
-mulInG:	57.4
-Test round: 298
-expInG:	33516.4
-mulInG:	72.1
-Test round: 299
-expInG:	32835.8
-mulInG:	60.099
-Test round: 300
-expInG:	33045.3
-mulInG:	59.3
-Test round: 301
-expInG:	35614.2
-mulInG:	100.6
-Test round: 302
-expInG:	33841.3
-mulInG:	56.7
-Test round: 303
-expInG:	32942.101
-mulInG:	59.001
-Test round: 304
-expInG:	33154.399
-mulInG:	56.099
-Test round: 305
-expInG:	33331.2
-mulInG:	59.0
-Test round: 306
-expInG:	33760.1
-mulInG:	59.4
-Test round: 307
-expInG:	33068.8
-mulInG:	58.4
-Test round: 308
-expInG:	33665.501
-mulInG:	59.5
-Test round: 309
-expInG:	32816.7
-mulInG:	62.6
-Test round: 310
-expInG:	33982.5
-mulInG:	62.601
-Test round: 311
-expInG:	33317.301
-mulInG:	59.1
-Test round: 312
-expInG:	33571.0
-mulInG:	55.6
-Test round: 313
-expInG:	33037.3
-mulInG:	55.5
-Test round: 314
-expInG:	33276.0
-mulInG:	59.399
-Test round: 315
-expInG:	37097.7
-mulInG:	58.201
-Test round: 316
-expInG:	33443.6
-mulInG:	57.7
-Test round: 317
-expInG:	33143.299
-mulInG:	57.5
-Test round: 318
-expInG:	33036.9
-mulInG:	56.0
-Test round: 319
-expInG:	32719.3
-mulInG:	57.5
-Test round: 320
-expInG:	33677.6
-mulInG:	59.601
-Test round: 321
-expInG:	33282.7
-mulInG:	60.3
-Test round: 322
-expInG:	33418.601
-mulInG:	56.601
-Test round: 323
-expInG:	32810.599
-mulInG:	57.4
-Test round: 324
-expInG:	33009.6
-mulInG:	57.3
-Test round: 325
-expInG:	33224.4
-mulInG:	62.0
-Test round: 326
-expInG:	34511.9
-mulInG:	59.901
-Test round: 327
-expInG:	32844.1
-mulInG:	55.1
-Test round: 328
-expInG:	32655.5
-mulInG:	56.899
-Test round: 329
-expInG:	32950.301
-mulInG:	65.1
-Test round: 330
-expInG:	33515.2
-mulInG:	57.3
-Test round: 331
-expInG:	33331.501
-mulInG:	58.301
-Test round: 332
-expInG:	32853.6
-mulInG:	62.1
-Test round: 333
-expInG:	32638.601
-mulInG:	61.999
-Test round: 334
-expInG:	33569.7
-mulInG:	81.2
-Test round: 335
-expInG:	32819.3
-mulInG:	54.8
-Test round: 336
-expInG:	33865.0
-mulInG:	62.1
-Test round: 337
-expInG:	32990.6
-mulInG:	56.499
-Test round: 338
-expInG:	33305.199
-mulInG:	58.701
-Test round: 339
-expInG:	33167.6
-mulInG:	58.799
-Test round: 340
-expInG:	33354.4
-mulInG:	60.0
-Test round: 341
-expInG:	33222.9
-mulInG:	58.3
-Test round: 342
-expInG:	33343.8
-mulInG:	56.799
-Test round: 343
-expInG:	32730.301
-mulInG:	57.0
-Test round: 344
-expInG:	32838.799
-mulInG:	57.8
-Test round: 345
-expInG:	33229.401
-mulInG:	57.7
-Test round: 346
-expInG:	33799.9
-mulInG:	58.1
-Test round: 347
-expInG:	33257.2
-mulInG:	62.9
-Test round: 348
-expInG:	33201.499
-mulInG:	58.0
-Test round: 349
-expInG:	33096.6
-mulInG:	58.201
-Test round: 350
-expInG:	33915.3
-mulInG:	59.699
-Test round: 351
-expInG:	33165.7
-mulInG:	80.1
-Test round: 352
-expInG:	33062.1
-mulInG:	57.4
-Test round: 353
-expInG:	33075.1
-mulInG:	56.201
-Test round: 354
-expInG:	33622.399
-mulInG:	59.3
-Test round: 355
-expInG:	33457.399
-mulInG:	56.7
-Test round: 356
-expInG:	32952.699
-mulInG:	56.799
-Test round: 357
-expInG:	32930.6
-mulInG:	57.499
-Test round: 358
-expInG:	33171.4
-mulInG:	59.2
-Test round: 359
-expInG:	33069.4
-mulInG:	57.9
-Test round: 360
-expInG:	33000.5
-mulInG:	79.3
-Test round: 361
-expInG:	33380.501
-mulInG:	56.501
-Test round: 362
-expInG:	33571.6
-mulInG:	55.0
-Test round: 363
-expInG:	32881.7
-mulInG:	56.3
-Test round: 364
-expInG:	36716.9
-mulInG:	59.8
-Test round: 365
-expInG:	33244.2
-mulInG:	60.3
-Test round: 366
-expInG:	33534.401
-mulInG:	56.9
-Test round: 367
-expInG:	33185.601
-mulInG:	60.401
-Test round: 368
-expInG:	33086.6
-mulInG:	55.8
-Test round: 369
-expInG:	33170.6
-mulInG:	62.3
-Test round: 370
-expInG:	33731.699
-mulInG:	60.3
-Test round: 371
-expInG:	33180.899
-mulInG:	60.9
-Test round: 372
-expInG:	32946.1
-mulInG:	57.4
-Test round: 373
-expInG:	33011.9
-mulInG:	58.7
-Test round: 374
-expInG:	34371.901
-mulInG:	86.8
-Test round: 375
-expInG:	33444.5
-mulInG:	57.8
-Test round: 376
-expInG:	33045.1
-mulInG:	58.801
-Test round: 377
-expInG:	33122.601
-mulInG:	57.901
-Test round: 378
-expInG:	33183.301
-mulInG:	56.6
-Test round: 379
-expInG:	33203.0
-mulInG:	58.899
-Test round: 380
-expInG:	33119.1
-mulInG:	58.099
-Test round: 381
-expInG:	33544.1
-mulInG:	61.1
-Test round: 382
-expInG:	33743.2
-mulInG:	57.7
-Test round: 383
-expInG:	32927.0
-mulInG:	56.501
-Test round: 384
-expInG:	33196.101
-mulInG:	58.899
-Test round: 385
-expInG:	33038.5
-mulInG:	58.799
-Test round: 386
-expInG:	33628.0
-mulInG:	56.499
-Test round: 387
-expInG:	33236.101
-mulInG:	56.0
-Test round: 388
-expInG:	32812.3
-mulInG:	56.7
-Test round: 389
-expInG:	33170.3
-mulInG:	58.701
-Test round: 390
-expInG:	33723.8
-mulInG:	58.101
-Test round: 391
-expInG:	32846.499
-mulInG:	58.599
-Test round: 392
-expInG:	32763.8
-mulInG:	59.3
-Test round: 393
-expInG:	33181.4
-mulInG:	56.799
-Test round: 394
-expInG:	33616.2
-mulInG:	56.099
-Test round: 395
-expInG:	33225.5
-mulInG:	57.6
-Test round: 396
-expInG:	33137.0
-mulInG:	79.899
-Test round: 397
-expInG:	33059.301
-mulInG:	57.7
-Test round: 398
-expInG:	33405.9
-mulInG:	57.0
-Test round: 399
-expInG:	33105.7
-mulInG:	57.8
-Test round: 400
-expInG:	32923.2
-mulInG:	58.9
-Test round: 401
-expInG:	33115.399
-mulInG:	58.7
-Test round: 402
-expInG:	33448.401
-mulInG:	57.899
-Test round: 403
-expInG:	33052.3
-mulInG:	57.0
-Test round: 404
-expInG:	33116.6
-mulInG:	76.101
-Test round: 405
-expInG:	33215.9
-mulInG:	58.001
-Test round: 406
-expInG:	33429.4
-mulInG:	57.4
-Test round: 407
-expInG:	32920.099
-mulInG:	57.899
-Test round: 408
-expInG:	32534.6
-mulInG:	54.899
-Test round: 409
-expInG:	32583.7
-mulInG:	56.1
-Test round: 410
-expInG:	33548.5
-mulInG:	59.7
-Test round: 411
-expInG:	33395.8
-mulInG:	56.699
-Test round: 412
-expInG:	32939.6
-mulInG:	56.8
-Test round: 413
-expInG:	32900.2
-mulInG:	57.0
-Test round: 414
-expInG:	33865.0
-mulInG:	55.3
-Test round: 415
-expInG:	34048.0
-mulInG:	56.099
-Test round: 416
-expInG:	33542.601
-mulInG:	58.601
-Test round: 417
-expInG:	35413.5
-mulInG:	63.5
-Test round: 418
-expInG:	33399.501
-mulInG:	58.9
-Test round: 419
-expInG:	33123.701
-mulInG:	56.101
-Test round: 420
-expInG:	32920.5
-mulInG:	56.599
-Test round: 421
-expInG:	33268.8
-mulInG:	57.7
-Test round: 422
-expInG:	33497.7
-mulInG:	59.2
-Test round: 423
-expInG:	33028.601
-mulInG:	55.6
-Test round: 424
-expInG:	33208.3
-mulInG:	60.401
-Test round: 425
-expInG:	33211.3
-mulInG:	60.301
-Test round: 426
-expInG:	33575.5
-mulInG:	55.2
-Test round: 427
-expInG:	33249.799
-mulInG:	58.2
-Test round: 428
-expInG:	32905.901
-mulInG:	55.799
-Test round: 429
-expInG:	33207.0
-mulInG:	56.2
-Test round: 430
-expInG:	33853.799
-mulInG:	58.7
-Test round: 431
-expInG:	33271.201
-mulInG:	58.699
-Test round: 432
-expInG:	36894.1
-mulInG:	58.5
-Test round: 433
-expInG:	32698.5
-mulInG:	59.6
-Test round: 434
-expInG:	33825.1
-mulInG:	56.7
-Test round: 435
-expInG:	33368.199
-mulInG:	58.2
-Test round: 436
-expInG:	33268.4
+Pollard's Lamda:	40192.2
+Test round: 14
+expInG:	36805.0
 mulInG:	64.7
-Test round: 437
-expInG:	33069.0
-mulInG:	57.899
-Test round: 438
-expInG:	33471.0
-mulInG:	56.899
-Test round: 439
-expInG:	33046.9
-mulInG:	57.3
-Test round: 440
-expInG:	33296.0
-mulInG:	57.3
-Test round: 441
-expInG:	33097.201
-mulInG:	60.199
-Test round: 442
-expInG:	33335.6
-mulInG:	57.8
-Test round: 443
-expInG:	32815.699
-mulInG:	56.7
-Test round: 444
-expInG:	33045.4
-mulInG:	60.699
-Test round: 445
-expInG:	33458.1
-mulInG:	62.3
-Test round: 446
-expInG:	33784.401
-mulInG:	57.6
-Test round: 447
-expInG:	33186.901
-mulInG:	57.999
-Test round: 448
-expInG:	33052.3
-mulInG:	57.3
-Test round: 449
-expInG:	33559.499
-mulInG:	60.4
-Test round: 450
-expInG:	33900.3
-mulInG:	59.4
-Test round: 451
-expInG:	33995.501
-mulInG:	57.6
-Test round: 452
-expInG:	33171.299
-mulInG:	58.0
-Test round: 453
-expInG:	33374.5
-mulInG:	57.899
-Test round: 454
-expInG:	34189.399
-mulInG:	201.2
-Test round: 455
-expInG:	32702.1
-mulInG:	58.6
-Test round: 456
-expInG:	33490.7
-mulInG:	60.8
-Test round: 457
-expInG:	33161.2
-mulInG:	59.7
-Test round: 458
-expInG:	33632.499
-mulInG:	56.999
-Test round: 459
-expInG:	33471.8
-mulInG:	59.4
-Test round: 460
-expInG:	33278.001
-mulInG:	57.6
-Test round: 461
-expInG:	33241.9
-mulInG:	58.001
-Test round: 462
-expInG:	33736.801
-mulInG:	57.2
-Test round: 463
-expInG:	33283.6
-mulInG:	58.7
-Test round: 464
-expInG:	34089.1
-mulInG:	60.5
-Test round: 465
-expInG:	33867.499
-mulInG:	61.5
-Test round: 466
-expInG:	34314.9
-mulInG:	57.4
-Test round: 467
-expInG:	33604.8
-mulInG:	58.8
-Test round: 468
-expInG:	33173.899
-mulInG:	63.901
-Test round: 469
-expInG:	33374.099
-mulInG:	58.9
-Test round: 470
-expInG:	33457.501
-mulInG:	61.899
-Test round: 471
-expInG:	33291.099
-mulInG:	57.2
-Test round: 472
-expInG:	33156.299
-mulInG:	55.599
-Test round: 473
-expInG:	32854.499
-mulInG:	56.0
-Test round: 474
-expInG:	33681.5
-mulInG:	57.701
-Test round: 475
-expInG:	33154.501
-mulInG:	57.6
-Test round: 476
-expInG:	33252.8
-mulInG:	60.599
-Test round: 477
-expInG:	33020.299
-mulInG:	58.201
-Test round: 478
-expInG:	33893.399
-mulInG:	61.8
-Test round: 479
-expInG:	33400.1
-mulInG:	60.2
-Test round: 480
-expInG:	33261.1
-mulInG:	60.099
-Test round: 481
-expInG:	33067.7
-mulInG:	56.0
-Test round: 482
-expInG:	33587.5
-mulInG:	59.5
-Test round: 483
-expInG:	33034.399
-mulInG:	56.7
-Test round: 484
-expInG:	33953.6
-mulInG:	58.599
-Test round: 485
-expInG:	33238.999
-mulInG:	55.699
-Test round: 486
-expInG:	34160.9
-mulInG:	60.401
-Test round: 487
-expInG:	33261.001
-mulInG:	56.401
-Test round: 488
-expInG:	32936.901
-mulInG:	61.2
-Test round: 489
-expInG:	33287.801
-mulInG:	59.3
-Test round: 490
-expInG:	33444.2
-mulInG:	59.3
-Test round: 491
-expInG:	33130.4
-mulInG:	56.599
-Test round: 492
-expInG:	33249.501
-mulInG:	59.701
-Test round: 493
-expInG:	32950.601
-mulInG:	58.599
-Test round: 494
-expInG:	33667.699
-mulInG:	54.999
-Test round: 495
-expInG:	33155.6
-mulInG:	57.5
-Test round: 496
-expInG:	33311.6
-mulInG:	58.399
-Test round: 497
-expInG:	32951.701
-mulInG:	56.699
-Test round: 498
-expInG:	33355.7
-mulInG:	58.899
-Test round: 499
-expInG:	33165.101
-mulInG:	59.7
-Test round: 500
-expInG:	32930.0
-mulInG:	62.2
-Test round: 501
-expInG:	33457.499
-mulInG:	57.0
-Test round: 502
-expInG:	33658.201
-mulInG:	59.6
-Test round: 503
-expInG:	32916.001
-mulInG:	58.2
-Test round: 504
-expInG:	32858.2
-mulInG:	55.6
-Test round: 505
-expInG:	33961.0
-mulInG:	60.4
-Test round: 506
-expInG:	33568.6
-mulInG:	57.599
-Test round: 507
-expInG:	32956.101
-mulInG:	55.0
-Test round: 508
-expInG:	32861.199
-mulInG:	59.6
-Test round: 509
-expInG:	32975.6
-mulInG:	59.0
-Test round: 510
-expInG:	33875.901
-mulInG:	58.901
-Test round: 511
-expInG:	36726.1
-mulInG:	82.2
-Test round: 512
-expInG:	33142.7
-mulInG:	55.701
-Test round: 513
-expInG:	32981.6
-mulInG:	57.5
-Test round: 514
-expInG:	33469.499
-mulInG:	54.9
-Test round: 515
-expInG:	33371.2
-mulInG:	65.399
-Test round: 516
-expInG:	33275.7
-mulInG:	58.301
-Test round: 517
-expInG:	33728.8
-mulInG:	60.0
-Test round: 518
-expInG:	33415.3
-mulInG:	59.6
-Test round: 519
-expInG:	33348.4
-mulInG:	59.701
-Test round: 520
-expInG:	33577.7
-mulInG:	58.201
-Test round: 521
-expInG:	33101.999
-mulInG:	59.4
-Test round: 522
-expInG:	33360.0
-mulInG:	57.8
-Test round: 523
-expInG:	32928.0
-mulInG:	58.401
-Test round: 524
-expInG:	33539.4
+Pollard's Lamda:	39989.0
+Test round: 15
+expInG:	34456.7
 mulInG:	61.0
-Test round: 525
-expInG:	33286.401
-mulInG:	57.701
-Test round: 526
-expInG:	33945.0
-mulInG:	56.7
-Test round: 527
-expInG:	33029.0
-mulInG:	58.3
-Test round: 528
-expInG:	33292.299
-mulInG:	58.8
-Test round: 529
-expInG:	32968.899
-mulInG:	59.0
-Test round: 530
-expInG:	33416.299
-mulInG:	59.3
-Test round: 531
-expInG:	33161.7
-mulInG:	57.4
-Test round: 532
-expInG:	33366.1
-mulInG:	57.3
-Test round: 533
-expInG:	33017.7
-mulInG:	57.3
-Test round: 534
-expInG:	33603.5
-mulInG:	62.8
-Test round: 535
-expInG:	33022.2
-mulInG:	58.9
-Test round: 536
-expInG:	33334.001
-mulInG:	58.2
-Test round: 537
-expInG:	33064.2
-mulInG:	57.4
-Test round: 538
-expInG:	33640.299
-mulInG:	57.6
-Test round: 539
-expInG:	33175.9
-mulInG:	57.4
-Test round: 540
-expInG:	33079.699
-mulInG:	58.1
-Test round: 541
-expInG:	33727.5
-mulInG:	56.199
-Test round: 542
-expInG:	33701.601
-mulInG:	55.7
-Test round: 543
-expInG:	33918.401
-mulInG:	57.5
-Test round: 544
-expInG:	32949.8
-mulInG:	56.101
-Test round: 545
-expInG:	33447.001
-mulInG:	58.899
-Test round: 546
-expInG:	33744.599
-mulInG:	66.2
-Test round: 547
-expInG:	33120.901
-mulInG:	60.301
-Test round: 548
-expInG:	33174.6
-mulInG:	58.3
-Test round: 549
-expInG:	33047.5
-mulInG:	58.6
-Test round: 550
-expInG:	34214.601
-mulInG:	99.0
-Test round: 551
-expInG:	33135.201
-mulInG:	58.7
-Test round: 552
-expInG:	33591.8
-mulInG:	58.701
-Test round: 553
-expInG:	33137.0
-mulInG:	58.1
-Test round: 554
-expInG:	33998.601
-mulInG:	55.9
-Test round: 555
-expInG:	33323.2
-mulInG:	64.8
-Test round: 556
-expInG:	32709.399
-mulInG:	58.1
-Test round: 557
-expInG:	33344.901
-mulInG:	59.701
-Test round: 558
-expInG:	33777.1
-mulInG:	57.7
-Test round: 559
-expInG:	33369.2
-mulInG:	72.7
-Test round: 560
-expInG:	33320.4
-mulInG:	57.1
-Test round: 561
-expInG:	33256.7
-mulInG:	58.501
-Test round: 562
-expInG:	33048.101
-mulInG:	56.601
-Test round: 563
-expInG:	33213.401
-mulInG:	55.7
-Test round: 564
-expInG:	32805.0
-mulInG:	59.8
-Test round: 565
-expInG:	33365.6
-mulInG:	60.801
-Test round: 566
-expInG:	34409.4
-mulInG:	58.1
-Test round: 567
-expInG:	32823.7
-mulInG:	56.999
-Test round: 568
-expInG:	36293.999
-mulInG:	60.101
-Test round: 569
-expInG:	34337.0
-mulInG:	61.6
-Test round: 570
-expInG:	33783.7
-mulInG:	60.001
-Test round: 571
-expInG:	33190.3
-mulInG:	60.9
-Test round: 572
-expInG:	33370.2
-mulInG:	56.399
-Test round: 573
-expInG:	33132.8
-mulInG:	59.0
-Test round: 574
-expInG:	33529.001
-mulInG:	57.0
-Test round: 575
-expInG:	32708.7
-mulInG:	55.9
-Test round: 576
-expInG:	33344.4
-mulInG:	63.4
-Test round: 577
-expInG:	33116.9
-mulInG:	57.4
-Test round: 578
-expInG:	36167.1
-mulInG:	71.601
-Test round: 579
-expInG:	33176.4
-mulInG:	61.5
-Test round: 580
-expInG:	33102.701
-mulInG:	59.4
-Test round: 581
-expInG:	33180.7
-mulInG:	56.7
-Test round: 582
-expInG:	33676.501
-mulInG:	56.8
-Test round: 583
-expInG:	33470.8
-mulInG:	58.801
-Test round: 584
-expInG:	32766.7
-mulInG:	60.501
-Test round: 585
-expInG:	33106.8
-mulInG:	55.001
-Test round: 586
-expInG:	33837.9
-mulInG:	58.3
-Test round: 587
-expInG:	33055.599
-mulInG:	75.701
-Test round: 588
-expInG:	32954.9
-mulInG:	56.9
-Test round: 589
-expInG:	32854.999
-mulInG:	58.6
-Test round: 590
-expInG:	33935.599
-mulInG:	59.2
-Test round: 591
-expInG:	32979.2
-mulInG:	58.7
-Test round: 592
-expInG:	32859.5
-mulInG:	55.299
-Test round: 593
-expInG:	34187.6
-mulInG:	55.8
-Test round: 594
-expInG:	33412.6
-mulInG:	56.099
-Test round: 595
-expInG:	33285.3
-mulInG:	57.1
-Test round: 596
-expInG:	33113.3
-mulInG:	58.801
-Test round: 597
-expInG:	33030.8
-mulInG:	59.7
-Test round: 598
-expInG:	33312.2
-mulInG:	66.6
-Test round: 599
-expInG:	33368.899
-mulInG:	57.4
-Test round: 600
-expInG:	33095.9
-mulInG:	57.9
-Test round: 601
-expInG:	33443.5
-mulInG:	58.4
-Test round: 602
-expInG:	33515.399
-mulInG:	61.301
-Test round: 603
-expInG:	33161.901
-mulInG:	59.7
-Test round: 604
-expInG:	33215.599
-mulInG:	69.9
-Test round: 605
-expInG:	33206.6
-mulInG:	59.1
-Test round: 606
-expInG:	33466.201
-mulInG:	57.1
-Test round: 607
-expInG:	33167.0
-mulInG:	57.4
-Test round: 608
-expInG:	33059.499
-mulInG:	57.3
-Test round: 609
-expInG:	33271.399
-mulInG:	55.601
-Test round: 610
-expInG:	33595.3
-mulInG:	56.7
-Test round: 611
-expInG:	33409.199
-mulInG:	56.3
-Test round: 612
-expInG:	33051.399
-mulInG:	58.2
-Test round: 613
-expInG:	32860.001
-mulInG:	54.801
-Test round: 614
-expInG:	33484.8
-mulInG:	56.0
-Test round: 615
-expInG:	33959.299
-mulInG:	59.501
-Test round: 616
-expInG:	33848.3
-mulInG:	57.2
-Test round: 617
-expInG:	33126.301
-mulInG:	59.0
-Test round: 618
-expInG:	33430.6
-mulInG:	58.5
-Test round: 619
-expInG:	32900.3
-mulInG:	59.2
-Test round: 620
-expInG:	33147.7
-mulInG:	57.2
-Test round: 621
-expInG:	33978.1
-mulInG:	58.4
-Test round: 622
-expInG:	33296.799
-mulInG:	71.6
-Test round: 623
-expInG:	32819.3
-mulInG:	56.4
-Test round: 624
-expInG:	32911.1
-mulInG:	57.2
-Test round: 625
-expInG:	33107.8
-mulInG:	57.5
-Test round: 626
-expInG:	34458.5
-mulInG:	58.6
-Test round: 627
-expInG:	33696.4
-mulInG:	79.999
-Test round: 628
-expInG:	32865.2
-mulInG:	58.9
-Test round: 629
-expInG:	33246.5
-mulInG:	58.899
-Test round: 630
-expInG:	33798.201
-mulInG:	58.901
-Test round: 631
-expInG:	33415.0
-mulInG:	59.0
-Test round: 632
-expInG:	32803.001
-mulInG:	56.2
-Test round: 633
-expInG:	32829.5
-mulInG:	60.6
-Test round: 634
-expInG:	32505.901
-mulInG:	60.199
-Test round: 635
-expInG:	33390.9
-mulInG:	57.2
-Test round: 636
-expInG:	34753.6
-mulInG:	58.799
-Test round: 637
-expInG:	32833.2
-mulInG:	58.3
-Test round: 638
-expInG:	33040.3
-mulInG:	60.501
-Test round: 639
-expInG:	33121.501
-mulInG:	59.6
-Test round: 640
-expInG:	34127.0
-mulInG:	58.0
-Test round: 641
-expInG:	33235.9
-mulInG:	59.801
-Test round: 642
-expInG:	33101.7
-mulInG:	66.6
-Test round: 643
-expInG:	32981.0
-mulInG:	58.299
-Test round: 644
-expInG:	33237.8
-mulInG:	58.6
-Test round: 645
-expInG:	33099.9
-mulInG:	58.1
-Test round: 646
-expInG:	33300.7
-mulInG:	58.301
-Test round: 647
-expInG:	33161.3
-mulInG:	55.4
-Test round: 648
-expInG:	33075.5
-mulInG:	59.699
-Test round: 649
-expInG:	33873.6
-mulInG:	60.501
-Test round: 650
-expInG:	33475.901
-mulInG:	58.501
-Test round: 651
-expInG:	33019.6
-mulInG:	58.2
-Test round: 652
-expInG:	33213.6
-mulInG:	64.201
-Test round: 653
-expInG:	32911.699
-mulInG:	59.6
-Test round: 654
-expInG:	33273.9
-mulInG:	576.801
-Test round: 655
-expInG:	33042.8
-mulInG:	55.801
-Test round: 656
-expInG:	33588.901
-mulInG:	57.3
-Test round: 657
-expInG:	32835.001
-mulInG:	55.3
-Test round: 658
-expInG:	33850.101
-mulInG:	59.1
-Test round: 659
-expInG:	32887.6
-mulInG:	61.5
-Test round: 660
-expInG:	33344.6
-mulInG:	59.2
-Test round: 661
-expInG:	33056.8
-mulInG:	55.9
-Test round: 662
-expInG:	32904.4
-mulInG:	57.599
-Test round: 663
-expInG:	33006.7
-mulInG:	65.5
-Test round: 664
-expInG:	33150.7
-mulInG:	58.2
-Test round: 665
-expInG:	33822.801
-mulInG:	59.0
-Test round: 666
-expInG:	33703.9
-mulInG:	59.1
-Test round: 667
-expInG:	33161.3
-mulInG:	63.401
-Test round: 668
-expInG:	33014.0
-mulInG:	56.799
-Test round: 669
-expInG:	33057.7
-mulInG:	56.599
-Test round: 670
-expInG:	33265.501
-mulInG:	524.201
-Test round: 671
-expInG:	33908.7
-mulInG:	59.5
-Test round: 672
-expInG:	32951.801
-mulInG:	57.6
-Test round: 673
-expInG:	32952.9
-mulInG:	59.399
-Test round: 674
-expInG:	32823.399
-mulInG:	57.6
-Test round: 675
-expInG:	32803.7
+Pollard's Lamda:	40050.1
+Test round: 16
+expInG:	34534.1
 mulInG:	61.1
-Test round: 676
-expInG:	33194.599
-mulInG:	155.799
-Test round: 677
-expInG:	32985.7
-mulInG:	58.299
-Test round: 678
-expInG:	32786.6
-mulInG:	58.099
-Test round: 679
-expInG:	33012.1
-mulInG:	59.3
-Test round: 680
-expInG:	33703.5
-mulInG:	59.3
-Test round: 681
-expInG:	33352.3
-mulInG:	60.2
-Test round: 682
-expInG:	33057.001
-mulInG:	551.0
-Test round: 683
-expInG:	33120.5
-mulInG:	58.0
-Test round: 684
-expInG:	32687.5
-mulInG:	56.801
-Test round: 685
-expInG:	33121.799
-mulInG:	61.8
-Test round: 686
-expInG:	32909.199
-mulInG:	56.701
-Test round: 687
-expInG:	32983.9
-mulInG:	57.2
-Test round: 688
-expInG:	32742.7
-mulInG:	59.3
-Test round: 689
-expInG:	32868.9
-mulInG:	57.1
-Test round: 690
-expInG:	33820.4
-mulInG:	56.7
-Test round: 691
-expInG:	33871.0
-mulInG:	57.9
-Test round: 692
-expInG:	32570.201
-mulInG:	56.299
-Test round: 693
-expInG:	32960.2
-mulInG:	57.8
-Test round: 694
-expInG:	33351.2
-mulInG:	58.701
-Test round: 695
-expInG:	33520.3
-mulInG:	57.099
-Test round: 696
-expInG:	33477.1
-mulInG:	60.699
-Test round: 697
-expInG:	32809.1
-mulInG:	57.4
-Test round: 698
-expInG:	32748.4
-mulInG:	58.801
-Test round: 699
-expInG:	33100.0
-mulInG:	62.3
-Test round: 700
-expInG:	33171.701
-mulInG:	56.6
-Test round: 701
-expInG:	33029.6
+Pollard's Lamda:	40560.6
+Test round: 17
+expInG:	35358.2
+mulInG:	98.5
+Pollard's Lamda:	39348.7
+Test round: 18
+expInG:	34645.7
 mulInG:	66.6
-Test round: 702
-expInG:	33251.601
-mulInG:	57.9
-Test round: 703
-expInG:	33060.7
-mulInG:	56.6
-Test round: 704
-expInG:	33266.799
-mulInG:	55.901
-Test round: 705
-expInG:	33992.3
-mulInG:	60.9
-Test round: 706
-expInG:	33676.1
-mulInG:	56.8
-Test round: 707
-expInG:	33080.101
-mulInG:	77.401
-Test round: 708
-expInG:	32645.1
-mulInG:	57.1
-Test round: 709
-expInG:	33177.0
-mulInG:	54.999
-Test round: 710
-expInG:	33714.3
-mulInG:	54.2
-Test round: 711
-expInG:	33062.5
-mulInG:	60.301
-Test round: 712
-expInG:	33124.6
-mulInG:	56.899
-Test round: 713
-expInG:	33002.3
-mulInG:	57.801
-Test round: 714
-expInG:	33058.4
-mulInG:	58.699
-Test round: 715
-expInG:	33321.6
-mulInG:	59.501
-Test round: 716
-expInG:	33364.999
-mulInG:	63.5
-Test round: 717
-expInG:	33128.7
-mulInG:	68.7
-Test round: 718
-expInG:	32642.5
-mulInG:	56.599
-Test round: 719
-expInG:	32751.9
-mulInG:	61.7
-Test round: 720
-expInG:	33191.7
-mulInG:	56.9
-Test round: 721
-expInG:	33363.001
-mulInG:	60.4
-Test round: 722
-expInG:	32845.8
-mulInG:	54.1
-Test round: 723
-expInG:	32918.8
-mulInG:	58.4
-Test round: 724
-expInG:	33036.101
-mulInG:	77.099
-Test round: 725
-expInG:	33066.4
-mulInG:	57.9
-Test round: 726
-expInG:	33668.001
-mulInG:	61.5
-Test round: 727
-expInG:	32879.6
-mulInG:	57.4
-Test round: 728
-expInG:	33071.0
-mulInG:	56.4
-Test round: 729
-expInG:	32964.599
-mulInG:	58.7
-Test round: 730
-expInG:	32842.299
-mulInG:	56.199
-Test round: 731
-expInG:	33532.4
-mulInG:	56.0
-Test round: 732
-expInG:	32966.8
-mulInG:	58.4
-Test round: 733
-expInG:	32794.999
-mulInG:	55.3
-Test round: 734
-expInG:	32993.2
-mulInG:	60.9
-Test round: 735
-expInG:	33311.099
-mulInG:	57.2
-Test round: 736
-expInG:	33347.399
-mulInG:	58.199
-Test round: 737
-expInG:	33396.8
-mulInG:	56.799
-Test round: 738
-expInG:	36867.6
-mulInG:	57.2
-Test round: 739
-expInG:	33487.5
-mulInG:	58.7
-Test round: 740
-expInG:	32780.1
-mulInG:	63.5
-Test round: 741
-expInG:	33105.7
-mulInG:	59.701
-Test round: 742
-expInG:	33206.201
-mulInG:	56.0
-Test round: 743
-expInG:	32918.7
-mulInG:	58.101
-Test round: 744
-expInG:	32956.7
-mulInG:	56.1
-Test round: 745
-expInG:	33054.6
-mulInG:	55.5
-Test round: 746
-expInG:	33225.4
-mulInG:	59.3
-Test round: 747
-expInG:	33193.999
-mulInG:	57.001
-Test round: 748
-expInG:	32797.7
-mulInG:	58.299
-Test round: 749
-expInG:	33091.0
-mulInG:	59.0
-Test round: 750
-expInG:	33415.5
-mulInG:	60.001
-Test round: 751
-expInG:	33857.2
-mulInG:	58.099
-Test round: 752
-expInG:	33142.0
-mulInG:	58.3
-Test round: 753
-expInG:	32760.701
-mulInG:	61.5
-Test round: 754
-expInG:	33387.599
-mulInG:	58.901
-Test round: 755
-expInG:	33253.0
-mulInG:	57.3
-Test round: 756
-expInG:	32905.799
-mulInG:	58.0
-Test round: 757
-expInG:	33067.099
-mulInG:	55.6
-Test round: 758
-expInG:	32641.7
-mulInG:	58.699
-Test round: 759
-expInG:	32956.199
-mulInG:	58.301
-Test round: 760
-expInG:	32859.5
-mulInG:	57.801
-Test round: 761
-expInG:	33252.1
-mulInG:	56.701
-Test round: 762
-expInG:	33178.7
-mulInG:	60.701
-Test round: 763
-expInG:	32696.8
-mulInG:	58.901
-Test round: 764
-expInG:	32970.499
-mulInG:	55.8
-Test round: 765
-expInG:	33217.199
-mulInG:	57.9
-Test round: 766
-expInG:	33347.2
-mulInG:	61.2
-Test round: 767
-expInG:	32897.6
-mulInG:	69.8
-Test round: 768
-expInG:	32898.6
-mulInG:	57.899
-Test round: 769
-expInG:	33247.099
-mulInG:	61.0
-Test round: 770
-expInG:	34170.299
-mulInG:	58.4
-Test round: 771
-expInG:	33119.9
-mulInG:	57.6
-Test round: 772
-expInG:	33462.0
-mulInG:	56.899
-Test round: 773
-expInG:	32753.4
-mulInG:	61.4
-Test round: 774
-expInG:	33561.5
-mulInG:	58.099
-Test round: 775
-expInG:	33192.299
-mulInG:	58.699
-Test round: 776
-expInG:	33046.7
-mulInG:	55.199
-Test round: 777
-expInG:	33030.7
-mulInG:	57.099
-Test round: 778
-expInG:	32647.799
-mulInG:	57.999
-Test round: 779
-expInG:	33095.3
-mulInG:	58.2
-Test round: 780
-expInG:	33025.799
-mulInG:	70.6
-Test round: 781
-expInG:	32954.3
-mulInG:	59.7
-Test round: 782
-expInG:	32911.699
-mulInG:	57.2
-Test round: 783
-expInG:	32762.301
-mulInG:	58.401
-Test round: 784
-expInG:	32890.0
-mulInG:	56.601
-Test round: 785
-expInG:	33280.1
-mulInG:	61.1
-Test round: 786
-expInG:	33237.6
-mulInG:	56.1
-Test round: 787
-expInG:	32853.899
-mulInG:	59.101
-Test round: 788
-expInG:	33169.201
-mulInG:	59.0
-Test round: 789
-expInG:	33424.201
-mulInG:	59.5
-Test round: 790
-expInG:	33379.7
-mulInG:	57.3
-Test round: 791
-expInG:	33303.0
-mulInG:	58.9
-Test round: 792
-expInG:	33041.399
-mulInG:	57.4
-Test round: 793
-expInG:	32985.4
-mulInG:	55.6
-Test round: 794
-expInG:	32973.5
-mulInG:	57.801
-Test round: 795
-expInG:	33058.2
-mulInG:	57.701
-Test round: 796
-expInG:	33240.699
-mulInG:	60.3
-Test round: 797
-expInG:	33196.1
-mulInG:	55.901
-Test round: 798
-expInG:	32932.7
-mulInG:	56.801
-Test round: 799
-expInG:	32822.099
-mulInG:	58.001
-Test round: 800
-expInG:	33988.2
-mulInG:	58.4
-Test round: 801
-expInG:	32915.499
-mulInG:	56.0
-Test round: 802
-expInG:	32961.601
-mulInG:	56.1
-Test round: 803
-expInG:	32892.8
-mulInG:	56.699
-Test round: 804
-expInG:	33294.199
-mulInG:	56.2
-Test round: 805
-expInG:	33342.199
-mulInG:	57.3
-Test round: 806
-expInG:	33566.6
-mulInG:	57.4
-Test round: 807
-expInG:	32946.199
-mulInG:	58.701
-Test round: 808
-expInG:	32959.399
-mulInG:	56.6
-Test round: 809
-expInG:	33268.701
-mulInG:	55.3
-Test round: 810
-expInG:	33027.2
-mulInG:	58.3
-Test round: 811
-expInG:	33351.099
-mulInG:	60.399
-Test round: 812
-expInG:	32863.301
-mulInG:	56.8
-Test round: 813
-expInG:	32905.8
-mulInG:	68.7
-Test round: 814
-expInG:	32880.8
-mulInG:	59.399
-Test round: 815
-expInG:	33402.1
-mulInG:	58.699
-Test round: 816
-expInG:	33419.401
-mulInG:	58.299
-Test round: 817
-expInG:	33212.3
-mulInG:	56.0
-Test round: 818
-expInG:	33018.401
-mulInG:	55.899
-Test round: 819
-expInG:	32986.199
-mulInG:	57.4
-Test round: 820
-expInG:	37066.7
-mulInG:	59.701
-Test round: 821
-expInG:	32893.5
-mulInG:	58.501
-Test round: 822
-expInG:	33125.0
-mulInG:	56.2
-Test round: 823
-expInG:	32777.0
-mulInG:	57.1
-Test round: 824
-expInG:	33098.4
-mulInG:	58.6
-Test round: 825
-expInG:	33340.0
-mulInG:	58.899
-Test round: 826
-expInG:	33023.0
-mulInG:	57.601
-Test round: 827
-expInG:	33157.799
-mulInG:	56.8
-Test round: 828
-expInG:	32860.5
-mulInG:	58.801
-Test round: 829
-expInG:	33198.0
-mulInG:	59.5
-Test round: 830
-expInG:	33247.499
-mulInG:	58.5
-Test round: 831
-expInG:	33060.4
-mulInG:	58.3
-Test round: 832
-expInG:	33052.3
-mulInG:	79.001
-Test round: 833
-expInG:	33003.299
-mulInG:	59.4
-Test round: 834
-expInG:	33193.301
-mulInG:	59.7
-Test round: 835
-expInG:	34035.101
-mulInG:	56.001
-Test round: 836
-expInG:	33071.2
-mulInG:	61.6
-Test round: 837
-expInG:	32885.599
-mulInG:	66.299
-Test round: 838
-expInG:	32718.4
-mulInG:	56.899
-Test round: 839
-expInG:	32669.699
-mulInG:	59.001
-Test round: 840
-expInG:	33244.6
-mulInG:	57.5
-Test round: 841
-expInG:	33140.2
-mulInG:	55.5
-Test round: 842
-expInG:	33075.901
-mulInG:	58.899
-Test round: 843
-expInG:	33146.299
-mulInG:	56.6
-Test round: 844
-expInG:	33591.6
-mulInG:	58.5
-Test round: 845
-expInG:	33366.499
-mulInG:	79.099
-Test round: 846
-expInG:	33103.5
-mulInG:	57.4
-Test round: 847
-expInG:	33417.799
-mulInG:	57.6
-Test round: 848
-expInG:	33086.1
-mulInG:	62.0
-Test round: 849
-expInG:	33217.9
-mulInG:	62.601
-Test round: 850
-expInG:	33083.9
-mulInG:	58.199
-Test round: 851
-expInG:	32957.3
-mulInG:	59.2
-Test round: 852
-expInG:	32849.0
-mulInG:	59.3
-Test round: 853
-expInG:	32900.1
-mulInG:	57.199
-Test round: 854
-expInG:	33117.4
-mulInG:	57.801
-Test round: 855
-expInG:	33280.9
-mulInG:	58.5
-Test round: 856
-expInG:	33339.8
-mulInG:	61.5
-Test round: 857
-expInG:	32905.0
-mulInG:	55.7
-Test round: 858
-expInG:	32881.5
-mulInG:	55.3
-Test round: 859
-expInG:	33084.899
-mulInG:	61.601
-Test round: 860
-expInG:	33075.5
-mulInG:	55.9
-Test round: 861
-expInG:	33693.4
-mulInG:	60.199
-Test round: 862
-expInG:	33338.4
-mulInG:	56.7
-Test round: 863
-expInG:	32777.4
-mulInG:	56.3
-Test round: 864
-expInG:	32920.1
-mulInG:	57.8
-Test round: 865
-expInG:	33086.999
-mulInG:	58.2
-Test round: 866
-expInG:	33187.9
-mulInG:	61.6
-Test round: 867
-expInG:	33405.8
-mulInG:	57.3
-Test round: 868
-expInG:	32879.7
-mulInG:	67.601
-Test round: 869
-expInG:	33117.9
-mulInG:	59.1
-Test round: 870
-expInG:	33202.4
-mulInG:	58.399
-Test round: 871
-expInG:	33030.5
-mulInG:	57.3
-Test round: 872
-expInG:	32678.4
-mulInG:	57.3
-Test round: 873
-expInG:	33046.0
-mulInG:	61.7
-Test round: 874
-expInG:	32770.801
-mulInG:	59.8
-Test round: 875
-expInG:	33198.501
-mulInG:	57.9
-Test round: 876
-expInG:	33316.9
-mulInG:	57.801
-Test round: 877
-expInG:	32993.0
-mulInG:	56.3
-Test round: 878
-expInG:	32897.901
-mulInG:	59.601
-Test round: 879
-expInG:	33209.4
-mulInG:	57.1
-Test round: 880
-expInG:	33147.199
-mulInG:	57.3
-Test round: 881
-expInG:	33438.4
-mulInG:	56.099
-Test round: 882
-expInG:	32946.601
-mulInG:	57.7
-Test round: 883
-expInG:	33175.499
-mulInG:	67.099
-Test round: 884
-expInG:	33190.5
-mulInG:	55.7
-Test round: 885
-expInG:	33292.7
-mulInG:	56.4
-Test round: 886
-expInG:	33244.2
-mulInG:	63.0
-Test round: 887
-expInG:	33162.501
-mulInG:	56.7
-Test round: 888
-expInG:	33241.7
-mulInG:	56.901
-Test round: 889
-expInG:	33093.601
-mulInG:	58.699
-Test round: 890
-expInG:	33355.599
-mulInG:	58.499
-Test round: 891
-expInG:	33224.301
-mulInG:	58.0
-Test round: 892
-expInG:	32999.201
-mulInG:	80.4
-Test round: 893
-expInG:	33064.0
-mulInG:	57.1
-Test round: 894
-expInG:	33511.0
-mulInG:	59.801
-Test round: 895
-expInG:	32970.299
-mulInG:	58.2
-Test round: 896
-expInG:	33967.101
-mulInG:	56.5
-Test round: 897
-expInG:	32905.799
-mulInG:	57.0
-Test round: 898
-expInG:	33073.4
-mulInG:	58.5
-Test round: 899
-expInG:	33475.8
-mulInG:	57.2
-Test round: 900
-expInG:	33154.7
-mulInG:	58.5
-Test round: 901
-expInG:	33561.6
-mulInG:	57.799
-Test round: 902
-expInG:	33210.4
-mulInG:	58.799
-Test round: 903
-expInG:	33297.799
-mulInG:	55.7
-Test round: 904
-expInG:	33249.6
-mulInG:	60.2
-Test round: 905
-expInG:	33179.601
-mulInG:	58.2
-Test round: 906
-expInG:	33324.6
-mulInG:	85.699
-Test round: 907
-expInG:	33101.1
-mulInG:	54.9
-Test round: 908
-expInG:	32706.0
-mulInG:	56.401
-Test round: 909
-expInG:	33378.6
-mulInG:	56.9
-Test round: 910
-expInG:	33365.999
-mulInG:	58.6
-Test round: 911
-expInG:	34822.201
-mulInG:	70.8
-Test round: 912
-expInG:	33118.6
-mulInG:	58.2
-Test round: 913
-expInG:	33020.099
-mulInG:	58.9
-Test round: 914
-expInG:	32500.0
-mulInG:	58.8
-Test round: 915
-expInG:	33756.701
-mulInG:	58.399
-Test round: 916
-expInG:	33041.0
-mulInG:	62.0
-Test round: 917
-expInG:	33055.501
-mulInG:	56.699
-Test round: 918
-expInG:	33371.6
-mulInG:	56.901
-Test round: 919
-expInG:	33982.9
-mulInG:	60.2
-Test round: 920
-expInG:	33310.7
-mulInG:	58.5
-Test round: 921
-expInG:	33370.6
-mulInG:	58.9
-Test round: 922
-expInG:	32761.5
-mulInG:	56.601
-Test round: 923
-expInG:	33567.5
-mulInG:	60.801
-Test round: 924
-expInG:	33168.9
-mulInG:	58.0
-Test round: 925
-expInG:	34049.8
-mulInG:	57.3
-Test round: 926
-expInG:	33089.001
-mulInG:	57.2
-Test round: 927
-expInG:	33240.6
-mulInG:	56.8
-Test round: 928
-expInG:	33062.4
-mulInG:	123.999
-Test round: 929
-expInG:	33206.2
-mulInG:	57.9
-Test round: 930
-expInG:	33015.3
-mulInG:	58.1
-Test round: 931
-expInG:	33859.0
-mulInG:	60.8
-Test round: 932
-expInG:	33053.701
-mulInG:	56.1
-Test round: 933
-expInG:	32631.9
+Pollard's Lamda:	39648.7
+Test round: 19
+expInG:	35169.9
+mulInG:	65.3
+Pollard's Lamda:	40214.7
+Test round: 20
+expInG:	34716.8
+mulInG:	69.4
+Pollard's Lamda:	39857.1
+Test round: 21
+expInG:	34592.9
 mulInG:	59.9
-Test round: 934
-expInG:	32753.7
-mulInG:	59.501
-Test round: 935
-expInG:	34199.6
-mulInG:	58.5
-Test round: 936
-expInG:	33427.801
-mulInG:	58.4
-Test round: 937
-expInG:	32896.601
-mulInG:	57.2
-Test round: 938
-expInG:	32686.8
-mulInG:	57.4
-Test round: 939
-expInG:	33492.299
-mulInG:	57.6
-Test round: 940
-expInG:	33037.199
-mulInG:	56.001
-Test round: 941
-expInG:	33239.2
-mulInG:	58.101
-Test round: 942
-expInG:	33149.2
-mulInG:	56.401
-Test round: 943
-expInG:	33593.2
-mulInG:	58.9
-Test round: 944
-expInG:	34195.7
-mulInG:	59.701
-Test round: 945
-expInG:	33498.8
+Pollard's Lamda:	40605.3
+Test round: 22
+expInG:	35657.6
+mulInG:	63.6
+Pollard's Lamda:	41284.6
+Test round: 23
+expInG:	35752.0
+mulInG:	61.9
+Pollard's Lamda:	39731.7
+Test round: 24
+expInG:	34899.4
+mulInG:	64.0
+Pollard's Lamda:	39246.9
+Test round: 25
+expInG:	34951.8
+mulInG:	100.4
+Pollard's Lamda:	39878.7
+Test round: 26
+expInG:	35049.4
+mulInG:	63.3
+Pollard's Lamda:	40456.5
+Test round: 27
+expInG:	34993.5
+mulInG:	71.5
+Pollard's Lamda:	39376.7
+Test round: 28
+expInG:	35105.8
+mulInG:	61.4
+Pollard's Lamda:	40017.2
+Test round: 29
+expInG:	34609.1
+mulInG:	62.2
+Pollard's Lamda:	41257.2
+Test round: 30
+expInG:	35647.8
+mulInG:	82.1
+Pollard's Lamda:	41861.8
+Test round: 31
+expInG:	37624.2
+mulInG:	65.9
+Pollard's Lamda:	40776.3
+Test round: 32
+expInG:	34499.7
 mulInG:	62.8
-Test round: 946
-expInG:	33194.6
-mulInG:	57.1
-Test round: 947
-expInG:	34070.3
-mulInG:	57.2
-Test round: 948
-expInG:	32647.3
-mulInG:	57.0
-Test round: 949
-expInG:	33009.199
-mulInG:	58.5
-Test round: 950
-expInG:	33983.2
-mulInG:	56.4
-Test round: 951
-expInG:	33709.9
-mulInG:	57.7
-Test round: 952
-expInG:	32864.299
-mulInG:	58.301
-Test round: 953
-expInG:	32953.701
-mulInG:	64.201
-Test round: 954
-expInG:	32911.3
-mulInG:	55.5
-Test round: 955
-expInG:	33676.6
-mulInG:	56.9
-Test round: 956
-expInG:	33316.701
-mulInG:	58.2
-Test round: 957
-expInG:	33112.599
-mulInG:	58.7
-Test round: 958
-expInG:	33250.2
-mulInG:	69.599
-Test round: 959
-expInG:	32889.001
-mulInG:	58.2
-Test round: 960
-expInG:	32945.7
-mulInG:	58.901
-Test round: 961
-expInG:	33882.8
-mulInG:	59.5
-Test round: 962
-expInG:	32761.6
-mulInG:	59.2
-Test round: 963
-expInG:	33061.6
-mulInG:	58.1
-Test round: 964
-expInG:	33199.899
-mulInG:	56.599
-Test round: 965
-expInG:	36381.4
-mulInG:	59.7
-Test round: 966
-expInG:	33276.0
-mulInG:	56.9
-Test round: 967
-expInG:	33012.999
-mulInG:	57.999
-Test round: 968
-expInG:	32883.8
-mulInG:	55.7
-Test round: 969
-expInG:	32871.301
-mulInG:	58.8
-Test round: 970
-expInG:	34425.299
-mulInG:	58.8
-Test round: 971
-expInG:	33728.8
-mulInG:	61.3
-Test round: 972
-expInG:	33063.9
-mulInG:	57.4
-Test round: 973
-expInG:	32832.8
-mulInG:	59.3
-Test round: 974
-expInG:	32829.0
-mulInG:	56.3
-Test round: 975
-expInG:	33641.599
-mulInG:	56.3
-Test round: 976
-expInG:	33411.3
-mulInG:	61.2
-Test round: 977
-expInG:	33305.1
-mulInG:	73.6
-Test round: 978
-expInG:	32748.5
-mulInG:	56.1
-Test round: 979
-expInG:	33468.3
-mulInG:	58.5
-Test round: 980
-expInG:	33796.1
-mulInG:	56.199
-Test round: 981
-expInG:	33253.6
-mulInG:	76.0
-Test round: 982
-expInG:	32876.799
-mulInG:	56.799
-Test round: 983
-expInG:	33742.7
-mulInG:	53.999
-Test round: 984
-expInG:	32957.3
-mulInG:	63.2
-Test round: 985
-expInG:	33371.9
-mulInG:	58.7
-Test round: 986
-expInG:	33348.9
-mulInG:	62.3
-Test round: 987
-expInG:	34005.399
-mulInG:	56.1
-Test round: 988
-expInG:	32935.6
+Pollard's Lamda:	39575.7
+Test round: 33
+expInG:	34668.8
+mulInG:	91.4
+Pollard's Lamda:	39549.1
+Test round: 34
+expInG:	35140.4
+mulInG:	63.0
+Pollard's Lamda:	40014.9
+Test round: 35
+expInG:	35121.4
+mulInG:	62.9
+Pollard's Lamda:	39576.8
+Test round: 36
+expInG:	34628.1
+mulInG:	61.4
+Pollard's Lamda:	39401.2
+Test round: 37
+expInG:	34373.2
+mulInG:	62.5
+Pollard's Lamda:	39220.9
+Test round: 38
+expInG:	37060.7
+mulInG:	79.3
+Pollard's Lamda:	39639.1
+Test round: 39
+expInG:	34591.4
+mulInG:	77.7
+Pollard's Lamda:	39496.3
+Test round: 40
+expInG:	37268.5
 mulInG:	62.6
-Test round: 989
-expInG:	32903.5
-mulInG:	58.5
-Test round: 990
-expInG:	33057.201
-mulInG:	57.1
-Test round: 991
-expInG:	33468.9
-mulInG:	57.2
-Test round: 992
-expInG:	32757.399
-mulInG:	56.399
-Test round: 993
-expInG:	34971.799
-mulInG:	59.0
-Test round: 994
-expInG:	33229.6
-mulInG:	59.0
-Test round: 995
-expInG:	33731.1
+Pollard's Lamda:	40242.8
+Test round: 41
+expInG:	36006.7
+mulInG:	64.2
+Pollard's Lamda:	41035.9
+Test round: 42
+expInG:	36575.4
+mulInG:	64.2
+Pollard's Lamda:	41229.5
+Test round: 43
+expInG:	36686.4
+mulInG:	102.7
+Pollard's Lamda:	39097.7
+Test round: 44
+expInG:	35741.1
+mulInG:	67.7
+Pollard's Lamda:	40455.0
+Test round: 45
+expInG:	37384.3
+mulInG:	60.4
+Pollard's Lamda:	43433.4
+Test round: 46
+expInG:	38462.0
+mulInG:	60.7
+Pollard's Lamda:	40622.2
+Test round: 47
+expInG:	34634.0
+mulInG:	67.7
+Pollard's Lamda:	39581.0
+Test round: 48
+expInG:	36066.3
+mulInG:	61.6
+Pollard's Lamda:	40002.6
+Test round: 49
+expInG:	35104.2
+mulInG:	65.2
+Pollard's Lamda:	40205.3
+Test round: 50
+expInG:	34923.3
+mulInG:	66.7
+Pollard's Lamda:	39234.9
+Test round: 51
+expInG:	37430.8
+mulInG:	62.8
+Pollard's Lamda:	39940.6
+Test round: 52
+expInG:	35527.4
+mulInG:	64.8
+Pollard's Lamda:	40437.5
+Test round: 53
+expInG:	39463.2
+mulInG:	69.2
+Pollard's Lamda:	40692.1
+Test round: 54
+expInG:	36712.1
+mulInG:	66.8
+Pollard's Lamda:	40369.9
+Test round: 55
+expInG:	36539.3
+mulInG:	65.8
+Pollard's Lamda:	40263.3
+Test round: 56
+expInG:	35406.8
+mulInG:	80.5
+Pollard's Lamda:	41644.5
+Test round: 57
+expInG:	41267.3
+mulInG:	63.9
+Pollard's Lamda:	39912.8
+Test round: 58
+expInG:	37326.9
+mulInG:	62.9
+Pollard's Lamda:	44739.7
+Test round: 59
+expInG:	36532.8
+mulInG:	64.1
+Pollard's Lamda:	40229.8
+Test round: 60
+expInG:	36112.0
+mulInG:	99.1
+Pollard's Lamda:	42201.4
+Test round: 61
+expInG:	35463.9
+mulInG:	60.9
+Pollard's Lamda:	39986.0
+Test round: 62
+expInG:	35868.6
+mulInG:	63.4
+Pollard's Lamda:	40634.4
+Test round: 63
+expInG:	35483.2
+mulInG:	62.9
+Pollard's Lamda:	40973.7
+Test round: 64
+expInG:	41493.1
+mulInG:	64.8
+Pollard's Lamda:	40831.0
+Test round: 65
+expInG:	34910.5
+mulInG:	64.4
+Pollard's Lamda:	39568.5
+Test round: 66
+expInG:	35303.6
+mulInG:	65.2
+Pollard's Lamda:	39480.6
+Test round: 67
+expInG:	34248.9
+mulInG:	64.4
+Pollard's Lamda:	40478.2
+Test round: 68
+expInG:	34680.0
+mulInG:	63.4
+Pollard's Lamda:	42167.6
+Test round: 69
+expInG:	35594.6
+mulInG:	61.5
+Pollard's Lamda:	41229.3
+Test round: 70
+expInG:	36349.9
+mulInG:	64.1
+Pollard's Lamda:	40598.2
+Test round: 71
+expInG:	36245.6
+mulInG:	64.3
+Pollard's Lamda:	40091.9
+Test round: 72
+expInG:	37606.1
+mulInG:	63.3
+Pollard's Lamda:	40771.3
+Test round: 73
+expInG:	36770.5
+mulInG:	63.2
+Pollard's Lamda:	41722.4
+Test round: 74
+expInG:	36019.9
+mulInG:	70.2
+Pollard's Lamda:	40567.6
+Test round: 75
+expInG:	35329.7
+mulInG:	62.6
+Pollard's Lamda:	39520.5
+Test round: 76
+expInG:	35121.6
+mulInG:	63.6
+Pollard's Lamda:	39441.3
+Test round: 77
+expInG:	34659.7
+mulInG:	64.7
+Pollard's Lamda:	42674.0
+Test round: 78
+expInG:	35459.5
+mulInG:	67.1
+Pollard's Lamda:	40364.5
+Test round: 79
+expInG:	34991.3
+mulInG:	67.1
+Pollard's Lamda:	45576.4
+Test round: 80
+expInG:	35654.3
+mulInG:	64.3
+Pollard's Lamda:	41015.5
+Test round: 81
+expInG:	35350.4
+mulInG:	70.4
+Pollard's Lamda:	42342.5
+Test round: 82
+expInG:	36035.8
+mulInG:	63.5
+Pollard's Lamda:	41605.6
+Test round: 83
+expInG:	36313.0
+mulInG:	64.1
+Pollard's Lamda:	42452.8
+Test round: 84
+expInG:	35024.3
+mulInG:	64.0
+Pollard's Lamda:	41046.3
+Test round: 85
+expInG:	34813.7
+mulInG:	61.9
+Pollard's Lamda:	40482.0
+Test round: 86
+expInG:	34866.2
+mulInG:	65.1
+Pollard's Lamda:	39748.7
+Test round: 87
+expInG:	34459.4
+mulInG:	62.6
+Pollard's Lamda:	40011.1
+Test round: 88
+expInG:	34428.1
+mulInG:	65.7
+Pollard's Lamda:	41772.1
+Test round: 89
+expInG:	35341.4
+mulInG:	61.8
+Pollard's Lamda:	42646.8
+Test round: 90
+expInG:	37246.2
+mulInG:	68.7
+Pollard's Lamda:	42938.4
+Test round: 91
+expInG:	43254.9
+mulInG:	111.4
+Pollard's Lamda:	41759.4
+Test round: 92
+expInG:	35623.6
+mulInG:	62.5
+Pollard's Lamda:	41656.6
+Test round: 93
+expInG:	41540.9
+mulInG:	83.5
+Pollard's Lamda:	41283.4
+Test round: 94
+expInG:	35808.2
+mulInG:	63.2
+Pollard's Lamda:	42787.1
+Test round: 95
+expInG:	41081.7
+mulInG:	72.7
+Pollard's Lamda:	43123.3
+Test round: 96
+expInG:	35939.2
+mulInG:	61.7
+Pollard's Lamda:	48446.4
+Test round: 97
+expInG:	34740.0
+mulInG:	65.3
+Pollard's Lamda:	41029.9
+Test round: 98
+expInG:	36611.2
+mulInG:	75.0
+Pollard's Lamda:	39939.8
+Test round: 99
+expInG:	34692.2
+mulInG:	65.4
+Pollard's Lamda:	39926.8
+Test round: 100
+expInG:	35068.7
+mulInG:	65.6
+Pollard's Lamda:	39852.7
+Test round: 101
+expInG:	35056.5
+mulInG:	63.0
+Pollard's Lamda:	39929.9
+Test round: 102
+expInG:	35616.2
+mulInG:	64.8
+Pollard's Lamda:	41589.9
+Test round: 103
+expInG:	39952.6
+mulInG:	63.3
+Pollard's Lamda:	40182.4
+Test round: 104
+expInG:	36107.1
+mulInG:	74.8
+Pollard's Lamda:	41603.2
+Test round: 105
+expInG:	38636.8
+mulInG:	63.0
+Pollard's Lamda:	41935.1
+Test round: 106
+expInG:	36931.8
+mulInG:	63.9
+Pollard's Lamda:	42916.3
+Test round: 107
+expInG:	36457.8
+mulInG:	66.3
+Pollard's Lamda:	41285.8
+Test round: 108
+expInG:	36907.9
+mulInG:	67.5
+Pollard's Lamda:	40276.0
+Test round: 109
+expInG:	34607.6
+mulInG:	63.0
+Pollard's Lamda:	40236.6
+Test round: 110
+expInG:	34985.3
+mulInG:	62.0
+Pollard's Lamda:	39583.9
+Test round: 111
+expInG:	36458.4
+mulInG:	60.9
+Pollard's Lamda:	39780.0
+Test round: 112
+expInG:	36304.9
+mulInG:	61.8
+Pollard's Lamda:	39734.1
+Test round: 113
+expInG:	35322.0
+mulInG:	63.7
+Pollard's Lamda:	38665.9
+Test round: 114
+expInG:	34643.8
+mulInG:	61.0
+Pollard's Lamda:	39205.1
+Test round: 115
+expInG:	36473.1
+mulInG:	100.3
+Pollard's Lamda:	44612.2
+Test round: 116
+expInG:	40075.5
+mulInG:	67.3
+Pollard's Lamda:	41494.2
+Test round: 117
+expInG:	36484.1
+mulInG:	67.2
+Pollard's Lamda:	39838.5
+Test round: 118
+expInG:	38030.2
+mulInG:	60.8
+Pollard's Lamda:	40897.7
+Test round: 119
+expInG:	38422.2
+mulInG:	61.5
+Pollard's Lamda:	44314.3
+Test round: 120
+expInG:	35949.0
+mulInG:	64.6
+Pollard's Lamda:	42909.5
+Test round: 121
+expInG:	39815.2
+mulInG:	66.4
+Pollard's Lamda:	42416.1
+Test round: 122
+expInG:	36962.7
+mulInG:	63.1
+Pollard's Lamda:	44319.5
+Test round: 123
+expInG:	35519.3
+mulInG:	66.8
+Pollard's Lamda:	39891.1
+Test round: 124
+expInG:	35351.9
+mulInG:	62.7
+Pollard's Lamda:	39471.3
+Test round: 125
+expInG:	35293.2
+mulInG:	66.6
+Pollard's Lamda:	41907.9
+Test round: 126
+expInG:	36112.4
+mulInG:	65.7
+Pollard's Lamda:	40584.6
+Test round: 127
+expInG:	34865.1
+mulInG:	64.7
+Pollard's Lamda:	45335.6
+Test round: 128
+expInG:	35837.4
+mulInG:	69.1
+Pollard's Lamda:	42564.8
+Test round: 129
+expInG:	39594.9
+mulInG:	97.7
+Pollard's Lamda:	40030.5
+Test round: 130
+expInG:	35388.2
+mulInG:	62.3
+Pollard's Lamda:	40821.6
+Test round: 131
+expInG:	40808.2
+mulInG:	61.8
+Pollard's Lamda:	43449.1
+Test round: 132
+expInG:	36602.5
+mulInG:	61.6
+Pollard's Lamda:	40330.0
+Test round: 133
+expInG:	35197.4
+mulInG:	69.0
+Pollard's Lamda:	39891.2
+Test round: 134
+expInG:	36022.6
+mulInG:	63.4
+Pollard's Lamda:	39745.8
+Test round: 135
+expInG:	34867.7
+mulInG:	62.1
+Pollard's Lamda:	39382.6
+Test round: 136
+expInG:	36440.8
+mulInG:	64.0
+Pollard's Lamda:	40592.7
+Test round: 137
+expInG:	35212.4
+mulInG:	78.0
+Pollard's Lamda:	39250.9
+Test round: 138
+expInG:	34745.0
+mulInG:	59.4
+Pollard's Lamda:	39559.1
+Test round: 139
+expInG:	34893.2
+mulInG:	59.7
+Pollard's Lamda:	39515.3
+Test round: 140
+expInG:	34711.8
+mulInG:	59.1
+Pollard's Lamda:	39241.4
+Test round: 141
+expInG:	34906.5
+mulInG:	61.1
+Pollard's Lamda:	39514.6
+Test round: 142
+expInG:	34504.0
+mulInG:	60.1
+Pollard's Lamda:	39462.7
+Test round: 143
+expInG:	34794.3
 mulInG:	59.3
-Test round: 996
-expInG:	33289.0
-mulInG:	59.101
-Test round: 997
-expInG:	33194.2
+Pollard's Lamda:	44105.2
+Test round: 144
+expInG:	35545.7
+mulInG:	61.9
+Pollard's Lamda:	39698.7
+Test round: 145
+expInG:	35246.0
+mulInG:	59.0
+Pollard's Lamda:	40460.8
+Test round: 146
+expInG:	36032.1
+mulInG:	63.1
+Pollard's Lamda:	41946.7
+Test round: 147
+expInG:	34654.6
 mulInG:	57.6
-Test round: 998
-expInG:	32769.2
+Pollard's Lamda:	40426.9
+Test round: 148
+expInG:	36055.6
+mulInG:	59.5
+Pollard's Lamda:	44217.5
+Test round: 149
+expInG:	34937.4
+mulInG:	60.1
+Pollard's Lamda:	40469.7
+Test round: 150
+expInG:	34590.6
+mulInG:	59.8
+Pollard's Lamda:	40074.0
+Test round: 151
+expInG:	34553.7
+mulInG:	60.5
+Pollard's Lamda:	40430.7
+Test round: 152
+expInG:	34803.7
+mulInG:	60.6
+Pollard's Lamda:	39850.1
+Test round: 153
+expInG:	34632.1
+mulInG:	59.9
+Pollard's Lamda:	40232.8
+Test round: 154
+expInG:	34794.0
+mulInG:	56.7
+Pollard's Lamda:	40148.9
+Test round: 155
+expInG:	34724.7
+mulInG:	62.5
+Pollard's Lamda:	39606.9
+Test round: 156
+expInG:	34713.9
+mulInG:	61.6
+Pollard's Lamda:	42679.5
+Test round: 157
+expInG:	34789.5
+mulInG:	61.5
+Pollard's Lamda:	39972.4
+Test round: 158
+expInG:	35370.7
+mulInG:	62.0
+Pollard's Lamda:	40758.2
+Test round: 159
+expInG:	37410.8
+mulInG:	58.3
+Pollard's Lamda:	60232.2
+Test round: 160
+expInG:	38790.7
+mulInG:	59.2
+Pollard's Lamda:	42992.6
+Test round: 161
+expInG:	35989.2
+mulInG:	60.4
+Pollard's Lamda:	40094.6
+Test round: 162
+expInG:	35060.3
+mulInG:	59.0
+Pollard's Lamda:	41020.2
+Test round: 163
+expInG:	35240.2
+mulInG:	60.6
+Pollard's Lamda:	42355.7
+Test round: 164
+expInG:	35379.3
+mulInG:	61.7
+Pollard's Lamda:	39451.9
+Test round: 165
+expInG:	36672.8
+mulInG:	80.6
+Pollard's Lamda:	41230.1
+Test round: 166
+expInG:	36376.0
+mulInG:	94.4
+Pollard's Lamda:	40264.7
+Test round: 167
+expInG:	35427.8
+mulInG:	59.7
+Pollard's Lamda:	39644.4
+Test round: 168
+expInG:	34725.8
+mulInG:	59.8
+Pollard's Lamda:	41006.4
+Test round: 169
+expInG:	37095.4
+mulInG:	92.4
+Pollard's Lamda:	41190.0
+Test round: 170
+expInG:	35394.0
+mulInG:	60.7
+Pollard's Lamda:	40121.8
+Test round: 171
+expInG:	36219.7
+mulInG:	61.0
+Pollard's Lamda:	39386.3
+Test round: 172
+expInG:	34611.8
+mulInG:	58.3
+Pollard's Lamda:	38957.3
+Test round: 173
+expInG:	35971.3
+mulInG:	58.3
+Pollard's Lamda:	39282.7
+Test round: 174
+expInG:	34973.3
+mulInG:	59.1
+Pollard's Lamda:	39488.7
+Test round: 175
+expInG:	35179.1
+mulInG:	69.0
+Pollard's Lamda:	38966.0
+Test round: 176
+expInG:	35442.5
+mulInG:	58.0
+Pollard's Lamda:	39288.2
+Test round: 177
+expInG:	34946.3
+mulInG:	63.4
+Pollard's Lamda:	39134.1
+Test round: 178
+expInG:	35105.0
+mulInG:	58.2
+Pollard's Lamda:	39152.6
+Test round: 179
+expInG:	35630.1
+mulInG:	61.1
+Pollard's Lamda:	40123.7
+Test round: 180
+expInG:	37588.7
+mulInG:	58.8
+Pollard's Lamda:	39304.4
+Test round: 181
+expInG:	34943.9
+mulInG:	58.5
+Pollard's Lamda:	39615.9
+Test round: 182
+expInG:	35053.8
+mulInG:	61.0
+Pollard's Lamda:	40506.0
+Test round: 183
+expInG:	36097.2
+mulInG:	62.9
+Pollard's Lamda:	41309.1
+Test round: 184
+expInG:	35300.8
+mulInG:	60.9
+Pollard's Lamda:	41446.7
+Test round: 185
+expInG:	34443.5
+mulInG:	60.3
+Pollard's Lamda:	39979.3
+Test round: 186
+expInG:	34853.5
+mulInG:	63.0
+Pollard's Lamda:	39357.9
+Test round: 187
+expInG:	34613.5
+mulInG:	61.5
+Pollard's Lamda:	40734.9
+Test round: 188
+expInG:	34681.8
+mulInG:	61.0
+Pollard's Lamda:	40086.5
+Test round: 189
+expInG:	35088.5
+mulInG:	65.2
+Pollard's Lamda:	39774.5
+Test round: 190
+expInG:	34936.2
+mulInG:	60.4
+Pollard's Lamda:	39435.5
+Test round: 191
+expInG:	35996.9
+mulInG:	60.7
+Pollard's Lamda:	39402.8
+Test round: 192
+expInG:	34475.8
+mulInG:	59.1
+Pollard's Lamda:	39290.0
+Test round: 193
+expInG:	35009.6
+mulInG:	57.4
+Pollard's Lamda:	39248.5
+Test round: 194
+expInG:	34731.8
+mulInG:	59.5
+Pollard's Lamda:	39705.5
+Test round: 195
+expInG:	34634.3
+mulInG:	59.9
+Pollard's Lamda:	39635.1
+Test round: 196
+expInG:	34367.0
+mulInG:	58.3
+Pollard's Lamda:	38742.1
+Test round: 197
+expInG:	34435.8
+mulInG:	59.3
+Pollard's Lamda:	39372.2
+Test round: 198
+expInG:	35330.6
+mulInG:	83.2
+Pollard's Lamda:	39947.5
+Test round: 199
+expInG:	35303.6
+mulInG:	60.9
+Pollard's Lamda:	39171.9
+Test round: 200
+expInG:	35006.4
+mulInG:	59.2
+Pollard's Lamda:	40674.5
+Test round: 201
+expInG:	35369.6
+mulInG:	60.8
+Pollard's Lamda:	40630.7
+Test round: 202
+expInG:	35985.1
+mulInG:	77.8
+Pollard's Lamda:	40351.7
+Test round: 203
+expInG:	34769.2
+mulInG:	58.5
+Pollard's Lamda:	39181.4
+Test round: 204
+expInG:	34406.6
+mulInG:	61.1
+Pollard's Lamda:	40060.1
+Test round: 205
+expInG:	34467.7
+mulInG:	59.8
+Pollard's Lamda:	46012.4
+Test round: 206
+expInG:	38187.7
+mulInG:	65.2
+Pollard's Lamda:	41542.7
+Test round: 207
+expInG:	36661.6
+mulInG:	86.1
+Pollard's Lamda:	41631.2
+Test round: 208
+expInG:	34822.3
+mulInG:	60.0
+Pollard's Lamda:	40269.2
+Test round: 209
+expInG:	36892.6
+mulInG:	60.4
+Pollard's Lamda:	40969.4
+Test round: 210
+expInG:	34940.7
+mulInG:	59.8
+Pollard's Lamda:	40265.5
+Test round: 211
+expInG:	35979.6
+mulInG:	60.2
+Pollard's Lamda:	40693.5
+Test round: 212
+expInG:	34645.6
+mulInG:	60.4
+Pollard's Lamda:	41263.7
+Test round: 213
+expInG:	36431.3
+mulInG:	63.0
+Pollard's Lamda:	40750.0
+Test round: 214
+expInG:	37565.7
+mulInG:	60.8
+Pollard's Lamda:	39800.4
+Test round: 215
+expInG:	34796.5
+mulInG:	62.8
+Pollard's Lamda:	40729.1
+Test round: 216
+expInG:	35259.3
+mulInG:	61.3
+Pollard's Lamda:	41315.2
+Test round: 217
+expInG:	34936.5
+mulInG:	61.1
+Pollard's Lamda:	39782.3
+Test round: 218
+expInG:	37030.7
+mulInG:	57.0
+Pollard's Lamda:	40160.1
+Test round: 219
+expInG:	36909.7
+mulInG:	66.3
+Pollard's Lamda:	40435.7
+Test round: 220
+expInG:	35099.2
+mulInG:	59.9
+Pollard's Lamda:	40194.5
+Test round: 221
+expInG:	35930.4
+mulInG:	60.8
+Pollard's Lamda:	39461.2
+Test round: 222
+expInG:	34821.7
+mulInG:	61.4
+Pollard's Lamda:	41485.8
+Test round: 223
+expInG:	35188.0
+mulInG:	60.4
+Pollard's Lamda:	40208.1
+Test round: 224
+expInG:	35525.9
+mulInG:	65.1
+Pollard's Lamda:	40030.9
+Test round: 225
+expInG:	34896.0
+mulInG:	60.1
+Pollard's Lamda:	40655.7
+Test round: 226
+expInG:	35472.5
+mulInG:	61.6
+Pollard's Lamda:	39563.0
+Test round: 227
+expInG:	34740.6
+mulInG:	62.4
+Pollard's Lamda:	39599.5
+Test round: 228
+expInG:	34788.5
+mulInG:	66.3
+Pollard's Lamda:	40146.5
+Test round: 229
+expInG:	36353.6
+mulInG:	62.4
+Pollard's Lamda:	40221.1
+Test round: 230
+expInG:	35193.7
+mulInG:	61.9
+Pollard's Lamda:	44814.7
+Test round: 231
+expInG:	40753.0
+mulInG:	66.0
+Pollard's Lamda:	40101.9
+Test round: 232
+expInG:	36120.9
+mulInG:	61.7
+Pollard's Lamda:	43700.5
+Test round: 233
+expInG:	36728.9
+mulInG:	65.9
+Pollard's Lamda:	42291.9
+Test round: 234
+expInG:	35494.6
+mulInG:	59.7
+Pollard's Lamda:	39906.8
+Test round: 235
+expInG:	37238.7
+mulInG:	61.0
+Pollard's Lamda:	40084.5
+Test round: 236
+expInG:	35648.5
+mulInG:	60.6
+Pollard's Lamda:	42247.7
+Test round: 237
+expInG:	37767.6
+mulInG:	68.3
+Pollard's Lamda:	40330.2
+Test round: 238
+expInG:	35621.6
+mulInG:	60.9
+Pollard's Lamda:	40040.7
+Test round: 239
+expInG:	38440.1
+mulInG:	59.7
+Pollard's Lamda:	39351.3
+Test round: 240
+expInG:	35644.0
+mulInG:	63.5
+Pollard's Lamda:	42229.1
+Test round: 241
+expInG:	35376.6
+mulInG:	60.8
+Pollard's Lamda:	40366.5
+Test round: 242
+expInG:	37353.2
+mulInG:	79.0
+Pollard's Lamda:	39109.2
+Test round: 243
+expInG:	35133.1
+mulInG:	57.8
+Pollard's Lamda:	45943.0
+Test round: 244
+expInG:	35557.4
+mulInG:	64.5
+Pollard's Lamda:	40670.7
+Test round: 245
+expInG:	35037.0
+mulInG:	57.2
+Pollard's Lamda:	39701.4
+Test round: 246
+expInG:	35232.3
+mulInG:	60.8
+Pollard's Lamda:	41028.9
+Test round: 247
+expInG:	34412.9
+mulInG:	60.2
+Pollard's Lamda:	39032.6
+Test round: 248
+expInG:	34892.9
+mulInG:	58.9
+Pollard's Lamda:	40446.3
+Test round: 249
+expInG:	34542.0
+mulInG:	60.9
+Pollard's Lamda:	40335.7
+Test round: 250
+expInG:	34661.0
+mulInG:	63.2
+Pollard's Lamda:	40378.5
+Test round: 251
+expInG:	35279.8
+mulInG:	64.5
+Pollard's Lamda:	39852.4
+Test round: 252
+expInG:	36082.6
+mulInG:	60.0
+Pollard's Lamda:	40650.4
+Test round: 253
+expInG:	35201.8
+mulInG:	59.7
+Pollard's Lamda:	40747.2
+Test round: 254
+expInG:	34426.0
+mulInG:	61.9
+Pollard's Lamda:	40612.9
+Test round: 255
+expInG:	35686.0
+mulInG:	60.7
+Pollard's Lamda:	40131.0
+Test round: 256
+expInG:	35091.2
+mulInG:	65.6
+Pollard's Lamda:	40305.7
+Test round: 257
+expInG:	35820.5
+mulInG:	76.5
+Pollard's Lamda:	41406.2
+Test round: 258
+expInG:	35425.7
+mulInG:	63.0
+Pollard's Lamda:	41122.2
+Test round: 259
+expInG:	35422.9
+mulInG:	65.7
+Pollard's Lamda:	42160.8
+Test round: 260
+expInG:	35166.8
+mulInG:	58.8
+Pollard's Lamda:	39618.8
+Test round: 261
+expInG:	34499.5
+mulInG:	58.9
+Pollard's Lamda:	40192.1
+Test round: 262
+expInG:	36737.2
+mulInG:	62.4
+Pollard's Lamda:	40867.9
+Test round: 263
+expInG:	35021.0
+mulInG:	63.9
+Pollard's Lamda:	40530.0
+Test round: 264
+expInG:	36344.5
+mulInG:	66.5
+Pollard's Lamda:	40136.3
+Test round: 265
+expInG:	36112.1
+mulInG:	64.4
+Pollard's Lamda:	39236.5
+Test round: 266
+expInG:	35026.5
+mulInG:	60.2
+Pollard's Lamda:	39516.3
+Test round: 267
+expInG:	34824.3
+mulInG:	60.0
+Pollard's Lamda:	40766.5
+Test round: 268
+expInG:	34608.3
+mulInG:	60.1
+Pollard's Lamda:	39631.8
+Test round: 269
+expInG:	36121.5
+mulInG:	60.4
+Pollard's Lamda:	39693.0
+Test round: 270
+expInG:	35472.4
+mulInG:	61.9
+Pollard's Lamda:	42192.2
+Test round: 271
+expInG:	35996.7
+mulInG:	109.6
+Pollard's Lamda:	40074.8
+Test round: 272
+expInG:	35022.9
+mulInG:	61.4
+Pollard's Lamda:	41189.9
+Test round: 273
+expInG:	35688.5
+mulInG:	61.9
+Pollard's Lamda:	40295.0
+Test round: 274
+expInG:	34869.3
+mulInG:	66.3
+Pollard's Lamda:	40362.3
+Test round: 275
+expInG:	34805.2
+mulInG:	63.4
+Pollard's Lamda:	40018.6
+Test round: 276
+expInG:	34794.1
+mulInG:	58.7
+Pollard's Lamda:	40365.4
+Test round: 277
+expInG:	34620.5
+mulInG:	59.7
+Pollard's Lamda:	39518.9
+Test round: 278
+expInG:	34782.8
+mulInG:	60.7
+Pollard's Lamda:	39978.8
+Test round: 279
+expInG:	34550.0
+mulInG:	59.6
+Pollard's Lamda:	40973.1
+Test round: 280
+expInG:	35026.2
+mulInG:	62.9
+Pollard's Lamda:	39677.7
+Test round: 281
+expInG:	34874.7
+mulInG:	61.2
+Pollard's Lamda:	39532.2
+Test round: 282
+expInG:	34994.4
+mulInG:	59.4
+Pollard's Lamda:	39998.3
+Test round: 283
+expInG:	35510.5
+mulInG:	60.9
+Pollard's Lamda:	39171.8
+Test round: 284
+expInG:	35822.9
+mulInG:	59.6
+Pollard's Lamda:	40249.2
+Test round: 285
+expInG:	37032.5
+mulInG:	77.4
+Pollard's Lamda:	39542.6
+Test round: 286
+expInG:	37217.7
+mulInG:	61.5
+Pollard's Lamda:	39649.9
+Test round: 287
+expInG:	34671.5
+mulInG:	61.6
+Pollard's Lamda:	39179.1
+Test round: 288
+expInG:	35136.8
+mulInG:	62.4
+Pollard's Lamda:	40043.2
+Test round: 289
+expInG:	34960.5
+mulInG:	63.5
+Pollard's Lamda:	40140.2
+Test round: 290
+expInG:	34501.4
+mulInG:	60.3
+Pollard's Lamda:	39275.4
+Test round: 291
+expInG:	36728.6
+mulInG:	64.5
+Pollard's Lamda:	40588.4
+Test round: 292
+expInG:	34997.9
+mulInG:	71.0
+Pollard's Lamda:	39203.4
+Test round: 293
+expInG:	36067.1
+mulInG:	62.7
+Pollard's Lamda:	39016.4
+Test round: 294
+expInG:	36056.1
+mulInG:	60.6
+Pollard's Lamda:	42896.3
+Test round: 295
+expInG:	35843.6
+mulInG:	59.9
+Pollard's Lamda:	40198.7
+Test round: 296
+expInG:	36380.7
+mulInG:	61.3
+Pollard's Lamda:	42878.9
+Test round: 297
+expInG:	39622.3
+mulInG:	59.6
+Pollard's Lamda:	39968.1
+Test round: 298
+expInG:	36753.3
+mulInG:	58.8
+Pollard's Lamda:	40737.6
+Test round: 299
+expInG:	35056.6
+mulInG:	60.2
+Pollard's Lamda:	42616.4
+Test round: 300
+expInG:	38739.4
+mulInG:	62.8
+Pollard's Lamda:	40470.2
+Test round: 301
+expInG:	35957.4
+mulInG:	59.6
+Pollard's Lamda:	39707.0
+Test round: 302
+expInG:	35299.1
+mulInG:	59.8
+Pollard's Lamda:	40166.2
+Test round: 303
+expInG:	35520.8
+mulInG:	67.3
+Pollard's Lamda:	41377.9
+Test round: 304
+expInG:	34905.2
+mulInG:	60.2
+Pollard's Lamda:	39884.2
+Test round: 305
+expInG:	34512.4
+mulInG:	60.9
+Pollard's Lamda:	40176.1
+Test round: 306
+expInG:	34410.1
+mulInG:	57.5
+Pollard's Lamda:	44137.9
+Test round: 307
+expInG:	36977.2
+mulInG:	126.1
+Pollard's Lamda:	40399.5
+Test round: 308
+expInG:	35326.5
+mulInG:	60.4
+Pollard's Lamda:	39834.9
+Test round: 309
+expInG:	34759.9
+mulInG:	58.1
+Pollard's Lamda:	39952.6
+Test round: 310
+expInG:	34851.7
+mulInG:	86.0
+Pollard's Lamda:	39222.0
+Test round: 311
+expInG:	34859.6
+mulInG:	61.0
+Pollard's Lamda:	40660.9
+Test round: 312
+expInG:	35601.3
+mulInG:	63.3
+Pollard's Lamda:	42053.5
+Test round: 313
+expInG:	34739.1
+mulInG:	72.5
+Pollard's Lamda:	39292.7
+Test round: 314
+expInG:	34602.9
+mulInG:	60.0
+Pollard's Lamda:	40362.2
+Test round: 315
+expInG:	35375.4
+mulInG:	67.1
+Pollard's Lamda:	40443.8
+Test round: 316
+expInG:	38429.6
+mulInG:	62.5
+Pollard's Lamda:	39300.0
+Test round: 317
+expInG:	34257.0
+mulInG:	59.3
+Pollard's Lamda:	39969.4
+Test round: 318
+expInG:	35276.3
+mulInG:	60.6
+Pollard's Lamda:	39006.8
+Test round: 319
+expInG:	34749.4
+mulInG:	61.0
+Pollard's Lamda:	41261.2
+Test round: 320
+expInG:	34572.9
+mulInG:	59.1
+Pollard's Lamda:	40233.2
+Test round: 321
+expInG:	35066.3
+mulInG:	62.1
+Pollard's Lamda:	40108.2
+Test round: 322
+expInG:	35098.1
+mulInG:	102.5
+Pollard's Lamda:	40759.7
+Test round: 323
+expInG:	35025.0
+mulInG:	58.6
+Pollard's Lamda:	43501.2
+Test round: 324
+expInG:	35014.2
+mulInG:	60.5
+Pollard's Lamda:	39523.9
+Test round: 325
+expInG:	34615.5
+mulInG:	58.3
+Pollard's Lamda:	39552.3
+Test round: 326
+expInG:	34516.0
+mulInG:	59.3
+Pollard's Lamda:	40693.9
+Test round: 327
+expInG:	36330.3
+mulInG:	61.4
+Pollard's Lamda:	43137.3
+Test round: 328
+expInG:	34892.6
+mulInG:	60.4
+Pollard's Lamda:	40198.1
+Test round: 329
+expInG:	35846.6
+mulInG:	66.2
+Pollard's Lamda:	42985.5
+Test round: 330
+expInG:	35098.0
+mulInG:	60.9
+Pollard's Lamda:	40325.5
+Test round: 331
+expInG:	34517.4
+mulInG:	58.9
+Pollard's Lamda:	40174.6
+Test round: 332
+expInG:	34469.5
+mulInG:	58.5
+Pollard's Lamda:	45321.9
+Test round: 333
+expInG:	40768.4
+mulInG:	61.5
+Pollard's Lamda:	41483.8
+Test round: 334
+expInG:	36114.0
+mulInG:	60.8
+Pollard's Lamda:	40380.2
+Test round: 335
+expInG:	40107.2
+mulInG:	62.9
+Pollard's Lamda:	40878.2
+Test round: 336
+expInG:	35513.4
+mulInG:	58.8
+Pollard's Lamda:	45366.8
+Test round: 337
+expInG:	41633.6
+mulInG:	60.9
+Pollard's Lamda:	41816.3
+Test round: 338
+expInG:	35013.0
+mulInG:	60.5
+Pollard's Lamda:	40224.0
+Test round: 339
+expInG:	35937.4
+mulInG:	74.8
+Pollard's Lamda:	42755.0
+Test round: 340
+expInG:	35604.1
+mulInG:	63.5
+Pollard's Lamda:	40279.0
+Test round: 341
+expInG:	34885.6
+mulInG:	94.8
+Pollard's Lamda:	40861.2
+Test round: 342
+expInG:	36036.8
+mulInG:	75.4
+Pollard's Lamda:	39621.8
+Test round: 343
+expInG:	34559.9
+mulInG:	60.2
+Pollard's Lamda:	39338.0
+Test round: 344
+expInG:	34440.3
+mulInG:	86.4
+Pollard's Lamda:	40164.8
+Test round: 345
+expInG:	35623.6
+mulInG:	60.5
+Pollard's Lamda:	39778.9
+Test round: 346
+expInG:	34994.0
+mulInG:	66.0
+Pollard's Lamda:	39794.2
+Test round: 347
+expInG:	34381.8
+mulInG:	61.3
+Pollard's Lamda:	39799.6
+Test round: 348
+expInG:	34915.7
+mulInG:	62.6
+Pollard's Lamda:	39302.2
+Test round: 349
+expInG:	35265.2
+mulInG:	61.1
+Pollard's Lamda:	39498.5
+Test round: 350
+expInG:	35623.8
+mulInG:	61.0
+Pollard's Lamda:	39504.3
+Test round: 351
+expInG:	36060.2
+mulInG:	60.7
+Pollard's Lamda:	39741.7
+Test round: 352
+expInG:	35346.6
+mulInG:	59.8
+Pollard's Lamda:	39345.1
+Test round: 353
+expInG:	35838.7
+mulInG:	59.3
+Pollard's Lamda:	41009.2
+Test round: 354
+expInG:	35678.6
+mulInG:	61.8
+Pollard's Lamda:	40592.1
+Test round: 355
+expInG:	35030.4
+mulInG:	68.1
+Pollard's Lamda:	39246.8
+Test round: 356
+expInG:	35614.4
+mulInG:	63.2
+Pollard's Lamda:	40073.7
+Test round: 357
+expInG:	35775.6
+mulInG:	64.7
+Pollard's Lamda:	38908.7
+Test round: 358
+expInG:	35707.9
+mulInG:	59.3
+Pollard's Lamda:	39173.6
+Test round: 359
+expInG:	35553.1
+mulInG:	60.6
+Pollard's Lamda:	41718.1
+Test round: 360
+expInG:	36447.2
+mulInG:	63.5
+Pollard's Lamda:	40376.5
+Test round: 361
+expInG:	35493.9
+mulInG:	61.1
+Pollard's Lamda:	40585.1
+Test round: 362
+expInG:	35453.4
+mulInG:	60.1
+Pollard's Lamda:	41260.9
+Test round: 363
+expInG:	35157.1
+mulInG:	60.9
+Pollard's Lamda:	39486.4
+Test round: 364
+expInG:	34674.5
+mulInG:	66.4
+Pollard's Lamda:	39021.3
+Test round: 365
+expInG:	34788.9
+mulInG:	60.8
+Pollard's Lamda:	39687.3
+Test round: 366
+expInG:	35255.4
+mulInG:	62.4
+Pollard's Lamda:	39413.2
+Test round: 367
+expInG:	35126.5
+mulInG:	57.8
+Pollard's Lamda:	39888.8
+Test round: 368
+expInG:	34905.6
+mulInG:	57.6
+Pollard's Lamda:	39641.5
+Test round: 369
+expInG:	34604.3
+mulInG:	60.1
+Pollard's Lamda:	44753.1
+Test round: 370
+expInG:	34764.1
+mulInG:	59.6
+Pollard's Lamda:	39745.2
+Test round: 371
+expInG:	34361.2
+mulInG:	62.6
+Pollard's Lamda:	39056.2
+Test round: 372
+expInG:	39265.0
+mulInG:	86.1
+Pollard's Lamda:	40292.3
+Test round: 373
+expInG:	35323.3
+mulInG:	66.5
+Pollard's Lamda:	39780.9
+Test round: 374
+expInG:	38766.0
+mulInG:	60.2
+Pollard's Lamda:	41009.8
+Test round: 375
+expInG:	35041.7
+mulInG:	59.4
+Pollard's Lamda:	39596.1
+Test round: 376
+expInG:	34456.3
+mulInG:	57.8
+Pollard's Lamda:	40650.2
+Test round: 377
+expInG:	35671.5
+mulInG:	64.9
+Pollard's Lamda:	40281.4
+Test round: 378
+expInG:	35239.4
+mulInG:	60.2
+Pollard's Lamda:	40023.8
+Test round: 379
+expInG:	35502.8
+mulInG:	65.3
+Pollard's Lamda:	39211.1
+Test round: 380
+expInG:	34664.1
+mulInG:	60.7
+Pollard's Lamda:	39569.7
+Test round: 381
+expInG:	35075.0
+mulInG:	59.4
+Pollard's Lamda:	40079.9
+Test round: 382
+expInG:	34975.8
+mulInG:	61.3
+Pollard's Lamda:	39210.3
+Test round: 383
+expInG:	35441.3
+mulInG:	58.8
+Pollard's Lamda:	39692.9
+Test round: 384
+expInG:	35004.3
+mulInG:	60.4
+Pollard's Lamda:	40142.4
+Test round: 385
+expInG:	34982.5
+mulInG:	60.9
+Pollard's Lamda:	40256.4
+Test round: 386
+expInG:	36401.6
+mulInG:	65.1
+Pollard's Lamda:	40794.5
+Test round: 387
+expInG:	35825.2
+mulInG:	60.3
+Pollard's Lamda:	39520.9
+Test round: 388
+expInG:	34622.4
+mulInG:	60.6
+Pollard's Lamda:	40119.7
+Test round: 389
+expInG:	42626.8
+mulInG:	105.4
+Pollard's Lamda:	40059.5
+Test round: 390
+expInG:	34731.9
+mulInG:	71.2
+Pollard's Lamda:	39696.9
+Test round: 391
+expInG:	35160.9
+mulInG:	59.6
+Pollard's Lamda:	40470.7
+Test round: 392
+expInG:	34886.0
+mulInG:	80.3
+Pollard's Lamda:	40077.6
+Test round: 393
+expInG:	34788.9
+mulInG:	59.1
+Pollard's Lamda:	40384.9
+Test round: 394
+expInG:	34419.8
+mulInG:	63.8
+Pollard's Lamda:	40154.8
+Test round: 395
+expInG:	34813.0
+mulInG:	63.0
+Pollard's Lamda:	40500.4
+Test round: 396
+expInG:	34926.3
+mulInG:	59.1
+Pollard's Lamda:	40439.0
+Test round: 397
+expInG:	34698.7
+mulInG:	61.3
+Pollard's Lamda:	40250.3
+Test round: 398
+expInG:	34790.9
+mulInG:	70.7
+Pollard's Lamda:	40805.0
+Test round: 399
+expInG:	35512.5
+mulInG:	60.7
+Pollard's Lamda:	39575.0
+Test round: 400
+expInG:	34647.5
+mulInG:	61.4
+Pollard's Lamda:	40029.9
+Test round: 401
+expInG:	35170.8
+mulInG:	60.7
+Pollard's Lamda:	40182.7
+Test round: 402
+expInG:	35251.2
+mulInG:	60.4
+Pollard's Lamda:	39247.5
+Test round: 403
+expInG:	34568.9
+mulInG:	62.4
+Pollard's Lamda:	39330.1
+Test round: 404
+expInG:	35802.9
+mulInG:	61.5
+Pollard's Lamda:	39723.2
+Test round: 405
+expInG:	34793.1
+mulInG:	67.6
+Pollard's Lamda:	39164.3
+Test round: 406
+expInG:	34672.6
+mulInG:	60.5
+Pollard's Lamda:	41009.1
+Test round: 407
+expInG:	34842.2
+mulInG:	59.1
+Pollard's Lamda:	39562.1
+Test round: 408
+expInG:	34984.7
+mulInG:	60.7
+Pollard's Lamda:	40581.3
+Test round: 409
+expInG:	36570.8
+mulInG:	65.4
+Pollard's Lamda:	42580.6
+Test round: 410
+expInG:	37291.8
+mulInG:	57.5
+Pollard's Lamda:	39744.5
+Test round: 411
+expInG:	35574.9
+mulInG:	60.7
+Pollard's Lamda:	40249.0
+Test round: 412
+expInG:	35694.4
+mulInG:	58.6
+Pollard's Lamda:	39695.7
+Test round: 413
+expInG:	35552.0
+mulInG:	76.8
+Pollard's Lamda:	40349.7
+Test round: 414
+expInG:	36602.2
+mulInG:	57.2
+Pollard's Lamda:	40868.9
+Test round: 415
+expInG:	35673.3
+mulInG:	62.4
+Pollard's Lamda:	39709.3
+Test round: 416
+expInG:	36062.2
+mulInG:	59.1
+Pollard's Lamda:	39284.0
+Test round: 417
+expInG:	35248.5
 mulInG:	58.4
+Pollard's Lamda:	39798.9
+Test round: 418
+expInG:	35257.8
+mulInG:	59.3
+Pollard's Lamda:	40084.1
+Test round: 419
+expInG:	35253.6
+mulInG:	60.8
+Pollard's Lamda:	39445.6
+Test round: 420
+expInG:	35500.7
+mulInG:	58.8
+Pollard's Lamda:	39923.6
+Test round: 421
+expInG:	35402.1
+mulInG:	61.2
+Pollard's Lamda:	39275.3
+Test round: 422
+expInG:	34771.9
+mulInG:	61.5
+Pollard's Lamda:	40273.2
+Test round: 423
+expInG:	34803.2
+mulInG:	57.1
+Pollard's Lamda:	39335.4
+Test round: 424
+expInG:	34973.4
+mulInG:	60.2
+Pollard's Lamda:	41522.0
+Test round: 425
+expInG:	35152.0
+mulInG:	59.4
+Pollard's Lamda:	41424.8
+Test round: 426
+expInG:	45715.8
+mulInG:	76.0
+Pollard's Lamda:	41440.1
+Test round: 427
+expInG:	35479.6
+mulInG:	61.4
+Pollard's Lamda:	39948.6
+Test round: 428
+expInG:	35147.5
+mulInG:	60.2
+Pollard's Lamda:	39624.5
+Test round: 429
+expInG:	34725.5
+mulInG:	79.7
+Pollard's Lamda:	39874.7
+Test round: 430
+expInG:	34687.2
+mulInG:	60.4
+Pollard's Lamda:	40711.6
+Test round: 431
+expInG:	34510.7
+mulInG:	58.2
+Pollard's Lamda:	39779.0
+Test round: 432
+expInG:	34173.5
+mulInG:	58.8
+Pollard's Lamda:	40675.4
+Test round: 433
+expInG:	36349.5
+mulInG:	60.6
+Pollard's Lamda:	38960.3
+Test round: 434
+expInG:	34549.6
+mulInG:	61.8
+Pollard's Lamda:	39645.5
+Test round: 435
+expInG:	34227.0
+mulInG:	60.8
+Pollard's Lamda:	39465.8
+Test round: 436
+expInG:	35164.4
+mulInG:	60.7
+Pollard's Lamda:	42001.6
+Test round: 437
+expInG:	36916.2
+mulInG:	80.0
+Pollard's Lamda:	46970.5
+Test round: 438
+expInG:	36602.6
+mulInG:	59.3
+Pollard's Lamda:	41171.5
+Test round: 439
+expInG:	35777.2
+mulInG:	62.8
+Pollard's Lamda:	48801.8
+Test round: 440
+expInG:	34882.6
+mulInG:	59.6
+Pollard's Lamda:	39321.4
+Test round: 441
+expInG:	35530.1
+mulInG:	61.7
+Pollard's Lamda:	40686.3
+Test round: 442
+expInG:	34774.8
+mulInG:	60.3
+Pollard's Lamda:	39698.1
+Test round: 443
+expInG:	35310.7
+mulInG:	58.6
+Pollard's Lamda:	39861.5
+Test round: 444
+expInG:	35163.2
+mulInG:	59.2
+Pollard's Lamda:	39832.1
+Test round: 445
+expInG:	35040.0
+mulInG:	62.3
+Pollard's Lamda:	41752.4
+Test round: 446
+expInG:	34957.0
+mulInG:	57.1
+Pollard's Lamda:	40113.7
+Test round: 447
+expInG:	36288.1
+mulInG:	60.6
+Pollard's Lamda:	40760.7
+Test round: 448
+expInG:	36379.5
+mulInG:	60.3
+Pollard's Lamda:	40892.2
+Test round: 449
+expInG:	34986.9
+mulInG:	62.3
+Pollard's Lamda:	40662.6
+Test round: 450
+expInG:	34969.7
+mulInG:	58.6
+Pollard's Lamda:	39956.2
+Test round: 451
+expInG:	34674.8
+mulInG:	62.7
+Pollard's Lamda:	42061.9
+Test round: 452
+expInG:	36526.7
+mulInG:	61.0
+Pollard's Lamda:	40764.2
+Test round: 453
+expInG:	35950.4
+mulInG:	59.0
+Pollard's Lamda:	40052.3
+Test round: 454
+expInG:	35967.0
+mulInG:	61.3
+Pollard's Lamda:	40368.1
+Test round: 455
+expInG:	36116.4
+mulInG:	68.1
+Pollard's Lamda:	40411.6
+Test round: 456
+expInG:	34604.7
+mulInG:	58.1
+Pollard's Lamda:	39848.7
+Test round: 457
+expInG:	35186.7
+mulInG:	59.8
+Pollard's Lamda:	41929.8
+Test round: 458
+expInG:	35490.8
+mulInG:	62.0
+Pollard's Lamda:	40265.4
+Test round: 459
+expInG:	34811.5
+mulInG:	122.5
+Pollard's Lamda:	39158.6
+Test round: 460
+expInG:	34301.0
+mulInG:	77.6
+Pollard's Lamda:	40462.7
+Test round: 461
+expInG:	35307.2
+mulInG:	58.8
+Pollard's Lamda:	39400.6
+Test round: 462
+expInG:	34304.2
+mulInG:	58.0
+Pollard's Lamda:	39119.5
+Test round: 463
+expInG:	34551.2
+mulInG:	60.7
+Pollard's Lamda:	39297.3
+Test round: 464
+expInG:	35350.9
+mulInG:	108.0
+Pollard's Lamda:	40444.3
+Test round: 465
+expInG:	35284.7
+mulInG:	60.3
+Pollard's Lamda:	40374.7
+Test round: 466
+expInG:	35367.7
+mulInG:	59.4
+Pollard's Lamda:	39607.3
+Test round: 467
+expInG:	37306.7
+mulInG:	61.8
+Pollard's Lamda:	40279.8
+Test round: 468
+expInG:	34463.7
+mulInG:	59.9
+Pollard's Lamda:	41228.2
+Test round: 469
+expInG:	35438.1
+mulInG:	59.7
+Pollard's Lamda:	40351.3
+Test round: 470
+expInG:	35720.4
+mulInG:	61.7
+Pollard's Lamda:	41403.4
+Test round: 471
+expInG:	36226.4
+mulInG:	60.7
+Pollard's Lamda:	41482.5
+Test round: 472
+expInG:	36457.4
+mulInG:	62.5
+Pollard's Lamda:	39408.1
+Test round: 473
+expInG:	34993.8
+mulInG:	59.0
+Pollard's Lamda:	40139.1
+Test round: 474
+expInG:	35943.1
+mulInG:	60.0
+Pollard's Lamda:	39630.0
+Test round: 475
+expInG:	35433.5
+mulInG:	63.2
+Pollard's Lamda:	39947.9
+Test round: 476
+expInG:	35790.3
+mulInG:	61.8
+Pollard's Lamda:	39551.5
+Test round: 477
+expInG:	35596.8
+mulInG:	57.5
+Pollard's Lamda:	39710.7
+Test round: 478
+expInG:	35156.2
+mulInG:	59.1
+Pollard's Lamda:	39994.3
+Test round: 479
+expInG:	35467.5
+mulInG:	59.0
+Pollard's Lamda:	38968.7
+Test round: 480
+expInG:	35003.7
+mulInG:	59.7
+Pollard's Lamda:	39262.5
+Test round: 481
+expInG:	34932.5
+mulInG:	57.4
+Pollard's Lamda:	40565.7
+Test round: 482
+expInG:	36458.6
+mulInG:	57.5
+Pollard's Lamda:	40791.1
+Test round: 483
+expInG:	34548.2
+mulInG:	59.1
+Pollard's Lamda:	39017.7
+Test round: 484
+expInG:	34261.5
+mulInG:	59.1
+Pollard's Lamda:	47185.0
+Test round: 485
+expInG:	36680.1
+mulInG:	66.4
+Pollard's Lamda:	40077.6
+Test round: 486
+expInG:	35157.3
+mulInG:	62.0
+Pollard's Lamda:	40844.1
+Test round: 487
+expInG:	34389.5
+mulInG:	58.4
+Pollard's Lamda:	39467.3
+Test round: 488
+expInG:	35742.6
+mulInG:	60.9
+Pollard's Lamda:	39528.2
+Test round: 489
+expInG:	34670.6
+mulInG:	85.7
+Pollard's Lamda:	39694.4
+Test round: 490
+expInG:	34606.6
+mulInG:	61.1
+Pollard's Lamda:	39299.7
+Test round: 491
+expInG:	34912.0
+mulInG:	65.4
+Pollard's Lamda:	38891.8
+Test round: 492
+expInG:	35429.7
+mulInG:	60.0
+Pollard's Lamda:	39757.7
+Test round: 493
+expInG:	34768.3
+mulInG:	61.3
+Pollard's Lamda:	41675.3
+Test round: 494
+expInG:	35521.1
+mulInG:	59.0
+Pollard's Lamda:	39578.5
+Test round: 495
+expInG:	34444.8
+mulInG:	65.6
+Pollard's Lamda:	39372.1
+Test round: 496
+expInG:	36309.8
+mulInG:	62.7
+Pollard's Lamda:	39474.5
+Test round: 497
+expInG:	34629.0
+mulInG:	60.0
+Pollard's Lamda:	39438.7
+Test round: 498
+expInG:	37258.1
+mulInG:	108.8
+Pollard's Lamda:	39713.2
+Test round: 499
+expInG:	35133.1
+mulInG:	58.8
+Pollard's Lamda:	39727.1
+Test round: 500
+expInG:	34775.9
+mulInG:	59.7
+Pollard's Lamda:	39389.0
+Test round: 501
+expInG:	35272.2
+mulInG:	83.6
+Pollard's Lamda:	42139.0
+Test round: 502
+expInG:	35883.7
+mulInG:	59.7
+Pollard's Lamda:	39455.8
+Test round: 503
+expInG:	34747.9
+mulInG:	61.2
+Pollard's Lamda:	42825.9
+Test round: 504
+expInG:	36507.2
+mulInG:	61.2
+Pollard's Lamda:	39740.2
+Test round: 505
+expInG:	35263.9
+mulInG:	62.4
+Pollard's Lamda:	40408.1
+Test round: 506
+expInG:	35102.2
+mulInG:	61.1
+Pollard's Lamda:	40538.6
+Test round: 507
+expInG:	34780.9
+mulInG:	58.3
+Pollard's Lamda:	40433.0
+Test round: 508
+expInG:	35707.0
+mulInG:	65.0
+Pollard's Lamda:	40604.4
+Test round: 509
+expInG:	35189.5
+mulInG:	61.1
+Pollard's Lamda:	40932.0
+Test round: 510
+expInG:	34943.5
+mulInG:	59.4
+Pollard's Lamda:	41111.5
+Test round: 511
+expInG:	34849.8
+mulInG:	75.4
+Pollard's Lamda:	40684.7
+Test round: 512
+expInG:	35697.6
+mulInG:	62.8
+Pollard's Lamda:	41477.3
+Test round: 513
+expInG:	40013.5
+mulInG:	63.4
+Pollard's Lamda:	45019.4
+Test round: 514
+expInG:	36640.0
+mulInG:	62.2
+Pollard's Lamda:	41889.2
+Test round: 515
+expInG:	36381.8
+mulInG:	63.5
+Pollard's Lamda:	40156.6
+Test round: 516
+expInG:	37072.3
+mulInG:	59.6
+Pollard's Lamda:	40627.5
+Test round: 517
+expInG:	35359.3
+mulInG:	62.5
+Pollard's Lamda:	41339.5
+Test round: 518
+expInG:	37684.2
+mulInG:	60.3
+Pollard's Lamda:	40107.5
+Test round: 519
+expInG:	34782.6
+mulInG:	57.4
+Pollard's Lamda:	39496.2
+Test round: 520
+expInG:	34877.5
+mulInG:	60.2
+Pollard's Lamda:	44872.8
+Test round: 521
+expInG:	35720.7
+mulInG:	70.6
+Pollard's Lamda:	40538.4
+Test round: 522
+expInG:	36035.3
+mulInG:	59.1
+Pollard's Lamda:	43153.3
+Test round: 523
+expInG:	36783.3
+mulInG:	58.7
+Pollard's Lamda:	39908.3
+Test round: 524
+expInG:	35144.2
+mulInG:	60.4
+Pollard's Lamda:	39226.4
+Test round: 525
+expInG:	36009.7
+mulInG:	60.8
+Pollard's Lamda:	40060.6
+Test round: 526
+expInG:	35342.5
+mulInG:	60.4
+Pollard's Lamda:	38957.5
+Test round: 527
+expInG:	34897.5
+mulInG:	60.0
+Pollard's Lamda:	39903.2
+Test round: 528
+expInG:	34928.9
+mulInG:	61.1
+Pollard's Lamda:	40247.7
+Test round: 529
+expInG:	35891.0
+mulInG:	60.9
+Pollard's Lamda:	40090.7
+Test round: 530
+expInG:	35812.1
+mulInG:	62.9
+Pollard's Lamda:	39490.4
+Test round: 531
+expInG:	35210.9
+mulInG:	60.8
+Pollard's Lamda:	40697.1
+Test round: 532
+expInG:	36419.8
+mulInG:	59.9
+Pollard's Lamda:	39605.6
+Test round: 533
+expInG:	35441.8
+mulInG:	60.3
+Pollard's Lamda:	39398.0
+Test round: 534
+expInG:	35350.2
+mulInG:	60.8
+Pollard's Lamda:	39696.1
+Test round: 535
+expInG:	35878.5
+mulInG:	58.4
+Pollard's Lamda:	41731.4
+Test round: 536
+expInG:	35914.6
+mulInG:	60.0
+Pollard's Lamda:	39110.6
+Test round: 537
+expInG:	35373.2
+mulInG:	60.9
+Pollard's Lamda:	39393.2
+Test round: 538
+expInG:	35076.7
+mulInG:	61.7
+Pollard's Lamda:	40019.8
+Test round: 539
+expInG:	36062.8
+mulInG:	58.0
+Pollard's Lamda:	39311.1
+Test round: 540
+expInG:	34913.7
+mulInG:	58.9
+Pollard's Lamda:	39338.3
+Test round: 541
+expInG:	37938.3
+mulInG:	110.4
+Pollard's Lamda:	39506.2
+Test round: 542
+expInG:	35343.3
+mulInG:	61.4
+Pollard's Lamda:	39603.0
+Test round: 543
+expInG:	34833.6
+mulInG:	86.9
+Pollard's Lamda:	39547.1
+Test round: 544
+expInG:	34577.1
+mulInG:	113.6
+Pollard's Lamda:	39495.9
+Test round: 545
+expInG:	36624.1
+mulInG:	60.0
+Pollard's Lamda:	40936.3
+Test round: 546
+expInG:	34656.3
+mulInG:	61.7
+Pollard's Lamda:	39817.0
+Test round: 547
+expInG:	36605.4
+mulInG:	61.2
+Pollard's Lamda:	40199.0
+Test round: 548
+expInG:	36850.9
+mulInG:	61.6
+Pollard's Lamda:	42204.2
+Test round: 549
+expInG:	34605.7
+mulInG:	60.2
+Pollard's Lamda:	40054.5
+Test round: 550
+expInG:	34600.0
+mulInG:	59.5
+Pollard's Lamda:	39929.7
+Test round: 551
+expInG:	36444.8
+mulInG:	61.0
+Pollard's Lamda:	40319.1
+Test round: 552
+expInG:	33744.3
+mulInG:	60.2
+Pollard's Lamda:	41748.1
+Test round: 553
+expInG:	35106.0
+mulInG:	59.9
+Pollard's Lamda:	40691.3
+Test round: 554
+expInG:	35770.5
+mulInG:	63.3
+Pollard's Lamda:	40472.0
+Test round: 555
+expInG:	34730.5
+mulInG:	69.1
+Pollard's Lamda:	40484.7
+Test round: 556
+expInG:	34940.0
+mulInG:	59.3
+Pollard's Lamda:	40195.2
+Test round: 557
+expInG:	35390.8
+mulInG:	58.9
+Pollard's Lamda:	39590.5
+Test round: 558
+expInG:	34521.8
+mulInG:	57.8
+Pollard's Lamda:	39517.3
+Test round: 559
+expInG:	35105.1
+mulInG:	59.2
+Pollard's Lamda:	40424.5
+Test round: 560
+expInG:	35777.0
+mulInG:	60.7
+Pollard's Lamda:	39389.6
+Test round: 561
+expInG:	34537.2
+mulInG:	61.4
+Pollard's Lamda:	39516.5
+Test round: 562
+expInG:	34604.5
+mulInG:	59.1
+Pollard's Lamda:	39219.9
+Test round: 563
+expInG:	34780.6
+mulInG:	58.3
+Pollard's Lamda:	40318.0
+Test round: 564
+expInG:	35957.6
+mulInG:	61.9
+Pollard's Lamda:	40588.2
+Test round: 565
+expInG:	34499.7
+mulInG:	56.8
+Pollard's Lamda:	39855.2
+Test round: 566
+expInG:	34904.4
+mulInG:	75.8
+Pollard's Lamda:	41749.4
+Test round: 567
+expInG:	35911.7
+mulInG:	62.1
+Pollard's Lamda:	41025.1
+Test round: 568
+expInG:	34535.9
+mulInG:	60.3
+Pollard's Lamda:	40209.3
+Test round: 569
+expInG:	35927.1
+mulInG:	60.6
+Pollard's Lamda:	42223.6
+Test round: 570
+expInG:	35322.5
+mulInG:	67.9
+Pollard's Lamda:	41826.0
+Test round: 571
+expInG:	35780.7
+mulInG:	60.0
+Pollard's Lamda:	40483.3
+Test round: 572
+expInG:	35473.7
+mulInG:	59.5
+Pollard's Lamda:	40930.4
+Test round: 573
+expInG:	35236.3
+mulInG:	59.8
+Pollard's Lamda:	47337.3
+Test round: 574
+expInG:	35289.4
+mulInG:	59.6
+Pollard's Lamda:	40452.1
+Test round: 575
+expInG:	34834.9
+mulInG:	62.1
+Pollard's Lamda:	39905.8
+Test round: 576
+expInG:	34838.6
+mulInG:	59.4
+Pollard's Lamda:	40465.7
+Test round: 577
+expInG:	34205.7
+mulInG:	58.4
+Pollard's Lamda:	40450.7
+Test round: 578
+expInG:	35807.7
+mulInG:	59.7
+Pollard's Lamda:	39998.9
+Test round: 579
+expInG:	35110.9
+mulInG:	60.3
+Pollard's Lamda:	39937.5
+Test round: 580
+expInG:	35482.1
+mulInG:	61.5
+Pollard's Lamda:	39418.0
+Test round: 581
+expInG:	35235.7
+mulInG:	62.6
+Pollard's Lamda:	39799.1
+Test round: 582
+expInG:	35719.5
+mulInG:	74.2
+Pollard's Lamda:	38670.3
+Test round: 583
+expInG:	34752.5
+mulInG:	58.4
+Pollard's Lamda:	39523.3
+Test round: 584
+expInG:	38527.0
+mulInG:	60.3
+Pollard's Lamda:	39445.0
+Test round: 585
+expInG:	34907.5
+mulInG:	61.3
+Pollard's Lamda:	41501.2
+Test round: 586
+expInG:	35202.5
+mulInG:	68.5
+Pollard's Lamda:	41401.3
+Test round: 587
+expInG:	37056.7
+mulInG:	59.2
+Pollard's Lamda:	40841.0
+Test round: 588
+expInG:	36630.0
+mulInG:	58.2
+Pollard's Lamda:	39502.5
+Test round: 589
+expInG:	35193.2
+mulInG:	60.3
+Pollard's Lamda:	40555.4
+Test round: 590
+expInG:	35634.7
+mulInG:	62.1
+Pollard's Lamda:	40477.6
+Test round: 591
+expInG:	35148.9
+mulInG:	62.6
+Pollard's Lamda:	39643.0
+Test round: 592
+expInG:	35095.9
+mulInG:	61.8
+Pollard's Lamda:	39498.4
+Test round: 593
+expInG:	35371.0
+mulInG:	60.4
+Pollard's Lamda:	41742.7
+Test round: 594
+expInG:	35691.0
+mulInG:	61.1
+Pollard's Lamda:	39293.5
+Test round: 595
+expInG:	38408.3
+mulInG:	59.2
+Pollard's Lamda:	45017.1
+Test round: 596
+expInG:	35181.1
+mulInG:	61.3
+Pollard's Lamda:	40315.7
+Test round: 597
+expInG:	39804.5
+mulInG:	57.3
+Pollard's Lamda:	41132.2
+Test round: 598
+expInG:	34892.7
+mulInG:	84.6
+Pollard's Lamda:	40124.9
+Test round: 599
+expInG:	44838.1
+mulInG:	71.8
+Pollard's Lamda:	41527.8
+Test round: 600
+expInG:	35440.3
+mulInG:	71.4
+Pollard's Lamda:	39652.4
+Test round: 601
+expInG:	38016.8
+mulInG:	61.1
+Pollard's Lamda:	41385.8
+Test round: 602
+expInG:	38017.7
+mulInG:	61.8
+Pollard's Lamda:	42053.9
+Test round: 603
+expInG:	37561.9
+mulInG:	67.8
+Pollard's Lamda:	41435.7
+Test round: 604
+expInG:	35620.9
+mulInG:	61.1
+Pollard's Lamda:	40878.1
+Test round: 605
+expInG:	35146.1
+mulInG:	59.9
+Pollard's Lamda:	40996.0
+Test round: 606
+expInG:	35934.4
+mulInG:	60.7
+Pollard's Lamda:	39848.5
+Test round: 607
+expInG:	35061.2
+mulInG:	60.7
+Pollard's Lamda:	40081.1
+Test round: 608
+expInG:	36908.0
+mulInG:	64.2
+Pollard's Lamda:	42476.1
+Test round: 609
+expInG:	43326.3
+mulInG:	70.2
+Pollard's Lamda:	44731.6
+Test round: 610
+expInG:	36436.4
+mulInG:	61.0
+Pollard's Lamda:	42606.5
+Test round: 611
+expInG:	36627.6
+mulInG:	59.1
+Pollard's Lamda:	40499.5
+Test round: 612
+expInG:	36474.7
+mulInG:	60.6
+Pollard's Lamda:	40824.7
+Test round: 613
+expInG:	35178.3
+mulInG:	61.1
+Pollard's Lamda:	40394.4
+Test round: 614
+expInG:	36107.5
+mulInG:	62.5
+Pollard's Lamda:	40825.0
+Test round: 615
+expInG:	36433.4
+mulInG:	63.6
+Pollard's Lamda:	40687.1
+Test round: 616
+expInG:	35821.3
+mulInG:	78.8
+Pollard's Lamda:	41397.7
+Test round: 617
+expInG:	35882.5
+mulInG:	63.0
+Pollard's Lamda:	40478.5
+Test round: 618
+expInG:	37012.2
+mulInG:	94.5
+Pollard's Lamda:	41073.3
+Test round: 619
+expInG:	35726.6
+mulInG:	62.4
+Pollard's Lamda:	40474.4
+Test round: 620
+expInG:	35405.5
+mulInG:	61.2
+Pollard's Lamda:	40767.3
+Test round: 621
+expInG:	36322.3
+mulInG:	62.5
+Pollard's Lamda:	41048.7
+Test round: 622
+expInG:	35627.5
+mulInG:	59.4
+Pollard's Lamda:	41143.7
+Test round: 623
+expInG:	35369.6
+mulInG:	62.7
+Pollard's Lamda:	40747.7
+Test round: 624
+expInG:	36145.7
+mulInG:	61.1
+Pollard's Lamda:	41901.9
+Test round: 625
+expInG:	35455.3
+mulInG:	59.3
+Pollard's Lamda:	41624.0
+Test round: 626
+expInG:	38035.9
+mulInG:	63.1
+Pollard's Lamda:	41902.3
+Test round: 627
+expInG:	36396.8
+mulInG:	61.3
+Pollard's Lamda:	42343.6
+Test round: 628
+expInG:	36002.4
+mulInG:	60.6
+Pollard's Lamda:	40857.8
+Test round: 629
+expInG:	36574.1
+mulInG:	59.8
+Pollard's Lamda:	41913.4
+Test round: 630
+expInG:	35954.0
+mulInG:	61.9
+Pollard's Lamda:	40982.1
+Test round: 631
+expInG:	36303.6
+mulInG:	59.7
+Pollard's Lamda:	40835.2
+Test round: 632
+expInG:	35928.0
+mulInG:	64.3
+Pollard's Lamda:	40979.4
+Test round: 633
+expInG:	35887.5
+mulInG:	62.3
+Pollard's Lamda:	42710.3
+Test round: 634
+expInG:	35731.5
+mulInG:	64.1
+Pollard's Lamda:	41258.6
+Test round: 635
+expInG:	37157.4
+mulInG:	63.8
+Pollard's Lamda:	41795.4
+Test round: 636
+expInG:	35820.9
+mulInG:	58.8
+Pollard's Lamda:	40848.4
+Test round: 637
+expInG:	35858.0
+mulInG:	66.0
+Pollard's Lamda:	41524.5
+Test round: 638
+expInG:	36064.4
+mulInG:	62.5
+Pollard's Lamda:	41045.9
+Test round: 639
+expInG:	35685.5
+mulInG:	60.1
+Pollard's Lamda:	40352.6
+Test round: 640
+expInG:	35049.9
+mulInG:	61.3
+Pollard's Lamda:	43606.1
+Test round: 641
+expInG:	35629.5
+mulInG:	62.6
+Pollard's Lamda:	40665.1
+Test round: 642
+expInG:	36131.4
+mulInG:	63.6
+Pollard's Lamda:	40975.8
+Test round: 643
+expInG:	36788.3
+mulInG:	61.2
+Pollard's Lamda:	41066.4
+Test round: 644
+expInG:	35511.4
+mulInG:	62.2
+Pollard's Lamda:	40090.5
+Test round: 645
+expInG:	36002.5
+mulInG:	63.0
+Pollard's Lamda:	41411.6
+Test round: 646
+expInG:	36111.0
+mulInG:	65.3
+Pollard's Lamda:	40428.2
+Test round: 647
+expInG:	36238.1
+mulInG:	62.1
+Pollard's Lamda:	42025.3
+Test round: 648
+expInG:	36607.2
+mulInG:	60.7
+Pollard's Lamda:	40274.3
+Test round: 649
+expInG:	35839.5
+mulInG:	62.3
+Pollard's Lamda:	39432.5
+Test round: 650
+expInG:	36801.3
+mulInG:	62.6
+Pollard's Lamda:	41222.0
+Test round: 651
+expInG:	36028.4
+mulInG:	62.9
+Pollard's Lamda:	40931.4
+Test round: 652
+expInG:	37445.8
+mulInG:	63.4
+Pollard's Lamda:	40530.9
+Test round: 653
+expInG:	36083.6
+mulInG:	60.5
+Pollard's Lamda:	40320.1
+Test round: 654
+expInG:	35622.4
+mulInG:	61.6
+Pollard's Lamda:	39938.8
+Test round: 655
+expInG:	42683.9
+mulInG:	60.2
+Pollard's Lamda:	42968.2
+Test round: 656
+expInG:	35808.9
+mulInG:	61.8
+Pollard's Lamda:	40973.2
+Test round: 657
+expInG:	38162.5
+mulInG:	62.6
+Pollard's Lamda:	42084.0
+Test round: 658
+expInG:	37101.5
+mulInG:	60.1
+Pollard's Lamda:	41515.7
+Test round: 659
+expInG:	35590.2
+mulInG:	65.3
+Pollard's Lamda:	40137.4
+Test round: 660
+expInG:	35762.1
+mulInG:	80.3
+Pollard's Lamda:	41138.7
+Test round: 661
+expInG:	35724.1
+mulInG:	70.2
+Pollard's Lamda:	40874.5
+Test round: 662
+expInG:	36605.1
+mulInG:	69.0
+Pollard's Lamda:	40520.6
+Test round: 663
+expInG:	36274.9
+mulInG:	62.3
+Pollard's Lamda:	40121.2
+Test round: 664
+expInG:	35880.7
+mulInG:	60.0
+Pollard's Lamda:	41264.6
+Test round: 665
+expInG:	35883.3
+mulInG:	60.4
+Pollard's Lamda:	40115.0
+Test round: 666
+expInG:	35438.6
+mulInG:	62.7
+Pollard's Lamda:	42346.8
+Test round: 667
+expInG:	35784.1
+mulInG:	66.9
+Pollard's Lamda:	40864.6
+Test round: 668
+expInG:	35713.6
+mulInG:	61.4
+Pollard's Lamda:	41574.1
+Test round: 669
+expInG:	36058.6
+mulInG:	58.3
+Pollard's Lamda:	39803.0
+Test round: 670
+expInG:	35463.9
+mulInG:	63.9
+Pollard's Lamda:	41773.4
+Test round: 671
+expInG:	36558.8
+mulInG:	59.7
+Pollard's Lamda:	40555.8
+Test round: 672
+expInG:	35974.1
+mulInG:	59.1
+Pollard's Lamda:	44770.8
+Test round: 673
+expInG:	36422.2
+mulInG:	60.9
+Pollard's Lamda:	41862.5
+Test round: 674
+expInG:	36071.2
+mulInG:	66.7
+Pollard's Lamda:	41047.2
+Test round: 675
+expInG:	35251.8
+mulInG:	61.5
+Pollard's Lamda:	41393.2
+Test round: 676
+expInG:	35846.2
+mulInG:	70.0
+Pollard's Lamda:	41204.5
+Test round: 677
+expInG:	35670.3
+mulInG:	60.6
+Pollard's Lamda:	40551.6
+Test round: 678
+expInG:	35870.1
+mulInG:	60.3
+Pollard's Lamda:	40270.7
+Test round: 679
+expInG:	35320.2
+mulInG:	60.6
+Pollard's Lamda:	40771.4
+Test round: 680
+expInG:	36319.4
+mulInG:	59.1
+Pollard's Lamda:	41695.6
+Test round: 681
+expInG:	36337.9
+mulInG:	63.2
+Pollard's Lamda:	41879.2
+Test round: 682
+expInG:	36197.0
+mulInG:	63.6
+Pollard's Lamda:	41508.8
+Test round: 683
+expInG:	39124.4
+mulInG:	63.5
+Pollard's Lamda:	42269.0
+Test round: 684
+expInG:	36471.4
+mulInG:	63.0
+Pollard's Lamda:	42363.8
+Test round: 685
+expInG:	36010.7
+mulInG:	64.1
+Pollard's Lamda:	41335.9
+Test round: 686
+expInG:	35594.4
+mulInG:	65.9
+Pollard's Lamda:	41720.4
+Test round: 687
+expInG:	35678.6
+mulInG:	58.9
+Pollard's Lamda:	41014.6
+Test round: 688
+expInG:	35295.6
+mulInG:	62.3
+Pollard's Lamda:	40867.4
+Test round: 689
+expInG:	36126.5
+mulInG:	62.0
+Pollard's Lamda:	40866.6
+Test round: 690
+expInG:	35180.5
+mulInG:	61.9
+Pollard's Lamda:	44338.7
+Test round: 691
+expInG:	37206.1
+mulInG:	65.3
+Pollard's Lamda:	42924.7
+Test round: 692
+expInG:	36766.4
+mulInG:	61.1
+Pollard's Lamda:	41435.5
+Test round: 693
+expInG:	35155.5
+mulInG:	62.0
+Pollard's Lamda:	42899.0
+Test round: 694
+expInG:	35499.8
+mulInG:	60.9
+Pollard's Lamda:	41438.7
+Test round: 695
+expInG:	35253.1
+mulInG:	61.8
+Pollard's Lamda:	39923.4
+Test round: 696
+expInG:	35215.4
+mulInG:	60.7
+Pollard's Lamda:	39931.7
+Test round: 697
+expInG:	35927.4
+mulInG:	64.0
+Pollard's Lamda:	40448.9
+Test round: 698
+expInG:	35044.5
+mulInG:	60.1
+Pollard's Lamda:	40190.9
+Test round: 699
+expInG:	35106.2
+mulInG:	61.0
+Pollard's Lamda:	40291.2
+Test round: 700
+expInG:	35405.2
+mulInG:	64.4
+Pollard's Lamda:	40282.8
+Test round: 701
+expInG:	35231.9
+mulInG:	61.1
+Pollard's Lamda:	39843.5
+Test round: 702
+expInG:	36306.9
+mulInG:	62.1
+Pollard's Lamda:	41238.8
+Test round: 703
+expInG:	36127.6
+mulInG:	58.5
+Pollard's Lamda:	40310.0
+Test round: 704
+expInG:	36099.2
+mulInG:	67.0
+Pollard's Lamda:	40252.0
+Test round: 705
+expInG:	36598.6
+mulInG:	59.4
+Pollard's Lamda:	41505.7
+Test round: 706
+expInG:	37764.6
+mulInG:	72.5
+Pollard's Lamda:	40571.9
+Test round: 707
+expInG:	39722.5
+mulInG:	61.3
+Pollard's Lamda:	40237.6
+Test round: 708
+expInG:	36402.0
+mulInG:	62.0
+Pollard's Lamda:	41012.4
+Test round: 709
+expInG:	37783.2
+mulInG:	68.2
+Pollard's Lamda:	40365.6
+Test round: 710
+expInG:	36286.9
+mulInG:	57.7
+Pollard's Lamda:	40966.3
+Test round: 711
+expInG:	35938.5
+mulInG:	60.4
+Pollard's Lamda:	43129.4
+Test round: 712
+expInG:	36992.1
+mulInG:	63.2
+Pollard's Lamda:	40908.1
+Test round: 713
+expInG:	36204.4
+mulInG:	61.5
+Pollard's Lamda:	40657.2
+Test round: 714
+expInG:	38383.9
+mulInG:	61.3
+Pollard's Lamda:	40455.3
+Test round: 715
+expInG:	36214.5
+mulInG:	59.6
+Pollard's Lamda:	42812.8
+Test round: 716
+expInG:	35884.1
+mulInG:	64.1
+Pollard's Lamda:	41086.0
+Test round: 717
+expInG:	35857.4
+mulInG:	69.8
+Pollard's Lamda:	41230.7
+Test round: 718
+expInG:	36502.7
+mulInG:	63.0
+Pollard's Lamda:	41400.0
+Test round: 719
+expInG:	36300.4
+mulInG:	64.3
+Pollard's Lamda:	40504.3
+Test round: 720
+expInG:	35428.4
+mulInG:	73.7
+Pollard's Lamda:	41302.4
+Test round: 721
+expInG:	37351.4
+mulInG:	90.0
+Pollard's Lamda:	41409.4
+Test round: 722
+expInG:	35603.0
+mulInG:	62.9
+Pollard's Lamda:	39882.4
+Test round: 723
+expInG:	35606.6
+mulInG:	64.9
+Pollard's Lamda:	40859.5
+Test round: 724
+expInG:	35753.3
+mulInG:	64.2
+Pollard's Lamda:	42523.9
+Test round: 725
+expInG:	36051.4
+mulInG:	63.7
+Pollard's Lamda:	40574.8
+Test round: 726
+expInG:	35415.7
+mulInG:	59.9
+Pollard's Lamda:	39813.8
+Test round: 727
+expInG:	35775.7
+mulInG:	60.4
+Pollard's Lamda:	41278.8
+Test round: 728
+expInG:	35669.5
+mulInG:	61.8
+Pollard's Lamda:	40339.6
+Test round: 729
+expInG:	35430.1
+mulInG:	62.4
+Pollard's Lamda:	40858.8
+Test round: 730
+expInG:	35809.4
+mulInG:	65.1
+Pollard's Lamda:	40823.9
+Test round: 731
+expInG:	35200.7
+mulInG:	59.4
+Pollard's Lamda:	39830.9
+Test round: 732
+expInG:	35215.2
+mulInG:	59.5
+Pollard's Lamda:	41255.7
+Test round: 733
+expInG:	36572.4
+mulInG:	61.3
+Pollard's Lamda:	41969.0
+Test round: 734
+expInG:	37259.6
+mulInG:	64.5
+Pollard's Lamda:	41643.7
+Test round: 735
+expInG:	37981.1
+mulInG:	67.2
+Pollard's Lamda:	42163.0
+Test round: 736
+expInG:	35645.7
+mulInG:	85.7
+Pollard's Lamda:	40925.0
+Test round: 737
+expInG:	36616.5
+mulInG:	63.9
+Pollard's Lamda:	40388.2
+Test round: 738
+expInG:	35774.0
+mulInG:	61.5
+Pollard's Lamda:	40430.4
+Test round: 739
+expInG:	35485.8
+mulInG:	60.8
+Pollard's Lamda:	42190.5
+Test round: 740
+expInG:	35864.9
+mulInG:	60.7
+Pollard's Lamda:	41750.0
+Test round: 741
+expInG:	35264.6
+mulInG:	59.3
+Pollard's Lamda:	42011.1
+Test round: 742
+expInG:	36498.5
+mulInG:	62.5
+Pollard's Lamda:	41580.4
+Test round: 743
+expInG:	35697.3
+mulInG:	61.1
+Pollard's Lamda:	41133.5
+Test round: 744
+expInG:	36043.2
+mulInG:	57.8
+Pollard's Lamda:	41483.9
+Test round: 745
+expInG:	35396.3
+mulInG:	62.6
+Pollard's Lamda:	41599.8
+Test round: 746
+expInG:	36553.6
+mulInG:	98.1
+Pollard's Lamda:	41820.5
+Test round: 747
+expInG:	35322.5
+mulInG:	60.2
+Pollard's Lamda:	42129.6
+Test round: 748
+expInG:	36555.6
+mulInG:	63.2
+Pollard's Lamda:	42872.6
+Test round: 749
+expInG:	35336.9
+mulInG:	57.9
+Pollard's Lamda:	40422.7
+Test round: 750
+expInG:	35325.4
+mulInG:	62.0
+Pollard's Lamda:	40418.7
+Test round: 751
+expInG:	36202.1
+mulInG:	59.5
+Pollard's Lamda:	42847.6
+Test round: 752
+expInG:	37399.1
+mulInG:	62.3
+Pollard's Lamda:	40804.8
+Test round: 753
+expInG:	35812.9
+mulInG:	86.3
+Pollard's Lamda:	40828.7
+Test round: 754
+expInG:	35753.6
+mulInG:	61.3
+Pollard's Lamda:	41205.8
+Test round: 755
+expInG:	35625.7
+mulInG:	61.8
+Pollard's Lamda:	42545.9
+Test round: 756
+expInG:	36800.5
+mulInG:	61.4
+Pollard's Lamda:	40340.1
+Test round: 757
+expInG:	35454.1
+mulInG:	62.7
+Pollard's Lamda:	40867.0
+Test round: 758
+expInG:	36217.0
+mulInG:	64.7
+Pollard's Lamda:	41191.6
+Test round: 759
+expInG:	35332.2
+mulInG:	60.3
+Pollard's Lamda:	39910.7
+Test round: 760
+expInG:	35051.0
+mulInG:	62.7
+Pollard's Lamda:	40916.8
+Test round: 761
+expInG:	36168.8
+mulInG:	62.0
+Pollard's Lamda:	39765.6
+Test round: 762
+expInG:	39477.4
+mulInG:	61.6
+Pollard's Lamda:	40770.0
+Test round: 763
+expInG:	35505.1
+mulInG:	64.2
+Pollard's Lamda:	42387.8
+Test round: 764
+expInG:	37670.1
+mulInG:	96.1
+Pollard's Lamda:	41450.8
+Test round: 765
+expInG:	36514.4
+mulInG:	68.4
+Pollard's Lamda:	40549.3
+Test round: 766
+expInG:	36584.2
+mulInG:	62.4
+Pollard's Lamda:	40349.9
+Test round: 767
+expInG:	37551.7
+mulInG:	61.4
+Pollard's Lamda:	41212.2
+Test round: 768
+expInG:	36582.7
+mulInG:	62.7
+Pollard's Lamda:	40616.1
+Test round: 769
+expInG:	36197.7
+mulInG:	64.8
+Pollard's Lamda:	39859.0
+Test round: 770
+expInG:	37366.1
+mulInG:	59.7
+Pollard's Lamda:	41363.9
+Test round: 771
+expInG:	36029.6
+mulInG:	60.8
+Pollard's Lamda:	40129.5
+Test round: 772
+expInG:	35744.0
+mulInG:	59.6
+Pollard's Lamda:	41179.0
+Test round: 773
+expInG:	38033.5
+mulInG:	61.1
+Pollard's Lamda:	41152.2
+Test round: 774
+expInG:	36565.5
+mulInG:	63.4
+Pollard's Lamda:	40599.8
+Test round: 775
+expInG:	36601.3
+mulInG:	61.9
+Pollard's Lamda:	40371.5
+Test round: 776
+expInG:	36319.4
+mulInG:	79.7
+Pollard's Lamda:	40428.7
+Test round: 777
+expInG:	35272.0
+mulInG:	61.4
+Pollard's Lamda:	40232.0
+Test round: 778
+expInG:	36032.1
+mulInG:	61.9
+Pollard's Lamda:	40822.5
+Test round: 779
+expInG:	36925.5
+mulInG:	60.5
+Pollard's Lamda:	44778.6
+Test round: 780
+expInG:	36385.7
+mulInG:	59.7
+Pollard's Lamda:	42815.6
+Test round: 781
+expInG:	37820.0
+mulInG:	83.1
+Pollard's Lamda:	42908.1
+Test round: 782
+expInG:	35696.3
+mulInG:	61.1
+Pollard's Lamda:	40134.9
+Test round: 783
+expInG:	36585.2
+mulInG:	64.5
+Pollard's Lamda:	40421.1
+Test round: 784
+expInG:	35035.1
+mulInG:	61.2
+Pollard's Lamda:	41126.8
+Test round: 785
+expInG:	35738.4
+mulInG:	58.9
+Pollard's Lamda:	40546.9
+Test round: 786
+expInG:	35858.4
+mulInG:	59.8
+Pollard's Lamda:	40606.2
+Test round: 787
+expInG:	53813.0
+mulInG:	62.3
+Pollard's Lamda:	44914.6
+Test round: 788
+expInG:	36763.3
+mulInG:	60.7
+Pollard's Lamda:	42102.7
+Test round: 789
+expInG:	38311.4
+mulInG:	60.1
+Pollard's Lamda:	51202.0
+Test round: 790
+expInG:	38898.6
+mulInG:	61.4
+Pollard's Lamda:	40370.5
+Test round: 791
+expInG:	43126.1
+mulInG:	114.8
+Pollard's Lamda:	41146.6
+Test round: 792
+expInG:	36832.6
+mulInG:	59.5
+Pollard's Lamda:	41161.9
+Test round: 793
+expInG:	35448.0
+mulInG:	62.3
+Pollard's Lamda:	40080.6
+Test round: 794
+expInG:	40467.6
+mulInG:	63.5
+Pollard's Lamda:	41685.5
+Test round: 795
+expInG:	36909.6
+mulInG:	60.8
+Pollard's Lamda:	41054.8
+Test round: 796
+expInG:	35452.8
+mulInG:	62.5
+Pollard's Lamda:	42271.7
+Test round: 797
+expInG:	36174.9
+mulInG:	63.2
+Pollard's Lamda:	40998.9
+Test round: 798
+expInG:	36004.2
+mulInG:	62.6
+Pollard's Lamda:	41069.5
+Test round: 799
+expInG:	36570.1
+mulInG:	63.6
+Pollard's Lamda:	43817.8
+Test round: 800
+expInG:	36040.2
+mulInG:	64.2
+Pollard's Lamda:	43809.1
+Test round: 801
+expInG:	35073.4
+mulInG:	60.7
+Pollard's Lamda:	40643.4
+Test round: 802
+expInG:	37700.6
+mulInG:	84.0
+Pollard's Lamda:	44849.5
+Test round: 803
+expInG:	36988.3
+mulInG:	68.4
+Pollard's Lamda:	45512.9
+Test round: 804
+expInG:	39187.7
+mulInG:	82.2
+Pollard's Lamda:	47398.9
+Test round: 805
+expInG:	37979.6
+mulInG:	60.3
+Pollard's Lamda:	44595.1
+Test round: 806
+expInG:	44552.6
+mulInG:	92.2
+Pollard's Lamda:	43740.0
+Test round: 807
+expInG:	39907.8
+mulInG:	62.8
+Pollard's Lamda:	45011.5
+Test round: 808
+expInG:	37709.5
+mulInG:	60.8
+Pollard's Lamda:	41121.5
+Test round: 809
+expInG:	36120.1
+mulInG:	59.6
+Pollard's Lamda:	42325.8
+Test round: 810
+expInG:	36979.1
+mulInG:	62.3
+Pollard's Lamda:	40931.7
+Test round: 811
+expInG:	35194.7
+mulInG:	59.6
+Pollard's Lamda:	40793.9
+Test round: 812
+expInG:	35495.1
+mulInG:	60.7
+Pollard's Lamda:	41882.3
+Test round: 813
+expInG:	35963.7
+mulInG:	62.1
+Pollard's Lamda:	41471.1
+Test round: 814
+expInG:	35333.9
+mulInG:	61.8
+Pollard's Lamda:	47210.9
+Test round: 815
+expInG:	35626.0
+mulInG:	60.3
+Pollard's Lamda:	41839.0
+Test round: 816
+expInG:	42313.8
+mulInG:	63.7
+Pollard's Lamda:	42270.7
+Test round: 817
+expInG:	36973.0
+mulInG:	65.1
+Pollard's Lamda:	40994.5
+Test round: 818
+expInG:	36149.8
+mulInG:	64.0
+Pollard's Lamda:	41788.2
+Test round: 819
+expInG:	37823.0
+mulInG:	61.1
+Pollard's Lamda:	40970.7
+Test round: 820
+expInG:	35637.0
+mulInG:	59.9
+Pollard's Lamda:	40738.4
+Test round: 821
+expInG:	35188.4
+mulInG:	60.9
+Pollard's Lamda:	43402.5
+Test round: 822
+expInG:	39616.6
+mulInG:	60.5
+Pollard's Lamda:	42008.9
+Test round: 823
+expInG:	38009.3
+mulInG:	85.9
+Pollard's Lamda:	43807.8
+Test round: 824
+expInG:	40468.5
+mulInG:	60.9
+Pollard's Lamda:	41399.3
+Test round: 825
+expInG:	37828.6
+mulInG:	61.6
+Pollard's Lamda:	43024.7
+Test round: 826
+expInG:	39314.7
+mulInG:	104.5
+Pollard's Lamda:	41483.1
+Test round: 827
+expInG:	39691.1
+mulInG:	69.7
+Pollard's Lamda:	41981.8
+Test round: 828
+expInG:	39439.7
+mulInG:	61.6
+Pollard's Lamda:	41497.5
+Test round: 829
+expInG:	35680.0
+mulInG:	57.1
+Pollard's Lamda:	40647.9
+Test round: 830
+expInG:	35674.5
+mulInG:	61.4
+Pollard's Lamda:	40389.1
+Test round: 831
+expInG:	36263.6
+mulInG:	59.3
+Pollard's Lamda:	41341.2
+Test round: 832
+expInG:	36357.6
+mulInG:	61.8
+Pollard's Lamda:	43958.9
+Test round: 833
+expInG:	37495.9
+mulInG:	61.0
+Pollard's Lamda:	40835.3
+Test round: 834
+expInG:	36372.1
+mulInG:	73.2
+Pollard's Lamda:	42020.4
+Test round: 835
+expInG:	38446.3
+mulInG:	60.5
+Pollard's Lamda:	43213.6
+Test round: 836
+expInG:	39071.6
+mulInG:	61.9
+Pollard's Lamda:	40804.6
+Test round: 837
+expInG:	37024.9
+mulInG:	65.4
+Pollard's Lamda:	41129.0
+Test round: 838
+expInG:	35364.4
+mulInG:	61.2
+Pollard's Lamda:	40948.0
+Test round: 839
+expInG:	36143.8
+mulInG:	62.2
+Pollard's Lamda:	43866.4
+Test round: 840
+expInG:	36394.0
+mulInG:	61.0
+Pollard's Lamda:	39909.7
+Test round: 841
+expInG:	35915.2
+mulInG:	63.9
+Pollard's Lamda:	40965.4
+Test round: 842
+expInG:	35870.3
+mulInG:	61.9
+Pollard's Lamda:	41381.0
+Test round: 843
+expInG:	37422.8
+mulInG:	60.9
+Pollard's Lamda:	44870.7
+Test round: 844
+expInG:	37068.7
+mulInG:	61.4
+Pollard's Lamda:	40492.4
+Test round: 845
+expInG:	35878.6
+mulInG:	61.6
+Pollard's Lamda:	41080.4
+Test round: 846
+expInG:	35962.0
+mulInG:	65.3
+Pollard's Lamda:	48669.9
+Test round: 847
+expInG:	44225.5
+mulInG:	64.2
+Pollard's Lamda:	48232.8
+Test round: 848
+expInG:	44228.6
+mulInG:	61.7
+Pollard's Lamda:	40944.0
+Test round: 849
+expInG:	43534.2
+mulInG:	105.9
+Pollard's Lamda:	44975.4
+Test round: 850
+expInG:	35851.3
+mulInG:	61.6
+Pollard's Lamda:	55400.9
+Test round: 851
+expInG:	37200.3
+mulInG:	62.0
+Pollard's Lamda:	41022.2
+Test round: 852
+expInG:	36282.9
+mulInG:	62.7
+Pollard's Lamda:	40436.9
+Test round: 853
+expInG:	35294.8
+mulInG:	62.9
+Pollard's Lamda:	40451.7
+Test round: 854
+expInG:	35563.4
+mulInG:	61.9
+Pollard's Lamda:	42282.8
+Test round: 855
+expInG:	37572.0
+mulInG:	60.4
+Pollard's Lamda:	41007.3
+Test round: 856
+expInG:	36073.7
+mulInG:	64.4
+Pollard's Lamda:	40856.1
+Test round: 857
+expInG:	36077.3
+mulInG:	59.3
+Pollard's Lamda:	43199.3
+Test round: 858
+expInG:	35272.3
+mulInG:	61.7
+Pollard's Lamda:	41025.7
+Test round: 859
+expInG:	35569.9
+mulInG:	67.3
+Pollard's Lamda:	41537.4
+Test round: 860
+expInG:	35666.9
+mulInG:	60.0
+Pollard's Lamda:	42966.9
+Test round: 861
+expInG:	35490.3
+mulInG:	64.4
+Pollard's Lamda:	40777.8
+Test round: 862
+expInG:	35422.8
+mulInG:	63.8
+Pollard's Lamda:	42107.9
+Test round: 863
+expInG:	35671.8
+mulInG:	60.9
+Pollard's Lamda:	42282.4
+Test round: 864
+expInG:	36608.7
+mulInG:	61.8
+Pollard's Lamda:	41117.9
+Test round: 865
+expInG:	35818.6
+mulInG:	63.9
+Pollard's Lamda:	41644.1
+Test round: 866
+expInG:	35626.1
+mulInG:	62.7
+Pollard's Lamda:	41616.3
+Test round: 867
+expInG:	37576.7
+mulInG:	62.0
+Pollard's Lamda:	41775.3
+Test round: 868
+expInG:	35601.4
+mulInG:	66.2
+Pollard's Lamda:	41621.7
+Test round: 869
+expInG:	36017.6
+mulInG:	64.1
+Pollard's Lamda:	45150.5
+Test round: 870
+expInG:	36407.7
+mulInG:	63.3
+Pollard's Lamda:	40986.1
+Test round: 871
+expInG:	35550.1
+mulInG:	60.9
+Pollard's Lamda:	40620.7
+Test round: 872
+expInG:	35064.2
+mulInG:	61.7
+Pollard's Lamda:	40713.3
+Test round: 873
+expInG:	38164.7
+mulInG:	64.3
+Pollard's Lamda:	41030.5
+Test round: 874
+expInG:	35096.6
+mulInG:	59.9
+Pollard's Lamda:	40479.4
+Test round: 875
+expInG:	35322.2
+mulInG:	59.5
+Pollard's Lamda:	42038.1
+Test round: 876
+expInG:	36006.5
+mulInG:	60.4
+Pollard's Lamda:	40277.6
+Test round: 877
+expInG:	35515.9
+mulInG:	60.7
+Pollard's Lamda:	40889.2
+Test round: 878
+expInG:	35429.2
+mulInG:	62.2
+Pollard's Lamda:	44378.1
+Test round: 879
+expInG:	36556.5
+mulInG:	61.5
+Pollard's Lamda:	40483.5
+Test round: 880
+expInG:	36476.9
+mulInG:	62.3
+Pollard's Lamda:	40324.2
+Test round: 881
+expInG:	35897.5
+mulInG:	71.1
+Pollard's Lamda:	41377.3
+Test round: 882
+expInG:	37273.9
+mulInG:	60.7
+Pollard's Lamda:	41250.1
+Test round: 883
+expInG:	35980.8
+mulInG:	59.8
+Pollard's Lamda:	40504.5
+Test round: 884
+expInG:	37260.6
+mulInG:	59.1
+Pollard's Lamda:	41966.1
+Test round: 885
+expInG:	36492.3
+mulInG:	61.7
+Pollard's Lamda:	39821.0
+Test round: 886
+expInG:	36664.4
+mulInG:	65.4
+Pollard's Lamda:	40289.5
+Test round: 887
+expInG:	36862.0
+mulInG:	61.0
+Pollard's Lamda:	41308.1
+Test round: 888
+expInG:	36270.3
+mulInG:	65.1
+Pollard's Lamda:	40712.4
+Test round: 889
+expInG:	35797.4
+mulInG:	61.1
+Pollard's Lamda:	39861.5
+Test round: 890
+expInG:	36592.8
+mulInG:	70.5
+Pollard's Lamda:	41801.3
+Test round: 891
+expInG:	36133.0
+mulInG:	64.0
+Pollard's Lamda:	41286.3
+Test round: 892
+expInG:	35651.8
+mulInG:	63.6
+Pollard's Lamda:	40434.9
+Test round: 893
+expInG:	36134.7
+mulInG:	61.5
+Pollard's Lamda:	41007.6
+Test round: 894
+expInG:	35673.5
+mulInG:	60.0
+Pollard's Lamda:	40024.8
+Test round: 895
+expInG:	35437.8
+mulInG:	60.5
+Pollard's Lamda:	40197.5
+Test round: 896
+expInG:	36364.2
+mulInG:	61.3
+Pollard's Lamda:	41559.7
+Test round: 897
+expInG:	35810.0
+mulInG:	59.3
+Pollard's Lamda:	40606.8
+Test round: 898
+expInG:	36289.8
+mulInG:	60.2
+Pollard's Lamda:	40959.6
+Test round: 899
+expInG:	36057.9
+mulInG:	60.9
+Pollard's Lamda:	39666.6
+Test round: 900
+expInG:	35533.2
+mulInG:	61.0
+Pollard's Lamda:	39747.4
+Test round: 901
+expInG:	35729.3
+mulInG:	70.2
+Pollard's Lamda:	40648.6
+Test round: 902
+expInG:	36400.4
+mulInG:	59.9
+Pollard's Lamda:	40452.8
+Test round: 903
+expInG:	35503.0
+mulInG:	61.1
+Pollard's Lamda:	41469.9
+Test round: 904
+expInG:	35955.2
+mulInG:	57.3
+Pollard's Lamda:	41287.4
+Test round: 905
+expInG:	35806.6
+mulInG:	60.2
+Pollard's Lamda:	40555.5
+Test round: 906
+expInG:	36430.8
+mulInG:	63.1
+Pollard's Lamda:	40933.5
+Test round: 907
+expInG:	35549.6
+mulInG:	59.8
+Pollard's Lamda:	40638.5
+Test round: 908
+expInG:	37003.6
+mulInG:	63.9
+Pollard's Lamda:	40992.1
+Test round: 909
+expInG:	35175.8
+mulInG:	61.6
+Pollard's Lamda:	41300.6
+Test round: 910
+expInG:	35066.0
+mulInG:	63.3
+Pollard's Lamda:	41964.1
+Test round: 911
+expInG:	36820.8
+mulInG:	63.6
+Pollard's Lamda:	41091.4
+Test round: 912
+expInG:	35843.5
+mulInG:	63.3
+Pollard's Lamda:	39929.5
+Test round: 913
+expInG:	35989.8
+mulInG:	76.1
+Pollard's Lamda:	41263.4
+Test round: 914
+expInG:	35594.5
+mulInG:	65.0
+Pollard's Lamda:	40924.5
+Test round: 915
+expInG:	35294.6
+mulInG:	63.0
+Pollard's Lamda:	40175.9
+Test round: 916
+expInG:	35285.2
+mulInG:	102.9
+Pollard's Lamda:	42397.0
+Test round: 917
+expInG:	36086.3
+mulInG:	63.4
+Pollard's Lamda:	41205.8
+Test round: 918
+expInG:	35589.3
+mulInG:	61.1
+Pollard's Lamda:	41237.8
+Test round: 919
+expInG:	35231.8
+mulInG:	61.4
+Pollard's Lamda:	41933.7
+Test round: 920
+expInG:	35957.0
+mulInG:	62.4
+Pollard's Lamda:	41125.4
+Test round: 921
+expInG:	36304.5
+mulInG:	80.5
+Pollard's Lamda:	41095.2
+Test round: 922
+expInG:	35800.6
+mulInG:	62.1
+Pollard's Lamda:	41071.9
+Test round: 923
+expInG:	36609.0
+mulInG:	62.7
+Pollard's Lamda:	41446.0
+Test round: 924
+expInG:	35479.0
+mulInG:	60.9
+Pollard's Lamda:	40632.1
+Test round: 925
+expInG:	39230.9
+mulInG:	70.5
+Pollard's Lamda:	42164.0
+Test round: 926
+expInG:	35628.1
+mulInG:	58.2
+Pollard's Lamda:	41354.1
+Test round: 927
+expInG:	35880.9
+mulInG:	59.2
+Pollard's Lamda:	40612.5
+Test round: 928
+expInG:	35268.8
+mulInG:	61.9
+Pollard's Lamda:	42047.9
+Test round: 929
+expInG:	38191.4
+mulInG:	59.7
+Pollard's Lamda:	41244.4
+Test round: 930
+expInG:	35797.2
+mulInG:	60.8
+Pollard's Lamda:	40237.0
+Test round: 931
+expInG:	35529.9
+mulInG:	59.5
+Pollard's Lamda:	40665.1
+Test round: 932
+expInG:	35997.0
+mulInG:	61.9
+Pollard's Lamda:	40630.7
+Test round: 933
+expInG:	35887.3
+mulInG:	60.1
+Pollard's Lamda:	39708.0
+Test round: 934
+expInG:	36449.4
+mulInG:	64.1
+Pollard's Lamda:	42514.8
+Test round: 935
+expInG:	35422.7
+mulInG:	65.0
+Pollard's Lamda:	40939.3
+Test round: 936
+expInG:	35067.3
+mulInG:	62.6
+Pollard's Lamda:	41380.5
+Test round: 937
+expInG:	36302.3
+mulInG:	70.1
+Pollard's Lamda:	41526.0
+Test round: 938
+expInG:	36257.2
+mulInG:	61.2
+Pollard's Lamda:	40036.1
+Test round: 939
+expInG:	35269.4
+mulInG:	60.6
+Pollard's Lamda:	40697.2
+Test round: 940
+expInG:	36392.5
+mulInG:	62.4
+Pollard's Lamda:	40149.5
+Test round: 941
+expInG:	35852.2
+mulInG:	60.3
+Pollard's Lamda:	40072.2
+Test round: 942
+expInG:	36422.6
+mulInG:	61.0
+Pollard's Lamda:	40243.8
+Test round: 943
+expInG:	36903.9
+mulInG:	59.9
+Pollard's Lamda:	40766.6
+Test round: 944
+expInG:	35862.9
+mulInG:	65.5
+Pollard's Lamda:	40860.8
+Test round: 945
+expInG:	36988.7
+mulInG:	64.3
+Pollard's Lamda:	40164.2
+Test round: 946
+expInG:	36627.2
+mulInG:	63.0
+Pollard's Lamda:	40603.3
+Test round: 947
+expInG:	35738.2
+mulInG:	64.9
+Pollard's Lamda:	41023.8
+Test round: 948
+expInG:	37023.9
+mulInG:	65.2
+Pollard's Lamda:	40983.4
+Test round: 949
+expInG:	36709.4
+mulInG:	61.2
+Pollard's Lamda:	40911.1
+Test round: 950
+expInG:	36481.2
+mulInG:	59.2
+Pollard's Lamda:	40125.8
+Test round: 951
+expInG:	35383.6
+mulInG:	61.1
+Pollard's Lamda:	40001.4
+Test round: 952
+expInG:	35812.4
+mulInG:	60.8
+Pollard's Lamda:	40426.7
+Test round: 953
+expInG:	35439.3
+mulInG:	61.1
+Pollard's Lamda:	41042.9
+Test round: 954
+expInG:	35820.2
+mulInG:	60.9
+Pollard's Lamda:	41680.5
+Test round: 955
+expInG:	36415.4
+mulInG:	63.8
+Pollard's Lamda:	40331.2
+Test round: 956
+expInG:	35804.1
+mulInG:	62.1
+Pollard's Lamda:	39747.3
+Test round: 957
+expInG:	36121.5
+mulInG:	60.8
+Pollard's Lamda:	41116.1
+Test round: 958
+expInG:	35505.5
+mulInG:	62.3
+Pollard's Lamda:	40183.7
+Test round: 959
+expInG:	35172.6
+mulInG:	62.1
+Pollard's Lamda:	40279.2
+Test round: 960
+expInG:	35842.5
+mulInG:	62.6
+Pollard's Lamda:	40296.9
+Test round: 961
+expInG:	36539.6
+mulInG:	95.5
+Pollard's Lamda:	39920.0
+Test round: 962
+expInG:	34811.2
+mulInG:	63.0
+Pollard's Lamda:	41100.1
+Test round: 963
+expInG:	36585.8
+mulInG:	59.3
+Pollard's Lamda:	41322.9
+Test round: 964
+expInG:	36246.6
+mulInG:	61.0
+Pollard's Lamda:	40542.2
+Test round: 965
+expInG:	35416.6
+mulInG:	58.2
+Pollard's Lamda:	40652.6
+Test round: 966
+expInG:	36180.8
+mulInG:	61.2
+Pollard's Lamda:	41965.0
+Test round: 967
+expInG:	35236.7
+mulInG:	78.3
+Pollard's Lamda:	40900.4
+Test round: 968
+expInG:	35667.6
+mulInG:	63.8
+Pollard's Lamda:	40091.2
+Test round: 969
+expInG:	37757.8
+mulInG:	67.9
+Pollard's Lamda:	40281.8
+Test round: 970
+expInG:	36276.2
+mulInG:	60.7
+Pollard's Lamda:	40489.2
+Test round: 971
+expInG:	35760.9
+mulInG:	63.3
+Pollard's Lamda:	40122.8
+Test round: 972
+expInG:	35481.8
+mulInG:	61.9
+Pollard's Lamda:	41744.6
+Test round: 973
+expInG:	36927.4
+mulInG:	65.5
+Pollard's Lamda:	42799.7
+Test round: 974
+expInG:	35399.9
+mulInG:	59.7
+Pollard's Lamda:	40473.2
+Test round: 975
+expInG:	35567.8
+mulInG:	61.6
+Pollard's Lamda:	41815.5
+Test round: 976
+expInG:	35606.3
+mulInG:	60.2
+Pollard's Lamda:	40485.6
+Test round: 977
+expInG:	35249.4
+mulInG:	60.9
+Pollard's Lamda:	40830.6
+Test round: 978
+expInG:	35427.7
+mulInG:	60.9
+Pollard's Lamda:	42281.9
+Test round: 979
+expInG:	36306.1
+mulInG:	62.7
+Pollard's Lamda:	41697.8
+Test round: 980
+expInG:	35399.9
+mulInG:	64.5
+Pollard's Lamda:	47853.2
+Test round: 981
+expInG:	36661.3
+mulInG:	88.6
+Pollard's Lamda:	52585.1
+Test round: 982
+expInG:	36496.6
+mulInG:	61.4
+Pollard's Lamda:	43780.7
+Test round: 983
+expInG:	36188.7
+mulInG:	60.4
+Pollard's Lamda:	40703.9
+Test round: 984
+expInG:	35851.0
+mulInG:	61.7
+Pollard's Lamda:	42218.0
+Test round: 985
+expInG:	38514.3
+mulInG:	61.4
+Pollard's Lamda:	40789.8
+Test round: 986
+expInG:	35900.4
+mulInG:	59.6
+Pollard's Lamda:	40921.1
+Test round: 987
+expInG:	44632.6
+mulInG:	61.6
+Pollard's Lamda:	50011.8
+Test round: 988
+expInG:	35862.6
+mulInG:	61.2
+Pollard's Lamda:	40538.6
+Test round: 989
+expInG:	35814.5
+mulInG:	68.2
+Pollard's Lamda:	41190.7
+Test round: 990
+expInG:	36436.1
+mulInG:	66.6
+Pollard's Lamda:	40659.8
+Test round: 991
+expInG:	35543.1
+mulInG:	61.6
+Pollard's Lamda:	39880.5
+Test round: 992
+expInG:	35151.2
+mulInG:	61.5
+Pollard's Lamda:	41308.8
+Test round: 993
+expInG:	36027.4
+mulInG:	62.7
+Pollard's Lamda:	41187.6
+Test round: 994
+expInG:	35689.7
+mulInG:	62.0
+Pollard's Lamda:	40426.8
+Test round: 995
+expInG:	35985.2
+mulInG:	62.6
+Pollard's Lamda:	40966.2
+Test round: 996
+expInG:	36060.0
+mulInG:	59.9
+Pollard's Lamda:	42088.6
+Test round: 997
+expInG:	35773.3
+mulInG:	59.9
+Pollard's Lamda:	40206.2
+Test round: 998
+expInG:	36338.3
+mulInG:	61.7
+Pollard's Lamda:	40986.7
 Test round: 999
-expInG:	33381.1
-mulInG:	79.9
+expInG:	36547.1
+mulInG:	64.6
+Pollard's Lamda:	40109.3
 Test round: 1000
-expInG:	33338.6
-mulInG:	53.799
-average ExpInG time: 33602.223096999995
-average MulInG time: 62.59741499999994
+expInG:	36576.6
+mulInG:	62.1
+Pollard's Lamda:	40384.9
+average ExpInG time: 36012.39190000002
+average MulInG time: 64.27180000000001
+average PL time: 40930.45689999998

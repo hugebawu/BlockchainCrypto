@@ -13,6 +13,8 @@ import org.slf4j.LoggerFactory;
 
 import java.math.BigInteger;
 
+import static org.junit.Assert.assertTrue;
+
 /**
  * @author Baiji Hu
  * email: drbjhu@163.com
@@ -130,13 +132,17 @@ public class PairPerformanceTest {
         out.println("average ExpInG time: " + timeExpInG / test_round);
         logger.info("average MulInG time: " + timeMulInG / test_round);
         out.println("average MulInG time: " + timeMulInG / test_round);
+        logger.info("average PL time: " + timePL / test_round);
+        out.println("average PL time: " + timePL / test_round);
     }
 
     private void run_one_round_TypeA1() {
-        Element g1, g2, r;
-        g1 = pairing.getG1().newRandomElement().getImmutable();
-        g2 = pairing.getG2().newRandomElement().getImmutable();
+        Element g, u, h, r;
+        g = pairing.getG1().newRandomElement().getImmutable();
+        u = pairing.getG2().newRandomElement().getImmutable();
+        h = u.pow(q);
         r = pairing.getZr().newRandomElement().getImmutable();
+        int M = 100, m = M;
 
         double tempTime;
         Timer timer = new Timer();
@@ -145,7 +151,7 @@ public class PairPerformanceTest {
         //test performance of exponential operation in G
         out.print("expInG:");
         timer.start(0);
-        g1.powZn(r);
+        g.powZn(r);
         tempTime = timer.stop(0);
         logger.info("expInG:" + "\t" + tempTime);
         out.println("\t" + tempTime);
@@ -154,10 +160,28 @@ public class PairPerformanceTest {
         //test performance of multiplicative operation in G
         out.print("mulInG:");
         timer.start(0);
-        g1.mul(g1);
+        g.mul(g);
         tempTime = timer.stop(0);
         logger.info("mulInG:" + "\t" + tempTime);
         out.println("\t" + tempTime);
         this.timeMulInG += tempTime;
+
+        //test performance of Pollard’s Lamda Method
+        out.print("Pollard's Lamda:");
+        Element c = g.pow(BigInteger.valueOf(m)).mul(h.powZn(r));
+        Element cp = c.pow(p).getImmutable();
+        Element gp = g.pow(p).getImmutable();
+        timer.start(0);
+        int i = 0;
+        for (; i <= M; i++) {
+            if (gp.pow(BigInteger.valueOf(i)).isEqual(cp)) {
+                break;
+            }
+        }
+        tempTime = timer.stop(0);
+        assertTrue(i == m);
+        logger.info("Pollard's Lamda:" + "\t" + tempTime);
+        out.println("\t" + tempTime);
+        this.timePL += tempTime;
     }
 }

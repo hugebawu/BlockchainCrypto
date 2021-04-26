@@ -1,0 +1,5006 @@
+Test various cryptography operation of type F asymmetric prime order bilinear pairing
+All test rounds: 1000
+Test round: 1
+expInG1:	11542.0
+mulInG1:	55.6
+mulInGT:	550.7
+PairInE:	235488.5
+Test round: 2
+expInG1:	6678.3
+mulInG1:	29.6
+mulInGT:	390.4
+PairInE:	202295.9
+Test round: 3
+expInG1:	6142.8
+mulInG1:	25.3
+mulInGT:	173.4
+PairInE:	140263.8
+Test round: 4
+expInG1:	6384.0
+mulInG1:	32.2
+mulInGT:	184.1
+PairInE:	224687.3
+Test round: 5
+expInG1:	6126.4
+mulInG1:	26.0
+mulInGT:	156.7
+PairInE:	140188.6
+Test round: 6
+expInG1:	6435.6
+mulInG1:	31.9
+mulInGT:	164.0
+PairInE:	139845.0
+Test round: 7
+expInG1:	6187.1
+mulInG1:	28.4
+mulInGT:	195.8
+PairInE:	140322.6
+Test round: 8
+expInG1:	6091.3
+mulInG1:	33.5
+mulInGT:	153.4
+PairInE:	140237.5
+Test round: 9
+expInG1:	6094.1
+mulInG1:	25.8
+mulInGT:	150.0
+PairInE:	139433.0
+Test round: 10
+expInG1:	6150.0
+mulInG1:	27.0
+mulInGT:	161.6
+PairInE:	140116.7
+Test round: 11
+expInG1:	6133.0
+mulInG1:	30.7
+mulInGT:	154.1
+PairInE:	139956.6
+Test round: 12
+expInG1:	6098.3
+mulInG1:	25.6
+mulInGT:	152.4
+PairInE:	143945.0
+Test round: 13
+expInG1:	6223.3
+mulInG1:	26.5
+mulInGT:	154.4
+PairInE:	139985.2
+Test round: 14
+expInG1:	6169.5
+mulInG1:	23.8
+mulInGT:	147.3
+PairInE:	139274.8
+Test round: 15
+expInG1:	6074.8
+mulInG1:	25.2
+mulInGT:	148.2
+PairInE:	139296.2
+Test round: 16
+expInG1:	6021.8
+mulInG1:	23.5
+mulInGT:	150.6
+PairInE:	140002.2
+Test round: 17
+expInG1:	6140.5
+mulInG1:	26.1
+mulInGT:	150.2
+PairInE:	139963.4
+Test round: 18
+expInG1:	6170.9
+mulInG1:	31.1
+mulInGT:	152.4
+PairInE:	140809.2
+Test round: 19
+expInG1:	6021.0
+mulInG1:	23.5
+mulInGT:	171.1
+PairInE:	140802.8
+Test round: 20
+expInG1:	6091.9
+mulInG1:	44.9
+mulInGT:	206.1
+PairInE:	140827.1
+Test round: 21
+expInG1:	6265.2
+mulInG1:	42.9
+mulInGT:	158.1
+PairInE:	141225.1
+Test round: 22
+expInG1:	6152.7
+mulInG1:	26.1
+mulInGT:	153.4
+PairInE:	141073.4
+Test round: 23
+expInG1:	6211.2
+mulInG1:	27.1
+mulInGT:	149.6
+PairInE:	140286.3
+Test round: 24
+expInG1:	6094.2
+mulInG1:	25.3
+mulInGT:	148.7
+PairInE:	140877.4
+Test round: 25
+expInG1:	5998.9
+mulInG1:	24.8
+mulInGT:	147.0
+PairInE:	140623.2
+Test round: 26
+expInG1:	6077.4
+mulInG1:	24.0
+mulInGT:	155.8
+PairInE:	140562.3
+Test round: 27
+expInG1:	6249.5
+mulInG1:	29.1
+mulInGT:	153.9
+PairInE:	140479.9
+Test round: 28
+expInG1:	6135.9
+mulInG1:	25.8
+mulInGT:	167.8
+PairInE:	140175.7
+Test round: 29
+expInG1:	6313.8
+mulInG1:	52.8
+mulInGT:	215.2
+PairInE:	140227.0
+Test round: 30
+expInG1:	6167.2
+mulInG1:	27.7
+mulInGT:	153.1
+PairInE:	141354.0
+Test round: 31
+expInG1:	6070.0
+mulInG1:	27.3
+mulInGT:	152.9
+PairInE:	141558.2
+Test round: 32
+expInG1:	6243.8
+mulInG1:	29.4
+mulInGT:	151.2
+PairInE:	141390.8
+Test round: 33
+expInG1:	6033.7
+mulInG1:	26.3
+mulInGT:	149.8
+PairInE:	141411.4
+Test round: 34
+expInG1:	6107.0
+mulInG1:	24.9
+mulInGT:	149.9
+PairInE:	149084.1
+Test round: 35
+expInG1:	6122.6
+mulInG1:	25.8
+mulInGT:	150.1
+PairInE:	141757.9
+Test round: 36
+expInG1:	6100.6
+mulInG1:	27.3
+mulInGT:	151.3
+PairInE:	142136.8
+Test round: 37
+expInG1:	6116.5
+mulInG1:	31.8
+mulInGT:	159.1
+PairInE:	144867.6
+Test round: 38
+expInG1:	6177.7
+mulInG1:	26.7
+mulInGT:	154.5
+PairInE:	141762.7
+Test round: 39
+expInG1:	6060.6
+mulInG1:	24.6
+mulInGT:	151.7
+PairInE:	141689.8
+Test round: 40
+expInG1:	6149.1
+mulInG1:	25.7
+mulInGT:	152.3
+PairInE:	156514.7
+Test round: 41
+expInG1:	6071.6
+mulInG1:	29.4
+mulInGT:	151.1
+PairInE:	142687.5
+Test round: 42
+expInG1:	6081.1
+mulInG1:	29.4
+mulInGT:	157.5
+PairInE:	145797.1
+Test round: 43
+expInG1:	6087.0
+mulInG1:	26.4
+mulInGT:	153.6
+PairInE:	141830.2
+Test round: 44
+expInG1:	6014.3
+mulInG1:	24.0
+mulInGT:	145.5
+PairInE:	141532.7
+Test round: 45
+expInG1:	7117.2
+mulInG1:	26.0
+mulInGT:	154.2
+PairInE:	142472.4
+Test round: 46
+expInG1:	6071.4
+mulInG1:	25.6
+mulInGT:	164.0
+PairInE:	143270.5
+Test round: 47
+expInG1:	6096.4
+mulInG1:	24.6
+mulInGT:	151.0
+PairInE:	141162.6
+Test round: 48
+expInG1:	6471.2
+mulInG1:	26.2
+mulInGT:	157.3
+PairInE:	145916.8
+Test round: 49
+expInG1:	6095.3
+mulInG1:	26.2
+mulInGT:	192.7
+PairInE:	142283.9
+Test round: 50
+expInG1:	6145.3
+mulInG1:	25.4
+mulInGT:	150.8
+PairInE:	141037.6
+Test round: 51
+expInG1:	6070.0
+mulInG1:	28.9
+mulInGT:	154.8
+PairInE:	141759.8
+Test round: 52
+expInG1:	6007.4
+mulInG1:	48.5
+mulInGT:	186.7
+PairInE:	140488.5
+Test round: 53
+expInG1:	6374.0
+mulInG1:	27.6
+mulInGT:	151.5
+PairInE:	148476.6
+Test round: 54
+expInG1:	6149.9
+mulInG1:	24.9
+mulInGT:	149.2
+PairInE:	143769.2
+Test round: 55
+expInG1:	5996.3
+mulInG1:	25.8
+mulInGT:	151.1
+PairInE:	140764.3
+Test round: 56
+expInG1:	6002.3
+mulInG1:	24.5
+mulInGT:	150.4
+PairInE:	141475.1
+Test round: 57
+expInG1:	6067.9
+mulInG1:	25.9
+mulInGT:	146.9
+PairInE:	142194.3
+Test round: 58
+expInG1:	6110.8
+mulInG1:	27.9
+mulInGT:	157.3
+PairInE:	144077.2
+Test round: 59
+expInG1:	6099.4
+mulInG1:	24.5
+mulInGT:	153.8
+PairInE:	150803.8
+Test round: 60
+expInG1:	6055.1
+mulInG1:	27.1
+mulInGT:	149.2
+PairInE:	140955.6
+Test round: 61
+expInG1:	6092.3
+mulInG1:	29.6
+mulInGT:	161.7
+PairInE:	149022.3
+Test round: 62
+expInG1:	6000.9
+mulInG1:	26.0
+mulInGT:	153.5
+PairInE:	141630.1
+Test round: 63
+expInG1:	6064.1
+mulInG1:	26.1
+mulInGT:	237.6
+PairInE:	144782.0
+Test round: 64
+expInG1:	5976.1
+mulInG1:	39.2
+mulInGT:	162.3
+PairInE:	141127.3
+Test round: 65
+expInG1:	5984.8
+mulInG1:	27.5
+mulInGT:	150.2
+PairInE:	144098.8
+Test round: 66
+expInG1:	5992.7
+mulInG1:	34.0
+mulInGT:	146.8
+PairInE:	145291.4
+Test round: 67
+expInG1:	6102.9
+mulInG1:	26.1
+mulInGT:	151.0
+PairInE:	140905.6
+Test round: 68
+expInG1:	6097.3
+mulInG1:	25.5
+mulInGT:	149.7
+PairInE:	144663.2
+Test round: 69
+expInG1:	6061.0
+mulInG1:	26.9
+mulInGT:	149.0
+PairInE:	141091.3
+Test round: 70
+expInG1:	6227.6
+mulInG1:	26.5
+mulInGT:	149.6
+PairInE:	141452.8
+Test round: 71
+expInG1:	6057.5
+mulInG1:	23.4
+mulInGT:	145.9
+PairInE:	140919.3
+Test round: 72
+expInG1:	6082.5
+mulInG1:	24.7
+mulInGT:	150.5
+PairInE:	141234.9
+Test round: 73
+expInG1:	6192.5
+mulInG1:	23.5
+mulInGT:	150.1
+PairInE:	141687.5
+Test round: 74
+expInG1:	5961.3
+mulInG1:	25.2
+mulInGT:	152.0
+PairInE:	141086.1
+Test round: 75
+expInG1:	6072.0
+mulInG1:	23.0
+mulInGT:	145.8
+PairInE:	143138.2
+Test round: 76
+expInG1:	6047.3
+mulInG1:	25.3
+mulInGT:	151.1
+PairInE:	140615.4
+Test round: 77
+expInG1:	6138.0
+mulInG1:	26.0
+mulInGT:	169.1
+PairInE:	141961.7
+Test round: 78
+expInG1:	5897.5
+mulInG1:	23.3
+mulInGT:	148.2
+PairInE:	153338.6
+Test round: 79
+expInG1:	6667.1
+mulInG1:	25.8
+mulInGT:	155.0
+PairInE:	144538.3
+Test round: 80
+expInG1:	6262.4
+mulInG1:	27.6
+mulInGT:	155.9
+PairInE:	146854.2
+Test round: 81
+expInG1:	6078.1
+mulInG1:	22.7
+mulInGT:	148.8
+PairInE:	144147.7
+Test round: 82
+expInG1:	6136.9
+mulInG1:	24.1
+mulInGT:	145.5
+PairInE:	144941.0
+Test round: 83
+expInG1:	6027.0
+mulInG1:	23.6
+mulInGT:	153.6
+PairInE:	143947.0
+Test round: 84
+expInG1:	5968.5
+mulInG1:	23.6
+mulInGT:	164.5
+PairInE:	141895.0
+Test round: 85
+expInG1:	6086.7
+mulInG1:	30.1
+mulInGT:	158.8
+PairInE:	142059.4
+Test round: 86
+expInG1:	7281.0
+mulInG1:	28.7
+mulInGT:	171.5
+PairInE:	142837.0
+Test round: 87
+expInG1:	6054.1
+mulInG1:	23.9
+mulInGT:	148.4
+PairInE:	141956.2
+Test round: 88
+expInG1:	6226.2
+mulInG1:	25.9
+mulInGT:	169.5
+PairInE:	142251.5
+Test round: 89
+expInG1:	6072.8
+mulInG1:	26.2
+mulInGT:	157.9
+PairInE:	141343.1
+Test round: 90
+expInG1:	6029.2
+mulInG1:	27.9
+mulInGT:	148.4
+PairInE:	141370.9
+Test round: 91
+expInG1:	6103.8
+mulInG1:	22.9
+mulInGT:	150.9
+PairInE:	140983.4
+Test round: 92
+expInG1:	6110.8
+mulInG1:	26.0
+mulInGT:	153.1
+PairInE:	142029.9
+Test round: 93
+expInG1:	6256.0
+mulInG1:	24.4
+mulInGT:	149.1
+PairInE:	142161.2
+Test round: 94
+expInG1:	6074.4
+mulInG1:	25.3
+mulInGT:	147.3
+PairInE:	141287.2
+Test round: 95
+expInG1:	6043.0
+mulInG1:	24.3
+mulInGT:	146.7
+PairInE:	145910.9
+Test round: 96
+expInG1:	5908.6
+mulInG1:	22.6
+mulInGT:	141.9
+PairInE:	141904.4
+Test round: 97
+expInG1:	6048.5
+mulInG1:	26.2
+mulInGT:	156.1
+PairInE:	141601.6
+Test round: 98
+expInG1:	6068.2
+mulInG1:	23.8
+mulInGT:	150.1
+PairInE:	141640.6
+Test round: 99
+expInG1:	6121.4
+mulInG1:	26.7
+mulInGT:	153.4
+PairInE:	145216.1
+Test round: 100
+expInG1:	6237.7
+mulInG1:	27.1
+mulInGT:	151.0
+PairInE:	146044.1
+Test round: 101
+expInG1:	6613.4
+mulInG1:	22.9
+mulInGT:	146.1
+PairInE:	142348.2
+Test round: 102
+expInG1:	6113.9
+mulInG1:	31.3
+mulInGT:	159.1
+PairInE:	143981.5
+Test round: 103
+expInG1:	6638.6
+mulInG1:	27.4
+mulInGT:	162.7
+PairInE:	141966.1
+Test round: 104
+expInG1:	6069.4
+mulInG1:	23.3
+mulInGT:	152.3
+PairInE:	144487.5
+Test round: 105
+expInG1:	6049.9
+mulInG1:	23.2
+mulInGT:	147.6
+PairInE:	144112.5
+Test round: 106
+expInG1:	6026.6
+mulInG1:	26.6
+mulInGT:	151.6
+PairInE:	145279.9
+Test round: 107
+expInG1:	6250.0
+mulInG1:	25.4
+mulInGT:	154.0
+PairInE:	143863.1
+Test round: 108
+expInG1:	6192.9
+mulInG1:	25.5
+mulInGT:	160.0
+PairInE:	143247.1
+Test round: 109
+expInG1:	6093.4
+mulInG1:	26.8
+mulInGT:	155.2
+PairInE:	141934.2
+Test round: 110
+expInG1:	6272.3
+mulInG1:	24.6
+mulInGT:	156.1
+PairInE:	141218.1
+Test round: 111
+expInG1:	5996.3
+mulInG1:	23.9
+mulInGT:	148.3
+PairInE:	141970.3
+Test round: 112
+expInG1:	6130.2
+mulInG1:	29.6
+mulInGT:	144.1
+PairInE:	142037.9
+Test round: 113
+expInG1:	6078.7
+mulInG1:	25.2
+mulInGT:	152.6
+PairInE:	141124.9
+Test round: 114
+expInG1:	6069.1
+mulInG1:	25.9
+mulInGT:	142.6
+PairInE:	140891.7
+Test round: 115
+expInG1:	6239.5
+mulInG1:	25.4
+mulInGT:	152.9
+PairInE:	140458.8
+Test round: 116
+expInG1:	8468.9
+mulInG1:	38.1
+mulInGT:	170.3
+PairInE:	179994.8
+Test round: 117
+expInG1:	6121.6
+mulInG1:	25.1
+mulInGT:	153.5
+PairInE:	140333.6
+Test round: 118
+expInG1:	6145.1
+mulInG1:	36.2
+mulInGT:	148.4
+PairInE:	141730.8
+Test round: 119
+expInG1:	6091.3
+mulInG1:	29.2
+mulInGT:	151.9
+PairInE:	142109.1
+Test round: 120
+expInG1:	6064.1
+mulInG1:	22.2
+mulInGT:	156.4
+PairInE:	147363.9
+Test round: 121
+expInG1:	6267.3
+mulInG1:	24.8
+mulInGT:	144.7
+PairInE:	141774.9
+Test round: 122
+expInG1:	6004.0
+mulInG1:	25.1
+mulInGT:	145.6
+PairInE:	142566.8
+Test round: 123
+expInG1:	6184.6
+mulInG1:	25.0
+mulInGT:	151.3
+PairInE:	140951.2
+Test round: 124
+expInG1:	6039.5
+mulInG1:	23.2
+mulInGT:	145.9
+PairInE:	144747.8
+Test round: 125
+expInG1:	5892.7
+mulInG1:	25.4
+mulInGT:	163.9
+PairInE:	145341.6
+Test round: 126
+expInG1:	6138.3
+mulInG1:	23.9
+mulInGT:	149.4
+PairInE:	141497.1
+Test round: 127
+expInG1:	6058.5
+mulInG1:	26.5
+mulInGT:	150.3
+PairInE:	141480.5
+Test round: 128
+expInG1:	6047.8
+mulInG1:	27.5
+mulInGT:	162.9
+PairInE:	141203.7
+Test round: 129
+expInG1:	6079.0
+mulInG1:	25.7
+mulInGT:	155.5
+PairInE:	141739.1
+Test round: 130
+expInG1:	6150.9
+mulInG1:	25.2
+mulInGT:	149.2
+PairInE:	141561.3
+Test round: 131
+expInG1:	5999.6
+mulInG1:	23.4
+mulInGT:	149.0
+PairInE:	142009.5
+Test round: 132
+expInG1:	6030.1
+mulInG1:	21.6
+mulInGT:	151.2
+PairInE:	141784.0
+Test round: 133
+expInG1:	6109.9
+mulInG1:	24.0
+mulInGT:	145.7
+PairInE:	142015.4
+Test round: 134
+expInG1:	6082.2
+mulInG1:	23.0
+mulInGT:	145.1
+PairInE:	141217.2
+Test round: 135
+expInG1:	6071.3
+mulInG1:	27.0
+mulInGT:	151.0
+PairInE:	142344.1
+Test round: 136
+expInG1:	6072.8
+mulInG1:	25.9
+mulInGT:	152.1
+PairInE:	140964.6
+Test round: 137
+expInG1:	6037.0
+mulInG1:	22.5
+mulInGT:	142.7
+PairInE:	142275.5
+Test round: 138
+expInG1:	6004.3
+mulInG1:	23.6
+mulInGT:	149.2
+PairInE:	141303.0
+Test round: 139
+expInG1:	6227.1
+mulInG1:	26.3
+mulInGT:	159.8
+PairInE:	143675.2
+Test round: 140
+expInG1:	5999.6
+mulInG1:	26.2
+mulInGT:	145.7
+PairInE:	141708.7
+Test round: 141
+expInG1:	6057.0
+mulInG1:	24.8
+mulInGT:	145.5
+PairInE:	142196.0
+Test round: 142
+expInG1:	6087.5
+mulInG1:	25.0
+mulInGT:	144.9
+PairInE:	142159.3
+Test round: 143
+expInG1:	6041.7
+mulInG1:	25.6
+mulInGT:	154.3
+PairInE:	142570.5
+Test round: 144
+expInG1:	6155.0
+mulInG1:	24.3
+mulInGT:	154.3
+PairInE:	146077.6
+Test round: 145
+expInG1:	5909.2
+mulInG1:	22.8
+mulInGT:	143.9
+PairInE:	141571.9
+Test round: 146
+expInG1:	6101.5
+mulInG1:	24.7
+mulInGT:	165.2
+PairInE:	143542.2
+Test round: 147
+expInG1:	6014.0
+mulInG1:	23.1
+mulInGT:	146.1
+PairInE:	142914.6
+Test round: 148
+expInG1:	6028.9
+mulInG1:	24.0
+mulInGT:	148.3
+PairInE:	141998.7
+Test round: 149
+expInG1:	6083.8
+mulInG1:	27.1
+mulInGT:	151.4
+PairInE:	143644.2
+Test round: 150
+expInG1:	6063.0
+mulInG1:	24.5
+mulInGT:	146.9
+PairInE:	141833.4
+Test round: 151
+expInG1:	6131.1
+mulInG1:	32.4
+mulInGT:	166.7
+PairInE:	141733.9
+Test round: 152
+expInG1:	5974.1
+mulInG1:	24.3
+mulInGT:	153.3
+PairInE:	142403.6
+Test round: 153
+expInG1:	6063.1
+mulInG1:	25.3
+mulInGT:	150.0
+PairInE:	155405.6
+Test round: 154
+expInG1:	5934.7
+mulInG1:	26.0
+mulInGT:	171.5
+PairInE:	143082.5
+Test round: 155
+expInG1:	6062.5
+mulInG1:	27.0
+mulInGT:	166.7
+PairInE:	144180.2
+Test round: 156
+expInG1:	6043.9
+mulInG1:	23.5
+mulInGT:	148.8
+PairInE:	142370.5
+Test round: 157
+expInG1:	6217.8
+mulInG1:	25.5
+mulInGT:	151.5
+PairInE:	141300.0
+Test round: 158
+expInG1:	6029.1
+mulInG1:	23.6
+mulInGT:	144.0
+PairInE:	141849.5
+Test round: 159
+expInG1:	6105.2
+mulInG1:	24.6
+mulInGT:	149.0
+PairInE:	141177.9
+Test round: 160
+expInG1:	6116.0
+mulInG1:	23.3
+mulInGT:	147.8
+PairInE:	148790.0
+Test round: 161
+expInG1:	5928.4
+mulInG1:	22.5
+mulInGT:	139.6
+PairInE:	150691.9
+Test round: 162
+expInG1:	6146.6
+mulInG1:	24.7
+mulInGT:	151.4
+PairInE:	144511.5
+Test round: 163
+expInG1:	6139.7
+mulInG1:	26.0
+mulInGT:	178.5
+PairInE:	143735.6
+Test round: 164
+expInG1:	6068.5
+mulInG1:	26.1
+mulInGT:	147.0
+PairInE:	143834.4
+Test round: 165
+expInG1:	6087.9
+mulInG1:	25.0
+mulInGT:	155.1
+PairInE:	141435.5
+Test round: 166
+expInG1:	6222.2
+mulInG1:	32.3
+mulInGT:	161.3
+PairInE:	140831.3
+Test round: 167
+expInG1:	6180.8
+mulInG1:	26.2
+mulInGT:	152.6
+PairInE:	141708.4
+Test round: 168
+expInG1:	6118.6
+mulInG1:	23.7
+mulInGT:	146.3
+PairInE:	144636.5
+Test round: 169
+expInG1:	6217.0
+mulInG1:	23.9
+mulInGT:	146.1
+PairInE:	142753.8
+Test round: 170
+expInG1:	6104.7
+mulInG1:	25.4
+mulInGT:	153.6
+PairInE:	145837.5
+Test round: 171
+expInG1:	6189.9
+mulInG1:	29.4
+mulInGT:	173.3
+PairInE:	145415.3
+Test round: 172
+expInG1:	6161.8
+mulInG1:	35.8
+mulInGT:	199.2
+PairInE:	141221.9
+Test round: 173
+expInG1:	5955.4
+mulInG1:	22.5
+mulInGT:	149.4
+PairInE:	139759.3
+Test round: 174
+expInG1:	6015.1
+mulInG1:	22.1
+mulInGT:	146.5
+PairInE:	141210.2
+Test round: 175
+expInG1:	6231.3
+mulInG1:	43.1
+mulInGT:	157.5
+PairInE:	140345.0
+Test round: 176
+expInG1:	6110.9
+mulInG1:	25.0
+mulInGT:	150.8
+PairInE:	142943.6
+Test round: 177
+expInG1:	6035.0
+mulInG1:	23.7
+mulInGT:	144.2
+PairInE:	141392.5
+Test round: 178
+expInG1:	6162.8
+mulInG1:	25.8
+mulInGT:	150.6
+PairInE:	140247.1
+Test round: 179
+expInG1:	6043.0
+mulInG1:	24.1
+mulInGT:	146.1
+PairInE:	145895.5
+Test round: 180
+expInG1:	6140.2
+mulInG1:	25.4
+mulInGT:	152.9
+PairInE:	145072.9
+Test round: 181
+expInG1:	6058.5
+mulInG1:	28.1
+mulInGT:	151.3
+PairInE:	144035.2
+Test round: 182
+expInG1:	6286.8
+mulInG1:	23.9
+mulInGT:	145.5
+PairInE:	141806.7
+Test round: 183
+expInG1:	6104.8
+mulInG1:	26.8
+mulInGT:	148.0
+PairInE:	145643.3
+Test round: 184
+expInG1:	6044.4
+mulInG1:	25.4
+mulInGT:	144.3
+PairInE:	144223.6
+Test round: 185
+expInG1:	6157.5
+mulInG1:	23.7
+mulInGT:	147.8
+PairInE:	143178.1
+Test round: 186
+expInG1:	6023.8
+mulInG1:	23.1
+mulInGT:	147.1
+PairInE:	143160.2
+Test round: 187
+expInG1:	6016.0
+mulInG1:	28.4
+mulInGT:	147.9
+PairInE:	142823.4
+Test round: 188
+expInG1:	6079.5
+mulInG1:	30.3
+mulInGT:	167.3
+PairInE:	141240.6
+Test round: 189
+expInG1:	6036.3
+mulInG1:	22.9
+mulInGT:	147.4
+PairInE:	144627.2
+Test round: 190
+expInG1:	6022.6
+mulInG1:	26.7
+mulInGT:	147.2
+PairInE:	140491.5
+Test round: 191
+expInG1:	6044.0
+mulInG1:	24.5
+mulInGT:	168.7
+PairInE:	141287.6
+Test round: 192
+expInG1:	6167.2
+mulInG1:	25.3
+mulInGT:	158.4
+PairInE:	141233.3
+Test round: 193
+expInG1:	6226.2
+mulInG1:	24.8
+mulInGT:	143.6
+PairInE:	141854.8
+Test round: 194
+expInG1:	5959.2
+mulInG1:	22.7
+mulInGT:	145.5
+PairInE:	140943.2
+Test round: 195
+expInG1:	5951.0
+mulInG1:	25.7
+mulInGT:	152.4
+PairInE:	144495.9
+Test round: 196
+expInG1:	6172.0
+mulInG1:	27.5
+mulInGT:	150.3
+PairInE:	146774.7
+Test round: 197
+expInG1:	6698.2
+mulInG1:	27.8
+mulInGT:	152.2
+PairInE:	150671.6
+Test round: 198
+expInG1:	6176.7
+mulInG1:	23.4
+mulInGT:	148.0
+PairInE:	143812.1
+Test round: 199
+expInG1:	6084.0
+mulInG1:	25.3
+mulInGT:	149.0
+PairInE:	141718.4
+Test round: 200
+expInG1:	6103.3
+mulInG1:	26.4
+mulInGT:	144.7
+PairInE:	150297.6
+Test round: 201
+expInG1:	6229.3
+mulInG1:	26.0
+mulInGT:	152.1
+PairInE:	147395.9
+Test round: 202
+expInG1:	6216.2
+mulInG1:	27.2
+mulInGT:	154.9
+PairInE:	147131.1
+Test round: 203
+expInG1:	6074.2
+mulInG1:	29.1
+mulInGT:	154.1
+PairInE:	143236.4
+Test round: 204
+expInG1:	6037.3
+mulInG1:	22.6
+mulInGT:	145.5
+PairInE:	147297.4
+Test round: 205
+expInG1:	7374.2
+mulInG1:	27.8
+mulInGT:	148.0
+PairInE:	146154.3
+Test round: 206
+expInG1:	5998.0
+mulInG1:	26.7
+mulInGT:	150.4
+PairInE:	142812.6
+Test round: 207
+expInG1:	6021.6
+mulInG1:	25.5
+mulInGT:	160.2
+PairInE:	142251.5
+Test round: 208
+expInG1:	6008.7
+mulInG1:	25.7
+mulInGT:	153.2
+PairInE:	144198.9
+Test round: 209
+expInG1:	6088.8
+mulInG1:	36.2
+mulInGT:	158.0
+PairInE:	140744.5
+Test round: 210
+expInG1:	6061.7
+mulInG1:	24.7
+mulInGT:	148.9
+PairInE:	146750.9
+Test round: 211
+expInG1:	6085.0
+mulInG1:	22.6
+mulInGT:	142.8
+PairInE:	145886.6
+Test round: 212
+expInG1:	6061.3
+mulInG1:	22.7
+mulInGT:	145.8
+PairInE:	163277.0
+Test round: 213
+expInG1:	5970.3
+mulInG1:	24.0
+mulInGT:	140.8
+PairInE:	150077.1
+Test round: 214
+expInG1:	5994.9
+mulInG1:	25.1
+mulInGT:	145.4
+PairInE:	145678.3
+Test round: 215
+expInG1:	6011.5
+mulInG1:	24.0
+mulInGT:	143.0
+PairInE:	141978.2
+Test round: 216
+expInG1:	6092.6
+mulInG1:	23.9
+mulInGT:	253.4
+PairInE:	140978.8
+Test round: 217
+expInG1:	6077.5
+mulInG1:	26.0
+mulInGT:	151.1
+PairInE:	141403.3
+Test round: 218
+expInG1:	6048.0
+mulInG1:	24.4
+mulInGT:	152.5
+PairInE:	144400.3
+Test round: 219
+expInG1:	6003.9
+mulInG1:	26.7
+mulInGT:	153.1
+PairInE:	141452.1
+Test round: 220
+expInG1:	6324.3
+mulInG1:	24.7
+mulInGT:	147.6
+PairInE:	143318.6
+Test round: 221
+expInG1:	5993.7
+mulInG1:	20.6
+mulInGT:	143.3
+PairInE:	140542.9
+Test round: 222
+expInG1:	6008.7
+mulInG1:	22.5
+mulInGT:	144.2
+PairInE:	144080.8
+Test round: 223
+expInG1:	6137.3
+mulInG1:	27.1
+mulInGT:	146.5
+PairInE:	141914.1
+Test round: 224
+expInG1:	5995.6
+mulInG1:	24.2
+mulInGT:	143.6
+PairInE:	141299.0
+Test round: 225
+expInG1:	6029.0
+mulInG1:	27.5
+mulInGT:	151.1
+PairInE:	141363.6
+Test round: 226
+expInG1:	5965.3
+mulInG1:	23.3
+mulInGT:	143.6
+PairInE:	140787.3
+Test round: 227
+expInG1:	6003.2
+mulInG1:	22.0
+mulInGT:	138.2
+PairInE:	141177.6
+Test round: 228
+expInG1:	5906.6
+mulInG1:	22.3
+mulInGT:	157.5
+PairInE:	140476.3
+Test round: 229
+expInG1:	5960.5
+mulInG1:	23.8
+mulInGT:	143.6
+PairInE:	141198.3
+Test round: 230
+expInG1:	6134.8
+mulInG1:	24.4
+mulInGT:	149.7
+PairInE:	141275.4
+Test round: 231
+expInG1:	6075.4
+mulInG1:	24.8
+mulInGT:	153.0
+PairInE:	142462.9
+Test round: 232
+expInG1:	6029.3
+mulInG1:	23.8
+mulInGT:	203.1
+PairInE:	141432.1
+Test round: 233
+expInG1:	6205.8
+mulInG1:	25.6
+mulInGT:	151.0
+PairInE:	141640.0
+Test round: 234
+expInG1:	5934.4
+mulInG1:	22.6
+mulInGT:	141.5
+PairInE:	141519.4
+Test round: 235
+expInG1:	6328.4
+mulInG1:	25.0
+mulInGT:	159.7
+PairInE:	141768.0
+Test round: 236
+expInG1:	6082.7
+mulInG1:	24.1
+mulInGT:	150.8
+PairInE:	141432.8
+Test round: 237
+expInG1:	6092.5
+mulInG1:	24.5
+mulInGT:	144.3
+PairInE:	140955.2
+Test round: 238
+expInG1:	6175.9
+mulInG1:	25.6
+mulInGT:	151.2
+PairInE:	143511.7
+Test round: 239
+expInG1:	5931.6
+mulInG1:	22.4
+mulInGT:	148.0
+PairInE:	140810.5
+Test round: 240
+expInG1:	6088.5
+mulInG1:	25.5
+mulInGT:	149.8
+PairInE:	144880.1
+Test round: 241
+expInG1:	6047.2
+mulInG1:	22.2
+mulInGT:	142.7
+PairInE:	140203.8
+Test round: 242
+expInG1:	6083.1
+mulInG1:	23.1
+mulInGT:	146.8
+PairInE:	142137.7
+Test round: 243
+expInG1:	6076.1
+mulInG1:	23.6
+mulInGT:	146.4
+PairInE:	140791.8
+Test round: 244
+expInG1:	6062.9
+mulInG1:	23.0
+mulInGT:	144.0
+PairInE:	141176.5
+Test round: 245
+expInG1:	6208.1
+mulInG1:	33.9
+mulInGT:	155.6
+PairInE:	142165.7
+Test round: 246
+expInG1:	6101.7
+mulInG1:	22.0
+mulInGT:	147.1
+PairInE:	141464.4
+Test round: 247
+expInG1:	6059.0
+mulInG1:	24.1
+mulInGT:	146.5
+PairInE:	140997.8
+Test round: 248
+expInG1:	6636.3
+mulInG1:	42.6
+mulInGT:	257.5
+PairInE:	141610.1
+Test round: 249
+expInG1:	5963.4
+mulInG1:	24.2
+mulInGT:	143.2
+PairInE:	142280.8
+Test round: 250
+expInG1:	6038.2
+mulInG1:	25.5
+mulInGT:	146.8
+PairInE:	140451.7
+Test round: 251
+expInG1:	6213.3
+mulInG1:	24.9
+mulInGT:	145.9
+PairInE:	143013.7
+Test round: 252
+expInG1:	6119.2
+mulInG1:	27.4
+mulInGT:	145.1
+PairInE:	141019.3
+Test round: 253
+expInG1:	5986.3
+mulInG1:	25.1
+mulInGT:	145.7
+PairInE:	141331.8
+Test round: 254
+expInG1:	6088.7
+mulInG1:	23.4
+mulInGT:	145.6
+PairInE:	141129.4
+Test round: 255
+expInG1:	6154.7
+mulInG1:	27.5
+mulInGT:	145.9
+PairInE:	140606.0
+Test round: 256
+expInG1:	6033.8
+mulInG1:	28.1
+mulInGT:	147.3
+PairInE:	141706.0
+Test round: 257
+expInG1:	6113.6
+mulInG1:	39.9
+mulInGT:	172.7
+PairInE:	142104.6
+Test round: 258
+expInG1:	5966.4
+mulInG1:	20.6
+mulInGT:	145.4
+PairInE:	142008.7
+Test round: 259
+expInG1:	6069.3
+mulInG1:	24.8
+mulInGT:	147.8
+PairInE:	141130.1
+Test round: 260
+expInG1:	6047.2
+mulInG1:	21.9
+mulInGT:	143.6
+PairInE:	142588.0
+Test round: 261
+expInG1:	6122.0
+mulInG1:	27.4
+mulInGT:	148.4
+PairInE:	140888.6
+Test round: 262
+expInG1:	6051.6
+mulInG1:	22.7
+mulInGT:	172.7
+PairInE:	141455.9
+Test round: 263
+expInG1:	5986.2
+mulInG1:	23.6
+mulInGT:	154.0
+PairInE:	140706.4
+Test round: 264
+expInG1:	6075.0
+mulInG1:	22.4
+mulInGT:	145.2
+PairInE:	141698.6
+Test round: 265
+expInG1:	6047.0
+mulInG1:	26.0
+mulInGT:	151.6
+PairInE:	141431.3
+Test round: 266
+expInG1:	6045.1
+mulInG1:	22.1
+mulInGT:	147.0
+PairInE:	140949.6
+Test round: 267
+expInG1:	5889.5
+mulInG1:	23.4
+mulInGT:	146.1
+PairInE:	143390.4
+Test round: 268
+expInG1:	6090.9
+mulInG1:	22.5
+mulInGT:	145.5
+PairInE:	140906.9
+Test round: 269
+expInG1:	6258.9
+mulInG1:	40.4
+mulInGT:	218.9
+PairInE:	141765.8
+Test round: 270
+expInG1:	6034.9
+mulInG1:	22.4
+mulInGT:	143.2
+PairInE:	141294.8
+Test round: 271
+expInG1:	6097.3
+mulInG1:	22.5
+mulInGT:	153.4
+PairInE:	142716.8
+Test round: 272
+expInG1:	6756.4
+mulInG1:	23.2
+mulInGT:	153.3
+PairInE:	142761.4
+Test round: 273
+expInG1:	6102.1
+mulInG1:	23.8
+mulInGT:	144.7
+PairInE:	141136.6
+Test round: 274
+expInG1:	6199.6
+mulInG1:	25.4
+mulInGT:	150.3
+PairInE:	142336.8
+Test round: 275
+expInG1:	6009.4
+mulInG1:	21.5
+mulInGT:	148.1
+PairInE:	142252.7
+Test round: 276
+expInG1:	6192.6
+mulInG1:	24.2
+mulInGT:	154.2
+PairInE:	140721.7
+Test round: 277
+expInG1:	6172.9
+mulInG1:	23.7
+mulInGT:	146.2
+PairInE:	141765.1
+Test round: 278
+expInG1:	6018.2
+mulInG1:	25.5
+mulInGT:	151.5
+PairInE:	141081.6
+Test round: 279
+expInG1:	6347.0
+mulInG1:	24.1
+mulInGT:	150.3
+PairInE:	141260.5
+Test round: 280
+expInG1:	5972.1
+mulInG1:	22.3
+mulInGT:	149.3
+PairInE:	140937.2
+Test round: 281
+expInG1:	6069.8
+mulInG1:	22.9
+mulInGT:	146.5
+PairInE:	140938.7
+Test round: 282
+expInG1:	6167.2
+mulInG1:	24.4
+mulInGT:	151.7
+PairInE:	141547.8
+Test round: 283
+expInG1:	5972.5
+mulInG1:	22.7
+mulInGT:	147.8
+PairInE:	142163.1
+Test round: 284
+expInG1:	6015.5
+mulInG1:	31.6
+mulInGT:	152.8
+PairInE:	141001.6
+Test round: 285
+expInG1:	6005.8
+mulInG1:	22.3
+mulInGT:	150.2
+PairInE:	141016.3
+Test round: 286
+expInG1:	6045.8
+mulInG1:	22.5
+mulInGT:	159.0
+PairInE:	140634.4
+Test round: 287
+expInG1:	6012.5
+mulInG1:	31.8
+mulInGT:	204.8
+PairInE:	142270.7
+Test round: 288
+expInG1:	6029.2
+mulInG1:	23.0
+mulInGT:	146.9
+PairInE:	140717.2
+Test round: 289
+expInG1:	5939.4
+mulInG1:	21.7
+mulInGT:	147.5
+PairInE:	143422.9
+Test round: 290
+expInG1:	6003.3
+mulInG1:	24.8
+mulInGT:	145.5
+PairInE:	140234.8
+Test round: 291
+expInG1:	6009.7
+mulInG1:	24.1
+mulInGT:	154.0
+PairInE:	141628.3
+Test round: 292
+expInG1:	6160.6
+mulInG1:	23.8
+mulInGT:	147.0
+PairInE:	143990.3
+Test round: 293
+expInG1:	6115.3
+mulInG1:	24.3
+mulInGT:	148.0
+PairInE:	143324.8
+Test round: 294
+expInG1:	6062.1
+mulInG1:	23.9
+mulInGT:	150.0
+PairInE:	141104.5
+Test round: 295
+expInG1:	6308.6
+mulInG1:	23.0
+mulInGT:	157.0
+PairInE:	141780.8
+Test round: 296
+expInG1:	6121.0
+mulInG1:	25.0
+mulInGT:	151.1
+PairInE:	141056.4
+Test round: 297
+expInG1:	6148.9
+mulInG1:	23.9
+mulInGT:	153.1
+PairInE:	141178.1
+Test round: 298
+expInG1:	6042.4
+mulInG1:	22.4
+mulInGT:	146.6
+PairInE:	141397.9
+Test round: 299
+expInG1:	6040.3
+mulInG1:	21.2
+mulInGT:	149.4
+PairInE:	141329.2
+Test round: 300
+expInG1:	6132.5
+mulInG1:	26.6
+mulInGT:	150.1
+PairInE:	141599.9
+Test round: 301
+expInG1:	5965.1
+mulInG1:	22.3
+mulInGT:	142.7
+PairInE:	140451.4
+Test round: 302
+expInG1:	6003.8
+mulInG1:	23.4
+mulInGT:	173.7
+PairInE:	142044.1
+Test round: 303
+expInG1:	6029.9
+mulInG1:	22.1
+mulInGT:	150.0
+PairInE:	140928.8
+Test round: 304
+expInG1:	6047.3
+mulInG1:	22.6
+mulInGT:	150.8
+PairInE:	141436.6
+Test round: 305
+expInG1:	6128.4
+mulInG1:	24.3
+mulInGT:	149.4
+PairInE:	141170.3
+Test round: 306
+expInG1:	6023.3
+mulInG1:	27.2
+mulInGT:	150.3
+PairInE:	141403.3
+Test round: 307
+expInG1:	6121.6
+mulInG1:	22.1
+mulInGT:	149.9
+PairInE:	141639.8
+Test round: 308
+expInG1:	6095.3
+mulInG1:	22.6
+mulInGT:	149.3
+PairInE:	140750.4
+Test round: 309
+expInG1:	6025.2
+mulInG1:	22.9
+mulInGT:	144.8
+PairInE:	141391.1
+Test round: 310
+expInG1:	6078.0
+mulInG1:	22.0
+mulInGT:	152.3
+PairInE:	140453.7
+Test round: 311
+expInG1:	6096.9
+mulInG1:	23.1
+mulInGT:	144.1
+PairInE:	142342.4
+Test round: 312
+expInG1:	6044.3
+mulInG1:	22.1
+mulInGT:	148.5
+PairInE:	141090.7
+Test round: 313
+expInG1:	6092.8
+mulInG1:	24.9
+mulInGT:	150.2
+PairInE:	142136.6
+Test round: 314
+expInG1:	5966.7
+mulInG1:	22.9
+mulInGT:	148.0
+PairInE:	142311.1
+Test round: 315
+expInG1:	6166.6
+mulInG1:	24.7
+mulInGT:	158.9
+PairInE:	142667.1
+Test round: 316
+expInG1:	6131.5
+mulInG1:	23.1
+mulInGT:	150.0
+PairInE:	141097.6
+Test round: 317
+expInG1:	6208.4
+mulInG1:	23.3
+mulInGT:	154.0
+PairInE:	144590.6
+Test round: 318
+expInG1:	5990.7
+mulInG1:	25.2
+mulInGT:	149.2
+PairInE:	143620.6
+Test round: 319
+expInG1:	6257.2
+mulInG1:	25.2
+mulInGT:	153.5
+PairInE:	143969.3
+Test round: 320
+expInG1:	6087.2
+mulInG1:	27.2
+mulInGT:	156.5
+PairInE:	141007.1
+Test round: 321
+expInG1:	6122.3
+mulInG1:	24.2
+mulInGT:	151.1
+PairInE:	144363.9
+Test round: 322
+expInG1:	6001.2
+mulInG1:	22.7
+mulInGT:	146.5
+PairInE:	146167.5
+Test round: 323
+expInG1:	6151.2
+mulInG1:	30.9
+mulInGT:	164.9
+PairInE:	145129.0
+Test round: 324
+expInG1:	6361.3
+mulInG1:	27.4
+mulInGT:	154.8
+PairInE:	147856.4
+Test round: 325
+expInG1:	6169.1
+mulInG1:	24.4
+mulInGT:	163.0
+PairInE:	149813.8
+Test round: 326
+expInG1:	6219.1
+mulInG1:	35.5
+mulInGT:	180.6
+PairInE:	151434.1
+Test round: 327
+expInG1:	6094.1
+mulInG1:	23.4
+mulInGT:	146.9
+PairInE:	147491.4
+Test round: 328
+expInG1:	6064.8
+mulInG1:	22.5
+mulInGT:	145.7
+PairInE:	144414.3
+Test round: 329
+expInG1:	6143.1
+mulInG1:	22.9
+mulInGT:	148.4
+PairInE:	144737.3
+Test round: 330
+expInG1:	6221.5
+mulInG1:	25.3
+mulInGT:	176.1
+PairInE:	143989.3
+Test round: 331
+expInG1:	5970.7
+mulInG1:	22.1
+mulInGT:	150.3
+PairInE:	141768.2
+Test round: 332
+expInG1:	6134.0
+mulInG1:	23.0
+mulInGT:	147.6
+PairInE:	140123.9
+Test round: 333
+expInG1:	6035.5
+mulInG1:	23.5
+mulInGT:	143.9
+PairInE:	141435.6
+Test round: 334
+expInG1:	5958.5
+mulInG1:	21.6
+mulInGT:	148.4
+PairInE:	140837.6
+Test round: 335
+expInG1:	6094.2
+mulInG1:	21.6
+mulInGT:	146.2
+PairInE:	141192.8
+Test round: 336
+expInG1:	6257.4
+mulInG1:	24.6
+mulInGT:	148.9
+PairInE:	146655.2
+Test round: 337
+expInG1:	6093.1
+mulInG1:	23.7
+mulInGT:	153.6
+PairInE:	145823.0
+Test round: 338
+expInG1:	6397.5
+mulInG1:	32.5
+mulInGT:	156.5
+PairInE:	150703.5
+Test round: 339
+expInG1:	6104.8
+mulInG1:	23.7
+mulInGT:	154.6
+PairInE:	147455.4
+Test round: 340
+expInG1:	5924.7
+mulInG1:	22.7
+mulInGT:	142.4
+PairInE:	151208.2
+Test round: 341
+expInG1:	5882.0
+mulInG1:	23.0
+mulInGT:	149.1
+PairInE:	143827.3
+Test round: 342
+expInG1:	6294.4
+mulInG1:	22.8
+mulInGT:	160.4
+PairInE:	146517.2
+Test round: 343
+expInG1:	6152.7
+mulInG1:	39.4
+mulInGT:	155.3
+PairInE:	143324.6
+Test round: 344
+expInG1:	5986.4
+mulInG1:	22.7
+mulInGT:	141.9
+PairInE:	143249.0
+Test round: 345
+expInG1:	6094.7
+mulInG1:	28.0
+mulInGT:	151.1
+PairInE:	142030.4
+Test round: 346
+expInG1:	6017.1
+mulInG1:	21.6
+mulInGT:	143.8
+PairInE:	140719.6
+Test round: 347
+expInG1:	6002.6
+mulInG1:	22.6
+mulInGT:	141.3
+PairInE:	141592.0
+Test round: 348
+expInG1:	6100.7
+mulInG1:	21.3
+mulInGT:	150.7
+PairInE:	140896.4
+Test round: 349
+expInG1:	6036.1
+mulInG1:	39.5
+mulInGT:	146.9
+PairInE:	143323.4
+Test round: 350
+expInG1:	6143.4
+mulInG1:	31.3
+mulInGT:	145.0
+PairInE:	140603.8
+Test round: 351
+expInG1:	6061.9
+mulInG1:	30.4
+mulInGT:	145.3
+PairInE:	142123.7
+Test round: 352
+expInG1:	6081.0
+mulInG1:	22.9
+mulInGT:	146.9
+PairInE:	141058.2
+Test round: 353
+expInG1:	6797.6
+mulInG1:	22.1
+mulInGT:	145.5
+PairInE:	140941.2
+Test round: 354
+expInG1:	6066.6
+mulInG1:	22.4
+mulInGT:	149.5
+PairInE:	141427.6
+Test round: 355
+expInG1:	5968.7
+mulInG1:	23.3
+mulInGT:	144.6
+PairInE:	140717.9
+Test round: 356
+expInG1:	5999.8
+mulInG1:	22.3
+mulInGT:	145.9
+PairInE:	142127.4
+Test round: 357
+expInG1:	6039.7
+mulInG1:	22.0
+mulInGT:	148.0
+PairInE:	141974.6
+Test round: 358
+expInG1:	5989.3
+mulInG1:	21.8
+mulInGT:	146.1
+PairInE:	142116.2
+Test round: 359
+expInG1:	6045.4
+mulInG1:	21.8
+mulInGT:	147.8
+PairInE:	141716.2
+Test round: 360
+expInG1:	6060.3
+mulInG1:	22.8
+mulInGT:	146.7
+PairInE:	141471.7
+Test round: 361
+expInG1:	6086.8
+mulInG1:	23.2
+mulInGT:	151.6
+PairInE:	140485.8
+Test round: 362
+expInG1:	5980.5
+mulInG1:	22.2
+mulInGT:	161.8
+PairInE:	141456.2
+Test round: 363
+expInG1:	5932.5
+mulInG1:	24.7
+mulInGT:	143.3
+PairInE:	142625.6
+Test round: 364
+expInG1:	6190.6
+mulInG1:	26.9
+mulInGT:	147.5
+PairInE:	143582.8
+Test round: 365
+expInG1:	6094.0
+mulInG1:	22.0
+mulInGT:	146.0
+PairInE:	142747.1
+Test round: 366
+expInG1:	6043.9
+mulInG1:	22.1
+mulInGT:	148.4
+PairInE:	141196.3
+Test round: 367
+expInG1:	6035.8
+mulInG1:	22.6
+mulInGT:	150.9
+PairInE:	141961.6
+Test round: 368
+expInG1:	6101.0
+mulInG1:	21.5
+mulInGT:	142.0
+PairInE:	141022.3
+Test round: 369
+expInG1:	5989.6
+mulInG1:	22.0
+mulInGT:	145.9
+PairInE:	142348.8
+Test round: 370
+expInG1:	6076.4
+mulInG1:	21.6
+mulInGT:	146.9
+PairInE:	140702.8
+Test round: 371
+expInG1:	6122.0
+mulInG1:	22.3
+mulInGT:	152.2
+PairInE:	141965.7
+Test round: 372
+expInG1:	6012.6
+mulInG1:	24.1
+mulInGT:	146.1
+PairInE:	141076.1
+Test round: 373
+expInG1:	6054.3
+mulInG1:	22.5
+mulInGT:	152.2
+PairInE:	140861.3
+Test round: 374
+expInG1:	6389.1
+mulInG1:	23.1
+mulInGT:	149.4
+PairInE:	143230.0
+Test round: 375
+expInG1:	5985.2
+mulInG1:	22.8
+mulInGT:	145.9
+PairInE:	140814.5
+Test round: 376
+expInG1:	6027.2
+mulInG1:	22.7
+mulInGT:	146.0
+PairInE:	141607.6
+Test round: 377
+expInG1:	6017.2
+mulInG1:	21.2
+mulInGT:	145.9
+PairInE:	140655.6
+Test round: 378
+expInG1:	6007.4
+mulInG1:	23.4
+mulInGT:	143.0
+PairInE:	141630.9
+Test round: 379
+expInG1:	6124.4
+mulInG1:	23.0
+mulInGT:	155.2
+PairInE:	141470.4
+Test round: 380
+expInG1:	5995.5
+mulInG1:	21.4
+mulInGT:	150.8
+PairInE:	141560.9
+Test round: 381
+expInG1:	6072.1
+mulInG1:	21.8
+mulInGT:	149.8
+PairInE:	140501.1
+Test round: 382
+expInG1:	6097.2
+mulInG1:	23.7
+mulInGT:	146.8
+PairInE:	141826.0
+Test round: 383
+expInG1:	6056.0
+mulInG1:	22.1
+mulInGT:	151.8
+PairInE:	141063.9
+Test round: 384
+expInG1:	6008.4
+mulInG1:	25.3
+mulInGT:	165.2
+PairInE:	141162.9
+Test round: 385
+expInG1:	6155.1
+mulInG1:	23.8
+mulInGT:	175.3
+PairInE:	142088.2
+Test round: 386
+expInG1:	5912.6
+mulInG1:	23.0
+mulInGT:	156.0
+PairInE:	140189.7
+Test round: 387
+expInG1:	5985.2
+mulInG1:	22.2
+mulInGT:	142.1
+PairInE:	141242.8
+Test round: 388
+expInG1:	6117.6
+mulInG1:	23.3
+mulInGT:	139.7
+PairInE:	141691.6
+Test round: 389
+expInG1:	6050.4
+mulInG1:	24.2
+mulInGT:	144.6
+PairInE:	142439.9
+Test round: 390
+expInG1:	5941.7
+mulInG1:	22.6
+mulInGT:	138.4
+PairInE:	141244.3
+Test round: 391
+expInG1:	6295.1
+mulInG1:	23.0
+mulInGT:	144.8
+PairInE:	142044.1
+Test round: 392
+expInG1:	6043.0
+mulInG1:	23.1
+mulInGT:	143.5
+PairInE:	140795.0
+Test round: 393
+expInG1:	6023.2
+mulInG1:	22.5
+mulInGT:	147.0
+PairInE:	140819.5
+Test round: 394
+expInG1:	6040.8
+mulInG1:	21.7
+mulInGT:	140.4
+PairInE:	141288.6
+Test round: 395
+expInG1:	6056.3
+mulInG1:	22.0
+mulInGT:	147.3
+PairInE:	140859.1
+Test round: 396
+expInG1:	6044.4
+mulInG1:	22.2
+mulInGT:	141.9
+PairInE:	140337.1
+Test round: 397
+expInG1:	6117.8
+mulInG1:	21.5
+mulInGT:	142.0
+PairInE:	141835.6
+Test round: 398
+expInG1:	6085.0
+mulInG1:	24.7
+mulInGT:	147.0
+PairInE:	141894.1
+Test round: 399
+expInG1:	6126.1
+mulInG1:	22.3
+mulInGT:	142.0
+PairInE:	140816.8
+Test round: 400
+expInG1:	6081.5
+mulInG1:	22.8
+mulInGT:	154.7
+PairInE:	141694.8
+Test round: 401
+expInG1:	5957.0
+mulInG1:	22.3
+mulInGT:	143.0
+PairInE:	141271.3
+Test round: 402
+expInG1:	6109.0
+mulInG1:	22.4
+mulInGT:	147.9
+PairInE:	141178.4
+Test round: 403
+expInG1:	6005.2
+mulInG1:	22.0
+mulInGT:	136.1
+PairInE:	140743.2
+Test round: 404
+expInG1:	6289.4
+mulInG1:	23.2
+mulInGT:	141.5
+PairInE:	141591.8
+Test round: 405
+expInG1:	6138.3
+mulInG1:	22.6
+mulInGT:	141.2
+PairInE:	141201.0
+Test round: 406
+expInG1:	5922.6
+mulInG1:	22.0
+mulInGT:	141.1
+PairInE:	140584.9
+Test round: 407
+expInG1:	5960.2
+mulInG1:	21.8
+mulInGT:	144.6
+PairInE:	140900.1
+Test round: 408
+expInG1:	6136.4
+mulInG1:	23.2
+mulInGT:	143.6
+PairInE:	140994.2
+Test round: 409
+expInG1:	6045.2
+mulInG1:	21.8
+mulInGT:	135.2
+PairInE:	145298.0
+Test round: 410
+expInG1:	6060.3
+mulInG1:	24.4
+mulInGT:	147.5
+PairInE:	141186.6
+Test round: 411
+expInG1:	6001.6
+mulInG1:	22.6
+mulInGT:	141.3
+PairInE:	141707.0
+Test round: 412
+expInG1:	6176.9
+mulInG1:	24.7
+mulInGT:	142.3
+PairInE:	141220.4
+Test round: 413
+expInG1:	6069.3
+mulInG1:	23.8
+mulInGT:	147.5
+PairInE:	141112.6
+Test round: 414
+expInG1:	6120.1
+mulInG1:	22.5
+mulInGT:	154.8
+PairInE:	142694.7
+Test round: 415
+expInG1:	5952.8
+mulInG1:	23.2
+mulInGT:	139.9
+PairInE:	141073.6
+Test round: 416
+expInG1:	6294.7
+mulInG1:	23.2
+mulInGT:	145.3
+PairInE:	141349.4
+Test round: 417
+expInG1:	5965.9
+mulInG1:	21.0
+mulInGT:	138.7
+PairInE:	140832.2
+Test round: 418
+expInG1:	6208.9
+mulInG1:	22.9
+mulInGT:	143.9
+PairInE:	142723.6
+Test round: 419
+expInG1:	6007.5
+mulInG1:	23.7
+mulInGT:	147.7
+PairInE:	141146.4
+Test round: 420
+expInG1:	6115.0
+mulInG1:	25.1
+mulInGT:	147.5
+PairInE:	142439.1
+Test round: 421
+expInG1:	6141.3
+mulInG1:	25.4
+mulInGT:	151.6
+PairInE:	143546.4
+Test round: 422
+expInG1:	6518.7
+mulInG1:	23.7
+mulInGT:	149.5
+PairInE:	149430.6
+Test round: 423
+expInG1:	6186.9
+mulInG1:	34.3
+mulInGT:	180.8
+PairInE:	145165.3
+Test round: 424
+expInG1:	6347.8
+mulInG1:	28.4
+mulInGT:	179.6
+PairInE:	145203.0
+Test round: 425
+expInG1:	6000.3
+mulInG1:	24.5
+mulInGT:	144.3
+PairInE:	144731.4
+Test round: 426
+expInG1:	6041.9
+mulInG1:	22.2
+mulInGT:	144.9
+PairInE:	142947.4
+Test round: 427
+expInG1:	6020.0
+mulInG1:	21.5
+mulInGT:	139.5
+PairInE:	145404.9
+Test round: 428
+expInG1:	6187.5
+mulInG1:	24.5
+mulInGT:	147.7
+PairInE:	142138.3
+Test round: 429
+expInG1:	6014.8
+mulInG1:	23.5
+mulInGT:	145.8
+PairInE:	141116.8
+Test round: 430
+expInG1:	6047.2
+mulInG1:	24.3
+mulInGT:	143.1
+PairInE:	141983.5
+Test round: 431
+expInG1:	5994.6
+mulInG1:	23.8
+mulInGT:	148.2
+PairInE:	142226.5
+Test round: 432
+expInG1:	6168.4
+mulInG1:	25.5
+mulInGT:	143.4
+PairInE:	148682.7
+Test round: 433
+expInG1:	6083.4
+mulInG1:	24.7
+mulInGT:	150.4
+PairInE:	144489.9
+Test round: 434
+expInG1:	6027.3
+mulInG1:	22.9
+mulInGT:	140.7
+PairInE:	140445.3
+Test round: 435
+expInG1:	6150.3
+mulInG1:	23.5
+mulInGT:	143.2
+PairInE:	141152.3
+Test round: 436
+expInG1:	11491.7
+mulInG1:	28.0
+mulInGT:	149.2
+PairInE:	177146.8
+Test round: 437
+expInG1:	5990.2
+mulInG1:	25.2
+mulInGT:	148.5
+PairInE:	141209.1
+Test round: 438
+expInG1:	6033.4
+mulInG1:	23.9
+mulInGT:	144.7
+PairInE:	148422.1
+Test round: 439
+expInG1:	6529.9
+mulInG1:	245.8
+mulInGT:	145.5
+PairInE:	147760.0
+Test round: 440
+expInG1:	6150.7
+mulInG1:	23.5
+mulInGT:	147.3
+PairInE:	151595.4
+Test round: 441
+expInG1:	6311.1
+mulInG1:	24.9
+mulInGT:	146.6
+PairInE:	143436.8
+Test round: 442
+expInG1:	6194.8
+mulInG1:	25.1
+mulInGT:	144.7
+PairInE:	145417.1
+Test round: 443
+expInG1:	5978.5
+mulInG1:	24.4
+mulInGT:	146.9
+PairInE:	140473.0
+Test round: 444
+expInG1:	6135.7
+mulInG1:	24.0
+mulInGT:	143.0
+PairInE:	143845.2
+Test round: 445
+expInG1:	6046.9
+mulInG1:	23.3
+mulInGT:	149.6
+PairInE:	144950.2
+Test round: 446
+expInG1:	6144.0
+mulInG1:	21.3
+mulInGT:	141.8
+PairInE:	143594.8
+Test round: 447
+expInG1:	6138.5
+mulInG1:	23.3
+mulInGT:	146.9
+PairInE:	144569.7
+Test round: 448
+expInG1:	5988.8
+mulInG1:	24.7
+mulInGT:	156.1
+PairInE:	143086.4
+Test round: 449
+expInG1:	6268.7
+mulInG1:	25.5
+mulInGT:	141.7
+PairInE:	141450.2
+Test round: 450
+expInG1:	6186.9
+mulInG1:	24.2
+mulInGT:	151.1
+PairInE:	148136.6
+Test round: 451
+expInG1:	6091.4
+mulInG1:	25.7
+mulInGT:	149.6
+PairInE:	142339.1
+Test round: 452
+expInG1:	6076.6
+mulInG1:	22.8
+mulInGT:	143.6
+PairInE:	143488.7
+Test round: 453
+expInG1:	6137.4
+mulInG1:	24.9
+mulInGT:	145.5
+PairInE:	141464.8
+Test round: 454
+expInG1:	5974.6
+mulInG1:	22.1
+mulInGT:	140.6
+PairInE:	142787.7
+Test round: 455
+expInG1:	6178.0
+mulInG1:	23.3
+mulInGT:	145.0
+PairInE:	146016.4
+Test round: 456
+expInG1:	6095.5
+mulInG1:	24.9
+mulInGT:	153.6
+PairInE:	153424.8
+Test round: 457
+expInG1:	6166.6
+mulInG1:	22.5
+mulInGT:	143.8
+PairInE:	142283.4
+Test round: 458
+expInG1:	6252.5
+mulInG1:	22.8
+mulInGT:	144.9
+PairInE:	143786.5
+Test round: 459
+expInG1:	6079.0
+mulInG1:	21.3
+mulInGT:	138.7
+PairInE:	143182.2
+Test round: 460
+expInG1:	5995.7
+mulInG1:	21.4
+mulInGT:	139.3
+PairInE:	141531.7
+Test round: 461
+expInG1:	6115.0
+mulInG1:	23.1
+mulInGT:	142.8
+PairInE:	158784.2
+Test round: 462
+expInG1:	6167.5
+mulInG1:	22.3
+mulInGT:	151.3
+PairInE:	170762.5
+Test round: 463
+expInG1:	6172.9
+mulInG1:	24.1
+mulInGT:	146.3
+PairInE:	141698.2
+Test round: 464
+expInG1:	5961.5
+mulInG1:	22.1
+mulInGT:	144.6
+PairInE:	141739.7
+Test round: 465
+expInG1:	6318.7
+mulInG1:	24.3
+mulInGT:	144.1
+PairInE:	142159.5
+Test round: 466
+expInG1:	5985.0
+mulInG1:	21.9
+mulInGT:	142.8
+PairInE:	141219.0
+Test round: 467
+expInG1:	6095.4
+mulInG1:	22.7
+mulInGT:	145.3
+PairInE:	140755.6
+Test round: 468
+expInG1:	6204.3
+mulInG1:	23.9
+mulInGT:	141.1
+PairInE:	150525.4
+Test round: 469
+expInG1:	6137.3
+mulInG1:	23.7
+mulInGT:	145.6
+PairInE:	148674.9
+Test round: 470
+expInG1:	6332.2
+mulInG1:	22.8
+mulInGT:	159.1
+PairInE:	143646.1
+Test round: 471
+expInG1:	7026.9
+mulInG1:	30.6
+mulInGT:	207.4
+PairInE:	150143.0
+Test round: 472
+expInG1:	6291.9
+mulInG1:	23.3
+mulInGT:	145.0
+PairInE:	146028.5
+Test round: 473
+expInG1:	6086.2
+mulInG1:	21.5
+mulInGT:	144.3
+PairInE:	141356.7
+Test round: 474
+expInG1:	5986.0
+mulInG1:	22.2
+mulInGT:	139.9
+PairInE:	142684.8
+Test round: 475
+expInG1:	6228.7
+mulInG1:	22.5
+mulInGT:	148.5
+PairInE:	152514.1
+Test round: 476
+expInG1:	6099.9
+mulInG1:	22.9
+mulInGT:	141.9
+PairInE:	142297.7
+Test round: 477
+expInG1:	6067.0
+mulInG1:	22.6
+mulInGT:	142.7
+PairInE:	142515.5
+Test round: 478
+expInG1:	6151.3
+mulInG1:	23.1
+mulInGT:	147.8
+PairInE:	147876.1
+Test round: 479
+expInG1:	6115.4
+mulInG1:	23.6
+mulInGT:	147.5
+PairInE:	142451.3
+Test round: 480
+expInG1:	6061.2
+mulInG1:	22.3
+mulInGT:	140.3
+PairInE:	141910.5
+Test round: 481
+expInG1:	6200.7
+mulInG1:	23.8
+mulInGT:	146.5
+PairInE:	145637.9
+Test round: 482
+expInG1:	6182.3
+mulInG1:	25.4
+mulInGT:	154.5
+PairInE:	147793.3
+Test round: 483
+expInG1:	5991.2
+mulInG1:	22.6
+mulInGT:	140.8
+PairInE:	147399.7
+Test round: 484
+expInG1:	5966.1
+mulInG1:	32.7
+mulInGT:	215.4
+PairInE:	145064.4
+Test round: 485
+expInG1:	5950.1
+mulInG1:	23.8
+mulInGT:	143.2
+PairInE:	144769.4
+Test round: 486
+expInG1:	6080.4
+mulInG1:	23.8
+mulInGT:	142.0
+PairInE:	144771.3
+Test round: 487
+expInG1:	6015.8
+mulInG1:	22.0
+mulInGT:	144.4
+PairInE:	143170.6
+Test round: 488
+expInG1:	6045.3
+mulInG1:	21.9
+mulInGT:	139.8
+PairInE:	150452.9
+Test round: 489
+expInG1:	6087.1
+mulInG1:	22.3
+mulInGT:	140.6
+PairInE:	146812.4
+Test round: 490
+expInG1:	6115.9
+mulInG1:	24.8
+mulInGT:	147.7
+PairInE:	145068.2
+Test round: 491
+expInG1:	6028.8
+mulInG1:	22.2
+mulInGT:	146.4
+PairInE:	147173.1
+Test round: 492
+expInG1:	6078.8
+mulInG1:	24.6
+mulInGT:	154.6
+PairInE:	144615.2
+Test round: 493
+expInG1:	6029.8
+mulInG1:	24.5
+mulInGT:	152.3
+PairInE:	144493.3
+Test round: 494
+expInG1:	6212.6
+mulInG1:	23.2
+mulInGT:	145.0
+PairInE:	146377.4
+Test round: 495
+expInG1:	6086.0
+mulInG1:	24.0
+mulInGT:	147.9
+PairInE:	141368.1
+Test round: 496
+expInG1:	7779.5
+mulInG1:	22.8
+mulInGT:	146.8
+PairInE:	147255.7
+Test round: 497
+expInG1:	6139.8
+mulInG1:	22.0
+mulInGT:	146.6
+PairInE:	145638.1
+Test round: 498
+expInG1:	5997.2
+mulInG1:	22.6
+mulInGT:	148.4
+PairInE:	142979.5
+Test round: 499
+expInG1:	6145.1
+mulInG1:	23.9
+mulInGT:	140.7
+PairInE:	141601.5
+Test round: 500
+expInG1:	5968.8
+mulInG1:	22.8
+mulInGT:	144.0
+PairInE:	141236.0
+Test round: 501
+expInG1:	6059.9
+mulInG1:	22.9
+mulInGT:	142.5
+PairInE:	143081.0
+Test round: 502
+expInG1:	6567.0
+mulInG1:	22.5
+mulInGT:	148.0
+PairInE:	141021.7
+Test round: 503
+expInG1:	6157.7
+mulInG1:	21.9
+mulInGT:	141.0
+PairInE:	141860.4
+Test round: 504
+expInG1:	6225.8
+mulInG1:	32.0
+mulInGT:	200.6
+PairInE:	143530.4
+Test round: 505
+expInG1:	6196.2
+mulInG1:	24.8
+mulInGT:	153.1
+PairInE:	142473.2
+Test round: 506
+expInG1:	6102.3
+mulInG1:	21.8
+mulInGT:	733.2
+PairInE:	143917.7
+Test round: 507
+expInG1:	6173.2
+mulInG1:	23.1
+mulInGT:	138.6
+PairInE:	140819.3
+Test round: 508
+expInG1:	6136.7
+mulInG1:	21.5
+mulInGT:	140.8
+PairInE:	141975.2
+Test round: 509
+expInG1:	5997.1
+mulInG1:	20.6
+mulInGT:	144.7
+PairInE:	143160.9
+Test round: 510
+expInG1:	6117.8
+mulInG1:	22.6
+mulInGT:	156.2
+PairInE:	142308.3
+Test round: 511
+expInG1:	5944.4
+mulInG1:	23.6
+mulInGT:	143.6
+PairInE:	140803.8
+Test round: 512
+expInG1:	6180.5
+mulInG1:	21.6
+mulInGT:	143.4
+PairInE:	141632.2
+Test round: 513
+expInG1:	6110.2
+mulInG1:	24.1
+mulInGT:	143.4
+PairInE:	140813.6
+Test round: 514
+expInG1:	5973.1
+mulInG1:	22.2
+mulInGT:	145.9
+PairInE:	140730.8
+Test round: 515
+expInG1:	6287.9
+mulInG1:	21.5
+mulInGT:	139.8
+PairInE:	141996.0
+Test round: 516
+expInG1:	6246.1
+mulInG1:	24.5
+mulInGT:	145.3
+PairInE:	140418.9
+Test round: 517
+expInG1:	6028.5
+mulInG1:	23.3
+mulInGT:	142.4
+PairInE:	141675.1
+Test round: 518
+expInG1:	5920.0
+mulInG1:	22.5
+mulInGT:	141.0
+PairInE:	141191.7
+Test round: 519
+expInG1:	6201.3
+mulInG1:	24.4
+mulInGT:	143.2
+PairInE:	140832.8
+Test round: 520
+expInG1:	6038.6
+mulInG1:	22.9
+mulInGT:	138.3
+PairInE:	141027.4
+Test round: 521
+expInG1:	6014.7
+mulInG1:	22.9
+mulInGT:	140.5
+PairInE:	141956.4
+Test round: 522
+expInG1:	5987.0
+mulInG1:	20.6
+mulInGT:	141.1
+PairInE:	142538.9
+Test round: 523
+expInG1:	6039.7
+mulInG1:	23.4
+mulInGT:	136.4
+PairInE:	140975.3
+Test round: 524
+expInG1:	5976.4
+mulInG1:	20.9
+mulInGT:	145.7
+PairInE:	142607.2
+Test round: 525
+expInG1:	6147.5
+mulInG1:	21.9
+mulInGT:	143.8
+PairInE:	140409.0
+Test round: 526
+expInG1:	6008.3
+mulInG1:	22.5
+mulInGT:	144.4
+PairInE:	142126.0
+Test round: 527
+expInG1:	6002.4
+mulInG1:	23.6
+mulInGT:	140.9
+PairInE:	140674.5
+Test round: 528
+expInG1:	6114.1
+mulInG1:	22.6
+mulInGT:	152.1
+PairInE:	142920.9
+Test round: 529
+expInG1:	6008.3
+mulInG1:	23.3
+mulInGT:	141.5
+PairInE:	142010.3
+Test round: 530
+expInG1:	5915.6
+mulInG1:	23.4
+mulInGT:	140.5
+PairInE:	141881.5
+Test round: 531
+expInG1:	5999.4
+mulInG1:	21.8
+mulInGT:	142.7
+PairInE:	140616.5
+Test round: 532
+expInG1:	6040.1
+mulInG1:	21.4
+mulInGT:	146.0
+PairInE:	140698.3
+Test round: 533
+expInG1:	5965.3
+mulInG1:	23.5
+mulInGT:	141.1
+PairInE:	140963.5
+Test round: 534
+expInG1:	6033.8
+mulInG1:	22.8
+mulInGT:	136.6
+PairInE:	140598.6
+Test round: 535
+expInG1:	6066.6
+mulInG1:	23.5
+mulInGT:	142.0
+PairInE:	141180.3
+Test round: 536
+expInG1:	6086.9
+mulInG1:	22.5
+mulInGT:	142.9
+PairInE:	141129.6
+Test round: 537
+expInG1:	6148.5
+mulInG1:	24.7
+mulInGT:	142.2
+PairInE:	142014.3
+Test round: 538
+expInG1:	6119.6
+mulInG1:	20.9
+mulInGT:	156.2
+PairInE:	141859.6
+Test round: 539
+expInG1:	6170.1
+mulInG1:	22.7
+mulInGT:	148.7
+PairInE:	141758.7
+Test round: 540
+expInG1:	5934.8
+mulInG1:	21.9
+mulInGT:	143.9
+PairInE:	140428.8
+Test round: 541
+expInG1:	6344.6
+mulInG1:	25.0
+mulInGT:	147.1
+PairInE:	141177.6
+Test round: 542
+expInG1:	6041.1
+mulInG1:	22.8
+mulInGT:	140.3
+PairInE:	140220.3
+Test round: 543
+expInG1:	6115.0
+mulInG1:	22.0
+mulInGT:	138.7
+PairInE:	143423.7
+Test round: 544
+expInG1:	6062.6
+mulInG1:	21.6
+mulInGT:	141.7
+PairInE:	142405.5
+Test round: 545
+expInG1:	6075.2
+mulInG1:	21.3
+mulInGT:	146.0
+PairInE:	141213.7
+Test round: 546
+expInG1:	6031.2
+mulInG1:	30.3
+mulInGT:	225.7
+PairInE:	142471.5
+Test round: 547
+expInG1:	5995.6
+mulInG1:	22.1
+mulInGT:	142.6
+PairInE:	140748.5
+Test round: 548
+expInG1:	5980.7
+mulInG1:	22.3
+mulInGT:	142.9
+PairInE:	141327.4
+Test round: 549
+expInG1:	6002.6
+mulInG1:	23.3
+mulInGT:	147.0
+PairInE:	139919.1
+Test round: 550
+expInG1:	6118.1
+mulInG1:	22.4
+mulInGT:	142.4
+PairInE:	141537.5
+Test round: 551
+expInG1:	6003.2
+mulInG1:	22.3
+mulInGT:	135.4
+PairInE:	140618.1
+Test round: 552
+expInG1:	6173.6
+mulInG1:	25.3
+mulInGT:	143.3
+PairInE:	141087.3
+Test round: 553
+expInG1:	6117.4
+mulInG1:	21.4
+mulInGT:	141.6
+PairInE:	142578.4
+Test round: 554
+expInG1:	6055.1
+mulInG1:	23.4
+mulInGT:	142.7
+PairInE:	141370.0
+Test round: 555
+expInG1:	6109.5
+mulInG1:	23.0
+mulInGT:	141.0
+PairInE:	142630.5
+Test round: 556
+expInG1:	6028.0
+mulInG1:	22.2
+mulInGT:	138.8
+PairInE:	141704.7
+Test round: 557
+expInG1:	5982.9
+mulInG1:	23.0
+mulInGT:	140.7
+PairInE:	141665.3
+Test round: 558
+expInG1:	6158.3
+mulInG1:	23.7
+mulInGT:	144.1
+PairInE:	141103.4
+Test round: 559
+expInG1:	6119.2
+mulInG1:	22.9
+mulInGT:	145.9
+PairInE:	140711.7
+Test round: 560
+expInG1:	6018.9
+mulInG1:	23.4
+mulInGT:	140.6
+PairInE:	140272.0
+Test round: 561
+expInG1:	6168.5
+mulInG1:	22.8
+mulInGT:	139.5
+PairInE:	141376.3
+Test round: 562
+expInG1:	5774.3
+mulInG1:	21.8
+mulInGT:	139.6
+PairInE:	140600.5
+Test round: 563
+expInG1:	6160.0
+mulInG1:	22.3
+mulInGT:	146.8
+PairInE:	140333.5
+Test round: 564
+expInG1:	6123.3
+mulInG1:	21.5
+mulInGT:	138.8
+PairInE:	141399.9
+Test round: 565
+expInG1:	6048.1
+mulInG1:	22.4
+mulInGT:	143.1
+PairInE:	140820.8
+Test round: 566
+expInG1:	5977.4
+mulInG1:	21.5
+mulInGT:	140.0
+PairInE:	141356.1
+Test round: 567
+expInG1:	6252.4
+mulInG1:	21.0
+mulInGT:	140.0
+PairInE:	140758.6
+Test round: 568
+expInG1:	6006.1
+mulInG1:	27.9
+mulInGT:	143.7
+PairInE:	142078.9
+Test round: 569
+expInG1:	5963.4
+mulInG1:	21.6
+mulInGT:	142.2
+PairInE:	140223.9
+Test round: 570
+expInG1:	6326.5
+mulInG1:	22.5
+mulInGT:	144.5
+PairInE:	140736.8
+Test round: 571
+expInG1:	6075.8
+mulInG1:	23.0
+mulInGT:	143.3
+PairInE:	140918.4
+Test round: 572
+expInG1:	6107.7
+mulInG1:	21.6
+mulInGT:	140.4
+PairInE:	141106.9
+Test round: 573
+expInG1:	6073.2
+mulInG1:	21.4
+mulInGT:	139.1
+PairInE:	140608.9
+Test round: 574
+expInG1:	6113.4
+mulInG1:	21.1
+mulInGT:	161.4
+PairInE:	140578.8
+Test round: 575
+expInG1:	6096.3
+mulInG1:	22.8
+mulInGT:	141.1
+PairInE:	142037.7
+Test round: 576
+expInG1:	5913.1
+mulInG1:	27.3
+mulInGT:	144.8
+PairInE:	141732.4
+Test round: 577
+expInG1:	6244.9
+mulInG1:	22.6
+mulInGT:	146.5
+PairInE:	142406.1
+Test round: 578
+expInG1:	5999.9
+mulInG1:	23.5
+mulInGT:	143.5
+PairInE:	142573.6
+Test round: 579
+expInG1:	5960.8
+mulInG1:	23.3
+mulInGT:	143.4
+PairInE:	140961.4
+Test round: 580
+expInG1:	6057.1
+mulInG1:	21.4
+mulInGT:	138.0
+PairInE:	140669.2
+Test round: 581
+expInG1:	6032.2
+mulInG1:	23.3
+mulInGT:	140.3
+PairInE:	141365.0
+Test round: 582
+expInG1:	5967.8
+mulInG1:	22.2
+mulInGT:	146.2
+PairInE:	140276.4
+Test round: 583
+expInG1:	6022.0
+mulInG1:	22.9
+mulInGT:	155.1
+PairInE:	142187.5
+Test round: 584
+expInG1:	6190.1
+mulInG1:	23.1
+mulInGT:	143.3
+PairInE:	141025.9
+Test round: 585
+expInG1:	6027.6
+mulInG1:	22.4
+mulInGT:	143.6
+PairInE:	141156.9
+Test round: 586
+expInG1:	6049.0
+mulInG1:	21.5
+mulInGT:	139.7
+PairInE:	141997.0
+Test round: 587
+expInG1:	6121.2
+mulInG1:	23.7
+mulInGT:	147.9
+PairInE:	142070.4
+Test round: 588
+expInG1:	6030.9
+mulInG1:	24.8
+mulInGT:	142.2
+PairInE:	141326.0
+Test round: 589
+expInG1:	6009.8
+mulInG1:	21.7
+mulInGT:	146.8
+PairInE:	152310.0
+Test round: 590
+expInG1:	6126.5
+mulInG1:	23.7
+mulInGT:	141.5
+PairInE:	141091.5
+Test round: 591
+expInG1:	5988.9
+mulInG1:	21.5
+mulInGT:	141.3
+PairInE:	142879.0
+Test round: 592
+expInG1:	6169.1
+mulInG1:	22.2
+mulInGT:	142.5
+PairInE:	144133.2
+Test round: 593
+expInG1:	6140.2
+mulInG1:	22.6
+mulInGT:	140.9
+PairInE:	144494.1
+Test round: 594
+expInG1:	6469.4
+mulInG1:	43.5
+mulInGT:	226.9
+PairInE:	165522.6
+Test round: 595
+expInG1:	6457.2
+mulInG1:	24.7
+mulInGT:	145.2
+PairInE:	213032.4
+Test round: 596
+expInG1:	6086.0
+mulInG1:	22.9
+mulInGT:	157.0
+PairInE:	147895.3
+Test round: 597
+expInG1:	8839.8
+mulInG1:	23.3
+mulInGT:	149.6
+PairInE:	149126.9
+Test round: 598
+expInG1:	6148.0
+mulInG1:	23.4
+mulInGT:	147.6
+PairInE:	145541.4
+Test round: 599
+expInG1:	5921.9
+mulInG1:	24.0
+mulInGT:	145.0
+PairInE:	151882.0
+Test round: 600
+expInG1:	6254.5
+mulInG1:	25.6
+mulInGT:	151.0
+PairInE:	141102.1
+Test round: 601
+expInG1:	6011.1
+mulInG1:	22.2
+mulInGT:	142.1
+PairInE:	140521.4
+Test round: 602
+expInG1:	6204.2
+mulInG1:	26.7
+mulInGT:	142.5
+PairInE:	140956.2
+Test round: 603
+expInG1:	6229.3
+mulInG1:	23.7
+mulInGT:	146.9
+PairInE:	142713.7
+Test round: 604
+expInG1:	8258.6
+mulInG1:	23.5
+mulInGT:	149.1
+PairInE:	146810.2
+Test round: 605
+expInG1:	8281.2
+mulInG1:	23.8
+mulInGT:	148.3
+PairInE:	143984.9
+Test round: 606
+expInG1:	6613.4
+mulInG1:	24.9
+mulInGT:	146.5
+PairInE:	154625.9
+Test round: 607
+expInG1:	5995.8
+mulInG1:	22.4
+mulInGT:	140.1
+PairInE:	142650.1
+Test round: 608
+expInG1:	5996.1
+mulInG1:	21.3
+mulInGT:	138.5
+PairInE:	142533.4
+Test round: 609
+expInG1:	5994.2
+mulInG1:	23.6
+mulInGT:	139.8
+PairInE:	141820.0
+Test round: 610
+expInG1:	6091.2
+mulInG1:	22.7
+mulInGT:	146.5
+PairInE:	141745.1
+Test round: 611
+expInG1:	6068.3
+mulInG1:	22.2
+mulInGT:	142.1
+PairInE:	141276.2
+Test round: 612
+expInG1:	6248.6
+mulInG1:	22.9
+mulInGT:	146.0
+PairInE:	140370.1
+Test round: 613
+expInG1:	6143.2
+mulInG1:	23.1
+mulInGT:	143.8
+PairInE:	141351.5
+Test round: 614
+expInG1:	6071.0
+mulInG1:	21.7
+mulInGT:	142.3
+PairInE:	140835.7
+Test round: 615
+expInG1:	5982.2
+mulInG1:	23.6
+mulInGT:	153.4
+PairInE:	142655.9
+Test round: 616
+expInG1:	6046.0
+mulInG1:	21.3
+mulInGT:	143.2
+PairInE:	141859.3
+Test round: 617
+expInG1:	6022.3
+mulInG1:	21.7
+mulInGT:	142.0
+PairInE:	144877.6
+Test round: 618
+expInG1:	6034.7
+mulInG1:	21.2
+mulInGT:	141.6
+PairInE:	146153.6
+Test round: 619
+expInG1:	6201.6
+mulInG1:	29.1
+mulInGT:	156.1
+PairInE:	142620.6
+Test round: 620
+expInG1:	6101.1
+mulInG1:	24.7
+mulInGT:	142.4
+PairInE:	142902.0
+Test round: 621
+expInG1:	6069.0
+mulInG1:	22.2
+mulInGT:	147.1
+PairInE:	142846.8
+Test round: 622
+expInG1:	6495.8
+mulInG1:	22.8
+mulInGT:	154.6
+PairInE:	142960.2
+Test round: 623
+expInG1:	6626.1
+mulInG1:	24.4
+mulInGT:	151.8
+PairInE:	145243.6
+Test round: 624
+expInG1:	6096.0
+mulInG1:	23.5
+mulInGT:	149.3
+PairInE:	144864.3
+Test round: 625
+expInG1:	6044.9
+mulInG1:	25.7
+mulInGT:	152.6
+PairInE:	141396.7
+Test round: 626
+expInG1:	6139.6
+mulInG1:	24.1
+mulInGT:	148.0
+PairInE:	142037.1
+Test round: 627
+expInG1:	6054.2
+mulInG1:	22.8
+mulInGT:	139.1
+PairInE:	141199.5
+Test round: 628
+expInG1:	6033.7
+mulInG1:	23.3
+mulInGT:	137.9
+PairInE:	140876.2
+Test round: 629
+expInG1:	5927.9
+mulInG1:	23.3
+mulInGT:	142.5
+PairInE:	141229.2
+Test round: 630
+expInG1:	6070.2
+mulInG1:	21.8
+mulInGT:	136.1
+PairInE:	141927.8
+Test round: 631
+expInG1:	5926.5
+mulInG1:	22.1
+mulInGT:	137.0
+PairInE:	141717.0
+Test round: 632
+expInG1:	6181.2
+mulInG1:	24.9
+mulInGT:	148.1
+PairInE:	142143.2
+Test round: 633
+expInG1:	6005.2
+mulInG1:	23.3
+mulInGT:	141.2
+PairInE:	141363.4
+Test round: 634
+expInG1:	6071.9
+mulInG1:	24.7
+mulInGT:	150.8
+PairInE:	155645.8
+Test round: 635
+expInG1:	6691.0
+mulInG1:	23.4
+mulInGT:	144.1
+PairInE:	140270.7
+Test round: 636
+expInG1:	6041.6
+mulInG1:	21.6
+mulInGT:	140.5
+PairInE:	142270.8
+Test round: 637
+expInG1:	6062.7
+mulInG1:	22.9
+mulInGT:	141.2
+PairInE:	140762.6
+Test round: 638
+expInG1:	6187.5
+mulInG1:	21.5
+mulInGT:	143.4
+PairInE:	140895.6
+Test round: 639
+expInG1:	6062.5
+mulInG1:	22.8
+mulInGT:	145.3
+PairInE:	143368.8
+Test round: 640
+expInG1:	5982.6
+mulInG1:	24.1
+mulInGT:	148.3
+PairInE:	140965.3
+Test round: 641
+expInG1:	6000.0
+mulInG1:	23.1
+mulInGT:	146.8
+PairInE:	142309.2
+Test round: 642
+expInG1:	5974.2
+mulInG1:	24.5
+mulInGT:	148.8
+PairInE:	140778.6
+Test round: 643
+expInG1:	6026.7
+mulInG1:	23.5
+mulInGT:	146.3
+PairInE:	141625.7
+Test round: 644
+expInG1:	5929.9
+mulInG1:	22.3
+mulInGT:	141.7
+PairInE:	141651.4
+Test round: 645
+expInG1:	6121.8
+mulInG1:	23.0
+mulInGT:	152.4
+PairInE:	142139.2
+Test round: 646
+expInG1:	6073.4
+mulInG1:	24.1
+mulInGT:	142.1
+PairInE:	141114.5
+Test round: 647
+expInG1:	6006.8
+mulInG1:	22.3
+mulInGT:	141.9
+PairInE:	141698.9
+Test round: 648
+expInG1:	6032.0
+mulInG1:	25.6
+mulInGT:	147.6
+PairInE:	141491.7
+Test round: 649
+expInG1:	6051.5
+mulInG1:	21.2
+mulInGT:	137.8
+PairInE:	145241.9
+Test round: 650
+expInG1:	6115.8
+mulInG1:	29.9
+mulInGT:	140.0
+PairInE:	143476.8
+Test round: 651
+expInG1:	6009.8
+mulInG1:	22.4
+mulInGT:	146.8
+PairInE:	142090.8
+Test round: 652
+expInG1:	6024.9
+mulInG1:	22.9
+mulInGT:	145.6
+PairInE:	141942.5
+Test round: 653
+expInG1:	5971.7
+mulInG1:	21.1
+mulInGT:	143.3
+PairInE:	141194.0
+Test round: 654
+expInG1:	5986.9
+mulInG1:	21.4
+mulInGT:	146.0
+PairInE:	142272.9
+Test round: 655
+expInG1:	6085.9
+mulInG1:	22.1
+mulInGT:	139.7
+PairInE:	141239.3
+Test round: 656
+expInG1:	5953.6
+mulInG1:	30.1
+mulInGT:	145.3
+PairInE:	140412.2
+Test round: 657
+expInG1:	6052.8
+mulInG1:	22.8
+mulInGT:	145.7
+PairInE:	141255.8
+Test round: 658
+expInG1:	6204.4
+mulInG1:	22.7
+mulInGT:	159.6
+PairInE:	141329.9
+Test round: 659
+expInG1:	6200.7
+mulInG1:	35.5
+mulInGT:	159.6
+PairInE:	141048.1
+Test round: 660
+expInG1:	6049.8
+mulInG1:	22.8
+mulInGT:	146.3
+PairInE:	139902.7
+Test round: 661
+expInG1:	6020.3
+mulInG1:	21.6
+mulInGT:	139.8
+PairInE:	141417.7
+Test round: 662
+expInG1:	5932.0
+mulInG1:	22.0
+mulInGT:	139.3
+PairInE:	140693.9
+Test round: 663
+expInG1:	6027.7
+mulInG1:	21.6
+mulInGT:	147.8
+PairInE:	143356.4
+Test round: 664
+expInG1:	5962.7
+mulInG1:	22.9
+mulInGT:	140.5
+PairInE:	140595.6
+Test round: 665
+expInG1:	6319.5
+mulInG1:	31.4
+mulInGT:	150.5
+PairInE:	141570.5
+Test round: 666
+expInG1:	6031.4
+mulInG1:	22.5
+mulInGT:	136.4
+PairInE:	141165.0
+Test round: 667
+expInG1:	6057.0
+mulInG1:	23.2
+mulInGT:	191.1
+PairInE:	140801.1
+Test round: 668
+expInG1:	6087.9
+mulInG1:	26.7
+mulInGT:	146.1
+PairInE:	141277.0
+Test round: 669
+expInG1:	5968.2
+mulInG1:	22.2
+mulInGT:	141.1
+PairInE:	140052.8
+Test round: 670
+expInG1:	6032.8
+mulInG1:	22.4
+mulInGT:	147.5
+PairInE:	143022.5
+Test round: 671
+expInG1:	6118.1
+mulInG1:	23.8
+mulInGT:	143.2
+PairInE:	141485.3
+Test round: 672
+expInG1:	6010.0
+mulInG1:	22.8
+mulInGT:	143.0
+PairInE:	142850.7
+Test round: 673
+expInG1:	6101.4
+mulInG1:	24.5
+mulInGT:	141.4
+PairInE:	140473.0
+Test round: 674
+expInG1:	6005.5
+mulInG1:	22.6
+mulInGT:	145.7
+PairInE:	141739.5
+Test round: 675
+expInG1:	6055.2
+mulInG1:	22.6
+mulInGT:	139.0
+PairInE:	141416.9
+Test round: 676
+expInG1:	6129.6
+mulInG1:	25.2
+mulInGT:	145.4
+PairInE:	140715.6
+Test round: 677
+expInG1:	6049.3
+mulInG1:	23.0
+mulInGT:	142.4
+PairInE:	141039.7
+Test round: 678
+expInG1:	6026.4
+mulInG1:	21.7
+mulInGT:	144.0
+PairInE:	142000.2
+Test round: 679
+expInG1:	6131.6
+mulInG1:	22.6
+mulInGT:	141.6
+PairInE:	142418.5
+Test round: 680
+expInG1:	5966.0
+mulInG1:	21.9
+mulInGT:	137.2
+PairInE:	140836.4
+Test round: 681
+expInG1:	6260.8
+mulInG1:	23.2
+mulInGT:	138.9
+PairInE:	141932.1
+Test round: 682
+expInG1:	5994.7
+mulInG1:	22.1
+mulInGT:	141.5
+PairInE:	140374.5
+Test round: 683
+expInG1:	5985.8
+mulInG1:	22.3
+mulInGT:	143.0
+PairInE:	141716.3
+Test round: 684
+expInG1:	6029.5
+mulInG1:	22.8
+mulInGT:	139.5
+PairInE:	143764.7
+Test round: 685
+expInG1:	6057.3
+mulInG1:	21.3
+mulInGT:	143.5
+PairInE:	140911.6
+Test round: 686
+expInG1:	5961.9
+mulInG1:	23.4
+mulInGT:	148.9
+PairInE:	140347.5
+Test round: 687
+expInG1:	6114.1
+mulInG1:	24.2
+mulInGT:	144.5
+PairInE:	141087.9
+Test round: 688
+expInG1:	6026.3
+mulInG1:	21.7
+mulInGT:	140.2
+PairInE:	140633.3
+Test round: 689
+expInG1:	6130.7
+mulInG1:	24.0
+mulInGT:	145.3
+PairInE:	140920.3
+Test round: 690
+expInG1:	6045.8
+mulInG1:	22.1
+mulInGT:	144.9
+PairInE:	143589.6
+Test round: 691
+expInG1:	6162.2
+mulInG1:	24.0
+mulInGT:	150.1
+PairInE:	142308.7
+Test round: 692
+expInG1:	6002.2
+mulInG1:	23.8
+mulInGT:	146.7
+PairInE:	142845.5
+Test round: 693
+expInG1:	6111.8
+mulInG1:	24.2
+mulInGT:	142.1
+PairInE:	141235.2
+Test round: 694
+expInG1:	6004.4
+mulInG1:	29.0
+mulInGT:	145.3
+PairInE:	141299.3
+Test round: 695
+expInG1:	6045.2
+mulInG1:	23.4
+mulInGT:	144.7
+PairInE:	143220.5
+Test round: 696
+expInG1:	5997.2
+mulInG1:	25.1
+mulInGT:	143.7
+PairInE:	143668.5
+Test round: 697
+expInG1:	6236.6
+mulInG1:	25.6
+mulInGT:	143.7
+PairInE:	142170.3
+Test round: 698
+expInG1:	6019.8
+mulInG1:	23.1
+mulInGT:	142.4
+PairInE:	140451.7
+Test round: 699
+expInG1:	6042.6
+mulInG1:	23.1
+mulInGT:	140.1
+PairInE:	140704.0
+Test round: 700
+expInG1:	6083.9
+mulInG1:	22.7
+mulInGT:	140.8
+PairInE:	141306.3
+Test round: 701
+expInG1:	6359.9
+mulInG1:	24.5
+mulInGT:	145.3
+PairInE:	144993.7
+Test round: 702
+expInG1:	6051.3
+mulInG1:	22.2
+mulInGT:	145.9
+PairInE:	141773.3
+Test round: 703
+expInG1:	6017.2
+mulInG1:	23.8
+mulInGT:	144.3
+PairInE:	141390.1
+Test round: 704
+expInG1:	6204.8
+mulInG1:	22.3
+mulInGT:	147.0
+PairInE:	141634.1
+Test round: 705
+expInG1:	6085.1
+mulInG1:	22.6
+mulInGT:	140.3
+PairInE:	141796.3
+Test round: 706
+expInG1:	6085.6
+mulInG1:	22.7
+mulInGT:	144.6
+PairInE:	141276.5
+Test round: 707
+expInG1:	6062.4
+mulInG1:	21.3
+mulInGT:	140.7
+PairInE:	142943.6
+Test round: 708
+expInG1:	6027.5
+mulInG1:	23.4
+mulInGT:	144.9
+PairInE:	140795.6
+Test round: 709
+expInG1:	6052.8
+mulInG1:	23.1
+mulInGT:	146.1
+PairInE:	142248.5
+Test round: 710
+expInG1:	6036.8
+mulInG1:	22.7
+mulInGT:	140.6
+PairInE:	141152.6
+Test round: 711
+expInG1:	6164.8
+mulInG1:	22.3
+mulInGT:	144.3
+PairInE:	141604.0
+Test round: 712
+expInG1:	6055.9
+mulInG1:	24.4
+mulInGT:	141.9
+PairInE:	141961.5
+Test round: 713
+expInG1:	6046.1
+mulInG1:	23.4
+mulInGT:	145.0
+PairInE:	141688.8
+Test round: 714
+expInG1:	6043.1
+mulInG1:	24.4
+mulInGT:	146.8
+PairInE:	141336.9
+Test round: 715
+expInG1:	6018.1
+mulInG1:	23.1
+mulInGT:	143.1
+PairInE:	140911.1
+Test round: 716
+expInG1:	6053.0
+mulInG1:	21.3
+mulInGT:	141.2
+PairInE:	146685.4
+Test round: 717
+expInG1:	6028.1
+mulInG1:	26.1
+mulInGT:	148.1
+PairInE:	142199.3
+Test round: 718
+expInG1:	6075.3
+mulInG1:	22.5
+mulInGT:	139.7
+PairInE:	142521.4
+Test round: 719
+expInG1:	6015.3
+mulInG1:	23.2
+mulInGT:	144.7
+PairInE:	140461.1
+Test round: 720
+expInG1:	6024.2
+mulInG1:	22.6
+mulInGT:	136.5
+PairInE:	142473.5
+Test round: 721
+expInG1:	6089.7
+mulInG1:	24.8
+mulInGT:	146.8
+PairInE:	141306.3
+Test round: 722
+expInG1:	6072.4
+mulInG1:	24.9
+mulInGT:	661.6
+PairInE:	141592.8
+Test round: 723
+expInG1:	6123.0
+mulInG1:	24.7
+mulInGT:	146.0
+PairInE:	144271.4
+Test round: 724
+expInG1:	5981.9
+mulInG1:	22.0
+mulInGT:	137.4
+PairInE:	140682.2
+Test round: 725
+expInG1:	6042.3
+mulInG1:	22.3
+mulInGT:	148.0
+PairInE:	143401.3
+Test round: 726
+expInG1:	6040.6
+mulInG1:	23.3
+mulInGT:	140.3
+PairInE:	146997.4
+Test round: 727
+expInG1:	5963.9
+mulInG1:	22.6
+mulInGT:	143.2
+PairInE:	143056.4
+Test round: 728
+expInG1:	6078.6
+mulInG1:	22.8
+mulInGT:	144.5
+PairInE:	149389.6
+Test round: 729
+expInG1:	6175.0
+mulInG1:	23.1
+mulInGT:	141.9
+PairInE:	152075.0
+Test round: 730
+expInG1:	6219.5
+mulInG1:	23.7
+mulInGT:	149.6
+PairInE:	144721.7
+Test round: 731
+expInG1:	6137.2
+mulInG1:	25.3
+mulInGT:	166.5
+PairInE:	144867.0
+Test round: 732
+expInG1:	6167.5
+mulInG1:	22.3
+mulInGT:	148.8
+PairInE:	143610.8
+Test round: 733
+expInG1:	6155.2
+mulInG1:	24.3
+mulInGT:	147.4
+PairInE:	145986.1
+Test round: 734
+expInG1:	6035.9
+mulInG1:	22.6
+mulInGT:	137.5
+PairInE:	141536.2
+Test round: 735
+expInG1:	6171.6
+mulInG1:	25.7
+mulInGT:	146.7
+PairInE:	143320.1
+Test round: 736
+expInG1:	5927.0
+mulInG1:	21.5
+mulInGT:	141.1
+PairInE:	147057.0
+Test round: 737
+expInG1:	6095.3
+mulInG1:	23.2
+mulInGT:	142.1
+PairInE:	141045.0
+Test round: 738
+expInG1:	5969.7
+mulInG1:	23.8
+mulInGT:	142.8
+PairInE:	142043.3
+Test round: 739
+expInG1:	6528.0
+mulInG1:	40.7
+mulInGT:	241.8
+PairInE:	141833.7
+Test round: 740
+expInG1:	6038.4
+mulInG1:	24.0
+mulInGT:	144.3
+PairInE:	141243.1
+Test round: 741
+expInG1:	5985.2
+mulInG1:	22.5
+mulInGT:	144.2
+PairInE:	141293.3
+Test round: 742
+expInG1:	6173.9
+mulInG1:	23.2
+mulInGT:	144.3
+PairInE:	140200.7
+Test round: 743
+expInG1:	6066.7
+mulInG1:	21.7
+mulInGT:	139.7
+PairInE:	140333.8
+Test round: 744
+expInG1:	6019.2
+mulInG1:	25.2
+mulInGT:	149.8
+PairInE:	141604.1
+Test round: 745
+expInG1:	6106.1
+mulInG1:	25.0
+mulInGT:	141.4
+PairInE:	140724.0
+Test round: 746
+expInG1:	6024.1
+mulInG1:	22.6
+mulInGT:	153.8
+PairInE:	141280.8
+Test round: 747
+expInG1:	6109.9
+mulInG1:	25.3
+mulInGT:	144.2
+PairInE:	141579.6
+Test round: 748
+expInG1:	5974.2
+mulInG1:	21.8
+mulInGT:	141.8
+PairInE:	140984.9
+Test round: 749
+expInG1:	6048.8
+mulInG1:	23.4
+mulInGT:	142.7
+PairInE:	141726.4
+Test round: 750
+expInG1:	6033.9
+mulInG1:	21.9
+mulInGT:	142.1
+PairInE:	141193.7
+Test round: 751
+expInG1:	6011.8
+mulInG1:	23.8
+mulInGT:	138.8
+PairInE:	140508.2
+Test round: 752
+expInG1:	5945.4
+mulInG1:	21.6
+mulInGT:	143.1
+PairInE:	142007.6
+Test round: 753
+expInG1:	6628.3
+mulInG1:	23.6
+mulInGT:	144.5
+PairInE:	140696.9
+Test round: 754
+expInG1:	6009.1
+mulInG1:	21.6
+mulInGT:	141.6
+PairInE:	140428.9
+Test round: 755
+expInG1:	6025.7
+mulInG1:	32.7
+mulInGT:	193.1
+PairInE:	140996.2
+Test round: 756
+expInG1:	6331.7
+mulInG1:	22.9
+mulInGT:	143.9
+PairInE:	141585.7
+Test round: 757
+expInG1:	6005.8
+mulInG1:	20.7
+mulInGT:	139.9
+PairInE:	140453.1
+Test round: 758
+expInG1:	5943.1
+mulInG1:	21.7
+mulInGT:	138.7
+PairInE:	141266.7
+Test round: 759
+expInG1:	6167.6
+mulInG1:	23.1
+mulInGT:	144.4
+PairInE:	140263.8
+Test round: 760
+expInG1:	6003.3
+mulInG1:	23.1
+mulInGT:	141.5
+PairInE:	144040.4
+Test round: 761
+expInG1:	5957.5
+mulInG1:	24.0
+mulInGT:	146.7
+PairInE:	141152.5
+Test round: 762
+expInG1:	6063.1
+mulInG1:	22.1
+mulInGT:	144.8
+PairInE:	143144.5
+Test round: 763
+expInG1:	6041.6
+mulInG1:	23.2
+mulInGT:	147.8
+PairInE:	141568.0
+Test round: 764
+expInG1:	6117.6
+mulInG1:	23.4
+mulInGT:	144.5
+PairInE:	140468.4
+Test round: 765
+expInG1:	6108.0
+mulInG1:	26.4
+mulInGT:	145.6
+PairInE:	143007.4
+Test round: 766
+expInG1:	5985.2
+mulInG1:	21.8
+mulInGT:	144.5
+PairInE:	146761.7
+Test round: 767
+expInG1:	6052.3
+mulInG1:	21.2
+mulInGT:	138.7
+PairInE:	140908.7
+Test round: 768
+expInG1:	6084.8
+mulInG1:	24.0
+mulInGT:	141.4
+PairInE:	140593.8
+Test round: 769
+expInG1:	6192.6
+mulInG1:	23.9
+mulInGT:	142.0
+PairInE:	140721.5
+Test round: 770
+expInG1:	6078.5
+mulInG1:	24.4
+mulInGT:	143.5
+PairInE:	143513.0
+Test round: 771
+expInG1:	6123.8
+mulInG1:	21.9
+mulInGT:	149.4
+PairInE:	143373.3
+Test round: 772
+expInG1:	6050.3
+mulInG1:	23.3
+mulInGT:	145.9
+PairInE:	141720.0
+Test round: 773
+expInG1:	6023.3
+mulInG1:	22.5
+mulInGT:	139.8
+PairInE:	141272.8
+Test round: 774
+expInG1:	6190.7
+mulInG1:	22.1
+mulInGT:	140.2
+PairInE:	142251.7
+Test round: 775
+expInG1:	6036.6
+mulInG1:	23.1
+mulInGT:	142.8
+PairInE:	140690.6
+Test round: 776
+expInG1:	6097.0
+mulInG1:	25.1
+mulInGT:	146.2
+PairInE:	143427.6
+Test round: 777
+expInG1:	6030.1
+mulInG1:	21.9
+mulInGT:	141.6
+PairInE:	141628.1
+Test round: 778
+expInG1:	6041.8
+mulInG1:	34.3
+mulInGT:	143.6
+PairInE:	142678.0
+Test round: 779
+expInG1:	6060.7
+mulInG1:	22.4
+mulInGT:	150.0
+PairInE:	146404.4
+Test round: 780
+expInG1:	6004.6
+mulInG1:	22.2
+mulInGT:	148.7
+PairInE:	141107.5
+Test round: 781
+expInG1:	6066.7
+mulInG1:	24.2
+mulInGT:	146.3
+PairInE:	142150.5
+Test round: 782
+expInG1:	6094.5
+mulInG1:	21.5
+mulInGT:	141.3
+PairInE:	140200.8
+Test round: 783
+expInG1:	6126.1
+mulInG1:	23.5
+mulInGT:	140.9
+PairInE:	141902.5
+Test round: 784
+expInG1:	6075.5
+mulInG1:	24.3
+mulInGT:	145.1
+PairInE:	144573.1
+Test round: 785
+expInG1:	6042.6
+mulInG1:	22.9
+mulInGT:	141.3
+PairInE:	145346.1
+Test round: 786
+expInG1:	5936.0
+mulInG1:	40.1
+mulInGT:	147.5
+PairInE:	141725.3
+Test round: 787
+expInG1:	6021.9
+mulInG1:	22.0
+mulInGT:	146.6
+PairInE:	141234.4
+Test round: 788
+expInG1:	6307.7
+mulInG1:	24.9
+mulInGT:	146.2
+PairInE:	143341.2
+Test round: 789
+expInG1:	6138.8
+mulInG1:	29.9
+mulInGT:	151.1
+PairInE:	142937.6
+Test round: 790
+expInG1:	6079.2
+mulInG1:	23.8
+mulInGT:	141.5
+PairInE:	141082.3
+Test round: 791
+expInG1:	5994.4
+mulInG1:	21.8
+mulInGT:	143.2
+PairInE:	147475.5
+Test round: 792
+expInG1:	6081.0
+mulInG1:	23.3
+mulInGT:	144.7
+PairInE:	141193.7
+Test round: 793
+expInG1:	5972.5
+mulInG1:	21.8
+mulInGT:	140.9
+PairInE:	140489.5
+Test round: 794
+expInG1:	5986.4
+mulInG1:	20.6
+mulInGT:	135.8
+PairInE:	145717.6
+Test round: 795
+expInG1:	6074.7
+mulInG1:	21.0
+mulInGT:	152.5
+PairInE:	143812.5
+Test round: 796
+expInG1:	6094.5
+mulInG1:	25.6
+mulInGT:	148.1
+PairInE:	141107.4
+Test round: 797
+expInG1:	6041.9
+mulInG1:	24.7
+mulInGT:	144.9
+PairInE:	143003.5
+Test round: 798
+expInG1:	6028.0
+mulInG1:	23.0
+mulInGT:	145.7
+PairInE:	142469.7
+Test round: 799
+expInG1:	6085.7
+mulInG1:	25.1
+mulInGT:	148.0
+PairInE:	141564.6
+Test round: 800
+expInG1:	6873.3
+mulInG1:	23.6
+mulInGT:	141.8
+PairInE:	145076.0
+Test round: 801
+expInG1:	6029.5
+mulInG1:	22.4
+mulInGT:	145.1
+PairInE:	140504.3
+Test round: 802
+expInG1:	6000.2
+mulInG1:	25.1
+mulInGT:	152.3
+PairInE:	140970.3
+Test round: 803
+expInG1:	6004.1
+mulInG1:	23.0
+mulInGT:	147.8
+PairInE:	141866.7
+Test round: 804
+expInG1:	6103.3
+mulInG1:	24.2
+mulInGT:	144.9
+PairInE:	140713.6
+Test round: 805
+expInG1:	5998.1
+mulInG1:	25.5
+mulInGT:	145.0
+PairInE:	143348.2
+Test round: 806
+expInG1:	6047.7
+mulInG1:	23.3
+mulInGT:	141.6
+PairInE:	141945.8
+Test round: 807
+expInG1:	5931.1
+mulInG1:	26.0
+mulInGT:	153.5
+PairInE:	141435.0
+Test round: 808
+expInG1:	6044.6
+mulInG1:	22.2
+mulInGT:	172.3
+PairInE:	146053.5
+Test round: 809
+expInG1:	6142.8
+mulInG1:	23.6
+mulInGT:	141.9
+PairInE:	143876.9
+Test round: 810
+expInG1:	6147.0
+mulInG1:	22.3
+mulInGT:	156.3
+PairInE:	140818.4
+Test round: 811
+expInG1:	6101.5
+mulInG1:	25.1
+mulInGT:	143.0
+PairInE:	143781.1
+Test round: 812
+expInG1:	6158.6
+mulInG1:	24.1
+mulInGT:	150.4
+PairInE:	140432.7
+Test round: 813
+expInG1:	6044.0
+mulInG1:	21.8
+mulInGT:	138.7
+PairInE:	141266.6
+Test round: 814
+expInG1:	6169.5
+mulInG1:	22.9
+mulInGT:	142.8
+PairInE:	142208.1
+Test round: 815
+expInG1:	6071.3
+mulInG1:	24.1
+mulInGT:	143.8
+PairInE:	145611.7
+Test round: 816
+expInG1:	6061.0
+mulInG1:	23.5
+mulInGT:	149.5
+PairInE:	144901.2
+Test round: 817
+expInG1:	5998.3
+mulInG1:	21.5
+mulInGT:	139.5
+PairInE:	146313.9
+Test round: 818
+expInG1:	6694.6
+mulInG1:	25.3
+mulInGT:	154.6
+PairInE:	146344.9
+Test round: 819
+expInG1:	6201.5
+mulInG1:	24.2
+mulInGT:	147.4
+PairInE:	144564.0
+Test round: 820
+expInG1:	5999.3
+mulInG1:	24.0
+mulInGT:	140.3
+PairInE:	144360.8
+Test round: 821
+expInG1:	6305.9
+mulInG1:	22.8
+mulInGT:	147.6
+PairInE:	144021.3
+Test round: 822
+expInG1:	6133.1
+mulInG1:	22.8
+mulInGT:	153.6
+PairInE:	140431.3
+Test round: 823
+expInG1:	6341.7
+mulInG1:	23.3
+mulInGT:	145.6
+PairInE:	140327.0
+Test round: 824
+expInG1:	6031.6
+mulInG1:	21.7
+mulInGT:	236.5
+PairInE:	140943.9
+Test round: 825
+expInG1:	6022.7
+mulInG1:	20.5
+mulInGT:	140.3
+PairInE:	141050.3
+Test round: 826
+expInG1:	6046.6
+mulInG1:	27.4
+mulInGT:	145.6
+PairInE:	140937.8
+Test round: 827
+expInG1:	6147.1
+mulInG1:	21.9
+mulInGT:	144.6
+PairInE:	141478.5
+Test round: 828
+expInG1:	5902.5
+mulInG1:	21.7
+mulInGT:	139.9
+PairInE:	141829.3
+Test round: 829
+expInG1:	6070.5
+mulInG1:	25.6
+mulInGT:	143.4
+PairInE:	142134.3
+Test round: 830
+expInG1:	5965.6
+mulInG1:	21.7
+mulInGT:	144.0
+PairInE:	141779.0
+Test round: 831
+expInG1:	6081.3
+mulInG1:	23.8
+mulInGT:	145.9
+PairInE:	140943.3
+Test round: 832
+expInG1:	6038.0
+mulInG1:	26.0
+mulInGT:	138.4
+PairInE:	140936.0
+Test round: 833
+expInG1:	6084.4
+mulInG1:	24.6
+mulInGT:	144.4
+PairInE:	141096.4
+Test round: 834
+expInG1:	6075.7
+mulInG1:	23.0
+mulInGT:	139.1
+PairInE:	140547.0
+Test round: 835
+expInG1:	6032.0
+mulInG1:	21.5
+mulInGT:	142.3
+PairInE:	140822.8
+Test round: 836
+expInG1:	5981.5
+mulInG1:	22.0
+mulInGT:	140.1
+PairInE:	151067.2
+Test round: 837
+expInG1:	6037.8
+mulInG1:	24.6
+mulInGT:	145.2
+PairInE:	145336.2
+Test round: 838
+expInG1:	6220.8
+mulInG1:	26.0
+mulInGT:	146.9
+PairInE:	144935.3
+Test round: 839
+expInG1:	6168.2
+mulInG1:	25.0
+mulInGT:	147.1
+PairInE:	143846.6
+Test round: 840
+expInG1:	6734.9
+mulInG1:	25.7
+mulInGT:	154.3
+PairInE:	143948.4
+Test round: 841
+expInG1:	6015.6
+mulInG1:	22.9
+mulInGT:	151.6
+PairInE:	142969.2
+Test round: 842
+expInG1:	6108.1
+mulInG1:	23.8
+mulInGT:	147.9
+PairInE:	140848.9
+Test round: 843
+expInG1:	5963.8
+mulInG1:	22.6
+mulInGT:	150.4
+PairInE:	142611.5
+Test round: 844
+expInG1:	6058.6
+mulInG1:	22.3
+mulInGT:	136.1
+PairInE:	141925.7
+Test round: 845
+expInG1:	8510.8
+mulInG1:	44.5
+mulInGT:	230.0
+PairInE:	146986.8
+Test round: 846
+expInG1:	6035.4
+mulInG1:	63.7
+mulInGT:	177.5
+PairInE:	141316.8
+Test round: 847
+expInG1:	6124.5
+mulInG1:	22.6
+mulInGT:	143.9
+PairInE:	145344.9
+Test round: 848
+expInG1:	6145.5
+mulInG1:	23.0
+mulInGT:	145.1
+PairInE:	142794.6
+Test round: 849
+expInG1:	6067.8
+mulInG1:	24.0
+mulInGT:	153.1
+PairInE:	145767.1
+Test round: 850
+expInG1:	6426.9
+mulInG1:	22.7
+mulInGT:	163.7
+PairInE:	145334.7
+Test round: 851
+expInG1:	6181.4
+mulInG1:	23.0
+mulInGT:	143.7
+PairInE:	141665.6
+Test round: 852
+expInG1:	6105.0
+mulInG1:	22.2
+mulInGT:	150.4
+PairInE:	141440.5
+Test round: 853
+expInG1:	6738.6
+mulInG1:	23.0
+mulInGT:	140.7
+PairInE:	141132.4
+Test round: 854
+expInG1:	6136.0
+mulInG1:	23.9
+mulInGT:	145.8
+PairInE:	141737.4
+Test round: 855
+expInG1:	6009.8
+mulInG1:	22.7
+mulInGT:	138.0
+PairInE:	141284.3
+Test round: 856
+expInG1:	6133.3
+mulInG1:	22.7
+mulInGT:	143.2
+PairInE:	140471.0
+Test round: 857
+expInG1:	6642.8
+mulInG1:	23.8
+mulInGT:	149.6
+PairInE:	144530.3
+Test round: 858
+expInG1:	6513.9
+mulInG1:	22.3
+mulInGT:	174.9
+PairInE:	141696.1
+Test round: 859
+expInG1:	6221.3
+mulInG1:	23.5
+mulInGT:	142.1
+PairInE:	140805.5
+Test round: 860
+expInG1:	6039.6
+mulInG1:	22.1
+mulInGT:	145.1
+PairInE:	143447.8
+Test round: 861
+expInG1:	6181.5
+mulInG1:	21.4
+mulInGT:	142.0
+PairInE:	141105.7
+Test round: 862
+expInG1:	6067.7
+mulInG1:	22.2
+mulInGT:	138.6
+PairInE:	140324.3
+Test round: 863
+expInG1:	6040.8
+mulInG1:	23.3
+mulInGT:	142.8
+PairInE:	146369.2
+Test round: 864
+expInG1:	6084.5
+mulInG1:	24.6
+mulInGT:	148.8
+PairInE:	141120.1
+Test round: 865
+expInG1:	5957.0
+mulInG1:	23.4
+mulInGT:	148.4
+PairInE:	142311.0
+Test round: 866
+expInG1:	6311.7
+mulInG1:	23.1
+mulInGT:	144.3
+PairInE:	142825.4
+Test round: 867
+expInG1:	6072.4
+mulInG1:	23.0
+mulInGT:	145.9
+PairInE:	141348.6
+Test round: 868
+expInG1:	6258.8
+mulInG1:	22.5
+mulInGT:	139.8
+PairInE:	143127.1
+Test round: 869
+expInG1:	6175.4
+mulInG1:	23.5
+mulInGT:	141.0
+PairInE:	142521.3
+Test round: 870
+expInG1:	6013.8
+mulInG1:	21.0
+mulInGT:	139.4
+PairInE:	140645.8
+Test round: 871
+expInG1:	5929.3
+mulInG1:	23.2
+mulInGT:	142.9
+PairInE:	142662.1
+Test round: 872
+expInG1:	6044.9
+mulInG1:	23.5
+mulInGT:	143.5
+PairInE:	142762.1
+Test round: 873
+expInG1:	6480.6
+mulInG1:	24.8
+mulInGT:	148.7
+PairInE:	141309.6
+Test round: 874
+expInG1:	6066.4
+mulInG1:	22.8
+mulInGT:	152.3
+PairInE:	146685.9
+Test round: 875
+expInG1:	6210.4
+mulInG1:	25.8
+mulInGT:	143.8
+PairInE:	146002.8
+Test round: 876
+expInG1:	6058.0
+mulInG1:	30.5
+mulInGT:	157.3
+PairInE:	144489.2
+Test round: 877
+expInG1:	6040.6
+mulInG1:	22.9
+mulInGT:	136.2
+PairInE:	141620.2
+Test round: 878
+expInG1:	5981.5
+mulInG1:	23.3
+mulInGT:	140.2
+PairInE:	148440.0
+Test round: 879
+expInG1:	6146.5
+mulInG1:	23.9
+mulInGT:	144.3
+PairInE:	143076.9
+Test round: 880
+expInG1:	6023.2
+mulInG1:	22.3
+mulInGT:	138.3
+PairInE:	142232.4
+Test round: 881
+expInG1:	6058.7
+mulInG1:	22.3
+mulInGT:	139.1
+PairInE:	141511.4
+Test round: 882
+expInG1:	6040.6
+mulInG1:	21.7
+mulInGT:	142.3
+PairInE:	141345.3
+Test round: 883
+expInG1:	6059.8
+mulInG1:	22.2
+mulInGT:	140.8
+PairInE:	141072.6
+Test round: 884
+expInG1:	6203.6
+mulInG1:	23.5
+mulInGT:	143.2
+PairInE:	143141.3
+Test round: 885
+expInG1:	5942.3
+mulInG1:	22.5
+mulInGT:	140.3
+PairInE:	144094.7
+Test round: 886
+expInG1:	6243.7
+mulInG1:	24.1
+mulInGT:	144.3
+PairInE:	140935.0
+Test round: 887
+expInG1:	5995.1
+mulInG1:	22.5
+mulInGT:	143.8
+PairInE:	141128.9
+Test round: 888
+expInG1:	6126.2
+mulInG1:	24.5
+mulInGT:	146.5
+PairInE:	141032.1
+Test round: 889
+expInG1:	6014.1
+mulInG1:	22.7
+mulInGT:	144.3
+PairInE:	143295.9
+Test round: 890
+expInG1:	5993.2
+mulInG1:	23.5
+mulInGT:	147.1
+PairInE:	146573.8
+Test round: 891
+expInG1:	6131.5
+mulInG1:	22.5
+mulInGT:	143.2
+PairInE:	142575.1
+Test round: 892
+expInG1:	5992.6
+mulInG1:	22.2
+mulInGT:	141.3
+PairInE:	142197.1
+Test round: 893
+expInG1:	6068.7
+mulInG1:	23.0
+mulInGT:	142.2
+PairInE:	141843.6
+Test round: 894
+expInG1:	6036.2
+mulInG1:	22.0
+mulInGT:	144.6
+PairInE:	141249.0
+Test round: 895
+expInG1:	6136.0
+mulInG1:	23.9
+mulInGT:	153.1
+PairInE:	141140.1
+Test round: 896
+expInG1:	6062.7
+mulInG1:	21.5
+mulInGT:	141.4
+PairInE:	141016.9
+Test round: 897
+expInG1:	6199.5
+mulInG1:	22.5
+mulInGT:	158.7
+PairInE:	142798.2
+Test round: 898
+expInG1:	6093.2
+mulInG1:	22.4
+mulInGT:	138.0
+PairInE:	141860.2
+Test round: 899
+expInG1:	5955.4
+mulInG1:	22.2
+mulInGT:	145.8
+PairInE:	144686.0
+Test round: 900
+expInG1:	5914.4
+mulInG1:	24.6
+mulInGT:	157.2
+PairInE:	145269.7
+Test round: 901
+expInG1:	6018.0
+mulInG1:	24.4
+mulInGT:	148.1
+PairInE:	146711.8
+Test round: 902
+expInG1:	5979.4
+mulInG1:	24.9
+mulInGT:	152.4
+PairInE:	143660.9
+Test round: 903
+expInG1:	6136.7
+mulInG1:	23.4
+mulInGT:	146.2
+PairInE:	145163.4
+Test round: 904
+expInG1:	5999.9
+mulInG1:	21.0
+mulInGT:	145.2
+PairInE:	141795.2
+Test round: 905
+expInG1:	6171.3
+mulInG1:	22.7
+mulInGT:	141.3
+PairInE:	141910.6
+Test round: 906
+expInG1:	8344.9
+mulInG1:	47.6
+mulInGT:	153.9
+PairInE:	156612.7
+Test round: 907
+expInG1:	6108.2
+mulInG1:	27.5
+mulInGT:	141.3
+PairInE:	143632.7
+Test round: 908
+expInG1:	6077.2
+mulInG1:	22.3
+mulInGT:	147.3
+PairInE:	150898.1
+Test round: 909
+expInG1:	6315.1
+mulInG1:	24.0
+mulInGT:	144.6
+PairInE:	147099.3
+Test round: 910
+expInG1:	5995.4
+mulInG1:	23.7
+mulInGT:	149.2
+PairInE:	142492.1
+Test round: 911
+expInG1:	5948.1
+mulInG1:	22.2
+mulInGT:	142.6
+PairInE:	142762.7
+Test round: 912
+expInG1:	6239.5
+mulInG1:	26.5
+mulInGT:	171.2
+PairInE:	145109.7
+Test round: 913
+expInG1:	6032.7
+mulInG1:	24.9
+mulInGT:	143.9
+PairInE:	142686.3
+Test round: 914
+expInG1:	6054.8
+mulInG1:	21.0
+mulInGT:	141.9
+PairInE:	140652.2
+Test round: 915
+expInG1:	6194.0
+mulInG1:	23.3
+mulInGT:	142.2
+PairInE:	140930.1
+Test round: 916
+expInG1:	5945.9
+mulInG1:	22.0
+mulInGT:	140.8
+PairInE:	145061.3
+Test round: 917
+expInG1:	6053.6
+mulInG1:	24.2
+mulInGT:	144.0
+PairInE:	140952.0
+Test round: 918
+expInG1:	6037.2
+mulInG1:	23.2
+mulInGT:	140.2
+PairInE:	140791.1
+Test round: 919
+expInG1:	5984.4
+mulInG1:	22.7
+mulInGT:	145.0
+PairInE:	142064.9
+Test round: 920
+expInG1:	6124.6
+mulInG1:	25.8
+mulInGT:	162.3
+PairInE:	141396.3
+Test round: 921
+expInG1:	6042.6
+mulInG1:	22.2
+mulInGT:	141.7
+PairInE:	141460.5
+Test round: 922
+expInG1:	6052.2
+mulInG1:	21.1
+mulInGT:	144.1
+PairInE:	141692.9
+Test round: 923
+expInG1:	6145.5
+mulInG1:	23.9
+mulInGT:	143.9
+PairInE:	141489.3
+Test round: 924
+expInG1:	6027.7
+mulInG1:	21.4
+mulInGT:	136.0
+PairInE:	141169.0
+Test round: 925
+expInG1:	6114.8
+mulInG1:	22.3
+mulInGT:	137.7
+PairInE:	140868.9
+Test round: 926
+expInG1:	6120.7
+mulInG1:	22.7
+mulInGT:	143.5
+PairInE:	140669.3
+Test round: 927
+expInG1:	6095.5
+mulInG1:	23.8
+mulInGT:	151.6
+PairInE:	142904.9
+Test round: 928
+expInG1:	6154.3
+mulInG1:	22.3
+mulInGT:	144.4
+PairInE:	140615.7
+Test round: 929
+expInG1:	6012.6
+mulInG1:	22.4
+mulInGT:	143.6
+PairInE:	142046.2
+Test round: 930
+expInG1:	5938.7
+mulInG1:	23.3
+mulInGT:	140.8
+PairInE:	141015.1
+Test round: 931
+expInG1:	6050.0
+mulInG1:	23.2
+mulInGT:	216.5
+PairInE:	142498.9
+Test round: 932
+expInG1:	6153.3
+mulInG1:	22.9
+mulInGT:	142.5
+PairInE:	140992.7
+Test round: 933
+expInG1:	5957.4
+mulInG1:	23.4
+mulInGT:	145.8
+PairInE:	143420.9
+Test round: 934
+expInG1:	6170.7
+mulInG1:	22.5
+mulInGT:	142.1
+PairInE:	141118.6
+Test round: 935
+expInG1:	5955.3
+mulInG1:	23.6
+mulInGT:	142.4
+PairInE:	142741.9
+Test round: 936
+expInG1:	6273.6
+mulInG1:	26.6
+mulInGT:	146.7
+PairInE:	142620.0
+Test round: 937
+expInG1:	6197.3
+mulInG1:	26.8
+mulInGT:	147.0
+PairInE:	141632.9
+Test round: 938
+expInG1:	5971.4
+mulInG1:	21.4
+mulInGT:	139.4
+PairInE:	142080.4
+Test round: 939
+expInG1:	5944.5
+mulInG1:	23.8
+mulInGT:	152.9
+PairInE:	141701.4
+Test round: 940
+expInG1:	6137.7
+mulInG1:	22.3
+mulInGT:	148.1
+PairInE:	141438.1
+Test round: 941
+expInG1:	6105.2
+mulInG1:	22.7
+mulInGT:	145.4
+PairInE:	141340.9
+Test round: 942
+expInG1:	6432.3
+mulInG1:	25.1
+mulInGT:	144.4
+PairInE:	141077.5
+Test round: 943
+expInG1:	5991.4
+mulInG1:	21.4
+mulInGT:	142.6
+PairInE:	140972.6
+Test round: 944
+expInG1:	6013.8
+mulInG1:	21.2
+mulInGT:	141.7
+PairInE:	141061.9
+Test round: 945
+expInG1:	5981.9
+mulInG1:	22.5
+mulInGT:	207.6
+PairInE:	140867.3
+Test round: 946
+expInG1:	6176.8
+mulInG1:	20.8
+mulInGT:	139.1
+PairInE:	140110.0
+Test round: 947
+expInG1:	5983.9
+mulInG1:	22.5
+mulInGT:	139.1
+PairInE:	141050.9
+Test round: 948
+expInG1:	5949.3
+mulInG1:	22.8
+mulInGT:	140.4
+PairInE:	141105.5
+Test round: 949
+expInG1:	6115.5
+mulInG1:	22.7
+mulInGT:	144.0
+PairInE:	141337.3
+Test round: 950
+expInG1:	6040.4
+mulInG1:	21.7
+mulInGT:	144.9
+PairInE:	144123.9
+Test round: 951
+expInG1:	5992.0
+mulInG1:	21.2
+mulInGT:	201.2
+PairInE:	142543.7
+Test round: 952
+expInG1:	5997.2
+mulInG1:	22.7
+mulInGT:	140.9
+PairInE:	141189.7
+Test round: 953
+expInG1:	6062.2
+mulInG1:	21.6
+mulInGT:	136.9
+PairInE:	142259.6
+Test round: 954
+expInG1:	6176.1
+mulInG1:	22.2
+mulInGT:	143.2
+PairInE:	141205.5
+Test round: 955
+expInG1:	6041.6
+mulInG1:	22.0
+mulInGT:	140.7
+PairInE:	142075.4
+Test round: 956
+expInG1:	6030.8
+mulInG1:	21.7
+mulInGT:	146.1
+PairInE:	141550.4
+Test round: 957
+expInG1:	6037.0
+mulInG1:	23.9
+mulInGT:	139.5
+PairInE:	141643.8
+Test round: 958
+expInG1:	6152.2
+mulInG1:	21.4
+mulInGT:	146.4
+PairInE:	142967.0
+Test round: 959
+expInG1:	5959.8
+mulInG1:	21.5
+mulInGT:	142.2
+PairInE:	141581.6
+Test round: 960
+expInG1:	6032.2
+mulInG1:	22.3
+mulInGT:	143.2
+PairInE:	142981.2
+Test round: 961
+expInG1:	6031.5
+mulInG1:	22.0
+mulInGT:	137.4
+PairInE:	140740.5
+Test round: 962
+expInG1:	5943.9
+mulInG1:	22.5
+mulInGT:	142.0
+PairInE:	142030.7
+Test round: 963
+expInG1:	6264.3
+mulInG1:	25.3
+mulInGT:	142.0
+PairInE:	141682.0
+Test round: 964
+expInG1:	6039.1
+mulInG1:	21.5
+mulInGT:	139.0
+PairInE:	141514.7
+Test round: 965
+expInG1:	6105.4
+mulInG1:	29.5
+mulInGT:	143.9
+PairInE:	140755.7
+Test round: 966
+expInG1:	6106.9
+mulInG1:	21.8
+mulInGT:	144.1
+PairInE:	141173.5
+Test round: 967
+expInG1:	5915.8
+mulInG1:	21.9
+mulInGT:	140.5
+PairInE:	141386.2
+Test round: 968
+expInG1:	6085.3
+mulInG1:	22.0
+mulInGT:	137.9
+PairInE:	140586.9
+Test round: 969
+expInG1:	6088.2
+mulInG1:	21.7
+mulInGT:	146.8
+PairInE:	145577.1
+Test round: 970
+expInG1:	6135.0
+mulInG1:	22.6
+mulInGT:	156.1
+PairInE:	144633.3
+Test round: 971
+expInG1:	6131.5
+mulInG1:	23.1
+mulInGT:	144.7
+PairInE:	145699.2
+Test round: 972
+expInG1:	6453.1
+mulInG1:	33.2
+mulInGT:	206.7
+PairInE:	144016.7
+Test round: 973
+expInG1:	6042.5
+mulInG1:	23.6
+mulInGT:	144.8
+PairInE:	144062.8
+Test round: 974
+expInG1:	6064.0
+mulInG1:	23.5
+mulInGT:	183.3
+PairInE:	145347.6
+Test round: 975
+expInG1:	6210.2
+mulInG1:	24.4
+mulInGT:	146.2
+PairInE:	144026.8
+Test round: 976
+expInG1:	6174.4
+mulInG1:	26.2
+mulInGT:	148.4
+PairInE:	143301.0
+Test round: 977
+expInG1:	6131.2
+mulInG1:	24.0
+mulInGT:	151.6
+PairInE:	142669.0
+Test round: 978
+expInG1:	6130.1
+mulInG1:	23.5
+mulInGT:	145.7
+PairInE:	145401.1
+Test round: 979
+expInG1:	6050.4
+mulInG1:	23.3
+mulInGT:	148.5
+PairInE:	141916.9
+Test round: 980
+expInG1:	5992.3
+mulInG1:	22.8
+mulInGT:	142.7
+PairInE:	142514.4
+Test round: 981
+expInG1:	5963.0
+mulInG1:	21.6
+mulInGT:	144.0
+PairInE:	141286.2
+Test round: 982
+expInG1:	6166.2
+mulInG1:	22.5
+mulInGT:	143.7
+PairInE:	141377.9
+Test round: 983
+expInG1:	5912.0
+mulInG1:	21.0
+mulInGT:	142.2
+PairInE:	140525.8
+Test round: 984
+expInG1:	6175.4
+mulInG1:	25.2
+mulInGT:	169.2
+PairInE:	144007.5
+Test round: 985
+expInG1:	6036.5
+mulInG1:	21.0
+mulInGT:	139.6
+PairInE:	141551.3
+Test round: 986
+expInG1:	6063.5
+mulInG1:	22.0
+mulInGT:	139.9
+PairInE:	140579.5
+Test round: 987
+expInG1:	6063.2
+mulInG1:	22.9
+mulInGT:	139.7
+PairInE:	141720.2
+Test round: 988
+expInG1:	5990.6
+mulInG1:	22.0
+mulInGT:	146.4
+PairInE:	139827.2
+Test round: 989
+expInG1:	6109.9
+mulInG1:	22.0
+mulInGT:	136.8
+PairInE:	143508.4
+Test round: 990
+expInG1:	6108.1
+mulInG1:	22.9
+mulInGT:	140.4
+PairInE:	141512.0
+Test round: 991
+expInG1:	6034.5
+mulInG1:	21.9
+mulInGT:	149.4
+PairInE:	142662.7
+Test round: 992
+expInG1:	6068.3
+mulInG1:	22.5
+mulInGT:	182.3
+PairInE:	140702.8
+Test round: 993
+expInG1:	6156.1
+mulInG1:	23.1
+mulInGT:	147.4
+PairInE:	141564.7
+Test round: 994
+expInG1:	6016.2
+mulInG1:	22.6
+mulInGT:	144.7
+PairInE:	141552.2
+Test round: 995
+expInG1:	6085.9
+mulInG1:	23.9
+mulInGT:	159.6
+PairInE:	142024.9
+Test round: 996
+expInG1:	6064.8
+mulInG1:	23.8
+mulInGT:	145.6
+PairInE:	141221.1
+Test round: 997
+expInG1:	6121.8
+mulInG1:	23.3
+mulInGT:	152.4
+PairInE:	141703.0
+Test round: 998
+expInG1:	6031.3
+mulInG1:	22.6
+mulInGT:	140.1
+PairInE:	141810.7
+Test round: 999
+expInG1:	6028.0
+mulInG1:	20.9
+mulInGT:	143.4
+PairInE:	140692.6
+Test round: 1000
+expInG1:	6047.2
+mulInG1:	22.0
+mulInGT:	135.3
+PairInE:	141050.8
+average ExpInG1 time: 6126.608099999996
+average MulInG1 time: 24.592999999999975
+average MulInGT time: 150.90330000000026
+average PairInE time: 143041.17699999997

@@ -1,0 +1,3004 @@
+Test various cryptography operation of type A symmetric prime order bilinear pairing
+All test rounds: 1000
+Test round: 1
+expInG:	44145.0
+invInZr:	39.2
+Test round: 2
+expInG:	42623.5
+invInZr:	25.6
+Test round: 3
+expInG:	43511.7
+invInZr:	22.1
+Test round: 4
+expInG:	43126.9
+invInZr:	22.2
+Test round: 5
+expInG:	43442.7
+invInZr:	22.8
+Test round: 6
+expInG:	45724.4
+invInZr:	33.2
+Test round: 7
+expInG:	43587.9
+invInZr:	23.2
+Test round: 8
+expInG:	42958.1
+invInZr:	21.6
+Test round: 9
+expInG:	43358.1
+invInZr:	24.7
+Test round: 10
+expInG:	42577.6
+invInZr:	22.9
+Test round: 11
+expInG:	44455.9
+invInZr:	24.8
+Test round: 12
+expInG:	42892.7
+invInZr:	21.4
+Test round: 13
+expInG:	42693.4
+invInZr:	22.7
+Test round: 14
+expInG:	42855.1
+invInZr:	23.7
+Test round: 15
+expInG:	43197.7
+invInZr:	23.9
+Test round: 16
+expInG:	43079.5
+invInZr:	23.1
+Test round: 17
+expInG:	43443.4
+invInZr:	22.6
+Test round: 18
+expInG:	42850.3
+invInZr:	22.5
+Test round: 19
+expInG:	42135.4
+invInZr:	22.6
+Test round: 20
+expInG:	42925.3
+invInZr:	22.2
+Test round: 21
+expInG:	47132.2
+invInZr:	22.5
+Test round: 22
+expInG:	44160.6
+invInZr:	23.4
+Test round: 23
+expInG:	43761.7
+invInZr:	22.4
+Test round: 24
+expInG:	42811.1
+invInZr:	22.2
+Test round: 25
+expInG:	42766.6
+invInZr:	23.1
+Test round: 26
+expInG:	43297.2
+invInZr:	22.6
+Test round: 27
+expInG:	43838.0
+invInZr:	22.9
+Test round: 28
+expInG:	43127.9
+invInZr:	22.8
+Test round: 29
+expInG:	43028.2
+invInZr:	22.5
+Test round: 30
+expInG:	42456.9
+invInZr:	23.2
+Test round: 31
+expInG:	42933.0
+invInZr:	23.9
+Test round: 32
+expInG:	43052.3
+invInZr:	23.3
+Test round: 33
+expInG:	43786.9
+invInZr:	22.1
+Test round: 34
+expInG:	42854.8
+invInZr:	23.1
+Test round: 35
+expInG:	43306.1
+invInZr:	23.3
+Test round: 36
+expInG:	42751.8
+invInZr:	23.0
+Test round: 37
+expInG:	42866.0
+invInZr:	22.5
+Test round: 38
+expInG:	44192.8
+invInZr:	22.9
+Test round: 39
+expInG:	42207.1
+invInZr:	22.6
+Test round: 40
+expInG:	42972.4
+invInZr:	22.4
+Test round: 41
+expInG:	43181.4
+invInZr:	23.6
+Test round: 42
+expInG:	41911.3
+invInZr:	24.3
+Test round: 43
+expInG:	42691.6
+invInZr:	22.9
+Test round: 44
+expInG:	43012.2
+invInZr:	23.5
+Test round: 45
+expInG:	43273.7
+invInZr:	23.5
+Test round: 46
+expInG:	43212.0
+invInZr:	23.5
+Test round: 47
+expInG:	42774.1
+invInZr:	24.0
+Test round: 48
+expInG:	43198.0
+invInZr:	22.2
+Test round: 49
+expInG:	42940.9
+invInZr:	23.3
+Test round: 50
+expInG:	43481.9
+invInZr:	22.9
+Test round: 51
+expInG:	43012.1
+invInZr:	23.5
+Test round: 52
+expInG:	42370.6
+invInZr:	22.6
+Test round: 53
+expInG:	42703.1
+invInZr:	23.2
+Test round: 54
+expInG:	43394.5
+invInZr:	22.7
+Test round: 55
+expInG:	43005.1
+invInZr:	24.1
+Test round: 56
+expInG:	43494.7
+invInZr:	28.8
+Test round: 57
+expInG:	44658.4
+invInZr:	23.7
+Test round: 58
+expInG:	46302.2
+invInZr:	33.8
+Test round: 59
+expInG:	50033.4
+invInZr:	23.5
+Test round: 60
+expInG:	46741.9
+invInZr:	23.7
+Test round: 61
+expInG:	43730.0
+invInZr:	31.1
+Test round: 62
+expInG:	50157.3
+invInZr:	34.9
+Test round: 63
+expInG:	54378.7
+invInZr:	41.3
+Test round: 64
+expInG:	44611.9
+invInZr:	37.1
+Test round: 65
+expInG:	45125.3
+invInZr:	24.1
+Test round: 66
+expInG:	44407.5
+invInZr:	23.3
+Test round: 67
+expInG:	43983.4
+invInZr:	23.1
+Test round: 68
+expInG:	44963.8
+invInZr:	23.8
+Test round: 69
+expInG:	45633.7
+invInZr:	23.1
+Test round: 70
+expInG:	43918.7
+invInZr:	22.5
+Test round: 71
+expInG:	51037.0
+invInZr:	33.1
+Test round: 72
+expInG:	43765.1
+invInZr:	22.7
+Test round: 73
+expInG:	47349.6
+invInZr:	22.5
+Test round: 74
+expInG:	42572.0
+invInZr:	23.1
+Test round: 75
+expInG:	58663.4
+invInZr:	44.8
+Test round: 76
+expInG:	42930.4
+invInZr:	24.3
+Test round: 77
+expInG:	48467.0
+invInZr:	21.1
+Test round: 78
+expInG:	49449.9
+invInZr:	22.7
+Test round: 79
+expInG:	43197.0
+invInZr:	22.4
+Test round: 80
+expInG:	43086.7
+invInZr:	22.3
+Test round: 81
+expInG:	43360.2
+invInZr:	22.4
+Test round: 82
+expInG:	43701.6
+invInZr:	22.8
+Test round: 83
+expInG:	49436.5
+invInZr:	22.4
+Test round: 84
+expInG:	42723.3
+invInZr:	22.9
+Test round: 85
+expInG:	43244.1
+invInZr:	22.4
+Test round: 86
+expInG:	44207.4
+invInZr:	23.6
+Test round: 87
+expInG:	43515.0
+invInZr:	22.7
+Test round: 88
+expInG:	48541.6
+invInZr:	24.7
+Test round: 89
+expInG:	42949.0
+invInZr:	21.6
+Test round: 90
+expInG:	44468.3
+invInZr:	22.5
+Test round: 91
+expInG:	44416.9
+invInZr:	22.2
+Test round: 92
+expInG:	50077.2
+invInZr:	23.4
+Test round: 93
+expInG:	42866.3
+invInZr:	23.4
+Test round: 94
+expInG:	44919.5
+invInZr:	22.0
+Test round: 95
+expInG:	41970.0
+invInZr:	23.8
+Test round: 96
+expInG:	44480.2
+invInZr:	23.5
+Test round: 97
+expInG:	45649.9
+invInZr:	23.9
+Test round: 98
+expInG:	43200.5
+invInZr:	22.1
+Test round: 99
+expInG:	43621.4
+invInZr:	23.5
+Test round: 100
+expInG:	43149.2
+invInZr:	23.2
+Test round: 101
+expInG:	43506.3
+invInZr:	22.7
+Test round: 102
+expInG:	45365.2
+invInZr:	23.5
+Test round: 103
+expInG:	43042.1
+invInZr:	22.7
+Test round: 104
+expInG:	42710.2
+invInZr:	20.9
+Test round: 105
+expInG:	43503.3
+invInZr:	23.1
+Test round: 106
+expInG:	43617.1
+invInZr:	22.9
+Test round: 107
+expInG:	43833.5
+invInZr:	23.3
+Test round: 108
+expInG:	42470.3
+invInZr:	22.7
+Test round: 109
+expInG:	43115.8
+invInZr:	22.1
+Test round: 110
+expInG:	42551.2
+invInZr:	23.0
+Test round: 111
+expInG:	43418.7
+invInZr:	21.5
+Test round: 112
+expInG:	42704.5
+invInZr:	24.3
+Test round: 113
+expInG:	42460.8
+invInZr:	21.0
+Test round: 114
+expInG:	42524.9
+invInZr:	22.9
+Test round: 115
+expInG:	42830.2
+invInZr:	26.4
+Test round: 116
+expInG:	43579.2
+invInZr:	23.1
+Test round: 117
+expInG:	43072.7
+invInZr:	22.2
+Test round: 118
+expInG:	43360.8
+invInZr:	22.2
+Test round: 119
+expInG:	42645.7
+invInZr:	21.8
+Test round: 120
+expInG:	42833.0
+invInZr:	22.6
+Test round: 121
+expInG:	42740.1
+invInZr:	22.3
+Test round: 122
+expInG:	43164.1
+invInZr:	22.7
+Test round: 123
+expInG:	43523.9
+invInZr:	23.5
+Test round: 124
+expInG:	43126.6
+invInZr:	22.1
+Test round: 125
+expInG:	42353.2
+invInZr:	22.6
+Test round: 126
+expInG:	42724.4
+invInZr:	22.7
+Test round: 127
+expInG:	42986.5
+invInZr:	22.4
+Test round: 128
+expInG:	43181.2
+invInZr:	27.6
+Test round: 129
+expInG:	42468.3
+invInZr:	20.6
+Test round: 130
+expInG:	42675.4
+invInZr:	23.8
+Test round: 131
+expInG:	42065.8
+invInZr:	24.2
+Test round: 132
+expInG:	42996.8
+invInZr:	23.4
+Test round: 133
+expInG:	42655.8
+invInZr:	23.4
+Test round: 134
+expInG:	42607.3
+invInZr:	21.8
+Test round: 135
+expInG:	42882.9
+invInZr:	21.8
+Test round: 136
+expInG:	43650.5
+invInZr:	22.8
+Test round: 137
+expInG:	42387.3
+invInZr:	22.7
+Test round: 138
+expInG:	42706.0
+invInZr:	23.8
+Test round: 139
+expInG:	43525.4
+invInZr:	24.2
+Test round: 140
+expInG:	43248.6
+invInZr:	24.1
+Test round: 141
+expInG:	43628.6
+invInZr:	22.3
+Test round: 142
+expInG:	42901.5
+invInZr:	22.8
+Test round: 143
+expInG:	43555.3
+invInZr:	22.1
+Test round: 144
+expInG:	43332.4
+invInZr:	22.4
+Test round: 145
+expInG:	43013.2
+invInZr:	23.2
+Test round: 146
+expInG:	42317.6
+invInZr:	21.2
+Test round: 147
+expInG:	43016.1
+invInZr:	23.0
+Test round: 148
+expInG:	42541.1
+invInZr:	22.7
+Test round: 149
+expInG:	42429.9
+invInZr:	22.5
+Test round: 150
+expInG:	43974.2
+invInZr:	22.7
+Test round: 151
+expInG:	42781.9
+invInZr:	22.3
+Test round: 152
+expInG:	42515.9
+invInZr:	22.9
+Test round: 153
+expInG:	42696.7
+invInZr:	24.4
+Test round: 154
+expInG:	43451.7
+invInZr:	22.1
+Test round: 155
+expInG:	43174.8
+invInZr:	22.5
+Test round: 156
+expInG:	43069.6
+invInZr:	23.0
+Test round: 157
+expInG:	42776.9
+invInZr:	24.5
+Test round: 158
+expInG:	42515.6
+invInZr:	23.9
+Test round: 159
+expInG:	42756.4
+invInZr:	22.9
+Test round: 160
+expInG:	43130.9
+invInZr:	22.8
+Test round: 161
+expInG:	43582.2
+invInZr:	22.3
+Test round: 162
+expInG:	43436.4
+invInZr:	23.1
+Test round: 163
+expInG:	42805.1
+invInZr:	23.0
+Test round: 164
+expInG:	42423.0
+invInZr:	24.6
+Test round: 165
+expInG:	42954.5
+invInZr:	21.6
+Test round: 166
+expInG:	43258.2
+invInZr:	25.4
+Test round: 167
+expInG:	42837.5
+invInZr:	22.9
+Test round: 168
+expInG:	42459.0
+invInZr:	23.2
+Test round: 169
+expInG:	42580.8
+invInZr:	22.7
+Test round: 170
+expInG:	43149.6
+invInZr:	23.3
+Test round: 171
+expInG:	42972.6
+invInZr:	26.8
+Test round: 172
+expInG:	43479.0
+invInZr:	22.8
+Test round: 173
+expInG:	43072.6
+invInZr:	21.6
+Test round: 174
+expInG:	42419.8
+invInZr:	22.3
+Test round: 175
+expInG:	42485.4
+invInZr:	22.1
+Test round: 176
+expInG:	42899.3
+invInZr:	22.8
+Test round: 177
+expInG:	43086.5
+invInZr:	21.7
+Test round: 178
+expInG:	42407.9
+invInZr:	23.3
+Test round: 179
+expInG:	43028.2
+invInZr:	23.3
+Test round: 180
+expInG:	42664.8
+invInZr:	22.2
+Test round: 181
+expInG:	42863.3
+invInZr:	22.0
+Test round: 182
+expInG:	43522.4
+invInZr:	22.2
+Test round: 183
+expInG:	42718.0
+invInZr:	23.1
+Test round: 184
+expInG:	42940.5
+invInZr:	23.1
+Test round: 185
+expInG:	42584.4
+invInZr:	22.8
+Test round: 186
+expInG:	42849.7
+invInZr:	22.2
+Test round: 187
+expInG:	43115.6
+invInZr:	21.8
+Test round: 188
+expInG:	43519.7
+invInZr:	22.7
+Test round: 189
+expInG:	42678.6
+invInZr:	22.6
+Test round: 190
+expInG:	42497.9
+invInZr:	23.2
+Test round: 191
+expInG:	43191.6
+invInZr:	31.4
+Test round: 192
+expInG:	42927.1
+invInZr:	23.8
+Test round: 193
+expInG:	43117.7
+invInZr:	23.9
+Test round: 194
+expInG:	42591.2
+invInZr:	22.1
+Test round: 195
+expInG:	42904.6
+invInZr:	22.5
+Test round: 196
+expInG:	42824.2
+invInZr:	22.1
+Test round: 197
+expInG:	43549.3
+invInZr:	22.1
+Test round: 198
+expInG:	43342.8
+invInZr:	22.8
+Test round: 199
+expInG:	42502.1
+invInZr:	23.5
+Test round: 200
+expInG:	42996.2
+invInZr:	25.0
+Test round: 201
+expInG:	43033.0
+invInZr:	23.1
+Test round: 202
+expInG:	42887.8
+invInZr:	23.1
+Test round: 203
+expInG:	43376.8
+invInZr:	22.2
+Test round: 204
+expInG:	46119.8
+invInZr:	22.7
+Test round: 205
+expInG:	43659.4
+invInZr:	25.1
+Test round: 206
+expInG:	42666.7
+invInZr:	22.3
+Test round: 207
+expInG:	42382.5
+invInZr:	22.7
+Test round: 208
+expInG:	43223.3
+invInZr:	24.1
+Test round: 209
+expInG:	42748.4
+invInZr:	22.7
+Test round: 210
+expInG:	42495.4
+invInZr:	23.2
+Test round: 211
+expInG:	41789.4
+invInZr:	23.3
+Test round: 212
+expInG:	42805.6
+invInZr:	21.4
+Test round: 213
+expInG:	43340.3
+invInZr:	24.0
+Test round: 214
+expInG:	43531.0
+invInZr:	21.6
+Test round: 215
+expInG:	42493.7
+invInZr:	23.8
+Test round: 216
+expInG:	42990.5
+invInZr:	23.5
+Test round: 217
+expInG:	44138.0
+invInZr:	22.6
+Test round: 218
+expInG:	42713.0
+invInZr:	22.9
+Test round: 219
+expInG:	42824.5
+invInZr:	22.7
+Test round: 220
+expInG:	42576.3
+invInZr:	22.1
+Test round: 221
+expInG:	43313.1
+invInZr:	24.2
+Test round: 222
+expInG:	42719.5
+invInZr:	22.8
+Test round: 223
+expInG:	42568.3
+invInZr:	22.3
+Test round: 224
+expInG:	43223.4
+invInZr:	23.5
+Test round: 225
+expInG:	44241.5
+invInZr:	23.0
+Test round: 226
+expInG:	42355.9
+invInZr:	22.7
+Test round: 227
+expInG:	42851.4
+invInZr:	23.7
+Test round: 228
+expInG:	42470.0
+invInZr:	22.3
+Test round: 229
+expInG:	42482.0
+invInZr:	21.1
+Test round: 230
+expInG:	43561.7
+invInZr:	21.6
+Test round: 231
+expInG:	43512.5
+invInZr:	22.7
+Test round: 232
+expInG:	42586.5
+invInZr:	24.5
+Test round: 233
+expInG:	43311.6
+invInZr:	28.7
+Test round: 234
+expInG:	43766.9
+invInZr:	22.9
+Test round: 235
+expInG:	43767.1
+invInZr:	22.8
+Test round: 236
+expInG:	43025.5
+invInZr:	22.2
+Test round: 237
+expInG:	42773.6
+invInZr:	21.7
+Test round: 238
+expInG:	42735.2
+invInZr:	23.2
+Test round: 239
+expInG:	42930.3
+invInZr:	24.1
+Test round: 240
+expInG:	43019.4
+invInZr:	20.9
+Test round: 241
+expInG:	43795.1
+invInZr:	25.5
+Test round: 242
+expInG:	43083.6
+invInZr:	22.3
+Test round: 243
+expInG:	42933.1
+invInZr:	23.5
+Test round: 244
+expInG:	42906.2
+invInZr:	22.9
+Test round: 245
+expInG:	43372.0
+invInZr:	23.2
+Test round: 246
+expInG:	43600.0
+invInZr:	22.1
+Test round: 247
+expInG:	42513.8
+invInZr:	23.8
+Test round: 248
+expInG:	42599.0
+invInZr:	23.3
+Test round: 249
+expInG:	43361.5
+invInZr:	22.4
+Test round: 250
+expInG:	42929.4
+invInZr:	22.8
+Test round: 251
+expInG:	43420.7
+invInZr:	22.5
+Test round: 252
+expInG:	42958.8
+invInZr:	23.7
+Test round: 253
+expInG:	42552.9
+invInZr:	24.2
+Test round: 254
+expInG:	42535.2
+invInZr:	22.7
+Test round: 255
+expInG:	44331.6
+invInZr:	22.9
+Test round: 256
+expInG:	42601.8
+invInZr:	35.5
+Test round: 257
+expInG:	43618.0
+invInZr:	39.6
+Test round: 258
+expInG:	42791.5
+invInZr:	19.9
+Test round: 259
+expInG:	42964.0
+invInZr:	21.0
+Test round: 260
+expInG:	43113.3
+invInZr:	21.3
+Test round: 261
+expInG:	43384.6
+invInZr:	21.2
+Test round: 262
+expInG:	44076.4
+invInZr:	21.2
+Test round: 263
+expInG:	43257.6
+invInZr:	22.5
+Test round: 264
+expInG:	43219.0
+invInZr:	21.5
+Test round: 265
+expInG:	43080.8
+invInZr:	21.0
+Test round: 266
+expInG:	42651.8
+invInZr:	21.7
+Test round: 267
+expInG:	43285.2
+invInZr:	20.6
+Test round: 268
+expInG:	43144.7
+invInZr:	19.3
+Test round: 269
+expInG:	43008.7
+invInZr:	21.5
+Test round: 270
+expInG:	42779.6
+invInZr:	21.6
+Test round: 271
+expInG:	43072.2
+invInZr:	20.1
+Test round: 272
+expInG:	42336.0
+invInZr:	20.0
+Test round: 273
+expInG:	43297.2
+invInZr:	19.9
+Test round: 274
+expInG:	42978.9
+invInZr:	20.8
+Test round: 275
+expInG:	42886.4
+invInZr:	19.9
+Test round: 276
+expInG:	43127.5
+invInZr:	27.9
+Test round: 277
+expInG:	42498.3
+invInZr:	21.0
+Test round: 278
+expInG:	43945.0
+invInZr:	19.8
+Test round: 279
+expInG:	42648.0
+invInZr:	19.8
+Test round: 280
+expInG:	41858.8
+invInZr:	21.2
+Test round: 281
+expInG:	43030.0
+invInZr:	21.8
+Test round: 282
+expInG:	42591.3
+invInZr:	19.3
+Test round: 283
+expInG:	43419.9
+invInZr:	20.7
+Test round: 284
+expInG:	42834.9
+invInZr:	19.4
+Test round: 285
+expInG:	43735.5
+invInZr:	21.9
+Test round: 286
+expInG:	42916.6
+invInZr:	19.5
+Test round: 287
+expInG:	43009.6
+invInZr:	20.5
+Test round: 288
+expInG:	42639.0
+invInZr:	20.2
+Test round: 289
+expInG:	43659.0
+invInZr:	20.7
+Test round: 290
+expInG:	43126.2
+invInZr:	20.4
+Test round: 291
+expInG:	43448.5
+invInZr:	20.8
+Test round: 292
+expInG:	43051.1
+invInZr:	21.6
+Test round: 293
+expInG:	43228.8
+invInZr:	20.1
+Test round: 294
+expInG:	43814.8
+invInZr:	21.3
+Test round: 295
+expInG:	43253.6
+invInZr:	20.4
+Test round: 296
+expInG:	42469.7
+invInZr:	22.1
+Test round: 297
+expInG:	42621.9
+invInZr:	21.4
+Test round: 298
+expInG:	42249.5
+invInZr:	20.6
+Test round: 299
+expInG:	43204.2
+invInZr:	19.8
+Test round: 300
+expInG:	42814.8
+invInZr:	18.3
+Test round: 301
+expInG:	42330.8
+invInZr:	21.2
+Test round: 302
+expInG:	43664.1
+invInZr:	21.7
+Test round: 303
+expInG:	42827.8
+invInZr:	21.4
+Test round: 304
+expInG:	43085.6
+invInZr:	21.2
+Test round: 305
+expInG:	43923.3
+invInZr:	20.9
+Test round: 306
+expInG:	42720.6
+invInZr:	21.9
+Test round: 307
+expInG:	42796.7
+invInZr:	19.2
+Test round: 308
+expInG:	42992.3
+invInZr:	21.3
+Test round: 309
+expInG:	43385.2
+invInZr:	20.2
+Test round: 310
+expInG:	43832.8
+invInZr:	23.4
+Test round: 311
+expInG:	42770.6
+invInZr:	21.0
+Test round: 312
+expInG:	43188.8
+invInZr:	20.6
+Test round: 313
+expInG:	42944.5
+invInZr:	21.3
+Test round: 314
+expInG:	43461.9
+invInZr:	22.9
+Test round: 315
+expInG:	44020.4
+invInZr:	20.9
+Test round: 316
+expInG:	42671.2
+invInZr:	20.4
+Test round: 317
+expInG:	43012.4
+invInZr:	19.9
+Test round: 318
+expInG:	42227.1
+invInZr:	20.0
+Test round: 319
+expInG:	43714.5
+invInZr:	20.9
+Test round: 320
+expInG:	42493.3
+invInZr:	20.5
+Test round: 321
+expInG:	43085.1
+invInZr:	19.2
+Test round: 322
+expInG:	43164.5
+invInZr:	22.1
+Test round: 323
+expInG:	42856.3
+invInZr:	20.4
+Test round: 324
+expInG:	42938.0
+invInZr:	21.3
+Test round: 325
+expInG:	43204.5
+invInZr:	21.3
+Test round: 326
+expInG:	42976.7
+invInZr:	21.6
+Test round: 327
+expInG:	42281.6
+invInZr:	20.2
+Test round: 328
+expInG:	42478.5
+invInZr:	20.5
+Test round: 329
+expInG:	42946.3
+invInZr:	20.3
+Test round: 330
+expInG:	43223.6
+invInZr:	19.7
+Test round: 331
+expInG:	42567.2
+invInZr:	21.8
+Test round: 332
+expInG:	43100.8
+invInZr:	19.6
+Test round: 333
+expInG:	43547.2
+invInZr:	21.4
+Test round: 334
+expInG:	42318.7
+invInZr:	20.7
+Test round: 335
+expInG:	42879.1
+invInZr:	20.7
+Test round: 336
+expInG:	43115.5
+invInZr:	20.6
+Test round: 337
+expInG:	42860.5
+invInZr:	19.5
+Test round: 338
+expInG:	42466.8
+invInZr:	20.9
+Test round: 339
+expInG:	43518.5
+invInZr:	21.1
+Test round: 340
+expInG:	43394.2
+invInZr:	22.4
+Test round: 341
+expInG:	42578.7
+invInZr:	20.9
+Test round: 342
+expInG:	43618.5
+invInZr:	20.1
+Test round: 343
+expInG:	42467.9
+invInZr:	21.4
+Test round: 344
+expInG:	42800.9
+invInZr:	20.5
+Test round: 345
+expInG:	42943.6
+invInZr:	20.5
+Test round: 346
+expInG:	41483.5
+invInZr:	19.9
+Test round: 347
+expInG:	42934.5
+invInZr:	22.5
+Test round: 348
+expInG:	43161.6
+invInZr:	20.1
+Test round: 349
+expInG:	42790.2
+invInZr:	20.3
+Test round: 350
+expInG:	43036.2
+invInZr:	20.1
+Test round: 351
+expInG:	42575.4
+invInZr:	19.8
+Test round: 352
+expInG:	42547.6
+invInZr:	21.2
+Test round: 353
+expInG:	43495.3
+invInZr:	20.7
+Test round: 354
+expInG:	43434.5
+invInZr:	21.1
+Test round: 355
+expInG:	43071.1
+invInZr:	20.8
+Test round: 356
+expInG:	43131.9
+invInZr:	20.3
+Test round: 357
+expInG:	42952.8
+invInZr:	18.9
+Test round: 358
+expInG:	43581.2
+invInZr:	21.1
+Test round: 359
+expInG:	43061.4
+invInZr:	21.4
+Test round: 360
+expInG:	42437.4
+invInZr:	20.1
+Test round: 361
+expInG:	42564.5
+invInZr:	21.5
+Test round: 362
+expInG:	43535.3
+invInZr:	20.9
+Test round: 363
+expInG:	43237.4
+invInZr:	21.0
+Test round: 364
+expInG:	43028.6
+invInZr:	20.3
+Test round: 365
+expInG:	43333.7
+invInZr:	19.8
+Test round: 366
+expInG:	43353.8
+invInZr:	20.1
+Test round: 367
+expInG:	42545.0
+invInZr:	20.4
+Test round: 368
+expInG:	42595.6
+invInZr:	20.3
+Test round: 369
+expInG:	43469.6
+invInZr:	20.7
+Test round: 370
+expInG:	42662.4
+invInZr:	20.4
+Test round: 371
+expInG:	43037.5
+invInZr:	20.9
+Test round: 372
+expInG:	42230.4
+invInZr:	20.5
+Test round: 373
+expInG:	42701.0
+invInZr:	20.2
+Test round: 374
+expInG:	43610.1
+invInZr:	21.4
+Test round: 375
+expInG:	42934.5
+invInZr:	20.5
+Test round: 376
+expInG:	43676.1
+invInZr:	20.1
+Test round: 377
+expInG:	42762.9
+invInZr:	21.5
+Test round: 378
+expInG:	42785.7
+invInZr:	20.1
+Test round: 379
+expInG:	42657.5
+invInZr:	18.9
+Test round: 380
+expInG:	43475.1
+invInZr:	19.3
+Test round: 381
+expInG:	43103.0
+invInZr:	20.0
+Test round: 382
+expInG:	43526.1
+invInZr:	20.2
+Test round: 383
+expInG:	42929.3
+invInZr:	21.3
+Test round: 384
+expInG:	43135.9
+invInZr:	20.8
+Test round: 385
+expInG:	43043.6
+invInZr:	20.7
+Test round: 386
+expInG:	42912.7
+invInZr:	21.6
+Test round: 387
+expInG:	43104.9
+invInZr:	20.1
+Test round: 388
+expInG:	42662.2
+invInZr:	24.2
+Test round: 389
+expInG:	42988.6
+invInZr:	20.5
+Test round: 390
+expInG:	43622.5
+invInZr:	20.3
+Test round: 391
+expInG:	42610.9
+invInZr:	20.1
+Test round: 392
+expInG:	42624.5
+invInZr:	20.6
+Test round: 393
+expInG:	42965.1
+invInZr:	21.0
+Test round: 394
+expInG:	42686.9
+invInZr:	20.4
+Test round: 395
+expInG:	43026.5
+invInZr:	18.6
+Test round: 396
+expInG:	42993.3
+invInZr:	19.6
+Test round: 397
+expInG:	43715.1
+invInZr:	20.1
+Test round: 398
+expInG:	43169.1
+invInZr:	20.4
+Test round: 399
+expInG:	43359.5
+invInZr:	20.8
+Test round: 400
+expInG:	42662.8
+invInZr:	20.6
+Test round: 401
+expInG:	43114.7
+invInZr:	19.7
+Test round: 402
+expInG:	42947.8
+invInZr:	20.2
+Test round: 403
+expInG:	43798.4
+invInZr:	33.6
+Test round: 404
+expInG:	44972.4
+invInZr:	20.4
+Test round: 405
+expInG:	42107.7
+invInZr:	21.6
+Test round: 406
+expInG:	43619.6
+invInZr:	20.7
+Test round: 407
+expInG:	43334.8
+invInZr:	20.5
+Test round: 408
+expInG:	43020.4
+invInZr:	19.8
+Test round: 409
+expInG:	43167.5
+invInZr:	19.8
+Test round: 410
+expInG:	42906.6
+invInZr:	22.2
+Test round: 411
+expInG:	43812.3
+invInZr:	20.7
+Test round: 412
+expInG:	42898.2
+invInZr:	19.6
+Test round: 413
+expInG:	42253.4
+invInZr:	21.3
+Test round: 414
+expInG:	42024.4
+invInZr:	20.6
+Test round: 415
+expInG:	43059.0
+invInZr:	20.1
+Test round: 416
+expInG:	41869.5
+invInZr:	20.9
+Test round: 417
+expInG:	43353.3
+invInZr:	21.0
+Test round: 418
+expInG:	41939.3
+invInZr:	21.5
+Test round: 419
+expInG:	43266.4
+invInZr:	19.4
+Test round: 420
+expInG:	43972.7
+invInZr:	20.2
+Test round: 421
+expInG:	43120.9
+invInZr:	20.3
+Test round: 422
+expInG:	44371.6
+invInZr:	20.8
+Test round: 423
+expInG:	42738.2
+invInZr:	19.8
+Test round: 424
+expInG:	42789.8
+invInZr:	20.1
+Test round: 425
+expInG:	43246.9
+invInZr:	20.2
+Test round: 426
+expInG:	42787.9
+invInZr:	21.8
+Test round: 427
+expInG:	42604.5
+invInZr:	21.1
+Test round: 428
+expInG:	43030.0
+invInZr:	20.6
+Test round: 429
+expInG:	43118.2
+invInZr:	27.1
+Test round: 430
+expInG:	43311.7
+invInZr:	20.3
+Test round: 431
+expInG:	42864.2
+invInZr:	22.0
+Test round: 432
+expInG:	42651.2
+invInZr:	21.3
+Test round: 433
+expInG:	43453.9
+invInZr:	19.3
+Test round: 434
+expInG:	42876.3
+invInZr:	20.8
+Test round: 435
+expInG:	42240.1
+invInZr:	20.9
+Test round: 436
+expInG:	42777.1
+invInZr:	22.3
+Test round: 437
+expInG:	42675.8
+invInZr:	19.7
+Test round: 438
+expInG:	43822.5
+invInZr:	19.6
+Test round: 439
+expInG:	42526.4
+invInZr:	21.5
+Test round: 440
+expInG:	42493.3
+invInZr:	21.2
+Test round: 441
+expInG:	41967.4
+invInZr:	20.8
+Test round: 442
+expInG:	43174.8
+invInZr:	19.7
+Test round: 443
+expInG:	43227.4
+invInZr:	19.7
+Test round: 444
+expInG:	42974.4
+invInZr:	20.9
+Test round: 445
+expInG:	43308.2
+invInZr:	20.5
+Test round: 446
+expInG:	42694.7
+invInZr:	20.8
+Test round: 447
+expInG:	42972.4
+invInZr:	20.6
+Test round: 448
+expInG:	42925.3
+invInZr:	21.5
+Test round: 449
+expInG:	43170.4
+invInZr:	20.1
+Test round: 450
+expInG:	42673.1
+invInZr:	20.1
+Test round: 451
+expInG:	42969.5
+invInZr:	19.3
+Test round: 452
+expInG:	42032.4
+invInZr:	20.3
+Test round: 453
+expInG:	43184.1
+invInZr:	20.4
+Test round: 454
+expInG:	43356.4
+invInZr:	20.7
+Test round: 455
+expInG:	42240.9
+invInZr:	20.3
+Test round: 456
+expInG:	43556.7
+invInZr:	19.7
+Test round: 457
+expInG:	42889.5
+invInZr:	21.0
+Test round: 458
+expInG:	42503.8
+invInZr:	20.5
+Test round: 459
+expInG:	43333.0
+invInZr:	20.3
+Test round: 460
+expInG:	42923.7
+invInZr:	22.8
+Test round: 461
+expInG:	42643.1
+invInZr:	20.8
+Test round: 462
+expInG:	43189.8
+invInZr:	21.0
+Test round: 463
+expInG:	42668.6
+invInZr:	19.6
+Test round: 464
+expInG:	43007.4
+invInZr:	21.4
+Test round: 465
+expInG:	43340.5
+invInZr:	21.1
+Test round: 466
+expInG:	47286.9
+invInZr:	20.4
+Test round: 467
+expInG:	43097.7
+invInZr:	20.3
+Test round: 468
+expInG:	42966.8
+invInZr:	21.5
+Test round: 469
+expInG:	43264.0
+invInZr:	20.2
+Test round: 470
+expInG:	43705.6
+invInZr:	21.2
+Test round: 471
+expInG:	42831.3
+invInZr:	20.8
+Test round: 472
+expInG:	43040.8
+invInZr:	20.6
+Test round: 473
+expInG:	42932.9
+invInZr:	20.5
+Test round: 474
+expInG:	43103.7
+invInZr:	20.4
+Test round: 475
+expInG:	43464.5
+invInZr:	20.5
+Test round: 476
+expInG:	43335.1
+invInZr:	21.5
+Test round: 477
+expInG:	42864.6
+invInZr:	19.9
+Test round: 478
+expInG:	41395.0
+invInZr:	20.3
+Test round: 479
+expInG:	43145.5
+invInZr:	20.3
+Test round: 480
+expInG:	42744.3
+invInZr:	21.1
+Test round: 481
+expInG:	42829.5
+invInZr:	20.1
+Test round: 482
+expInG:	42991.7
+invInZr:	20.9
+Test round: 483
+expInG:	43209.3
+invInZr:	21.8
+Test round: 484
+expInG:	43202.5
+invInZr:	20.4
+Test round: 485
+expInG:	43342.3
+invInZr:	21.3
+Test round: 486
+expInG:	43835.2
+invInZr:	20.8
+Test round: 487
+expInG:	43601.5
+invInZr:	20.2
+Test round: 488
+expInG:	42673.5
+invInZr:	20.3
+Test round: 489
+expInG:	43054.4
+invInZr:	24.5
+Test round: 490
+expInG:	42789.1
+invInZr:	23.9
+Test round: 491
+expInG:	42687.4
+invInZr:	21.6
+Test round: 492
+expInG:	42179.6
+invInZr:	22.0
+Test round: 493
+expInG:	42942.1
+invInZr:	21.9
+Test round: 494
+expInG:	42288.2
+invInZr:	22.6
+Test round: 495
+expInG:	43240.0
+invInZr:	20.2
+Test round: 496
+expInG:	42488.7
+invInZr:	20.5
+Test round: 497
+expInG:	43507.6
+invInZr:	19.6
+Test round: 498
+expInG:	42588.2
+invInZr:	20.1
+Test round: 499
+expInG:	42666.8
+invInZr:	20.6
+Test round: 500
+expInG:	42863.5
+invInZr:	20.0
+Test round: 501
+expInG:	42548.8
+invInZr:	20.7
+Test round: 502
+expInG:	43473.8
+invInZr:	19.9
+Test round: 503
+expInG:	43068.4
+invInZr:	20.0
+Test round: 504
+expInG:	43362.2
+invInZr:	20.3
+Test round: 505
+expInG:	42843.6
+invInZr:	21.0
+Test round: 506
+expInG:	43081.8
+invInZr:	21.2
+Test round: 507
+expInG:	42958.1
+invInZr:	20.7
+Test round: 508
+expInG:	43367.3
+invInZr:	21.4
+Test round: 509
+expInG:	42906.4
+invInZr:	20.3
+Test round: 510
+expInG:	43114.8
+invInZr:	20.7
+Test round: 511
+expInG:	42815.5
+invInZr:	21.1
+Test round: 512
+expInG:	42595.1
+invInZr:	20.0
+Test round: 513
+expInG:	43547.6
+invInZr:	21.0
+Test round: 514
+expInG:	43306.5
+invInZr:	20.3
+Test round: 515
+expInG:	42776.1
+invInZr:	19.9
+Test round: 516
+expInG:	42409.3
+invInZr:	20.2
+Test round: 517
+expInG:	43355.6
+invInZr:	21.0
+Test round: 518
+expInG:	43369.6
+invInZr:	20.5
+Test round: 519
+expInG:	43134.2
+invInZr:	20.8
+Test round: 520
+expInG:	43742.3
+invInZr:	21.3
+Test round: 521
+expInG:	43242.0
+invInZr:	20.0
+Test round: 522
+expInG:	42742.5
+invInZr:	20.0
+Test round: 523
+expInG:	42164.6
+invInZr:	21.3
+Test round: 524
+expInG:	43068.8
+invInZr:	20.6
+Test round: 525
+expInG:	43303.5
+invInZr:	20.0
+Test round: 526
+expInG:	46802.3
+invInZr:	20.1
+Test round: 527
+expInG:	42692.4
+invInZr:	21.2
+Test round: 528
+expInG:	43309.7
+invInZr:	20.8
+Test round: 529
+expInG:	43446.9
+invInZr:	20.2
+Test round: 530
+expInG:	43210.2
+invInZr:	19.2
+Test round: 531
+expInG:	42979.5
+invInZr:	20.2
+Test round: 532
+expInG:	41636.4
+invInZr:	20.4
+Test round: 533
+expInG:	42457.0
+invInZr:	20.9
+Test round: 534
+expInG:	43555.7
+invInZr:	21.2
+Test round: 535
+expInG:	43058.5
+invInZr:	20.6
+Test round: 536
+expInG:	42822.9
+invInZr:	20.2
+Test round: 537
+expInG:	43491.3
+invInZr:	21.2
+Test round: 538
+expInG:	43367.5
+invInZr:	20.8
+Test round: 539
+expInG:	42828.6
+invInZr:	24.7
+Test round: 540
+expInG:	43603.2
+invInZr:	20.8
+Test round: 541
+expInG:	42876.1
+invInZr:	20.6
+Test round: 542
+expInG:	43774.5
+invInZr:	21.0
+Test round: 543
+expInG:	42388.3
+invInZr:	21.7
+Test round: 544
+expInG:	42671.2
+invInZr:	22.9
+Test round: 545
+expInG:	43284.9
+invInZr:	21.2
+Test round: 546
+expInG:	42885.4
+invInZr:	21.4
+Test round: 547
+expInG:	42898.3
+invInZr:	19.5
+Test round: 548
+expInG:	42824.4
+invInZr:	20.2
+Test round: 549
+expInG:	42897.2
+invInZr:	20.3
+Test round: 550
+expInG:	43874.1
+invInZr:	20.1
+Test round: 551
+expInG:	43137.8
+invInZr:	20.6
+Test round: 552
+expInG:	42454.4
+invInZr:	21.8
+Test round: 553
+expInG:	43166.1
+invInZr:	21.1
+Test round: 554
+expInG:	42665.5
+invInZr:	20.6
+Test round: 555
+expInG:	42898.7
+invInZr:	21.5
+Test round: 556
+expInG:	42913.3
+invInZr:	20.3
+Test round: 557
+expInG:	42429.3
+invInZr:	21.6
+Test round: 558
+expInG:	42460.0
+invInZr:	20.5
+Test round: 559
+expInG:	43144.7
+invInZr:	20.4
+Test round: 560
+expInG:	41750.9
+invInZr:	20.7
+Test round: 561
+expInG:	43244.0
+invInZr:	20.2
+Test round: 562
+expInG:	42607.7
+invInZr:	19.3
+Test round: 563
+expInG:	42961.5
+invInZr:	20.5
+Test round: 564
+expInG:	43151.9
+invInZr:	20.2
+Test round: 565
+expInG:	42549.8
+invInZr:	20.6
+Test round: 566
+expInG:	42813.3
+invInZr:	20.8
+Test round: 567
+expInG:	42879.3
+invInZr:	20.9
+Test round: 568
+expInG:	42482.5
+invInZr:	20.7
+Test round: 569
+expInG:	42710.0
+invInZr:	19.4
+Test round: 570
+expInG:	42352.9
+invInZr:	21.7
+Test round: 571
+expInG:	42628.5
+invInZr:	21.2
+Test round: 572
+expInG:	42982.8
+invInZr:	20.2
+Test round: 573
+expInG:	43259.4
+invInZr:	20.5
+Test round: 574
+expInG:	42191.1
+invInZr:	22.5
+Test round: 575
+expInG:	42661.1
+invInZr:	22.2
+Test round: 576
+expInG:	42440.3
+invInZr:	21.5
+Test round: 577
+expInG:	43604.9
+invInZr:	22.7
+Test round: 578
+expInG:	42233.1
+invInZr:	20.5
+Test round: 579
+expInG:	43183.2
+invInZr:	19.5
+Test round: 580
+expInG:	42415.2
+invInZr:	20.5
+Test round: 581
+expInG:	42366.7
+invInZr:	20.7
+Test round: 582
+expInG:	43620.0
+invInZr:	21.2
+Test round: 583
+expInG:	43886.9
+invInZr:	20.6
+Test round: 584
+expInG:	42331.5
+invInZr:	20.8
+Test round: 585
+expInG:	42513.9
+invInZr:	20.3
+Test round: 586
+expInG:	42424.1
+invInZr:	20.2
+Test round: 587
+expInG:	42150.3
+invInZr:	20.3
+Test round: 588
+expInG:	43317.8
+invInZr:	20.8
+Test round: 589
+expInG:	43433.2
+invInZr:	19.2
+Test round: 590
+expInG:	42679.9
+invInZr:	21.3
+Test round: 591
+expInG:	42924.2
+invInZr:	25.2
+Test round: 592
+expInG:	42837.3
+invInZr:	19.8
+Test round: 593
+expInG:	43993.1
+invInZr:	20.9
+Test round: 594
+expInG:	42387.6
+invInZr:	20.8
+Test round: 595
+expInG:	43133.5
+invInZr:	21.1
+Test round: 596
+expInG:	42961.6
+invInZr:	21.2
+Test round: 597
+expInG:	43123.4
+invInZr:	20.7
+Test round: 598
+expInG:	43824.0
+invInZr:	20.0
+Test round: 599
+expInG:	43579.0
+invInZr:	21.2
+Test round: 600
+expInG:	42381.3
+invInZr:	21.2
+Test round: 601
+expInG:	42652.8
+invInZr:	22.3
+Test round: 602
+expInG:	42608.2
+invInZr:	21.1
+Test round: 603
+expInG:	43542.1
+invInZr:	21.9
+Test round: 604
+expInG:	46305.5
+invInZr:	20.0
+Test round: 605
+expInG:	43018.1
+invInZr:	21.5
+Test round: 606
+expInG:	43186.9
+invInZr:	19.7
+Test round: 607
+expInG:	42793.7
+invInZr:	21.2
+Test round: 608
+expInG:	43189.1
+invInZr:	20.0
+Test round: 609
+expInG:	44095.5
+invInZr:	21.3
+Test round: 610
+expInG:	42906.6
+invInZr:	20.4
+Test round: 611
+expInG:	42944.8
+invInZr:	20.6
+Test round: 612
+expInG:	43090.0
+invInZr:	20.6
+Test round: 613
+expInG:	42515.5
+invInZr:	21.4
+Test round: 614
+expInG:	43424.1
+invInZr:	22.5
+Test round: 615
+expInG:	43228.7
+invInZr:	21.8
+Test round: 616
+expInG:	43079.2
+invInZr:	21.0
+Test round: 617
+expInG:	42832.3
+invInZr:	20.8
+Test round: 618
+expInG:	43476.5
+invInZr:	20.8
+Test round: 619
+expInG:	43414.0
+invInZr:	19.6
+Test round: 620
+expInG:	43900.9
+invInZr:	21.1
+Test round: 621
+expInG:	42764.1
+invInZr:	20.8
+Test round: 622
+expInG:	42921.6
+invInZr:	20.5
+Test round: 623
+expInG:	43295.3
+invInZr:	20.8
+Test round: 624
+expInG:	43021.0
+invInZr:	19.8
+Test round: 625
+expInG:	43356.9
+invInZr:	21.2
+Test round: 626
+expInG:	42676.7
+invInZr:	20.2
+Test round: 627
+expInG:	42879.7
+invInZr:	20.6
+Test round: 628
+expInG:	43150.5
+invInZr:	20.4
+Test round: 629
+expInG:	42753.9
+invInZr:	19.2
+Test round: 630
+expInG:	43285.5
+invInZr:	18.7
+Test round: 631
+expInG:	41892.0
+invInZr:	20.7
+Test round: 632
+expInG:	42666.1
+invInZr:	20.9
+Test round: 633
+expInG:	42565.5
+invInZr:	19.2
+Test round: 634
+expInG:	43861.8
+invInZr:	20.7
+Test round: 635
+expInG:	42638.7
+invInZr:	19.7
+Test round: 636
+expInG:	43497.8
+invInZr:	20.3
+Test round: 637
+expInG:	42974.4
+invInZr:	20.5
+Test round: 638
+expInG:	43380.5
+invInZr:	19.2
+Test round: 639
+expInG:	43020.9
+invInZr:	20.2
+Test round: 640
+expInG:	43363.1
+invInZr:	20.8
+Test round: 641
+expInG:	43477.1
+invInZr:	19.6
+Test round: 642
+expInG:	42674.8
+invInZr:	21.1
+Test round: 643
+expInG:	43124.4
+invInZr:	20.0
+Test round: 644
+expInG:	43394.1
+invInZr:	19.7
+Test round: 645
+expInG:	42558.1
+invInZr:	21.6
+Test round: 646
+expInG:	43798.1
+invInZr:	20.0
+Test round: 647
+expInG:	43006.8
+invInZr:	20.5
+Test round: 648
+expInG:	42719.5
+invInZr:	21.3
+Test round: 649
+expInG:	42320.4
+invInZr:	20.3
+Test round: 650
+expInG:	42907.2
+invInZr:	19.4
+Test round: 651
+expInG:	42855.4
+invInZr:	20.0
+Test round: 652
+expInG:	43369.8
+invInZr:	21.3
+Test round: 653
+expInG:	42829.3
+invInZr:	19.8
+Test round: 654
+expInG:	43302.4
+invInZr:	21.7
+Test round: 655
+expInG:	43308.7
+invInZr:	20.5
+Test round: 656
+expInG:	43082.2
+invInZr:	21.0
+Test round: 657
+expInG:	43017.9
+invInZr:	20.2
+Test round: 658
+expInG:	43576.8
+invInZr:	20.9
+Test round: 659
+expInG:	42683.0
+invInZr:	19.6
+Test round: 660
+expInG:	43390.2
+invInZr:	20.5
+Test round: 661
+expInG:	43044.8
+invInZr:	20.4
+Test round: 662
+expInG:	43695.3
+invInZr:	21.8
+Test round: 663
+expInG:	47722.3
+invInZr:	20.2
+Test round: 664
+expInG:	43792.7
+invInZr:	23.7
+Test round: 665
+expInG:	42956.5
+invInZr:	20.1
+Test round: 666
+expInG:	42652.7
+invInZr:	21.3
+Test round: 667
+expInG:	43483.2
+invInZr:	19.7
+Test round: 668
+expInG:	43681.3
+invInZr:	21.1
+Test round: 669
+expInG:	43061.0
+invInZr:	19.7
+Test round: 670
+expInG:	43288.6
+invInZr:	20.5
+Test round: 671
+expInG:	42567.5
+invInZr:	21.3
+Test round: 672
+expInG:	42876.0
+invInZr:	19.5
+Test round: 673
+expInG:	43438.9
+invInZr:	20.4
+Test round: 674
+expInG:	43394.9
+invInZr:	18.9
+Test round: 675
+expInG:	42958.1
+invInZr:	21.0
+Test round: 676
+expInG:	42955.5
+invInZr:	20.6
+Test round: 677
+expInG:	43133.7
+invInZr:	21.3
+Test round: 678
+expInG:	43728.7
+invInZr:	21.1
+Test round: 679
+expInG:	43340.1
+invInZr:	19.9
+Test round: 680
+expInG:	43183.6
+invInZr:	20.6
+Test round: 681
+expInG:	43054.0
+invInZr:	21.1
+Test round: 682
+expInG:	42786.0
+invInZr:	21.8
+Test round: 683
+expInG:	42572.5
+invInZr:	20.3
+Test round: 684
+expInG:	42978.7
+invInZr:	26.8
+Test round: 685
+expInG:	42351.8
+invInZr:	19.9
+Test round: 686
+expInG:	42634.2
+invInZr:	20.4
+Test round: 687
+expInG:	42906.8
+invInZr:	21.4
+Test round: 688
+expInG:	42749.5
+invInZr:	20.7
+Test round: 689
+expInG:	43695.7
+invInZr:	20.4
+Test round: 690
+expInG:	42635.3
+invInZr:	21.0
+Test round: 691
+expInG:	42579.5
+invInZr:	21.2
+Test round: 692
+expInG:	42621.7
+invInZr:	18.9
+Test round: 693
+expInG:	42596.6
+invInZr:	20.4
+Test round: 694
+expInG:	43746.2
+invInZr:	19.8
+Test round: 695
+expInG:	42765.6
+invInZr:	20.2
+Test round: 696
+expInG:	43308.5
+invInZr:	20.9
+Test round: 697
+expInG:	43454.3
+invInZr:	20.9
+Test round: 698
+expInG:	42432.9
+invInZr:	20.6
+Test round: 699
+expInG:	43493.1
+invInZr:	18.7
+Test round: 700
+expInG:	43452.4
+invInZr:	19.5
+Test round: 701
+expInG:	42993.6
+invInZr:	20.8
+Test round: 702
+expInG:	42332.9
+invInZr:	22.0
+Test round: 703
+expInG:	43500.1
+invInZr:	19.4
+Test round: 704
+expInG:	43385.8
+invInZr:	19.7
+Test round: 705
+expInG:	44017.6
+invInZr:	19.9
+Test round: 706
+expInG:	43093.2
+invInZr:	22.3
+Test round: 707
+expInG:	41773.1
+invInZr:	20.9
+Test round: 708
+expInG:	42404.7
+invInZr:	19.5
+Test round: 709
+expInG:	43020.9
+invInZr:	21.3
+Test round: 710
+expInG:	43380.5
+invInZr:	20.9
+Test round: 711
+expInG:	43067.3
+invInZr:	20.1
+Test round: 712
+expInG:	42940.9
+invInZr:	20.6
+Test round: 713
+expInG:	44497.8
+invInZr:	20.6
+Test round: 714
+expInG:	43495.8
+invInZr:	19.8
+Test round: 715
+expInG:	44939.4
+invInZr:	20.9
+Test round: 716
+expInG:	43874.1
+invInZr:	20.8
+Test round: 717
+expInG:	42818.3
+invInZr:	20.0
+Test round: 718
+expInG:	43333.1
+invInZr:	20.0
+Test round: 719
+expInG:	42484.1
+invInZr:	20.8
+Test round: 720
+expInG:	42738.3
+invInZr:	20.3
+Test round: 721
+expInG:	42969.7
+invInZr:	20.9
+Test round: 722
+expInG:	42363.7
+invInZr:	20.5
+Test round: 723
+expInG:	43057.9
+invInZr:	21.1
+Test round: 724
+expInG:	42530.3
+invInZr:	20.1
+Test round: 725
+expInG:	43267.3
+invInZr:	19.9
+Test round: 726
+expInG:	43560.9
+invInZr:	20.4
+Test round: 727
+expInG:	43294.5
+invInZr:	20.0
+Test round: 728
+expInG:	42762.9
+invInZr:	21.5
+Test round: 729
+expInG:	42849.5
+invInZr:	20.8
+Test round: 730
+expInG:	43005.8
+invInZr:	20.2
+Test round: 731
+expInG:	42673.7
+invInZr:	20.9
+Test round: 732
+expInG:	43071.1
+invInZr:	19.9
+Test round: 733
+expInG:	43174.2
+invInZr:	19.9
+Test round: 734
+expInG:	43182.8
+invInZr:	20.4
+Test round: 735
+expInG:	43051.8
+invInZr:	26.0
+Test round: 736
+expInG:	43030.9
+invInZr:	20.8
+Test round: 737
+expInG:	43367.1
+invInZr:	19.7
+Test round: 738
+expInG:	42893.7
+invInZr:	20.5
+Test round: 739
+expInG:	42994.7
+invInZr:	22.0
+Test round: 740
+expInG:	42787.3
+invInZr:	21.2
+Test round: 741
+expInG:	42848.4
+invInZr:	21.4
+Test round: 742
+expInG:	43829.9
+invInZr:	19.9
+Test round: 743
+expInG:	42705.8
+invInZr:	26.2
+Test round: 744
+expInG:	43338.1
+invInZr:	21.8
+Test round: 745
+expInG:	42841.4
+invInZr:	20.9
+Test round: 746
+expInG:	43038.2
+invInZr:	20.0
+Test round: 747
+expInG:	42879.5
+invInZr:	21.2
+Test round: 748
+expInG:	42936.7
+invInZr:	21.2
+Test round: 749
+expInG:	42538.6
+invInZr:	20.7
+Test round: 750
+expInG:	43028.6
+invInZr:	20.7
+Test round: 751
+expInG:	42815.1
+invInZr:	20.0
+Test round: 752
+expInG:	42674.5
+invInZr:	21.4
+Test round: 753
+expInG:	43194.5
+invInZr:	20.5
+Test round: 754
+expInG:	43335.7
+invInZr:	19.9
+Test round: 755
+expInG:	42665.1
+invInZr:	21.2
+Test round: 756
+expInG:	42860.8
+invInZr:	22.0
+Test round: 757
+expInG:	42607.1
+invInZr:	21.5
+Test round: 758
+expInG:	43572.9
+invInZr:	20.8
+Test round: 759
+expInG:	43192.1
+invInZr:	20.7
+Test round: 760
+expInG:	42935.7
+invInZr:	20.7
+Test round: 761
+expInG:	44324.5
+invInZr:	20.3
+Test round: 762
+expInG:	42457.4
+invInZr:	19.6
+Test round: 763
+expInG:	42954.7
+invInZr:	21.2
+Test round: 764
+expInG:	42798.3
+invInZr:	20.0
+Test round: 765
+expInG:	42417.0
+invInZr:	20.8
+Test round: 766
+expInG:	42597.4
+invInZr:	20.6
+Test round: 767
+expInG:	42296.5
+invInZr:	19.7
+Test round: 768
+expInG:	43174.9
+invInZr:	21.3
+Test round: 769
+expInG:	43361.6
+invInZr:	21.4
+Test round: 770
+expInG:	43423.2
+invInZr:	20.6
+Test round: 771
+expInG:	42649.0
+invInZr:	20.4
+Test round: 772
+expInG:	42362.1
+invInZr:	20.7
+Test round: 773
+expInG:	43011.5
+invInZr:	20.2
+Test round: 774
+expInG:	43021.9
+invInZr:	21.9
+Test round: 775
+expInG:	42821.8
+invInZr:	19.6
+Test round: 776
+expInG:	42480.5
+invInZr:	20.2
+Test round: 777
+expInG:	42934.0
+invInZr:	21.9
+Test round: 778
+expInG:	42312.4
+invInZr:	19.5
+Test round: 779
+expInG:	42891.5
+invInZr:	20.1
+Test round: 780
+expInG:	43526.8
+invInZr:	21.3
+Test round: 781
+expInG:	42759.4
+invInZr:	20.1
+Test round: 782
+expInG:	42518.8
+invInZr:	19.9
+Test round: 783
+expInG:	43565.1
+invInZr:	20.0
+Test round: 784
+expInG:	42706.0
+invInZr:	20.9
+Test round: 785
+expInG:	43797.1
+invInZr:	20.3
+Test round: 786
+expInG:	43097.8
+invInZr:	19.7
+Test round: 787
+expInG:	42639.9
+invInZr:	20.2
+Test round: 788
+expInG:	43133.1
+invInZr:	20.9
+Test round: 789
+expInG:	42636.4
+invInZr:	18.8
+Test round: 790
+expInG:	43893.0
+invInZr:	20.0
+Test round: 791
+expInG:	43073.5
+invInZr:	20.8
+Test round: 792
+expInG:	42916.9
+invInZr:	21.2
+Test round: 793
+expInG:	42246.4
+invInZr:	20.1
+Test round: 794
+expInG:	43569.8
+invInZr:	20.1
+Test round: 795
+expInG:	42762.1
+invInZr:	21.0
+Test round: 796
+expInG:	43396.6
+invInZr:	21.4
+Test round: 797
+expInG:	43303.4
+invInZr:	20.5
+Test round: 798
+expInG:	42383.5
+invInZr:	20.0
+Test round: 799
+expInG:	42929.6
+invInZr:	20.3
+Test round: 800
+expInG:	43085.7
+invInZr:	20.6
+Test round: 801
+expInG:	43249.7
+invInZr:	19.7
+Test round: 802
+expInG:	42788.8
+invInZr:	19.1
+Test round: 803
+expInG:	43057.1
+invInZr:	20.7
+Test round: 804
+expInG:	46042.2
+invInZr:	25.5
+Test round: 805
+expInG:	43227.9
+invInZr:	20.3
+Test round: 806
+expInG:	43627.7
+invInZr:	22.4
+Test round: 807
+expInG:	42817.8
+invInZr:	24.1
+Test round: 808
+expInG:	42813.8
+invInZr:	20.7
+Test round: 809
+expInG:	42886.2
+invInZr:	21.1
+Test round: 810
+expInG:	42807.0
+invInZr:	21.6
+Test round: 811
+expInG:	42332.7
+invInZr:	20.8
+Test round: 812
+expInG:	43780.8
+invInZr:	22.0
+Test round: 813
+expInG:	42787.7
+invInZr:	20.9
+Test round: 814
+expInG:	42800.8
+invInZr:	21.5
+Test round: 815
+expInG:	42491.9
+invInZr:	20.7
+Test round: 816
+expInG:	42841.0
+invInZr:	20.7
+Test round: 817
+expInG:	43535.1
+invInZr:	21.3
+Test round: 818
+expInG:	42766.2
+invInZr:	27.5
+Test round: 819
+expInG:	42904.1
+invInZr:	20.6
+Test round: 820
+expInG:	43235.0
+invInZr:	21.0
+Test round: 821
+expInG:	42950.8
+invInZr:	22.0
+Test round: 822
+expInG:	43595.4
+invInZr:	20.3
+Test round: 823
+expInG:	43295.5
+invInZr:	20.4
+Test round: 824
+expInG:	43331.1
+invInZr:	20.3
+Test round: 825
+expInG:	42847.0
+invInZr:	20.5
+Test round: 826
+expInG:	43057.9
+invInZr:	20.5
+Test round: 827
+expInG:	42414.5
+invInZr:	20.9
+Test round: 828
+expInG:	43436.7
+invInZr:	20.0
+Test round: 829
+expInG:	42788.1
+invInZr:	20.6
+Test round: 830
+expInG:	42989.9
+invInZr:	20.2
+Test round: 831
+expInG:	41658.6
+invInZr:	21.7
+Test round: 832
+expInG:	42793.6
+invInZr:	21.5
+Test round: 833
+expInG:	43673.0
+invInZr:	20.7
+Test round: 834
+expInG:	45258.5
+invInZr:	21.3
+Test round: 835
+expInG:	42664.8
+invInZr:	20.6
+Test round: 836
+expInG:	42722.9
+invInZr:	21.0
+Test round: 837
+expInG:	43262.9
+invInZr:	20.8
+Test round: 838
+expInG:	43592.5
+invInZr:	20.2
+Test round: 839
+expInG:	42682.9
+invInZr:	19.8
+Test round: 840
+expInG:	42808.3
+invInZr:	19.6
+Test round: 841
+expInG:	43099.4
+invInZr:	20.6
+Test round: 842
+expInG:	42696.3
+invInZr:	21.2
+Test round: 843
+expInG:	43657.9
+invInZr:	21.0
+Test round: 844
+expInG:	43156.4
+invInZr:	20.9
+Test round: 845
+expInG:	42863.2
+invInZr:	20.6
+Test round: 846
+expInG:	42932.2
+invInZr:	19.3
+Test round: 847
+expInG:	42779.4
+invInZr:	20.6
+Test round: 848
+expInG:	43870.1
+invInZr:	20.7
+Test round: 849
+expInG:	43139.5
+invInZr:	20.1
+Test round: 850
+expInG:	42521.0
+invInZr:	20.3
+Test round: 851
+expInG:	42815.1
+invInZr:	19.3
+Test round: 852
+expInG:	43153.9
+invInZr:	21.1
+Test round: 853
+expInG:	42985.8
+invInZr:	23.4
+Test round: 854
+expInG:	43537.2
+invInZr:	20.4
+Test round: 855
+expInG:	42823.5
+invInZr:	20.4
+Test round: 856
+expInG:	42228.0
+invInZr:	20.1
+Test round: 857
+expInG:	42722.0
+invInZr:	20.2
+Test round: 858
+expInG:	44225.2
+invInZr:	20.7
+Test round: 859
+expInG:	42561.9
+invInZr:	20.2
+Test round: 860
+expInG:	43222.9
+invInZr:	19.8
+Test round: 861
+expInG:	42860.5
+invInZr:	20.1
+Test round: 862
+expInG:	42445.5
+invInZr:	21.1
+Test round: 863
+expInG:	43603.6
+invInZr:	21.2
+Test round: 864
+expInG:	42332.7
+invInZr:	20.9
+Test round: 865
+expInG:	43332.5
+invInZr:	20.2
+Test round: 866
+expInG:	43200.2
+invInZr:	21.5
+Test round: 867
+expInG:	42712.2
+invInZr:	20.0
+Test round: 868
+expInG:	42662.0
+invInZr:	21.1
+Test round: 869
+expInG:	42990.8
+invInZr:	25.4
+Test round: 870
+expInG:	43446.3
+invInZr:	21.6
+Test round: 871
+expInG:	42864.9
+invInZr:	19.8
+Test round: 872
+expInG:	42420.5
+invInZr:	21.2
+Test round: 873
+expInG:	42951.4
+invInZr:	19.9
+Test round: 874
+expInG:	43033.3
+invInZr:	21.3
+Test round: 875
+expInG:	42900.7
+invInZr:	20.9
+Test round: 876
+expInG:	43176.0
+invInZr:	19.8
+Test round: 877
+expInG:	43368.0
+invInZr:	22.1
+Test round: 878
+expInG:	43386.0
+invInZr:	20.5
+Test round: 879
+expInG:	42297.7
+invInZr:	20.8
+Test round: 880
+expInG:	42925.4
+invInZr:	19.1
+Test round: 881
+expInG:	43188.5
+invInZr:	19.5
+Test round: 882
+expInG:	43440.7
+invInZr:	21.6
+Test round: 883
+expInG:	42879.5
+invInZr:	21.0
+Test round: 884
+expInG:	42745.0
+invInZr:	20.0
+Test round: 885
+expInG:	43238.1
+invInZr:	21.3
+Test round: 886
+expInG:	43229.3
+invInZr:	19.8
+Test round: 887
+expInG:	46889.6
+invInZr:	20.3
+Test round: 888
+expInG:	43135.4
+invInZr:	20.2
+Test round: 889
+expInG:	42906.8
+invInZr:	21.0
+Test round: 890
+expInG:	42724.8
+invInZr:	21.4
+Test round: 891
+expInG:	42314.0
+invInZr:	20.4
+Test round: 892
+expInG:	43455.9
+invInZr:	20.6
+Test round: 893
+expInG:	43121.6
+invInZr:	21.3
+Test round: 894
+expInG:	42876.2
+invInZr:	22.0
+Test round: 895
+expInG:	42646.8
+invInZr:	20.3
+Test round: 896
+expInG:	42797.3
+invInZr:	21.6
+Test round: 897
+expInG:	43946.3
+invInZr:	22.7
+Test round: 898
+expInG:	42203.6
+invInZr:	19.1
+Test round: 899
+expInG:	42564.0
+invInZr:	21.0
+Test round: 900
+expInG:	43041.5
+invInZr:	19.9
+Test round: 901
+expInG:	42324.7
+invInZr:	20.2
+Test round: 902
+expInG:	43267.4
+invInZr:	20.3
+Test round: 903
+expInG:	43717.6
+invInZr:	20.4
+Test round: 904
+expInG:	43316.3
+invInZr:	21.8
+Test round: 905
+expInG:	42889.1
+invInZr:	20.7
+Test round: 906
+expInG:	43178.6
+invInZr:	22.3
+Test round: 907
+expInG:	43079.7
+invInZr:	21.5
+Test round: 908
+expInG:	43637.0
+invInZr:	20.5
+Test round: 909
+expInG:	42777.8
+invInZr:	21.8
+Test round: 910
+expInG:	43237.8
+invInZr:	20.3
+Test round: 911
+expInG:	43134.0
+invInZr:	20.9
+Test round: 912
+expInG:	43005.6
+invInZr:	19.7
+Test round: 913
+expInG:	43730.3
+invInZr:	22.7
+Test round: 914
+expInG:	42570.6
+invInZr:	21.5
+Test round: 915
+expInG:	42798.7
+invInZr:	20.4
+Test round: 916
+expInG:	43203.2
+invInZr:	20.4
+Test round: 917
+expInG:	42550.2
+invInZr:	20.8
+Test round: 918
+expInG:	42985.2
+invInZr:	21.3
+Test round: 919
+expInG:	42440.5
+invInZr:	21.8
+Test round: 920
+expInG:	43046.6
+invInZr:	20.8
+Test round: 921
+expInG:	42534.5
+invInZr:	18.8
+Test round: 922
+expInG:	42733.8
+invInZr:	20.7
+Test round: 923
+expInG:	43304.4
+invInZr:	20.4
+Test round: 924
+expInG:	43711.7
+invInZr:	20.7
+Test round: 925
+expInG:	42501.0
+invInZr:	21.1
+Test round: 926
+expInG:	42927.6
+invInZr:	20.1
+Test round: 927
+expInG:	42649.2
+invInZr:	20.8
+Test round: 928
+expInG:	43039.8
+invInZr:	21.2
+Test round: 929
+expInG:	43278.8
+invInZr:	21.4
+Test round: 930
+expInG:	42977.5
+invInZr:	21.3
+Test round: 931
+expInG:	44993.2
+invInZr:	19.9
+Test round: 932
+expInG:	42626.2
+invInZr:	20.9
+Test round: 933
+expInG:	42887.4
+invInZr:	20.3
+Test round: 934
+expInG:	43572.7
+invInZr:	21.0
+Test round: 935
+expInG:	42952.2
+invInZr:	28.1
+Test round: 936
+expInG:	42479.9
+invInZr:	20.7
+Test round: 937
+expInG:	42595.2
+invInZr:	20.9
+Test round: 938
+expInG:	43007.1
+invInZr:	21.1
+Test round: 939
+expInG:	42766.6
+invInZr:	20.0
+Test round: 940
+expInG:	44429.4
+invInZr:	21.2
+Test round: 941
+expInG:	42468.6
+invInZr:	21.6
+Test round: 942
+expInG:	41975.4
+invInZr:	20.3
+Test round: 943
+expInG:	43417.3
+invInZr:	20.9
+Test round: 944
+expInG:	42782.4
+invInZr:	20.7
+Test round: 945
+expInG:	43061.4
+invInZr:	20.4
+Test round: 946
+expInG:	42878.9
+invInZr:	20.2
+Test round: 947
+expInG:	43383.0
+invInZr:	20.3
+Test round: 948
+expInG:	43259.0
+invInZr:	22.1
+Test round: 949
+expInG:	42909.8
+invInZr:	20.5
+Test round: 950
+expInG:	43168.1
+invInZr:	21.5
+Test round: 951
+expInG:	43125.9
+invInZr:	20.3
+Test round: 952
+expInG:	42590.7
+invInZr:	19.3
+Test round: 953
+expInG:	43065.1
+invInZr:	20.0
+Test round: 954
+expInG:	42619.8
+invInZr:	21.2
+Test round: 955
+expInG:	43340.8
+invInZr:	22.5
+Test round: 956
+expInG:	42864.7
+invInZr:	19.3
+Test round: 957
+expInG:	41908.8
+invInZr:	20.2
+Test round: 958
+expInG:	43312.9
+invInZr:	21.1
+Test round: 959
+expInG:	42703.5
+invInZr:	21.4
+Test round: 960
+expInG:	43113.7
+invInZr:	19.6
+Test round: 961
+expInG:	43781.1
+invInZr:	23.8
+Test round: 962
+expInG:	43212.0
+invInZr:	21.4
+Test round: 963
+expInG:	43380.6
+invInZr:	20.3
+Test round: 964
+expInG:	43368.5
+invInZr:	20.7
+Test round: 965
+expInG:	42786.6
+invInZr:	21.1
+Test round: 966
+expInG:	42721.2
+invInZr:	20.4
+Test round: 967
+expInG:	42568.2
+invInZr:	21.4
+Test round: 968
+expInG:	43192.9
+invInZr:	21.1
+Test round: 969
+expInG:	42886.5
+invInZr:	20.5
+Test round: 970
+expInG:	42819.2
+invInZr:	25.1
+Test round: 971
+expInG:	42376.2
+invInZr:	21.3
+Test round: 972
+expInG:	43764.8
+invInZr:	25.8
+Test round: 973
+expInG:	43870.7
+invInZr:	19.8
+Test round: 974
+expInG:	43132.0
+invInZr:	21.0
+Test round: 975
+expInG:	41984.8
+invInZr:	19.8
+Test round: 976
+expInG:	42960.0
+invInZr:	19.8
+Test round: 977
+expInG:	43356.7
+invInZr:	20.4
+Test round: 978
+expInG:	43109.3
+invInZr:	20.7
+Test round: 979
+expInG:	42656.2
+invInZr:	23.1
+Test round: 980
+expInG:	42954.5
+invInZr:	21.3
+Test round: 981
+expInG:	42360.4
+invInZr:	20.3
+Test round: 982
+expInG:	43191.4
+invInZr:	20.3
+Test round: 983
+expInG:	43626.8
+invInZr:	23.7
+Test round: 984
+expInG:	43419.7
+invInZr:	20.5
+Test round: 985
+expInG:	43367.4
+invInZr:	19.9
+Test round: 986
+expInG:	42782.0
+invInZr:	21.0
+Test round: 987
+expInG:	43506.9
+invInZr:	20.9
+Test round: 988
+expInG:	43593.1
+invInZr:	20.6
+Test round: 989
+expInG:	42400.2
+invInZr:	20.6
+Test round: 990
+expInG:	42351.6
+invInZr:	19.8
+Test round: 991
+expInG:	42865.3
+invInZr:	20.2
+Test round: 992
+expInG:	43388.3
+invInZr:	21.9
+Test round: 993
+expInG:	43360.7
+invInZr:	21.7
+Test round: 994
+expInG:	42867.0
+invInZr:	21.1
+Test round: 995
+expInG:	42997.4
+invInZr:	19.7
+Test round: 996
+expInG:	43018.7
+invInZr:	21.0
+Test round: 997
+expInG:	43179.2
+invInZr:	19.9
+Test round: 998
+expInG:	43342.2
+invInZr:	20.9
+Test round: 999
+expInG:	42938.4
+invInZr:	20.1
+Test round: 1000
+expInG:	42431.3
+invInZr:	20.5
+average ExpInG time: 43162.757200000015
+average invInZr time: 21.520799999999983

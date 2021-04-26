@@ -1,29 +1,25 @@
 package com.example.signature.ecdsa;
 
+import cn.edu.ncepu.crypto.algebra.generators.AsymmetricKeySerPairGenerator;
+import cn.edu.ncepu.crypto.algebra.serparams.AsymmetricKeySerPair;
+import cn.edu.ncepu.crypto.algebra.serparams.AsymmetricKeySerParameter;
+import cn.edu.ncepu.crypto.signature.ecdsa.ECDSAKeyPairGenerationParameter;
+import cn.edu.ncepu.crypto.signature.ecdsa.ECDSAKeySerPairGenerator;
 import cn.edu.ncepu.crypto.signature.ecdsa.ECDSASigner;
-import cn.edu.ncepu.crypto.utils.CommonUtils;
-import cn.edu.ncepu.crypto.utils.EccUtils;
+import cn.edu.ncepu.crypto.utils.PairingUtils;
 import cn.edu.ncepu.crypto.utils.SysProperty;
 import cn.edu.ncepu.crypto.utils.Timer;
 import edu.princeton.cs.algs4.Out;
-import org.apache.commons.codec.DecoderException;
-import org.apache.commons.codec.digest.DigestUtils;
-import org.apache.commons.lang3.time.StopWatch;
+import it.unisa.dia.gas.jpbc.PairingParameters;
+import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
 import org.bouncycastle.crypto.Signer;
+import org.bouncycastle.crypto.digests.SHA256Digest;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.security.InvalidKeyException;
-import java.security.KeyPair;
-import java.security.NoSuchAlgorithmException;
-import java.security.SignatureException;
-import java.security.interfaces.ECPrivateKey;
-import java.security.interfaces.ECPublicKey;
-import java.security.spec.InvalidKeySpecException;
 
 /**
  * @author 胡柏吉
@@ -35,11 +31,10 @@ import java.security.spec.InvalidKeySpecException;
 public class ECDSAPerformanceTest {
     private static final Logger logger = LoggerFactory.getLogger(ECDSAPerformanceTest.class);
     private static final String USER_DIR = SysProperty.USER_DIR;
-    private static final String EC_STRING = "EC";
     // file path for performance test result
     private static final String default_path = "benchmarks/signature/ecdsa/";
     // test round
-    private static long test_round = 10_000L;
+    private static long test_round = 1_000L;
     // keyGen time
     private double timeKeyGen;
     // sign time
@@ -48,15 +43,17 @@ public class ECDSAPerformanceTest {
     private double timeVerify;
 
     Signer signer;
+    private String SCHEME_NAME;
 
     private Out out;
 
-
+    private AsymmetricKeySerPairGenerator asymmetricKeySerPairGenerator;
 
     private void runPerformanceTest() {
-        out = new Out(default_path + ECDSASigner.SCHEME_NAME);
+        out = new Out(default_path + this.SCHEME_NAME);
         out.println("Test ECDSA signer: " + ECDSASigner.SCHEME_NAME);
         out.println("All test rounds: " + this.test_round);
+        logger.info("All test rounds: " + this.test_round);
         for (int i = 0; i < test_round; i++) {
             logger.info("Test round: " + (i + 1));
             out.println("Test round: " + (i + 1));
@@ -78,20 +75,21 @@ public class ECDSAPerformanceTest {
             // test keyGen performance
             out.print("KeyGen :");
             timer.start(0);
-            KeyPair keyPair = EccUtils.getKeyPair(256);
-            ECPublicKey publicKey = (ECPublicKey) keyPair.getPublic();
-            ECPrivateKey privateKey = (ECPrivateKey) keyPair.getPrivate();
-            temperTime  = timer.stop(0);
+            AsymmetricKeySerPair asymmetricKeySerPair = this.asymmetricKeySerPairGenerator.generateKeyPair();
+            AsymmetricKeySerParameter publicKey = asymmetricKeySerPair.getPublic();
+            AsymmetricKeySerParameter secretKey = asymmetricKeySerPair.getPrivate();
+            temperTime = timer.stop(0);
             logger.info("KeyGen; " + "\t" + temperTime);
             out.println("\t" + temperTime);
             this.timeKeyGen += temperTime;
 
             // test sign performance
             out.print("Sign : ");
-            String hash = DigestUtils.sha256Hex("message");
-
             timer.start(0);
-            byte[] sign = ECDSASigner.sign(privateKey, hash.getBytes("UTF-8"));
+            byte[] message = "Message".getBytes(StandardCharsets.UTF_8);
+            signer.init(true, secretKey);
+            signer.update(message, 0, message.length);
+            byte[] signature = signer.generateSignature();
             temperTime = timer.stop(0);
             logger.info("Sign; " + "\t" + temperTime);
             out.println("\t" + temperTime);
@@ -100,99 +98,30 @@ public class ECDSAPerformanceTest {
             // test verify performance
             out.print("Verify : ");
             timer.start(0);
-            ECDSASigner.verify(publicKey, hash.getBytes(), sign);
+            signer.init(false, publicKey);
+            signer.update(message, 0, message.length);
+            if (!signer.verifySignature(signature)) {
+                logger.info("cannot verify valid signature, test abort...");
+                System.exit(0);
+            }
             temperTime = timer.stop(0);
             logger.info("Verify; " + "\t" + temperTime);
             out.println("\t" + temperTime);
             this.timeVerify += temperTime;
-
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
     }
 
     @Ignore
     @Test
     public void testECDSAPerformance() {
         ECDSAPerformanceTest performanceTest = new ECDSAPerformanceTest();
+        PairingParameters pairingParameters = PairingFactory.getPairingParameters(PairingUtils.PATH_a_256_1024);
+        performanceTest.asymmetricKeySerPairGenerator = new ECDSAKeySerPairGenerator();
+        performanceTest.asymmetricKeySerPairGenerator.init(new ECDSAKeyPairGenerationParameter(null, 32, pairingParameters));
+        performanceTest.signer = new ECDSASigner(new SHA256Digest());
+        performanceTest.SCHEME_NAME = ECDSASigner.SCHEME_NAME;
         performanceTest.runPerformanceTest();
-    }
-
-    @Ignore
-    @Test
-    public void testSignTimeCost() {
-        String message = "NACCFFFFFFFF";
-        String hexString = DigestUtils.sha256Hex(message);
-        try {
-            ECPrivateKey privateKey = (ECPrivateKey) CommonUtils.loadKeyFromPEM(false, EC_STRING,
-                    USER_DIR + "/elements/ECPrivateKey.pem");
-            byte[] bytes = hexString.getBytes(StandardCharsets.UTF_8);
-            StopWatch watch = new StopWatch();
-            watch.start();
-            for (int i = 0; i < test_round; i++) {
-                ECDSASigner.sign(privateKey, bytes);
-            }
-            watch.stop();
-            logger.info("average ECDSA sign: " + watch.getTime() / test_round);
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-            logger.error(e.getLocalizedMessage());
-        } catch (InvalidKeySpecException e) {
-            e.printStackTrace();
-            logger.error(e.getLocalizedMessage());
-        } catch (IOException e) {
-            e.printStackTrace();
-            logger.error(e.getLocalizedMessage());
-        } catch (InvalidKeyException e) {
-            e.printStackTrace();
-            logger.error(e.getLocalizedMessage());
-        } catch (SignatureException e) {
-            e.printStackTrace();
-            logger.error(e.getLocalizedMessage());
-        }
-    }
-
-    @Ignore
-    @Test
-    public void testVerifyTimeCost() {
-        String message = "NACCFFFFFFFF";
-        String hexString = DigestUtils.sha256Hex(message);
-        ECPublicKey publicKey = null;
-        ECPrivateKey privateKey = null;
-        try {
-            publicKey = (ECPublicKey) CommonUtils.loadKeyFromPEM(true, EC_STRING,
-                    USER_DIR + "/elements/ECPublicKey.pem");
-            privateKey = (ECPrivateKey) CommonUtils.loadKeyFromPEM(false, EC_STRING,
-                    USER_DIR + "/elements/ECPrivateKey.pem");
-            byte[] bytes = hexString.getBytes("UTF-8");
-            byte[] sign = ECDSASigner.sign(privateKey, bytes);
-            StopWatch watch = new StopWatch();
-            watch.start();
-            for (int i = 0; i < test_round; i++) {
-                ECDSASigner.verify(publicKey, bytes, sign);
-            }
-            watch.stop();
-            logger.info("average ECDSA verify: " + watch.getTime() / test_round);
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-            logger.error(e.getLocalizedMessage());
-        } catch (InvalidKeySpecException e) {
-            e.printStackTrace();
-            logger.error(e.getLocalizedMessage());
-        } catch (IOException e) {
-            e.printStackTrace();
-            logger.error(e.getLocalizedMessage());
-        } catch (InvalidKeyException e) {
-            e.printStackTrace();
-            logger.error(e.getLocalizedMessage());
-        } catch (SignatureException e) {
-            e.printStackTrace();
-            logger.error(e.getLocalizedMessage());
-        } catch (DecoderException e) {
-            e.printStackTrace();
-            logger.error(e.getLocalizedMessage());
-        }
     }
 }

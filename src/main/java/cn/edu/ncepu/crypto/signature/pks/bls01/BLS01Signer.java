@@ -18,85 +18,73 @@ import java.io.IOException;
  * Boneh-Lynn-Shacham short signature scheme.
  */
 public class BLS01Signer implements PairingSigner {
-	/**
-	 *
-	 */
-	private static final long serialVersionUID = 168480488352794000L;
+  /**
+   *
+   */
+  private static final long serialVersionUID = 168480488352794000L;
+  public static final String SCHEME_NAME = "Boneh-Lynn-Shacham-01 signature scheme";
+  private PairingKeySerParameter pairingKeySerParameter;
+  private PairingKeySerParameter[] pairingKeySerParameterArray;
 
-	public static final String SCHEME_NAME = "Boneh-Lynn-Shacham-01 signature scheme";
+  @Override
+  public void init(boolean forSigning, CipherParameters param) {
+    if (forSigning) {
+      this.pairingKeySerParameter = (BLS01SignSecretPairingKeySerParameter) param;
+    } else {
+      this.pairingKeySerParameter = (BLS01SignPublicPairingKeySerParameter) param;
+    }
+  }
 
-	private PairingKeySerParameter pairingKeySerParameter;
+  @Override
+  public void init(boolean forSigning, CipherParameters[] paramArray) {
+    this.pairingKeySerParameterArray = new PairingKeySerParameter[paramArray.length];
+    if (forSigning) {
+      for (int i = 0; i < paramArray.length; i++) {
+        this.pairingKeySerParameterArray[i] = (BLS01SignSecretPairingKeySerParameter) paramArray[i];
+      }
+    } else {
+      for (int i = 0; i < paramArray.length; i++) {
+        this.pairingKeySerParameterArray[i] = (BLS01SignPublicPairingKeySerParameter) paramArray[i];
+      }
+    }
+  }
 
-	private PairingKeySerParameter[] pairingKeySerParameterArray;
+  @Override
+  public Element[] generateSignature(byte[] message) {
+    PairingParameters params = this.pairingKeySerParameter.getParameters();
+    Pairing pairing = PairingFactory.getPairing(params);
+    BLS01SignSecretPairingKeySerParameter secretKeyParameters = (BLS01SignSecretPairingKeySerParameter) this.pairingKeySerParameter;
+    Element x = secretKeyParameters.getX();
+    Element m = PairingUtils.MapByteArrayToGroup(pairing, message, PairingUtils.PairingGroupType.G1);
+    Element sigma = m.powZn(x).getImmutable();
+    return new Element[]{sigma};
+  }
 
-
-	public BLS01Signer() {
-
-	}
-
-	public void init(boolean forSigning, CipherParameters param) {
-		if (forSigning) {
-			this.pairingKeySerParameter = (BLS01SignSecretPairingKeySerParameter) param;
-		} else {
-			this.pairingKeySerParameter = (BLS01SignPublicPairingKeySerParameter) param;
-		}
-	}
-
-	public void init(boolean forSigning, CipherParameters[] paramArray) {
-		this.pairingKeySerParameterArray = new PairingKeySerParameter[paramArray.length];
-		if (forSigning) {
-			for (int i = 0; i < paramArray.length; i++) {
-				this.pairingKeySerParameterArray[i] = (BLS01SignSecretPairingKeySerParameter) paramArray[i];
-			}
-		} else {
-			for (int i = 0; i < paramArray.length; i++) {
-				this.pairingKeySerParameterArray[i] = (BLS01SignPublicPairingKeySerParameter) paramArray[i];
-			}
-		}
-	}
-
-	public Element[] generateSignature(byte[] message) {
-		PairingParameters params = this.pairingKeySerParameter.getParameters();
-		Pairing pairing = PairingFactory.getPairing(params);
-		BLS01SignSecretPairingKeySerParameter secretKeyParameters = (BLS01SignSecretPairingKeySerParameter) this.pairingKeySerParameter;
-		Element x = secretKeyParameters.getX();
-
-		Element m = PairingUtils.MapByteArrayToGroup(pairing, message, PairingUtils.PairingGroupType.G1);
-		Element sigma = m.powZn(x).getImmutable();
-
-		return new Element[]{sigma};
-	}
-
-	@Override
+  @Override
 	public Element[] batchGenerateSignature(byte[][] messageArray) {
 		PairingParameters params = this.pairingKeySerParameterArray[0].getParameters();
 		Pairing pairing = PairingFactory.getPairing(params);
+    Element[] sigmaArray = new Element[messageArray.length];
+    for (int i = 0; i < messageArray.length; i++) {
+      BLS01SignSecretPairingKeySerParameter secretKeyParameters = (BLS01SignSecretPairingKeySerParameter) this.pairingKeySerParameterArray[i];
+      Element x = secretKeyParameters.getX();
+      Element m = PairingUtils.MapByteArrayToGroup(pairing, messageArray[i], PairingUtils.PairingGroupType.G1);
+      sigmaArray[i] = m.powZn(x).getImmutable();
+    }
+    return sigmaArray;
+  }
 
-		Element[] sigmaArray = new Element[messageArray.length];
-		for (int i = 0; i < messageArray.length; i++) {
-			BLS01SignSecretPairingKeySerParameter secretKeyParameters = (BLS01SignSecretPairingKeySerParameter) this.pairingKeySerParameterArray[i];
-			Element x = secretKeyParameters.getX();
-
-			Element m = PairingUtils.MapByteArrayToGroup(pairing, messageArray[i], PairingUtils.PairingGroupType.G1);
-			sigmaArray[i] = m.powZn(x).getImmutable();
-		}
-
-		return sigmaArray;
-	}
-
-
-	public boolean verifySignature(byte[] message, Element... signature) {
-		PairingParameters params = this.pairingKeySerParameter.getParameters();
-		Pairing pairing = PairingFactory.getPairing(params);
-		BLS01SignPublicPairingKeySerParameter publicKeyParameters = (BLS01SignPublicPairingKeySerParameter) this.pairingKeySerParameter;
-		Element m = PairingUtils.MapByteArrayToGroup(pairing, message, PairingUtils.PairingGroupType.G1);
-		Element g = publicKeyParameters.getG();
-		Element v = publicKeyParameters.getV();
-
-		Element sigma = signature[0];
-
-		Element temp1 = pairing.pairing(sigma, g);
-		Element temp2 = pairing.pairing(m, v);
+  @Override
+  public boolean verifySignature(byte[] message, Element... signature) {
+    PairingParameters params = this.pairingKeySerParameter.getParameters();
+    Pairing pairing = PairingFactory.getPairing(params);
+    BLS01SignPublicPairingKeySerParameter publicKeyParameters = (BLS01SignPublicPairingKeySerParameter) this.pairingKeySerParameter;
+    Element m = PairingUtils.MapByteArrayToGroup(pairing, message, PairingUtils.PairingGroupType.G1);
+    Element g = publicKeyParameters.getG();
+    Element v = publicKeyParameters.getV();
+    Element sigma = signature[0];
+    Element temp1 = pairing.pairing(sigma, g);
+    Element temp2 = pairing.pairing(m, v);
 		return PairingUtils.isEqualElement(temp1, temp2);
 	}
 

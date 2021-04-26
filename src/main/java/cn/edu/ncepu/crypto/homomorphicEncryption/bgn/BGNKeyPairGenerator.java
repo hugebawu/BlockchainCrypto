@@ -32,7 +32,7 @@ import java.security.SecureRandom;
  */
 public class BGNKeyPairGenerator implements PairingKeyPairGenerator {
 
-    private int keysize = 0;
+    private int KEYSIZE = 0;
     private SecureRandom SECURE_RANDOM = null;
     private final int KEYSIZE_MIN = 8;
     private final int KEYSIZE_DEFAULT = 32;
@@ -46,10 +46,12 @@ public class BGNKeyPairGenerator implements PairingKeyPairGenerator {
     @Override
     public void init(KeyGenerationParameters param) {
         SECURE_RANDOM = param.getRandom();
-        keysize = param.getStrength();
-        if (keysize < KEYSIZE_MIN || keysize > KEYSIZE_MAX)
-            this.keysize = KEYSIZE_DEFAULT;
-
+        if (SECURE_RANDOM == null) {
+            SECURE_RANDOM = new SecureRandom();
+        }
+        KEYSIZE = param.getStrength();
+        if (KEYSIZE < KEYSIZE_MIN || KEYSIZE > KEYSIZE_MAX)
+            this.KEYSIZE = KEYSIZE_DEFAULT;
     }
 
     /*
@@ -59,9 +61,6 @@ public class BGNKeyPairGenerator implements PairingKeyPairGenerator {
      **/
     @Override
     public PairingKeySerPair generateKeyPair() {
-        if (SECURE_RANDOM == null) {
-            SECURE_RANDOM = new SecureRandom();
-        }
         Pairing pairing = PairingFactory.getPairing(typeA1Params);
         BigInteger n = typeA1Params.getBigInteger("n");
         BigInteger p = typeA1Params.getBigInteger("n0");

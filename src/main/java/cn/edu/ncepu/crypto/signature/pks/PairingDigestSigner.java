@@ -15,23 +15,15 @@ import java.io.IOException;
  */
 public class PairingDigestSigner implements Signer {
 	private final Digest digest;
-	private final Digest[] digestArray;
-
 	private final PairingSigner pairingSigner;
 	private boolean forSigning;
 
 	public PairingDigestSigner(PairingSigner signer, Digest digest) {
 		this.digest = digest;
-		this.digestArray = null;
 		this.pairingSigner = signer;
 	}
 
-	public PairingDigestSigner(PairingSigner signer, Digest[] digestArray) {
-		this.digest = null;
-		this.digestArray = digestArray;
-		this.pairingSigner = signer;
-	}
-
+	@Override
 	public void init(boolean forSigning, CipherParameters parameters) {
 		this.forSigning = forSigning;
 		PairingKeySerParameter k = (PairingKeySerParameter) parameters;
@@ -67,15 +59,14 @@ public class PairingDigestSigner implements Signer {
 				}
 			}
 		}
-
 		reset();
-
 		pairingSigner.init(forSigning, parametersArray);
 	}
 
 	/**
 	 * update the internal digest with the byte b
 	 */
+	@Override
 	public void update(byte input) {
 		digest.update(input);
 	}
@@ -83,26 +74,16 @@ public class PairingDigestSigner implements Signer {
 	/**
 	 * update the internal digest with the byte array in
 	 */
+	@Override
 	public void update(byte[] input, int inOff, int length) {
 		digest.update(input, inOff, length);
-	}
-
-	/**
-	 * @param inputArray:
-	 * @description: update the internal digestArray with the byte array in
-	 * @return: void
-	 * @throws:
-	 **/
-	public void update(byte[][] inputArray) {
-		for (int i = 0; i < inputArray.length; i++) {
-			digestArray[i].update(inputArray[i], 0, inputArray[i].length);
-		}
 	}
 
 	/**
 	 * Generate a signature for the message we've been loaded with using
 	 * the key we were initialised with.
 	 */
+	@Override
 	public byte[] generateSignature() {
 		if (!forSigning) {
 			throw new IllegalStateException("PairingDigestSigner not initialised for signature generation.");
@@ -120,16 +101,17 @@ public class PairingDigestSigner implements Signer {
 		}
 	}
 
-	public byte[][] batchGenerateSignature() {
+	public byte[][] batchGenerateSignature(byte[][] msgArray) {
 		if (!forSigning) {
 			throw new IllegalStateException("PairingDigestSigner not initialised for signature generation.");
 		}
 
 		try {
-			byte[][] hashArray = new byte[digestArray.length][];
-			for (int i = 0; i < digestArray.length; i++) {
-				hashArray[i] = new byte[digestArray[i].getDigestSize()];
-				digestArray[i].doFinal(hashArray[i], 0);
+			byte[][] hashArray = new byte[msgArray.length][];
+			for (int i = 0; i < msgArray.length; i++) {
+				digest.update(msgArray[i], 0, msgArray[i].length);
+				hashArray[i] = new byte[digest.getDigestSize()];
+				digest.doFinal(hashArray[i], 0);
 			}
 			Element[] sig = pairingSigner.batchGenerateSignature(hashArray);
 			return pairingSigner.derBatchEncode(sig);
@@ -154,18 +136,19 @@ public class PairingDigestSigner implements Signer {
 		}
 	}
 
-	public boolean batchVerifySignature(byte[][] signatureArray) {
+	public boolean batchVerifySignature(byte[][] msgArray, byte[][] signatureArray) {
 		if (forSigning) {
 			throw new IllegalStateException("PairingDigestSigner not initialised for verification");
 		}
 
 		try {
-			byte[][] hashArray = new byte[signatureArray.length][];
-			Element[] sigArray = new Element[signatureArray.length];
-			for (int i = 0; i < signatureArray.length; i++) {
-				hashArray[i] = new byte[digestArray[i].getDigestSize()];
-				digestArray[i].doFinal(hashArray[i], 0);
+			byte[][] hashArray = new byte[msgArray.length][];
+			for (int i = 0; i < msgArray.length; i++) {
+				digest.update(msgArray[i], 0, msgArray[i].length);
+				hashArray[i] = new byte[digest.getDigestSize()];
+				digest.doFinal(hashArray[i], 0);
 			}
+			Element[] sigArray = new Element[signatureArray.length];
 			sigArray = pairingSigner.derBatchDecode(signatureArray);
 			return pairingSigner.batchVerifySignature(hashArray, sigArray);
 		} catch (IOException e) {
@@ -177,14 +160,6 @@ public class PairingDigestSigner implements Signer {
 		if (null != digest) {
 			digest.reset();
 		}
-
-		if (null != digestArray && 0 != digestArray.length) {
-			for (int i = 0; i < digestArray.length; i++) {
-				if (null != digestArray[i]) digestArray[i].reset();
-			}
-
-		}
-
 	}
 
 }

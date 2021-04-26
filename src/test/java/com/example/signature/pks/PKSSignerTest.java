@@ -19,7 +19,6 @@ import it.unisa.dia.gas.jpbc.PairingParameters;
 import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
 import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.crypto.CryptoException;
-import org.bouncycastle.crypto.Digest;
 import org.bouncycastle.crypto.Signer;
 import org.bouncycastle.crypto.digests.SHA256Digest;
 import org.junit.Ignore;
@@ -128,12 +127,8 @@ public class PKSSignerTest {
     BLS01SignKeyPairGenerator bls01SignKeyPairGenerator = new BLS01SignKeyPairGenerator();
     bls01SignKeyPairGenerator.init(new BLS01SignKeyPairGenerationParameter(pairingParameters));
     int omega = 10; // number of users
-    Digest[] digestArray = new Digest[omega];
-    for (int i = 0; i < omega; i++) {
-      digestArray[i] = new SHA256Digest();
-    }
     PairingDigestSigner pairingDigestSigner =
-            new PairingDigestSigner(new BLS01Signer(), digestArray);
+            new PairingDigestSigner(new BLS01Signer(), new SHA256Digest());
     try {
       byte[][] msgArray = new byte[omega][]; // message remains to be signed
       for (int i = 0; i < msgArray.length; i++) {
@@ -151,14 +146,12 @@ public class PKSSignerTest {
         publicKeyArray[i] = pairingKeySerPairArray[i].getPublic();
         secretKeyArray[i] = pairingKeySerPairArray[i].getPrivate();
       }
-      // batch generate signatures
+      // batch signature generate
       pairingDigestSigner.init(true, secretKeyArray);
-      pairingDigestSigner.update(msgArray);
-      byte[][] signatureArray = pairingDigestSigner.batchGenerateSignature();
+      byte[][] signatureArray = pairingDigestSigner.batchGenerateSignature(msgArray);
       // batch signature verify
       pairingDigestSigner.init(false, publicKeyArray);
-      pairingDigestSigner.update(msgArray);
-      if (!pairingDigestSigner.batchVerifySignature(signatureArray)) {
+      if (!pairingDigestSigner.batchVerifySignature(msgArray, signatureArray)) {
         logger.info("cannot batch verify valid signature, test abort...");
         System.exit(0);
       }

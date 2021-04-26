@@ -48,6 +48,7 @@ public class ECDSASignerTest {
       signer.init(true, secretKey);
       signer.update(message, 0, message.length);
       byte[] signature = signer.generateSignature();
+      logger.info("ECDSA signature size: " + signature.length + " bytes");
 
       // verify signature
       signer.init(false, publicKey);

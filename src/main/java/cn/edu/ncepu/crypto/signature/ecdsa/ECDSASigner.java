@@ -1,16 +1,24 @@
 package cn.edu.ncepu.crypto.signature.ecdsa;
 
 import cn.edu.ncepu.crypto.algebra.serparams.AsymmetricKeySerParameter;
-import cn.edu.ncepu.crypto.utils.CommonUtils;
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Pairing;
+import it.unisa.dia.gas.jpbc.PairingParameters;
 import it.unisa.dia.gas.plaf.jpbc.field.curve.ImmutableCurveElement;
 import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
+import org.bouncycastle.asn1.ASN1EncodableVector;
+import org.bouncycastle.asn1.ASN1Encoding;
+import org.bouncycastle.asn1.ASN1Primitive;
+import org.bouncycastle.asn1.ASN1Sequence;
+import org.bouncycastle.asn1.ASN1String;
+import org.bouncycastle.asn1.DERPrintableString;
+import org.bouncycastle.asn1.DERSequence;
 import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.crypto.CryptoException;
 import org.bouncycastle.crypto.DataLengthException;
 import org.bouncycastle.crypto.Digest;
 import org.bouncycastle.crypto.Signer;
+import org.bouncycastle.util.encoders.Hex;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -91,8 +99,8 @@ public class ECDSASigner implements Signer {
 			Element e = pairing.getZr().newElement(new BigInteger(hash)).getImmutable();
 			Element d = secretKeySerParameter.getD();
 			Element s = k.invert().mul(e.add(d.mul(r)));
-			ECDSASignature ecdsaSignature = new ECDSASignature(r, s, secretKeySerParameter.getParameters());
-			return CommonUtils.SerObject(ecdsaSignature);
+			Element[] signElements = new Element[]{r, s};
+			return this.derEncode(signElements);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -117,9 +125,9 @@ public class ECDSASigner implements Signer {
 			digest.doFinal(hash, 0);
 			ECDSAPublicKeySerParameter publicKeySerParameter = (ECDSAPublicKeySerParameter) asymmetricKeySerParameter;
 			Pairing pairing = PairingFactory.getPairing(publicKeySerParameter.getParameters());
-			ECDSASignature ecdsaSignature = (ECDSASignature) CommonUtils.deserObject(signed);
-			Element r = ecdsaSignature.getR();
-			Element s = ecdsaSignature.getS();
+			Element[] signElement = this.derDecode(signed);
+			Element r = signElement[0].getImmutable();
+			Element s = signElement[1].getImmutable();
 			Element e = pairing.getZr().newElement(new BigInteger(hash)).getImmutable();
 			Element w = s.invert();
 			Element u1 = e.mul(w);
@@ -130,10 +138,24 @@ public class ECDSASigner implements Signer {
 			return v.isEqual(r);
 		} catch (IOException e) {
 			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
 		}
 		return false;
+	}
+
+	public byte[] derEncode(Element[] signElements) throws IOException {
+		ASN1EncodableVector v = new ASN1EncodableVector();
+		v.add(new DERPrintableString(Hex.toHexString(signElements[0].toBytes())));
+		v.add(new DERPrintableString(Hex.toHexString(signElements[1].toBytes())));
+		return new DERSequence(v).getEncoded(ASN1Encoding.DER);
+	}
+
+	public Element[] derDecode(byte[] encoding) throws IOException {
+		ASN1Sequence s = (ASN1Sequence) ASN1Primitive.fromByteArray(encoding);
+		PairingParameters params = ((ECDSAPublicKeySerParameter) this.asymmetricKeySerParameter).getParameters();
+		Pairing pairing = PairingFactory.getPairing(params);
+		return new Element[]{
+				pairing.getZr().newElementFromBytes(Hex.decode(((ASN1String) s.getObjectAt(0)).getString())),
+				pairing.getZr().newElementFromBytes(Hex.decode(((ASN1String) s.getObjectAt(1)).getString())),};
 	}
 
 	@Override

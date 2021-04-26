@@ -21,7 +21,6 @@ import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.crypto.CryptoException;
 import org.bouncycastle.crypto.Signer;
 import org.bouncycastle.crypto.digests.SHA256Digest;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -101,7 +100,6 @@ public class PKSSignerTest {
     }
   }
 
-  @Ignore
   @Test
   public void testBLS01Signer() {
     PairingParameters pairingParameters =
@@ -161,7 +159,6 @@ public class PKSSignerTest {
     logger.info("BLS01 batch signature and verification functionality test pass.");
   }
 
-  @Ignore
   @Test
   public void testBB04Signer() {
     PairingParameters pairingParameters =
@@ -174,7 +171,6 @@ public class PKSSignerTest {
     this.processTest();
   }
 
-  @Ignore
   @Test
   public void testBB08Signer() {
     PairingParameters pairingParameters =

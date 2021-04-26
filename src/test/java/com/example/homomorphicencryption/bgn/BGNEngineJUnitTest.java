@@ -57,6 +57,7 @@ public class BGNEngineJUnitTest {
             // encrypt
             int m = 100;
             Element c = bgnEngine.encrypt(m, publicKey);
+            logger.info("ciphertext length: " + c.toBytes().length + " bytes");
             // decrypt
             int decrypted_m = bgnEngine.decrypt(c, privateKey);
             assertTrue(decrypted_m == m);

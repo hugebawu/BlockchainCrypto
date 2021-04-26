@@ -106,6 +106,12 @@ public class BLS01Signer implements PairingSigner {
 		return PairingUtils.isEqualElement(temp1, temp2);
 	}
 
+	/**
+	 * @param signElements:
+	 * @description: encode Element into the DER format
+	 * @return: byte[]
+	 * @throws:
+	 **/
 	public byte[] derEncode(Element[] signElements) throws IOException {
 		return ((CurveElement<?, ?>) signElements[0]).toBytesCompressed();
 	}

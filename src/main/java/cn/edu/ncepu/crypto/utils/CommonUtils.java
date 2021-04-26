@@ -15,6 +15,7 @@ import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -22,6 +23,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.RandomAccessFile;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
@@ -71,10 +74,10 @@ public class CommonUtils {
 	 * @param enctype should be "base64" or "Hex"
 	 * @param key
 	 * @param algorithm
-	 * @return 
-	 * @throws DecoderException 
-	 * @throws NoSuchAlgorithmException 
-	 * @throws InvalidKeySpecException 
+	 * @return
+	 * @throws DecoderException
+	 * @throws NoSuchAlgorithmException
+	 * @throws InvalidKeySpecException
 	 */
 	public static Key string2ECKey(Boolean isECPublicKey, String enctype, String key, String algorithm)
 			throws DecoderException, NoSuchAlgorithmException, InvalidKeySpecException {
@@ -126,7 +129,7 @@ public class CommonUtils {
 	 * @param command
 	 * @param workDir
 	 * @return the output of shell command
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	public static void callCMD(String command, String workDir) throws Exception {
 		File dir = null;
@@ -148,7 +151,7 @@ public class CommonUtils {
 	 * @param cmdArray
 	 * @param workDir
 	 * @return the output of shell command
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	public static void callCMD(String[] cmdArray, String workDir) throws Exception {
 		File dir = null;
@@ -192,8 +195,8 @@ public class CommonUtils {
 	/**
 	 *  (read bytes from binary file(e.g., PEM, DER))
 	 * @param pathName path name of the binary file
-	 * @return 
-	 * @throws IOException 
+	 * @return
+	 * @throws IOException
 	 */
 	public static byte[] readBytesFromFile(String pathName) throws IOException {
 		FileInputStream fis = new FileInputStream(pathName);
@@ -212,7 +215,7 @@ public class CommonUtils {
 	 *  (write bytes to binary file(e.g., PEM, DER))
 	 * @param pathName path name of the binary file
 	 * @param bytes 参数描述
-	 * @throws IOException 
+	 * @throws IOException
 	 */
 	public static void writeBytesToFile(String pathName, byte[] bytes) throws IOException {
 		File file = new File(pathName);
@@ -231,7 +234,7 @@ public class CommonUtils {
 	 *  (save PublicKey or PrivateKey as PEM file)
 	 * @param key should be PublicKey or PrivateKey which is the subclass of Key.
 	 * @param pathName the complete file Path for PEM file to store
-	 * @throws IOException 
+	 * @throws IOException
 	 * @throws Exception
 	 */
 	public static void saveKeyAsPEM(Key key, String pathName) throws IOException {
@@ -274,7 +277,7 @@ public class CommonUtils {
 	 *  (save PublicKey or PrivateKey as DER file)
 	 * @param key should be PublicKey or PrivateKey which is the subclass of Key.
 	 * @param pathName the complete file Path for DER file to store
-	 * @throws IOException 
+	 * @throws IOException
 	 */
 	public static void saveKeyAsDER(Key key, String pathName) throws IOException {
 		boolean isPublicKey = key instanceof PublicKey;
@@ -295,9 +298,9 @@ public class CommonUtils {
 	 * @param algorithm
 	 * @param pathName pathName of PEM key file.
 	 * @return Key PublicKey or PrivateKey
-	 * @throws IOException 
-	 * @throws NoSuchAlgorithmException 
-	 * @throws InvalidKeySpecException 
+	 * @throws IOException
+	 * @throws NoSuchAlgorithmException
+	 * @throws InvalidKeySpecException
 	 */
 	public static Key loadKeyFromPEM(boolean isPublicKey, String algorithm, String pathName)
 			throws IOException, NoSuchAlgorithmException, InvalidKeySpecException {
@@ -341,9 +344,9 @@ public class CommonUtils {
 	 * @param algorithm
 	 * @param pathName pathName of DER key file.
 	 * @return PublicKey or PrivateKey
-	 * @throws IOException 
-	 * @throws NoSuchAlgorithmException 
-	 * @throws InvalidKeySpecException 
+	 * @throws IOException
+	 * @throws NoSuchAlgorithmException
+	 * @throws InvalidKeySpecException
 	 */
 	public static Key loadKeyFromDER(boolean isPublicKey, String algorithm, String pathName)
 			throws IOException, NoSuchAlgorithmException, InvalidKeySpecException {
@@ -384,8 +387,8 @@ public class CommonUtils {
 	 * @param content: content waits to be hashed
 	 * @param algorithm: specific Hash algorithm, including "MD2, MD5, SHA-1, SHA-256, SHA-512"...
 	 * @return 参数描述
-	 * @throws NoSuchAlgorithmException 
-	 * @throws UnsupportedEncodingException 
+	 * @throws NoSuchAlgorithmException
+	 * @throws UnsupportedEncodingException
 	 */
 	public static byte[] hash(byte[] content, String algorithm) {
 		// Java标准库的java.security包提供了一种标准机制，允许第三方提供商无缝接入。
@@ -414,7 +417,7 @@ public class CommonUtils {
 
 	/**
 	 * Convenience method to convert a byte to a hex string.
-	 * 
+	 *
 	 * @param data the byte to convert
 	 * @return String the converted byte
 	 */
@@ -429,7 +432,7 @@ public class CommonUtils {
 
 	/**
 	 * Convenience method to convert an int to a hex char.
-	 * 
+	 *
 	 * @param i the int to convert
 	 * @return char the converted char
 	 */
@@ -490,7 +493,7 @@ public class CommonUtils {
 	 *  (encode the url into %XX like format)
 	 * @param content
 	 * @return 参数描述
-	 * @throws UnsupportedEncodingException 
+	 * @throws UnsupportedEncodingException
 	 */
 	public static String encodeURLString(String content) throws UnsupportedEncodingException {
 		return URLEncoder.encode(content, "UTF-8");
@@ -500,21 +503,21 @@ public class CommonUtils {
 	 *  (decode %XX like URL)
 	 * @param content
 	 * @return 参数描述
-	 * @throws UnsupportedEncodingException 
+	 * @throws UnsupportedEncodingException
 	 */
 	public static String decodeURL(String content) throws UnsupportedEncodingException {
 		return URLDecoder.decode(content, "UTF-8");
 	}
 
 	/**
-	    * 获得私钥
-	    * 
-	    * @param privateKey
-	    * @param algorithm
-	    * @return
-	 * @throws NoSuchAlgorithmException 
-	 * @throws InvalidKeySpecException 
-	    */
+	 * 获得私钥
+	 *
+	 * @param privateKey
+	 * @param algorithm
+	 * @return
+	 * @throws NoSuchAlgorithmException
+	 * @throws InvalidKeySpecException
+	 */
 	public static PrivateKey getPrivateKey(byte[] privateKey, String algorithm)
 			throws NoSuchAlgorithmException, InvalidKeySpecException {
 		PKCS8EncodedKeySpec pkcs8KeySpec = new PKCS8EncodedKeySpec(privateKey);
@@ -524,12 +527,12 @@ public class CommonUtils {
 
 	/**
 	 * 获得公钥
-	 * 
+	 *
 	 * @param publicKey
 	 * @param algorithm
 	 * @return
-	 * @throws NoSuchAlgorithmException 
-	 * @throws InvalidKeySpecException 
+	 * @throws NoSuchAlgorithmException
+	 * @throws InvalidKeySpecException
 	 */
 	public static PublicKey getPublicKey(byte[] publicKey, String algorithm)
 			throws NoSuchAlgorithmException, InvalidKeySpecException {
@@ -540,7 +543,7 @@ public class CommonUtils {
 
 	/**
 	 * 检查加解密操作模式
-	 * 
+	 *
 	 * @param opmode
 	 */
 	public static void checkOpMode(int opmode) {
@@ -551,14 +554,14 @@ public class CommonUtils {
 
 	/**
 	 * 签名
-	 * 
+	 *
 	 * @param data
 	 * @param privateKey
 	 * @param signatureAlgorithm
 	 * @return
-	 * @throws NoSuchAlgorithmException 
-	 * @throws InvalidKeyException 
-	 * @throws SignatureException 
+	 * @throws NoSuchAlgorithmException
+	 * @throws InvalidKeyException
+	 * @throws SignatureException
 	 */
 	public static byte[] sign(byte[] data, PrivateKey privateKey, String signatureAlgorithm)
 			throws NoSuchAlgorithmException, InvalidKeyException, SignatureException {
@@ -570,15 +573,15 @@ public class CommonUtils {
 
 	/**
 	 * 验签
-	 * 
+	 *
 	 * @param data
 	 * @param sign
 	 * @param publicKey
 	 * @param signatureAlgorithm
 	 * @return
-	 * @throws NoSuchAlgorithmException 
-	 * @throws InvalidKeyException 
-	 * @throws SignatureException 
+	 * @throws NoSuchAlgorithmException
+	 * @throws InvalidKeyException
+	 * @throws SignatureException
 	 */
 	public static boolean verify(byte[] data, byte[] sign, PublicKey publicKey, String signatureAlgorithm)
 			throws NoSuchAlgorithmException, InvalidKeyException, SignatureException {
@@ -590,12 +593,12 @@ public class CommonUtils {
 
 	/**
 	 * 按单部分操作加密或解密数据，或者结束一个多部分操作
-	 * 
+	 *
 	 * @param data
 	 * @param cipher
 	 * @return
-	 * @throws BadPaddingException 
-	 * @throws IllegalBlockSizeException 
+	 * @throws BadPaddingException
+	 * @throws IllegalBlockSizeException
 	 */
 	public static byte[] doFinal(byte[] data, Cipher cipher) throws IllegalBlockSizeException, BadPaddingException {
 		return cipher.doFinal(data);
@@ -603,11 +606,11 @@ public class CommonUtils {
 
 	/**
 	 * 初始化密钥
-	 * 
+	 *
 	 * @param algorithm
 	 * @param keySize
 	 * @return
-	 * @throws NoSuchAlgorithmException 
+	 * @throws NoSuchAlgorithmException
 	 */
 	public static KeyPair initKey(String algorithm, int keySize) throws NoSuchAlgorithmException {
 		KeyPairGenerator keyPairGen = KeyPairGenerator.getInstance(algorithm);
@@ -622,8 +625,8 @@ public class CommonUtils {
 	 * @param curve
 	 * @return KeyPair
 	 * @return the generated key pair
-	 * @throws NoSuchAlgorithmException 
-	 * @throws InvalidAlgorithmParameterException 
+	 * @throws NoSuchAlgorithmException
+	 * @throws InvalidAlgorithmParameterException
 	 */
 	public static KeyPair initKey(String algorithm, String curve)
 			throws NoSuchAlgorithmException, InvalidAlgorithmParameterException {
@@ -639,10 +642,10 @@ public class CommonUtils {
 
 	/**
 	 * 初始化密钥
-	 * 
+	 *
 	 * @param algorithm
 	 * @return
-	 * @throws NoSuchAlgorithmException 
+	 * @throws NoSuchAlgorithmException
 	 */
 	public static SecretKey initKey(String algorithm) throws NoSuchAlgorithmException {
 		KeyGenerator keyGenerator = KeyGenerator.getInstance(algorithm);
@@ -675,6 +678,7 @@ public class CommonUtils {
 	}
 
 	// 把一个byte[] 分拆成每段MESSAGE_SIZE字节的数组List
+
 	/**
 	 *   slice  byte array into list with size MESSAGE_SIZE byte each element in the list;
 	 * @param message
@@ -715,5 +719,36 @@ public class CommonUtils {
 
 	public static String toString(ArrayList<byte[]> byteMessage) {
 		return new String(splice(byteMessage));
+	}
+
+	/**
+	 * @param object:
+	 * @description: serialize a Object
+	 * @return: byte[]
+	 * @throws:
+	 **/
+	public static byte[] SerObject(Object object) throws IOException {
+		ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+		ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
+		objectOutputStream.writeObject(object);
+		byte[] byteArray = byteArrayOutputStream.toByteArray();
+		objectOutputStream.close();
+		byteArrayOutputStream.close();
+		return byteArray;
+	}
+
+	/**
+	 * @param byteArrays:
+	 * @description: deserialize a Object
+	 * @return: java.lang.Object
+	 * @throws:
+	 **/
+	public static Object deserObject(byte[] byteArrays) throws IOException, ClassNotFoundException {
+		ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArrays);
+		ObjectInputStream objectInputStream = new ObjectInputStream(byteArrayInputStream);
+		Object object = objectInputStream.readObject();
+		objectInputStream.close();
+		byteArrayInputStream.close();
+		return object;
 	}
 }

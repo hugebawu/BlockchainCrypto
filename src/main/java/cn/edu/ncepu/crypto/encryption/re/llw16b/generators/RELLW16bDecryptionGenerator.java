@@ -1,12 +1,5 @@
 package cn.edu.ncepu.crypto.encryption.re.llw16b.generators;
 
-import java.io.IOException;
-import java.util.Arrays;
-
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.CryptoException;
-import org.bouncycastle.crypto.InvalidCipherTextException;
-
 import cn.edu.ncepu.crypto.algebra.serparams.AsymmetricKeySerParameter;
 import cn.edu.ncepu.crypto.chameleonhash.ChameleonHasher;
 import cn.edu.ncepu.crypto.encryption.re.genparams.REDecryptionGenerationParameter;
@@ -15,10 +8,17 @@ import cn.edu.ncepu.crypto.encryption.re.llw16b.serparams.RELLW16bCiphertextSerP
 import cn.edu.ncepu.crypto.encryption.re.llw16b.serparams.RELLW16bHeaderSerParameter;
 import cn.edu.ncepu.crypto.encryption.re.llw16b.serparams.RELLW16bPublicKeySerParameter;
 import cn.edu.ncepu.crypto.encryption.re.llw16b.serparams.RELLW16bSecretKeySerParameter;
+import cn.edu.ncepu.crypto.utils.CommonUtils;
 import cn.edu.ncepu.crypto.utils.PairingUtils;
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Pairing;
 import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
+import org.bouncycastle.crypto.CipherParameters;
+import org.bouncycastle.crypto.CryptoException;
+import org.bouncycastle.crypto.InvalidCipherTextException;
+
+import java.io.IOException;
+import java.util.Arrays;
 
 /**
  * Created by Weiran Liu on 2017/1/4.
@@ -64,7 +64,7 @@ public class RELLW16bDecryptionGenerator extends RELLW16aDecryptionGenerator {
 		// compute Xch
 		try {
 			chameleonHasher.init(false, chameleonHashPublicKey);
-			byte[] byteArrayChPublicKey = PairingUtils.SerCipherParameter(chameleonHashPublicKey);
+			byte[] byteArrayChPublicKey = CommonUtils.SerObject(chameleonHashPublicKey);
 			chameleonHasher.update(byteArrayChPublicKey, 0, byteArrayChPublicKey.length);
 			if (headerParameter instanceof RELLW16bCiphertextSerParameter) {
 				Element C = ((RELLW16bCiphertextSerParameter) headerParameter).getC().getImmutable();

@@ -1,9 +1,21 @@
 package com.example.encryption.abe;
 
-import java.io.IOException;
-import java.security.InvalidParameterException;
-import java.util.Arrays;
-
+import cn.edu.ncepu.crypto.access.parser.ParserUtils;
+import cn.edu.ncepu.crypto.algebra.serparams.PairingCipherSerParameter;
+import cn.edu.ncepu.crypto.algebra.serparams.PairingKeyEncapsulationSerPair;
+import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerPair;
+import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
+import cn.edu.ncepu.crypto.encryption.abe.cpabe.CPABEEngine;
+import cn.edu.ncepu.crypto.encryption.abe.cpabe.SelfExtractableCPABEEngine;
+import cn.edu.ncepu.crypto.encryption.abe.cpabe.bsw07.CPABEBSW07Engine;
+import cn.edu.ncepu.crypto.encryption.abe.cpabe.hw14.OOCPABEHW14Engine;
+import cn.edu.ncepu.crypto.encryption.abe.cpabe.rw13.CPABERW13Engine;
+import cn.edu.ncepu.crypto.utils.CommonUtils;
+import cn.edu.ncepu.crypto.utils.PairingUtils;
+import com.example.access.AccessPolicyExamples;
+import it.unisa.dia.gas.jpbc.PairingParameters;
+import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
+import junit.framework.TestCase;
 import org.bouncycastle.crypto.BlockCipher;
 import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.crypto.Digest;
@@ -19,22 +31,9 @@ import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.example.access.AccessPolicyExamples;
-
-import cn.edu.ncepu.crypto.access.parser.ParserUtils;
-import cn.edu.ncepu.crypto.algebra.serparams.PairingCipherSerParameter;
-import cn.edu.ncepu.crypto.algebra.serparams.PairingKeyEncapsulationSerPair;
-import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerPair;
-import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
-import cn.edu.ncepu.crypto.encryption.abe.cpabe.CPABEEngine;
-import cn.edu.ncepu.crypto.encryption.abe.cpabe.SelfExtractableCPABEEngine;
-import cn.edu.ncepu.crypto.encryption.abe.cpabe.bsw07.CPABEBSW07Engine;
-import cn.edu.ncepu.crypto.encryption.abe.cpabe.hw14.OOCPABEHW14Engine;
-import cn.edu.ncepu.crypto.encryption.abe.cpabe.rw13.CPABERW13Engine;
-import cn.edu.ncepu.crypto.utils.PairingUtils;
-import it.unisa.dia.gas.jpbc.PairingParameters;
-import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
-import junit.framework.TestCase;
+import java.io.IOException;
+import java.security.InvalidParameterException;
+import java.util.Arrays;
 
 /**
  * Created by Weiran Liu on 2016/12/4.
@@ -110,8 +109,8 @@ public class SelfExtractableCPABEEngineJUnitTest extends TestCase {
 			throws InvalidCipherTextException, IOException, ClassNotFoundException {
 		// KeyGen and serialization
 		PairingKeySerParameter secretKey = engine.keyGen(publicKey, masterKey, attributes);
-		byte[] byteArraySecretKey = PairingUtils.SerCipherParameter(secretKey);
-		CipherParameters anSecretKey = PairingUtils.deserCipherParameters(byteArraySecretKey);
+		byte[] byteArraySecretKey = CommonUtils.SerObject(secretKey);
+		CipherParameters anSecretKey = (CipherParameters) CommonUtils.deserObject(byteArraySecretKey);
 		Assert.assertEquals(secretKey, anSecretKey);
 		secretKey = (PairingKeySerParameter) anSecretKey;
 
@@ -122,8 +121,8 @@ public class SelfExtractableCPABEEngineJUnitTest extends TestCase {
 		PairingKeyEncapsulationSerPair encapsulationPair = engine.encapsulation(publicKey, accessPolicy, rhos, ek);
 		byte[] sessionKey = encapsulationPair.getSessionKey();
 		PairingCipherSerParameter header = encapsulationPair.getHeader();
-		byte[] byteArrayHeader = PairingUtils.SerCipherParameter(header);
-		CipherParameters anHeader = PairingUtils.deserCipherParameters(byteArrayHeader);
+		byte[] byteArrayHeader = CommonUtils.SerObject(header);
+		CipherParameters anHeader = (CipherParameters) CommonUtils.deserObject(byteArrayHeader);
 		Assert.assertEquals(header, anHeader);
 		header = (PairingCipherSerParameter) anHeader;
 
@@ -139,8 +138,8 @@ public class SelfExtractableCPABEEngineJUnitTest extends TestCase {
 			encapsulationPair = engine.encapsulation(publicKey, intermediate, accessPolicy, rhos, ek);
 			sessionKey = encapsulationPair.getSessionKey();
 			header = encapsulationPair.getHeader();
-			byteArrayHeader = PairingUtils.SerCipherParameter(header);
-			anHeader = PairingUtils.deserCipherParameters(byteArrayHeader);
+			byteArrayHeader = CommonUtils.SerObject(header);
+			anHeader = (CipherParameters) CommonUtils.deserObject(byteArrayHeader);
 			Assert.assertEquals(header, anHeader);
 			header = (PairingCipherSerParameter) anHeader;
 
@@ -157,14 +156,14 @@ public class SelfExtractableCPABEEngineJUnitTest extends TestCase {
 			// Setup and serialization
 			PairingKeySerPair keyPair = engine.setup(pairingParameters, 50);
 			PairingKeySerParameter publicKey = keyPair.getPublic();
-			byte[] byteArrayPublicKey = PairingUtils.SerCipherParameter(publicKey);
-			CipherParameters anPublicKey = PairingUtils.deserCipherParameters(byteArrayPublicKey);
+			byte[] byteArrayPublicKey = CommonUtils.SerObject(publicKey);
+			CipherParameters anPublicKey = (CipherParameters) CommonUtils.deserObject(byteArrayPublicKey);
 			Assert.assertEquals(publicKey, anPublicKey);
 			publicKey = (PairingKeySerParameter) anPublicKey;
 
 			PairingKeySerParameter masterKey = keyPair.getPrivate();
-			byte[] byteArrayMasterKey = PairingUtils.SerCipherParameter(masterKey);
-			CipherParameters anMasterKey = PairingUtils.deserCipherParameters(byteArrayMasterKey);
+			byte[] byteArrayMasterKey = CommonUtils.SerObject(masterKey);
+			CipherParameters anMasterKey = (CipherParameters) CommonUtils.deserObject(byteArrayMasterKey);
 			Assert.assertEquals(masterKey, anMasterKey);
 			masterKey = (PairingKeySerParameter) anMasterKey;
 

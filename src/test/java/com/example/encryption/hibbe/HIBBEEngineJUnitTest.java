@@ -1,16 +1,5 @@
 package com.example.encryption.hibbe;
 
-import java.io.IOException;
-import java.util.Arrays;
-
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.InvalidCipherTextException;
-import org.bouncycastle.crypto.Signer;
-import org.bouncycastle.crypto.digests.SHA256Digest;
-import org.junit.Assert;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import cn.edu.ncepu.crypto.algebra.generators.PairingKeyPairGenerator;
 import cn.edu.ncepu.crypto.algebra.serparams.PairingCipherSerParameter;
 import cn.edu.ncepu.crypto.algebra.serparams.PairingKeyEncapsulationSerPair;
@@ -25,12 +14,23 @@ import cn.edu.ncepu.crypto.signature.pks.PairingDigestSigner;
 import cn.edu.ncepu.crypto.signature.pks.bb08.BB08SignKeyPairGenerationParameter;
 import cn.edu.ncepu.crypto.signature.pks.bb08.BB08SignKeyPairGenerator;
 import cn.edu.ncepu.crypto.signature.pks.bb08.BB08Signer;
+import cn.edu.ncepu.crypto.utils.CommonUtils;
 import cn.edu.ncepu.crypto.utils.PairingUtils;
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Pairing;
 import it.unisa.dia.gas.jpbc.PairingParameters;
 import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
 import junit.framework.TestCase;
+import org.bouncycastle.crypto.CipherParameters;
+import org.bouncycastle.crypto.InvalidCipherTextException;
+import org.bouncycastle.crypto.Signer;
+import org.bouncycastle.crypto.digests.SHA256Digest;
+import org.junit.Assert;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.io.IOException;
+import java.util.Arrays;
 
 /**
  * Created by Weiran Liu on 2016/5/16.
@@ -68,16 +68,16 @@ public class HIBBEEngineJUnitTest extends TestCase {
 		try {
 			PairingKeySerParameter secretKey = engine.keyGen(publicKey, masterKey, identityVector);
 			PairingKeySerParameter delegateKey = engine.delegate(publicKey, secretKey, index, delegateId);
-			byte[] byteArrayDelegateKey = PairingUtils.SerCipherParameter(delegateKey);
-			CipherParameters anDelegateKey = PairingUtils.deserCipherParameters(byteArrayDelegateKey);
+			byte[] byteArrayDelegateKey = CommonUtils.SerObject(delegateKey);
+			CipherParameters anDelegateKey = (CipherParameters) CommonUtils.deserObject(byteArrayDelegateKey);
 			Assert.assertEquals(delegateKey, anDelegateKey);
 			delegateKey = (PairingKeySerParameter) anDelegateKey;
 
 			// Encryption and serialization
 			Element message = pairing.getGT().newRandomElement().getImmutable();
 			PairingCipherSerParameter ciphertext = engine.encryption(publicKey, identityVectorSet, message);
-			byte[] byteArrayCiphertext = PairingUtils.SerCipherParameter(ciphertext);
-			CipherParameters anCiphertext = PairingUtils.deserCipherParameters(byteArrayCiphertext);
+			byte[] byteArrayCiphertext = CommonUtils.SerObject(ciphertext);
+			CipherParameters anCiphertext = (CipherParameters) CommonUtils.deserObject(byteArrayCiphertext);
 			Assert.assertEquals(ciphertext, anCiphertext);
 			ciphertext = (PairingCipherSerParameter) anCiphertext;
 
@@ -89,8 +89,8 @@ public class HIBBEEngineJUnitTest extends TestCase {
 			PairingKeyEncapsulationSerPair encapsulationPair = engine.encapsulation(publicKey, identityVectorSet);
 			byte[] sessionKey = encapsulationPair.getSessionKey();
 			PairingCipherSerParameter header = encapsulationPair.getHeader();
-			byte[] byteArrayHeader = PairingUtils.SerCipherParameter(header);
-			CipherParameters anHeader = PairingUtils.deserCipherParameters(byteArrayHeader);
+			byte[] byteArrayHeader = CommonUtils.SerObject(header);
+			CipherParameters anHeader = (CipherParameters) CommonUtils.deserObject(byteArrayHeader);
 			Assert.assertEquals(header, anHeader);
 			header = (PairingCipherSerParameter) anHeader;
 
@@ -125,16 +125,16 @@ public class HIBBEEngineJUnitTest extends TestCase {
 		try {
 			PairingKeySerParameter secretKey = engine.keyGen(publicKey, masterKey, identityVector);
 			PairingKeySerParameter delegateKey = engine.delegate(publicKey, secretKey, 2, "ID_1");
-			byte[] byteArrayDelegateKey = PairingUtils.SerCipherParameter(delegateKey);
-			CipherParameters anDelegateKey = PairingUtils.deserCipherParameters(byteArrayDelegateKey);
+			byte[] byteArrayDelegateKey = CommonUtils.SerObject(delegateKey);
+			CipherParameters anDelegateKey = (CipherParameters) CommonUtils.deserObject(byteArrayDelegateKey);
 			Assert.assertEquals(delegateKey, anDelegateKey);
 			delegateKey = (PairingKeySerParameter) anDelegateKey;
 
 			// Encryption and serialization
 			Element message = pairing.getGT().newRandomElement().getImmutable();
 			PairingCipherSerParameter ciphertext = engine.encryption(publicKey, identityVectorSet, message);
-			byte[] byteArrayCiphertext = PairingUtils.SerCipherParameter(ciphertext);
-			CipherParameters anCiphertext = PairingUtils.deserCipherParameters(byteArrayCiphertext);
+			byte[] byteArrayCiphertext = CommonUtils.SerObject(ciphertext);
+			CipherParameters anCiphertext = (CipherParameters) CommonUtils.deserObject(byteArrayCiphertext);
 			Assert.assertEquals(ciphertext, anCiphertext);
 			ciphertext = (PairingCipherSerParameter) anCiphertext;
 
@@ -146,8 +146,8 @@ public class HIBBEEngineJUnitTest extends TestCase {
 			PairingKeyEncapsulationSerPair encapsulationPair = engine.encapsulation(publicKey, identityVectorSet);
 			byte[] sessionKey = encapsulationPair.getSessionKey();
 			PairingCipherSerParameter header = encapsulationPair.getHeader();
-			byte[] byteArrayHeader = PairingUtils.SerCipherParameter(header);
-			CipherParameters anHeader = PairingUtils.deserCipherParameters(byteArrayHeader);
+			byte[] byteArrayHeader = CommonUtils.SerObject(header);
+			CipherParameters anHeader = (CipherParameters) CommonUtils.deserObject(byteArrayHeader);
 			Assert.assertEquals(header, anHeader);
 			header = (PairingCipherSerParameter) anHeader;
 
@@ -170,16 +170,16 @@ public class HIBBEEngineJUnitTest extends TestCase {
 			throws InvalidCipherTextException, IOException, ClassNotFoundException {
 		// KeyGen and serialization
 		PairingKeySerParameter secretKey = engine.keyGen(publicKey, masterKey, identityVector);
-		byte[] byteArraySecretKey = PairingUtils.SerCipherParameter(secretKey);
-		CipherParameters anSecretKey = PairingUtils.deserCipherParameters(byteArraySecretKey);
+		byte[] byteArraySecretKey = CommonUtils.SerObject(secretKey);
+		CipherParameters anSecretKey = (CipherParameters) CommonUtils.deserObject(byteArraySecretKey);
 		Assert.assertEquals(secretKey, anSecretKey);
 		secretKey = (PairingKeySerParameter) anSecretKey;
 
 		// Encryption and serialization
 		Element message = pairing.getGT().newRandomElement().getImmutable();
 		PairingCipherSerParameter ciphertext = engine.encryption(publicKey, identityVectorSet, message);
-		byte[] byteArrayCiphertext = PairingUtils.SerCipherParameter(ciphertext);
-		CipherParameters anCiphertext = PairingUtils.deserCipherParameters(byteArrayCiphertext);
+		byte[] byteArrayCiphertext = CommonUtils.SerObject(ciphertext);
+		CipherParameters anCiphertext = (CipherParameters) CommonUtils.deserObject(byteArrayCiphertext);
 		Assert.assertEquals(ciphertext, anCiphertext);
 		ciphertext = (PairingCipherSerParameter) anCiphertext;
 
@@ -191,8 +191,8 @@ public class HIBBEEngineJUnitTest extends TestCase {
 		PairingKeyEncapsulationSerPair encapsulationPair = engine.encapsulation(publicKey, identityVectorSet);
 		byte[] sessionKey = encapsulationPair.getSessionKey();
 		PairingCipherSerParameter header = encapsulationPair.getHeader();
-		byte[] byteArrayHeader = PairingUtils.SerCipherParameter(header);
-		CipherParameters anHeader = PairingUtils.deserCipherParameters(byteArrayHeader);
+		byte[] byteArrayHeader = CommonUtils.SerObject(header);
+		CipherParameters anHeader = (CipherParameters) CommonUtils.deserObject(byteArrayHeader);
 		Assert.assertEquals(header, anHeader);
 		header = (PairingCipherSerParameter) anHeader;
 
@@ -207,14 +207,14 @@ public class HIBBEEngineJUnitTest extends TestCase {
 			// Setup and serialization
 			PairingKeySerPair keyPair = engine.setup(pairingParameters, identityVectorSet13467.length);
 			PairingKeySerParameter publicKey = keyPair.getPublic();
-			byte[] byteArrayPublicKey = PairingUtils.SerCipherParameter(publicKey);
-			CipherParameters anPublicKey = PairingUtils.deserCipherParameters(byteArrayPublicKey);
+			byte[] byteArrayPublicKey = CommonUtils.SerObject(publicKey);
+			CipherParameters anPublicKey = (CipherParameters) CommonUtils.deserObject(byteArrayPublicKey);
 			Assert.assertEquals(publicKey, anPublicKey);
 			publicKey = (PairingKeySerParameter) anPublicKey;
 
 			PairingKeySerParameter masterKey = keyPair.getPrivate();
-			byte[] byteArrayMasterKey = PairingUtils.SerCipherParameter(masterKey);
-			CipherParameters anMasterKey = PairingUtils.deserCipherParameters(byteArrayMasterKey);
+			byte[] byteArrayMasterKey = CommonUtils.SerObject(masterKey);
+			CipherParameters anMasterKey = (CipherParameters) CommonUtils.deserObject(byteArrayMasterKey);
 			Assert.assertEquals(masterKey, anMasterKey);
 			masterKey = (PairingKeySerParameter) anMasterKey;
 

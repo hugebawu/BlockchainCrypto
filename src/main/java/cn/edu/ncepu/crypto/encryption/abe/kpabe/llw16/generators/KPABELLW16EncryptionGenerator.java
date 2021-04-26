@@ -1,12 +1,5 @@
 package cn.edu.ncepu.crypto.encryption.abe.kpabe.llw16.generators;
 
-import java.io.IOException;
-import java.util.Arrays;
-
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.CryptoException;
-import org.bouncycastle.crypto.KeyGenerationParameters;
-
 import cn.edu.ncepu.crypto.algebra.generators.AsymmetricKeySerPairGenerator;
 import cn.edu.ncepu.crypto.algebra.serparams.AsymmetricKeySerPair;
 import cn.edu.ncepu.crypto.algebra.serparams.AsymmetricKeySerParameter;
@@ -20,10 +13,17 @@ import cn.edu.ncepu.crypto.encryption.abe.kpabe.llw16.serparams.KPABELLW16Cipher
 import cn.edu.ncepu.crypto.encryption.abe.kpabe.llw16.serparams.KPABELLW16HeaderSerParameter;
 import cn.edu.ncepu.crypto.encryption.abe.kpabe.llw16.serparams.KPABELLW16IntermediateSerParameter;
 import cn.edu.ncepu.crypto.encryption.abe.kpabe.llw16.serparams.KPABELLW16PublicKeySerParameter;
+import cn.edu.ncepu.crypto.utils.CommonUtils;
 import cn.edu.ncepu.crypto.utils.PairingUtils;
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Pairing;
 import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
+import org.bouncycastle.crypto.CipherParameters;
+import org.bouncycastle.crypto.CryptoException;
+import org.bouncycastle.crypto.KeyGenerationParameters;
+
+import java.io.IOException;
+import java.util.Arrays;
 
 /**
  * Created by Weiran Liu on 2017/1/3.
@@ -89,7 +89,7 @@ public class KPABELLW16EncryptionGenerator extends KPABEHW14EncryptionGenerator 
 				Element r0 = pairing.getZr().newRandomElement().getImmutable();
 				this.C01 = publicKeyParameter.getG().powZn(r0).getImmutable();
 				chameleonHasher.init(false, chameleonHashPublicKey);
-				byte[] byteArrayChameleonHashPublicKey = PairingUtils.SerCipherParameter(chameleonHashPublicKey);
+				byte[] byteArrayChameleonHashPublicKey = CommonUtils.SerObject(chameleonHashPublicKey);
 				chameleonHasher.update(byteArrayChameleonHashPublicKey, 0, byteArrayChameleonHashPublicKey.length);
 				byte[][] chResult = chameleonHasher.computeHash();
 				this.chameleonHash = chResult[0];
@@ -101,7 +101,7 @@ public class KPABELLW16EncryptionGenerator extends KPABEHW14EncryptionGenerator 
 						.mul(publicKeyParameter.getW().powZn(s.negate())).getImmutable();
 			}
 			chameleonHasher.init(true, chameleonHashSecretKey);
-			byte[] byteArrayChPublicKey = PairingUtils.SerCipherParameter(chameleonHashPublicKey);
+			byte[] byteArrayChPublicKey = CommonUtils.SerObject(chameleonHashPublicKey);
 			chameleonHasher.update(byteArrayChPublicKey, 0, byteArrayChPublicKey.length);
 			if (this.parameter.getMessage() != null) {
 				Element C = this.sessionKey.mul(this.parameter.getMessage()).getImmutable();

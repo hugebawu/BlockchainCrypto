@@ -7,14 +7,8 @@ import it.unisa.dia.gas.plaf.jpbc.pairing.a.TypeACurveGenerator;
 import it.unisa.dia.gas.plaf.jpbc.pairing.a1.TypeA1CurveGenerator;
 import it.unisa.dia.gas.plaf.jpbc.pairing.f.TypeFCurveGenerator;
 import it.unisa.dia.gas.plaf.jpbc.pairing.parameters.PropertiesParameters;
-import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.util.encoders.Hex;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.Collections;
@@ -434,25 +428,6 @@ public class PairingUtils {
 			label++;
 		}
 		return resultSet;
-	}
-
-	public static byte[] SerCipherParameter(CipherParameters cipherParameters) throws IOException {
-		ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-		ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
-		objectOutputStream.writeObject(cipherParameters);
-		byte[] byteArray = byteArrayOutputStream.toByteArray();
-		objectOutputStream.close();
-		byteArrayOutputStream.close();
-		return byteArray;
-	}
-
-	public static CipherParameters deserCipherParameters(byte[] byteArrays) throws IOException, ClassNotFoundException {
-		ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArrays);
-		ObjectInputStream objectInputStream = new ObjectInputStream(byteArrayInputStream);
-		CipherParameters cipherParameters = (CipherParameters) objectInputStream.readObject();
-		objectInputStream.close();
-		byteArrayInputStream.close();
-		return cipherParameters;
 	}
 
 	public static void NotVerifyCipherParameterInstance(String schemeName, Object parameters, String className) {

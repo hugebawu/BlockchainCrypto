@@ -1,13 +1,5 @@
 package com.example.access;
 
-import java.io.IOException;
-import java.util.Map;
-
-import org.bouncycastle.crypto.CipherParameters;
-import org.junit.Assert;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import cn.edu.ncepu.crypto.access.AccessControlEngine;
 import cn.edu.ncepu.crypto.access.AccessControlParameter;
 import cn.edu.ncepu.crypto.access.UnsatisfiedAccessControlException;
@@ -15,12 +7,20 @@ import cn.edu.ncepu.crypto.access.lsss.lw10.LSSSLW10Engine;
 import cn.edu.ncepu.crypto.access.parser.ParserUtils;
 import cn.edu.ncepu.crypto.access.parser.PolicySyntaxException;
 import cn.edu.ncepu.crypto.access.tree.AccessTreeEngine;
+import cn.edu.ncepu.crypto.utils.CommonUtils;
 import cn.edu.ncepu.crypto.utils.PairingUtils;
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Pairing;
 import it.unisa.dia.gas.jpbc.PairingParameters;
 import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
 import junit.framework.TestCase;
+import org.bouncycastle.crypto.CipherParameters;
+import org.junit.Assert;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.io.IOException;
+import java.util.Map;
 
 /**
  * Created by Weiran Liu on 2016/7/20.
@@ -184,8 +184,8 @@ public class AccessControlEngineTest extends TestCase {
 					accessControlParameter);
 
 			// test access parameter serialization
-			byte[] byteArrayAccessParameter = PairingUtils.SerCipherParameter(accessControlParameter);
-			CipherParameters anAccessControlParameter = PairingUtils.deserCipherParameters(byteArrayAccessParameter);
+			byte[] byteArrayAccessParameter = CommonUtils.SerObject(accessControlParameter);
+			CipherParameters anAccessControlParameter = (CipherParameters) CommonUtils.deserObject(byteArrayAccessParameter);
 			Assert.assertEquals(accessControlParameter, anAccessControlParameter);
 
 			// Secret Reconstruction

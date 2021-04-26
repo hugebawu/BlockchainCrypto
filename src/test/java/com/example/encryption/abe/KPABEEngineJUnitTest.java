@@ -1,20 +1,5 @@
 package com.example.encryption.abe;
 
-import java.io.IOException;
-import java.security.InvalidParameterException;
-import java.security.SecureRandom;
-import java.util.Arrays;
-
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.InvalidCipherTextException;
-import org.bouncycastle.crypto.KeyGenerationParameters;
-import org.bouncycastle.crypto.digests.SHA256Digest;
-import org.junit.Assert;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import com.example.access.AccessPolicyExamples;
-
 import cn.edu.ncepu.crypto.access.lsss.lw10.LSSSLW10Engine;
 import cn.edu.ncepu.crypto.access.parser.ParserUtils;
 import cn.edu.ncepu.crypto.access.tree.AccessTreeEngine;
@@ -38,12 +23,26 @@ import cn.edu.ncepu.crypto.encryption.abe.kpabe.hw14.OOKPABEHW14Engine;
 import cn.edu.ncepu.crypto.encryption.abe.kpabe.llw14.KPABELLW14Engine;
 import cn.edu.ncepu.crypto.encryption.abe.kpabe.llw16.OOKPABELLW16Engine;
 import cn.edu.ncepu.crypto.encryption.abe.kpabe.rw13.KPABERW13Engine;
+import cn.edu.ncepu.crypto.utils.CommonUtils;
 import cn.edu.ncepu.crypto.utils.PairingUtils;
+import com.example.access.AccessPolicyExamples;
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Pairing;
 import it.unisa.dia.gas.jpbc.PairingParameters;
 import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
 import junit.framework.TestCase;
+import org.bouncycastle.crypto.CipherParameters;
+import org.bouncycastle.crypto.InvalidCipherTextException;
+import org.bouncycastle.crypto.KeyGenerationParameters;
+import org.bouncycastle.crypto.digests.SHA256Digest;
+import org.junit.Assert;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.io.IOException;
+import java.security.InvalidParameterException;
+import java.security.SecureRandom;
+import java.util.Arrays;
 
 /**
  * Created by Weiran Liu on 2016/11/18.
@@ -117,16 +116,16 @@ public class KPABEEngineJUnitTest extends TestCase {
 			throws InvalidCipherTextException, IOException, ClassNotFoundException {
 		// KeyGen and serialization
 		PairingKeySerParameter secretKey = engine.keyGen(publicKey, masterKey, accessPolicy, rhos);
-		byte[] byteArraySecretKey = PairingUtils.SerCipherParameter(secretKey);
-		CipherParameters anSecretKey = PairingUtils.deserCipherParameters(byteArraySecretKey);
+		byte[] byteArraySecretKey = CommonUtils.SerObject(secretKey);
+		CipherParameters anSecretKey = (CipherParameters) CommonUtils.deserObject(byteArraySecretKey);
 		Assert.assertEquals(secretKey, anSecretKey);
 		secretKey = (PairingKeySerParameter) anSecretKey;
 
 		// Encryption and serialization
 		Element message = pairing.getGT().newRandomElement().getImmutable();
 		PairingCipherSerParameter ciphertext = engine.encryption(publicKey, attributes, message);
-		byte[] byteArrayCiphertext = PairingUtils.SerCipherParameter(ciphertext);
-		CipherParameters anCiphertext = PairingUtils.deserCipherParameters(byteArrayCiphertext);
+		byte[] byteArrayCiphertext = CommonUtils.SerObject(ciphertext);
+		CipherParameters anCiphertext = (CipherParameters) CommonUtils.deserObject(byteArrayCiphertext);
 		Assert.assertEquals(ciphertext, anCiphertext);
 		ciphertext = (PairingCipherSerParameter) anCiphertext;
 
@@ -138,8 +137,8 @@ public class KPABEEngineJUnitTest extends TestCase {
 		PairingKeyEncapsulationSerPair encapsulationPair = engine.encapsulation(publicKey, attributes);
 		byte[] sessionKey = encapsulationPair.getSessionKey();
 		PairingCipherSerParameter header = encapsulationPair.getHeader();
-		byte[] byteArrayHeader = PairingUtils.SerCipherParameter(header);
-		CipherParameters anHeader = PairingUtils.deserCipherParameters(byteArrayHeader);
+		byte[] byteArrayHeader = CommonUtils.SerObject(header);
+		CipherParameters anHeader = (CipherParameters) CommonUtils.deserObject(byteArrayHeader);
 		Assert.assertEquals(header, anHeader);
 		header = (PairingCipherSerParameter) anHeader;
 
@@ -151,15 +150,15 @@ public class KPABEEngineJUnitTest extends TestCase {
 			OOKPABEEngine ooEngine = (OOKPABEEngine) this.engine;
 			// offline encryption and serialization
 			PairingCipherSerParameter intermediate = ooEngine.offlineEncryption(publicKey, rhos.length);
-			byte[] byteArrayIntermediate = PairingUtils.SerCipherParameter(intermediate);
-			CipherParameters anIntermediate = PairingUtils.deserCipherParameters(byteArrayIntermediate);
+			byte[] byteArrayIntermediate = CommonUtils.SerObject(intermediate);
+			CipherParameters anIntermediate = (CipherParameters) CommonUtils.deserObject(byteArrayIntermediate);
 			Assert.assertEquals(intermediate, anIntermediate);
 			intermediate = (PairingCipherSerParameter) anIntermediate;
 
 			// Encryption and serialization
 			ciphertext = ooEngine.encryption(publicKey, intermediate, attributes, message);
-			byteArrayCiphertext = PairingUtils.SerCipherParameter(ciphertext);
-			anCiphertext = PairingUtils.deserCipherParameters(byteArrayCiphertext);
+			byteArrayCiphertext = CommonUtils.SerObject(ciphertext);
+			anCiphertext = (CipherParameters) CommonUtils.deserObject(byteArrayCiphertext);
 			Assert.assertEquals(ciphertext, anCiphertext);
 			ciphertext = (PairingCipherSerParameter) anCiphertext;
 
@@ -171,8 +170,8 @@ public class KPABEEngineJUnitTest extends TestCase {
 			encapsulationPair = ooEngine.encapsulation(publicKey, intermediate, attributes);
 			sessionKey = encapsulationPair.getSessionKey();
 			header = encapsulationPair.getHeader();
-			byteArrayHeader = PairingUtils.SerCipherParameter(header);
-			anHeader = PairingUtils.deserCipherParameters(byteArrayHeader);
+			byteArrayHeader = CommonUtils.SerObject(header);
+			anHeader = (CipherParameters) CommonUtils.deserObject(byteArrayHeader);
 			Assert.assertEquals(header, anHeader);
 			header = (PairingCipherSerParameter) anHeader;
 
@@ -188,14 +187,14 @@ public class KPABEEngineJUnitTest extends TestCase {
 			// Setup and serialization
 			PairingKeySerPair keyPair = engine.setup(pairingParameters, 50);
 			PairingKeySerParameter publicKey = keyPair.getPublic();
-			byte[] byteArrayPublicKey = PairingUtils.SerCipherParameter(publicKey);
-			CipherParameters anPublicKey = PairingUtils.deserCipherParameters(byteArrayPublicKey);
+			byte[] byteArrayPublicKey = CommonUtils.SerObject(publicKey);
+			CipherParameters anPublicKey = (CipherParameters) CommonUtils.deserObject(byteArrayPublicKey);
 			Assert.assertEquals(publicKey, anPublicKey);
 			publicKey = (PairingKeySerParameter) anPublicKey;
 
 			PairingKeySerParameter masterKey = keyPair.getPrivate();
-			byte[] byteArrayMasterKey = PairingUtils.SerCipherParameter(masterKey);
-			CipherParameters anMasterKey = PairingUtils.deserCipherParameters(byteArrayMasterKey);
+			byte[] byteArrayMasterKey = CommonUtils.SerObject(masterKey);
+			CipherParameters anMasterKey = (CipherParameters) CommonUtils.deserObject(byteArrayMasterKey);
 			Assert.assertEquals(masterKey, anMasterKey);
 			masterKey = (PairingKeySerParameter) anMasterKey;
 

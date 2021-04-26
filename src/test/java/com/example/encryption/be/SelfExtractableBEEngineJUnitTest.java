@@ -1,8 +1,17 @@
 package com.example.encryption.be;
 
-import java.io.IOException;
-import java.util.Arrays;
-
+import cn.edu.ncepu.crypto.algebra.serparams.PairingCipherSerParameter;
+import cn.edu.ncepu.crypto.algebra.serparams.PairingKeyEncapsulationSerPair;
+import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerPair;
+import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
+import cn.edu.ncepu.crypto.encryption.be.BEEngine;
+import cn.edu.ncepu.crypto.encryption.be.SelfExtractableBEEngine;
+import cn.edu.ncepu.crypto.encryption.be.bgw05.BEBGW05Engine;
+import cn.edu.ncepu.crypto.utils.CommonUtils;
+import cn.edu.ncepu.crypto.utils.PairingUtils;
+import it.unisa.dia.gas.jpbc.PairingParameters;
+import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
+import junit.framework.TestCase;
 import org.bouncycastle.crypto.BlockCipher;
 import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.crypto.Digest;
@@ -18,17 +27,8 @@ import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import cn.edu.ncepu.crypto.algebra.serparams.PairingCipherSerParameter;
-import cn.edu.ncepu.crypto.algebra.serparams.PairingKeyEncapsulationSerPair;
-import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerPair;
-import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
-import cn.edu.ncepu.crypto.encryption.be.BEEngine;
-import cn.edu.ncepu.crypto.encryption.be.SelfExtractableBEEngine;
-import cn.edu.ncepu.crypto.encryption.be.bgw05.BEBGW05Engine;
-import cn.edu.ncepu.crypto.utils.PairingUtils;
-import it.unisa.dia.gas.jpbc.PairingParameters;
-import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
-import junit.framework.TestCase;
+import java.io.IOException;
+import java.util.Arrays;
 
 /**
  * Created by Weiran Liu on 2016/12/4.
@@ -92,8 +92,8 @@ public class SelfExtractableBEEngineJUnitTest extends TestCase {
 			int[] indexSet) throws InvalidCipherTextException, IOException, ClassNotFoundException {
 		// KeyGen and serialization
 		PairingKeySerParameter secretKey = engine.keyGen(publicKey, masterKey, index);
-		byte[] byteArraySecretKey = PairingUtils.SerCipherParameter(secretKey);
-		CipherParameters anSecretKey = PairingUtils.deserCipherParameters(byteArraySecretKey);
+		byte[] byteArraySecretKey = CommonUtils.SerObject(secretKey);
+		CipherParameters anSecretKey = (CipherParameters) CommonUtils.deserObject(byteArraySecretKey);
 		Assert.assertEquals(secretKey, anSecretKey);
 		secretKey = (PairingKeySerParameter) anSecretKey;
 
@@ -104,8 +104,8 @@ public class SelfExtractableBEEngineJUnitTest extends TestCase {
 		PairingKeyEncapsulationSerPair keyEncapsulationSerPair = engine.encapsulation(publicKey, indexSet, ek);
 		byte[] sessionKey = keyEncapsulationSerPair.getSessionKey();
 		PairingCipherSerParameter ciphertext = keyEncapsulationSerPair.getHeader();
-		byte[] byteArrayCiphertext = PairingUtils.SerCipherParameter(ciphertext);
-		CipherParameters anCiphertext = PairingUtils.deserCipherParameters(byteArrayCiphertext);
+		byte[] byteArrayCiphertext = CommonUtils.SerObject(ciphertext);
+		CipherParameters anCiphertext = (CipherParameters) CommonUtils.deserObject(byteArrayCiphertext);
 		Assert.assertEquals(ciphertext, anCiphertext);
 		ciphertext = (PairingCipherSerParameter) anCiphertext;
 
@@ -122,14 +122,14 @@ public class SelfExtractableBEEngineJUnitTest extends TestCase {
 			// Setup and serialization
 			PairingKeySerPair keyPair = engine.setup(pairingParameters, maxNumUser);
 			PairingKeySerParameter publicKey = keyPair.getPublic();
-			byte[] byteArrayPublicKey = PairingUtils.SerCipherParameter(publicKey);
-			CipherParameters anPublicKey = PairingUtils.deserCipherParameters(byteArrayPublicKey);
+			byte[] byteArrayPublicKey = CommonUtils.SerObject(publicKey);
+			CipherParameters anPublicKey = (CipherParameters) CommonUtils.deserObject(byteArrayPublicKey);
 			Assert.assertEquals(publicKey, anPublicKey);
 			publicKey = (PairingKeySerParameter) anPublicKey;
 
 			PairingKeySerParameter masterKey = keyPair.getPrivate();
-			byte[] byteArrayMasterKey = PairingUtils.SerCipherParameter(masterKey);
-			CipherParameters anMasterKey = PairingUtils.deserCipherParameters(byteArrayMasterKey);
+			byte[] byteArrayMasterKey = CommonUtils.SerObject(masterKey);
+			CipherParameters anMasterKey = (CipherParameters) CommonUtils.deserObject(byteArrayMasterKey);
 			Assert.assertEquals(masterKey, anMasterKey);
 			masterKey = (PairingKeySerParameter) anMasterKey;
 

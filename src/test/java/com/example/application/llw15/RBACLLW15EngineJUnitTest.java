@@ -1,23 +1,23 @@
 package com.example.application.llw15;
 
-import java.io.IOException;
-import java.util.Arrays;
-
+import cn.edu.ncepu.crypto.algebra.serparams.PairingCipherSerParameter;
+import cn.edu.ncepu.crypto.algebra.serparams.PairingKeyEncapsulationSerPair;
+import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerPair;
+import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
+import cn.edu.ncepu.crypto.application.llw15.RBACLLW15Engine;
+import cn.edu.ncepu.crypto.utils.CommonUtils;
+import cn.edu.ncepu.crypto.utils.PairingUtils;
+import it.unisa.dia.gas.jpbc.PairingParameters;
+import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
+import junit.framework.TestCase;
 import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.crypto.InvalidCipherTextException;
 import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import cn.edu.ncepu.crypto.algebra.serparams.PairingCipherSerParameter;
-import cn.edu.ncepu.crypto.algebra.serparams.PairingKeyEncapsulationSerPair;
-import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerPair;
-import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerParameter;
-import cn.edu.ncepu.crypto.application.llw15.RBACLLW15Engine;
-import cn.edu.ncepu.crypto.utils.PairingUtils;
-import it.unisa.dia.gas.jpbc.PairingParameters;
-import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
-import junit.framework.TestCase;
+import java.io.IOException;
+import java.util.Arrays;
 
 /**
  * Created by Weiran Liu on 16/6/19.
@@ -99,8 +99,8 @@ public class RBACLLW15EngineJUnitTest extends TestCase {
 			throws InvalidCipherTextException, IOException, ClassNotFoundException {
 		// KeyGen and serialization
 		PairingKeySerParameter accessCredentialP = engine.ACGenP(publicKey, masterKey, identity);
-		byte[] byteArrayAccessCredentialP = PairingUtils.SerCipherParameter(accessCredentialP);
-		CipherParameters anAccessCredentialP = PairingUtils.deserCipherParameters(byteArrayAccessCredentialP);
+		byte[] byteArrayAccessCredentialP = CommonUtils.SerObject(accessCredentialP);
+		CipherParameters anAccessCredentialP = (CipherParameters) CommonUtils.deserObject(byteArrayAccessCredentialP);
 		Assert.assertEquals(accessCredentialP, anAccessCredentialP);
 		accessCredentialP = (PairingKeySerParameter) anAccessCredentialP;
 
@@ -108,8 +108,8 @@ public class RBACLLW15EngineJUnitTest extends TestCase {
 		PairingKeyEncapsulationSerPair encapsulationSerPair = engine.EHREnc(publicKey, encIdentity, roles, encTime);
 		byte[] sessionKey = encapsulationSerPair.getSessionKey();
 		PairingCipherSerParameter ciphertext = encapsulationSerPair.getHeader();
-		byte[] byteArrayCiphertext = PairingUtils.SerCipherParameter(ciphertext);
-		CipherParameters anCiphertext = PairingUtils.deserCipherParameters(byteArrayCiphertext);
+		byte[] byteArrayCiphertext = CommonUtils.SerObject(ciphertext);
+		CipherParameters anCiphertext = (CipherParameters) CommonUtils.deserObject(byteArrayCiphertext);
 		Assert.assertEquals(ciphertext, anCiphertext);
 		ciphertext = (PairingCipherSerParameter) anCiphertext;
 
@@ -124,14 +124,14 @@ public class RBACLLW15EngineJUnitTest extends TestCase {
 			throws InvalidCipherTextException, IOException, ClassNotFoundException {
 		// generate intermediate
 		PairingCipherSerParameter intermediateParameter = engine.IntermediateGen(publicKey);
-		byte[] byteArrayIntermediateParameter = PairingUtils.SerCipherParameter(intermediateParameter);
-		CipherParameters anIntermediateParameter = PairingUtils.deserCipherParameters(byteArrayIntermediateParameter);
+		byte[] byteArrayIntermediateParameter = CommonUtils.SerObject(intermediateParameter);
+		CipherParameters anIntermediateParameter = (CipherParameters) CommonUtils.deserObject(byteArrayIntermediateParameter);
 		intermediateParameter = (PairingCipherSerParameter) anIntermediateParameter;
 
 		// KeyGen and serialization
 		PairingKeySerParameter accessCredentialP = engine.ACGenP(publicKey, masterKey, intermediateParameter, identity);
-		byte[] byteArrayAccessCredentialP = PairingUtils.SerCipherParameter(accessCredentialP);
-		CipherParameters anAccessCredentialP = PairingUtils.deserCipherParameters(byteArrayAccessCredentialP);
+		byte[] byteArrayAccessCredentialP = CommonUtils.SerObject(accessCredentialP);
+		CipherParameters anAccessCredentialP = (CipherParameters) CommonUtils.deserObject(byteArrayAccessCredentialP);
 		Assert.assertEquals(accessCredentialP, anAccessCredentialP);
 		accessCredentialP = (PairingKeySerParameter) anAccessCredentialP;
 
@@ -140,8 +140,8 @@ public class RBACLLW15EngineJUnitTest extends TestCase {
 				encIdentity, roles, encTime);
 		byte[] sessionKey = encapsulationSerPair.getSessionKey();
 		PairingCipherSerParameter ciphertext = encapsulationSerPair.getHeader();
-		byte[] byteArrayCiphertext = PairingUtils.SerCipherParameter(ciphertext);
-		CipherParameters anCiphertext = PairingUtils.deserCipherParameters(byteArrayCiphertext);
+		byte[] byteArrayCiphertext = CommonUtils.SerObject(ciphertext);
+		CipherParameters anCiphertext = (CipherParameters) CommonUtils.deserObject(byteArrayCiphertext);
 		Assert.assertEquals(ciphertext, anCiphertext);
 		ciphertext = (PairingCipherSerParameter) anCiphertext;
 
@@ -210,8 +210,8 @@ public class RBACLLW15EngineJUnitTest extends TestCase {
 			throws InvalidCipherTextException, IOException, ClassNotFoundException {
 		// KeyGen and serialization
 		PairingKeySerParameter accessCredentialM = engine.ACGenM(publicKey, masterKey, medicalRoles, medicalTime);
-		byte[] byteArrayAccessCredentialM = PairingUtils.SerCipherParameter(accessCredentialM);
-		CipherParameters anAccessCredentialM = PairingUtils.deserCipherParameters(byteArrayAccessCredentialM);
+		byte[] byteArrayAccessCredentialM = CommonUtils.SerObject(accessCredentialM);
+		CipherParameters anAccessCredentialM = (CipherParameters) CommonUtils.deserObject(byteArrayAccessCredentialM);
 		Assert.assertEquals(accessCredentialM, anAccessCredentialM);
 		accessCredentialM = (PairingKeySerParameter) anAccessCredentialM;
 
@@ -219,8 +219,8 @@ public class RBACLLW15EngineJUnitTest extends TestCase {
 		PairingKeyEncapsulationSerPair encapsulationSerPair = engine.EHREnc(publicKey, encIdentity, roles, encTime);
 		byte[] sessionKey = encapsulationSerPair.getSessionKey();
 		PairingCipherSerParameter ciphertext = encapsulationSerPair.getHeader();
-		byte[] byteArrayCiphertext = PairingUtils.SerCipherParameter(ciphertext);
-		CipherParameters anCiphertext = PairingUtils.deserCipherParameters(byteArrayCiphertext);
+		byte[] byteArrayCiphertext = CommonUtils.SerObject(ciphertext);
+		CipherParameters anCiphertext = (CipherParameters) CommonUtils.deserObject(byteArrayCiphertext);
 		Assert.assertEquals(ciphertext, anCiphertext);
 		ciphertext = (PairingCipherSerParameter) anCiphertext;
 
@@ -235,15 +235,15 @@ public class RBACLLW15EngineJUnitTest extends TestCase {
 			String encIdentity, String encTime) throws InvalidCipherTextException, IOException, ClassNotFoundException {
 		// generate intermediate
 		PairingCipherSerParameter intermediateParameter = engine.IntermediateGen(publicKey);
-		byte[] byteArrayIntermediateParameter = PairingUtils.SerCipherParameter(intermediateParameter);
-		CipherParameters anIntermediateParameter = PairingUtils.deserCipherParameters(byteArrayIntermediateParameter);
+		byte[] byteArrayIntermediateParameter = CommonUtils.SerObject(intermediateParameter);
+		CipherParameters anIntermediateParameter = (CipherParameters) CommonUtils.deserObject(byteArrayIntermediateParameter);
 		intermediateParameter = (PairingCipherSerParameter) anIntermediateParameter;
 
 		// KeyGen and serialization
 		PairingKeySerParameter accessCredentialM = engine.ACGenM(publicKey, masterKey, intermediateParameter,
 				medicalRoles, medicalTime);
-		byte[] byteArrayAccessCredentialM = PairingUtils.SerCipherParameter(accessCredentialM);
-		CipherParameters anAccessCredentialM = PairingUtils.deserCipherParameters(byteArrayAccessCredentialM);
+		byte[] byteArrayAccessCredentialM = CommonUtils.SerObject(accessCredentialM);
+		CipherParameters anAccessCredentialM = (CipherParameters) CommonUtils.deserObject(byteArrayAccessCredentialM);
 		Assert.assertEquals(accessCredentialM, anAccessCredentialM);
 		accessCredentialM = (PairingKeySerParameter) anAccessCredentialM;
 
@@ -252,8 +252,8 @@ public class RBACLLW15EngineJUnitTest extends TestCase {
 				encIdentity, roles, encTime);
 		byte[] sessionKey = encapsulationSerPair.getSessionKey();
 		PairingCipherSerParameter ciphertext = encapsulationSerPair.getHeader();
-		byte[] byteArrayCiphertext = PairingUtils.SerCipherParameter(ciphertext);
-		CipherParameters anCiphertext = PairingUtils.deserCipherParameters(byteArrayCiphertext);
+		byte[] byteArrayCiphertext = CommonUtils.SerObject(ciphertext);
+		CipherParameters anCiphertext = (CipherParameters) CommonUtils.deserObject(byteArrayCiphertext);
 		Assert.assertEquals(ciphertext, anCiphertext);
 		ciphertext = (PairingCipherSerParameter) anCiphertext;
 
@@ -327,8 +327,8 @@ public class RBACLLW15EngineJUnitTest extends TestCase {
 		PairingKeySerParameter accessCredentialM = engine.ACGenM(publicKey, masterKey, medicalRoles, medicalTime);
 		PairingKeySerParameter accessCredentialDeleM = engine.ACDeleM(publicKey, accessCredentialM, index, role);
 
-		byte[] byteArrayAccessCredentialDeleM = PairingUtils.SerCipherParameter(accessCredentialDeleM);
-		CipherParameters anAccessCredentialDeleM = PairingUtils.deserCipherParameters(byteArrayAccessCredentialDeleM);
+		byte[] byteArrayAccessCredentialDeleM = CommonUtils.SerObject(accessCredentialDeleM);
+		CipherParameters anAccessCredentialDeleM = (CipherParameters) CommonUtils.deserObject(byteArrayAccessCredentialDeleM);
 		Assert.assertEquals(accessCredentialDeleM, anAccessCredentialDeleM);
 		accessCredentialDeleM = (PairingKeySerParameter) anAccessCredentialDeleM;
 
@@ -336,8 +336,8 @@ public class RBACLLW15EngineJUnitTest extends TestCase {
 		PairingKeyEncapsulationSerPair encapsulationSerPair = engine.EHREnc(publicKey, encIdentity, roles, encTime);
 		byte[] sessionKey = encapsulationSerPair.getSessionKey();
 		PairingCipherSerParameter ciphertext = encapsulationSerPair.getHeader();
-		byte[] byteArrayCiphertext = PairingUtils.SerCipherParameter(ciphertext);
-		CipherParameters anCiphertext = PairingUtils.deserCipherParameters(byteArrayCiphertext);
+		byte[] byteArrayCiphertext = CommonUtils.SerObject(ciphertext);
+		CipherParameters anCiphertext = (CipherParameters) CommonUtils.deserObject(byteArrayCiphertext);
 		Assert.assertEquals(ciphertext, anCiphertext);
 		ciphertext = (PairingCipherSerParameter) anCiphertext;
 
@@ -353,8 +353,8 @@ public class RBACLLW15EngineJUnitTest extends TestCase {
 			throws InvalidCipherTextException, IOException, ClassNotFoundException {
 		// generate intermediate
 		PairingCipherSerParameter intermediateParameter = engine.IntermediateGen(publicKey);
-		byte[] byteArrayIntermediateParameter = PairingUtils.SerCipherParameter(intermediateParameter);
-		CipherParameters anIntermediateParameter = PairingUtils.deserCipherParameters(byteArrayIntermediateParameter);
+		byte[] byteArrayIntermediateParameter = CommonUtils.SerObject(intermediateParameter);
+		CipherParameters anIntermediateParameter = (CipherParameters) CommonUtils.deserObject(byteArrayIntermediateParameter);
 		intermediateParameter = (PairingCipherSerParameter) anIntermediateParameter;
 
 		// Delegation and serialization
@@ -362,8 +362,8 @@ public class RBACLLW15EngineJUnitTest extends TestCase {
 		PairingKeySerParameter accessCredentialDeleM = engine.ACDeleM(publicKey, accessCredentialM,
 				intermediateParameter, index, role);
 
-		byte[] byteArrayAccessCredentialDeleM = PairingUtils.SerCipherParameter(accessCredentialDeleM);
-		CipherParameters anAccessCredentialDeleM = PairingUtils.deserCipherParameters(byteArrayAccessCredentialDeleM);
+		byte[] byteArrayAccessCredentialDeleM = CommonUtils.SerObject(accessCredentialDeleM);
+		CipherParameters anAccessCredentialDeleM = (CipherParameters) CommonUtils.deserObject(byteArrayAccessCredentialDeleM);
 		Assert.assertEquals(accessCredentialDeleM, anAccessCredentialDeleM);
 		accessCredentialDeleM = (PairingKeySerParameter) anAccessCredentialDeleM;
 
@@ -372,8 +372,8 @@ public class RBACLLW15EngineJUnitTest extends TestCase {
 				encIdentity, roles, encTime);
 		byte[] sessionKey = encapsulationSerPair.getSessionKey();
 		PairingCipherSerParameter ciphertext = encapsulationSerPair.getHeader();
-		byte[] byteArrayCiphertext = PairingUtils.SerCipherParameter(ciphertext);
-		CipherParameters anCiphertext = PairingUtils.deserCipherParameters(byteArrayCiphertext);
+		byte[] byteArrayCiphertext = CommonUtils.SerObject(ciphertext);
+		CipherParameters anCiphertext = (CipherParameters) CommonUtils.deserObject(byteArrayCiphertext);
 		Assert.assertEquals(ciphertext, anCiphertext);
 		ciphertext = (PairingCipherSerParameter) anCiphertext;
 
@@ -394,14 +394,14 @@ public class RBACLLW15EngineJUnitTest extends TestCase {
 			// Setup and serialization
 			PairingKeySerPair keyPair = engine.Setup(pairingParameters, roles13467.length);
 			PairingKeySerParameter publicKey = keyPair.getPublic();
-			byte[] byteArrayPublicKey = PairingUtils.SerCipherParameter(publicKey);
-			CipherParameters anPublicKey = PairingUtils.deserCipherParameters(byteArrayPublicKey);
+			byte[] byteArrayPublicKey = CommonUtils.SerObject(publicKey);
+			CipherParameters anPublicKey = (CipherParameters) CommonUtils.deserObject(byteArrayPublicKey);
 			Assert.assertEquals(publicKey, anPublicKey);
 			publicKey = (PairingKeySerParameter) anPublicKey;
 
 			PairingKeySerParameter masterKey = keyPair.getPrivate();
-			byte[] byteArrayMasterKey = PairingUtils.SerCipherParameter(masterKey);
-			CipherParameters anMasterKey = PairingUtils.deserCipherParameters(byteArrayMasterKey);
+			byte[] byteArrayMasterKey = CommonUtils.SerObject(masterKey);
+			CipherParameters anMasterKey = (CipherParameters) CommonUtils.deserObject(byteArrayMasterKey);
 			Assert.assertEquals(masterKey, anMasterKey);
 			masterKey = (PairingKeySerParameter) anMasterKey;
 

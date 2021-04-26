@@ -1,10 +1,5 @@
 package cn.edu.ncepu.crypto.encryption.abe.cpabe.llw14.generators;
 
-import java.io.IOException;
-
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.CryptoException;
-
 import cn.edu.ncepu.crypto.algebra.serparams.AsymmetricKeySerParameter;
 import cn.edu.ncepu.crypto.algebra.serparams.PairingCipherSerParameter;
 import cn.edu.ncepu.crypto.algebra.serparams.PairingKeyEncapsulationSerPair;
@@ -14,10 +9,15 @@ import cn.edu.ncepu.crypto.encryption.abe.cpabe.llw14.serparams.CPABELLW14Cipher
 import cn.edu.ncepu.crypto.encryption.abe.cpabe.llw14.serparams.CPABELLW14HeaderSerParameter;
 import cn.edu.ncepu.crypto.encryption.abe.cpabe.llw14.serparams.CPABELLW14PublicKeySerParameter;
 import cn.edu.ncepu.crypto.encryption.abe.cpabe.rw13.generators.CPABERW13EncryptionGenerator;
+import cn.edu.ncepu.crypto.utils.CommonUtils;
 import cn.edu.ncepu.crypto.utils.PairingUtils;
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Pairing;
 import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
+import org.bouncycastle.crypto.CipherParameters;
+import org.bouncycastle.crypto.CryptoException;
+
+import java.io.IOException;
 
 /**
  * Created by Weiran Liu on 2016/12/28.
@@ -57,9 +57,9 @@ public class CPABELLW14EncryptionGenerator extends CPABERW13EncryptionGenerator 
 			this.C03 = publicKeyParameter.getG().powZn(t0).getImmutable();
 			AsymmetricKeySerParameter chameleonHashPublicKey = publicKeyParameter.getChameleonHashPublicKey();
 			chameleonHasher.init(false, chameleonHashPublicKey);
-			byte[] byteArrayChPublicKey = PairingUtils.SerCipherParameter(chameleonHashPublicKey);
+			byte[] byteArrayChPublicKey = CommonUtils.SerObject(chameleonHashPublicKey);
 			chameleonHasher.update(byteArrayChPublicKey, 0, byteArrayChPublicKey.length);
-			byte[] byteArrayAccessControlParameter = PairingUtils.SerCipherParameter(accessControlParameter);
+			byte[] byteArrayAccessControlParameter = CommonUtils.SerObject(accessControlParameter);
 			chameleonHasher.update(byteArrayAccessControlParameter, 0, byteArrayAccessControlParameter.length);
 			if (this.parameter.getMessage() != null) {
 				Element C = this.sessionKey.mul(this.parameter.getMessage()).getImmutable();

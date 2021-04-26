@@ -1,11 +1,5 @@
 package cn.edu.ncepu.crypto.encryption.abe.cpabe.llw16.generators;
 
-import java.io.IOException;
-
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.CryptoException;
-import org.bouncycastle.crypto.InvalidCipherTextException;
-
 import cn.edu.ncepu.crypto.access.AccessControlEngine;
 import cn.edu.ncepu.crypto.access.AccessControlParameter;
 import cn.edu.ncepu.crypto.algebra.serparams.AsymmetricKeySerParameter;
@@ -15,10 +9,16 @@ import cn.edu.ncepu.crypto.encryption.abe.cpabe.hw14.generators.CPABEHW14Decrypt
 import cn.edu.ncepu.crypto.encryption.abe.cpabe.llw16.serparams.CPABELLW16CiphertextSerParameter;
 import cn.edu.ncepu.crypto.encryption.abe.cpabe.llw16.serparams.CPABELLW16HeaderSerParameter;
 import cn.edu.ncepu.crypto.encryption.abe.cpabe.llw16.serparams.CPABELLW16PublicKeySerParameter;
+import cn.edu.ncepu.crypto.utils.CommonUtils;
 import cn.edu.ncepu.crypto.utils.PairingUtils;
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Pairing;
 import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
+import org.bouncycastle.crypto.CipherParameters;
+import org.bouncycastle.crypto.CryptoException;
+import org.bouncycastle.crypto.InvalidCipherTextException;
+
+import java.io.IOException;
 
 /**
  * Created by Weiran Liu on 2017/1/3.
@@ -71,9 +71,9 @@ public class CPABELLW16DecryptionGenerator extends CPABEHW14DecryptionGenerator 
 		// compute Xch
 		try {
 			chameleonHasher.init(false, chameleonHashPublicKey);
-			byte[] byteArrayChPublicKey = PairingUtils.SerCipherParameter(chameleonHashPublicKey);
+			byte[] byteArrayChPublicKey = CommonUtils.SerObject(chameleonHashPublicKey);
 			chameleonHasher.update(byteArrayChPublicKey, 0, byteArrayChPublicKey.length);
-			byte[] byteArrayAccessControlParameter = PairingUtils.SerCipherParameter(accessControlParameter);
+			byte[] byteArrayAccessControlParameter = CommonUtils.SerObject(accessControlParameter);
 			chameleonHasher.update(byteArrayAccessControlParameter, 0, byteArrayAccessControlParameter.length);
 			if (headerParameter instanceof CPABELLW16CiphertextSerParameter) {
 				Element C = ((CPABELLW16CiphertextSerParameter) headerParameter).getC().getImmutable();

@@ -1,11 +1,5 @@
 package cn.edu.ncepu.crypto.encryption.abe.cpabe.llw16.generators;
 
-import java.io.IOException;
-
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.CryptoException;
-import org.bouncycastle.crypto.KeyGenerationParameters;
-
 import cn.edu.ncepu.crypto.algebra.generators.AsymmetricKeySerPairGenerator;
 import cn.edu.ncepu.crypto.algebra.serparams.AsymmetricKeySerPair;
 import cn.edu.ncepu.crypto.algebra.serparams.AsymmetricKeySerParameter;
@@ -15,10 +9,16 @@ import cn.edu.ncepu.crypto.encryption.abe.cpabe.genparams.CPABEIntermediateGener
 import cn.edu.ncepu.crypto.encryption.abe.cpabe.hw14.generators.CPABEHW14IntermediateGenerator;
 import cn.edu.ncepu.crypto.encryption.abe.cpabe.llw16.serparams.CPABELLW16IntermediateSerParameter;
 import cn.edu.ncepu.crypto.encryption.abe.cpabe.llw16.serparams.CPABELLW16PublicKeySerParameter;
+import cn.edu.ncepu.crypto.utils.CommonUtils;
 import cn.edu.ncepu.crypto.utils.PairingUtils;
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Pairing;
 import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
+import org.bouncycastle.crypto.CipherParameters;
+import org.bouncycastle.crypto.CryptoException;
+import org.bouncycastle.crypto.KeyGenerationParameters;
+
+import java.io.IOException;
 
 /**
  * Created by Weiran Liu on 17/1/2.
@@ -58,7 +58,7 @@ public class CPABELLW16IntermediateGenerator extends CPABEHW14IntermediateGenera
 		try {
 			Pairing pairing = PairingFactory.getPairing(publicKeyParameter.getParameters());
 			chameleonHasher.init(false, chameleonHashPublicKey);
-			byte[] byteArrayChameleonHashPublicKey = PairingUtils.SerCipherParameter(chameleonHashPublicKey);
+			byte[] byteArrayChameleonHashPublicKey = CommonUtils.SerObject(chameleonHashPublicKey);
 			chameleonHasher.update(byteArrayChameleonHashPublicKey, 0, byteArrayChameleonHashPublicKey.length);
 			byte[][] chResult = chameleonHasher.computeHash();
 			this.chameleonHash = chResult[0];

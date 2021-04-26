@@ -1,11 +1,5 @@
 package cn.edu.ncepu.crypto.encryption.abe.cpabe.llw14.generators;
 
-import java.io.IOException;
-
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.CryptoException;
-import org.bouncycastle.crypto.InvalidCipherTextException;
-
 import cn.edu.ncepu.crypto.access.AccessControlEngine;
 import cn.edu.ncepu.crypto.access.AccessControlParameter;
 import cn.edu.ncepu.crypto.algebra.serparams.AsymmetricKeySerParameter;
@@ -15,10 +9,16 @@ import cn.edu.ncepu.crypto.encryption.abe.cpabe.llw14.serparams.CPABELLW14Cipher
 import cn.edu.ncepu.crypto.encryption.abe.cpabe.llw14.serparams.CPABELLW14HeaderSerParameter;
 import cn.edu.ncepu.crypto.encryption.abe.cpabe.llw14.serparams.CPABELLW14PublicKeySerParameter;
 import cn.edu.ncepu.crypto.encryption.abe.cpabe.rw13.generators.CPABERW13DecryptionGenerator;
+import cn.edu.ncepu.crypto.utils.CommonUtils;
 import cn.edu.ncepu.crypto.utils.PairingUtils;
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Pairing;
 import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
+import org.bouncycastle.crypto.CipherParameters;
+import org.bouncycastle.crypto.CryptoException;
+import org.bouncycastle.crypto.InvalidCipherTextException;
+
+import java.io.IOException;
 
 /**
  * Created by Weiran Liu on 2016/12/31.
@@ -66,9 +66,9 @@ public class CPABELLW14DecryptionGenerator extends CPABERW13DecryptionGenerator 
 		try {
 			AsymmetricKeySerParameter chameleonHashPublicKey = publicKeyParameter.getChameleonHashPublicKey();
 			chameleonHasher.init(false, chameleonHashPublicKey);
-			byte[] byteArrayChPublicKey = PairingUtils.SerCipherParameter(chameleonHashPublicKey);
+			byte[] byteArrayChPublicKey = CommonUtils.SerObject(chameleonHashPublicKey);
 			chameleonHasher.update(byteArrayChPublicKey, 0, byteArrayChPublicKey.length);
-			byte[] byteArrayAccessControlParameter = PairingUtils.SerCipherParameter(accessControlParameter);
+			byte[] byteArrayAccessControlParameter = CommonUtils.SerObject(accessControlParameter);
 			chameleonHasher.update(byteArrayAccessControlParameter, 0, byteArrayAccessControlParameter.length);
 			if (headerParameter instanceof CPABELLW14CiphertextSerParameter) {
 				Element C = ((CPABELLW14CiphertextSerParameter) headerParameter).getC().getImmutable();

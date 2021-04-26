@@ -13,6 +13,7 @@ import cn.edu.ncepu.crypto.signature.pks.bb08.BB08Signer;
 import cn.edu.ncepu.crypto.signature.pks.bls01.BLS01SignKeyPairGenerationParameter;
 import cn.edu.ncepu.crypto.signature.pks.bls01.BLS01SignKeyPairGenerator;
 import cn.edu.ncepu.crypto.signature.pks.bls01.BLS01Signer;
+import cn.edu.ncepu.crypto.utils.CommonUtils;
 import cn.edu.ncepu.crypto.utils.PairingUtils;
 import it.unisa.dia.gas.jpbc.PairingParameters;
 import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
@@ -85,14 +86,14 @@ public class PKSSignerTest {
     try {
       // serialize public key
       logger.info("Test serialize & de-serialize public key.");
-      byte[] byteArrayPublicKey = PairingUtils.SerCipherParameter(publicKey);
-      CipherParameters anPublicKey = PairingUtils.deserCipherParameters(byteArrayPublicKey);
+      byte[] byteArrayPublicKey = CommonUtils.SerObject(publicKey);
+      CipherParameters anPublicKey = (CipherParameters) CommonUtils.deserObject(byteArrayPublicKey);
       assertEquals(publicKey, anPublicKey);
       // serialize secret key
       logger.info("Test serialize & de-serialize secret keys.");
       // serialize sk
-      byte[] byteArraySecretKey = PairingUtils.SerCipherParameter(secretKey);
-      CipherParameters anSecretKey = PairingUtils.deserCipherParameters(byteArraySecretKey);
+      byte[] byteArraySecretKey = CommonUtils.SerObject(secretKey);
+      CipherParameters anSecretKey = (CipherParameters) CommonUtils.deserObject(byteArraySecretKey);
       assertEquals(secretKey, anSecretKey);
       logger.info("Signer parameter serialization tests passed.");
     } catch (Exception e) {

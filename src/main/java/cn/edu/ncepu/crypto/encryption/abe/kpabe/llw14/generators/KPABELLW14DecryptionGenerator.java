@@ -1,12 +1,5 @@
 package cn.edu.ncepu.crypto.encryption.abe.kpabe.llw14.generators;
 
-import java.io.IOException;
-import java.util.Arrays;
-
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.CryptoException;
-import org.bouncycastle.crypto.InvalidCipherTextException;
-
 import cn.edu.ncepu.crypto.algebra.serparams.AsymmetricKeySerParameter;
 import cn.edu.ncepu.crypto.chameleonhash.ChameleonHasher;
 import cn.edu.ncepu.crypto.encryption.abe.kpabe.genparams.KPABEDecryptionGenerationParameter;
@@ -14,10 +7,17 @@ import cn.edu.ncepu.crypto.encryption.abe.kpabe.llw14.serparams.KPABELLW14Cipher
 import cn.edu.ncepu.crypto.encryption.abe.kpabe.llw14.serparams.KPABELLW14HeaderSerParameter;
 import cn.edu.ncepu.crypto.encryption.abe.kpabe.llw14.serparams.KPABELLW14PublicKeySerParameter;
 import cn.edu.ncepu.crypto.encryption.abe.kpabe.rw13.generators.KPABERW13DecryptionGenerator;
+import cn.edu.ncepu.crypto.utils.CommonUtils;
 import cn.edu.ncepu.crypto.utils.PairingUtils;
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Pairing;
 import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
+import org.bouncycastle.crypto.CipherParameters;
+import org.bouncycastle.crypto.CryptoException;
+import org.bouncycastle.crypto.InvalidCipherTextException;
+
+import java.io.IOException;
+import java.util.Arrays;
 
 /**
  * Created by Weiran Liu on 2017/1/1.
@@ -58,7 +58,7 @@ public class KPABELLW14DecryptionGenerator extends KPABERW13DecryptionGenerator 
 		try {
 			AsymmetricKeySerParameter chameleonHashPublicKey = publicKeyParameter.getChameleonHashPublicKey();
 			chameleonHasher.init(false, chameleonHashPublicKey);
-			byte[] byteArrayChPublicKey = PairingUtils.SerCipherParameter(chameleonHashPublicKey);
+			byte[] byteArrayChPublicKey = CommonUtils.SerObject(chameleonHashPublicKey);
 			chameleonHasher.update(byteArrayChPublicKey, 0, byteArrayChPublicKey.length);
 			if (headerParameter instanceof KPABELLW14CiphertextSerParameter) {
 				Element C = ((KPABELLW14CiphertextSerParameter) headerParameter).getC().getImmutable();

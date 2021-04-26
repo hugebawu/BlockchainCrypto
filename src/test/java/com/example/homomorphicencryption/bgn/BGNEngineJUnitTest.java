@@ -8,6 +8,7 @@ import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerPair;
 import cn.edu.ncepu.crypto.homomorphicEncryption.bgn.BGNEngine;
 import cn.edu.ncepu.crypto.homomorphicEncryption.bgn.BGNPrivateKeySerParameter;
 import cn.edu.ncepu.crypto.homomorphicEncryption.bgn.BGNPublicKeySerParameter;
+import cn.edu.ncepu.crypto.utils.CommonUtils;
 import cn.edu.ncepu.crypto.utils.PairingUtils;
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.PairingParameters;
@@ -43,13 +44,13 @@ public class BGNEngineJUnitTest {
             BGNPrivateKeySerParameter privateKey = (BGNPrivateKeySerParameter) keyPair.getPrivate();
 
             //test serialization and deserialization
-            byte[] byteArrayPublicKey = PairingUtils.SerCipherParameter(publicKey);
-            CipherParameters anPublicKey = PairingUtils.deserCipherParameters(byteArrayPublicKey);
+            byte[] byteArrayPublicKey = CommonUtils.SerObject(publicKey);
+            CipherParameters anPublicKey = (CipherParameters) CommonUtils.deserObject(byteArrayPublicKey);
             Assert.assertEquals(publicKey, anPublicKey);
             publicKey = (BGNPublicKeySerParameter) anPublicKey;
 
-            byte[] byteArrayPrivateKey = PairingUtils.SerCipherParameter(privateKey);
-            CipherParameters anPrivateKey = PairingUtils.deserCipherParameters(byteArrayPrivateKey);
+            byte[] byteArrayPrivateKey = CommonUtils.SerObject(privateKey);
+            CipherParameters anPrivateKey = (CipherParameters) CommonUtils.deserObject(byteArrayPrivateKey);
             Assert.assertEquals(privateKey, anPrivateKey);
             privateKey = (BGNPrivateKeySerParameter) anPrivateKey;
 

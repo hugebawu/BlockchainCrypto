@@ -3,27 +3,11 @@
  */
 package com.example.utils;
 
-import static org.junit.Assert.assertEquals;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.math.BigInteger;
-import java.nio.charset.StandardCharsets;
-import java.security.InvalidAlgorithmParameterException;
-import java.security.InvalidKeyException;
-import java.security.KeyPair;
-import java.security.KeyStore;
-import java.security.NoSuchAlgorithmException;
-import java.security.PrivateKey;
-import java.security.PublicKey;
-import java.security.SignatureException;
-import java.security.cert.X509Certificate;
-import java.security.interfaces.ECPrivateKey;
-import java.security.interfaces.ECPublicKey;
-import java.util.UUID;
-
+import cn.edu.ncepu.crypto.utils.CertificateUtils;
+import cn.edu.ncepu.crypto.utils.CertificateUtils.JKeyStoreType;
+import cn.edu.ncepu.crypto.utils.CommonUtils;
+import cn.edu.ncepu.crypto.utils.EccUtils;
+import cn.edu.ncepu.crypto.utils.SysProperty;
 import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.codec.digest.DigestUtils;
@@ -33,12 +17,24 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import cn.edu.ncepu.crypto.signature.ecdsa.ECDSASigner;
-import cn.edu.ncepu.crypto.utils.CertificateUtils;
-import cn.edu.ncepu.crypto.utils.CertificateUtils.JKeyStoreType;
-import cn.edu.ncepu.crypto.utils.CommonUtils;
-import cn.edu.ncepu.crypto.utils.EccUtils;
-import cn.edu.ncepu.crypto.utils.SysProperty;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.math.BigInteger;
+import java.nio.charset.StandardCharsets;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.KeyPair;
+import java.security.KeyStore;
+import java.security.NoSuchAlgorithmException;
+import java.security.PrivateKey;
+import java.security.PublicKey;
+import java.security.cert.X509Certificate;
+import java.security.interfaces.ECPrivateKey;
+import java.security.interfaces.ECPublicKey;
+import java.util.UUID;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * @Copyright : Copyright (c) 2020-2021 
@@ -277,31 +273,11 @@ public class CommonUtilsTest {
 					USER_DIR + "/elements/ECPrivateKey.pem");
 			logger.info("Base64 publicKey length = " + EccUtils.publicKey2String(publicKey).length());
 			logger.info("Base64 privateKey length = " + EccUtils.privateKey2String(privateKey).length());
-
 			logger.info("Hex string publicKey length = " + Hex.encodeHexString(publicKey.getEncoded()).length());
 			logger.info("Hex string privateKey length = " + Hex.encodeHexString(privateKey.getEncoded()).length());
-			logger.info("========================================");
-			// signature
-			byte[] signed = ECDSASigner.sign(privateKey, "message".getBytes(StandardCharsets.UTF_8));
-			String signature = Hex.encodeHexString(signed);
-			logger.info("Hex Signature String = " + signature);
-			logger.info("Hex Signature length = " + signature.length());
-
-			// verify
-			if (false == ECDSASigner.verify(publicKey, "message".getBytes(StandardCharsets.UTF_8), signed)) {
-				logger.info("Verify passed for invalid signature, test abort...");
-				System.exit(0);
-			}
-			logger.info("ECDSA signer functionality test pass.");
-		} catch (InvalidKeyException e) {
-			logger.error(e.getLocalizedMessage());
 		} catch (NoSuchAlgorithmException e) {
 			e.printStackTrace();
-		} catch (SignatureException e) {
-			e.printStackTrace();
 		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-		} catch (DecoderException e) {
 			e.printStackTrace();
 		} catch (Exception e) {
 			//   Auto-generated catch block
@@ -323,19 +299,6 @@ public class CommonUtilsTest {
 
 			logger.info("Hex string publicKey length = " + Hex.encodeHexString(publicKey.getEncoded()).length());
 			logger.info("Hex string privateKey length = " + Hex.encodeHexString(privateKey.getEncoded()).length());
-			logger.info("========================================");
-			// signature
-			byte[] signed = ECDSASigner.sign(privateKey, "message".getBytes(StandardCharsets.UTF_8));
-			String signature = Hex.encodeHexString(signed);
-			logger.info("Hex Signature String = " + signature);
-			logger.info("Hex Signature length = " + signature.length());
-
-			// verify
-			if (false == ECDSASigner.verify(publicKey, "message".getBytes(StandardCharsets.UTF_8), signed)) {
-				logger.info("Verify passed for invalid signature, test abort...");
-				System.exit(0);
-			}
-			logger.info("ECDSA signer functionality test pass.");
 		} catch (Exception e) {
 			logger.error(e.getLocalizedMessage());
 		}

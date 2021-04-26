@@ -1,11 +1,5 @@
 package cn.edu.ncepu.crypto.encryption.re.llw16b.generators;
 
-import java.io.IOException;
-
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.CryptoException;
-import org.bouncycastle.crypto.KeyGenerationParameters;
-
 import cn.edu.ncepu.crypto.algebra.generators.AsymmetricKeySerPairGenerator;
 import cn.edu.ncepu.crypto.algebra.serparams.AsymmetricKeySerPair;
 import cn.edu.ncepu.crypto.algebra.serparams.AsymmetricKeySerParameter;
@@ -15,10 +9,16 @@ import cn.edu.ncepu.crypto.encryption.re.genparams.REIntermediateGenerationParam
 import cn.edu.ncepu.crypto.encryption.re.llw16a.generators.RELLW16aIntermediateGenerator;
 import cn.edu.ncepu.crypto.encryption.re.llw16b.serparams.RELLW16bIntermediateSerParameter;
 import cn.edu.ncepu.crypto.encryption.re.llw16b.serparams.RELLW16bPublicKeySerParameter;
+import cn.edu.ncepu.crypto.utils.CommonUtils;
 import cn.edu.ncepu.crypto.utils.PairingUtils;
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Pairing;
 import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
+import org.bouncycastle.crypto.CipherParameters;
+import org.bouncycastle.crypto.CryptoException;
+import org.bouncycastle.crypto.KeyGenerationParameters;
+
+import java.io.IOException;
 
 /**
  * Created by Weiran Liu on 2017/1/4.
@@ -57,7 +57,7 @@ public class RELLW16bIntermediateGenerator extends RELLW16aIntermediateGenerator
 		try {
 			Pairing pairing = PairingFactory.getPairing(publicKeyParameter.getParameters());
 			chameleonHasher.init(false, chameleonHashPublicKey);
-			byte[] byteArrayChameleonHashPublicKey = PairingUtils.SerCipherParameter(chameleonHashPublicKey);
+			byte[] byteArrayChameleonHashPublicKey = CommonUtils.SerObject(chameleonHashPublicKey);
 			chameleonHasher.update(byteArrayChameleonHashPublicKey, 0, byteArrayChameleonHashPublicKey.length);
 			byte[][] chResult = chameleonHasher.computeHash();
 			this.chameleonHash = chResult[0];

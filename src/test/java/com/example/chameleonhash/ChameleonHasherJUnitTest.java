@@ -1,15 +1,5 @@
 package com.example.chameleonhash;
 
-import java.io.IOException;
-import java.security.SecureRandom;
-import java.util.Arrays;
-
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.CryptoException;
-import org.bouncycastle.crypto.digests.SHA256Digest;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import cn.edu.ncepu.crypto.algebra.generators.AsymmetricKeySerPairGenerator;
 import cn.edu.ncepu.crypto.algebra.serparams.AsymmetricKeySerPair;
 import cn.edu.ncepu.crypto.algebra.serparams.AsymmetricKeySerParameter;
@@ -20,8 +10,17 @@ import cn.edu.ncepu.crypto.chameleonhash.kr00b.dlog.DLogKR00bHasher;
 import cn.edu.ncepu.crypto.chameleonhash.kr00b.dlog.DLogKR00bKeyGenerationParameters;
 import cn.edu.ncepu.crypto.chameleonhash.kr00b.dlog.DLogKR00bKeyPairGenerator;
 import cn.edu.ncepu.crypto.chameleonhash.kr00b.dlog.DLogKR00bUniversalHasher;
-import cn.edu.ncepu.crypto.utils.PairingUtils;
+import cn.edu.ncepu.crypto.utils.CommonUtils;
 import junit.framework.TestCase;
+import org.bouncycastle.crypto.CipherParameters;
+import org.bouncycastle.crypto.CryptoException;
+import org.bouncycastle.crypto.digests.SHA256Digest;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.io.IOException;
+import java.security.SecureRandom;
+import java.util.Arrays;
 
 /**
  * Created by Weiran Liu on 2016/10/20.
@@ -79,15 +78,15 @@ public class ChameleonHasherJUnitTest extends TestCase {
 			logger.info("Test signer parameters serialization & de-serialization.");
 			// serialize public key
 			logger.info("Test serialize & de-serialize public key.");
-			byte[] byteArrayPublicKey = PairingUtils.SerCipherParameter(publicKey);
-			CipherParameters anPublicKey = PairingUtils.deserCipherParameters(byteArrayPublicKey);
+			byte[] byteArrayPublicKey = CommonUtils.SerObject(publicKey);
+			CipherParameters anPublicKey = (CipherParameters) CommonUtils.deserObject(byteArrayPublicKey);
 			assertEquals(publicKey, anPublicKey);
 
 			// serialize secret key
 			logger.info("Test serialize & de-serialize secret keys.");
 			// serialize sk4
-			byte[] byteArraySecretKey = PairingUtils.SerCipherParameter(secretKey);
-			CipherParameters anSecretKey = PairingUtils.deserCipherParameters(byteArraySecretKey);
+			byte[] byteArraySecretKey = CommonUtils.SerObject(secretKey);
+			CipherParameters anSecretKey = (CipherParameters) CommonUtils.deserObject(byteArraySecretKey);
 			assertEquals(secretKey, anSecretKey);
 
 			logger.info("Signer parameter serialization tests passed.");

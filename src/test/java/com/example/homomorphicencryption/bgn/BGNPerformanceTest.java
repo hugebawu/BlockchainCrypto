@@ -111,18 +111,21 @@ public class BGNPerformanceTest {
             // test encryption performance
             out.print("Encryption: ");
             timer.start(0);
-            Element c1 = engine.encrypt(m1, pubKey);
+            byte[] byteArrayC1 = engine.encrypt(m1, pubKey);
             temperTime = timer.stop(0);
             logger.info("Encryption; " + "\t" + temperTime);
             out.println("\t" + temperTime);
             this.timeEncryption += temperTime;
 
-            Element c2 = engine.encrypt(m1, pubKey);
+            byte[] byteArrayC2 = engine.encrypt(m2, pubKey);
+
+            Element c1 = engine.derDecode(byteArrayC1, pubKey.getParameters());
+            Element c2 = engine.derDecode(byteArrayC2, pubKey.getParameters());
 
             // test decryption performance
             out.print("Decryption: ");
             timer.start(0);
-            int decrypted_m1 = engine.decrypt(c1, privKey);
+            int decrypted_m1 = engine.decrypt(byteArrayC1, privKey);
             temperTime = timer.stop(0);
             logger.info("Decryption; " + "\t" + temperTime);
             out.println("\t" + temperTime);

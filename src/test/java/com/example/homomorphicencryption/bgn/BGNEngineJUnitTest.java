@@ -56,10 +56,10 @@ public class BGNEngineJUnitTest {
 
             // encrypt
             int m = 100;
-            Element c = bgnEngine.encrypt(m, publicKey);
-            logger.info("ciphertext length: " + c.toBytes().length + " bytes");
+            byte[] byteArrayC = bgnEngine.encrypt(m, publicKey);
+            logger.info("ciphertext length: " + byteArrayC.length + " bytes");
             // decrypt
-            int decrypted_m = bgnEngine.decrypt(c, privateKey);
+            int decrypted_m = bgnEngine.decrypt(byteArrayC, privateKey);
             assertTrue(decrypted_m == m);
             logger.info("Encryption and Decryption test successfully.");
         } catch (Exception e) {
@@ -84,12 +84,15 @@ public class BGNEngineJUnitTest {
             BGNPrivateKeySerParameter privateKey = (BGNPrivateKeySerParameter) keyPair.getPrivate();
 
             int m1 = 20, m2 = 30, m3 = 40;
-            Element c1 = bgnEngine.encrypt(m1, publicKey);
-            Element c2 = bgnEngine.encrypt(m2, publicKey);
-            Element c3 = bgnEngine.encrypt(m3, publicKey);
+            byte[] byteArrayC1 = bgnEngine.encrypt(m1, publicKey);
+            byte[] byteArrayC2 = bgnEngine.encrypt(m2, publicKey);
+            byte[] byteArrayC3 = bgnEngine.encrypt(m3, publicKey);
 
+            Element c1 = bgnEngine.derDecode(byteArrayC1, privateKey.getParameters());
+            Element c2 = bgnEngine.derDecode(byteArrayC2, privateKey.getParameters());
+            Element c3 = bgnEngine.derDecode(byteArrayC3, privateKey.getParameters());
             Element c1mulc2mulc3 = bgnEngine.add(c3, bgnEngine.add(c1, c2));
-            int decrypted_m1plusm2plus3 = bgnEngine.decrypt(c1mulc2mulc3, privateKey);
+            int decrypted_m1plusm2plus3 = bgnEngine.decrypt(bgnEngine.derEncode(c1mulc2mulc3), privateKey);
             assertTrue(decrypted_m1plusm2plus3 == (m1 + m2 + m3));
             logger.info("Homomorphic addition tests successfully.");
         } catch (Exception e) {
@@ -114,9 +117,11 @@ public class BGNEngineJUnitTest {
             BGNPrivateKeySerParameter privateKey = (BGNPrivateKeySerParameter) keyPair.getPrivate();
 
             int m1 = 3, m2 = 33;
-            Element c1 = bgnEngine.encrypt(m1, publicKey);
+            byte[] byteArrayC1 = bgnEngine.encrypt(m1, publicKey);
+            Element c1 = bgnEngine.derDecode(byteArrayC1, publicKey.getParameters());
             Element c1expm2 = bgnEngine.mul1(c1, m2, publicKey);
-            int decrypted_c1expm2 = bgnEngine.decrypt(c1expm2, privateKey);
+            byte[] byteArrayc1expm2 = bgnEngine.derEncode(c1expm2);
+            int decrypted_c1expm2 = bgnEngine.decrypt(byteArrayc1expm2, privateKey);
             assertTrue(decrypted_c1expm2 == (m1 * m2));
             logger.info("Homomorphic multiplication-1 tests successfully.");
         } catch (Exception e) {
@@ -140,8 +145,10 @@ public class BGNEngineJUnitTest {
             BGNPublicKeySerParameter publicKey = (BGNPublicKeySerParameter) keyPair.getPublic();
             BGNPrivateKeySerParameter privateKey = (BGNPrivateKeySerParameter) keyPair.getPrivate();
             int m1 = 2, m2 = 33;
-            Element c1 = bgnEngine.encrypt(m1, publicKey);
-            Element c2 = bgnEngine.encrypt(m2, publicKey);
+            byte[] byteArrayC1 = bgnEngine.encrypt(m1, publicKey);
+            byte[] byteArrayC2 = bgnEngine.encrypt(m2, publicKey);
+            Element c1 = bgnEngine.derDecode(byteArrayC1, privateKey.getParameters());
+            Element c2 = bgnEngine.derDecode(byteArrayC2, privateKey.getParameters());
             Element c1_pairing_c2 = bgnEngine.mul2(c1, c2, publicKey);
             int decrypted_c1_pairing_c2 = bgnEngine.decrypt_mul2(c1_pairing_c2, privateKey);
             assertTrue(decrypted_c1_pairing_c2 == (m1 * m2));
@@ -166,9 +173,11 @@ public class BGNEngineJUnitTest {
             BGNPublicKeySerParameter publicKey = (BGNPublicKeySerParameter) keyPair.getPublic();
             BGNPrivateKeySerParameter privateKey = (BGNPrivateKeySerParameter) keyPair.getPrivate();
             int m = 88;
-            Element c = bgnEngine.encrypt(m, publicKey);
+            byte[] byteArrayC = bgnEngine.encrypt(m, publicKey);
+            Element c = bgnEngine.derDecode(byteArrayC, publicKey.getParameters());
             Element c_selfblind = bgnEngine.selfBlind(c, publicKey);
-            int decrypted_c_selfblind = bgnEngine.decrypt(c_selfblind, privateKey);
+            byte[] byteArrayc_selfblind = bgnEngine.derEncode(c_selfblind);
+            int decrypted_c_selfblind = bgnEngine.decrypt(byteArrayc_selfblind, privateKey);
             assertTrue(decrypted_c_selfblind == m);
             logger.info("Homomorphic self-blinding tests successfully.");
         } catch (Exception e) {

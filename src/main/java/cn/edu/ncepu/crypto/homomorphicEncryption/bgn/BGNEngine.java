@@ -9,9 +9,11 @@ import cn.edu.ncepu.crypto.algebra.serparams.PairingKeySerPair;
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Pairing;
 import it.unisa.dia.gas.jpbc.PairingParameters;
+import it.unisa.dia.gas.plaf.jpbc.field.curve.CurveElement;
 import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
 import org.bouncycastle.crypto.KeyGenerationParameters;
 
+import java.io.IOException;
 import java.math.BigInteger;
 import java.security.InvalidAlgorithmParameterException;
 
@@ -56,7 +58,7 @@ public class BGNEngine extends Engine {
      * @return: Element: The ciphertext.
      * @throws: If the plaintext is not in [0,1,2,...,n], there is an exception.
      **/
-    public Element encrypt(int m, BGNPublicKeySerParameter pubkey) throws Exception {
+    public byte[] encrypt(int m, BGNPublicKeySerParameter pubkey) throws Exception {
         if (m > M) {
             throw new Exception("plaintext m should be in [0,1,2,...," + M + "]");
         }
@@ -64,7 +66,8 @@ public class BGNEngine extends Engine {
         Element h = pubkey.getH();
         Pairing pairing = PairingFactory.getPairing(pubkey.getParameters());
         Element r = pairing.getZr().newRandomElement().getImmutable();
-        return g.pow(BigInteger.valueOf(m)).mul(h.powZn(r)).getImmutable(); // g^m * h^r
+        Element c = g.pow(BigInteger.valueOf(m)).mul(h.powZn(r)).getImmutable(); // g^m * h^r
+        return this.derEncode(c);
     }
 
     /*
@@ -75,7 +78,8 @@ public class BGNEngine extends Engine {
      * @return: int: The plaintext.
      * @throws: Exception If the plaintext is not in [0,1,2,...,n], there is an exception.
      **/
-    public int decrypt(Element c, BGNPrivateKeySerParameter prikey) throws Exception {
+    public int decrypt(byte[] byteArray, BGNPrivateKeySerParameter prikey) throws Exception {
+        Element c = this.derDecode(byteArray, prikey.getParameters());
         BigInteger p = prikey.getP();
         Element g = prikey.getG();
         Element cp = c.pow(p).getImmutable();
@@ -151,5 +155,28 @@ public class BGNEngine extends Engine {
         BigInteger r = pairing.getZr().newRandomElement().toBigInteger();
         Element h = pubkey.getH();
         return c1.mul(h.pow(r)).getImmutable();
+    }
+
+    /**
+     * @param signElement:
+     * @description: encode curve element into the compressed format
+     * @return: byte[]
+     * @throws:
+     **/
+    public byte[] derEncode(Element signElement) throws IOException {
+        return ((CurveElement<?, ?>) signElement).toBytesCompressed();
+    }
+
+    /**
+     * @param encoding:
+     * @description: decode byte compressed byteArray element into curveElement
+     * @return: it.unisa.dia.gas.jpbc.Element[]
+     * @throws:
+     **/
+    public Element derDecode(byte[] encoding, PairingParameters pairingParameters) throws IOException {
+        Pairing pairing = PairingFactory.getPairing(pairingParameters);
+        Element curveElement = pairing.getG1().newZeroElement();
+        ((CurveElement<?, ?>) curveElement).setFromBytesCompressed(encoding);
+        return curveElement;
     }
 }

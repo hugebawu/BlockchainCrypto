@@ -46,6 +46,13 @@ public class CLSign {
         return new KeyPair(pk, sk);
     }
 
+    /**
+     * @description: P10, generate a Pedersen commitment g^m(0) X PI(Z(i)^m(i)) of all the messages
+     * @param: messages
+     * @param: pk
+     * @return: it.unisa.dia.gas.jpbc.Element
+     * @throws:
+     **/
     public static Element commit(final List<ZrElement> messages, final PublicKey pk) {
         if (messages.size() != pk.getZ().size()) {
             throw new IllegalStateException("Public key should be generated with the correct message size");
@@ -60,8 +67,16 @@ public class CLSign {
         return doCommit(messages, pk);
     }
 
+    /**
+     * @description: generate proof of commitment
+     * @param: commitment
+     * @param: messages
+     * @param: pk
+     * @return: cn.edu.ncepu.crypto.signature.cl.proof.Proof
+     * @throws:
+     **/
     public static Proof proofCommitment(final Element commitment, final List<ZrElement> messages, final PublicKey pk) {
-        final List<Element> t = new ArrayList<>();
+        final List<Element> t = new ArrayList<>();// t contains the list of random numbers
         final Element proofComm = Prover.computeProofComm(pk, t, messages.size());
         final Element challenge = Prover.computeChallenge(commitment, proofComm, pk);
         final List<Element> s = Prover.computeProof(t, messages, challenge);
@@ -69,12 +84,29 @@ public class CLSign {
         return new Proof(proofComm, s);
     }
 
+    /**
+     * @description: getting a signature on a committed value without revealing this value to the signer
+     * @param: messages
+     * @param: keys
+     * @return: cn.edu.ncepu.crypto.signature.cl.sign.Signature
+     * @throws:
+     */
     public static Signature sign(final List<ZrElement> messages, final KeyPair keys) {
         final Element commitment = commit(messages, keys.getPk());
         return Sign.sign(commitment, keys);
     }
 
+    /**
+     * @description: sign the commitment after the commitment pass through ZKP
+     * @param: commitment
+     * @param: proof
+     * @param: keys
+     * @return: cn.edu.ncepu.crypto.signature.cl.sign.Signature
+     * @throws:
+     **/
     public static Signature signBlind(final Element commitment, final Proof proof, final KeyPair keys) {
+        // P10 To maintain security of the signature
+        // scheme, however, the user must prove knowledge of m to the signer.
         if (!Prover.verify(commitment, proof, keys.getPk())) {
             return null;
         }
@@ -100,6 +132,13 @@ public class CLSign {
                 && Verify.cFormedCorrectly(messages, sigma, pk);
     }
 
+    /**
+     * @description: generate a commitment g^m(0)XPI(Z(j)^m(j))
+     * @param: messages
+     * @param: pk
+     * @return: it.unisa.dia.gas.jpbc.Element
+     * @throws:
+     **/
     private static Element doCommit(final List<ZrElement> messages, final PublicKey pk) {
         Element commitment = pk.getGenerator().powZn(messages.get(0));
         for (int i = 1; i < messages.size(); i++) {

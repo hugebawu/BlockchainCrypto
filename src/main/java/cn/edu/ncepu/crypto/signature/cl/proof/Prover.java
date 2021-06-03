@@ -10,6 +10,15 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Prover {
+
+    /**
+     * @description: compute the openings of each messages
+     * @param: t
+     * @param: messages
+     * @param: challenge
+     * @return: List<Element>
+     * @throws:
+     **/
     public static List<Element> computeProof(final List<Element> t, final List<ZrElement> messages, final Element challenge) {
         final List<Element> s = new ArrayList<>();
         for (int i = 0; i < t.size(); i++) {
@@ -28,6 +37,14 @@ public class Prover {
         return proofComm;
     }
 
+    /**
+     * @description: compute the challege which is analogous to the c=Hash(m,R) in the non-interactive schnorr schame
+     * @param: commitment
+     * @param: proofComm
+     * @param: pk
+     * @return: it.unisa.dia.gas.jpbc.Element
+     * @throws:
+     **/
     public static Element computeChallenge(final Element commitment, final Element proofComm, final PublicKey pk) {
         try {
             final MessageDigest digest = MessageDigest.getInstance("SHA-256");

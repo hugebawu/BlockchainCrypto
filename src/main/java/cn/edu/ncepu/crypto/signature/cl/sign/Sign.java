@@ -11,6 +11,15 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Sign {
+
+    /**
+     * @description: sign a committed (secret) message
+     * @param: commitment
+     * @param: keys
+     * @return: cn.edu.ncepu.crypto.signature.cl.sign.Signature
+     * @throws:
+     **/
+
     public static Signature sign(final Element commitment, final KeyPair keys) {
         final PublicKey pk = keys.getPk();
         final SecretKey sk = keys.getSk();

@@ -13,6 +13,7 @@ import org.junit.Test;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -60,13 +61,19 @@ public class CLSignTest {
     public void testVerify() throws Exception {
         final int messageSize = 5;
         final KeyPair keyPair = CLSign.keyGen(messageSize);
-        final List<ZrElement> messages = IntStream.range(0, messageSize)
-                .mapToObj(i -> (ZrElement) keyPair.getPk().getPairing().getZr().newRandomElement().getImmutable())
-                .collect(Collectors.toList());
+        IntStream stream = IntStream.range(0, messageSize);
+        Stream<ZrElement> stream1 = stream.mapToObj(i -> (ZrElement) keyPair.getPk().getPairing().getZr().newElement(i).getImmutable());
+//        stream1.forEach(System.out::println);
+        final List<ZrElement> messages = stream1.collect(Collectors.toList());
         final Signature sigma = CLSign.sign(messages, keyPair);
         assertTrue(CLSign.verify(messages, sigma, keyPair.getPk()));
     }
 
+    /**
+     * @description: Change the signature
+     * @return: void
+     * @throws:
+     **/
     @Test
     public void testVerifyFalseA() throws Exception {
         final int messageSize = 5;
@@ -109,7 +116,7 @@ public class CLSignTest {
         assertNotNull(clSign);
     }
 
-    @Test(expected = IllegalStateException.class)
+    @Test
     public void testCommit_wrongMessageSize() throws Exception {
         final int messageSize = 5;
         final KeyPair keyPair = CLSign.keyGen(messageSize);
@@ -129,16 +136,18 @@ public class CLSignTest {
         CLSign.partialCommit(messages, keyPair.getPk());
     }
 
+    // Theorem 4.5. a zero knowledge proof for proving knowledge of a signature σ on a block
+    // of messages (m(0), . . . , m(l)) under Scheme D.
     @Test
     public void testBlindSignature() throws Exception {
         final int messageSize = 5;
         final KeyPair keyPair = CLSign.keyGen(messageSize);
         final List<ZrElement> messages = IntStream.range(0, messageSize)
-                .mapToObj(i -> (ZrElement) keyPair.getPk().getPairing().getZr().newRandomElement().getImmutable())
+                .mapToObj(i -> (ZrElement) keyPair.getPk().getPairing().getZr().newElement(i).getImmutable())
                 .collect(Collectors.toList());
         final Element commitment = CLSign.commit(messages, keyPair.getPk());
-        final Proof proof = CLSign.proofCommitment(commitment, messages, keyPair.getPk());
-        final Signature sigma = CLSign.signBlind(commitment, proof, keyPair);
+        final Proof proof = CLSign.proofCommitment(commitment, messages, keyPair.getPk());//generate proof of messages
+        final Signature sigma = CLSign.signBlind(commitment, proof, keyPair);// sign the messages after verifying ZKF
         assertTrue(CLSign.verify(messages, sigma, keyPair.getPk()));
     }
 

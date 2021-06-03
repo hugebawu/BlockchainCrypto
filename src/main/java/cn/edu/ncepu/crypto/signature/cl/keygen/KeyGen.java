@@ -25,12 +25,13 @@ public class KeyGen {
     }
 
     public static SecretKey createSecretKey(final Pairing pairing, final int messageSize) {
+        ZrElement x = (ZrElement) pairing.getZr().newRandomElement().getImmutable();
+        ZrElement y = (ZrElement) pairing.getZr().newRandomElement().getImmutable();
         final ZrElement[] z = new ZrElement[messageSize];
         for (int i = 0; i < messageSize; i++) {
             z[i] = (ZrElement) pairing.getZr().newRandomElement().getImmutable();
         }
-        return new SecretKey((ZrElement) pairing.getZr().newRandomElement().getImmutable(),
-                (ZrElement) pairing.getZr().newRandomElement().getImmutable(), z);
+        return new SecretKey(x, y, z);
     }
 
     public static Pairing createPairing() {

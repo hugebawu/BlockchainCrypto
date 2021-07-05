@@ -23,7 +23,7 @@ import java.security.SecureRandom;
  * @Date 2021/4/25 19:56
  * @Version 1.0
  */
-public class ECDSAKeySerPairGenerator implements AsymmetricKeySerPairGenerator {
+public class ECDSAKeyPairGenerator implements AsymmetricKeySerPairGenerator {
     private int KEYSIZE = 0;
     private SecureRandom SECURE_RANDOM = null;
     private final int KEYSIZE_MIN = 8;

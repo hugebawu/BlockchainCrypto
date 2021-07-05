@@ -4,7 +4,7 @@ import cn.edu.ncepu.crypto.algebra.generators.AsymmetricKeySerPairGenerator;
 import cn.edu.ncepu.crypto.algebra.serparams.AsymmetricKeySerPair;
 import cn.edu.ncepu.crypto.algebra.serparams.AsymmetricKeySerParameter;
 import cn.edu.ncepu.crypto.signature.ecdsa.ECDSAKeyPairGenerationParameter;
-import cn.edu.ncepu.crypto.signature.ecdsa.ECDSAKeySerPairGenerator;
+import cn.edu.ncepu.crypto.signature.ecdsa.ECDSAKeyPairGenerator;
 import cn.edu.ncepu.crypto.signature.ecdsa.ECDSASigner;
 import cn.edu.ncepu.crypto.utils.PairingUtils;
 import cn.edu.ncepu.crypto.utils.SysProperty;
@@ -118,7 +118,7 @@ public class ECDSAPerformanceTest {
     public void testECDSAPerformance() {
         ECDSAPerformanceTest performanceTest = new ECDSAPerformanceTest();
         PairingParameters pairingParameters = PairingFactory.getPairingParameters(PairingUtils.PATH_a_256_1024);
-        performanceTest.asymmetricKeySerPairGenerator = new ECDSAKeySerPairGenerator();
+        performanceTest.asymmetricKeySerPairGenerator = new ECDSAKeyPairGenerator();
         performanceTest.asymmetricKeySerPairGenerator.init(new ECDSAKeyPairGenerationParameter(null, 32, pairingParameters));
         performanceTest.signer = new ECDSASigner(new SHA256Digest());
         performanceTest.SCHEME_NAME = ECDSASigner.SCHEME_NAME;

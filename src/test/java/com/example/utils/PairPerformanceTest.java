@@ -31,7 +31,7 @@ public class PairPerformanceTest {
 
     private Out out;
     private static final String default_path = "benchmarks/utils/"; // file path for performance test result
-    private double timeExpInG, timeMulInG, timeExpInG1, timeMulInG1, timeMulInGT, timePairInE;
+    private double timeExpInGT, timePairing, timeExpInG1, timeMulInG1, timeMulInGT;
     private double timePL;
     private double timeInvInZr;
     BigInteger n, p, q; //type A1
@@ -58,28 +58,51 @@ public class PairPerformanceTest {
             run_one_round_TypeA();
             logger.info("");
         }
-        logger.info("average ExpInG time: " + timeExpInG / test_round);
-        out.println("average ExpInG time: " + timeExpInG / test_round);
+        logger.info("average expInG1 time: " + timeExpInG1 / test_round);
+        out.println("average expInG1 time: " + timeExpInG1 / test_round);
+        logger.info("average expInGT time: " + timeExpInGT / test_round);
+        out.println("average expInGT time: " + timeExpInGT / test_round);
+        logger.info("average pairing time: " + timePairing / test_round);
+        out.println("average pairing time: " + timePairing / test_round);
         logger.info("average invInZr time: " + timeInvInZr / test_round);
         out.println("average invInZr time: " + timeInvInZr / test_round);
     }
 
     private void run_one_round_TypeA() {
         Element k = pairing.getZr().newRandomElement().getImmutable();
-        Element G = pairing.getG1().newRandomElement().getImmutable();
+        Element G1 = pairing.getG1().newRandomElement().getImmutable();
+        Element GT = pairing.getGT().newRandomElement().getImmutable();
 
         double tempTime;
         Timer timer = new Timer();
         timer.setFormat(0, Timer.FORMAT.MICRO_SECOND); //设置以微秒为单位
 
-        //test performance of exponential operation in G'
-        out.print("expInG:");
+        //test performance of exponential operation in G1'
+        out.print("expInG1:");
         timer.start(0);
-        G.powZn(k);
+        G1.powZn(k);
         tempTime = timer.stop(0);
-        logger.info("expInG:" + "\t" + tempTime);
+        logger.info("expInG1:" + "\t" + tempTime);
         out.println("\t" + tempTime);
-        this.timeExpInG += tempTime;
+        this.timeExpInG1 += tempTime;
+
+        //test performance of exponential operation in GT'
+        out.print("expInGT:");
+        timer.start(0);
+        GT.powZn(k);
+        tempTime = timer.stop(0);
+        logger.info("expInGT:" + "\t" + tempTime);
+        out.println("\t" + tempTime);
+        this.timeExpInGT += tempTime;
+
+        //test performance of pairing operation of Type A bilinear pairing'
+        out.print("timePairing:");
+        timer.start(0);
+        pairing.pairing(G1, G1);
+        tempTime = timer.stop(0);
+        logger.info("timePairing:" + "\t" + tempTime);
+        out.println("\t" + tempTime);
+        this.timePairing += tempTime;
 
         //test performance of inversion operation in Zr
         out.print("invInZr:");
@@ -114,10 +137,10 @@ public class PairPerformanceTest {
             run_one_round_TypeA1();
             logger.info("");
         }
-        logger.info("average ExpInG time: " + timeExpInG / test_round);
-        out.println("average ExpInG time: " + timeExpInG / test_round);
-        logger.info("average MulInG time: " + timeMulInG / test_round);
-        out.println("average MulInG time: " + timeMulInG / test_round);
+        logger.info("average ExpInG1 time: " + timeExpInG1 / test_round);
+        out.println("average ExpInG1 time: " + timeExpInG1 / test_round);
+        logger.info("average MulInG1 time: " + timeMulInG1 / test_round);
+        out.println("average MulInG1 time: " + timeMulInG1 / test_round);
         logger.info("average PL time: " + timePL / test_round);
         out.println("average PL time: " + timePL / test_round);
     }
@@ -134,23 +157,23 @@ public class PairPerformanceTest {
         Timer timer = new Timer();
         timer.setFormat(0, Timer.FORMAT.MICRO_SECOND); //设置以微秒为单位
 
-        //test performance of exponential operation in G
-        out.print("expInG:");
+        //test performance of exponential operation in G1
+        out.print("expInG1:");
         timer.start(0);
         g.powZn(r);
         tempTime = timer.stop(0);
-        logger.info("expInG:" + "\t" + tempTime);
+        logger.info("expInG1:" + "\t" + tempTime);
         out.println("\t" + tempTime);
-        this.timeExpInG += tempTime;
+        this.timeExpInG1 += tempTime;
 
         //test performance of multiplicative operation in G
-        out.print("mulInG:");
+        out.print("mulInG1:");
         timer.start(0);
         g.mul(g);
         tempTime = timer.stop(0);
-        logger.info("mulInG:" + "\t" + tempTime);
+        logger.info("mulInG1:" + "\t" + tempTime);
         out.println("\t" + tempTime);
-        this.timeMulInG += tempTime;
+        this.timeMulInG1 += tempTime;
 
         //test performance of Pollard’s Lamda Method
         out.print("Pollard's Lamda:");
@@ -191,14 +214,14 @@ public class PairPerformanceTest {
             run_one_round_TypeF();
             logger.info("");
         }
-        logger.info("average ExpInG1 time: " + timeExpInG1 / test_round);
-        out.println("average ExpInG1 time: " + timeExpInG1 / test_round);
-        logger.info("average MulInG1 time: " + timeMulInG1 / test_round);
-        out.println("average MulInG1 time: " + timeMulInG1 / test_round);
-        logger.info("average MulInGT time: " + timeMulInGT / test_round);
-        out.println("average MulInGT time: " + timeMulInGT / test_round);
-        logger.info("average PairInE time: " + timePairInE / test_round);
-        out.println("average PairInE time: " + timePairInE / test_round);
+        logger.info("average expInG1 time: " + timeExpInG1 / test_round);
+        out.println("average expInG1 time: " + timeExpInG1 / test_round);
+        logger.info("average mulInG1 time: " + timeMulInG1 / test_round);
+        out.println("average mulInG1 time: " + timeMulInG1 / test_round);
+        logger.info("average mulInGT time: " + timeMulInGT / test_round);
+        out.println("average mulInGT time: " + timeMulInGT / test_round);
+        logger.info("average pairing time: " + timePairing / test_round);
+        out.println("average pairing time: " + timePairing / test_round);
     }
 
     private void run_one_round_TypeF() {
@@ -239,13 +262,13 @@ public class PairPerformanceTest {
         out.println("\t" + tempTime);
         this.timeMulInGT += tempTime;
 
-        //test performance of pairing operation in e
+        //test performance of pairing operation in TypeF bilinear pairing
         out.print("PairInE:");
         timer.start(0);
         pairing.pairing(g1, g2);
         tempTime = timer.stop(0);
         logger.info("PairInE:" + "\t" + tempTime);
         out.println("\t" + tempTime);
-        this.timePairInE += tempTime;
+        this.timePairing += tempTime;
     }
 }

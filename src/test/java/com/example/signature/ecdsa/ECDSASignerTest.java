@@ -4,7 +4,7 @@ import cn.edu.ncepu.crypto.algebra.generators.AsymmetricKeySerPairGenerator;
 import cn.edu.ncepu.crypto.algebra.serparams.AsymmetricKeySerPair;
 import cn.edu.ncepu.crypto.algebra.serparams.AsymmetricKeySerParameter;
 import cn.edu.ncepu.crypto.signature.ecdsa.ECDSAKeyPairGenerationParameter;
-import cn.edu.ncepu.crypto.signature.ecdsa.ECDSAKeySerPairGenerator;
+import cn.edu.ncepu.crypto.signature.ecdsa.ECDSAKeyPairGenerator;
 import cn.edu.ncepu.crypto.signature.ecdsa.ECDSASigner;
 import cn.edu.ncepu.crypto.utils.PairingUtils;
 import it.unisa.dia.gas.jpbc.PairingParameters;
@@ -67,7 +67,7 @@ public class ECDSASignerTest {
   public void testECDSASigner() {
     PairingParameters pairingParameters = PairingFactory.getPairingParameters(PairingUtils.PATH_a_256_1024);
     logger.info("Test ECDSA signature scheme -- Don Johnson, Alfred Menezes, Scott Vanstone 2001 ");
-    asymmetricKeySerPairGenerator = new ECDSAKeySerPairGenerator();
+    asymmetricKeySerPairGenerator = new ECDSAKeyPairGenerator();
     asymmetricKeySerPairGenerator.init(new ECDSAKeyPairGenerationParameter(null, 32, pairingParameters));
     signer = new ECDSASigner(new SHA256Digest());
     processTest();

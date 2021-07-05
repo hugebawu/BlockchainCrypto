@@ -26,7 +26,7 @@ import java.io.IOException;
  */
 public class BB04Signer implements PairingSigner {
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = -5144796190766545407L;
 
@@ -37,7 +37,8 @@ public class BB04Signer implements PairingSigner {
 	public BB04Signer() {
 
 	}
-
+	
+	@Override
 	public void init(boolean forSigning, CipherParameters param) {
 		if (forSigning) {
 			this.pairingKeySerParameter = (BB04SignSecretKeySerParameter) param;

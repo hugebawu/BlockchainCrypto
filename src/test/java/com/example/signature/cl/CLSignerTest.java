@@ -112,7 +112,7 @@ public class CLSignerTest {
     @Test
     public void testCL04Signer() {
         PairingParameters pairingParameters =
-                PairingFactory.getPairingParameters(PairingUtils.PATH_a_256_1024);
+                PairingFactory.getPairingParameters(PairingUtils.PATH_a_160_512);
         logger.info("Test Camenisch-Lysyanskaya-2004 signature signature.");
         this.pairingKeySerPairGenerator = new CL04SignKeyPairGenerator(messageSize);
         this.pairingKeySerPairGenerator.init(

@@ -31,7 +31,8 @@ public class PairPerformanceTest {
 
     private Out out;
     private static final String default_path = "benchmarks/utils/"; // file path for performance test result
-    private double timeExpInGT, timePairing, timeExpInG1, timeMulInG1, timeMulInGT;
+    private double timeExpInG1, timeExpInG2, timeExpInGT, timePairing,
+            timeMulInG1, timeMulInG2, timeMulInGT;
     private double timePL;
     private double timeInvInZr;
     BigInteger n, p, q; //type A1
@@ -45,7 +46,7 @@ public class PairPerformanceTest {
      **/
     @Test
     public void testTypeAPerformance() {
-        PairingParameters pairingParameters = PairingFactory.getPairingParameters(PairingUtils.PATH_a_256_1024);
+        PairingParameters pairingParameters = PairingFactory.getPairingParameters(PairingUtils.PATH_a_160_512);
         pairing = PairingFactory.getPairing(pairingParameters);
         String PAIRING_NAME = "type A symmetric prime order bilinear pairing";
         this.out = new Out(default_path + PAIRING_NAME);
@@ -70,9 +71,8 @@ public class PairPerformanceTest {
 
     private void run_one_round_TypeA() {
         Element k = pairing.getZr().newRandomElement().getImmutable();
-        Element G1 = pairing.getG1().newRandomElement().getImmutable();
-        Element GT = pairing.getGT().newRandomElement().getImmutable();
-
+        Element g1 = pairing.getG1().newRandomElement().getImmutable();
+        Element gt = pairing.getGT().newRandomElement().getImmutable();
         double tempTime;
         Timer timer = new Timer();
         timer.setFormat(0, Timer.FORMAT.MICRO_SECOND); //设置以微秒为单位
@@ -80,7 +80,7 @@ public class PairPerformanceTest {
         //test performance of exponential operation in G1'
         out.print("expInG1:");
         timer.start(0);
-        G1.powZn(k);
+        g1.powZn(k);
         tempTime = timer.stop(0);
         logger.info("expInG1:" + "\t" + tempTime);
         out.println("\t" + tempTime);
@@ -89,18 +89,18 @@ public class PairPerformanceTest {
         //test performance of exponential operation in GT'
         out.print("expInGT:");
         timer.start(0);
-        GT.powZn(k);
+        gt.powZn(k);
         tempTime = timer.stop(0);
         logger.info("expInGT:" + "\t" + tempTime);
         out.println("\t" + tempTime);
         this.timeExpInGT += tempTime;
 
         //test performance of pairing operation of Type A bilinear pairing'
-        out.print("timePairing:");
+        out.print("pairing:");
         timer.start(0);
-        pairing.pairing(G1, G1);
+        pairing.pairing(g1, g1);
         tempTime = timer.stop(0);
-        logger.info("timePairing:" + "\t" + tempTime);
+        logger.info("pairing:" + "\t" + tempTime);
         out.println("\t" + tempTime);
         this.timePairing += tempTime;
 
@@ -139,6 +139,10 @@ public class PairPerformanceTest {
         }
         logger.info("average ExpInG1 time: " + timeExpInG1 / test_round);
         out.println("average ExpInG1 time: " + timeExpInG1 / test_round);
+        logger.info("average expInG2 time: " + timeExpInG2 / test_round);
+        out.println("average expInG2 time: " + timeExpInG2 / test_round);
+        logger.info("average ExpInGT time: " + timeExpInGT / test_round);
+        out.println("average ExpInGT time: " + timeExpInGT / test_round);
         logger.info("average MulInG1 time: " + timeMulInG1 / test_round);
         out.println("average MulInG1 time: " + timeMulInG1 / test_round);
         logger.info("average PL time: " + timePL / test_round);
@@ -146,9 +150,10 @@ public class PairPerformanceTest {
     }
 
     private void run_one_round_TypeA1() {
-        Element g, u, h, r;
+        Element g, u, gt, h, r;
         g = pairing.getG1().newRandomElement().getImmutable();
         u = pairing.getG2().newRandomElement().getImmutable();
+        gt = pairing.getGT().newRandomElement().getImmutable();
         h = u.pow(q);
         r = pairing.getZr().newRandomElement().getImmutable();
         int M = 100, m = M;
@@ -166,7 +171,25 @@ public class PairPerformanceTest {
         out.println("\t" + tempTime);
         this.timeExpInG1 += tempTime;
 
-        //test performance of multiplicative operation in G
+        //test performance of exponential operation in G2
+        out.print("expInG2:");
+        timer.start(0);
+        u.powZn(r);
+        tempTime = timer.stop(0);
+        logger.info("expInG2:" + "\t" + tempTime);
+        out.println("\t" + tempTime);
+        this.timeExpInG2 += tempTime;
+
+        //test performance of exponential operation in GT
+        out.print("expInGT:");
+        timer.start(0);
+        gt.powZn(r);
+        tempTime = timer.stop(0);
+        logger.info("expInGT:" + "\t" + tempTime);
+        out.println("\t" + tempTime);
+        this.timeExpInGT += tempTime;
+
+        //test performance of multiplicative operation in G1
         out.print("mulInG1:");
         timer.start(0);
         g.mul(g);
@@ -201,7 +224,7 @@ public class PairPerformanceTest {
      **/
     @Test
     public void testTypeFPerformance() {
-        PairingParameters pairingParameters = PairingFactory.getPairingParameters(PairingUtils.PATH_f_256);
+        PairingParameters pairingParameters = PairingFactory.getPairingParameters(PairingUtils.PATH_f_160);
         pairing = PairingFactory.getPairing(pairingParameters);
         String PAIRING_NAME = "type F asymmetric prime order bilinear pairing";
         this.out = new Out(default_path + PAIRING_NAME);
@@ -216,6 +239,10 @@ public class PairPerformanceTest {
         }
         logger.info("average expInG1 time: " + timeExpInG1 / test_round);
         out.println("average expInG1 time: " + timeExpInG1 / test_round);
+        logger.info("average expInG2 time: " + timeExpInG2 / test_round);
+        out.println("average expInG2 time: " + timeExpInG2 / test_round);
+        logger.info("average expInGT time: " + timeExpInGT / test_round);
+        out.println("average expInGT time: " + timeExpInGT / test_round);
         logger.info("average mulInG1 time: " + timeMulInG1 / test_round);
         out.println("average mulInG1 time: " + timeMulInG1 / test_round);
         logger.info("average mulInGT time: " + timeMulInGT / test_round);
@@ -228,7 +255,7 @@ public class PairPerformanceTest {
         Element g1, g2, gt, x;
         g1 = pairing.getG1().newRandomElement().getImmutable();
         g2 = pairing.getG2().newRandomElement().getImmutable();
-        gt = pairing.pairing(g1, g2).getImmutable();
+        gt = pairing.getGT().newRandomElement().getImmutable();
         x = pairing.getZr().newRandomElement().getImmutable();
 
         double tempTime;
@@ -243,6 +270,24 @@ public class PairPerformanceTest {
         logger.info("expInG1:" + "\t" + tempTime);
         out.println("\t" + tempTime);
         this.timeExpInG1 += tempTime;
+
+        //test performance of exponential operation in G2
+        out.print("expInG2:");
+        timer.start(0);
+        g2.powZn(x);
+        tempTime = timer.stop(0);
+        logger.info("expInG2:" + "\t" + tempTime);
+        out.println("\t" + tempTime);
+        this.timeExpInG2 += tempTime;
+
+        //test performance of exponential operation in GT
+        out.print("expInGT:");
+        timer.start(0);
+        gt.powZn(x);
+        tempTime = timer.stop(0);
+        logger.info("expInGT:" + "\t" + tempTime);
+        out.println("\t" + tempTime);
+        this.timeExpInGT += tempTime;
 
         //test performance of multiplicative operation in G1
         out.print("mulInG1:");
@@ -263,11 +308,11 @@ public class PairPerformanceTest {
         this.timeMulInGT += tempTime;
 
         //test performance of pairing operation in TypeF bilinear pairing
-        out.print("PairInE:");
+        out.print("pairing:");
         timer.start(0);
         pairing.pairing(g1, g2);
         tempTime = timer.stop(0);
-        logger.info("PairInE:" + "\t" + tempTime);
+        logger.info("pairing:" + "\t" + tempTime);
         out.println("\t" + tempTime);
         this.timePairing += tempTime;
     }

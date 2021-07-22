@@ -1,5006 +1,5006 @@
 Test various cryptography operation of type A symmetric prime order bilinear pairing
 All test rounds: 1000
 Test round: 1
-expInG1:	49686.1
-expInGT:	4019.8
-timePairing:	34558.9
-invInZr:	59.5
+expInG1:	15211.9
+expInGT:	2145.0
+pairing:	11636.0
+invInZr:	40.2
 Test round: 2
-expInG1:	43583.8
-expInGT:	2953.0
-timePairing:	26358.9
-invInZr:	25.0
+expInG1:	19704.7
+expInGT:	1561.0
+pairing:	12836.3
+invInZr:	36.3
 Test round: 3
-expInG1:	44373.3
-expInGT:	3015.2
-timePairing:	27798.7
-invInZr:	24.2
+expInG1:	17647.7
+expInGT:	1261.3
+pairing:	7532.2
+invInZr:	15.8
 Test round: 4
-expInG1:	44567.2
-expInGT:	2973.3
-timePairing:	26392.0
-invInZr:	27.9
+expInG1:	11447.2
+expInGT:	1051.4
+pairing:	10137.0
+invInZr:	18.4
 Test round: 5
-expInG1:	43741.0
-expInGT:	2961.6
-timePairing:	25819.8
-invInZr:	26.7
+expInG1:	15841.3
+expInGT:	797.2
+pairing:	7954.3
+invInZr:	22.0
 Test round: 6
-expInG1:	44125.6
-expInGT:	4477.8
-timePairing:	27907.8
-invInZr:	24.2
+expInG1:	12376.1
+expInGT:	769.2
+pairing:	5868.7
+invInZr:	15.0
 Test round: 7
-expInG1:	44491.6
-expInGT:	2952.2
-timePairing:	25870.7
-invInZr:	24.0
+expInG1:	12037.0
+expInGT:	832.1
+pairing:	8079.9
+invInZr:	16.6
 Test round: 8
-expInG1:	50059.6
-expInGT:	2937.0
-timePairing:	25922.6
-invInZr:	25.7
+expInG1:	13800.8
+expInGT:	1135.2
+pairing:	6548.8
+invInZr:	18.4
 Test round: 9
-expInG1:	45404.1
-expInGT:	3024.3
-timePairing:	26057.2
-invInZr:	26.1
+expInG1:	12035.8
+expInGT:	1233.4
+pairing:	7478.9
+invInZr:	16.6
 Test round: 10
-expInG1:	43867.0
-expInGT:	2971.3
-timePairing:	25805.8
-invInZr:	25.1
+expInG1:	10271.8
+expInGT:	782.1
+pairing:	7618.8
+invInZr:	24.3
 Test round: 11
-expInG1:	44008.0
-expInGT:	2951.1
-timePairing:	28428.2
-invInZr:	24.1
+expInG1:	11723.2
+expInGT:	768.5
+pairing:	11876.1
+invInZr:	21.8
 Test round: 12
-expInG1:	44294.0
-expInGT:	2990.6
-timePairing:	25882.5
-invInZr:	25.0
+expInG1:	14977.8
+expInGT:	785.0
+pairing:	5978.5
+invInZr:	16.1
 Test round: 13
-expInG1:	43265.5
-expInGT:	2986.4
-timePairing:	25793.1
-invInZr:	24.9
+expInG1:	11112.6
+expInGT:	791.3
+pairing:	6275.7
+invInZr:	14.5
 Test round: 14
-expInG1:	43951.5
-expInGT:	2881.4
-timePairing:	27848.2
-invInZr:	23.8
+expInG1:	10494.1
+expInGT:	764.0
+pairing:	5972.6
+invInZr:	15.1
 Test round: 15
-expInG1:	43685.5
-expInGT:	3035.1
-timePairing:	25805.5
-invInZr:	22.8
+expInG1:	13208.3
+expInGT:	793.0
+pairing:	7022.6
+invInZr:	16.2
 Test round: 16
-expInG1:	43486.2
-expInGT:	2922.0
-timePairing:	26037.6
-invInZr:	25.0
+expInG1:	10923.5
+expInGT:	988.5
+pairing:	6013.2
+invInZr:	16.3
 Test round: 17
-expInG1:	45722.7
-expInGT:	3106.1
-timePairing:	27243.7
-invInZr:	24.7
+expInG1:	12089.4
+expInGT:	1239.4
+pairing:	9221.5
+invInZr:	35.8
 Test round: 18
-expInG1:	43846.5
-expInGT:	2896.9
-timePairing:	25840.8
-invInZr:	23.8
+expInG1:	17035.2
+expInGT:	1534.2
+pairing:	7542.1
+invInZr:	15.2
 Test round: 19
-expInG1:	49503.5
-expInGT:	2915.0
-timePairing:	26944.8
-invInZr:	26.8
-Test round: 20
-expInG1:	43853.2
-expInGT:	2899.3
-timePairing:	25720.6
-invInZr:	23.9
-Test round: 21
-expInG1:	44494.7
-expInGT:	2884.8
-timePairing:	25879.1
-invInZr:	26.7
-Test round: 22
-expInG1:	44267.1
-expInGT:	3063.7
-timePairing:	27943.4
-invInZr:	24.7
-Test round: 23
-expInG1:	44026.6
-expInGT:	2924.4
-timePairing:	25961.8
-invInZr:	22.7
-Test round: 24
-expInG1:	43953.1
-expInGT:	3013.1
-timePairing:	26996.6
-invInZr:	24.0
-Test round: 25
-expInG1:	43786.3
-expInGT:	2931.2
-timePairing:	25797.6
-invInZr:	23.6
-Test round: 26
-expInG1:	43877.5
-expInGT:	2979.1
-timePairing:	25643.3
-invInZr:	23.3
-Test round: 27
-expInG1:	44904.4
-expInGT:	2944.4
-timePairing:	26991.9
-invInZr:	23.9
-Test round: 28
-expInG1:	43480.7
-expInGT:	3013.3
-timePairing:	25682.4
-invInZr:	23.6
-Test round: 29
-expInG1:	42828.1
-expInGT:	2900.5
-timePairing:	26338.0
-invInZr:	22.9
-Test round: 30
-expInG1:	44364.3
-expInGT:	3015.2
-timePairing:	26766.5
-invInZr:	24.8
-Test round: 31
-expInG1:	44171.4
-expInGT:	2942.1
-timePairing:	25763.9
-invInZr:	23.8
-Test round: 32
-expInG1:	44381.6
-expInGT:	2969.1
-timePairing:	26331.4
-invInZr:	24.5
-Test round: 33
-expInG1:	44079.2
-expInGT:	2884.0
-timePairing:	26580.9
-invInZr:	23.2
-Test round: 34
-expInG1:	42938.5
-expInGT:	2948.1
-timePairing:	26210.3
-invInZr:	22.5
-Test round: 35
-expInG1:	43869.2
-expInGT:	2976.2
-timePairing:	25744.5
-invInZr:	22.9
-Test round: 36
-expInG1:	44515.7
-expInGT:	3100.0
-timePairing:	29153.2
-invInZr:	23.7
-Test round: 37
-expInG1:	43233.7
-expInGT:	2872.6
-timePairing:	25773.5
-invInZr:	26.6
-Test round: 38
-expInG1:	43555.0
-expInGT:	2969.9
-timePairing:	25627.6
-invInZr:	23.5
-Test round: 39
-expInG1:	45849.4
-expInGT:	3079.5
-timePairing:	26222.1
-invInZr:	22.1
-Test round: 40
-expInG1:	43580.3
-expInGT:	3066.4
-timePairing:	25707.3
-invInZr:	23.0
-Test round: 41
-expInG1:	43611.0
-expInGT:	3477.9
-timePairing:	25834.3
-invInZr:	23.9
-Test round: 42
-expInG1:	44133.8
-expInGT:	3057.6
-timePairing:	25785.4
-invInZr:	22.5
-Test round: 43
-expInG1:	43618.0
-expInGT:	2908.5
-timePairing:	26799.6
-invInZr:	23.0
-Test round: 44
-expInG1:	43665.0
-expInGT:	3155.8
-timePairing:	25611.2
-invInZr:	22.2
-Test round: 45
-expInG1:	44002.6
-expInGT:	2887.9
-timePairing:	26473.5
-invInZr:	23.5
-Test round: 46
-expInG1:	43921.1
-expInGT:	2968.9
-timePairing:	25606.6
-invInZr:	22.2
-Test round: 47
-expInG1:	44050.3
-expInGT:	2929.1
-timePairing:	26388.8
-invInZr:	23.3
-Test round: 48
-expInG1:	45251.0
-expInGT:	3087.1
-timePairing:	26062.2
-invInZr:	23.3
-Test round: 49
-expInG1:	43282.2
-expInGT:	2899.0
-timePairing:	26093.1
-invInZr:	25.4
-Test round: 50
-expInG1:	43827.6
-expInGT:	2945.9
-timePairing:	25857.9
-invInZr:	23.0
-Test round: 51
-expInG1:	44468.4
-expInGT:	2880.6
-timePairing:	26299.8
-invInZr:	24.6
-Test round: 52
-expInG1:	44267.6
-expInGT:	2906.3
-timePairing:	25592.0
-invInZr:	24.6
-Test round: 53
-expInG1:	44319.5
-expInGT:	2964.0
-timePairing:	26377.5
-invInZr:	23.7
-Test round: 54
-expInG1:	43703.7
-expInGT:	2899.6
-timePairing:	25617.6
-invInZr:	23.3
-Test round: 55
-expInG1:	43423.8
-expInGT:	3003.1
-timePairing:	26213.7
-invInZr:	23.8
-Test round: 56
-expInG1:	43840.3
-expInGT:	2918.4
-timePairing:	26374.8
-invInZr:	24.8
-Test round: 57
-expInG1:	43229.9
-expInGT:	2925.5
-timePairing:	26447.2
-invInZr:	23.1
-Test round: 58
-expInG1:	43710.0
-expInGT:	2902.5
-timePairing:	25727.5
-invInZr:	23.6
-Test round: 59
-expInG1:	44975.7
-expInGT:	3326.9
-timePairing:	26776.2
-invInZr:	24.2
-Test round: 60
-expInG1:	44075.2
-expInGT:	2947.0
-timePairing:	25616.4
-invInZr:	24.7
-Test round: 61
-expInG1:	43083.4
-expInGT:	2865.9
-timePairing:	26228.0
-invInZr:	21.8
-Test round: 62
-expInG1:	45457.7
-expInGT:	2950.5
-timePairing:	26365.2
-invInZr:	24.3
-Test round: 63
-expInG1:	43939.3
-expInGT:	3593.8
-timePairing:	25643.4
-invInZr:	24.7
-Test round: 64
-expInG1:	43334.8
-expInGT:	2906.5
-timePairing:	26115.5
-invInZr:	43.1
-Test round: 65
-expInG1:	44757.0
-expInGT:	2886.4
-timePairing:	26017.3
-invInZr:	22.4
-Test round: 66
-expInG1:	43995.3
-expInGT:	2942.1
-timePairing:	25762.8
-invInZr:	23.3
-Test round: 67
-expInG1:	43777.6
-expInGT:	2869.3
-timePairing:	26472.8
-invInZr:	22.2
-Test round: 68
-expInG1:	43917.6
-expInGT:	2922.0
-timePairing:	26183.1
-invInZr:	27.1
-Test round: 69
-expInG1:	44222.2
-expInGT:	2950.1
-timePairing:	25684.8
-invInZr:	22.8
-Test round: 70
-expInG1:	43590.9
-expInGT:	3353.2
-timePairing:	26634.3
-invInZr:	24.2
-Test round: 71
-expInG1:	44121.4
-expInGT:	2895.0
-timePairing:	25748.7
-invInZr:	22.3
-Test round: 72
-expInG1:	43864.1
-expInGT:	2883.2
-timePairing:	26236.6
-invInZr:	23.1
-Test round: 73
-expInG1:	43483.0
-expInGT:	3252.8
-timePairing:	26067.2
-invInZr:	23.8
-Test round: 74
-expInG1:	43763.3
-expInGT:	2857.3
-timePairing:	25622.3
-invInZr:	22.6
-Test round: 75
-expInG1:	43288.6
-expInGT:	2891.4
-timePairing:	26103.4
-invInZr:	23.6
-Test round: 76
-expInG1:	44839.0
-expInGT:	3142.6
-timePairing:	26105.4
-invInZr:	25.2
-Test round: 77
-expInG1:	43291.7
-expInGT:	2874.0
-timePairing:	26224.5
-invInZr:	25.6
-Test round: 78
-expInG1:	42274.8
-expInGT:	2861.3
-timePairing:	25651.9
-invInZr:	22.9
-Test round: 79
-expInG1:	45045.1
-expInGT:	3402.5
-timePairing:	25878.1
-invInZr:	24.1
-Test round: 80
-expInG1:	44008.6
-expInGT:	2959.1
-timePairing:	25662.2
-invInZr:	22.3
-Test round: 81
-expInG1:	44178.1
-expInGT:	2930.6
-timePairing:	25809.8
-invInZr:	22.9
-Test round: 82
-expInG1:	43769.2
-expInGT:	2891.3
-timePairing:	26525.5
-invInZr:	23.3
-Test round: 83
-expInG1:	43884.3
-expInGT:	2963.3
-timePairing:	25640.4
-invInZr:	35.0
-Test round: 84
-expInG1:	44676.2
-expInGT:	2917.4
-timePairing:	25968.9
-invInZr:	23.1
-Test round: 85
-expInG1:	44057.2
-expInGT:	2939.9
-timePairing:	26099.8
-invInZr:	26.6
-Test round: 86
-expInG1:	43081.6
-expInGT:	2870.8
-timePairing:	25675.6
-invInZr:	23.2
-Test round: 87
-expInG1:	43641.8
-expInGT:	3488.4
-timePairing:	25790.5
-invInZr:	25.2
-Test round: 88
-expInG1:	44661.1
-expInGT:	2912.5
-timePairing:	26125.5
-invInZr:	22.1
-Test round: 89
-expInG1:	43290.9
-expInGT:	2942.3
-timePairing:	25561.0
-invInZr:	24.2
-Test round: 90
-expInG1:	44082.2
-expInGT:	2890.7
-timePairing:	26636.3
-invInZr:	23.7
-Test round: 91
-expInG1:	44492.0
-expInGT:	2891.2
-timePairing:	25748.4
-invInZr:	23.8
-Test round: 92
-expInG1:	43946.4
-expInGT:	2952.6
-timePairing:	25684.2
-invInZr:	23.7
-Test round: 93
-expInG1:	43794.0
-expInGT:	3045.8
-timePairing:	26258.2
-invInZr:	23.0
-Test round: 94
-expInG1:	44331.6
-expInGT:	2935.1
-timePairing:	26218.6
-invInZr:	24.1
-Test round: 95
-expInG1:	43307.7
-expInGT:	2893.9
-timePairing:	25776.7
-invInZr:	23.5
-Test round: 96
-expInG1:	44411.5
-expInGT:	3422.3
-timePairing:	25862.5
-invInZr:	24.4
-Test round: 97
-expInG1:	43759.0
-expInGT:	2986.1
-timePairing:	26111.6
-invInZr:	23.9
-Test round: 98
-expInG1:	43407.1
-expInGT:	2875.4
-timePairing:	25708.7
-invInZr:	24.2
-Test round: 99
-expInG1:	44981.4
-expInGT:	2891.9
-timePairing:	26169.2
-invInZr:	23.4
-Test round: 100
-expInG1:	43966.8
-expInGT:	2927.6
-timePairing:	26054.1
-invInZr:	34.6
-Test round: 101
-expInG1:	47037.1
-expInGT:	2969.2
-timePairing:	26722.1
-invInZr:	22.8
-Test round: 102
-expInG1:	44129.0
-expInGT:	2883.0
-timePairing:	25687.0
-invInZr:	24.3
-Test round: 103
-expInG1:	43977.3
-expInGT:	2896.4
-timePairing:	25709.2
-invInZr:	23.6
-Test round: 104
-expInG1:	45647.0
-expInGT:	2913.9
-timePairing:	26430.7
-invInZr:	25.4
-Test round: 105
-expInG1:	43461.2
-expInGT:	2899.6
-timePairing:	26238.2
-invInZr:	23.6
-Test round: 106
-expInG1:	43285.7
-expInGT:	2879.9
-timePairing:	25533.1
-invInZr:	24.5
-Test round: 107
-expInG1:	45293.3
-expInGT:	2937.7
-timePairing:	25841.7
-invInZr:	22.9
-Test round: 108
-expInG1:	42978.8
-expInGT:	2889.2
-timePairing:	26235.4
-invInZr:	22.5
-Test round: 109
-expInG1:	44341.4
-expInGT:	2894.6
-timePairing:	25947.1
-invInZr:	23.6
-Test round: 110
-expInG1:	44118.6
-expInGT:	2918.4
-timePairing:	25604.0
-invInZr:	23.9
-Test round: 111
-expInG1:	43899.4
-expInGT:	2888.5
-timePairing:	25671.5
-invInZr:	24.0
-Test round: 112
-expInG1:	43593.5
-expInGT:	2959.9
-timePairing:	26517.2
-invInZr:	32.5
-Test round: 113
-expInG1:	44059.7
-expInGT:	2946.8
-timePairing:	25639.5
-invInZr:	23.8
-Test round: 114
-expInG1:	43600.0
-expInGT:	3016.8
-timePairing:	25599.3
-invInZr:	23.8
-Test round: 115
-expInG1:	44315.9
-expInGT:	3489.9
-timePairing:	26215.7
-invInZr:	23.3
-Test round: 116
-expInG1:	44304.4
-expInGT:	2925.0
-timePairing:	26185.9
-invInZr:	22.9
-Test round: 117
-expInG1:	43780.8
-expInGT:	2915.3
-timePairing:	25565.5
-invInZr:	27.1
-Test round: 118
-expInG1:	44472.3
-expInGT:	2907.4
-timePairing:	26439.0
-invInZr:	23.7
-Test round: 119
-expInG1:	44148.2
-expInGT:	2921.0
-timePairing:	26130.0
-invInZr:	23.3
-Test round: 120
-expInG1:	42042.0
-expInGT:	2824.9
-timePairing:	26382.5
-invInZr:	23.7
-Test round: 121
-expInG1:	51089.2
-expInGT:	2854.2
-timePairing:	25669.2
-invInZr:	22.6
-Test round: 122
-expInG1:	43678.5
-expInGT:	2965.8
-timePairing:	25678.4
-invInZr:	21.9
-Test round: 123
-expInG1:	44100.4
-expInGT:	2928.1
-timePairing:	26342.9
-invInZr:	25.5
-Test round: 124
-expInG1:	43862.6
-expInGT:	2946.4
-timePairing:	26164.7
-invInZr:	23.6
-Test round: 125
-expInG1:	44021.9
-expInGT:	2912.4
-timePairing:	25607.7
-invInZr:	23.9
-Test round: 126
-expInG1:	44794.7
-expInGT:	2883.1
-timePairing:	25859.0
-invInZr:	23.3
-Test round: 127
-expInG1:	43784.5
-expInGT:	2906.5
-timePairing:	26402.3
-invInZr:	30.8
-Test round: 128
-expInG1:	43418.5
-expInGT:	2904.8
-timePairing:	26255.1
-invInZr:	25.9
-Test round: 129
-expInG1:	43937.7
-expInGT:	2932.8
-timePairing:	25773.2
-invInZr:	22.3
-Test round: 130
-expInG1:	44787.1
-expInGT:	2919.8
-timePairing:	25636.1
-invInZr:	23.3
-Test round: 131
-expInG1:	44341.8
-expInGT:	2912.0
-timePairing:	26044.2
-invInZr:	24.1
-Test round: 132
-expInG1:	44564.3
-expInGT:	2897.8
-timePairing:	27527.4
-invInZr:	26.7
-Test round: 133
-expInG1:	44031.2
-expInGT:	2942.4
-timePairing:	25586.4
-invInZr:	25.1
-Test round: 134
-expInG1:	47576.3
-expInGT:	2905.6
-timePairing:	25826.4
-invInZr:	24.1
-Test round: 135
-expInG1:	43009.8
-expInGT:	2831.0
-timePairing:	26255.9
-invInZr:	32.3
-Test round: 136
-expInG1:	43625.4
-expInGT:	2895.0
-timePairing:	25704.2
-invInZr:	23.8
-Test round: 137
-expInG1:	43466.5
-expInGT:	2887.3
-timePairing:	25583.9
-invInZr:	24.9
-Test round: 138
-expInG1:	50005.1
-expInGT:	3473.7
-timePairing:	26082.3
-invInZr:	24.5
-Test round: 139
-expInG1:	43595.1
-expInGT:	2878.3
-timePairing:	26149.8
-invInZr:	24.8
-Test round: 140
-expInG1:	43608.2
-expInGT:	2972.2
-timePairing:	25640.1
-invInZr:	23.8
-Test round: 141
-expInG1:	44532.9
-expInGT:	2896.2
-timePairing:	27240.8
-invInZr:	25.4
-Test round: 142
-expInG1:	43860.3
-expInGT:	3469.4
-timePairing:	25630.6
-invInZr:	25.3
-Test round: 143
-expInG1:	43460.6
-expInGT:	2882.1
-timePairing:	26104.3
-invInZr:	22.9
-Test round: 144
-expInG1:	43611.2
-expInGT:	3012.7
-timePairing:	25705.9
-invInZr:	23.4
-Test round: 145
-expInG1:	44277.9
-expInGT:	2902.2
-timePairing:	25685.0
-invInZr:	23.6
-Test round: 146
-expInG1:	42192.8
-expInGT:	2851.1
-timePairing:	26013.7
-invInZr:	23.8
-Test round: 147
-expInG1:	44310.1
-expInGT:	2925.9
-timePairing:	26370.3
-invInZr:	22.1
-Test round: 148
-expInG1:	44244.0
-expInGT:	3026.8
-timePairing:	25869.9
-invInZr:	23.1
-Test round: 149
-expInG1:	44098.3
-expInGT:	2988.2
-timePairing:	25829.1
-invInZr:	23.4
-Test round: 150
-expInG1:	54378.6
-expInGT:	3437.6
-timePairing:	26689.9
-invInZr:	25.1
-Test round: 151
-expInG1:	47903.7
-expInGT:	2904.6
-timePairing:	26262.8
-invInZr:	25.4
-Test round: 152
-expInG1:	44100.9
-expInGT:	3001.0
-timePairing:	25577.8
-invInZr:	24.0
-Test round: 153
-expInG1:	45467.9
-expInGT:	2937.9
-timePairing:	25793.8
-invInZr:	26.3
-Test round: 154
-expInG1:	43379.5
-expInGT:	2897.0
-timePairing:	26125.2
-invInZr:	22.9
-Test round: 155
-expInG1:	43493.3
-expInGT:	2879.9
-timePairing:	26538.7
-invInZr:	24.4
-Test round: 156
-expInG1:	45240.1
-expInGT:	2926.0
-timePairing:	26511.5
-invInZr:	25.0
-Test round: 157
-expInG1:	44787.2
-expInGT:	2947.7
-timePairing:	25994.2
-invInZr:	32.6
-Test round: 158
-expInG1:	42834.1
-expInGT:	2842.0
-timePairing:	26165.0
-invInZr:	23.5
-Test round: 159
-expInG1:	44377.4
-expInGT:	2924.0
-timePairing:	26815.1
-invInZr:	32.2
-Test round: 160
-expInG1:	44494.3
-expInGT:	2875.6
-timePairing:	25651.8
-invInZr:	26.0
-Test round: 161
-expInG1:	43912.7
-expInGT:	2907.7
-timePairing:	25562.9
-invInZr:	22.7
-Test round: 162
-expInG1:	43850.6
-expInGT:	2883.1
-timePairing:	26383.5
-invInZr:	23.4
-Test round: 163
-expInG1:	43687.5
-expInGT:	2888.4
-timePairing:	25737.2
-invInZr:	22.7
-Test round: 164
-expInG1:	44162.4
-expInGT:	2950.1
-timePairing:	25708.6
-invInZr:	22.6
-Test round: 165
-expInG1:	44786.4
-expInGT:	3341.0
-timePairing:	25709.6
-invInZr:	24.0
-Test round: 166
-expInG1:	43860.7
-expInGT:	2905.3
-timePairing:	26070.6
-invInZr:	23.7
-Test round: 167
-expInG1:	43706.3
-expInGT:	2933.3
-timePairing:	25485.2
-invInZr:	23.3
-Test round: 168
-expInG1:	44079.7
-expInGT:	2919.2
-timePairing:	25836.3
-invInZr:	27.5
-Test round: 169
-expInG1:	43173.4
-expInGT:	3355.7
-timePairing:	25655.6
-invInZr:	23.6
-Test round: 170
-expInG1:	43551.4
-expInGT:	2919.1
-timePairing:	25966.4
-invInZr:	22.4
-Test round: 171
-expInG1:	43647.1
-expInGT:	2874.7
-timePairing:	25849.0
-invInZr:	23.7
-Test round: 172
-expInG1:	43909.7
-expInGT:	2914.9
-timePairing:	25692.4
-invInZr:	24.6
-Test round: 173
-expInG1:	43304.1
-expInGT:	2914.7
-timePairing:	26066.1
-invInZr:	23.5
-Test round: 174
-expInG1:	44417.4
-expInGT:	2918.7
-timePairing:	26207.5
-invInZr:	24.7
-Test round: 175
-expInG1:	44035.9
-expInGT:	2897.0
-timePairing:	25671.9
-invInZr:	26.3
-Test round: 176
-expInG1:	43039.6
-expInGT:	2826.6
-timePairing:	25644.7
-invInZr:	23.5
-Test round: 177
-expInG1:	44629.2
-expInGT:	2988.8
-timePairing:	26210.3
-invInZr:	24.9
-Test round: 178
-expInG1:	44875.6
-expInGT:	2899.8
-timePairing:	26075.9
-invInZr:	24.4
-Test round: 179
-expInG1:	43315.0
-expInGT:	2864.5
-timePairing:	25700.0
-invInZr:	23.8
-Test round: 180
-expInG1:	44688.9
-expInGT:	2927.9
-timePairing:	25633.3
-invInZr:	22.9
-Test round: 181
-expInG1:	43819.6
-expInGT:	2940.1
-timePairing:	26208.9
-invInZr:	23.4
-Test round: 182
-expInG1:	44286.9
-expInGT:	3055.5
-timePairing:	26183.5
-invInZr:	23.9
-Test round: 183
-expInG1:	43817.2
-expInGT:	2892.2
-timePairing:	25561.5
-invInZr:	33.4
-Test round: 184
-expInG1:	43477.6
-expInGT:	2837.5
-timePairing:	25639.5
-invInZr:	23.9
-Test round: 185
-expInG1:	44394.4
-expInGT:	2920.2
-timePairing:	26218.4
-invInZr:	22.7
-Test round: 186
-expInG1:	44117.8
-expInGT:	2977.8
-timePairing:	26165.7
-invInZr:	24.1
-Test round: 187
-expInG1:	44217.2
-expInGT:	2875.2
-timePairing:	25710.3
-invInZr:	24.4
-Test round: 188
-expInG1:	44770.4
-expInGT:	2909.0
-timePairing:	25763.7
-invInZr:	24.3
-Test round: 189
-expInG1:	44254.5
-expInGT:	2955.4
-timePairing:	26160.6
-invInZr:	24.0
-Test round: 190
-expInG1:	46764.9
-expInGT:	2947.7
-timePairing:	26276.4
-invInZr:	23.7
-Test round: 191
-expInG1:	43748.0
-expInGT:	2920.1
-timePairing:	27056.3
-invInZr:	26.3
-Test round: 192
-expInG1:	44238.6
-expInGT:	2962.8
-timePairing:	26655.2
-invInZr:	23.9
-Test round: 193
-expInG1:	44255.6
-expInGT:	2894.1
-timePairing:	26240.2
-invInZr:	24.0
-Test round: 194
-expInG1:	44095.6
-expInGT:	2910.5
-timePairing:	25634.8
-invInZr:	23.8
-Test round: 195
-expInG1:	43411.8
-expInGT:	2862.1
-timePairing:	25546.3
-invInZr:	23.9
-Test round: 196
-expInG1:	44759.7
-expInGT:	3881.0
-timePairing:	26330.4
-invInZr:	24.9
-Test round: 197
-expInG1:	46569.1
-expInGT:	2906.2
-timePairing:	26052.2
-invInZr:	26.9
-Test round: 198
-expInG1:	43521.0
-expInGT:	2925.4
-timePairing:	25622.6
-invInZr:	26.6
-Test round: 199
-expInG1:	43792.0
-expInGT:	2890.6
-timePairing:	25679.7
-invInZr:	23.6
-Test round: 200
-expInG1:	43758.1
-expInGT:	3362.7
-timePairing:	25538.8
-invInZr:	24.0
-Test round: 201
-expInG1:	43462.9
-expInGT:	2874.1
-timePairing:	26183.8
-invInZr:	22.9
-Test round: 202
-expInG1:	43513.2
-expInGT:	2831.2
-timePairing:	26905.4
-invInZr:	25.6
-Test round: 203
-expInG1:	44195.2
-expInGT:	2944.2
-timePairing:	25634.0
-invInZr:	24.5
-Test round: 204
-expInG1:	43245.1
-expInGT:	2919.8
-timePairing:	25996.8
-invInZr:	24.1
-Test round: 205
-expInG1:	43735.3
-expInGT:	2875.8
-timePairing:	26094.3
-invInZr:	24.0
-Test round: 206
-expInG1:	43357.9
-expInGT:	2887.1
-timePairing:	25641.7
-invInZr:	23.2
-Test round: 207
-expInG1:	44439.5
-expInGT:	2923.5
-timePairing:	25532.6
-invInZr:	23.5
-Test round: 208
-expInG1:	44720.1
-expInGT:	2955.4
-timePairing:	26101.5
-invInZr:	24.1
-Test round: 209
-expInG1:	43217.6
-expInGT:	2914.9
-timePairing:	26007.0
-invInZr:	23.6
-Test round: 210
-expInG1:	43463.4
-expInGT:	2887.0
-timePairing:	25562.4
-invInZr:	26.1
-Test round: 211
-expInG1:	44328.5
-expInGT:	2914.4
-timePairing:	25547.7
-invInZr:	24.2
-Test round: 212
-expInG1:	45033.1
-expInGT:	2888.6
-timePairing:	26016.2
-invInZr:	24.2
-Test round: 213
-expInG1:	43168.1
-expInGT:	2956.7
-timePairing:	26115.6
-invInZr:	24.6
-Test round: 214
-expInG1:	43947.6
-expInGT:	2955.5
-timePairing:	25503.0
-invInZr:	25.1
-Test round: 215
-expInG1:	44003.5
-expInGT:	2898.6
-timePairing:	25547.9
-invInZr:	24.5
-Test round: 216
-expInG1:	43718.2
-expInGT:	2910.5
-timePairing:	26013.4
-invInZr:	23.0
-Test round: 217
-expInG1:	43024.3
-expInGT:	2864.2
-timePairing:	26017.3
-invInZr:	23.2
-Test round: 218
-expInG1:	43410.2
-expInGT:	2877.6
-timePairing:	25640.9
-invInZr:	23.8
-Test round: 219
-expInG1:	42953.7
-expInGT:	2820.7
-timePairing:	25509.1
-invInZr:	21.9
-Test round: 220
-expInG1:	43381.2
-expInGT:	2862.1
-timePairing:	26107.1
-invInZr:	24.7
-Test round: 221
-expInG1:	43644.0
-expInGT:	2895.6
-timePairing:	25546.1
-invInZr:	23.0
-Test round: 222
-expInG1:	42452.0
-expInGT:	2817.9
-timePairing:	25553.3
-invInZr:	23.8
-Test round: 223
-expInG1:	43624.6
-expInGT:	3395.5
-timePairing:	25572.3
-invInZr:	29.2
-Test round: 224
-expInG1:	43648.2
-expInGT:	2892.1
-timePairing:	26059.3
-invInZr:	22.5
-Test round: 225
-expInG1:	43929.5
-expInGT:	2981.7
-timePairing:	25608.3
-invInZr:	23.4
-Test round: 226
-expInG1:	43449.1
-expInGT:	2876.5
-timePairing:	25565.6
-invInZr:	23.8
-Test round: 227
-expInG1:	42834.2
-expInGT:	2838.0
-timePairing:	30243.9
-invInZr:	25.6
-Test round: 228
-expInG1:	47441.6
-expInGT:	2993.8
-timePairing:	27075.8
-invInZr:	24.3
-Test round: 229
-expInG1:	46447.3
-expInGT:	2926.1
-timePairing:	26059.2
-invInZr:	24.9
-Test round: 230
-expInG1:	43445.3
-expInGT:	2872.4
-timePairing:	25852.3
-invInZr:	23.5
-Test round: 231
-expInG1:	44065.6
-expInGT:	2903.3
-timePairing:	26175.7
-invInZr:	24.5
-Test round: 232
-expInG1:	46392.4
-expInGT:	3390.8
-timePairing:	26865.3
-invInZr:	24.8
-Test round: 233
-expInG1:	44178.4
-expInGT:	2910.1
-timePairing:	25644.9
-invInZr:	23.9
-Test round: 234
-expInG1:	44766.7
-expInGT:	2945.0
-timePairing:	25660.7
-invInZr:	25.3
-Test round: 235
-expInG1:	44446.3
-expInGT:	2927.3
-timePairing:	26195.4
-invInZr:	23.7
-Test round: 236
-expInG1:	44458.3
-expInGT:	2949.9
-timePairing:	26477.8
-invInZr:	24.2
-Test round: 237
-expInG1:	42719.2
-expInGT:	2881.1
-timePairing:	25572.3
-invInZr:	24.0
-Test round: 238
-expInG1:	43732.5
-expInGT:	2856.6
-timePairing:	25617.0
-invInZr:	24.0
-Test round: 239
-expInG1:	43358.2
-expInGT:	2954.2
-timePairing:	26093.6
-invInZr:	24.1
-Test round: 240
-expInG1:	43888.4
-expInGT:	2924.7
-timePairing:	26614.9
-invInZr:	24.0
-Test round: 241
-expInG1:	43145.5
-expInGT:	2895.4
-timePairing:	25521.9
-invInZr:	22.3
-Test round: 242
-expInG1:	43843.4
-expInGT:	2873.9
-timePairing:	25538.0
-invInZr:	24.0
-Test round: 243
-expInG1:	45193.9
-expInGT:	2912.9
-timePairing:	26071.0
-invInZr:	23.5
-Test round: 244
-expInG1:	44651.1
-expInGT:	2917.6
-timePairing:	26342.7
-invInZr:	24.0
-Test round: 245
-expInG1:	43548.0
-expInGT:	2889.6
-timePairing:	25612.3
-invInZr:	23.2
-Test round: 246
-expInG1:	44364.1
-expInGT:	2916.4
-timePairing:	25517.1
-invInZr:	23.4
-Test round: 247
-expInG1:	43973.3
-expInGT:	2935.7
-timePairing:	25991.8
-invInZr:	23.1
-Test round: 248
-expInG1:	43050.8
-expInGT:	2872.1
-timePairing:	25476.5
-invInZr:	24.9
-Test round: 249
-expInG1:	43872.9
-expInGT:	2915.8
-timePairing:	25634.2
-invInZr:	24.2
-Test round: 250
-expInG1:	43442.8
-expInGT:	3343.0
-timePairing:	25555.4
-invInZr:	23.3
-Test round: 251
-expInG1:	43078.6
-expInGT:	4268.5
-timePairing:	31654.0
-invInZr:	23.4
-Test round: 252
-expInG1:	42833.4
-expInGT:	2849.9
-timePairing:	25585.6
-invInZr:	23.1
-Test round: 253
-expInG1:	43294.5
-expInGT:	2881.4
-timePairing:	25519.2
-invInZr:	21.5
-Test round: 254
-expInG1:	43399.6
-expInGT:	3344.1
-timePairing:	25620.1
-invInZr:	22.1
-Test round: 255
-expInG1:	43258.4
-expInGT:	2892.3
-timePairing:	26020.5
-invInZr:	22.3
-Test round: 256
-expInG1:	43629.6
-expInGT:	2915.7
-timePairing:	25625.5
-invInZr:	30.5
-Test round: 257
-expInG1:	43890.7
-expInGT:	2924.3
-timePairing:	25901.6
-invInZr:	43.6
-Test round: 258
-expInG1:	43195.0
-expInGT:	2866.7
-timePairing:	25985.6
-invInZr:	22.4
-Test round: 259
-expInG1:	43988.4
-expInGT:	2951.3
-timePairing:	26195.7
-invInZr:	21.5
-Test round: 260
-expInG1:	42888.2
-expInGT:	2877.5
-timePairing:	25605.0
-invInZr:	21.4
-Test round: 261
-expInG1:	44024.5
-expInGT:	2889.3
-timePairing:	25574.8
-invInZr:	21.5
-Test round: 262
-expInG1:	43136.9
-expInGT:	2874.1
-timePairing:	26028.3
-invInZr:	21.4
-Test round: 263
-expInG1:	43390.7
-expInGT:	2874.3
-timePairing:	26085.7
-invInZr:	20.7
-Test round: 264
-expInG1:	43253.8
-expInGT:	2881.8
-timePairing:	25614.6
-invInZr:	21.1
-Test round: 265
-expInG1:	44002.4
-expInGT:	2904.5
-timePairing:	25605.0
-invInZr:	22.0
-Test round: 266
-expInG1:	45456.8
-expInGT:	2875.7
-timePairing:	26063.8
-invInZr:	22.5
-Test round: 267
-expInG1:	43246.3
-expInGT:	2968.5
-timePairing:	26001.4
-invInZr:	39.6
-Test round: 268
-expInG1:	43415.9
-expInGT:	2887.4
-timePairing:	25516.2
-invInZr:	40.7
-Test round: 269
-expInG1:	43620.7
-expInGT:	2834.3
-timePairing:	25569.8
-invInZr:	20.2
-Test round: 270
-expInG1:	43265.7
-expInGT:	2888.2
-timePairing:	25963.1
-invInZr:	21.0
-Test round: 271
-expInG1:	43604.6
-expInGT:	2913.4
-timePairing:	25991.0
-invInZr:	20.6
-Test round: 272
-expInG1:	44333.3
-expInGT:	2866.6
-timePairing:	25617.0
-invInZr:	20.5
-Test round: 273
-expInG1:	44334.1
-expInGT:	2926.0
-timePairing:	25524.3
-invInZr:	21.4
-Test round: 274
-expInG1:	43185.6
-expInGT:	2878.9
-timePairing:	26030.6
-invInZr:	21.5
-Test round: 275
-expInG1:	43853.0
-expInGT:	2912.2
-timePairing:	25547.0
-invInZr:	25.3
-Test round: 276
-expInG1:	43266.9
-expInGT:	2883.0
-timePairing:	25515.9
-invInZr:	22.5
-Test round: 277
-expInG1:	43323.2
-expInGT:	3345.3
-timePairing:	25708.6
-invInZr:	21.8
-Test round: 278
-expInG1:	43226.7
-expInGT:	2877.6
-timePairing:	25997.1
-invInZr:	21.5
-Test round: 279
-expInG1:	43140.1
-expInGT:	2857.4
-timePairing:	25752.6
-invInZr:	21.2
-Test round: 280
-expInG1:	43552.5
-expInGT:	2911.6
-timePairing:	25493.6
-invInZr:	21.5
-Test round: 281
-expInG1:	43097.9
-expInGT:	3334.2
-timePairing:	25521.9
-invInZr:	28.9
-Test round: 282
-expInG1:	42867.9
-expInGT:	2838.4
-timePairing:	26003.7
-invInZr:	23.4
-Test round: 283
-expInG1:	42856.3
-expInGT:	2860.7
-timePairing:	25474.7
-invInZr:	20.9
-Test round: 284
-expInG1:	43688.4
-expInGT:	2913.7
-timePairing:	25556.9
-invInZr:	20.9
-Test round: 285
-expInG1:	42773.2
-expInGT:	2844.6
-timePairing:	26107.5
-invInZr:	22.4
-Test round: 286
-expInG1:	43372.7
-expInGT:	2885.6
-timePairing:	26008.4
-invInZr:	21.7
-Test round: 287
-expInG1:	42823.3
-expInGT:	2840.6
-timePairing:	25508.3
-invInZr:	20.1
-Test round: 288
-expInG1:	44099.4
-expInGT:	2882.7
-timePairing:	25573.3
-invInZr:	21.2
-Test round: 289
-expInG1:	43321.8
-expInGT:	2898.8
-timePairing:	26071.7
-invInZr:	21.2
-Test round: 290
-expInG1:	42882.2
-expInGT:	2829.4
-timePairing:	26081.4
-invInZr:	21.4
-Test round: 291
-expInG1:	43410.7
-expInGT:	2879.0
-timePairing:	25541.7
-invInZr:	21.8
-Test round: 292
-expInG1:	43863.3
-expInGT:	2899.7
-timePairing:	25556.3
-invInZr:	22.1
-Test round: 293
-expInG1:	43410.2
-expInGT:	2868.7
-timePairing:	26123.8
-invInZr:	21.3
-Test round: 294
-expInG1:	43386.7
-expInGT:	2876.2
-timePairing:	27650.2
-invInZr:	21.8
-Test round: 295
-expInG1:	44177.6
-expInGT:	2980.4
-timePairing:	25697.4
-invInZr:	20.6
-Test round: 296
-expInG1:	43952.6
-expInGT:	2871.8
-timePairing:	25651.0
-invInZr:	21.6
-Test round: 297
-expInG1:	43450.8
-expInGT:	2859.2
-timePairing:	25990.4
-invInZr:	21.3
-Test round: 298
-expInG1:	44904.2
-expInGT:	2938.3
-timePairing:	26350.7
-invInZr:	21.7
-Test round: 299
-expInG1:	43110.8
-expInGT:	2860.9
-timePairing:	25586.3
-invInZr:	21.1
-Test round: 300
-expInG1:	43595.6
-expInGT:	2832.0
-timePairing:	25765.9
-invInZr:	21.5
-Test round: 301
-expInG1:	43466.6
-expInGT:	2845.7
-timePairing:	26183.1
-invInZr:	20.8
-Test round: 302
-expInG1:	48422.6
-expInGT:	2874.2
-timePairing:	25687.1
-invInZr:	21.2
-Test round: 303
-expInG1:	43157.2
-expInGT:	2830.3
-timePairing:	25782.6
-invInZr:	22.0
-Test round: 304
-expInG1:	43568.9
-expInGT:	3356.8
-timePairing:	26081.8
-invInZr:	22.7
-Test round: 305
-expInG1:	44139.0
-expInGT:	2913.8
-timePairing:	26207.1
-invInZr:	20.7
-Test round: 306
-expInG1:	43723.5
-expInGT:	2925.9
-timePairing:	25485.6
-invInZr:	21.8
-Test round: 307
-expInG1:	42742.1
-expInGT:	2813.5
-timePairing:	25603.6
-invInZr:	21.2
-Test round: 308
-expInG1:	43453.2
-expInGT:	3367.2
-timePairing:	25483.4
-invInZr:	22.0
-Test round: 309
-expInG1:	43380.0
-expInGT:	3547.7
-timePairing:	25959.3
-invInZr:	21.1
-Test round: 310
-expInG1:	43526.9
-expInGT:	2891.3
-timePairing:	25577.6
-invInZr:	21.1
-Test round: 311
-expInG1:	43190.4
-expInGT:	2868.5
-timePairing:	25500.6
-invInZr:	20.5
-Test round: 312
-expInG1:	43455.5
-expInGT:	2892.2
-timePairing:	25995.0
-invInZr:	22.2
-Test round: 313
-expInG1:	43143.1
-expInGT:	2856.1
-timePairing:	26144.8
-invInZr:	21.7
-Test round: 314
-expInG1:	43360.5
-expInGT:	2940.9
-timePairing:	25611.0
-invInZr:	21.7
-Test round: 315
-expInG1:	44464.0
-expInGT:	2931.2
-timePairing:	25565.0
-invInZr:	21.1
-Test round: 316
-expInG1:	43094.9
-expInGT:	2836.5
-timePairing:	26025.6
-invInZr:	22.2
-Test round: 317
-expInG1:	43624.7
-expInGT:	2944.8
-timePairing:	25987.9
-invInZr:	21.0
-Test round: 318
-expInG1:	43345.0
-expInGT:	2884.8
-timePairing:	25513.8
-invInZr:	22.4
-Test round: 319
-expInG1:	44487.4
-expInGT:	2862.3
-timePairing:	25685.5
-invInZr:	21.7
-Test round: 320
-expInG1:	43503.4
-expInGT:	2911.8
-timePairing:	26187.5
-invInZr:	22.9
-Test round: 321
-expInG1:	43472.0
-expInGT:	2879.6
-timePairing:	26009.9
-invInZr:	23.4
-Test round: 322
-expInG1:	43786.3
-expInGT:	2946.7
-timePairing:	25546.5
-invInZr:	20.1
-Test round: 323
-expInG1:	44065.3
-expInGT:	2882.3
-timePairing:	25496.0
-invInZr:	20.7
-Test round: 324
-expInG1:	43990.7
-expInGT:	2912.3
-timePairing:	25975.1
-invInZr:	22.4
-Test round: 325
-expInG1:	42951.6
-expInGT:	2919.2
-timePairing:	26027.4
-invInZr:	20.0
-Test round: 326
-expInG1:	43251.3
-expInGT:	2852.1
-timePairing:	25504.6
-invInZr:	21.4
-Test round: 327
-expInG1:	44257.3
-expInGT:	2910.9
-timePairing:	25540.8
-invInZr:	22.3
-Test round: 328
-expInG1:	43006.4
-expInGT:	2913.8
-timePairing:	26001.3
-invInZr:	21.1
-Test round: 329
-expInG1:	43545.3
-expInGT:	2884.2
-timePairing:	25506.5
-invInZr:	21.0
-Test round: 330
-expInG1:	43325.0
-expInGT:	2899.4
-timePairing:	25474.9
-invInZr:	20.9
-Test round: 331
-expInG1:	44509.5
-expInGT:	2922.6
-timePairing:	25532.0
-invInZr:	39.9
-Test round: 332
-expInG1:	44033.4
-expInGT:	2913.4
-timePairing:	25974.1
-invInZr:	23.0
-Test round: 333
-expInG1:	43142.1
-expInGT:	2875.4
-timePairing:	25485.1
-invInZr:	20.5
-Test round: 334
-expInG1:	43011.4
-expInGT:	2848.0
-timePairing:	25558.0
-invInZr:	22.8
-Test round: 335
-expInG1:	44181.2
-expInGT:	3465.3
-timePairing:	25504.4
-invInZr:	22.1
-Test round: 336
-expInG1:	42595.0
-expInGT:	2863.6
-timePairing:	25968.2
-invInZr:	20.3
-Test round: 337
-expInG1:	44510.8
-expInGT:	2905.1
-timePairing:	26212.5
-invInZr:	20.5
-Test round: 338
-expInG1:	43096.7
-expInGT:	2892.7
-timePairing:	25503.6
-invInZr:	22.6
-Test round: 339
-expInG1:	43106.6
-expInGT:	2888.5
-timePairing:	25949.6
-invInZr:	20.1
-Test round: 340
-expInG1:	43576.2
-expInGT:	2898.4
-timePairing:	26017.8
-invInZr:	27.5
-Test round: 341
-expInG1:	43382.9
-expInGT:	2941.5
-timePairing:	25493.3
-invInZr:	21.4
-Test round: 342
-expInG1:	43888.2
-expInGT:	2872.7
-timePairing:	25636.9
-invInZr:	22.0
-Test round: 343
-expInG1:	43360.5
-expInGT:	2862.1
-timePairing:	26088.9
-invInZr:	21.3
-Test round: 344
-expInG1:	43293.9
-expInGT:	2918.7
-timePairing:	26598.6
-invInZr:	19.8
-Test round: 345
-expInG1:	43269.7
-expInGT:	2875.6
-timePairing:	25528.1
-invInZr:	19.7
-Test round: 346
-expInG1:	44221.8
-expInGT:	2859.0
-timePairing:	25606.4
-invInZr:	20.7
-Test round: 347
-expInG1:	43337.5
-expInGT:	2873.5
-timePairing:	25957.8
-invInZr:	21.9
-Test round: 348
-expInG1:	43147.2
-expInGT:	2876.2
-timePairing:	26053.6
-invInZr:	22.7
-Test round: 349
-expInG1:	43604.9
-expInGT:	2940.6
-timePairing:	25543.6
-invInZr:	20.0
-Test round: 350
-expInG1:	44031.0
-expInGT:	2893.8
-timePairing:	25467.4
-invInZr:	22.1
-Test round: 351
-expInG1:	43398.1
-expInGT:	2889.9
-timePairing:	26009.5
-invInZr:	20.9
-Test round: 352
-expInG1:	42903.9
-expInGT:	2953.6
-timePairing:	30386.6
-invInZr:	30.6
-Test round: 353
-expInG1:	43539.7
-expInGT:	2887.7
-timePairing:	25482.6
-invInZr:	21.2
-Test round: 354
-expInG1:	43732.8
-expInGT:	2886.4
-timePairing:	25476.6
-invInZr:	21.1
-Test round: 355
-expInG1:	43295.2
-expInGT:	2855.9
-timePairing:	26500.1
-invInZr:	20.9
-Test round: 356
-expInG1:	43439.1
-expInGT:	2880.9
-timePairing:	25559.7
-invInZr:	21.6
-Test round: 357
-expInG1:	43125.7
-expInGT:	2878.7
-timePairing:	25456.6
-invInZr:	22.8
-Test round: 358
-expInG1:	43206.3
-expInGT:	2847.6
-timePairing:	25578.9
-invInZr:	19.6
-Test round: 359
-expInG1:	43777.8
-expInGT:	2912.7
-timePairing:	26001.3
-invInZr:	20.0
-Test round: 360
-expInG1:	43325.3
-expInGT:	2880.9
-timePairing:	25483.1
-invInZr:	20.6
-Test round: 361
-expInG1:	43993.7
-expInGT:	2922.9
-timePairing:	25545.3
-invInZr:	21.5
-Test round: 362
-expInG1:	42890.8
-expInGT:	3339.5
-timePairing:	25468.3
-invInZr:	20.9
-Test round: 363
-expInG1:	43614.4
-expInGT:	2898.8
-timePairing:	26086.1
-invInZr:	20.3
-Test round: 364
-expInG1:	43700.2
-expInGT:	2915.4
-timePairing:	25822.1
-invInZr:	19.6
-Test round: 365
-expInG1:	44096.7
-expInGT:	2955.2
-timePairing:	25899.8
-invInZr:	22.1
-Test round: 366
-expInG1:	42967.2
-expInGT:	2857.8
-timePairing:	25957.9
-invInZr:	20.8
-Test round: 367
-expInG1:	43883.0
-expInGT:	2963.8
-timePairing:	26043.3
-invInZr:	21.1
-Test round: 368
-expInG1:	43572.2
-expInGT:	2895.5
-timePairing:	25724.5
-invInZr:	20.5
-Test round: 369
-expInG1:	43467.9
-expInGT:	2895.4
-timePairing:	25483.9
-invInZr:	21.0
-Test round: 370
-expInG1:	43582.5
-expInGT:	2925.7
-timePairing:	26016.7
-invInZr:	22.3
-Test round: 371
-expInG1:	43510.0
-expInGT:	2885.1
-timePairing:	26005.2
-invInZr:	21.1
-Test round: 372
-expInG1:	43078.6
-expInGT:	2867.7
-timePairing:	25487.7
-invInZr:	20.7
-Test round: 373
-expInG1:	43369.0
-expInGT:	2829.7
-timePairing:	25631.6
-invInZr:	24.5
-Test round: 374
-expInG1:	43726.0
-expInGT:	2897.8
-timePairing:	26061.6
-invInZr:	20.7
-Test round: 375
-expInG1:	42802.8
-expInGT:	2863.9
-timePairing:	25925.9
-invInZr:	20.6
-Test round: 376
-expInG1:	43792.4
-expInGT:	2925.3
-timePairing:	25575.5
-invInZr:	21.0
-Test round: 377
-expInG1:	43810.3
-expInGT:	2879.9
-timePairing:	25558.4
-invInZr:	20.8
-Test round: 378
-expInG1:	43509.2
-expInGT:	2893.9
-timePairing:	25932.8
-invInZr:	19.6
-Test round: 379
-expInG1:	43516.6
-expInGT:	2884.1
-timePairing:	26043.5
-invInZr:	22.0
-Test round: 380
-expInG1:	43318.3
-expInGT:	2873.1
-timePairing:	25512.7
-invInZr:	21.4
-Test round: 381
-expInG1:	43741.6
-expInGT:	2864.0
-timePairing:	25511.2
-invInZr:	22.4
-Test round: 382
-expInG1:	43630.1
-expInGT:	2897.0
-timePairing:	26116.7
-invInZr:	23.0
-Test round: 383
-expInG1:	43415.1
-expInGT:	2881.4
-timePairing:	26002.9
-invInZr:	19.9
-Test round: 384
-expInG1:	42663.3
-expInGT:	2838.5
-timePairing:	25502.2
-invInZr:	21.1
-Test round: 385
-expInG1:	43479.6
-expInGT:	2840.6
-timePairing:	25567.5
-invInZr:	20.8
-Test round: 386
-expInG1:	43471.9
-expInGT:	2919.1
-timePairing:	26042.8
-invInZr:	21.3
-Test round: 387
-expInG1:	43934.8
-expInGT:	2906.6
-timePairing:	25489.3
-invInZr:	20.9
-Test round: 388
-expInG1:	43934.6
-expInGT:	2911.3
-timePairing:	25565.1
-invInZr:	25.0
-Test round: 389
-expInG1:	43148.0
-expInGT:	3401.2
-timePairing:	25501.9
-invInZr:	21.3
-Test round: 390
-expInG1:	43824.9
-expInGT:	2902.9
-timePairing:	25963.5
-invInZr:	22.7
-Test round: 391
-expInG1:	44105.7
-expInGT:	2943.2
-timePairing:	25516.4
-invInZr:	21.4
-Test round: 392
-expInG1:	42776.1
-expInGT:	2830.3
-timePairing:	25451.1
-invInZr:	20.1
-Test round: 393
-expInG1:	43657.9
-expInGT:	3418.8
-timePairing:	25472.7
-invInZr:	21.1
-Test round: 394
-expInG1:	43668.0
-expInGT:	2948.3
-timePairing:	26047.0
-invInZr:	20.8
-Test round: 395
-expInG1:	43249.2
-expInGT:	2865.7
-timePairing:	25511.2
-invInZr:	27.0
-Test round: 396
-expInG1:	43818.1
-expInGT:	2906.5
-timePairing:	25541.4
-invInZr:	20.2
-Test round: 397
-expInG1:	43517.5
-expInGT:	2919.7
-timePairing:	25973.1
-invInZr:	21.6
-Test round: 398
-expInG1:	43599.2
-expInGT:	2891.5
-timePairing:	25981.8
-invInZr:	21.1
-Test round: 399
-expInG1:	44526.9
-expInGT:	2956.2
-timePairing:	25910.7
-invInZr:	21.3
-Test round: 400
-expInG1:	44183.0
-expInGT:	2894.5
-timePairing:	25662.6
-invInZr:	34.7
-Test round: 401
-expInG1:	43247.7
-expInGT:	2861.9
-timePairing:	25952.0
-invInZr:	21.5
-Test round: 402
-expInG1:	43415.5
-expInGT:	2910.5
-timePairing:	25939.6
-invInZr:	21.1
-Test round: 403
-expInG1:	43260.8
-expInGT:	2868.9
-timePairing:	25619.2
-invInZr:	21.2
-Test round: 404
-expInG1:	44192.0
-expInGT:	2911.0
-timePairing:	25630.9
-invInZr:	21.4
-Test round: 405
-expInG1:	42578.6
-expInGT:	2822.3
-timePairing:	25961.3
-invInZr:	21.6
-Test round: 406
-expInG1:	44036.2
-expInGT:	2929.0
-timePairing:	26034.1
-invInZr:	22.2
-Test round: 407
-expInG1:	42678.5
-expInGT:	2850.7
-timePairing:	25600.7
-invInZr:	20.2
-Test round: 408
-expInG1:	43954.0
-expInGT:	2881.2
-timePairing:	25569.4
-invInZr:	21.4
-Test round: 409
-expInG1:	43746.5
-expInGT:	2866.8
-timePairing:	26011.5
-invInZr:	20.5
-Test round: 410
-expInG1:	43384.5
-expInGT:	2992.1
-timePairing:	26025.2
-invInZr:	20.9
-Test round: 411
-expInG1:	43946.8
-expInGT:	2930.0
-timePairing:	25494.2
-invInZr:	22.2
-Test round: 412
-expInG1:	44549.2
-expInGT:	2905.5
-timePairing:	25694.8
-invInZr:	21.6
-Test round: 413
-expInG1:	43653.6
-expInGT:	2890.6
-timePairing:	25974.3
-invInZr:	21.6
-Test round: 414
-expInG1:	42950.9
-expInGT:	2851.1
-timePairing:	25470.7
-invInZr:	23.1
-Test round: 415
-expInG1:	43622.3
-expInGT:	2929.3
-timePairing:	25532.5
-invInZr:	22.9
-Test round: 416
-expInG1:	44469.9
-expInGT:	2905.3
-timePairing:	25725.5
-invInZr:	22.1
-Test round: 417
-expInG1:	43733.2
-expInGT:	2920.3
-timePairing:	26023.5
-invInZr:	23.0
-Test round: 418
-expInG1:	42937.6
-expInGT:	2904.5
-timePairing:	25504.5
-invInZr:	21.7
-Test round: 419
-expInG1:	49738.8
-expInGT:	2911.7
-timePairing:	25633.6
-invInZr:	20.5
-Test round: 420
-expInG1:	43553.8
-expInGT:	3407.9
-timePairing:	25576.7
-invInZr:	21.4
-Test round: 421
-expInG1:	43205.7
-expInGT:	2860.4
-timePairing:	26009.1
-invInZr:	21.5
-Test round: 422
-expInG1:	43322.3
-expInGT:	2907.5
-timePairing:	25518.9
-invInZr:	21.5
-Test round: 423
-expInG1:	43285.9
-expInGT:	2854.7
-timePairing:	25690.4
-invInZr:	21.4
-Test round: 424
-expInG1:	43059.3
-expInGT:	2856.8
-timePairing:	26000.8
-invInZr:	21.0
-Test round: 425
-expInG1:	43977.4
-expInGT:	2942.0
-timePairing:	25948.8
-invInZr:	21.5
-Test round: 426
-expInG1:	43088.7
-expInGT:	2847.7
-timePairing:	25583.6
-invInZr:	21.1
-Test round: 427
-expInG1:	44754.0
-expInGT:	2883.0
-timePairing:	25488.5
-invInZr:	21.9
-Test round: 428
-expInG1:	43654.7
-expInGT:	2904.4
-timePairing:	26175.1
-invInZr:	21.0
-Test round: 429
-expInG1:	42662.7
-expInGT:	2814.8
-timePairing:	26084.0
-invInZr:	21.4
-Test round: 430
-expInG1:	43027.6
-expInGT:	2855.1
-timePairing:	25486.6
-invInZr:	20.6
-Test round: 431
-expInG1:	43519.8
-expInGT:	2856.7
-timePairing:	25532.9
-invInZr:	21.1
-Test round: 432
-expInG1:	44116.1
-expInGT:	2926.3
-timePairing:	26014.8
-invInZr:	20.8
-Test round: 433
-expInG1:	43489.5
-expInGT:	2883.3
-timePairing:	25933.6
-invInZr:	20.6
-Test round: 434
-expInG1:	44449.6
-expInGT:	2848.8
-timePairing:	25501.0
-invInZr:	21.3
-Test round: 435
-expInG1:	44168.2
-expInGT:	2940.2
-timePairing:	25520.7
-invInZr:	21.5
-Test round: 436
-expInG1:	43410.0
-expInGT:	2855.0
-timePairing:	25949.6
-invInZr:	20.4
-Test round: 437
-expInG1:	43200.4
-expInGT:	2863.1
-timePairing:	26016.5
-invInZr:	21.2
-Test round: 438
-expInG1:	48041.6
-expInGT:	2838.2
-timePairing:	25680.7
-invInZr:	23.0
-Test round: 439
-expInG1:	43645.6
-expInGT:	2850.4
-timePairing:	25514.0
-invInZr:	23.4
-Test round: 440
-expInG1:	43668.3
-expInGT:	2929.1
-timePairing:	25985.2
-invInZr:	20.9
-Test round: 441
-expInG1:	44138.2
-expInGT:	2938.4
-timePairing:	26049.6
-invInZr:	21.3
-Test round: 442
-expInG1:	43073.5
-expInGT:	2866.9
-timePairing:	25484.8
-invInZr:	19.5
-Test round: 443
-expInG1:	43828.9
-expInGT:	2859.7
-timePairing:	25511.0
-invInZr:	21.0
-Test round: 444
-expInG1:	43681.9
-expInGT:	2897.7
-timePairing:	26052.1
-invInZr:	22.1
-Test round: 445
-expInG1:	43196.4
-expInGT:	2864.2
-timePairing:	25483.4
-invInZr:	21.8
-Test round: 446
-expInG1:	43569.0
-expInGT:	2896.6
-timePairing:	25513.7
-invInZr:	23.5
-Test round: 447
-expInG1:	49158.0
-expInGT:	3350.9
-timePairing:	25598.5
-invInZr:	20.7
-Test round: 448
-expInG1:	43420.6
-expInGT:	2884.3
-timePairing:	25957.4
-invInZr:	20.5
-Test round: 449
-expInG1:	43175.0
-expInGT:	2869.4
-timePairing:	25458.1
-invInZr:	21.2
-Test round: 450
-expInG1:	44278.6
-expInGT:	2875.9
-timePairing:	25589.6
-invInZr:	21.4
-Test round: 451
-expInG1:	44012.6
-expInGT:	3368.9
-timePairing:	25494.7
-invInZr:	21.8
-Test round: 452
-expInG1:	43105.8
-expInGT:	2854.9
-timePairing:	25980.6
-invInZr:	20.4
-Test round: 453
-expInG1:	43542.0
-expInGT:	2985.5
-timePairing:	25823.3
-invInZr:	22.9
-Test round: 454
-expInG1:	43528.7
-expInGT:	2963.1
-timePairing:	25523.7
-invInZr:	21.5
-Test round: 455
-expInG1:	43294.2
-expInGT:	2872.5
-timePairing:	25945.6
-invInZr:	21.1
-Test round: 456
-expInG1:	43673.6
-expInGT:	2887.4
-timePairing:	26064.4
-invInZr:	20.1
-Test round: 457
-expInG1:	43582.3
-expInGT:	2895.2
-timePairing:	25498.2
-invInZr:	19.9
-Test round: 458
-expInG1:	44067.7
-expInGT:	2890.9
-timePairing:	25515.5
-invInZr:	21.1
-Test round: 459
-expInG1:	43488.3
-expInGT:	2887.0
-timePairing:	26014.4
-invInZr:	20.1
-Test round: 460
-expInG1:	43503.5
-expInGT:	2886.9
-timePairing:	25974.8
-invInZr:	21.9
-Test round: 461
-expInG1:	43195.6
-expInGT:	2884.5
-timePairing:	25491.2
-invInZr:	21.0
-Test round: 462
-expInG1:	42427.4
-expInGT:	2782.9
-timePairing:	25730.9
-invInZr:	20.9
-Test round: 463
-expInG1:	42802.8
-expInGT:	2827.7
-timePairing:	25987.8
-invInZr:	21.6
-Test round: 464
-expInG1:	43817.8
-expInGT:	2915.9
-timePairing:	25977.9
-invInZr:	21.7
-Test round: 465
-expInG1:	42814.2
-expInGT:	2826.1
-timePairing:	25745.1
-invInZr:	22.6
-Test round: 466
-expInG1:	44040.8
-expInGT:	2874.2
-timePairing:	25552.1
-invInZr:	21.2
-Test round: 467
-expInG1:	42777.9
-expInGT:	2860.1
-timePairing:	25935.4
-invInZr:	22.3
-Test round: 468
-expInG1:	43517.4
-expInGT:	2897.1
-timePairing:	25996.7
-invInZr:	20.3
-Test round: 469
-expInG1:	46217.7
-expInGT:	2900.7
-timePairing:	25615.3
-invInZr:	22.6
-Test round: 470
-expInG1:	43797.2
-expInGT:	2891.0
-timePairing:	25553.8
-invInZr:	21.6
-Test round: 471
-expInG1:	43631.8
-expInGT:	2907.7
-timePairing:	26081.9
-invInZr:	19.4
-Test round: 472
-expInG1:	42202.5
-expInGT:	2789.5
-timePairing:	25498.7
-invInZr:	21.8
-Test round: 473
-expInG1:	42450.8
-expInGT:	2815.6
-timePairing:	25529.3
-invInZr:	21.6
-Test round: 474
-expInG1:	43432.5
-expInGT:	3376.0
-timePairing:	25473.9
-invInZr:	21.5
-Test round: 475
-expInG1:	43769.6
-expInGT:	2905.7
-timePairing:	26097.0
-invInZr:	20.6
-Test round: 476
-expInG1:	43356.4
-expInGT:	2887.0
-timePairing:	25498.7
-invInZr:	21.4
-Test round: 477
-expInG1:	43846.8
-expInGT:	2929.2
-timePairing:	25512.8
-invInZr:	21.4
-Test round: 478
-expInG1:	44247.9
-expInGT:	3395.8
-timePairing:	25506.3
-invInZr:	21.2
-Test round: 479
-expInG1:	43067.8
-expInGT:	2852.7
-timePairing:	25983.5
-invInZr:	19.7
-Test round: 480
-expInG1:	43266.2
-expInGT:	2873.2
-timePairing:	25531.1
-invInZr:	21.7
-Test round: 481
-expInG1:	43196.2
-expInGT:	2882.0
-timePairing:	25496.5
-invInZr:	22.9
-Test round: 482
-expInG1:	44760.3
-expInGT:	2888.0
-timePairing:	25966.1
-invInZr:	20.2
-Test round: 483
-expInG1:	43733.9
-expInGT:	2902.0
-timePairing:	26159.2
-invInZr:	23.6
-Test round: 484
-expInG1:	43127.2
-expInGT:	2847.6
-timePairing:	25501.4
-invInZr:	20.5
-Test round: 485
-expInG1:	43705.8
-expInGT:	2858.4
-timePairing:	25468.1
-invInZr:	21.4
-Test round: 486
-expInG1:	44108.0
-expInGT:	2899.0
-timePairing:	25987.5
-invInZr:	20.9
-Test round: 487
-expInG1:	42995.8
-expInGT:	2909.1
-timePairing:	25946.7
-invInZr:	20.9
-Test round: 488
-expInG1:	43190.8
-expInGT:	2879.7
-timePairing:	25521.7
-invInZr:	21.1
-Test round: 489
-expInG1:	44603.2
-expInGT:	2918.7
-timePairing:	25773.5
-invInZr:	21.4
-Test round: 490
-expInG1:	43520.0
-expInGT:	2878.4
-timePairing:	25972.4
-invInZr:	20.5
-Test round: 491
-expInG1:	43670.7
-expInGT:	2905.3
-timePairing:	26073.4
-invInZr:	21.6
-Test round: 492
-expInG1:	43122.7
-expInGT:	2909.2
-timePairing:	25550.7
-invInZr:	21.8
-Test round: 493
-expInG1:	43525.3
-expInGT:	2842.6
-timePairing:	25480.8
-invInZr:	20.6
-Test round: 494
-expInG1:	42998.6
-expInGT:	2872.3
-timePairing:	25928.9
-invInZr:	21.4
-Test round: 495
-expInG1:	43472.4
-expInGT:	2936.9
-timePairing:	25982.3
-invInZr:	21.5
-Test round: 496
-expInG1:	43826.7
-expInGT:	2915.3
-timePairing:	25533.0
-invInZr:	22.3
-Test round: 497
-expInG1:	44107.2
-expInGT:	2909.3
-timePairing:	25559.5
-invInZr:	20.3
-Test round: 498
-expInG1:	43135.4
-expInGT:	2900.2
-timePairing:	25968.8
-invInZr:	20.6
-Test round: 499
-expInG1:	43424.1
-expInGT:	2879.8
-timePairing:	25538.8
-invInZr:	20.7
-Test round: 500
-expInG1:	43000.4
-expInGT:	2834.5
-timePairing:	25475.9
-invInZr:	20.8
-Test round: 501
-expInG1:	43841.2
-expInGT:	3392.8
-timePairing:	25533.8
-invInZr:	21.7
-Test round: 502
-expInG1:	45269.9
-expInGT:	2884.5
-timePairing:	26030.9
-invInZr:	20.7
-Test round: 503
-expInG1:	43281.1
-expInGT:	2877.6
-timePairing:	25526.5
-invInZr:	22.5
-Test round: 504
-expInG1:	43297.7
-expInGT:	2827.0
-timePairing:	25553.4
-invInZr:	23.0
-Test round: 505
-expInG1:	43525.3
-expInGT:	3361.3
-timePairing:	25492.8
-invInZr:	21.0
-Test round: 506
-expInG1:	42812.8
-expInGT:	2864.3
-timePairing:	25962.5
-invInZr:	20.4
-Test round: 507
-expInG1:	43619.2
-expInGT:	2881.2
-timePairing:	25613.9
-invInZr:	23.2
-Test round: 508
-expInG1:	43723.7
-expInGT:	2922.0
-timePairing:	25494.4
-invInZr:	22.0
-Test round: 509
-expInG1:	43543.3
-expInGT:	2900.8
-timePairing:	25924.3
-invInZr:	21.4
-Test round: 510
-expInG1:	43282.3
-expInGT:	2868.1
-timePairing:	26082.6
-invInZr:	22.0
-Test round: 511
-expInG1:	43829.2
-expInGT:	2907.5
-timePairing:	25721.9
-invInZr:	21.9
-Test round: 512
-expInG1:	44188.1
-expInGT:	2875.6
-timePairing:	25502.9
-invInZr:	21.8
-Test round: 513
-expInG1:	43130.3
-expInGT:	2863.2
-timePairing:	26123.8
-invInZr:	20.6
-Test round: 514
-expInG1:	43261.4
-expInGT:	2888.3
-timePairing:	25992.2
-invInZr:	20.9
-Test round: 515
-expInG1:	43161.7
-expInGT:	2878.8
-timePairing:	25489.9
-invInZr:	24.7
-Test round: 516
-expInG1:	44440.6
-expInGT:	2905.9
-timePairing:	25562.7
-invInZr:	22.3
-Test round: 517
-expInG1:	43486.4
-expInGT:	2894.4
-timePairing:	26044.2
-invInZr:	20.2
-Test round: 518
-expInG1:	43230.5
-expInGT:	2875.1
-timePairing:	26054.8
-invInZr:	20.8
-Test round: 519
-expInG1:	43506.5
-expInGT:	2874.8
-timePairing:	25561.7
-invInZr:	20.6
-Test round: 520
-expInG1:	45405.5
-expInGT:	2885.3
-timePairing:	25516.7
-invInZr:	20.5
-Test round: 521
-expInG1:	43293.1
-expInGT:	2847.5
-timePairing:	26011.7
-invInZr:	22.9
-Test round: 522
-expInG1:	43049.6
-expInGT:	2906.4
-timePairing:	26032.3
-invInZr:	19.8
-Test round: 523
-expInG1:	42909.0
-expInGT:	2831.1
-timePairing:	25574.1
-invInZr:	20.2
-Test round: 524
-expInG1:	44139.9
-expInGT:	2902.9
-timePairing:	25575.4
+expInG1:	10700.6
+expInGT:	782.4
+pairing:	6063.0
 invInZr:	19.2
-Test round: 525
-expInG1:	43097.3
-expInGT:	2906.3
-timePairing:	26026.2
-invInZr:	20.6
-Test round: 526
-expInG1:	43769.3
-expInGT:	2897.4
-timePairing:	25528.2
-invInZr:	21.0
-Test round: 527
-expInG1:	43834.7
-expInGT:	2929.7
-timePairing:	25495.1
-invInZr:	20.8
-Test round: 528
-expInG1:	42442.6
-expInGT:	2811.6
-timePairing:	25556.2
-invInZr:	20.6
-Test round: 529
-expInG1:	43484.9
-expInGT:	2862.8
-timePairing:	25995.1
-invInZr:	22.2
-Test round: 530
-expInG1:	43183.6
-expInGT:	2864.4
-timePairing:	25577.2
-invInZr:	20.8
-Test round: 531
-expInG1:	43678.5
-expInGT:	2913.6
-timePairing:	25514.2
+Test round: 20
+expInG1:	9868.1
+expInGT:	808.5
+pairing:	5932.7
+invInZr:	14.1
+Test round: 21
+expInG1:	11458.8
+expInGT:	799.0
+pairing:	5848.0
+invInZr:	14.6
+Test round: 22
+expInG1:	10090.8
+expInGT:	726.9
+pairing:	5867.9
 invInZr:	20.9
-Test round: 532
-expInG1:	43698.3
-expInGT:	3410.8
-timePairing:	25494.4
-invInZr:	20.9
-Test round: 533
-expInG1:	42726.0
-expInGT:	2846.8
-timePairing:	25963.0
-invInZr:	21.6
-Test round: 534
-expInG1:	43793.4
-expInGT:	2915.0
-timePairing:	25536.7
-invInZr:	20.6
-Test round: 535
-expInG1:	44549.8
-expInGT:	2905.8
-timePairing:	25495.6
-invInZr:	22.3
-Test round: 536
-expInG1:	42911.7
-expInGT:	2853.7
-timePairing:	26007.4
-invInZr:	21.9
-Test round: 537
-expInG1:	43171.0
-expInGT:	2858.4
-timePairing:	26053.0
-invInZr:	23.3
-Test round: 538
-expInG1:	43346.3
-expInGT:	2890.2
-timePairing:	25625.1
-invInZr:	21.4
-Test round: 539
-expInG1:	44346.0
-expInGT:	2906.7
-timePairing:	25511.4
-invInZr:	20.3
-Test round: 540
-expInG1:	43722.4
-expInGT:	2898.9
-timePairing:	26140.7
-invInZr:	22.1
-Test round: 541
-expInG1:	43289.5
-expInGT:	2871.5
-timePairing:	25991.6
-invInZr:	20.2
-Test round: 542
-expInG1:	43503.4
-expInGT:	2907.1
-timePairing:	25474.3
-invInZr:	22.1
-Test round: 543
-expInG1:	43577.0
-expInGT:	2855.0
-timePairing:	25548.1
-invInZr:	20.5
-Test round: 544
-expInG1:	43864.9
-expInGT:	2928.1
-timePairing:	25957.0
-invInZr:	21.8
-Test round: 545
-expInG1:	43217.4
-expInGT:	2867.0
-timePairing:	25976.9
-invInZr:	21.4
-Test round: 546
-expInG1:	43806.8
-expInGT:	2883.4
-timePairing:	25553.0
-invInZr:	21.4
-Test round: 547
-expInG1:	43293.9
-expInGT:	2880.0
-timePairing:	25469.9
-invInZr:	20.9
-Test round: 548
-expInG1:	42924.4
-expInGT:	2854.6
-timePairing:	25924.9
-invInZr:	21.4
-Test round: 549
-expInG1:	43082.9
-expInGT:	2844.1
-timePairing:	26079.0
-invInZr:	21.8
-Test round: 550
-expInG1:	43630.9
-expInGT:	2948.4
-timePairing:	25474.6
-invInZr:	20.3
-Test round: 551
-expInG1:	43235.8
-expInGT:	2828.7
-timePairing:	25493.4
-invInZr:	21.3
-Test round: 552
-expInG1:	42859.3
-expInGT:	2825.2
-timePairing:	26053.7
-invInZr:	21.6
-Test round: 553
-expInG1:	43426.6
-expInGT:	2917.0
-timePairing:	25463.0
-invInZr:	21.2
-Test round: 554
-expInG1:	42725.2
-expInGT:	2832.8
-timePairing:	25552.8
-invInZr:	20.3
-Test round: 555
-expInG1:	44542.1
-expInGT:	3420.2
-timePairing:	25588.2
-invInZr:	21.6
-Test round: 556
-expInG1:	43167.2
-expInGT:	2893.7
-timePairing:	26220.7
-invInZr:	21.4
-Test round: 557
-expInG1:	43041.8
-expInGT:	2858.8
-timePairing:	25518.9
-invInZr:	24.0
-Test round: 558
-expInG1:	43970.6
-expInGT:	2906.3
-timePairing:	25531.1
-invInZr:	21.9
-Test round: 559
-expInG1:	42451.2
-expInGT:	3295.9
-timePairing:	25509.2
-invInZr:	20.8
-Test round: 560
-expInG1:	43562.2
-expInGT:	2897.1
-timePairing:	26014.2
-invInZr:	22.0
-Test round: 561
-expInG1:	42928.5
-expInGT:	2834.3
-timePairing:	25609.7
-invInZr:	22.4
-Test round: 562
-expInG1:	43057.2
-expInGT:	2857.2
-timePairing:	25505.7
-invInZr:	21.5
-Test round: 563
-expInG1:	43244.4
-expInGT:	2858.5
-timePairing:	25953.3
-invInZr:	21.4
-Test round: 564
-expInG1:	43783.5
-expInGT:	2852.4
-timePairing:	26099.2
-invInZr:	21.0
-Test round: 565
-expInG1:	44214.7
-expInGT:	2918.7
-timePairing:	25456.1
-invInZr:	22.0
-Test round: 566
-expInG1:	43920.4
-expInGT:	2884.0
-timePairing:	25487.5
-invInZr:	20.5
-Test round: 567
-expInG1:	43670.2
-expInGT:	2919.6
-timePairing:	26218.6
-invInZr:	22.2
-Test round: 568
-expInG1:	43713.5
-expInGT:	2991.2
-timePairing:	26235.6
-invInZr:	21.1
-Test round: 569
-expInG1:	43980.5
-expInGT:	2940.1
-timePairing:	25495.4
-invInZr:	20.9
-Test round: 570
-expInG1:	45644.6
-expInGT:	2884.8
-timePairing:	25651.1
-invInZr:	27.3
-Test round: 571
-expInG1:	43076.8
-expInGT:	2845.5
-timePairing:	25981.1
-invInZr:	22.3
-Test round: 572
-expInG1:	42881.9
-expInGT:	2836.9
-timePairing:	25954.6
-invInZr:	20.6
-Test round: 573
-expInG1:	49952.9
-expInGT:	2876.8
-timePairing:	25849.3
-invInZr:	25.0
-Test round: 574
-expInG1:	43809.7
-expInGT:	3008.5
-timePairing:	25502.3
-invInZr:	26.1
-Test round: 575
-expInG1:	42448.2
-expInGT:	2850.2
-timePairing:	26092.4
-invInZr:	22.7
-Test round: 576
-expInG1:	43215.2
-expInGT:	2887.5
-timePairing:	26050.7
-invInZr:	21.8
-Test round: 577
-expInG1:	42861.4
-expInGT:	2869.2
-timePairing:	25566.5
-invInZr:	20.8
-Test round: 578
-expInG1:	43108.5
-expInGT:	2844.2
-timePairing:	25498.8
-invInZr:	20.7
-Test round: 579
-expInG1:	42479.6
-expInGT:	2828.6
-timePairing:	26253.7
-invInZr:	21.5
-Test round: 580
-expInG1:	43040.8
-expInGT:	2879.9
-timePairing:	25502.2
-invInZr:	21.5
-Test round: 581
-expInG1:	42655.1
-expInGT:	2841.9
-timePairing:	25545.0
-invInZr:	20.1
-Test round: 582
-expInG1:	42787.7
-expInGT:	3354.4
-timePairing:	25669.0
-invInZr:	21.8
-Test round: 583
-expInG1:	43151.1
-expInGT:	2881.8
-timePairing:	26013.8
-invInZr:	21.0
-Test round: 584
-expInG1:	42605.9
-expInGT:	2844.4
-timePairing:	25497.4
-invInZr:	21.0
-Test round: 585
-expInG1:	43351.9
-expInGT:	2920.0
-timePairing:	25554.6
-invInZr:	21.0
-Test round: 586
-expInG1:	44926.5
-expInGT:	3359.4
-timePairing:	25502.0
-invInZr:	32.7
-Test round: 587
-expInG1:	47227.0
-expInGT:	2895.9
-timePairing:	26036.5
-invInZr:	22.7
-Test round: 588
-expInG1:	52032.9
-expInGT:	2911.9
-timePairing:	25561.6
-invInZr:	20.5
-Test round: 589
-expInG1:	42212.1
-expInGT:	2815.9
-timePairing:	25562.4
-invInZr:	20.9
-Test round: 590
-expInG1:	43049.9
-expInGT:	2879.7
-timePairing:	26006.5
-invInZr:	19.3
-Test round: 591
-expInG1:	43035.8
-expInGT:	2875.7
-timePairing:	26132.9
-invInZr:	21.1
-Test round: 592
-expInG1:	43509.1
-expInGT:	2911.2
-timePairing:	25490.9
-invInZr:	20.1
-Test round: 593
-expInG1:	43823.4
-expInGT:	2900.2
-timePairing:	25624.6
-invInZr:	21.0
-Test round: 594
-expInG1:	43239.0
-expInGT:	2952.9
-timePairing:	26109.7
-invInZr:	20.4
-Test round: 595
-expInG1:	42818.9
-expInGT:	2838.2
-timePairing:	25955.2
-invInZr:	25.7
-Test round: 596
-expInG1:	42772.1
-expInGT:	2854.6
-timePairing:	25535.0
-invInZr:	20.5
-Test round: 597
-expInG1:	43234.2
-expInGT:	2918.5
-timePairing:	25544.6
-invInZr:	20.3
-Test round: 598
-expInG1:	42962.5
-expInGT:	2865.2
-timePairing:	25981.5
-invInZr:	20.3
-Test round: 599
-expInG1:	43052.5
-expInGT:	2880.4
-timePairing:	25948.8
-invInZr:	21.1
-Test round: 600
-expInG1:	43062.2
-expInGT:	2926.4
-timePairing:	25559.4
-invInZr:	20.9
-Test round: 601
-expInG1:	42985.1
-expInGT:	2831.5
-timePairing:	25518.1
-invInZr:	20.6
-Test round: 602
-expInG1:	42471.2
-expInGT:	2827.5
-timePairing:	25982.0
-invInZr:	20.3
-Test round: 603
-expInG1:	43035.3
-expInGT:	2861.6
-timePairing:	26018.5
-invInZr:	19.1
-Test round: 604
-expInG1:	43420.3
-expInGT:	2918.0
-timePairing:	25486.3
-invInZr:	22.0
-Test round: 605
-expInG1:	43393.2
-expInGT:	2858.3
-timePairing:	25454.0
-invInZr:	20.2
-Test round: 606
-expInG1:	43509.4
-expInGT:	2949.6
-timePairing:	26063.7
-invInZr:	21.1
-Test round: 607
-expInG1:	42050.8
-expInGT:	2810.8
-timePairing:	25497.0
-invInZr:	20.3
-Test round: 608
-expInG1:	43230.8
-expInGT:	2892.6
-timePairing:	25532.3
-invInZr:	20.0
-Test round: 609
-expInG1:	42861.1
-expInGT:	3375.9
-timePairing:	25826.1
-invInZr:	21.5
-Test round: 610
-expInG1:	43063.8
-expInGT:	2877.4
-timePairing:	26004.4
-invInZr:	20.6
-Test round: 611
-expInG1:	44445.0
-expInGT:	2868.2
-timePairing:	25514.0
-invInZr:	22.3
-Test round: 612
-expInG1:	43046.2
-expInGT:	2926.2
-timePairing:	25520.9
-invInZr:	21.1
-Test round: 613
-expInG1:	43112.7
-expInGT:	3321.9
-timePairing:	25536.0
-invInZr:	21.7
-Test round: 614
-expInG1:	43133.0
-expInGT:	2887.1
-timePairing:	25921.5
-invInZr:	20.9
-Test round: 615
-expInG1:	43374.4
-expInGT:	2905.1
-timePairing:	25458.9
-invInZr:	20.2
-Test round: 616
-expInG1:	42341.1
-expInGT:	2839.8
-timePairing:	25531.1
-invInZr:	21.1
-Test round: 617
-expInG1:	42797.3
-expInGT:	2846.3
-timePairing:	25991.1
-invInZr:	20.5
-Test round: 618
-expInG1:	42682.1
-expInGT:	2878.8
-timePairing:	26038.9
-invInZr:	22.2
-Test round: 619
-expInG1:	42996.1
-expInGT:	2882.4
-timePairing:	25493.1
-invInZr:	21.7
-Test round: 620
-expInG1:	43446.5
-expInGT:	2890.6
-timePairing:	25569.9
-invInZr:	21.8
-Test round: 621
-expInG1:	42627.9
-expInGT:	2910.4
-timePairing:	25986.4
-invInZr:	20.2
-Test round: 622
-expInG1:	45629.0
-expInGT:	3614.9
-timePairing:	25949.4
-invInZr:	20.9
-Test round: 623
-expInG1:	42440.0
-expInGT:	2833.4
-timePairing:	25509.1
-invInZr:	20.9
-Test round: 624
-expInG1:	43298.4
-expInGT:	2854.5
-timePairing:	25556.7
-invInZr:	19.9
-Test round: 625
-expInG1:	43019.6
-expInGT:	2859.3
-timePairing:	26038.2
-invInZr:	21.1
-Test round: 626
-expInG1:	43087.4
-expInGT:	2894.6
-timePairing:	26040.1
-invInZr:	21.0
-Test round: 627
-expInG1:	47597.0
-expInGT:	2872.5
-timePairing:	26026.3
-invInZr:	20.7
-Test round: 628
-expInG1:	43834.3
-expInGT:	2879.5
-timePairing:	25492.2
-invInZr:	20.9
-Test round: 629
-expInG1:	43443.0
-expInGT:	2888.3
-timePairing:	26058.7
-invInZr:	22.3
-Test round: 630
-expInG1:	43697.0
-expInGT:	2932.5
-timePairing:	26038.6
-invInZr:	20.1
-Test round: 631
-expInG1:	42204.4
-expInGT:	2848.1
-timePairing:	25476.2
-invInZr:	21.5
-Test round: 632
-expInG1:	43789.6
-expInGT:	2907.1
-timePairing:	25815.1
-invInZr:	20.1
-Test round: 633
-expInG1:	42958.2
-expInGT:	2867.4
-timePairing:	26058.7
-invInZr:	20.3
-Test round: 634
-expInG1:	43130.8
-expInGT:	3564.8
-timePairing:	25961.0
-invInZr:	23.0
-Test round: 635
-expInG1:	43554.4
-expInGT:	2913.8
-timePairing:	25480.6
-invInZr:	20.0
-Test round: 636
-expInG1:	43699.2
-expInGT:	2856.0
-timePairing:	25514.1
-invInZr:	25.7
-Test round: 637
-expInG1:	42928.1
-expInGT:	3556.6
-timePairing:	25941.9
-invInZr:	20.7
-Test round: 638
-expInG1:	43816.3
-expInGT:	2904.8
-timePairing:	25563.1
-invInZr:	22.0
-Test round: 639
-expInG1:	43276.5
-expInGT:	2888.9
-timePairing:	25622.6
-invInZr:	22.7
-Test round: 640
-expInG1:	43461.5
-expInGT:	3451.1
-timePairing:	25489.3
-invInZr:	20.7
-Test round: 641
-expInG1:	43703.5
-expInGT:	3092.9
-timePairing:	26799.0
-invInZr:	23.4
-Test round: 642
-expInG1:	41696.8
-expInGT:	2784.1
-timePairing:	25551.1
-invInZr:	21.1
-Test round: 643
-expInG1:	43194.1
-expInGT:	2915.6
-timePairing:	25475.3
-invInZr:	20.8
-Test round: 644
-expInG1:	42737.6
-expInGT:	2860.7
-timePairing:	26620.9
-invInZr:	23.5
-Test round: 645
-expInG1:	42416.4
-expInGT:	2844.2
-timePairing:	26040.4
-invInZr:	20.5
-Test round: 646
-expInG1:	42835.7
-expInGT:	2850.8
-timePairing:	25522.7
-invInZr:	20.3
-Test round: 647
-expInG1:	42742.5
-expInGT:	2839.7
-timePairing:	25542.3
-invInZr:	20.4
-Test round: 648
-expInG1:	43354.2
-expInGT:	2897.2
-timePairing:	26047.0
-invInZr:	19.6
-Test round: 649
-expInG1:	42384.5
-expInGT:	2857.8
-timePairing:	25995.3
-invInZr:	20.7
-Test round: 650
-expInG1:	43451.6
-expInGT:	2989.2
-timePairing:	25666.0
-invInZr:	21.4
-Test round: 651
-expInG1:	43529.5
-expInGT:	2861.5
-timePairing:	25497.2
-invInZr:	21.5
-Test round: 652
-expInG1:	43172.5
-expInGT:	2915.1
-timePairing:	25946.9
-invInZr:	19.5
-Test round: 653
-expInG1:	43261.6
-expInGT:	2878.5
-timePairing:	26097.4
-invInZr:	21.4
-Test round: 654
-expInG1:	42992.5
-expInGT:	2877.3
-timePairing:	25540.3
-invInZr:	21.7
-Test round: 655
-expInG1:	43648.5
-expInGT:	2889.1
-timePairing:	25494.5
-invInZr:	21.3
-Test round: 656
-expInG1:	42892.3
-expInGT:	2859.5
-timePairing:	26077.0
-invInZr:	21.6
-Test round: 657
-expInG1:	42875.0
-expInGT:	2856.9
-timePairing:	25995.0
-invInZr:	21.3
-Test round: 658
-expInG1:	43263.2
-expInGT:	2901.4
-timePairing:	25435.3
-invInZr:	20.7
-Test round: 659
-expInG1:	43383.6
-expInGT:	2867.9
-timePairing:	25565.6
-invInZr:	20.9
-Test round: 660
-expInG1:	43330.9
-expInGT:	2908.3
-timePairing:	25971.4
-invInZr:	22.1
-Test round: 661
-expInG1:	43400.3
-expInGT:	2963.1
-timePairing:	25949.3
-invInZr:	21.1
-Test round: 662
-expInG1:	43283.4
-expInGT:	2883.5
-timePairing:	25557.0
-invInZr:	20.0
-Test round: 663
-expInG1:	42966.1
-expInGT:	2837.3
-timePairing:	25482.8
-invInZr:	20.7
-Test round: 664
-expInG1:	42889.6
-expInGT:	2894.0
-timePairing:	25927.9
-invInZr:	20.8
-Test round: 665
-expInG1:	42614.8
-expInGT:	2831.3
-timePairing:	25665.0
-invInZr:	21.5
-Test round: 666
-expInG1:	43053.6
-expInGT:	2865.3
-timePairing:	25527.9
-invInZr:	20.3
-Test round: 667
-expInG1:	43136.4
-expInGT:	3399.5
-timePairing:	25501.9
-invInZr:	20.9
-Test round: 668
-expInG1:	43689.4
-expInGT:	2926.3
-timePairing:	26038.3
-invInZr:	21.2
-Test round: 669
-expInG1:	43177.9
-expInGT:	2879.3
-timePairing:	25532.1
-invInZr:	21.9
-Test round: 670
-expInG1:	42530.6
-expInGT:	2847.1
-timePairing:	25513.8
-invInZr:	20.6
-Test round: 671
-expInG1:	42843.3
-expInGT:	2857.4
-timePairing:	26073.6
-invInZr:	20.7
-Test round: 672
-expInG1:	42996.3
-expInGT:	2878.6
-timePairing:	25954.5
-invInZr:	22.5
-Test round: 673
-expInG1:	42786.6
-expInGT:	2907.8
-timePairing:	25457.0
-invInZr:	20.9
-Test round: 674
-expInG1:	43867.5
-expInGT:	2913.3
-timePairing:	25612.6
-invInZr:	21.4
-Test round: 675
-expInG1:	43180.4
-expInGT:	2885.0
-timePairing:	26200.3
-invInZr:	20.3
-Test round: 676
-expInG1:	43295.6
-expInGT:	2898.2
-timePairing:	26138.2
-invInZr:	20.7
-Test round: 677
-expInG1:	43253.4
-expInGT:	2875.6
-timePairing:	25637.8
-invInZr:	20.7
-Test round: 678
-expInG1:	43787.4
-expInGT:	2912.3
-timePairing:	25573.5
-invInZr:	21.1
-Test round: 679
-expInG1:	42969.5
-expInGT:	2875.5
-timePairing:	25937.4
-invInZr:	19.5
-Test round: 680
-expInG1:	43696.7
-expInGT:	2905.0
-timePairing:	26097.0
-invInZr:	21.9
-Test round: 681
-expInG1:	43113.2
-expInGT:	2907.0
-timePairing:	25442.0
-invInZr:	20.7
-Test round: 682
-expInG1:	43785.5
-expInGT:	2891.3
-timePairing:	25819.6
-invInZr:	21.0
-Test round: 683
-expInG1:	43509.3
-expInGT:	2900.9
-timePairing:	26081.7
-invInZr:	20.9
-Test round: 684
-expInG1:	43889.1
-expInGT:	2921.8
-timePairing:	26181.4
-invInZr:	22.5
-Test round: 685
-expInG1:	43220.9
-expInGT:	2903.6
-timePairing:	25488.9
-invInZr:	19.4
-Test round: 686
-expInG1:	49455.9
-expInGT:	2905.9
-timePairing:	25612.7
-invInZr:	20.5
-Test round: 687
-expInG1:	43361.1
-expInGT:	2908.0
-timePairing:	25991.6
-invInZr:	22.1
-Test round: 688
-expInG1:	43018.4
-expInGT:	2881.0
-timePairing:	25911.2
-invInZr:	21.5
-Test round: 689
-expInG1:	43320.3
-expInGT:	2889.5
-timePairing:	25525.4
-invInZr:	20.1
-Test round: 690
-expInG1:	43709.2
-expInGT:	2883.5
-timePairing:	25499.3
-invInZr:	20.9
-Test round: 691
-expInG1:	43670.6
-expInGT:	2950.2
-timePairing:	25950.4
-invInZr:	20.2
-Test round: 692
-expInG1:	43326.7
-expInGT:	2905.0
-timePairing:	27513.9
-invInZr:	34.3
-Test round: 693
-expInG1:	42945.5
-expInGT:	2906.2
-timePairing:	25448.4
-invInZr:	21.5
-Test round: 694
-expInG1:	43347.9
-expInGT:	3362.6
-timePairing:	25557.7
-invInZr:	19.4
-Test round: 695
-expInG1:	42588.0
-expInGT:	2830.1
-timePairing:	26102.9
-invInZr:	21.6
-Test round: 696
-expInG1:	43192.5
-expInGT:	2898.3
-timePairing:	25468.5
-invInZr:	20.2
-Test round: 697
-expInG1:	43535.0
-expInGT:	2910.5
-timePairing:	25570.3
-invInZr:	20.5
-Test round: 698
-expInG1:	44014.5
-expInGT:	3369.7
-timePairing:	25581.6
-invInZr:	21.3
-Test round: 699
-expInG1:	43037.7
-expInGT:	2895.5
-timePairing:	26590.7
-invInZr:	21.5
-Test round: 700
-expInG1:	43527.6
-expInGT:	2866.5
-timePairing:	25584.0
-invInZr:	20.0
-Test round: 701
-expInG1:	43029.0
-expInGT:	2888.6
-timePairing:	25494.8
-invInZr:	21.2
-Test round: 702
-expInG1:	42969.7
-expInGT:	2884.4
-timePairing:	25972.8
-invInZr:	20.3
-Test round: 703
-expInG1:	43617.0
-expInGT:	2881.2
-timePairing:	26071.1
-invInZr:	21.2
-Test round: 704
-expInG1:	42617.2
-expInGT:	2853.3
-timePairing:	25572.7
-invInZr:	21.5
-Test round: 705
-expInG1:	43338.1
-expInGT:	2852.9
-timePairing:	25471.6
-invInZr:	21.2
-Test round: 706
-expInG1:	43316.2
-expInGT:	2892.8
-timePairing:	26068.7
-invInZr:	21.1
-Test round: 707
-expInG1:	42576.8
-expInGT:	2844.7
-timePairing:	26036.8
-invInZr:	20.0
-Test round: 708
-expInG1:	43485.2
-expInGT:	2926.4
-timePairing:	25467.4
-invInZr:	20.1
-Test round: 709
-expInG1:	43749.6
-expInGT:	2871.0
-timePairing:	25586.2
-invInZr:	21.4
-Test round: 710
-expInG1:	43386.7
-expInGT:	2996.7
-timePairing:	26092.5
-invInZr:	21.3
-Test round: 711
-expInG1:	43188.2
-expInGT:	2874.2
-timePairing:	26037.8
-invInZr:	20.2
-Test round: 712
-expInG1:	43234.2
-expInGT:	2886.5
-timePairing:	25637.9
-invInZr:	20.6
-Test round: 713
-expInG1:	44000.8
-expInGT:	2960.6
-timePairing:	25462.1
-invInZr:	20.7
-Test round: 714
-expInG1:	42863.2
-expInGT:	2877.4
-timePairing:	25974.6
-invInZr:	19.9
-Test round: 715
-expInG1:	44266.4
-expInGT:	2909.5
-timePairing:	26012.4
-invInZr:	21.2
-Test round: 716
-expInG1:	43512.4
-expInGT:	2909.7
-timePairing:	25528.6
-invInZr:	21.0
-Test round: 717
-expInG1:	43059.1
-expInGT:	2855.6
-timePairing:	25522.5
-invInZr:	20.5
-Test round: 718
-expInG1:	43419.7
-expInGT:	2894.5
-timePairing:	26024.7
-invInZr:	20.5
-Test round: 719
-expInG1:	42610.6
-expInGT:	2868.9
-timePairing:	25550.3
-invInZr:	19.4
-Test round: 720
-expInG1:	42841.3
-expInGT:	2858.3
-timePairing:	25534.2
-invInZr:	22.1
-Test round: 721
-expInG1:	43872.8
-expInGT:	3392.7
-timePairing:	25566.9
-invInZr:	20.6
-Test round: 722
-expInG1:	42762.4
-expInGT:	2890.9
-timePairing:	25985.6
-invInZr:	20.5
-Test round: 723
-expInG1:	42861.5
-expInGT:	2869.9
-timePairing:	25496.9
-invInZr:	21.0
-Test round: 724
-expInG1:	43458.1
-expInGT:	2911.6
-timePairing:	27141.8
-invInZr:	21.8
-Test round: 725
-expInG1:	43181.8
-expInGT:	3380.1
-timePairing:	25500.9
-invInZr:	21.0
-Test round: 726
-expInG1:	43212.0
-expInGT:	2908.1
-timePairing:	26013.5
-invInZr:	20.7
-Test round: 727
-expInG1:	43627.4
-expInGT:	2908.6
-timePairing:	25583.1
-invInZr:	20.6
-Test round: 728
-expInG1:	42882.3
-expInGT:	2870.3
-timePairing:	25537.0
-invInZr:	20.9
-Test round: 729
-expInG1:	42630.9
-expInGT:	2846.9
-timePairing:	25983.0
-invInZr:	20.8
-Test round: 730
-expInG1:	42777.4
-expInGT:	2886.3
-timePairing:	26002.4
-invInZr:	20.3
-Test round: 731
-expInG1:	43283.1
-expInGT:	2878.2
-timePairing:	25728.1
-invInZr:	20.9
-Test round: 732
-expInG1:	43271.4
-expInGT:	2881.7
-timePairing:	25524.7
-invInZr:	21.6
-Test round: 733
-expInG1:	42706.1
-expInGT:	2879.2
-timePairing:	26073.3
-invInZr:	21.5
-Test round: 734
-expInG1:	43673.7
-expInGT:	2924.4
-timePairing:	25940.9
-invInZr:	24.7
-Test round: 735
-expInG1:	42512.0
-expInGT:	2845.1
-timePairing:	25530.4
-invInZr:	21.2
-Test round: 736
-expInG1:	43801.0
-expInGT:	2919.7
-timePairing:	25533.2
-invInZr:	20.4
-Test round: 737
-expInG1:	43473.5
-expInGT:	2919.6
-timePairing:	26000.0
-invInZr:	19.8
-Test round: 738
-expInG1:	43509.9
-expInGT:	2934.1
-timePairing:	26033.6
-invInZr:	21.9
-Test round: 739
-expInG1:	43458.4
-expInGT:	2916.4
-timePairing:	25544.0
-invInZr:	20.7
-Test round: 740
-expInG1:	43868.7
-expInGT:	2893.4
-timePairing:	25526.4
-invInZr:	20.7
-Test round: 741
-expInG1:	43539.4
-expInGT:	2919.4
-timePairing:	26005.9
-invInZr:	20.2
-Test round: 742
-expInG1:	43352.8
-expInGT:	2928.6
-timePairing:	26007.9
-invInZr:	20.8
-Test round: 743
-expInG1:	43492.8
-expInGT:	2922.4
-timePairing:	25494.9
-invInZr:	19.8
-Test round: 744
-expInG1:	43759.8
-expInGT:	2910.7
-timePairing:	25483.6
-invInZr:	20.9
-Test round: 745
-expInG1:	43392.0
-expInGT:	2934.8
-timePairing:	25966.7
-invInZr:	19.9
-Test round: 746
-expInG1:	42442.0
-expInGT:	2821.1
-timePairing:	26096.1
-invInZr:	20.3
-Test round: 747
-expInG1:	42763.1
-expInGT:	2864.5
-timePairing:	25548.4
-invInZr:	18.6
-Test round: 748
-expInG1:	44127.9
-expInGT:	2977.7
-timePairing:	25512.4
-invInZr:	22.2
-Test round: 749
-expInG1:	42610.0
-expInGT:	2857.2
-timePairing:	25997.5
-invInZr:	21.3
-Test round: 750
-expInG1:	43376.2
-expInGT:	2895.0
-timePairing:	25500.9
-invInZr:	21.5
-Test round: 751
-expInG1:	43430.7
-expInGT:	2989.4
-timePairing:	25593.6
-invInZr:	19.3
-Test round: 752
-expInG1:	42358.1
-expInGT:	3280.2
-timePairing:	25486.1
-invInZr:	21.1
-Test round: 753
-expInG1:	43222.5
-expInGT:	2890.6
-timePairing:	26028.5
-invInZr:	23.4
-Test round: 754
-expInG1:	43524.8
-expInGT:	2982.1
-timePairing:	25613.2
-invInZr:	20.8
-Test round: 755
-expInG1:	42837.7
-expInGT:	2854.5
-timePairing:	25574.1
-invInZr:	19.8
-Test round: 756
-expInG1:	43094.3
-expInGT:	3369.5
-timePairing:	25517.5
-invInZr:	21.8
-Test round: 757
-expInG1:	43027.2
-expInGT:	2888.3
-timePairing:	25949.1
-invInZr:	20.9
-Test round: 758
-expInG1:	44492.5
-expInGT:	2863.0
-timePairing:	25645.7
-invInZr:	20.9
-Test round: 759
-expInG1:	42957.3
-expInGT:	2865.7
-timePairing:	25472.7
-invInZr:	20.1
-Test round: 760
-expInG1:	43508.8
-expInGT:	2923.0
-timePairing:	25968.1
-invInZr:	20.4
-Test round: 761
-expInG1:	42884.6
-expInGT:	2866.1
-timePairing:	26020.1
-invInZr:	21.0
-Test round: 762
-expInG1:	43386.1
-expInGT:	2888.6
-timePairing:	25516.3
-invInZr:	22.0
-Test round: 763
-expInG1:	43321.5
-expInGT:	2850.3
-timePairing:	25488.5
-invInZr:	19.8
-Test round: 764
-expInG1:	43226.8
-expInGT:	2899.0
-timePairing:	25983.2
-invInZr:	20.0
-Test round: 765
-expInG1:	42790.1
-expInGT:	2857.9
-timePairing:	26005.6
-invInZr:	20.6
-Test round: 766
-expInG1:	42757.9
-expInGT:	2882.0
-timePairing:	25554.6
-invInZr:	20.7
-Test round: 767
-expInG1:	43925.7
-expInGT:	2902.2
-timePairing:	25529.3
-invInZr:	21.7
-Test round: 768
-expInG1:	43132.5
-expInGT:	2876.0
-timePairing:	25992.6
-invInZr:	21.1
-Test round: 769
-expInG1:	42876.5
-expInGT:	2869.2
-timePairing:	26016.0
-invInZr:	19.7
-Test round: 770
-expInG1:	43610.3
-expInGT:	2914.4
-timePairing:	25525.7
-invInZr:	18.6
-Test round: 771
-expInG1:	43061.3
-expInGT:	2854.6
-timePairing:	25468.6
-invInZr:	20.3
-Test round: 772
-expInG1:	43078.6
-expInGT:	2880.3
-timePairing:	25971.3
-invInZr:	21.8
-Test round: 773
-expInG1:	43088.8
-expInGT:	2875.2
-timePairing:	26057.0
-invInZr:	20.9
-Test round: 774
-expInG1:	43028.7
-expInGT:	2886.5
-timePairing:	25468.7
-invInZr:	22.1
-Test round: 775
-expInG1:	44258.7
-expInGT:	2932.0
-timePairing:	25527.5
-invInZr:	25.0
-Test round: 776
-expInG1:	43158.5
-expInGT:	2878.1
-timePairing:	25997.8
-invInZr:	20.7
-Test round: 777
-expInG1:	42858.0
-expInGT:	2883.8
-timePairing:	25505.2
-invInZr:	20.7
-Test round: 778
-expInG1:	42387.9
-expInGT:	2833.3
-timePairing:	25534.6
-invInZr:	20.6
-Test round: 779
-expInG1:	42563.3
-expInGT:	3287.0
-timePairing:	25511.4
-invInZr:	21.3
-Test round: 780
-expInG1:	43603.7
-expInGT:	2933.0
-timePairing:	25974.6
-invInZr:	20.8
-Test round: 781
-expInG1:	42913.3
-expInGT:	2956.9
-timePairing:	25687.9
-invInZr:	21.5
-Test round: 782
-expInG1:	42546.3
-expInGT:	2837.8
-timePairing:	25525.6
-invInZr:	21.1
-Test round: 783
-expInG1:	43245.3
-expInGT:	3373.3
-timePairing:	25528.9
-invInZr:	20.3
-Test round: 784
-expInG1:	43173.6
-expInGT:	2883.6
-timePairing:	25944.4
-invInZr:	20.6
-Test round: 785
-expInG1:	43566.8
-expInGT:	2861.5
-timePairing:	25515.9
-invInZr:	21.9
-Test round: 786
-expInG1:	43252.9
-expInGT:	2888.7
-timePairing:	25506.3
-invInZr:	20.3
-Test round: 787
-expInG1:	42826.2
-expInGT:	2859.8
-timePairing:	25986.6
-invInZr:	20.9
-Test round: 788
-expInG1:	42795.9
-expInGT:	2852.3
-timePairing:	26005.6
-invInZr:	20.6
-Test round: 789
-expInG1:	42503.2
-expInGT:	2828.4
-timePairing:	25568.1
-invInZr:	21.7
-Test round: 790
-expInG1:	43262.5
-expInGT:	2856.4
-timePairing:	25619.6
-invInZr:	22.5
-Test round: 791
-expInG1:	42975.1
-expInGT:	2897.7
-timePairing:	25981.4
-invInZr:	22.2
-Test round: 792
-expInG1:	42302.3
-expInGT:	2820.7
-timePairing:	26031.0
-invInZr:	20.0
-Test round: 793
-expInG1:	44016.0
-expInGT:	2943.2
-timePairing:	25639.2
-invInZr:	21.5
-Test round: 794
-expInG1:	43812.0
-expInGT:	2863.8
-timePairing:	25572.4
-invInZr:	20.4
-Test round: 795
-expInG1:	43093.7
-expInGT:	2882.4
-timePairing:	25980.9
-invInZr:	21.6
-Test round: 796
-expInG1:	43685.4
-expInGT:	2928.6
-timePairing:	25978.6
-invInZr:	21.4
-Test round: 797
-expInG1:	43583.2
-expInGT:	2921.6
-timePairing:	25503.7
-invInZr:	18.6
-Test round: 798
-expInG1:	43228.3
-expInGT:	2872.0
-timePairing:	25510.9
-invInZr:	21.5
-Test round: 799
-expInG1:	42859.1
-expInGT:	2855.0
-timePairing:	25990.7
-invInZr:	20.1
-Test round: 800
-expInG1:	42856.0
-expInGT:	2887.3
-timePairing:	25977.7
-invInZr:	20.5
-Test round: 801
-expInG1:	43159.0
-expInGT:	2891.1
-timePairing:	25482.7
-invInZr:	20.3
-Test round: 802
-expInG1:	43675.9
-expInGT:	2884.0
-timePairing:	25575.6
-invInZr:	21.1
-Test round: 803
-expInG1:	43390.0
-expInGT:	2906.6
-timePairing:	25971.6
-invInZr:	21.8
-Test round: 804
-expInG1:	43165.5
-expInGT:	2916.4
-timePairing:	25915.2
-invInZr:	21.3
-Test round: 805
-expInG1:	43933.7
-expInGT:	2887.3
-timePairing:	25593.6
-invInZr:	21.3
-Test round: 806
-expInG1:	43808.8
-expInGT:	2900.6
-timePairing:	25491.9
-invInZr:	20.3
-Test round: 807
-expInG1:	43245.4
-expInGT:	2891.6
-timePairing:	25926.3
-invInZr:	19.9
-Test round: 808
-expInG1:	42837.4
-expInGT:	2864.3
-timePairing:	25601.5
-invInZr:	20.9
-Test round: 809
-expInG1:	43034.5
-expInGT:	2882.8
-timePairing:	25522.7
-invInZr:	20.5
-Test round: 810
-expInG1:	42981.5
-expInGT:	3401.1
-timePairing:	25480.6
-invInZr:	21.6
-Test round: 811
-expInG1:	43159.1
-expInGT:	2886.7
-timePairing:	26034.0
-invInZr:	20.6
-Test round: 812
-expInG1:	43658.7
-expInGT:	2916.6
-timePairing:	25491.0
-invInZr:	20.8
-Test round: 813
-expInG1:	42882.9
-expInGT:	2894.5
-timePairing:	25476.1
-invInZr:	20.6
-Test round: 814
-expInG1:	42904.4
-expInGT:	3353.5
-timePairing:	25610.8
-invInZr:	20.4
-Test round: 815
-expInG1:	43214.5
-expInGT:	2898.5
-timePairing:	25981.4
-invInZr:	20.4
-Test round: 816
-expInG1:	43028.1
-expInGT:	2896.0
-timePairing:	25464.5
-invInZr:	21.1
-Test round: 817
-expInG1:	42830.5
-expInGT:	2853.0
-timePairing:	25807.1
-invInZr:	21.8
-Test round: 818
-expInG1:	43619.1
-expInGT:	2900.9
-timePairing:	25913.6
-invInZr:	20.1
-Test round: 819
-expInG1:	42712.7
-expInGT:	2847.9
-timePairing:	25995.0
-invInZr:	21.2
-Test round: 820
-expInG1:	42714.5
-expInGT:	2842.8
-timePairing:	28514.3
-invInZr:	21.0
-Test round: 821
-expInG1:	43218.4
-expInGT:	2867.3
-timePairing:	25517.0
-invInZr:	19.4
-Test round: 822
-expInG1:	43118.3
-expInGT:	2888.5
-timePairing:	26047.0
-invInZr:	20.8
-Test round: 823
-expInG1:	43466.0
-expInGT:	2897.8
-timePairing:	26125.4
-invInZr:	20.8
-Test round: 824
-expInG1:	43773.4
-expInGT:	2930.6
-timePairing:	25538.9
-invInZr:	22.2
-Test round: 825
-expInG1:	43218.5
-expInGT:	2839.0
-timePairing:	25581.4
-invInZr:	20.1
-Test round: 826
-expInG1:	43119.4
-expInGT:	2902.1
-timePairing:	26012.2
-invInZr:	22.3
-Test round: 827
-expInG1:	43266.2
-expInGT:	2911.1
-timePairing:	25959.0
-invInZr:	20.4
-Test round: 828
-expInG1:	43415.6
-expInGT:	2901.9
-timePairing:	25558.6
-invInZr:	21.1
-Test round: 829
-expInG1:	43588.1
-expInGT:	2863.5
-timePairing:	25634.4
-invInZr:	22.0
-Test round: 830
-expInG1:	42397.5
-expInGT:	3767.7
-timePairing:	26060.0
-invInZr:	20.7
-Test round: 831
-expInG1:	43233.3
-expInGT:	2878.4
-timePairing:	25986.5
-invInZr:	22.8
-Test round: 832
-expInG1:	43443.0
-expInGT:	2926.0
-timePairing:	25477.4
-invInZr:	23.1
-Test round: 833
-expInG1:	43371.8
-expInGT:	2876.4
-timePairing:	28215.1
-invInZr:	21.7
-Test round: 834
-expInG1:	43310.6
-expInGT:	2896.1
-timePairing:	26074.9
-invInZr:	20.0
-Test round: 835
-expInG1:	41337.6
-expInGT:	2811.7
-timePairing:	25978.3
-invInZr:	20.6
-Test round: 836
-expInG1:	42452.8
-expInGT:	2848.5
-timePairing:	25509.1
-invInZr:	28.0
-Test round: 837
-expInG1:	44031.2
-expInGT:	2897.6
-timePairing:	25533.2
-invInZr:	20.7
-Test round: 838
-expInG1:	43078.5
-expInGT:	2979.3
-timePairing:	27206.2
-invInZr:	21.5
-Test round: 839
-expInG1:	43073.7
-expInGT:	2890.9
-timePairing:	25486.9
-invInZr:	20.7
-Test round: 840
-expInG1:	43601.3
-expInGT:	2909.9
-timePairing:	26273.2
-invInZr:	19.4
-Test round: 841
-expInG1:	42899.5
-expInGT:	3322.7
-timePairing:	25554.4
-invInZr:	22.8
-Test round: 842
-expInG1:	43187.9
-expInGT:	2974.9
-timePairing:	26023.2
-invInZr:	20.8
-Test round: 843
-expInG1:	42904.5
-expInGT:	2868.0
-timePairing:	25558.3
-invInZr:	20.6
-Test round: 844
-expInG1:	43117.2
-expInGT:	2884.9
-timePairing:	25473.1
-invInZr:	21.6
-Test round: 845
-expInG1:	42831.9
-expInGT:	3308.7
-timePairing:	25485.8
-invInZr:	21.9
-Test round: 846
-expInG1:	42575.4
-expInGT:	2827.7
-timePairing:	26077.7
-invInZr:	20.1
-Test round: 847
-expInG1:	42851.0
-expInGT:	2879.1
-timePairing:	25561.6
-invInZr:	20.2
-Test round: 848
-expInG1:	42347.7
-expInGT:	2821.9
-timePairing:	25503.5
-invInZr:	20.8
-Test round: 849
-expInG1:	43085.6
-expInGT:	2867.8
-timePairing:	26043.2
-invInZr:	21.9
-Test round: 850
-expInG1:	42866.8
-expInGT:	2895.5
-timePairing:	25916.2
-invInZr:	20.4
-Test round: 851
-expInG1:	42336.8
-expInGT:	2843.6
-timePairing:	25552.4
-invInZr:	22.9
-Test round: 852
-expInG1:	44268.7
-expInGT:	3008.1
-timePairing:	27338.5
-invInZr:	19.3
-Test round: 853
-expInG1:	43024.8
-expInGT:	2875.1
-timePairing:	25986.2
-invInZr:	21.3
-Test round: 854
-expInG1:	42966.0
-expInGT:	2868.5
-timePairing:	26035.5
-invInZr:	23.1
-Test round: 855
-expInG1:	43523.5
-expInGT:	2883.6
-timePairing:	25932.6
-invInZr:	20.2
-Test round: 856
-expInG1:	43688.6
-expInGT:	2884.0
-timePairing:	25517.4
-invInZr:	20.5
-Test round: 857
-expInG1:	42868.9
-expInGT:	2876.6
-timePairing:	25974.1
-invInZr:	21.4
-Test round: 858
-expInG1:	43279.5
-expInGT:	2887.4
-timePairing:	26012.9
-invInZr:	20.7
-Test round: 859
-expInG1:	43068.0
-expInGT:	2881.0
-timePairing:	25494.8
-invInZr:	21.0
-Test round: 860
-expInG1:	43018.9
-expInGT:	2835.8
-timePairing:	25513.5
-invInZr:	20.2
-Test round: 861
-expInG1:	43154.2
-expInGT:	2871.3
-timePairing:	26043.5
-invInZr:	20.1
-Test round: 862
-expInG1:	43231.4
-expInGT:	2867.7
-timePairing:	26081.8
-invInZr:	21.2
-Test round: 863
-expInG1:	42960.0
-expInGT:	2872.3
-timePairing:	25454.9
-invInZr:	20.6
-Test round: 864
-expInG1:	44014.0
-expInGT:	2919.5
-timePairing:	25609.8
-invInZr:	19.7
-Test round: 865
-expInG1:	43142.9
-expInGT:	2885.2
-timePairing:	26019.8
-invInZr:	23.4
-Test round: 866
-expInG1:	42638.0
-expInGT:	2844.6
-timePairing:	25541.7
-invInZr:	20.2
-Test round: 867
-expInG1:	44222.4
-expInGT:	2948.1
-timePairing:	25554.2
-invInZr:	21.9
-Test round: 868
-expInG1:	43086.7
-expInGT:	3324.9
-timePairing:	25533.8
-invInZr:	20.7
-Test round: 869
-expInG1:	43348.8
-expInGT:	2886.1
-timePairing:	26002.9
-invInZr:	20.5
-Test round: 870
-expInG1:	43134.8
-expInGT:	2977.3
-timePairing:	25509.1
-invInZr:	20.9
-Test round: 871
-expInG1:	41245.5
-expInGT:	2749.5
-timePairing:	25496.0
-invInZr:	20.6
-Test round: 872
-expInG1:	43106.6
-expInGT:	3343.4
-timePairing:	25510.8
-invInZr:	21.2
-Test round: 873
-expInG1:	43437.5
-expInGT:	2888.9
-timePairing:	25956.5
-invInZr:	21.3
-Test round: 874
-expInG1:	43099.9
-expInGT:	2883.3
-timePairing:	25461.9
-invInZr:	20.7
-Test round: 875
-expInG1:	43099.6
-expInGT:	2906.1
-timePairing:	25534.0
-invInZr:	20.9
-Test round: 876
-expInG1:	43929.1
-expInGT:	2873.1
-timePairing:	26071.3
-invInZr:	22.7
-Test round: 877
-expInG1:	42909.3
-expInGT:	2877.0
-timePairing:	25919.2
-invInZr:	21.4
-Test round: 878
-expInG1:	43141.6
-expInGT:	2901.5
-timePairing:	25533.3
-invInZr:	22.5
-Test round: 879
-expInG1:	42744.6
-expInGT:	2824.9
-timePairing:	25602.7
-invInZr:	21.7
-Test round: 880
-expInG1:	43202.1
-expInGT:	2899.9
-timePairing:	26012.8
-invInZr:	20.5
-Test round: 881
-expInG1:	42939.1
-expInGT:	2874.4
-timePairing:	25941.0
-invInZr:	20.6
-Test round: 882
-expInG1:	43453.1
-expInGT:	2888.6
-timePairing:	25531.3
-invInZr:	20.6
-Test round: 883
-expInG1:	43124.6
-expInGT:	2858.6
-timePairing:	25491.0
-invInZr:	20.0
-Test round: 884
-expInG1:	42747.2
-expInGT:	2869.9
-timePairing:	25957.2
-invInZr:	20.5
-Test round: 885
-expInG1:	43561.8
-expInGT:	2873.6
-timePairing:	26083.7
-invInZr:	20.8
-Test round: 886
-expInG1:	42940.7
-expInGT:	2902.0
-timePairing:	25488.3
-invInZr:	20.9
-Test round: 887
-expInG1:	43321.9
-expInGT:	2883.7
-timePairing:	25624.1
-invInZr:	21.0
-Test round: 888
-expInG1:	44040.1
-expInGT:	2844.0
-timePairing:	26023.2
-invInZr:	22.0
-Test round: 889
-expInG1:	43199.7
-expInGT:	3015.5
-timePairing:	25943.1
-invInZr:	21.0
-Test round: 890
-expInG1:	42917.3
-expInGT:	2864.8
-timePairing:	25500.2
-invInZr:	19.4
-Test round: 891
-expInG1:	44210.3
-expInGT:	2870.1
-timePairing:	25572.5
-invInZr:	20.0
-Test round: 892
-expInG1:	43134.9
-expInGT:	2919.9
-timePairing:	26060.7
-invInZr:	19.6
-Test round: 893
-expInG1:	42747.6
-expInGT:	2856.0
-timePairing:	25491.9
-invInZr:	20.9
-Test round: 894
-expInG1:	42788.1
-expInGT:	2846.5
-timePairing:	25577.7
-invInZr:	20.0
-Test round: 895
-expInG1:	42623.0
-expInGT:	3597.5
-timePairing:	26392.6
-invInZr:	20.5
-Test round: 896
-expInG1:	42807.1
-expInGT:	2854.8
-timePairing:	26042.6
-invInZr:	20.4
-Test round: 897
-expInG1:	42518.7
-expInGT:	2910.9
-timePairing:	25483.2
-invInZr:	22.0
-Test round: 898
-expInG1:	42708.6
-expInGT:	2863.9
-timePairing:	25496.8
-invInZr:	20.2
-Test round: 899
-expInG1:	42544.8
-expInGT:	3307.6
-timePairing:	25666.1
-invInZr:	20.9
-Test round: 900
-expInG1:	43290.4
-expInGT:	2940.9
-timePairing:	25996.9
-invInZr:	22.7
-Test round: 901
-expInG1:	42484.6
-expInGT:	2846.9
-timePairing:	25724.1
-invInZr:	21.0
-Test round: 902
-expInG1:	43238.3
-expInGT:	2882.2
-timePairing:	25503.3
+Test round: 23
+expInG1:	10054.0
+expInGT:	765.7
+pairing:	5970.6
+invInZr:	16.3
+Test round: 24
+expInG1:	9990.9
+expInGT:	767.8
+pairing:	5794.0
+invInZr:	15.1
+Test round: 25
+expInG1:	10256.7
+expInGT:	771.1
+pairing:	5776.5
+invInZr:	14.4
+Test round: 26
+expInG1:	11370.9
+expInGT:	749.0
+pairing:	5941.2
+invInZr:	12.3
+Test round: 27
+expInG1:	10191.6
+expInGT:	826.4
+pairing:	5758.6
+invInZr:	13.5
+Test round: 28
+expInG1:	9902.3
+expInGT:	735.9
+pairing:	5790.0
+invInZr:	14.2
+Test round: 29
+expInG1:	9917.1
+expInGT:	766.8
+pairing:	5854.4
+invInZr:	14.5
+Test round: 30
+expInG1:	9454.1
+expInGT:	704.6
+pairing:	5873.9
+invInZr:	14.5
+Test round: 31
+expInG1:	10193.4
+expInGT:	773.1
+pairing:	5784.2
+invInZr:	13.4
+Test round: 32
+expInG1:	10304.5
+expInGT:	763.2
+pairing:	5780.1
 invInZr:	18.9
-Test round: 903
-expInG1:	42923.3
-expInGT:	2904.3
-timePairing:	25987.0
-invInZr:	22.9
-Test round: 904
-expInG1:	43586.3
-expInGT:	2902.4
-timePairing:	26797.6
-invInZr:	21.1
-Test round: 905
-expInG1:	42991.8
-expInGT:	2874.2
-timePairing:	25551.7
-invInZr:	21.2
-Test round: 906
-expInG1:	42961.0
-expInGT:	2981.8
-timePairing:	25598.7
-invInZr:	21.0
-Test round: 907
-expInG1:	43181.7
-expInGT:	2889.6
-timePairing:	26037.5
-invInZr:	20.6
-Test round: 908
-expInG1:	43237.0
-expInGT:	2895.8
-timePairing:	25987.6
-invInZr:	20.2
-Test round: 909
-expInG1:	43683.0
-expInGT:	2932.1
-timePairing:	25693.0
-invInZr:	22.7
-Test round: 910
-expInG1:	43910.8
-expInGT:	2902.3
-timePairing:	25546.3
-invInZr:	21.2
-Test round: 911
-expInG1:	43159.5
-expInGT:	2917.9
-timePairing:	26172.3
-invInZr:	20.7
-Test round: 912
-expInG1:	43590.6
-expInGT:	2918.8
-timePairing:	26198.6
-invInZr:	21.1
-Test round: 913
-expInG1:	43478.3
-expInGT:	2933.1
-timePairing:	25500.1
-invInZr:	20.6
-Test round: 914
-expInG1:	43339.4
-expInGT:	2863.9
-timePairing:	25475.9
-invInZr:	20.3
-Test round: 915
-expInG1:	43199.9
-expInGT:	2878.5
-timePairing:	26018.4
-invInZr:	22.6
-Test round: 916
-expInG1:	42532.1
-expInGT:	2834.9
-timePairing:	25943.7
-invInZr:	20.0
-Test round: 917
-expInG1:	43092.8
-expInGT:	2952.3
-timePairing:	25493.5
-invInZr:	24.1
-Test round: 918
-expInG1:	44105.1
-expInGT:	2928.2
-timePairing:	25594.5
-invInZr:	20.0
-Test round: 919
-expInG1:	42874.0
-expInGT:	2873.8
-timePairing:	25994.6
-invInZr:	22.0
-Test round: 920
-expInG1:	42557.3
-expInGT:	2871.9
-timePairing:	25996.4
-invInZr:	20.8
-Test round: 921
-expInG1:	42995.3
-expInGT:	2856.4
-timePairing:	25540.9
-invInZr:	20.1
-Test round: 922
-expInG1:	43767.4
-expInGT:	2895.0
-timePairing:	25497.1
-invInZr:	21.2
-Test round: 923
-expInG1:	43460.5
-expInGT:	2918.0
-timePairing:	26006.3
-invInZr:	22.0
-Test round: 924
-expInG1:	42991.5
-expInGT:	2864.6
-timePairing:	25468.1
-invInZr:	21.0
-Test round: 925
-expInG1:	43587.4
-expInGT:	2933.9
-timePairing:	25502.4
-invInZr:	20.2
-Test round: 926
-expInG1:	42985.7
-expInGT:	3342.0
-timePairing:	25481.0
-invInZr:	21.1
-Test round: 927
-expInG1:	42965.3
-expInGT:	2859.9
-timePairing:	25985.7
-invInZr:	34.6
-Test round: 928
-expInG1:	42771.5
-expInGT:	2860.7
-timePairing:	25518.6
-invInZr:	21.5
-Test round: 929
-expInG1:	43011.6
-expInGT:	2886.8
-timePairing:	25513.6
-invInZr:	20.1
-Test round: 930
-expInG1:	43029.7
-expInGT:	3321.9
-timePairing:	25536.9
-invInZr:	20.9
-Test round: 931
-expInG1:	42022.7
-expInGT:	2808.1
-timePairing:	26011.4
-invInZr:	20.3
-Test round: 932
-expInG1:	42474.4
-expInGT:	2829.0
-timePairing:	25467.2
-invInZr:	19.5
-Test round: 933
-expInG1:	42615.5
-expInGT:	2830.6
-timePairing:	25506.0
-invInZr:	20.1
-Test round: 934
-expInG1:	43213.4
-expInGT:	2890.4
-timePairing:	26133.7
-invInZr:	20.7
-Test round: 935
-expInG1:	43245.5
-expInGT:	2901.4
-timePairing:	25966.3
-invInZr:	22.2
-Test round: 936
-expInG1:	42556.6
-expInGT:	2842.1
-timePairing:	25488.5
+Test round: 33
+expInG1:	10272.5
+expInGT:	767.0
+pairing:	9637.4
+invInZr:	15.0
+Test round: 34
+expInG1:	10260.3
+expInGT:	749.5
+pairing:	5799.4
+invInZr:	13.5
+Test round: 35
+expInG1:	10408.0
+expInGT:	757.8
+pairing:	5791.7
+invInZr:	13.6
+Test round: 36
+expInG1:	9945.8
+expInGT:	745.6
+pairing:	5920.9
+invInZr:	14.4
+Test round: 37
+expInG1:	10011.3
+expInGT:	754.4
+pairing:	5895.9
+invInZr:	14.4
+Test round: 38
+expInG1:	10105.1
+expInGT:	756.9
+pairing:	5727.6
+invInZr:	14.7
+Test round: 39
+expInG1:	9939.4
+expInGT:	734.8
+pairing:	5859.6
+invInZr:	14.2
+Test round: 40
+expInG1:	9976.7
+expInGT:	806.5
+pairing:	7362.8
+invInZr:	14.8
+Test round: 41
+expInG1:	10683.1
+expInGT:	745.8
+pairing:	5742.8
+invInZr:	14.0
+Test round: 42
+expInG1:	10331.0
+expInGT:	735.1
+pairing:	5807.7
+invInZr:	15.4
+Test round: 43
+expInG1:	9773.3
+expInGT:	727.2
+pairing:	6251.2
+invInZr:	13.7
+Test round: 44
+expInG1:	9979.3
+expInGT:	742.4
+pairing:	5749.5
+invInZr:	13.7
+Test round: 45
+expInG1:	9944.1
+expInGT:	777.3
+pairing:	6319.5
+invInZr:	12.7
+Test round: 46
+expInG1:	10440.7
+expInGT:	765.3
+pairing:	6443.2
+invInZr:	14.2
+Test round: 47
+expInG1:	10918.3
+expInGT:	776.3
+pairing:	8201.1
+invInZr:	15.9
+Test round: 48
+expInG1:	10121.5
+expInGT:	758.1
+pairing:	5828.5
+invInZr:	14.9
+Test round: 49
+expInG1:	10023.8
+expInGT:	746.3
+pairing:	5834.4
+invInZr:	14.4
+Test round: 50
+expInG1:	10070.9
+expInGT:	756.7
+pairing:	5751.4
+invInZr:	13.6
+Test round: 51
+expInG1:	10191.5
+expInGT:	766.8
+pairing:	5739.4
+invInZr:	14.4
+Test round: 52
+expInG1:	10010.2
+expInGT:	778.7
+pairing:	5929.6
+invInZr:	13.3
+Test round: 53
+expInG1:	10009.5
+expInGT:	733.2
+pairing:	5830.5
+invInZr:	17.0
+Test round: 54
+expInG1:	10248.5
+expInGT:	754.1
+pairing:	6419.2
+invInZr:	14.1
+Test round: 55
+expInG1:	16335.0
+expInGT:	760.9
+pairing:	5789.8
+invInZr:	14.5
+Test round: 56
+expInG1:	14170.6
+expInGT:	1177.4
+pairing:	7620.6
+invInZr:	14.3
+Test round: 57
+expInG1:	9968.5
+expInGT:	740.0
+pairing:	5715.7
+invInZr:	13.8
+Test round: 58
+expInG1:	9977.4
+expInGT:	731.6
+pairing:	5740.9
+invInZr:	13.4
+Test round: 59
+expInG1:	9848.7
+expInGT:	720.9
+pairing:	5740.3
+invInZr:	13.6
+Test round: 60
+expInG1:	10005.9
+expInGT:	741.6
+pairing:	5789.1
+invInZr:	15.7
+Test round: 61
+expInG1:	10169.3
+expInGT:	765.7
+pairing:	6185.1
+invInZr:	13.2
+Test round: 62
+expInG1:	10022.1
+expInGT:	744.7
+pairing:	5739.0
+invInZr:	15.0
+Test round: 63
+expInG1:	10350.9
+expInGT:	758.3
+pairing:	6047.1
+invInZr:	14.9
+Test round: 64
+expInG1:	9897.6
+expInGT:	749.0
+pairing:	5976.3
+invInZr:	16.5
+Test round: 65
+expInG1:	10143.7
+expInGT:	742.4
+pairing:	5729.4
+invInZr:	14.7
+Test round: 66
+expInG1:	10100.4
+expInGT:	734.9
+pairing:	5712.7
+invInZr:	14.6
+Test round: 67
+expInG1:	9922.4
+expInGT:	731.7
+pairing:	5863.9
+invInZr:	15.3
+Test round: 68
+expInG1:	9911.0
+expInGT:	734.7
+pairing:	5717.5
+invInZr:	13.8
+Test round: 69
+expInG1:	9819.0
+expInGT:	719.3
+pairing:	5709.2
+invInZr:	13.9
+Test round: 70
+expInG1:	10014.6
+expInGT:	732.3
+pairing:	5689.9
+invInZr:	15.6
+Test round: 71
+expInG1:	9867.7
+expInGT:	725.3
+pairing:	5745.5
+invInZr:	13.7
+Test round: 72
+expInG1:	9918.4
+expInGT:	766.7
+pairing:	5719.7
+invInZr:	15.8
+Test round: 73
+expInG1:	11096.3
+expInGT:	974.7
+pairing:	6608.0
+invInZr:	14.3
+Test round: 74
+expInG1:	10117.1
+expInGT:	743.9
+pairing:	6457.1
+invInZr:	14.0
+Test round: 75
+expInG1:	9968.3
+expInGT:	760.8
+pairing:	5742.0
+invInZr:	14.1
+Test round: 76
+expInG1:	10285.6
+expInGT:	750.6
+pairing:	5719.1
+invInZr:	13.9
+Test round: 77
+expInG1:	9830.5
+expInGT:	713.5
+pairing:	5759.5
+invInZr:	18.0
+Test round: 78
+expInG1:	9672.5
+expInGT:	710.3
+pairing:	5952.0
+invInZr:	15.0
+Test round: 79
+expInG1:	10104.2
+expInGT:	761.6
+pairing:	5751.0
+invInZr:	16.2
+Test round: 80
+expInG1:	13562.4
+expInGT:	1088.4
+pairing:	7118.8
+invInZr:	23.5
+Test round: 81
+expInG1:	10109.9
+expInGT:	740.5
+pairing:	5747.7
+invInZr:	14.0
+Test round: 82
+expInG1:	9698.5
+expInGT:	707.5
+pairing:	5701.6
+invInZr:	13.8
+Test round: 83
+expInG1:	9848.8
+expInGT:	718.3
+pairing:	5697.2
+invInZr:	13.4
+Test round: 84
+expInG1:	9910.1
+expInGT:	749.6
+pairing:	5899.2
+invInZr:	14.2
+Test round: 85
+expInG1:	10157.7
+expInGT:	760.1
+pairing:	5734.9
+invInZr:	13.4
+Test round: 86
+expInG1:	10001.8
+expInGT:	730.1
+pairing:	5719.1
+invInZr:	13.9
+Test round: 87
+expInG1:	10010.4
+expInGT:	1347.0
+pairing:	5777.8
 invInZr:	19.9
-Test round: 937
-expInG1:	43783.2
-expInGT:	2931.3
-timePairing:	25468.1
-invInZr:	20.3
-Test round: 938
-expInG1:	44092.8
-expInGT:	2872.1
-timePairing:	26084.2
-invInZr:	21.7
-Test round: 939
-expInG1:	42965.9
-expInGT:	2840.5
-timePairing:	26348.5
-invInZr:	22.3
-Test round: 940
-expInG1:	43594.1
-expInGT:	2844.7
-timePairing:	26797.0
-invInZr:	21.7
-Test round: 941
-expInG1:	44031.4
-expInGT:	2915.6
-timePairing:	25500.2
-invInZr:	21.0
-Test round: 942
-expInG1:	42922.2
-expInGT:	2862.2
-timePairing:	26072.0
-invInZr:	19.5
-Test round: 943
-expInG1:	43591.7
-expInGT:	2915.7
-timePairing:	26099.5
-invInZr:	21.2
-Test round: 944
-expInG1:	43142.8
-expInGT:	2921.6
-timePairing:	25577.9
-invInZr:	21.1
-Test round: 945
-expInG1:	43399.3
-expInGT:	2856.3
-timePairing:	25553.7
+Test round: 88
+expInG1:	10011.4
+expInGT:	740.5
+pairing:	5865.2
+invInZr:	14.2
+Test round: 89
+expInG1:	9990.1
+expInGT:	756.3
+pairing:	5715.1
+invInZr:	13.9
+Test round: 90
+expInG1:	9978.9
+expInGT:	738.4
+pairing:	5722.5
+invInZr:	13.0
+Test round: 91
+expInG1:	9683.1
+expInGT:	700.2
+pairing:	5743.5
+invInZr:	14.1
+Test round: 92
+expInG1:	9898.9
+expInGT:	933.9
+pairing:	5711.4
+invInZr:	12.8
+Test round: 93
+expInG1:	9990.4
+expInGT:	749.4
+pairing:	6336.0
+invInZr:	15.3
+Test round: 94
+expInG1:	10334.6
+expInGT:	780.9
+pairing:	5715.7
+invInZr:	13.3
+Test round: 95
+expInG1:	9912.8
+expInGT:	725.2
+pairing:	5854.1
+invInZr:	15.2
+Test round: 96
+expInG1:	9718.1
+expInGT:	754.4
+pairing:	5733.2
+invInZr:	14.4
+Test round: 97
+expInG1:	9971.7
+expInGT:	724.3
+pairing:	5727.3
+invInZr:	14.1
+Test round: 98
+expInG1:	10385.0
+expInGT:	747.4
+pairing:	5848.9
+invInZr:	17.7
+Test round: 99
+expInG1:	10185.3
+expInGT:	755.5
+pairing:	6514.5
+invInZr:	14.3
+Test round: 100
+expInG1:	10088.3
+expInGT:	718.5
+pairing:	5711.1
+invInZr:	13.4
+Test round: 101
+expInG1:	10015.9
+expInGT:	728.9
+pairing:	5723.0
+invInZr:	13.6
+Test round: 102
+expInG1:	9935.4
+expInGT:	725.7
+pairing:	5736.4
+invInZr:	14.9
+Test round: 103
+expInG1:	9927.8
+expInGT:	738.7
+pairing:	5785.7
+invInZr:	14.7
+Test round: 104
+expInG1:	9734.4
+expInGT:	713.8
+pairing:	5726.9
+invInZr:	14.1
+Test round: 105
+expInG1:	10065.7
+expInGT:	737.3
+pairing:	6402.1
+invInZr:	13.0
+Test round: 106
+expInG1:	10081.5
+expInGT:	746.6
+pairing:	6491.1
+invInZr:	19.3
+Test round: 107
+expInG1:	10006.4
+expInGT:	754.1
+pairing:	5760.6
+invInZr:	15.0
+Test round: 108
+expInG1:	10056.9
+expInGT:	742.3
+pairing:	5711.2
+invInZr:	14.2
+Test round: 109
+expInG1:	10224.6
+expInGT:	744.6
+pairing:	5697.7
+invInZr:	13.3
+Test round: 110
+expInG1:	10109.3
+expInGT:	747.8
+pairing:	5837.5
+invInZr:	14.8
+Test round: 111
+expInG1:	10027.7
+expInGT:	1301.6
+pairing:	5731.7
+invInZr:	14.2
+Test round: 112
+expInG1:	9954.3
+expInGT:	735.0
+pairing:	5700.3
+invInZr:	13.6
+Test round: 113
+expInG1:	10063.8
+expInGT:	745.3
+pairing:	5703.2
+invInZr:	13.9
+Test round: 114
+expInG1:	9984.1
+expInGT:	733.6
+pairing:	5726.0
+invInZr:	13.0
+Test round: 115
+expInG1:	10391.6
+expInGT:	751.9
+pairing:	5711.9
+invInZr:	13.0
+Test round: 116
+expInG1:	10109.1
+expInGT:	757.4
+pairing:	5682.9
+invInZr:	13.8
+Test round: 117
+expInG1:	10019.7
+expInGT:	732.8
+pairing:	5809.7
+invInZr:	16.0
+Test round: 118
+expInG1:	9785.5
+expInGT:	725.3
+pairing:	5795.3
+invInZr:	14.3
+Test round: 119
+expInG1:	10022.5
+expInGT:	731.6
+pairing:	5708.5
+invInZr:	13.9
+Test round: 120
+expInG1:	10097.4
+expInGT:	728.2
+pairing:	5704.9
+invInZr:	13.7
+Test round: 121
+expInG1:	9968.5
+expInGT:	741.6
+pairing:	5856.8
+invInZr:	14.8
+Test round: 122
+expInG1:	9759.9
+expInGT:	710.6
+pairing:	6414.1
+invInZr:	14.6
+Test round: 123
+expInG1:	9878.3
+expInGT:	728.9
+pairing:	5769.3
+invInZr:	12.7
+Test round: 124
+expInG1:	10034.6
+expInGT:	733.3
+pairing:	5695.0
+invInZr:	14.1
+Test round: 125
+expInG1:	10122.3
+expInGT:	730.1
+pairing:	7603.0
+invInZr:	28.1
+Test round: 126
+expInG1:	9940.1
+expInGT:	740.1
+pairing:	5698.5
+invInZr:	14.4
+Test round: 127
+expInG1:	9943.7
+expInGT:	735.1
+pairing:	5677.4
+invInZr:	13.3
+Test round: 128
+expInG1:	10693.4
+expInGT:	786.1
+pairing:	5729.3
+invInZr:	15.8
+Test round: 129
+expInG1:	10900.9
+expInGT:	733.7
+pairing:	5827.0
+invInZr:	14.5
+Test round: 130
+expInG1:	10254.6
+expInGT:	754.4
+pairing:	5694.7
+invInZr:	13.3
+Test round: 131
+expInG1:	10076.5
+expInGT:	760.5
+pairing:	5695.3
+invInZr:	23.4
+Test round: 132
+expInG1:	9992.2
+expInGT:	736.0
+pairing:	5774.6
+invInZr:	14.9
+Test round: 133
+expInG1:	9644.2
+expInGT:	703.6
+pairing:	6386.7
+invInZr:	15.7
+Test round: 134
+expInG1:	9884.3
+expInGT:	725.8
+pairing:	5679.9
+invInZr:	13.1
+Test round: 135
+expInG1:	10020.1
+expInGT:	720.0
+pairing:	5678.1
+invInZr:	14.1
+Test round: 136
+expInG1:	9974.6
+expInGT:	732.3
+pairing:	5784.8
+invInZr:	14.5
+Test round: 137
+expInG1:	9843.8
+expInGT:	718.7
+pairing:	5721.2
+invInZr:	14.8
+Test round: 138
+expInG1:	10117.1
+expInGT:	761.7
+pairing:	6353.7
+invInZr:	14.2
+Test round: 139
+expInG1:	10328.0
+expInGT:	752.9
+pairing:	5693.4
+invInZr:	14.3
+Test round: 140
+expInG1:	16105.1
+expInGT:	1253.1
+pairing:	6121.2
+invInZr:	15.0
+Test round: 141
+expInG1:	10412.8
+expInGT:	716.9
+pairing:	5720.5
+invInZr:	14.6
+Test round: 142
+expInG1:	12033.4
+expInGT:	739.3
+pairing:	6178.9
+invInZr:	15.6
+Test round: 143
+expInG1:	9896.4
+expInGT:	716.6
+pairing:	5794.5
+invInZr:	13.7
+Test round: 144
+expInG1:	10494.6
+expInGT:	731.5
+pairing:	5733.7
+invInZr:	15.2
+Test round: 145
+expInG1:	10080.5
+expInGT:	765.0
+pairing:	5742.6
+invInZr:	15.0
+Test round: 146
+expInG1:	9944.8
+expInGT:	737.0
+pairing:	5720.3
+invInZr:	14.3
+Test round: 147
+expInG1:	9949.7
+expInGT:	730.8
+pairing:	5831.2
+invInZr:	15.1
+Test round: 148
+expInG1:	10055.5
+expInGT:	735.3
+pairing:	5834.5
+invInZr:	14.5
+Test round: 149
+expInG1:	10010.4
+expInGT:	1276.9
+pairing:	5815.1
+invInZr:	18.4
+Test round: 150
+expInG1:	9874.2
+expInGT:	747.3
+pairing:	6166.4
+invInZr:	14.5
+Test round: 151
+expInG1:	11233.5
+expInGT:	756.9
+pairing:	5746.9
+invInZr:	15.3
+Test round: 152
+expInG1:	9983.1
+expInGT:	714.6
+pairing:	5780.8
+invInZr:	19.1
+Test round: 153
+expInG1:	10230.8
+expInGT:	1187.7
+pairing:	8380.2
 invInZr:	20.5
-Test round: 946
-expInG1:	43308.5
-expInGT:	2894.0
-timePairing:	26106.5
-invInZr:	20.9
-Test round: 947
-expInG1:	43587.0
-expInGT:	2909.1
-timePairing:	25978.9
-invInZr:	20.5
-Test round: 948
-expInG1:	42871.0
-expInGT:	2852.6
-timePairing:	25574.7
-invInZr:	20.8
-Test round: 949
-expInG1:	44048.1
-expInGT:	2891.7
-timePairing:	25510.0
+Test round: 154
+expInG1:	17738.3
+expInGT:	1124.5
+pairing:	6985.7
+invInZr:	19.6
+Test round: 155
+expInG1:	13926.3
+expInGT:	1098.2
+pairing:	7623.8
+invInZr:	15.3
+Test round: 156
+expInG1:	10033.1
+expInGT:	731.1
+pairing:	5961.2
 invInZr:	20.7
-Test round: 950
-expInG1:	43420.0
-expInGT:	2924.9
-timePairing:	25957.4
-invInZr:	20.7
-Test round: 951
-expInG1:	42981.1
-expInGT:	2868.2
-timePairing:	25527.8
-invInZr:	20.4
-Test round: 952
-expInG1:	43296.2
-expInGT:	2887.1
-timePairing:	26129.0
+Test round: 157
+expInG1:	10180.6
+expInGT:	750.1
+pairing:	5767.4
+invInZr:	14.9
+Test round: 158
+expInG1:	10206.3
+expInGT:	740.1
+pairing:	5904.8
+invInZr:	25.9
+Test round: 159
+expInG1:	10081.0
+expInGT:	727.5
+pairing:	8882.2
 invInZr:	21.6
-Test round: 953
-expInG1:	42942.4
-expInGT:	3397.1
-timePairing:	25475.9
-invInZr:	21.7
-Test round: 954
-expInG1:	42819.8
-expInGT:	2834.6
-timePairing:	26071.8
-invInZr:	21.1
-Test round: 955
-expInG1:	42843.6
-expInGT:	2863.9
-timePairing:	25489.6
-invInZr:	20.6
-Test round: 956
-expInG1:	43104.7
-expInGT:	2883.5
-timePairing:	25460.5
-invInZr:	20.3
-Test round: 957
-expInG1:	43164.2
-expInGT:	3328.5
-timePairing:	25596.5
-invInZr:	21.3
-Test round: 958
-expInG1:	43028.1
-expInGT:	2859.8
-timePairing:	26052.9
-invInZr:	21.4
-Test round: 959
-expInG1:	42850.0
-expInGT:	2871.5
-timePairing:	25497.3
-invInZr:	20.7
-Test round: 960
-expInG1:	42876.4
-expInGT:	2853.4
-timePairing:	25597.6
-invInZr:	20.6
-Test round: 961
-expInG1:	43585.6
-expInGT:	3719.5
-timePairing:	26087.9
-invInZr:	21.5
-Test round: 962
-expInG1:	43733.6
-expInGT:	2931.5
-timePairing:	25988.9
-invInZr:	20.3
-Test round: 963
-expInG1:	44285.8
-expInGT:	2928.3
-timePairing:	25470.9
-invInZr:	20.6
-Test round: 964
-expInG1:	42971.1
-expInGT:	2866.0
-timePairing:	25478.8
-invInZr:	21.2
-Test round: 965
-expInG1:	42893.8
-expInGT:	2868.4
-timePairing:	25958.9
-invInZr:	21.3
-Test round: 966
-expInG1:	44595.6
-expInGT:	2970.6
-timePairing:	26095.2
-invInZr:	21.3
-Test round: 967
-expInG1:	43241.7
-expInGT:	2881.9
-timePairing:	25491.8
-invInZr:	22.6
-Test round: 968
-expInG1:	43343.2
-expInGT:	2858.7
-timePairing:	26105.6
-invInZr:	20.7
-Test round: 969
-expInG1:	43514.6
-expInGT:	2920.4
-timePairing:	26058.1
-invInZr:	20.2
-Test round: 970
-expInG1:	42656.1
-expInGT:	2832.8
-timePairing:	26091.6
-invInZr:	20.6
-Test round: 971
-expInG1:	42654.1
-expInGT:	2854.9
-timePairing:	25470.6
-invInZr:	20.5
-Test round: 972
-expInG1:	43817.7
-expInGT:	2912.2
-timePairing:	26415.8
-invInZr:	20.7
-Test round: 973
-expInG1:	42923.1
-expInGT:	2839.1
-timePairing:	26008.6
-invInZr:	19.5
-Test round: 974
-expInG1:	42503.4
-expInGT:	2821.1
-timePairing:	25987.1
-invInZr:	20.6
-Test round: 975
-expInG1:	43124.8
-expInGT:	2881.4
-timePairing:	25627.9
-invInZr:	21.6
-Test round: 976
-expInG1:	43389.3
-expInGT:	2881.2
-timePairing:	25478.8
-invInZr:	21.0
-Test round: 977
-expInG1:	43024.0
-expInGT:	2881.6
-timePairing:	26031.5
-invInZr:	20.9
-Test round: 978
-expInG1:	43055.2
-expInGT:	2881.6
-timePairing:	25980.6
-invInZr:	21.2
-Test round: 979
-expInG1:	43169.5
-expInGT:	2894.4
-timePairing:	25513.4
-invInZr:	20.2
-Test round: 980
-expInG1:	43733.2
-expInGT:	2888.1
-timePairing:	25595.8
-invInZr:	23.1
-Test round: 981
-expInG1:	43612.5
-expInGT:	2902.4
-timePairing:	26067.3
-invInZr:	20.3
-Test round: 982
-expInG1:	42792.6
-expInGT:	2854.8
-timePairing:	25525.9
-invInZr:	20.0
-Test round: 983
-expInG1:	42318.7
-expInGT:	2817.6
-timePairing:	25501.5
-invInZr:	20.7
-Test round: 984
-expInG1:	43101.3
-expInGT:	3400.7
-timePairing:	25542.3
-invInZr:	20.3
-Test round: 985
-expInG1:	43033.7
-expInGT:	2876.5
-timePairing:	25965.8
+Test round: 160
+expInG1:	11899.4
+expInGT:	760.0
+pairing:	5886.8
+invInZr:	15.4
+Test round: 161
+expInG1:	10131.4
+expInGT:	757.9
+pairing:	6009.9
+invInZr:	15.0
+Test round: 162
+expInG1:	10274.1
+expInGT:	749.1
+pairing:	5694.8
+invInZr:	15.4
+Test round: 163
+expInG1:	10138.5
+expInGT:	743.2
+pairing:	5691.8
+invInZr:	13.3
+Test round: 164
+expInG1:	9776.4
+expInGT:	706.4
+pairing:	6407.8
+invInZr:	14.4
+Test round: 165
+expInG1:	9987.5
+expInGT:	751.3
+pairing:	5743.6
+invInZr:	14.2
+Test round: 166
+expInG1:	9992.2
+expInGT:	735.1
+pairing:	5696.8
 invInZr:	21.8
-Test round: 986
-expInG1:	42984.5
-expInGT:	2882.9
-timePairing:	25520.3
-invInZr:	20.1
-Test round: 987
-expInG1:	43230.3
-expInGT:	2891.5
-timePairing:	25630.4
-invInZr:	20.8
-Test round: 988
-expInG1:	43463.1
-expInGT:	3392.5
-timePairing:	25517.3
-invInZr:	21.3
-Test round: 989
-expInG1:	43424.7
-expInGT:	3082.6
-timePairing:	26446.9
-invInZr:	20.4
-Test round: 990
-expInG1:	44810.9
-expInGT:	2895.8
-timePairing:	25538.5
-invInZr:	20.9
-Test round: 991
-expInG1:	42994.0
-expInGT:	2868.9
-timePairing:	25554.8
-invInZr:	21.0
-Test round: 992
-expInG1:	43053.6
-expInGT:	2904.2
-timePairing:	25945.9
-invInZr:	20.0
-Test round: 993
-expInG1:	43205.2
-expInGT:	2893.2
-timePairing:	26149.7
-invInZr:	20.7
-Test round: 994
-expInG1:	43320.0
-expInGT:	2891.6
-timePairing:	25491.7
-invInZr:	20.9
-Test round: 995
-expInG1:	43220.1
-expInGT:	2880.8
-timePairing:	25493.9
-invInZr:	20.4
-Test round: 996
-expInG1:	42059.8
-expInGT:	2796.2
-timePairing:	26307.0
+Test round: 167
+expInG1:	9956.8
+expInGT:	733.2
+pairing:	5732.5
+invInZr:	15.0
+Test round: 168
+expInG1:	9938.8
+expInGT:	836.6
+pairing:	5850.1
+invInZr:	14.5
+Test round: 169
+expInG1:	10158.9
+expInGT:	751.6
+pairing:	6516.9
+invInZr:	13.8
+Test round: 170
+expInG1:	10239.4
+expInGT:	751.0
+pairing:	5710.3
+invInZr:	14.0
+Test round: 171
+expInG1:	10624.1
+expInGT:	699.0
+pairing:	5711.3
+invInZr:	13.8
+Test round: 172
+expInG1:	9946.9
+expInGT:	729.3
+pairing:	5878.7
+invInZr:	13.8
+Test round: 173
+expInG1:	10745.2
+expInGT:	745.4
+pairing:	5792.3
+invInZr:	14.7
+Test round: 174
+expInG1:	10078.0
+expInGT:	738.5
+pairing:	6397.8
+invInZr:	13.9
+Test round: 175
+expInG1:	10014.9
+expInGT:	740.8
+pairing:	6248.2
+invInZr:	22.4
+Test round: 176
+expInG1:	9871.7
+expInGT:	824.4
+pairing:	8694.8
+invInZr:	22.7
+Test round: 177
+expInG1:	12045.9
+expInGT:	764.2
+pairing:	6405.0
+invInZr:	23.1
+Test round: 178
+expInG1:	14121.0
+expInGT:	713.0
+pairing:	5739.1
+invInZr:	13.8
+Test round: 179
+expInG1:	9922.2
+expInGT:	1239.7
+pairing:	5861.9
+invInZr:	14.8
+Test round: 180
+expInG1:	10045.1
+expInGT:	746.3
+pairing:	6129.3
+invInZr:	14.3
+Test round: 181
+expInG1:	11925.1
+expInGT:	1174.4
+pairing:	6518.0
+invInZr:	13.9
+Test round: 182
+expInG1:	10057.1
+expInGT:	735.0
+pairing:	5808.1
+invInZr:	15.9
+Test round: 183
+expInG1:	9856.0
+expInGT:	731.9
+pairing:	7185.2
+invInZr:	14.8
+Test round: 184
+expInG1:	10686.8
+expInGT:	794.9
+pairing:	5753.6
+invInZr:	14.7
+Test round: 185
+expInG1:	10061.0
+expInGT:	756.5
+pairing:	5806.0
+invInZr:	14.8
+Test round: 186
+expInG1:	9965.9
+expInGT:	737.9
+pairing:	5749.7
+invInZr:	15.2
+Test round: 187
+expInG1:	9748.4
+expInGT:	789.5
+pairing:	5706.7
+invInZr:	13.6
+Test round: 188
+expInG1:	10459.5
+expInGT:	764.9
+pairing:	6269.4
+invInZr:	14.1
+Test round: 189
+expInG1:	10239.1
+expInGT:	755.5
+pairing:	5695.7
+invInZr:	14.4
+Test round: 190
+expInG1:	9957.0
+expInGT:	726.9
+pairing:	5999.7
+invInZr:	15.6
+Test round: 191
+expInG1:	11101.5
+expInGT:	751.0
+pairing:	5741.1
+invInZr:	14.8
+Test round: 192
+expInG1:	14138.5
+expInGT:	1225.4
+pairing:	7168.3
+invInZr:	18.1
+Test round: 193
+expInG1:	10643.0
+expInGT:	1105.0
+pairing:	6842.5
+invInZr:	14.4
+Test round: 194
+expInG1:	9766.2
+expInGT:	702.0
+pairing:	5693.7
+invInZr:	13.8
+Test round: 195
+expInG1:	9983.0
+expInGT:	739.5
+pairing:	5704.1
+invInZr:	14.0
+Test round: 196
+expInG1:	10065.6
+expInGT:	838.8
+pairing:	5766.6
+invInZr:	14.8
+Test round: 197
+expInG1:	10215.8
+expInGT:	737.2
+pairing:	5706.2
+invInZr:	13.6
+Test round: 198
+expInG1:	10321.5
+expInGT:	706.4
+pairing:	5734.1
+invInZr:	14.6
+Test round: 199
+expInG1:	10068.2
+expInGT:	743.0
+pairing:	5840.0
+invInZr:	15.2
+Test round: 200
+expInG1:	12985.8
+expInGT:	1154.2
+pairing:	8895.6
+invInZr:	22.0
+Test round: 201
+expInG1:	10408.7
+expInGT:	793.9
+pairing:	6699.0
+invInZr:	16.4
+Test round: 202
+expInG1:	10496.0
+expInGT:	719.8
+pairing:	6305.4
+invInZr:	15.2
+Test round: 203
+expInG1:	10105.5
+expInGT:	740.5
+pairing:	5970.7
+invInZr:	14.3
+Test round: 204
+expInG1:	10014.3
+expInGT:	763.8
+pairing:	5804.7
+invInZr:	14.7
+Test round: 205
+expInG1:	10174.8
+expInGT:	739.6
+pairing:	5689.1
+invInZr:	14.2
+Test round: 206
+expInG1:	9954.0
+expInGT:	729.1
+pairing:	5665.3
+invInZr:	13.5
+Test round: 207
+expInG1:	10632.5
+expInGT:	741.5
+pairing:	5802.3
+invInZr:	14.5
+Test round: 208
+expInG1:	10251.2
+expInGT:	753.9
+pairing:	5719.9
+invInZr:	14.3
+Test round: 209
+expInG1:	10154.7
+expInGT:	720.7
+pairing:	5752.5
+invInZr:	13.4
+Test round: 210
+expInG1:	10080.1
+expInGT:	791.9
+pairing:	5745.4
+invInZr:	14.9
+Test round: 211
+expInG1:	9968.7
+expInGT:	725.4
+pairing:	6267.0
+invInZr:	17.7
+Test round: 212
+expInG1:	10149.3
+expInGT:	748.1
+pairing:	5723.2
+invInZr:	15.3
+Test round: 213
+expInG1:	9912.5
+expInGT:	710.8
+pairing:	5704.1
+invInZr:	13.6
+Test round: 214
+expInG1:	9898.1
+expInGT:	722.6
+pairing:	5724.8
+invInZr:	14.0
+Test round: 215
+expInG1:	9910.7
+expInGT:	723.3
+pairing:	5699.0
+invInZr:	13.6
+Test round: 216
+expInG1:	10059.6
+expInGT:	728.7
+pairing:	5798.1
+invInZr:	13.5
+Test round: 217
+expInG1:	9933.6
+expInGT:	713.3
+pairing:	5803.2
+invInZr:	13.5
+Test round: 218
+expInG1:	10270.0
+expInGT:	726.4
+pairing:	5683.2
+invInZr:	14.2
+Test round: 219
+expInG1:	9930.1
+expInGT:	737.8
+pairing:	5765.4
+invInZr:	14.6
+Test round: 220
+expInG1:	9858.3
+expInGT:	1259.5
+pairing:	5679.5
+invInZr:	14.0
+Test round: 221
+expInG1:	10162.7
+expInGT:	731.3
+pairing:	5686.1
+invInZr:	13.8
+Test round: 222
+expInG1:	10099.0
+expInGT:	720.3
+pairing:	5756.0
+invInZr:	17.2
+Test round: 223
+expInG1:	9880.8
+expInGT:	720.4
+pairing:	5795.0
+invInZr:	15.4
+Test round: 224
+expInG1:	10001.7
+expInGT:	738.5
+pairing:	6208.5
+invInZr:	13.3
+Test round: 225
+expInG1:	10776.1
+expInGT:	739.1
+pairing:	5673.5
+invInZr:	14.5
+Test round: 226
+expInG1:	10058.1
+expInGT:	729.4
+pairing:	5749.0
+invInZr:	13.4
+Test round: 227
+expInG1:	9818.1
+expInGT:	707.5
+pairing:	5732.2
+invInZr:	14.9
+Test round: 228
+expInG1:	9919.2
+expInGT:	722.7
+pairing:	6149.3
+invInZr:	13.3
+Test round: 229
+expInG1:	9964.0
+expInGT:	776.6
+pairing:	5681.5
+invInZr:	12.6
+Test round: 230
+expInG1:	9900.9
+expInGT:	708.6
+pairing:	5671.0
+invInZr:	15.1
+Test round: 231
+expInG1:	10315.7
+expInGT:	729.4
+pairing:	5983.4
+invInZr:	15.3
+Test round: 232
+expInG1:	10143.6
+expInGT:	755.3
+pairing:	6311.3
+invInZr:	15.0
+Test round: 233
+expInG1:	10352.1
+expInGT:	693.5
+pairing:	5854.8
+invInZr:	18.5
+Test round: 234
+expInG1:	10195.0
+expInGT:	734.6
+pairing:	5867.1
+invInZr:	17.2
+Test round: 235
+expInG1:	10400.4
+expInGT:	740.7
+pairing:	5823.2
+invInZr:	15.1
+Test round: 236
+expInG1:	9927.4
+expInGT:	728.7
+pairing:	5695.1
+invInZr:	13.5
+Test round: 237
+expInG1:	10670.8
+expInGT:	742.4
+pairing:	5856.7
+invInZr:	25.4
+Test round: 238
+expInG1:	10519.4
+expInGT:	706.9
+pairing:	5910.5
+invInZr:	16.0
+Test round: 239
+expInG1:	9689.6
+expInGT:	714.9
+pairing:	5673.2
+invInZr:	15.7
+Test round: 240
+expInG1:	10298.0
+expInGT:	736.1
+pairing:	5669.4
+invInZr:	13.4
+Test round: 241
+expInG1:	11131.0
+expInGT:	746.9
+pairing:	5765.9
+invInZr:	15.3
+Test round: 242
+expInG1:	9648.1
+expInGT:	693.0
+pairing:	5735.8
+invInZr:	14.2
+Test round: 243
+expInG1:	9865.4
+expInGT:	725.7
+pairing:	5689.9
+invInZr:	14.8
+Test round: 244
+expInG1:	10039.9
+expInGT:	788.9
+pairing:	5753.4
+invInZr:	14.3
+Test round: 245
+expInG1:	10082.3
+expInGT:	719.4
+pairing:	5703.5
+invInZr:	14.7
+Test round: 246
+expInG1:	10172.3
+expInGT:	719.6
+pairing:	5942.9
+invInZr:	14.8
+Test round: 247
+expInG1:	9801.1
+expInGT:	826.1
+pairing:	5695.9
+invInZr:	13.1
+Test round: 248
+expInG1:	10010.7
+expInGT:	729.3
+pairing:	6209.3
+invInZr:	13.9
+Test round: 249
+expInG1:	10055.7
+expInGT:	737.7
+pairing:	5684.9
+invInZr:	12.5
+Test round: 250
+expInG1:	9842.5
+expInGT:	712.7
+pairing:	5695.9
+invInZr:	14.4
+Test round: 251
+expInG1:	9681.9
+expInGT:	703.2
+pairing:	5848.5
+invInZr:	16.8
+Test round: 252
+expInG1:	10345.7
+expInGT:	735.0
+pairing:	6207.8
+invInZr:	14.2
+Test round: 253
+expInG1:	10055.6
+expInGT:	708.5
+pairing:	5733.6
+invInZr:	15.2
+Test round: 254
+expInG1:	9943.6
+expInGT:	732.3
+pairing:	5840.8
+invInZr:	15.9
+Test round: 255
+expInG1:	9856.0
+expInGT:	723.8
+pairing:	5758.8
+invInZr:	14.7
+Test round: 256
+expInG1:	10083.1
+expInGT:	839.4
+pairing:	6304.1
+invInZr:	19.2
+Test round: 257
+expInG1:	10123.3
+expInGT:	753.9
+pairing:	5707.2
+invInZr:	31.4
+Test round: 258
+expInG1:	9477.0
+expInGT:	692.1
+pairing:	5731.9
+invInZr:	12.6
+Test round: 259
+expInG1:	9344.2
+expInGT:	680.5
+pairing:	5749.3
+invInZr:	12.4
+Test round: 260
+expInG1:	10174.7
+expInGT:	4957.4
+pairing:	8268.2
+invInZr:	12.4
+Test round: 261
+expInG1:	9854.5
+expInGT:	717.4
+pairing:	5774.6
+invInZr:	12.5
+Test round: 262
+expInG1:	9858.2
+expInGT:	749.5
+pairing:	5919.2
+invInZr:	12.2
+Test round: 263
+expInG1:	10028.8
+expInGT:	730.0
+pairing:	6003.7
+invInZr:	13.1
+Test round: 264
+expInG1:	10251.1
+expInGT:	726.6
+pairing:	7773.2
+invInZr:	18.0
+Test round: 265
+expInG1:	11893.0
+expInGT:	956.1
+pairing:	6162.7
+invInZr:	12.9
+Test round: 266
+expInG1:	11285.2
+expInGT:	736.9
+pairing:	6189.4
+invInZr:	12.9
+Test round: 267
+expInG1:	12442.1
+expInGT:	709.4
+pairing:	7212.9
+invInZr:	21.7
+Test round: 268
+expInG1:	13117.9
+expInGT:	1146.5
+pairing:	8180.5
+invInZr:	11.7
+Test round: 269
+expInG1:	10653.1
+expInGT:	711.1
+pairing:	5982.0
+invInZr:	12.2
+Test round: 270
+expInG1:	10118.5
+expInGT:	722.3
+pairing:	5731.7
+invInZr:	12.3
+Test round: 271
+expInG1:	10144.1
+expInGT:	713.3
+pairing:	5735.0
+invInZr:	11.9
+Test round: 272
+expInG1:	10387.9
+expInGT:	727.9
+pairing:	5805.5
+invInZr:	12.1
+Test round: 273
+expInG1:	10855.1
+expInGT:	729.5
+pairing:	6541.7
+invInZr:	19.1
+Test round: 274
+expInG1:	15728.0
+expInGT:	715.6
+pairing:	8494.8
+invInZr:	18.0
+Test round: 275
+expInG1:	10224.4
+expInGT:	1166.3
+pairing:	6736.1
+invInZr:	12.9
+Test round: 276
+expInG1:	10439.6
+expInGT:	729.9
+pairing:	5697.5
+invInZr:	14.2
+Test round: 277
+expInG1:	10484.9
+expInGT:	742.6
+pairing:	6511.8
+invInZr:	11.8
+Test round: 278
+expInG1:	10413.4
+expInGT:	716.5
+pairing:	5712.6
+invInZr:	12.6
+Test round: 279
+expInG1:	9979.0
+expInGT:	717.5
+pairing:	5718.3
+invInZr:	11.1
+Test round: 280
+expInG1:	10239.7
+expInGT:	726.5
+pairing:	5906.8
+invInZr:	14.0
+Test round: 281
+expInG1:	10106.9
+expInGT:	741.5
+pairing:	6718.5
 invInZr:	19.9
+Test round: 282
+expInG1:	10290.3
+expInGT:	724.0
+pairing:	6207.2
+invInZr:	13.3
+Test round: 283
+expInG1:	11168.6
+expInGT:	1000.9
+pairing:	5895.7
+invInZr:	13.3
+Test round: 284
+expInG1:	10210.7
+expInGT:	749.2
+pairing:	5788.1
+invInZr:	13.5
+Test round: 285
+expInG1:	9949.2
+expInGT:	723.5
+pairing:	5701.6
+invInZr:	12.7
+Test round: 286
+expInG1:	10112.9
+expInGT:	719.1
+pairing:	5721.5
+invInZr:	12.5
+Test round: 287
+expInG1:	9827.3
+expInGT:	715.5
+pairing:	5734.7
+invInZr:	12.5
+Test round: 288
+expInG1:	9964.3
+expInGT:	727.9
+pairing:	5727.3
+invInZr:	14.8
+Test round: 289
+expInG1:	9683.3
+expInGT:	701.2
+pairing:	5694.1
+invInZr:	11.8
+Test round: 290
+expInG1:	10062.8
+expInGT:	719.5
+pairing:	5706.8
+invInZr:	12.6
+Test round: 291
+expInG1:	10016.9
+expInGT:	1182.0
+pairing:	5888.2
+invInZr:	13.1
+Test round: 292
+expInG1:	10214.1
+expInGT:	745.8
+pairing:	5744.5
+invInZr:	12.5
+Test round: 293
+expInG1:	10352.5
+expInGT:	733.3
+pairing:	5699.5
+invInZr:	12.0
+Test round: 294
+expInG1:	10323.3
+expInGT:	751.8
+pairing:	5786.3
+invInZr:	12.5
+Test round: 295
+expInG1:	9871.9
+expInGT:	717.8
+pairing:	6242.0
+invInZr:	11.8
+Test round: 296
+expInG1:	10030.3
+expInGT:	733.3
+pairing:	5723.8
+invInZr:	12.8
+Test round: 297
+expInG1:	10036.5
+expInGT:	724.0
+pairing:	5715.3
+invInZr:	12.8
+Test round: 298
+expInG1:	10108.2
+expInGT:	725.0
+pairing:	5708.4
+invInZr:	12.5
+Test round: 299
+expInG1:	9730.9
+expInGT:	727.3
+pairing:	6289.5
+invInZr:	12.6
+Test round: 300
+expInG1:	9813.9
+expInGT:	711.0
+pairing:	5661.9
+invInZr:	12.5
+Test round: 301
+expInG1:	9954.4
+expInGT:	707.9
+pairing:	5685.2
+invInZr:	12.5
+Test round: 302
+expInG1:	9930.7
+expInGT:	723.3
+pairing:	5857.8
+invInZr:	11.8
+Test round: 303
+expInG1:	9849.9
+expInGT:	736.0
+pairing:	6267.2
+invInZr:	13.4
+Test round: 304
+expInG1:	10194.8
+expInGT:	733.6
+pairing:	5678.8
+invInZr:	11.9
+Test round: 305
+expInG1:	10174.3
+expInGT:	720.7
+pairing:	5751.5
+invInZr:	12.2
+Test round: 306
+expInG1:	9512.9
+expInGT:	692.1
+pairing:	5727.0
+invInZr:	11.0
+Test round: 307
+expInG1:	10127.8
+expInGT:	733.2
+pairing:	5695.6
+invInZr:	11.2
+Test round: 308
+expInG1:	9959.2
+expInGT:	727.5
+pairing:	5700.5
+invInZr:	12.6
+Test round: 309
+expInG1:	10383.6
+expInGT:	754.9
+pairing:	5785.3
+invInZr:	12.3
+Test round: 310
+expInG1:	10254.0
+expInGT:	769.6
+pairing:	5855.8
+invInZr:	12.1
+Test round: 311
+expInG1:	9962.6
+expInGT:	726.4
+pairing:	5702.8
+invInZr:	12.5
+Test round: 312
+expInG1:	10088.8
+expInGT:	732.6
+pairing:	5669.5
+invInZr:	12.6
+Test round: 313
+expInG1:	9968.3
+expInGT:	716.7
+pairing:	5776.3
+invInZr:	11.0
+Test round: 314
+expInG1:	10203.1
+expInGT:	805.3
+pairing:	5870.9
+invInZr:	11.7
+Test round: 315
+expInG1:	10130.6
+expInGT:	728.5
+pairing:	5675.4
+invInZr:	12.5
+Test round: 316
+expInG1:	10449.4
+expInGT:	725.9
+pairing:	5698.5
+invInZr:	16.7
+Test round: 317
+expInG1:	13141.7
+expInGT:	729.9
+pairing:	5734.8
+invInZr:	12.2
+Test round: 318
+expInG1:	9893.4
+expInGT:	702.3
+pairing:	5692.9
+invInZr:	13.0
+Test round: 319
+expInG1:	10240.1
+expInGT:	728.0
+pairing:	6246.2
+invInZr:	12.4
+Test round: 320
+expInG1:	10111.8
+expInGT:	732.7
+pairing:	5815.4
+invInZr:	14.2
+Test round: 321
+expInG1:	10647.1
+expInGT:	716.4
+pairing:	5690.0
+invInZr:	11.1
+Test round: 322
+expInG1:	9921.1
+expInGT:	721.8
+pairing:	5684.0
+invInZr:	11.4
+Test round: 323
+expInG1:	9893.3
+expInGT:	731.2
+pairing:	6362.6
+invInZr:	11.8
+Test round: 324
+expInG1:	10250.1
+expInGT:	733.9
+pairing:	5694.8
+invInZr:	12.7
+Test round: 325
+expInG1:	9864.7
+expInGT:	710.2
+pairing:	5684.1
+invInZr:	12.4
+Test round: 326
+expInG1:	10305.6
+expInGT:	730.6
+pairing:	5763.9
+invInZr:	15.4
+Test round: 327
+expInG1:	9860.8
+expInGT:	721.4
+pairing:	6547.5
+invInZr:	13.1
+Test round: 328
+expInG1:	10293.3
+expInGT:	737.9
+pairing:	5679.6
+invInZr:	11.6
+Test round: 329
+expInG1:	10293.9
+expInGT:	728.4
+pairing:	5702.7
+invInZr:	13.0
+Test round: 330
+expInG1:	10035.4
+expInGT:	719.3
+pairing:	5723.0
+invInZr:	11.9
+Test round: 331
+expInG1:	9871.7
+expInGT:	1263.5
+pairing:	5691.8
+invInZr:	12.9
+Test round: 332
+expInG1:	10055.6
+expInGT:	726.3
+pairing:	5693.4
+invInZr:	12.0
+Test round: 333
+expInG1:	9880.8
+expInGT:	716.0
+pairing:	5650.9
+invInZr:	11.9
+Test round: 334
+expInG1:	9838.0
+expInGT:	712.1
+pairing:	6002.7
+invInZr:	14.1
+Test round: 335
+expInG1:	10003.8
+expInGT:	756.7
+pairing:	5813.7
+invInZr:	11.8
+Test round: 336
+expInG1:	10260.0
+expInGT:	719.6
+pairing:	5684.2
+invInZr:	11.9
+Test round: 337
+expInG1:	10107.0
+expInGT:	732.9
+pairing:	5742.3
+invInZr:	16.1
+Test round: 338
+expInG1:	9941.4
+expInGT:	725.0
+pairing:	6460.8
+invInZr:	11.4
+Test round: 339
+expInG1:	10525.1
+expInGT:	746.9
+pairing:	5674.9
+invInZr:	13.6
+Test round: 340
+expInG1:	10203.4
+expInGT:	743.5
+pairing:	5716.4
+invInZr:	12.3
+Test round: 341
+expInG1:	10221.9
+expInGT:	723.6
+pairing:	5783.8
+invInZr:	17.7
+Test round: 342
+expInG1:	10493.0
+expInGT:	764.4
+pairing:	5853.0
+invInZr:	12.3
+Test round: 343
+expInG1:	10092.4
+expInGT:	738.6
+pairing:	5959.9
+invInZr:	12.5
+Test round: 344
+expInG1:	9954.2
+expInGT:	729.3
+pairing:	5738.8
+invInZr:	12.8
+Test round: 345
+expInG1:	9984.4
+expInGT:	723.0
+pairing:	6302.3
+invInZr:	11.8
+Test round: 346
+expInG1:	10063.4
+expInGT:	714.5
+pairing:	5679.5
+invInZr:	12.2
+Test round: 347
+expInG1:	9984.5
+expInGT:	717.8
+pairing:	5685.3
+invInZr:	11.7
+Test round: 348
+expInG1:	9961.9
+expInGT:	723.3
+pairing:	5744.3
+invInZr:	13.3
+Test round: 349
+expInG1:	10391.3
+expInGT:	799.6
+pairing:	5787.3
+invInZr:	12.3
+Test round: 350
+expInG1:	10024.2
+expInGT:	722.8
+pairing:	5680.4
+invInZr:	12.7
+Test round: 351
+expInG1:	14616.3
+expInGT:	1206.2
+pairing:	6811.5
+invInZr:	13.8
+Test round: 352
+expInG1:	10069.7
+expInGT:	732.0
+pairing:	6162.9
+invInZr:	12.8
+Test round: 353
+expInG1:	10079.1
+expInGT:	740.8
+pairing:	5684.3
+invInZr:	12.8
+Test round: 354
+expInG1:	9816.6
+expInGT:	704.9
+pairing:	5660.7
+invInZr:	12.4
+Test round: 355
+expInG1:	10010.0
+expInGT:	719.1
+pairing:	5788.6
+invInZr:	12.3
+Test round: 356
+expInG1:	9732.9
+expInGT:	716.9
+pairing:	6232.8
+invInZr:	11.6
+Test round: 357
+expInG1:	9961.4
+expInGT:	707.5
+pairing:	5955.4
+invInZr:	11.8
+Test round: 358
+expInG1:	10590.2
+expInGT:	722.8
+pairing:	5694.6
+invInZr:	12.6
+Test round: 359
+expInG1:	9918.5
+expInGT:	730.0
+pairing:	6224.1
+invInZr:	12.8
+Test round: 360
+expInG1:	9505.1
+expInGT:	691.8
+pairing:	5696.6
+invInZr:	12.6
+Test round: 361
+expInG1:	9951.2
+expInGT:	724.1
+pairing:	5710.5
+invInZr:	13.9
+Test round: 362
+expInG1:	9860.6
+expInGT:	723.4
+pairing:	5716.9
+invInZr:	12.3
+Test round: 363
+expInG1:	9779.0
+expInGT:	703.4
+pairing:	6249.4
+invInZr:	11.6
+Test round: 364
+expInG1:	9950.6
+expInGT:	857.0
+pairing:	5673.9
+invInZr:	12.3
+Test round: 365
+expInG1:	10605.5
+expInGT:	729.4
+pairing:	5687.9
+invInZr:	12.4
+Test round: 366
+expInG1:	9968.2
+expInGT:	720.7
+pairing:	5682.7
+invInZr:	18.2
+Test round: 367
+expInG1:	10272.8
+expInGT:	717.4
+pairing:	5913.5
+invInZr:	11.8
+Test round: 368
+expInG1:	10162.3
+expInGT:	725.5
+pairing:	5718.5
+invInZr:	12.3
+Test round: 369
+expInG1:	10010.8
+expInGT:	695.3
+pairing:	5695.0
+invInZr:	13.4
+Test round: 370
+expInG1:	10372.9
+expInGT:	718.2
+pairing:	6142.7
+invInZr:	16.0
+Test round: 371
+expInG1:	9955.0
+expInGT:	725.6
+pairing:	6946.4
+invInZr:	17.1
+Test round: 372
+expInG1:	10088.2
+expInGT:	743.2
+pairing:	5697.5
+invInZr:	11.8
+Test round: 373
+expInG1:	10169.7
+expInGT:	744.0
+pairing:	7411.3
+invInZr:	12.3
+Test round: 374
+expInG1:	12747.4
+expInGT:	725.6
+pairing:	5696.3
+invInZr:	11.4
+Test round: 375
+expInG1:	10061.6
+expInGT:	727.7
+pairing:	5681.5
+invInZr:	11.4
+Test round: 376
+expInG1:	9991.3
+expInGT:	720.4
+pairing:	5681.2
+invInZr:	12.9
+Test round: 377
+expInG1:	9797.2
+expInGT:	712.3
+pairing:	6343.4
+invInZr:	12.1
+Test round: 378
+expInG1:	10154.3
+expInGT:	1149.2
+pairing:	6026.3
+invInZr:	12.5
+Test round: 379
+expInG1:	10304.6
+expInGT:	737.1
+pairing:	5684.6
+invInZr:	13.1
+Test round: 380
+expInG1:	10296.6
+expInGT:	730.8
+pairing:	5774.6
+invInZr:	13.3
+Test round: 381
+expInG1:	9843.3
+expInGT:	1273.9
+pairing:	5910.2
+invInZr:	13.0
+Test round: 382
+expInG1:	10103.8
+expInGT:	731.2
+pairing:	5696.4
+invInZr:	12.0
+Test round: 383
+expInG1:	10010.6
+expInGT:	724.5
+pairing:	5693.7
+invInZr:	12.0
+Test round: 384
+expInG1:	9932.4
+expInGT:	738.3
+pairing:	6259.0
+invInZr:	12.4
+Test round: 385
+expInG1:	9996.2
+expInGT:	746.3
+pairing:	5839.4
+invInZr:	12.0
+Test round: 386
+expInG1:	9970.4
+expInGT:	730.8
+pairing:	5725.1
+invInZr:	13.0
+Test round: 387
+expInG1:	10149.1
+expInGT:	726.1
+pairing:	5688.9
+invInZr:	12.2
+Test round: 388
+expInG1:	9963.0
+expInGT:	712.1
+pairing:	6287.2
+invInZr:	14.7
+Test round: 389
+expInG1:	9965.1
+expInGT:	727.0
+pairing:	5788.5
+invInZr:	12.5
+Test round: 390
+expInG1:	10156.6
+expInGT:	738.5
+pairing:	5691.0
+invInZr:	11.6
+Test round: 391
+expInG1:	10057.9
+expInGT:	724.4
+pairing:	5681.4
+invInZr:	13.1
+Test round: 392
+expInG1:	10149.9
+expInGT:	723.2
+pairing:	5841.3
+invInZr:	13.1
+Test round: 393
+expInG1:	9917.7
+expInGT:	726.0
+pairing:	5783.2
+invInZr:	13.1
+Test round: 394
+expInG1:	9811.4
+expInGT:	704.3
+pairing:	5671.4
+invInZr:	13.3
+Test round: 395
+expInG1:	9826.0
+expInGT:	711.2
+pairing:	6133.2
+invInZr:	12.0
+Test round: 396
+expInG1:	9883.8
+expInGT:	710.3
+pairing:	5713.3
+invInZr:	17.0
+Test round: 397
+expInG1:	9867.3
+expInGT:	710.0
+pairing:	5691.3
+invInZr:	12.1
+Test round: 398
+expInG1:	9968.1
+expInGT:	722.3
+pairing:	5656.3
+invInZr:	12.6
+Test round: 399
+expInG1:	10564.9
+expInGT:	725.5
+pairing:	5713.8
+invInZr:	11.9
+Test round: 400
+expInG1:	10137.4
+expInGT:	724.8
+pairing:	5708.8
+invInZr:	12.3
+Test round: 401
+expInG1:	9892.2
+expInGT:	715.8
+pairing:	5785.4
+invInZr:	12.1
+Test round: 402
+expInG1:	9833.0
+expInGT:	713.6
+pairing:	6145.3
+invInZr:	12.5
+Test round: 403
+expInG1:	10079.1
+expInGT:	714.2
+pairing:	5706.7
+invInZr:	13.1
+Test round: 404
+expInG1:	9868.6
+expInGT:	720.5
+pairing:	5691.0
+invInZr:	12.8
+Test round: 405
+expInG1:	9878.2
+expInGT:	718.3
+pairing:	5726.6
+invInZr:	12.7
+Test round: 406
+expInG1:	10534.4
+expInGT:	747.6
+pairing:	5667.8
+invInZr:	13.8
+Test round: 407
+expInG1:	9881.4
+expInGT:	715.8
+pairing:	5684.2
+invInZr:	11.8
+Test round: 408
+expInG1:	9995.3
+expInGT:	717.4
+pairing:	5673.1
+invInZr:	12.0
+Test round: 409
+expInG1:	10208.5
+expInGT:	771.9
+pairing:	6288.9
+invInZr:	13.9
+Test round: 410
+expInG1:	11375.5
+expInGT:	1118.9
+pairing:	9197.8
+invInZr:	19.6
+Test round: 411
+expInG1:	14294.4
+expInGT:	715.8
+pairing:	5703.5
+invInZr:	12.6
+Test round: 412
+expInG1:	14137.9
+expInGT:	1199.9
+pairing:	7428.5
+invInZr:	12.7
+Test round: 413
+expInG1:	10203.2
+expInGT:	1375.0
+pairing:	5815.7
+invInZr:	12.2
+Test round: 414
+expInG1:	10975.4
+expInGT:	731.3
+pairing:	5731.3
+invInZr:	14.0
+Test round: 415
+expInG1:	10207.6
+expInGT:	735.4
+pairing:	5814.3
+invInZr:	13.0
+Test round: 416
+expInG1:	9888.5
+expInGT:	723.0
+pairing:	7594.1
+invInZr:	12.4
+Test round: 417
+expInG1:	10867.5
+expInGT:	730.7
+pairing:	5687.5
+invInZr:	13.1
+Test round: 418
+expInG1:	9967.3
+expInGT:	724.3
+pairing:	5782.6
+invInZr:	11.8
+Test round: 419
+expInG1:	17263.5
+expInGT:	863.5
+pairing:	5708.0
+invInZr:	12.4
+Test round: 420
+expInG1:	10135.8
+expInGT:	728.2
+pairing:	6223.9
+invInZr:	13.6
+Test round: 421
+expInG1:	10139.5
+expInGT:	758.7
+pairing:	6029.8
+invInZr:	12.8
+Test round: 422
+expInG1:	11050.5
+expInGT:	1006.7
+pairing:	6160.0
+invInZr:	12.6
+Test round: 423
+expInG1:	10238.0
+expInGT:	725.7
+pairing:	5730.4
+invInZr:	14.3
+Test round: 424
+expInG1:	9919.0
+expInGT:	715.0
+pairing:	5796.6
+invInZr:	12.5
+Test round: 425
+expInG1:	9918.9
+expInGT:	823.5
+pairing:	5878.8
+invInZr:	13.9
+Test round: 426
+expInG1:	9891.5
+expInGT:	708.5
+pairing:	5667.6
+invInZr:	11.9
+Test round: 427
+expInG1:	10117.3
+expInGT:	732.0
+pairing:	6164.0
+invInZr:	13.3
+Test round: 428
+expInG1:	10050.5
+expInGT:	732.7
+pairing:	5719.4
+invInZr:	13.0
+Test round: 429
+expInG1:	9725.2
+expInGT:	702.2
+pairing:	5772.2
+invInZr:	13.6
+Test round: 430
+expInG1:	9921.3
+expInGT:	718.3
+pairing:	5684.9
+invInZr:	12.8
+Test round: 431
+expInG1:	10383.9
+expInGT:	707.1
+pairing:	5672.3
+invInZr:	12.2
+Test round: 432
+expInG1:	10135.2
+expInGT:	721.6
+pairing:	5756.6
+invInZr:	12.0
+Test round: 433
+expInG1:	10124.7
+expInGT:	716.5
+pairing:	5833.0
+invInZr:	11.9
+Test round: 434
+expInG1:	9830.7
+expInGT:	727.1
+pairing:	6173.3
+invInZr:	12.3
+Test round: 435
+expInG1:	9891.8
+expInGT:	703.7
+pairing:	5686.5
+invInZr:	12.3
+Test round: 436
+expInG1:	9860.3
+expInGT:	721.1
+pairing:	5723.2
+invInZr:	12.8
+Test round: 437
+expInG1:	9834.5
+expInGT:	749.0
+pairing:	5689.0
+invInZr:	11.7
+Test round: 438
+expInG1:	10164.2
+expInGT:	1277.3
+pairing:	5760.7
+invInZr:	12.8
+Test round: 439
+expInG1:	10020.5
+expInGT:	729.8
+pairing:	5668.9
+invInZr:	12.4
+Test round: 440
+expInG1:	9837.5
+expInGT:	715.7
+pairing:	5709.0
+invInZr:	12.3
+Test round: 441
+expInG1:	9791.6
+expInGT:	707.7
+pairing:	6238.9
+invInZr:	13.2
+Test round: 442
+expInG1:	10748.6
+expInGT:	758.0
+pairing:	5692.8
+invInZr:	13.2
+Test round: 443
+expInG1:	10188.0
+expInGT:	733.9
+pairing:	5687.1
+invInZr:	12.4
+Test round: 444
+expInG1:	9642.3
+expInGT:	698.8
+pairing:	5748.9
+invInZr:	12.6
+Test round: 445
+expInG1:	9911.0
+expInGT:	716.2
+pairing:	6218.5
+invInZr:	12.8
+Test round: 446
+expInG1:	10072.0
+expInGT:	728.4
+pairing:	5685.8
+invInZr:	12.5
+Test round: 447
+expInG1:	9955.3
+expInGT:	719.6
+pairing:	5679.3
+invInZr:	13.3
+Test round: 448
+expInG1:	9773.4
+expInGT:	705.7
+pairing:	5656.3
+invInZr:	11.6
+Test round: 449
+expInG1:	9951.6
+expInGT:	726.3
+pairing:	5741.1
+invInZr:	12.8
+Test round: 450
+expInG1:	10005.8
+expInGT:	736.8
+pairing:	5672.5
+invInZr:	11.7
+Test round: 451
+expInG1:	10510.7
+expInGT:	723.7
+pairing:	5675.4
+invInZr:	12.6
+Test round: 452
+expInG1:	10222.9
+expInGT:	737.7
+pairing:	6242.4
+invInZr:	12.7
+Test round: 453
+expInG1:	9786.2
+expInGT:	719.4
+pairing:	5763.1
+invInZr:	12.6
+Test round: 454
+expInG1:	9942.1
+expInGT:	738.7
+pairing:	5710.5
+invInZr:	12.4
+Test round: 455
+expInG1:	10075.5
+expInGT:	729.3
+pairing:	5690.9
+invInZr:	12.0
+Test round: 456
+expInG1:	10483.6
+expInGT:	713.0
+pairing:	5742.4
+invInZr:	12.0
+Test round: 457
+expInG1:	9715.6
+expInGT:	695.0
+pairing:	5779.0
+invInZr:	12.6
+Test round: 458
+expInG1:	9824.7
+expInGT:	712.3
+pairing:	5666.5
+invInZr:	12.2
+Test round: 459
+expInG1:	9978.5
+expInGT:	717.5
+pairing:	6280.7
+invInZr:	12.4
+Test round: 460
+expInG1:	10084.2
+expInGT:	727.6
+pairing:	5643.6
+invInZr:	13.3
+Test round: 461
+expInG1:	9882.0
+expInGT:	717.1
+pairing:	5720.3
+invInZr:	12.7
+Test round: 462
+expInG1:	9826.9
+expInGT:	713.8
+pairing:	5814.2
+invInZr:	12.0
+Test round: 463
+expInG1:	10418.3
+expInGT:	708.8
+pairing:	5696.2
+invInZr:	12.4
+Test round: 464
+expInG1:	10117.4
+expInGT:	726.6
+pairing:	5707.4
+invInZr:	11.8
+Test round: 465
+expInG1:	9951.4
+expInGT:	735.4
+pairing:	5780.4
+invInZr:	12.9
+Test round: 466
+expInG1:	9839.4
+expInGT:	727.2
+pairing:	6208.5
+invInZr:	12.2
+Test round: 467
+expInG1:	10011.7
+expInGT:	717.0
+pairing:	5668.3
+invInZr:	12.6
+Test round: 468
+expInG1:	9858.0
+expInGT:	710.0
+pairing:	5716.9
+invInZr:	14.5
+Test round: 469
+expInG1:	9683.8
+expInGT:	706.2
+pairing:	5693.4
+invInZr:	12.2
+Test round: 470
+expInG1:	9941.4
+expInGT:	1187.2
+pairing:	5670.1
+invInZr:	12.9
+Test round: 471
+expInG1:	9842.6
+expInGT:	703.1
+pairing:	5671.5
+invInZr:	12.6
+Test round: 472
+expInG1:	10255.7
+expInGT:	710.3
+pairing:	5680.9
+invInZr:	12.3
+Test round: 473
+expInG1:	11910.1
+expInGT:	811.2
+pairing:	7011.1
+invInZr:	13.2
+Test round: 474
+expInG1:	11179.1
+expInGT:	723.3
+pairing:	5884.0
+invInZr:	12.1
+Test round: 475
+expInG1:	11805.5
+expInGT:	720.4
+pairing:	5810.2
+invInZr:	13.5
+Test round: 476
+expInG1:	10031.5
+expInGT:	728.6
+pairing:	5680.5
+invInZr:	12.7
+Test round: 477
+expInG1:	9847.9
+expInGT:	709.8
+pairing:	6181.9
+invInZr:	12.2
+Test round: 478
+expInG1:	10097.5
+expInGT:	734.2
+pairing:	5725.1
+invInZr:	12.5
+Test round: 479
+expInG1:	9886.1
+expInGT:	713.4
+pairing:	5750.2
+invInZr:	12.3
+Test round: 480
+expInG1:	9816.7
+expInGT:	711.2
+pairing:	5677.9
+invInZr:	11.0
+Test round: 481
+expInG1:	10121.6
+expInGT:	725.4
+pairing:	5662.9
+invInZr:	12.2
+Test round: 482
+expInG1:	9933.1
+expInGT:	718.3
+pairing:	5683.7
+invInZr:	12.9
+Test round: 483
+expInG1:	9918.4
+expInGT:	721.1
+pairing:	5754.6
+invInZr:	13.3
+Test round: 484
+expInG1:	9888.0
+expInGT:	720.5
+pairing:	6200.9
+invInZr:	12.9
+Test round: 485
+expInG1:	10219.3
+expInGT:	734.1
+pairing:	5664.9
+invInZr:	12.2
+Test round: 486
+expInG1:	10138.2
+expInGT:	732.0
+pairing:	5688.4
+invInZr:	12.4
+Test round: 487
+expInG1:	9870.6
+expInGT:	716.3
+pairing:	5736.3
+invInZr:	12.3
+Test round: 488
+expInG1:	10173.1
+expInGT:	708.0
+pairing:	5685.0
+invInZr:	12.7
+Test round: 489
+expInG1:	9946.9
+expInGT:	719.4
+pairing:	5680.5
+invInZr:	12.6
+Test round: 490
+expInG1:	9771.4
+expInGT:	705.9
+pairing:	5668.7
+invInZr:	11.5
+Test round: 491
+expInG1:	10044.6
+expInGT:	723.0
+pairing:	6209.9
+invInZr:	12.4
+Test round: 492
+expInG1:	9903.4
+expInGT:	708.0
+pairing:	5830.3
+invInZr:	13.2
+Test round: 493
+expInG1:	10333.8
+expInGT:	726.1
+pairing:	5669.5
+invInZr:	12.3
+Test round: 494
+expInG1:	10160.1
+expInGT:	734.7
+pairing:	5676.9
+invInZr:	12.5
+Test round: 495
+expInG1:	10432.3
+expInGT:	713.5
+pairing:	5769.1
+invInZr:	14.4
+Test round: 496
+expInG1:	9386.3
+expInGT:	675.5
+pairing:	5791.0
+invInZr:	13.5
+Test round: 497
+expInG1:	9899.6
+expInGT:	705.6
+pairing:	5698.1
+invInZr:	11.9
+Test round: 498
+expInG1:	10024.8
+expInGT:	727.0
+pairing:	6138.2
+invInZr:	12.2
+Test round: 499
+expInG1:	10475.7
+expInGT:	722.6
+pairing:	5697.1
+invInZr:	14.2
+Test round: 500
+expInG1:	10059.1
+expInGT:	737.7
+pairing:	5727.9
+invInZr:	14.7
+Test round: 501
+expInG1:	9955.5
+expInGT:	720.6
+pairing:	5667.8
+invInZr:	12.4
+Test round: 502
+expInG1:	10136.2
+expInGT:	732.8
+pairing:	6118.2
+invInZr:	11.6
+Test round: 503
+expInG1:	10064.2
+expInGT:	730.5
+pairing:	5668.2
+invInZr:	12.3
+Test round: 504
+expInG1:	9992.6
+expInGT:	730.5
+pairing:	5732.8
+invInZr:	11.9
+Test round: 505
+expInG1:	10033.3
+expInGT:	728.9
+pairing:	6209.5
+invInZr:	12.9
+Test round: 506
+expInG1:	10117.5
+expInGT:	737.3
+pairing:	5737.7
+invInZr:	12.7
+Test round: 507
+expInG1:	10245.5
+expInGT:	734.9
+pairing:	5803.2
+invInZr:	13.5
+Test round: 508
+expInG1:	9917.7
+expInGT:	723.6
+pairing:	5746.7
+invInZr:	11.5
+Test round: 509
+expInG1:	9954.0
+expInGT:	723.9
+pairing:	6157.2
+invInZr:	11.7
+Test round: 510
+expInG1:	10019.0
+expInGT:	729.7
+pairing:	5655.8
+invInZr:	11.8
+Test round: 511
+expInG1:	9863.4
+expInGT:	714.8
+pairing:	5721.1
+invInZr:	11.9
+Test round: 512
+expInG1:	9752.5
+expInGT:	702.9
+pairing:	5696.9
+invInZr:	13.0
+Test round: 513
+expInG1:	10219.8
+expInGT:	722.0
+pairing:	5670.5
+invInZr:	11.9
+Test round: 514
+expInG1:	9737.7
+expInGT:	699.6
+pairing:	5652.3
+invInZr:	11.6
+Test round: 515
+expInG1:	9873.3
+expInGT:	719.0
+pairing:	5715.7
+invInZr:	14.7
+Test round: 516
+expInG1:	9734.8
+expInGT:	702.9
+pairing:	6175.0
+invInZr:	12.7
+Test round: 517
+expInG1:	9902.7
+expInGT:	714.7
+pairing:	5666.1
+invInZr:	11.7
+Test round: 518
+expInG1:	10014.0
+expInGT:	721.2
+pairing:	5773.1
+invInZr:	12.9
+Test round: 519
+expInG1:	9865.4
+expInGT:	719.0
+pairing:	5805.5
+invInZr:	12.7
+Test round: 520
+expInG1:	10685.1
+expInGT:	723.6
+pairing:	5684.8
+invInZr:	12.7
+Test round: 521
+expInG1:	10130.4
+expInGT:	719.3
+pairing:	5665.9
+invInZr:	12.9
+Test round: 522
+expInG1:	9794.1
+expInGT:	706.8
+pairing:	5700.6
+invInZr:	12.3
+Test round: 523
+expInG1:	9876.4
+expInGT:	730.5
+pairing:	6298.8
+invInZr:	13.0
+Test round: 524
+expInG1:	9985.0
+expInGT:	723.6
+pairing:	5695.3
+invInZr:	12.6
+Test round: 525
+expInG1:	9946.4
+expInGT:	722.4
+pairing:	5663.4
+invInZr:	11.5
+Test round: 526
+expInG1:	9764.6
+expInGT:	702.3
+pairing:	5689.5
+invInZr:	12.9
+Test round: 527
+expInG1:	9890.8
+expInGT:	1199.6
+pairing:	5788.5
+invInZr:	12.1
+Test round: 528
+expInG1:	9900.1
+expInGT:	722.1
+pairing:	5690.5
+invInZr:	13.6
+Test round: 529
+expInG1:	10030.1
+expInGT:	728.6
+pairing:	5694.0
+invInZr:	10.4
+Test round: 530
+expInG1:	9902.1
+expInGT:	717.7
+pairing:	6138.9
+invInZr:	12.0
+Test round: 531
+expInG1:	9984.6
+expInGT:	722.1
+pairing:	5695.6
+invInZr:	12.2
+Test round: 532
+expInG1:	9913.0
+expInGT:	726.4
+pairing:	5726.0
+invInZr:	12.3
+Test round: 533
+expInG1:	10064.6
+expInGT:	713.2
+pairing:	5668.2
+invInZr:	11.9
+Test round: 534
+expInG1:	9913.9
+expInGT:	696.0
+pairing:	6143.3
+invInZr:	12.2
+Test round: 535
+expInG1:	9843.5
+expInGT:	719.3
+pairing:	5764.4
+invInZr:	12.1
+Test round: 536
+expInG1:	9807.1
+expInGT:	728.5
+pairing:	5642.8
+invInZr:	13.2
+Test round: 537
+expInG1:	10109.8
+expInGT:	733.0
+pairing:	5674.2
+invInZr:	11.3
+Test round: 538
+expInG1:	10013.3
+expInGT:	711.9
+pairing:	5661.2
+invInZr:	11.7
+Test round: 539
+expInG1:	9641.2
+expInGT:	719.8
+pairing:	5807.2
+invInZr:	12.4
+Test round: 540
+expInG1:	9799.2
+expInGT:	710.5
+pairing:	6195.8
+invInZr:	12.7
+Test round: 541
+expInG1:	10074.5
+expInGT:	735.1
+pairing:	6149.2
+invInZr:	11.9
+Test round: 542
+expInG1:	10002.9
+expInGT:	712.5
+pairing:	5674.0
+invInZr:	11.6
+Test round: 543
+expInG1:	9995.9
+expInGT:	728.0
+pairing:	5698.1
+invInZr:	11.3
+Test round: 544
+expInG1:	9690.5
+expInGT:	703.7
+pairing:	5686.0
+invInZr:	12.8
+Test round: 545
+expInG1:	10303.3
+expInGT:	707.9
+pairing:	5680.5
+invInZr:	12.0
+Test round: 546
+expInG1:	10030.2
+expInGT:	724.7
+pairing:	5668.0
+invInZr:	11.3
+Test round: 547
+expInG1:	10066.7
+expInGT:	725.7
+pairing:	5662.7
+invInZr:	11.9
+Test round: 548
+expInG1:	9941.1
+expInGT:	720.0
+pairing:	6222.1
+invInZr:	12.2
+Test round: 549
+expInG1:	10237.7
+expInGT:	876.2
+pairing:	5714.0
+invInZr:	11.9
+Test round: 550
+expInG1:	10219.2
+expInGT:	730.8
+pairing:	5684.5
+invInZr:	12.6
+Test round: 551
+expInG1:	10050.8
+expInGT:	723.1
+pairing:	5676.4
+invInZr:	13.0
+Test round: 552
+expInG1:	10159.0
+expInGT:	706.5
+pairing:	5780.2
+invInZr:	11.6
+Test round: 553
+expInG1:	9954.1
+expInGT:	740.3
+pairing:	5746.3
+invInZr:	12.7
+Test round: 554
+expInG1:	10062.3
+expInGT:	736.2
+pairing:	5681.5
+invInZr:	13.1
+Test round: 555
+expInG1:	9855.9
+expInGT:	715.2
+pairing:	6152.7
+invInZr:	13.6
+Test round: 556
+expInG1:	9734.2
+expInGT:	703.3
+pairing:	5742.3
+invInZr:	12.7
+Test round: 557
+expInG1:	9679.1
+expInGT:	700.3
+pairing:	5715.4
+invInZr:	12.0
+Test round: 558
+expInG1:	10055.4
+expInGT:	729.3
+pairing:	5682.9
+invInZr:	11.3
+Test round: 559
+expInG1:	9739.0
+expInGT:	710.0
+pairing:	6144.7
+invInZr:	12.0
+Test round: 560
+expInG1:	10046.9
+expInGT:	715.6
+pairing:	5669.6
+invInZr:	13.0
+Test round: 561
+expInG1:	9933.7
+expInGT:	719.1
+pairing:	5805.3
+invInZr:	12.7
+Test round: 562
+expInG1:	9874.6
+expInGT:	718.1
+pairing:	6186.5
+invInZr:	13.2
+Test round: 563
+expInG1:	10005.6
+expInGT:	723.1
+pairing:	5697.4
+invInZr:	12.5
+Test round: 564
+expInG1:	9958.6
+expInGT:	719.7
+pairing:	5664.3
+invInZr:	12.4
+Test round: 565
+expInG1:	9819.3
+expInGT:	716.1
+pairing:	5746.3
+invInZr:	11.6
+Test round: 566
+expInG1:	9954.2
+expInGT:	727.4
+pairing:	6166.8
+invInZr:	13.0
+Test round: 567
+expInG1:	9886.9
+expInGT:	709.7
+pairing:	5667.7
+invInZr:	12.1
+Test round: 568
+expInG1:	9790.4
+expInGT:	699.0
+pairing:	5655.2
+invInZr:	11.5
+Test round: 569
+expInG1:	9617.0
+expInGT:	693.0
+pairing:	6340.2
+invInZr:	11.6
+Test round: 570
+expInG1:	10422.6
+expInGT:	766.8
+pairing:	5741.3
+invInZr:	12.1
+Test round: 571
+expInG1:	10202.8
+expInGT:	736.8
+pairing:	5676.3
+invInZr:	12.8
+Test round: 572
+expInG1:	9996.1
+expInGT:	720.2
+pairing:	5671.8
+invInZr:	11.4
+Test round: 573
+expInG1:	9796.5
+expInGT:	715.0
+pairing:	6290.1
+invInZr:	13.2
+Test round: 574
+expInG1:	9751.5
+expInGT:	704.2
+pairing:	6502.0
+invInZr:	13.5
+Test round: 575
+expInG1:	13339.8
+expInGT:	1062.3
+pairing:	7093.8
+invInZr:	13.7
+Test round: 576
+expInG1:	9862.5
+expInGT:	716.5
+pairing:	5897.8
+invInZr:	13.4
+Test round: 577
+expInG1:	10586.2
+expInGT:	725.4
+pairing:	5663.4
+invInZr:	12.1
+Test round: 578
+expInG1:	9832.0
+expInGT:	716.5
+pairing:	5669.5
+invInZr:	11.3
+Test round: 579
+expInG1:	9945.9
+expInGT:	720.0
+pairing:	5689.1
+invInZr:	11.9
+Test round: 580
+expInG1:	9857.0
+expInGT:	716.9
+pairing:	6261.7
+invInZr:	12.8
+Test round: 581
+expInG1:	10116.0
+expInGT:	738.8
+pairing:	5688.2
+invInZr:	11.0
+Test round: 582
+expInG1:	9970.4
+expInGT:	717.2
+pairing:	5686.0
+invInZr:	12.3
+Test round: 583
+expInG1:	9950.8
+expInGT:	719.2
+pairing:	5692.4
+invInZr:	12.6
+Test round: 584
+expInG1:	10016.5
+expInGT:	1195.9
+pairing:	5762.5
+invInZr:	14.6
+Test round: 585
+expInG1:	10098.1
+expInGT:	744.8
+pairing:	5689.2
+invInZr:	11.6
+Test round: 586
+expInG1:	9969.5
+expInGT:	715.1
+pairing:	5677.4
+invInZr:	12.1
+Test round: 587
+expInG1:	10010.4
+expInGT:	726.3
+pairing:	6180.8
+invInZr:	11.7
+Test round: 588
+expInG1:	9727.4
+expInGT:	702.6
+pairing:	5722.8
+invInZr:	12.4
+Test round: 589
+expInG1:	9803.9
+expInGT:	704.3
+pairing:	5654.6
+invInZr:	14.1
+Test round: 590
+expInG1:	9944.7
+expInGT:	731.3
+pairing:	5677.9
+invInZr:	12.2
+Test round: 591
+expInG1:	10212.3
+expInGT:	723.7
+pairing:	6147.6
+invInZr:	11.9
+Test round: 592
+expInG1:	9618.7
+expInGT:	703.1
+pairing:	5699.4
+invInZr:	13.0
+Test round: 593
+expInG1:	9947.7
+expInGT:	725.7
+pairing:	5887.3
+invInZr:	12.7
+Test round: 594
+expInG1:	9911.2
+expInGT:	718.0
+pairing:	5700.6
+invInZr:	14.0
+Test round: 595
+expInG1:	10075.3
+expInGT:	724.4
+pairing:	5685.5
+invInZr:	13.5
+Test round: 596
+expInG1:	9992.7
+expInGT:	725.8
+pairing:	5770.2
+invInZr:	12.9
+Test round: 597
+expInG1:	10024.6
+expInGT:	753.2
+pairing:	5669.2
+invInZr:	11.4
+Test round: 598
+expInG1:	9911.1
+expInGT:	720.9
+pairing:	6120.8
+invInZr:	12.9
+Test round: 599
+expInG1:	10067.8
+expInGT:	724.8
+pairing:	5683.5
+invInZr:	11.2
+Test round: 600
+expInG1:	9755.3
+expInGT:	708.8
+pairing:	5702.2
+invInZr:	11.6
+Test round: 601
+expInG1:	9972.0
+expInGT:	782.5
+pairing:	5687.6
+invInZr:	11.7
+Test round: 602
+expInG1:	10352.8
+expInGT:	715.6
+pairing:	5679.8
+invInZr:	11.7
+Test round: 603
+expInG1:	10277.9
+expInGT:	739.3
+pairing:	5681.4
+invInZr:	12.5
+Test round: 604
+expInG1:	11087.5
+expInGT:	721.3
+pairing:	6493.2
+invInZr:	16.6
+Test round: 605
+expInG1:	9847.4
+expInGT:	715.1
+pairing:	6199.2
+invInZr:	12.2
+Test round: 606
+expInG1:	10125.5
+expInGT:	729.5
+pairing:	5672.0
+invInZr:	12.2
+Test round: 607
+expInG1:	10182.2
+expInGT:	732.0
+pairing:	5657.1
+invInZr:	13.4
+Test round: 608
+expInG1:	9794.2
+expInGT:	713.7
+pairing:	5748.1
+invInZr:	10.9
+Test round: 609
+expInG1:	10374.4
+expInGT:	722.5
+pairing:	5657.9
+invInZr:	12.3
+Test round: 610
+expInG1:	9754.0
+expInGT:	696.6
+pairing:	5663.3
+invInZr:	13.0
+Test round: 611
+expInG1:	9875.1
+expInGT:	704.3
+pairing:	5656.1
+invInZr:	13.7
+Test round: 612
+expInG1:	9880.2
+expInGT:	718.9
+pairing:	6380.1
+invInZr:	13.5
+Test round: 613
+expInG1:	9940.4
+expInGT:	745.2
+pairing:	5701.3
+invInZr:	12.5
+Test round: 614
+expInG1:	9972.5
+expInGT:	712.5
+pairing:	5656.6
+invInZr:	13.2
+Test round: 615
+expInG1:	9953.2
+expInGT:	718.7
+pairing:	5666.7
+invInZr:	12.0
+Test round: 616
+expInG1:	10145.6
+expInGT:	1258.3
+pairing:	5743.5
+invInZr:	12.4
+Test round: 617
+expInG1:	10124.8
+expInGT:	728.2
+pairing:	5681.1
+invInZr:	13.3
+Test round: 618
+expInG1:	9980.3
+expInGT:	717.5
+pairing:	5675.0
+invInZr:	11.3
+Test round: 619
+expInG1:	10041.1
+expInGT:	741.7
+pairing:	6156.3
+invInZr:	12.1
+Test round: 620
+expInG1:	9881.0
+expInGT:	721.1
+pairing:	5708.2
+invInZr:	11.8
+Test round: 621
+expInG1:	9836.8
+expInGT:	703.4
+pairing:	5755.6
+invInZr:	12.2
+Test round: 622
+expInG1:	9972.4
+expInGT:	718.7
+pairing:	5704.0
+invInZr:	14.6
+Test round: 623
+expInG1:	9964.3
+expInGT:	712.7
+pairing:	6190.9
+invInZr:	12.0
+Test round: 624
+expInG1:	9864.2
+expInGT:	708.0
+pairing:	5754.5
+invInZr:	12.2
+Test round: 625
+expInG1:	9719.5
+expInGT:	785.0
+pairing:	5733.8
+invInZr:	12.2
+Test round: 626
+expInG1:	10093.0
+expInGT:	721.1
+pairing:	5681.5
+invInZr:	12.5
+Test round: 627
+expInG1:	9952.7
+expInGT:	715.0
+pairing:	5689.7
+invInZr:	12.3
+Test round: 628
+expInG1:	9763.7
+expInGT:	710.2
+pairing:	5885.0
+invInZr:	12.9
+Test round: 629
+expInG1:	9839.7
+expInGT:	709.5
+pairing:	5709.3
+invInZr:	11.4
+Test round: 630
+expInG1:	9750.9
+expInGT:	704.2
+pairing:	6179.1
+invInZr:	12.4
+Test round: 631
+expInG1:	9971.9
+expInGT:	716.7
+pairing:	5672.0
+invInZr:	12.9
+Test round: 632
+expInG1:	10010.2
+expInGT:	732.9
+pairing:	5683.4
+invInZr:	11.5
+Test round: 633
+expInG1:	9898.8
+expInGT:	718.5
+pairing:	5684.4
+invInZr:	11.8
+Test round: 634
+expInG1:	10481.3
+expInGT:	729.7
+pairing:	5679.9
+invInZr:	12.9
+Test round: 635
+expInG1:	10067.9
+expInGT:	726.8
+pairing:	5674.6
+invInZr:	12.8
+Test round: 636
+expInG1:	9989.9
+expInGT:	719.2
+pairing:	5666.7
+invInZr:	11.3
+Test round: 637
+expInG1:	9725.7
+expInGT:	722.0
+pairing:	6238.0
+invInZr:	12.6
+Test round: 638
+expInG1:	9998.4
+expInGT:	729.9
+pairing:	5693.2
+invInZr:	12.5
+Test round: 639
+expInG1:	10032.6
+expInGT:	713.3
+pairing:	5681.2
+invInZr:	11.9
+Test round: 640
+expInG1:	9874.0
+expInGT:	716.6
+pairing:	5694.7
+invInZr:	16.0
+Test round: 641
+expInG1:	9771.2
+expInGT:	1188.9
+pairing:	5744.8
+invInZr:	12.9
+Test round: 642
+expInG1:	9996.2
+expInGT:	713.5
+pairing:	5682.6
+invInZr:	11.7
+Test round: 643
+expInG1:	10000.7
+expInGT:	720.7
+pairing:	5657.2
+invInZr:	11.5
+Test round: 644
+expInG1:	9908.4
+expInGT:	711.5
+pairing:	6144.5
+invInZr:	11.9
+Test round: 645
+expInG1:	9265.3
+expInGT:	671.6
+pairing:	5796.0
+invInZr:	12.9
+Test round: 646
+expInG1:	9980.3
+expInGT:	730.3
+pairing:	5668.0
+invInZr:	13.6
+Test round: 647
+expInG1:	10149.2
+expInGT:	731.0
+pairing:	5677.5
+invInZr:	11.8
+Test round: 648
+expInG1:	11054.3
+expInGT:	715.0
+pairing:	6234.5
+invInZr:	12.1
+Test round: 649
+expInG1:	9814.5
+expInGT:	712.1
+pairing:	7085.2
+invInZr:	20.8
+Test round: 650
+expInG1:	10270.7
+expInGT:	715.0
+pairing:	5668.4
+invInZr:	12.3
+Test round: 651
+expInG1:	9932.7
+expInGT:	708.9
+pairing:	5686.4
+invInZr:	15.0
+Test round: 652
+expInG1:	10022.4
+expInGT:	735.0
+pairing:	5672.5
+invInZr:	12.7
+Test round: 653
+expInG1:	9983.2
+expInGT:	746.7
+pairing:	5673.4
+invInZr:	13.1
+Test round: 654
+expInG1:	10011.8
+expInGT:	722.6
+pairing:	5664.0
+invInZr:	12.8
+Test round: 655
+expInG1:	10287.1
+expInGT:	718.3
+pairing:	6142.0
+invInZr:	12.0
+Test round: 656
+expInG1:	10000.3
+expInGT:	713.3
+pairing:	5969.6
+invInZr:	12.7
+Test round: 657
+expInG1:	9894.7
+expInGT:	720.1
+pairing:	5767.0
+invInZr:	12.3
+Test round: 658
+expInG1:	10066.8
+expInGT:	731.0
+pairing:	5667.0
+invInZr:	11.8
+Test round: 659
+expInG1:	10689.1
+expInGT:	736.5
+pairing:	5729.7
+invInZr:	12.9
+Test round: 660
+expInG1:	9979.7
+expInGT:	727.2
+pairing:	5768.9
+invInZr:	11.8
+Test round: 661
+expInG1:	9898.0
+expInGT:	716.2
+pairing:	5738.5
+invInZr:	12.0
+Test round: 662
+expInG1:	9918.8
+expInGT:	736.9
+pairing:	6126.2
+invInZr:	11.6
+Test round: 663
+expInG1:	9986.3
+expInGT:	714.8
+pairing:	5668.7
+invInZr:	12.0
+Test round: 664
+expInG1:	9880.9
+expInGT:	720.4
+pairing:	5760.1
+invInZr:	12.3
+Test round: 665
+expInG1:	10013.6
+expInGT:	718.4
+pairing:	5727.2
+invInZr:	11.9
+Test round: 666
+expInG1:	10606.6
+expInGT:	730.2
+pairing:	5709.1
+invInZr:	12.4
+Test round: 667
+expInG1:	9968.8
+expInGT:	706.3
+pairing:	5738.2
+invInZr:	11.6
+Test round: 668
+expInG1:	10070.7
+expInGT:	713.3
+pairing:	5673.0
+invInZr:	12.4
+Test round: 669
+expInG1:	10180.3
+expInGT:	714.3
+pairing:	6298.9
+invInZr:	13.1
+Test round: 670
+expInG1:	9907.2
+expInGT:	718.6
+pairing:	5687.5
+invInZr:	11.4
+Test round: 671
+expInG1:	10840.4
+expInGT:	700.7
+pairing:	5671.0
+invInZr:	12.0
+Test round: 672
+expInG1:	9866.0
+expInGT:	719.0
+pairing:	5727.9
+invInZr:	15.7
+Test round: 673
+expInG1:	10049.0
+expInGT:	736.6
+pairing:	6326.3
+invInZr:	13.0
+Test round: 674
+expInG1:	10175.2
+expInGT:	721.4
+pairing:	5666.0
+invInZr:	12.7
+Test round: 675
+expInG1:	9984.1
+expInGT:	719.6
+pairing:	5657.8
+invInZr:	12.0
+Test round: 676
+expInG1:	14798.4
+expInGT:	1040.5
+pairing:	8532.5
+invInZr:	11.8
+Test round: 677
+expInG1:	12822.9
+expInGT:	1094.0
+pairing:	5809.1
+invInZr:	13.1
+Test round: 678
+expInG1:	9918.4
+expInGT:	716.2
+pairing:	6827.3
+invInZr:	12.6
+Test round: 679
+expInG1:	9990.2
+expInGT:	721.6
+pairing:	5675.6
+invInZr:	12.5
+Test round: 680
+expInG1:	10003.5
+expInGT:	718.9
+pairing:	6149.4
+invInZr:	13.3
+Test round: 681
+expInG1:	9973.5
+expInGT:	721.2
+pairing:	5712.3
+invInZr:	12.7
+Test round: 682
+expInG1:	9573.7
+expInGT:	694.7
+pairing:	5707.2
+invInZr:	12.8
+Test round: 683
+expInG1:	9709.4
+expInGT:	704.7
+pairing:	5663.9
+invInZr:	12.0
+Test round: 684
+expInG1:	9926.5
+expInGT:	709.3
+pairing:	5663.1
+invInZr:	11.8
+Test round: 685
+expInG1:	9839.8
+expInGT:	708.1
+pairing:	5692.9
+invInZr:	14.5
+Test round: 686
+expInG1:	9871.2
+expInGT:	716.6
+pairing:	6023.1
+invInZr:	12.5
+Test round: 687
+expInG1:	9968.8
+expInGT:	739.2
+pairing:	6137.8
+invInZr:	11.6
+Test round: 688
+expInG1:	9919.2
+expInGT:	704.6
+pairing:	5676.5
+invInZr:	11.7
+Test round: 689
+expInG1:	10065.2
+expInGT:	713.5
+pairing:	5709.9
+invInZr:	12.7
+Test round: 690
+expInG1:	9777.2
+expInGT:	716.4
+pairing:	5805.3
+invInZr:	12.8
+Test round: 691
+expInG1:	10529.7
+expInGT:	722.5
+pairing:	5676.7
+invInZr:	11.9
+Test round: 692
+expInG1:	10058.4
+expInGT:	726.6
+pairing:	5697.1
+invInZr:	11.8
+Test round: 693
+expInG1:	10291.4
+expInGT:	723.3
+pairing:	5721.9
+invInZr:	11.3
+Test round: 694
+expInG1:	10188.8
+expInGT:	728.3
+pairing:	6280.2
+invInZr:	12.2
+Test round: 695
+expInG1:	9865.6
+expInGT:	742.7
+pairing:	5662.6
+invInZr:	11.3
+Test round: 696
+expInG1:	9982.9
+expInGT:	720.9
+pairing:	5681.9
+invInZr:	12.1
+Test round: 697
+expInG1:	9944.9
+expInGT:	717.9
+pairing:	5657.0
+invInZr:	13.3
+Test round: 698
+expInG1:	9930.5
+expInGT:	1231.0
+pairing:	5793.9
+invInZr:	15.7
+Test round: 699
+expInG1:	10147.7
+expInGT:	721.8
+pairing:	5709.4
+invInZr:	12.7
+Test round: 700
+expInG1:	10072.8
+expInGT:	731.0
+pairing:	5686.5
+invInZr:	12.7
+Test round: 701
+expInG1:	10077.4
+expInGT:	727.9
+pairing:	6160.2
+invInZr:	12.6
+Test round: 702
+expInG1:	9967.4
+expInGT:	720.7
+pairing:	5732.6
+invInZr:	12.3
+Test round: 703
+expInG1:	10111.0
+expInGT:	740.9
+pairing:	5670.8
+invInZr:	12.7
+Test round: 704
+expInG1:	9899.8
+expInGT:	709.7
+pairing:	5675.8
+invInZr:	12.0
+Test round: 705
+expInG1:	9976.3
+expInGT:	721.9
+pairing:	6149.8
+invInZr:	13.0
+Test round: 706
+expInG1:	9626.7
+expInGT:	695.2
+pairing:	5694.2
+invInZr:	12.0
+Test round: 707
+expInG1:	9723.7
+expInGT:	757.0
+pairing:	5680.7
+invInZr:	12.1
+Test round: 708
+expInG1:	9910.3
+expInGT:	715.6
+pairing:	5678.4
+invInZr:	12.4
+Test round: 709
+expInG1:	10032.2
+expInGT:	710.4
+pairing:	5675.4
+invInZr:	12.1
+Test round: 710
+expInG1:	10076.3
+expInGT:	730.4
+pairing:	5725.7
+invInZr:	12.1
+Test round: 711
+expInG1:	9348.6
+expInGT:	667.7
+pairing:	5766.8
+invInZr:	11.4
+Test round: 712
+expInG1:	9770.9
+expInGT:	706.0
+pairing:	6162.5
+invInZr:	11.8
+Test round: 713
+expInG1:	9817.9
+expInGT:	703.8
+pairing:	5676.3
+invInZr:	11.5
+Test round: 714
+expInG1:	9948.0
+expInGT:	712.6
+pairing:	5727.9
+invInZr:	11.9
+Test round: 715
+expInG1:	9957.0
+expInGT:	722.3
+pairing:	5721.9
+invInZr:	12.0
+Test round: 716
+expInG1:	10559.8
+expInGT:	733.5
+pairing:	5688.4
+invInZr:	11.9
+Test round: 717
+expInG1:	9857.1
+expInGT:	697.2
+pairing:	5655.3
+invInZr:	12.0
+Test round: 718
+expInG1:	10051.2
+expInGT:	725.2
+pairing:	5651.4
+invInZr:	12.9
+Test round: 719
+expInG1:	9833.8
+expInGT:	716.0
+pairing:	6271.6
+invInZr:	12.7
+Test round: 720
+expInG1:	10021.9
+expInGT:	779.0
+pairing:	5707.0
+invInZr:	13.7
+Test round: 721
+expInG1:	10031.2
+expInGT:	723.0
+pairing:	5659.1
+invInZr:	11.7
+Test round: 722
+expInG1:	9942.0
+expInGT:	714.2
+pairing:	5689.4
+invInZr:	12.0
+Test round: 723
+expInG1:	9798.2
+expInGT:	1182.6
+pairing:	5849.5
+invInZr:	14.5
+Test round: 724
+expInG1:	10134.7
+expInGT:	787.7
+pairing:	5678.4
+invInZr:	12.3
+Test round: 725
+expInG1:	9974.5
+expInGT:	718.3
+pairing:	5697.7
+invInZr:	12.9
+Test round: 726
+expInG1:	9831.8
+expInGT:	702.3
+pairing:	6118.3
+invInZr:	13.0
+Test round: 727
+expInG1:	10061.5
+expInGT:	725.6
+pairing:	5717.0
+invInZr:	12.5
+Test round: 728
+expInG1:	10089.7
+expInGT:	779.1
+pairing:	5705.5
+invInZr:	12.3
+Test round: 729
+expInG1:	10142.8
+expInGT:	716.7
+pairing:	5663.3
+invInZr:	12.9
+Test round: 730
+expInG1:	10016.4
+expInGT:	719.0
+pairing:	6158.9
+invInZr:	12.4
+Test round: 731
+expInG1:	9955.8
+expInGT:	727.7
+pairing:	6112.7
+invInZr:	12.5
+Test round: 732
+expInG1:	10225.3
+expInGT:	740.6
+pairing:	5687.8
+invInZr:	13.2
+Test round: 733
+expInG1:	10019.7
+expInGT:	725.1
+pairing:	6140.2
+invInZr:	12.5
+Test round: 734
+expInG1:	10072.5
+expInGT:	724.8
+pairing:	5665.8
+invInZr:	12.4
+Test round: 735
+expInG1:	9819.1
+expInGT:	712.6
+pairing:	5737.4
+invInZr:	13.9
+Test round: 736
+expInG1:	9999.0
+expInGT:	732.1
+pairing:	5677.5
+invInZr:	11.7
+Test round: 737
+expInG1:	9727.3
+expInGT:	709.8
+pairing:	6121.2
+invInZr:	12.0
+Test round: 738
+expInG1:	9524.7
+expInGT:	705.7
+pairing:	5670.4
+invInZr:	10.8
+Test round: 739
+expInG1:	10039.6
+expInGT:	726.7
+pairing:	5716.8
+invInZr:	12.3
+Test round: 740
+expInG1:	9714.2
+expInGT:	702.6
+pairing:	5686.9
+invInZr:	13.0
+Test round: 741
+expInG1:	10394.6
+expInGT:	697.7
+pairing:	5683.4
+invInZr:	11.7
+Test round: 742
+expInG1:	9869.0
+expInGT:	708.9
+pairing:	5667.8
+invInZr:	11.9
+Test round: 743
+expInG1:	9562.9
+expInGT:	685.5
+pairing:	5764.2
+invInZr:	12.0
+Test round: 744
+expInG1:	9906.1
+expInGT:	720.9
+pairing:	6375.5
+invInZr:	13.3
+Test round: 745
+expInG1:	10187.4
+expInGT:	725.2
+pairing:	5687.2
+invInZr:	12.3
+Test round: 746
+expInG1:	9971.4
+expInGT:	722.1
+pairing:	5687.2
+invInZr:	11.5
+Test round: 747
+expInG1:	10010.0
+expInGT:	731.4
+pairing:	5703.6
+invInZr:	13.0
+Test round: 748
+expInG1:	10358.1
+expInGT:	710.7
+pairing:	5805.5
+invInZr:	13.3
+Test round: 749
+expInG1:	9903.2
+expInGT:	710.4
+pairing:	5655.2
+invInZr:	12.6
+Test round: 750
+expInG1:	10004.7
+expInGT:	722.8
+pairing:	5669.8
+invInZr:	11.9
+Test round: 751
+expInG1:	10146.6
+expInGT:	727.2
+pairing:	6163.4
+invInZr:	12.6
+Test round: 752
+expInG1:	9829.3
+expInGT:	721.3
+pairing:	5775.3
+invInZr:	12.3
+Test round: 753
+expInG1:	10182.9
+expInGT:	743.5
+pairing:	5702.3
+invInZr:	12.9
+Test round: 754
+expInG1:	10170.8
+expInGT:	737.2
+pairing:	5679.8
+invInZr:	12.2
+Test round: 755
+expInG1:	9961.1
+expInGT:	1349.0
+pairing:	5670.3
+invInZr:	12.2
+Test round: 756
+expInG1:	9930.2
+expInGT:	719.8
+pairing:	5764.0
+invInZr:	12.1
+Test round: 757
+expInG1:	9868.5
+expInGT:	770.1
+pairing:	5689.5
+invInZr:	11.9
+Test round: 758
+expInG1:	9932.4
+expInGT:	717.0
+pairing:	6141.0
+invInZr:	13.1
+Test round: 759
+expInG1:	10008.9
+expInGT:	727.2
+pairing:	5663.7
+invInZr:	12.7
+Test round: 760
+expInG1:	9166.2
+expInGT:	649.8
+pairing:	5678.2
+invInZr:	11.0
+Test round: 761
+expInG1:	9969.6
+expInGT:	723.7
+pairing:	5721.7
+invInZr:	12.0
+Test round: 762
+expInG1:	9995.0
+expInGT:	722.8
+pairing:	6164.0
+invInZr:	13.0
+Test round: 763
+expInG1:	9910.4
+expInGT:	714.2
+pairing:	5659.6
+invInZr:	11.1
+Test round: 764
+expInG1:	10055.1
+expInGT:	714.3
+pairing:	5748.1
+invInZr:	12.9
+Test round: 765
+expInG1:	9842.7
+expInGT:	718.3
+pairing:	5800.6
+invInZr:	11.7
+Test round: 766
+expInG1:	9997.6
+expInGT:	723.9
+pairing:	5686.5
+invInZr:	12.7
+Test round: 767
+expInG1:	10194.6
+expInGT:	711.7
+pairing:	5654.8
+invInZr:	13.2
+Test round: 768
+expInG1:	10279.0
+expInGT:	733.6
+pairing:	5754.5
+invInZr:	13.7
+Test round: 769
+expInG1:	9846.7
+expInGT:	715.4
+pairing:	6235.5
+invInZr:	12.3
+Test round: 770
+expInG1:	9799.5
+expInGT:	704.6
+pairing:	5659.8
+invInZr:	11.9
+Test round: 771
+expInG1:	9802.9
+expInGT:	703.8
+pairing:	5673.2
+invInZr:	14.8
+Test round: 772
+expInG1:	9839.1
+expInGT:	707.0
+pairing:	5684.6
+invInZr:	12.1
+Test round: 773
+expInG1:	10219.7
+expInGT:	704.9
+pairing:	5717.8
+invInZr:	12.2
+Test round: 774
+expInG1:	9966.5
+expInGT:	728.1
+pairing:	5718.8
+invInZr:	11.9
+Test round: 775
+expInG1:	9889.7
+expInGT:	717.9
+pairing:	5733.1
+invInZr:	12.6
+Test round: 776
+expInG1:	9922.0
+expInGT:	719.1
+pairing:	6162.7
+invInZr:	25.9
+Test round: 777
+expInG1:	9924.0
+expInGT:	726.3
+pairing:	6250.3
+invInZr:	11.9
+Test round: 778
+expInG1:	12494.3
+expInGT:	984.3
+pairing:	5723.1
+invInZr:	11.7
+Test round: 779
+expInG1:	10030.5
+expInGT:	721.2
+pairing:	5676.8
+invInZr:	12.2
+Test round: 780
+expInG1:	9974.6
+expInGT:	1198.6
+pairing:	5775.6
+invInZr:	13.3
+Test round: 781
+expInG1:	9816.2
+expInGT:	708.4
+pairing:	5712.2
+invInZr:	12.7
+Test round: 782
+expInG1:	9739.8
+expInGT:	693.9
+pairing:	5655.6
+invInZr:	12.6
+Test round: 783
+expInG1:	10029.4
+expInGT:	727.5
+pairing:	6150.1
+invInZr:	11.9
+Test round: 784
+expInG1:	10075.2
+expInGT:	725.2
+pairing:	5706.3
+invInZr:	13.0
+Test round: 785
+expInG1:	9930.4
+expInGT:	721.8
+pairing:	5723.3
+invInZr:	12.7
+Test round: 786
+expInG1:	10013.2
+expInGT:	727.5
+pairing:	5675.2
+invInZr:	11.4
+Test round: 787
+expInG1:	9932.6
+expInGT:	705.6
+pairing:	6163.9
+invInZr:	12.6
+Test round: 788
+expInG1:	10070.3
+expInGT:	734.6
+pairing:	5737.3
+invInZr:	12.7
+Test round: 789
+expInG1:	9764.6
+expInGT:	744.5
+pairing:	5702.5
+invInZr:	13.1
+Test round: 790
+expInG1:	9979.6
+expInGT:	718.6
+pairing:	5682.1
+invInZr:	12.6
+Test round: 791
+expInG1:	9547.6
+expInGT:	682.5
+pairing:	5674.5
+invInZr:	12.4
+Test round: 792
+expInG1:	9847.2
+expInGT:	711.0
+pairing:	5685.1
+invInZr:	12.9
+Test round: 793
+expInG1:	9943.1
+expInGT:	721.6
+pairing:	5723.3
+invInZr:	12.1
+Test round: 794
+expInG1:	9853.4
+expInGT:	717.3
+pairing:	6160.7
+invInZr:	12.6
+Test round: 795
+expInG1:	9785.9
+expInGT:	697.7
+pairing:	5666.3
+invInZr:	12.7
+Test round: 796
+expInG1:	10086.9
+expInGT:	728.6
+pairing:	5682.3
+invInZr:	33.8
+Test round: 797
+expInG1:	9661.9
+expInGT:	694.2
+pairing:	5781.8
+invInZr:	12.9
+Test round: 798
+expInG1:	10534.3
+expInGT:	726.0
+pairing:	5701.5
+invInZr:	14.0
+Test round: 799
+expInG1:	10201.9
+expInGT:	725.7
+pairing:	5892.7
+invInZr:	12.0
+Test round: 800
+expInG1:	10158.2
+expInGT:	713.0
+pairing:	5835.4
+invInZr:	17.1
+Test round: 801
+expInG1:	10067.2
+expInGT:	734.9
+pairing:	6295.0
+invInZr:	13.3
+Test round: 802
+expInG1:	10118.5
+expInGT:	772.4
+pairing:	5656.4
+invInZr:	12.4
+Test round: 803
+expInG1:	9924.8
+expInGT:	731.6
+pairing:	5683.0
+invInZr:	11.7
+Test round: 804
+expInG1:	9869.2
+expInGT:	704.0
+pairing:	5660.8
+invInZr:	11.8
+Test round: 805
+expInG1:	9956.8
+expInGT:	1183.8
+pairing:	5754.6
+invInZr:	13.1
+Test round: 806
+expInG1:	10062.5
+expInGT:	735.5
+pairing:	5690.4
+invInZr:	11.9
+Test round: 807
+expInG1:	9872.1
+expInGT:	706.4
+pairing:	5698.3
+invInZr:	11.8
+Test round: 808
+expInG1:	10079.5
+expInGT:	724.5
+pairing:	6234.5
+invInZr:	13.4
+Test round: 809
+expInG1:	9966.4
+expInGT:	724.6
+pairing:	5765.0
+invInZr:	11.6
+Test round: 810
+expInG1:	9973.6
+expInGT:	721.7
+pairing:	5684.5
+invInZr:	12.4
+Test round: 811
+expInG1:	10039.0
+expInGT:	724.3
+pairing:	5659.8
+invInZr:	12.4
+Test round: 812
+expInG1:	9798.3
+expInGT:	708.4
+pairing:	6177.4
+invInZr:	12.6
+Test round: 813
+expInG1:	9829.3
+expInGT:	697.3
+pairing:	5703.3
+invInZr:	12.7
+Test round: 814
+expInG1:	10097.9
+expInGT:	720.0
+pairing:	5669.1
+invInZr:	12.7
+Test round: 815
+expInG1:	9956.1
+expInGT:	716.8
+pairing:	5679.1
+invInZr:	11.7
+Test round: 816
+expInG1:	9635.1
+expInGT:	691.1
+pairing:	5656.8
+invInZr:	11.8
+Test round: 817
+expInG1:	10014.7
+expInGT:	726.1
+pairing:	5841.4
+invInZr:	12.6
+Test round: 818
+expInG1:	9836.0
+expInGT:	781.5
+pairing:	5731.0
+invInZr:	12.3
+Test round: 819
+expInG1:	9939.1
+expInGT:	708.2
+pairing:	6197.8
+invInZr:	11.1
+Test round: 820
+expInG1:	10117.5
+expInGT:	717.1
+pairing:	5671.3
+invInZr:	11.8
+Test round: 821
+expInG1:	9988.9
+expInGT:	718.8
+pairing:	5759.2
+invInZr:	12.0
+Test round: 822
+expInG1:	9518.1
+expInGT:	691.1
+pairing:	5709.5
+invInZr:	11.5
+Test round: 823
+expInG1:	10213.2
+expInGT:	704.3
+pairing:	5687.8
+invInZr:	12.6
+Test round: 824
+expInG1:	10087.5
+expInGT:	734.0
+pairing:	5667.2
+invInZr:	11.8
+Test round: 825
+expInG1:	9614.9
+expInGT:	694.3
+pairing:	5664.4
+invInZr:	11.7
+Test round: 826
+expInG1:	9680.9
+expInGT:	707.8
+pairing:	6213.9
+invInZr:	12.4
+Test round: 827
+expInG1:	9940.8
+expInGT:	742.6
+pairing:	5668.2
+invInZr:	11.6
+Test round: 828
+expInG1:	10166.5
+expInGT:	711.3
+pairing:	5676.6
+invInZr:	11.5
+Test round: 829
+expInG1:	10083.7
+expInGT:	731.3
+pairing:	5685.2
+invInZr:	12.4
+Test round: 830
+expInG1:	10322.1
+expInGT:	711.2
+pairing:	5775.0
+invInZr:	13.8
+Test round: 831
+expInG1:	10058.5
+expInGT:	745.0
+pairing:	5709.4
+invInZr:	12.2
+Test round: 832
+expInG1:	11109.6
+expInGT:	726.9
+pairing:	5684.0
+invInZr:	12.5
+Test round: 833
+expInG1:	10153.5
+expInGT:	726.1
+pairing:	6192.9
+invInZr:	14.1
+Test round: 834
+expInG1:	9699.6
+expInGT:	696.7
+pairing:	5733.6
+invInZr:	13.9
+Test round: 835
+expInG1:	9928.8
+expInGT:	724.1
+pairing:	5672.3
+invInZr:	11.0
+Test round: 836
+expInG1:	9806.0
+expInGT:	710.9
+pairing:	5669.3
+invInZr:	11.8
+Test round: 837
+expInG1:	9944.1
+expInGT:	719.5
+pairing:	6135.6
+invInZr:	12.2
+Test round: 838
+expInG1:	9885.8
+expInGT:	713.3
+pairing:	5941.0
+invInZr:	12.6
+Test round: 839
+expInG1:	9981.5
+expInGT:	722.3
+pairing:	5690.1
+invInZr:	12.6
+Test round: 840
+expInG1:	9922.9
+expInGT:	710.9
+pairing:	5729.9
+invInZr:	12.0
+Test round: 841
+expInG1:	9905.8
+expInGT:	714.5
+pairing:	5680.8
+invInZr:	10.7
+Test round: 842
+expInG1:	9734.2
+expInGT:	710.6
+pairing:	6129.1
+invInZr:	12.4
+Test round: 843
+expInG1:	9702.5
+expInGT:	738.0
+pairing:	5675.1
+invInZr:	13.4
+Test round: 844
+expInG1:	9636.2
+expInGT:	701.4
+pairing:	6124.4
+invInZr:	11.8
+Test round: 845
+expInG1:	9985.1
+expInGT:	718.4
+pairing:	5665.9
+invInZr:	12.6
+Test round: 846
+expInG1:	9883.1
+expInGT:	718.7
+pairing:	5729.7
+invInZr:	12.0
+Test round: 847
+expInG1:	10048.1
+expInGT:	828.6
+pairing:	7702.0
+invInZr:	12.3
+Test round: 848
+expInG1:	10441.6
+expInGT:	718.6
+pairing:	5659.5
+invInZr:	12.7
+Test round: 849
+expInG1:	9988.3
+expInGT:	718.1
+pairing:	5684.8
+invInZr:	11.5
+Test round: 850
+expInG1:	9922.3
+expInGT:	722.0
+pairing:	5770.1
+invInZr:	12.8
+Test round: 851
+expInG1:	9996.5
+expInGT:	718.9
+pairing:	6140.2
+invInZr:	11.2
+Test round: 852
+expInG1:	9906.9
+expInGT:	709.3
+pairing:	5705.9
+invInZr:	12.0
+Test round: 853
+expInG1:	10022.7
+expInGT:	729.4
+pairing:	5719.5
+invInZr:	12.0
+Test round: 854
+expInG1:	9816.4
+expInGT:	711.7
+pairing:	5713.8
+invInZr:	13.0
+Test round: 855
+expInG1:	10546.5
+expInGT:	727.2
+pairing:	5682.5
+invInZr:	12.7
+Test round: 856
+expInG1:	10021.2
+expInGT:	722.9
+pairing:	5666.5
+invInZr:	12.1
+Test round: 857
+expInG1:	9973.3
+expInGT:	719.3
+pairing:	5663.2
+invInZr:	12.0
+Test round: 858
+expInG1:	9843.2
+expInGT:	707.5
+pairing:	6266.1
+invInZr:	12.1
+Test round: 859
+expInG1:	9836.8
+expInGT:	710.3
+pairing:	5750.4
+invInZr:	13.2
+Test round: 860
+expInG1:	10137.8
+expInGT:	718.6
+pairing:	5665.0
+invInZr:	13.2
+Test round: 861
+expInG1:	10207.6
+expInGT:	731.3
+pairing:	5813.0
+invInZr:	11.5
+Test round: 862
+expInG1:	9961.0
+expInGT:	1210.5
+pairing:	6125.8
+invInZr:	15.3
+Test round: 863
+expInG1:	10957.2
+expInGT:	976.4
+pairing:	5690.1
+invInZr:	12.0
+Test round: 864
+expInG1:	9987.9
+expInGT:	722.4
+pairing:	5705.9
+invInZr:	12.2
+Test round: 865
+expInG1:	9785.1
+expInGT:	704.1
+pairing:	6291.2
+invInZr:	12.6
+Test round: 866
+expInG1:	9910.2
+expInGT:	728.6
+pairing:	5755.4
+invInZr:	11.8
+Test round: 867
+expInG1:	9967.2
+expInGT:	727.8
+pairing:	5689.9
+invInZr:	13.3
+Test round: 868
+expInG1:	9900.7
+expInGT:	717.3
+pairing:	5658.5
+invInZr:	12.5
+Test round: 869
+expInG1:	9907.9
+expInGT:	707.8
+pairing:	6149.3
+invInZr:	11.4
+Test round: 870
+expInG1:	9860.9
+expInGT:	713.5
+pairing:	5726.3
+invInZr:	12.0
+Test round: 871
+expInG1:	9825.7
+expInGT:	752.4
+pairing:	5701.5
+invInZr:	13.0
+Test round: 872
+expInG1:	10089.4
+expInGT:	729.5
+pairing:	5668.5
+invInZr:	12.5
+Test round: 873
+expInG1:	10084.6
+expInGT:	720.6
+pairing:	5674.7
+invInZr:	13.1
+Test round: 874
+expInG1:	9970.3
+expInGT:	731.1
+pairing:	5720.7
+invInZr:	12.6
+Test round: 875
+expInG1:	9999.0
+expInGT:	730.8
+pairing:	5684.9
+invInZr:	12.1
+Test round: 876
+expInG1:	9820.7
+expInGT:	710.4
+pairing:	6142.0
+invInZr:	12.1
+Test round: 877
+expInG1:	10022.3
+expInGT:	717.1
+pairing:	5737.7
+invInZr:	11.5
+Test round: 878
+expInG1:	9590.0
+expInGT:	694.5
+pairing:	5740.6
+invInZr:	12.7
+Test round: 879
+expInG1:	9884.6
+expInGT:	905.9
+pairing:	7763.1
+invInZr:	13.6
+Test round: 880
+expInG1:	12313.6
+expInGT:	728.8
+pairing:	5707.8
+invInZr:	13.2
+Test round: 881
+expInG1:	9980.4
+expInGT:	733.1
+pairing:	5736.4
+invInZr:	13.8
+Test round: 882
+expInG1:	9857.3
+expInGT:	723.7
+pairing:	5687.0
+invInZr:	11.7
+Test round: 883
+expInG1:	10084.6
+expInGT:	729.1
+pairing:	6183.6
+invInZr:	13.3
+Test round: 884
+expInG1:	10097.6
+expInGT:	724.8
+pairing:	5683.5
+invInZr:	12.1
+Test round: 885
+expInG1:	9777.4
+expInGT:	717.7
+pairing:	5712.3
+invInZr:	12.2
+Test round: 886
+expInG1:	9955.6
+expInGT:	792.7
+pairing:	5695.3
+invInZr:	12.4
+Test round: 887
+expInG1:	10318.2
+expInGT:	712.7
+pairing:	5673.4
+invInZr:	12.3
+Test round: 888
+expInG1:	9844.5
+expInGT:	708.6
+pairing:	5674.4
+invInZr:	12.0
+Test round: 889
+expInG1:	9582.6
+expInGT:	685.8
+pairing:	5736.2
+invInZr:	11.7
+Test round: 890
+expInG1:	9695.4
+expInGT:	700.3
+pairing:	6139.3
+invInZr:	11.6
+Test round: 891
+expInG1:	10001.1
+expInGT:	723.5
+pairing:	5677.5
+invInZr:	13.5
+Test round: 892
+expInG1:	10271.7
+expInGT:	733.1
+pairing:	5664.4
+invInZr:	12.7
+Test round: 893
+expInG1:	10021.6
+expInGT:	727.5
+pairing:	5719.0
+invInZr:	13.9
+Test round: 894
+expInG1:	9693.0
+expInGT:	750.5
+pairing:	6623.9
+invInZr:	13.2
+Test round: 895
+expInG1:	10146.8
+expInGT:	741.1
+pairing:	5732.1
+invInZr:	12.3
+Test round: 896
+expInG1:	10140.6
+expInGT:	725.6
+pairing:	5699.3
+invInZr:	11.9
+Test round: 897
+expInG1:	9909.0
+expInGT:	724.2
+pairing:	6381.8
+invInZr:	12.8
+Test round: 898
+expInG1:	9808.9
+expInGT:	782.9
+pairing:	5743.0
+invInZr:	12.5
+Test round: 899
+expInG1:	10020.9
+expInGT:	714.0
+pairing:	5686.8
+invInZr:	13.2
+Test round: 900
+expInG1:	10033.1
+expInGT:	721.7
+pairing:	5669.5
+invInZr:	12.0
+Test round: 901
+expInG1:	10030.0
+expInGT:	730.1
+pairing:	6191.4
+invInZr:	12.7
+Test round: 902
+expInG1:	9823.8
+expInGT:	707.1
+pairing:	5802.8
+invInZr:	12.4
+Test round: 903
+expInG1:	10149.3
+expInGT:	735.2
+pairing:	5680.2
+invInZr:	12.5
+Test round: 904
+expInG1:	10075.4
+expInGT:	720.2
+pairing:	5673.8
+invInZr:	13.6
+Test round: 905
+expInG1:	9971.8
+expInGT:	725.8
+pairing:	5785.4
+invInZr:	14.5
+Test round: 906
+expInG1:	9969.4
+expInGT:	723.5
+pairing:	5779.7
+invInZr:	13.0
+Test round: 907
+expInG1:	10154.9
+expInGT:	709.3
+pairing:	5659.7
+invInZr:	12.4
+Test round: 908
+expInG1:	9862.6
+expInGT:	712.9
+pairing:	6221.1
+invInZr:	12.2
+Test round: 909
+expInG1:	9841.5
+expInGT:	708.7
+pairing:	5812.6
+invInZr:	12.9
+Test round: 910
+expInG1:	9877.8
+expInGT:	720.4
+pairing:	5732.6
+invInZr:	12.7
+Test round: 911
+expInG1:	9841.9
+expInGT:	716.4
+pairing:	5668.7
+invInZr:	12.8
+Test round: 912
+expInG1:	9943.7
+expInGT:	676.5
+pairing:	5658.1
+invInZr:	11.9
+Test round: 913
+expInG1:	10104.1
+expInGT:	726.7
+pairing:	5725.1
+invInZr:	11.9
+Test round: 914
+expInG1:	9903.0
+expInGT:	717.6
+pairing:	7900.8
+invInZr:	19.7
+Test round: 915
+expInG1:	13173.1
+expInGT:	683.1
+pairing:	6212.1
+invInZr:	13.0
+Test round: 916
+expInG1:	9911.8
+expInGT:	714.1
+pairing:	5795.1
+invInZr:	12.2
+Test round: 917
+expInG1:	9985.3
+expInGT:	773.4
+pairing:	5706.9
+invInZr:	13.1
+Test round: 918
+expInG1:	9963.9
+expInGT:	709.4
+pairing:	5681.8
+invInZr:	11.3
+Test round: 919
+expInG1:	9922.4
+expInGT:	1199.5
+pairing:	5672.3
+invInZr:	13.1
+Test round: 920
+expInG1:	9922.4
+expInGT:	719.0
+pairing:	5675.5
+invInZr:	12.0
+Test round: 921
+expInG1:	9880.3
+expInGT:	715.7
+pairing:	5663.1
+invInZr:	12.5
+Test round: 922
+expInG1:	9905.4
+expInGT:	710.4
+pairing:	6129.6
+invInZr:	12.6
+Test round: 923
+expInG1:	10031.4
+expInGT:	723.5
+pairing:	5653.4
+invInZr:	12.5
+Test round: 924
+expInG1:	9957.5
+expInGT:	716.8
+pairing:	5802.7
+invInZr:	12.5
+Test round: 925
+expInG1:	9810.5
+expInGT:	760.2
+pairing:	5734.1
+invInZr:	12.0
+Test round: 926
+expInG1:	9886.3
+expInGT:	711.1
+pairing:	6166.1
+invInZr:	12.4
+Test round: 927
+expInG1:	10028.7
+expInGT:	720.2
+pairing:	5666.8
+invInZr:	14.3
+Test round: 928
+expInG1:	9748.8
+expInGT:	706.4
+pairing:	5700.0
+invInZr:	14.2
+Test round: 929
+expInG1:	9948.1
+expInGT:	724.3
+pairing:	5726.8
+invInZr:	13.2
+Test round: 930
+expInG1:	9986.9
+expInGT:	719.2
+pairing:	5665.8
+invInZr:	11.9
+Test round: 931
+expInG1:	9777.2
+expInGT:	697.6
+pairing:	5691.7
+invInZr:	12.2
+Test round: 932
+expInG1:	9740.7
+expInGT:	696.6
+pairing:	5659.3
+invInZr:	13.1
+Test round: 933
+expInG1:	10000.6
+expInGT:	723.3
+pairing:	6165.1
+invInZr:	12.7
+Test round: 934
+expInG1:	9960.3
+expInGT:	879.7
+pairing:	5713.6
+invInZr:	12.4
+Test round: 935
+expInG1:	10017.7
+expInGT:	722.3
+pairing:	5650.5
+invInZr:	12.2
+Test round: 936
+expInG1:	10027.3
+expInGT:	726.4
+pairing:	5669.9
+invInZr:	11.4
+Test round: 937
+expInG1:	10369.4
+expInGT:	719.6
+pairing:	6012.2
+invInZr:	13.3
+Test round: 938
+expInG1:	9997.2
+expInGT:	738.7
+pairing:	5713.9
+invInZr:	13.0
+Test round: 939
+expInG1:	10011.2
+expInGT:	713.3
+pairing:	5671.8
+invInZr:	12.4
+Test round: 940
+expInG1:	9913.3
+expInGT:	753.4
+pairing:	6221.8
+invInZr:	13.0
+Test round: 941
+expInG1:	9851.6
+expInGT:	718.5
+pairing:	5710.9
+invInZr:	12.6
+Test round: 942
+expInG1:	9848.6
+expInGT:	761.5
+pairing:	5669.5
+invInZr:	12.8
+Test round: 943
+expInG1:	10011.5
+expInGT:	728.0
+pairing:	5685.5
+invInZr:	12.3
+Test round: 944
+expInG1:	9912.8
+expInGT:	1219.5
+pairing:	5668.4
+invInZr:	12.4
+Test round: 945
+expInG1:	10200.5
+expInGT:	714.3
+pairing:	5724.6
+invInZr:	12.3
+Test round: 946
+expInG1:	9947.3
+expInGT:	725.6
+pairing:	5722.9
+invInZr:	13.0
+Test round: 947
+expInG1:	9862.8
+expInGT:	707.5
+pairing:	6234.7
+invInZr:	12.6
+Test round: 948
+expInG1:	9653.0
+expInGT:	691.7
+pairing:	5680.8
+invInZr:	12.6
+Test round: 949
+expInG1:	10202.2
+expInGT:	740.2
+pairing:	5698.4
+invInZr:	13.2
+Test round: 950
+expInG1:	10015.2
+expInGT:	731.2
+pairing:	5753.3
+invInZr:	13.1
+Test round: 951
+expInG1:	9954.9
+expInGT:	721.6
+pairing:	6136.2
+invInZr:	13.1
+Test round: 952
+expInG1:	10044.6
+expInGT:	724.1
+pairing:	5662.5
+invInZr:	12.7
+Test round: 953
+expInG1:	10021.0
+expInGT:	719.6
+pairing:	5739.8
+invInZr:	13.7
+Test round: 954
+expInG1:	9750.5
+expInGT:	721.0
+pairing:	5720.0
+invInZr:	12.2
+Test round: 955
+expInG1:	10070.5
+expInGT:	738.3
+pairing:	5667.3
+invInZr:	11.7
+Test round: 956
+expInG1:	10045.5
+expInGT:	711.0
+pairing:	5659.8
+invInZr:	11.6
+Test round: 957
+expInG1:	10146.0
+expInGT:	732.0
+pairing:	5675.5
+invInZr:	11.9
+Test round: 958
+expInG1:	10025.2
+expInGT:	731.2
+pairing:	6257.3
+invInZr:	12.0
+Test round: 959
+expInG1:	9709.6
+expInGT:	813.6
+pairing:	5688.6
+invInZr:	13.3
+Test round: 960
+expInG1:	9985.5
+expInGT:	718.2
+pairing:	5683.0
+invInZr:	12.9
+Test round: 961
+expInG1:	10084.2
+expInGT:	729.9
+pairing:	5683.5
+invInZr:	12.9
+Test round: 962
+expInG1:	10489.2
+expInGT:	716.8
+pairing:	5734.1
+invInZr:	12.1
+Test round: 963
+expInG1:	9879.1
+expInGT:	711.4
+pairing:	5748.1
+invInZr:	11.5
+Test round: 964
+expInG1:	10111.7
+expInGT:	729.2
+pairing:	5673.3
+invInZr:	12.7
+Test round: 965
+expInG1:	9923.7
+expInGT:	720.7
+pairing:	6108.7
+invInZr:	12.2
+Test round: 966
+expInG1:	10008.8
+expInGT:	724.1
+pairing:	5884.4
+invInZr:	12.1
+Test round: 967
+expInG1:	9969.1
+expInGT:	722.6
+pairing:	5786.3
+invInZr:	13.2
+Test round: 968
+expInG1:	9930.4
+expInGT:	709.7
+pairing:	5683.9
+invInZr:	11.1
+Test round: 969
+expInG1:	10603.4
+expInGT:	731.4
+pairing:	5687.6
+invInZr:	12.4
+Test round: 970
+expInG1:	10008.8
+expInGT:	727.9
+pairing:	5727.4
+invInZr:	12.7
+Test round: 971
+expInG1:	10035.6
+expInGT:	733.0
+pairing:	6072.7
+invInZr:	13.3
+Test round: 972
+expInG1:	9991.9
+expInGT:	741.5
+pairing:	6207.6
+invInZr:	12.2
+Test round: 973
+expInG1:	10070.0
+expInGT:	724.7
+pairing:	5677.0
+invInZr:	11.4
+Test round: 974
+expInG1:	9935.9
+expInGT:	713.4
+pairing:	5741.2
+invInZr:	14.1
+Test round: 975
+expInG1:	9853.2
+expInGT:	712.8
+pairing:	5685.1
+invInZr:	12.5
+Test round: 976
+expInG1:	9804.7
+expInGT:	1189.1
+pairing:	5684.1
+invInZr:	11.5
+Test round: 977
+expInG1:	10267.1
+expInGT:	732.7
+pairing:	5665.2
+invInZr:	12.8
+Test round: 978
+expInG1:	10163.3
+expInGT:	733.1
+pairing:	5663.2
+invInZr:	12.0
+Test round: 979
+expInG1:	10238.7
+expInGT:	689.7
+pairing:	6311.5
+invInZr:	12.1
+Test round: 980
+expInG1:	11240.4
+expInGT:	801.6
+pairing:	5796.6
+invInZr:	12.9
+Test round: 981
+expInG1:	13685.2
+expInGT:	1029.7
+pairing:	7575.8
+invInZr:	12.5
+Test round: 982
+expInG1:	9909.3
+expInGT:	706.1
+pairing:	5675.3
+invInZr:	12.0
+Test round: 983
+expInG1:	9853.8
+expInGT:	705.7
+pairing:	6197.1
+invInZr:	13.4
+Test round: 984
+expInG1:	10009.9
+expInGT:	741.9
+pairing:	5707.4
+invInZr:	12.2
+Test round: 985
+expInG1:	9884.1
+expInGT:	711.9
+pairing:	5800.6
+invInZr:	12.2
+Test round: 986
+expInG1:	9991.2
+expInGT:	721.3
+pairing:	5662.9
+invInZr:	13.2
+Test round: 987
+expInG1:	9920.3
+expInGT:	719.1
+pairing:	5676.2
+invInZr:	12.7
+Test round: 988
+expInG1:	10041.9
+expInGT:	721.2
+pairing:	5656.9
+invInZr:	11.8
+Test round: 989
+expInG1:	9869.3
+expInGT:	707.2
+pairing:	5771.9
+invInZr:	13.0
+Test round: 990
+expInG1:	9816.0
+expInGT:	777.8
+pairing:	6243.1
+invInZr:	12.5
+Test round: 991
+expInG1:	9887.0
+expInGT:	710.3
+pairing:	5678.0
+invInZr:	12.6
+Test round: 992
+expInG1:	9982.2
+expInGT:	707.8
+pairing:	5678.5
+invInZr:	11.4
+Test round: 993
+expInG1:	9852.6
+expInGT:	709.1
+pairing:	5755.5
+invInZr:	11.4
+Test round: 994
+expInG1:	10246.6
+expInGT:	709.6
+pairing:	5711.8
+invInZr:	11.7
+Test round: 995
+expInG1:	10005.9
+expInGT:	721.3
+pairing:	5660.4
+invInZr:	12.6
+Test round: 996
+expInG1:	9752.7
+expInGT:	705.8
+pairing:	5655.3
+invInZr:	12.7
 Test round: 997
-expInG1:	43255.1
-expInGT:	2874.6
-timePairing:	26061.4
-invInZr:	20.4
+expInG1:	9983.6
+expInGT:	724.2
+pairing:	6201.6
+invInZr:	12.4
 Test round: 998
-expInG1:	43232.3
-expInGT:	2920.5
-timePairing:	25481.0
-invInZr:	21.1
+expInG1:	9962.6
+expInGT:	713.5
+pairing:	5733.2
+invInZr:	12.2
 Test round: 999
-expInG1:	43513.0
-expInGT:	2866.6
-timePairing:	25663.8
-invInZr:	21.3
+expInG1:	9979.6
+expInGT:	734.9
+pairing:	5672.6
+invInZr:	11.9
 Test round: 1000
-expInG1:	41658.5
-expInGT:	2770.3
-timePairing:	26053.0
-invInZr:	34.2
-average expInG1 time: 43598.72329999999
-average expInGT time: 2936.8391999999985
-average pairing time: 25868.778999999973
-average invInZr time: 22.19409999999999
+expInG1:	10029.3
+expInGT:	710.5
+pairing:	5673.2
+invInZr:	12.8
+average expInG1 time: 10212.784300000005
+average expInGT time: 760.8238999999987
+average pairing time: 5928.964099999993
+average invInZr time: 13.415100000000017

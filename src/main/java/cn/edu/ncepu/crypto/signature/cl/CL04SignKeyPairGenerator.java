@@ -56,10 +56,6 @@ public class CL04SignKeyPairGenerator implements PairingKeyPairGenerator {
         final Element gT = pairing.getGT().newRandomElement().getImmutable();
         Element x = pairing.getZr().newRandomElement().getImmutable();
         Element y = pairing.getZr().newRandomElement().getImmutable();
-//        final Element[] z = new Element[messageSize];
-        /*for (int i = 0; i < messageSize; i++) {
-            z[i] = pairing.getZr().newRandomElement().getImmutable();
-        }*/
         Element[] z = IntStream.range(0, messageSize).mapToObj(i -> pairing.getZr().newRandomElement().getImmutable()).
                 toArray(Element[]::new);
         CL04SignSecretPairingKeySerParameter secretKeyParameters = new CL04SignSecretPairingKeySerParameter(this.param.getPairingParameters(), g, x, y, z);
